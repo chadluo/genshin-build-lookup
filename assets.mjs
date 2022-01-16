@@ -1075,3 +1075,12 @@ export const bosses = {
     name: { en: "Narukami Island: Tenshukaku / La Signora", zh_CN: "鸣神岛・天守 女士" },
   },
 };
+
+export const i18n = {
+  delimiter: { en: ", ", zh_CN: "，" },
+  weekdays: {
+    mon_thu: { en: "Mon, Thu, Sun", zh_CN: "一四日" },
+    tue_fri: { en: "Tue, Fri, Sun", zh_CN: "二五日" },
+    wed_sat: { en: "Wed, Sat, SUn", zh_CN: "三六日" },
+  },
+};

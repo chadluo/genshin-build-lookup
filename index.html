@@ -6,7 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
+    <input id="query" type="text" />
+    <button id="byCharacter">character</button>
+    <button id="byWeapon">weapon</button>
+    <div class="output"></div>
+
     <script type="module" src="assets.js"></script>
     <script type="module" src="q.js"></script>
+    <script type="module">
+      import { byCharacter } from "./q.js";
+      document.getElementById("byCharacter").addEventListener("click", () => {
+        document.querySelector("div.output").innerHTML +=
+          JSON.stringify(byCharacter(document.getElementById("query").value)) + "<br>";
+      });
+    </script>
   </body>
 </html>

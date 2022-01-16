@@ -1,9 +1,19 @@
-import { bosses, characters, domains, materials, weapons } from "./assets.mjs";
+import { bosses, characters, domains, i18n, materials, weapons } from "./assets.mjs";
 
 const LANG = "zh_CN";
 
-function byCharacter(character) {
-  return characters[character].materials.reduce((p, m) => ((p[materials[m].name[LANG]] = find(m)), p), {});
+export function byCharacter(character) {
+  return characters[character].materials.reduce(
+    (p, m) => ((p[formatMaterial(materials[m].name[LANG])] = find(m)), p),
+    {}
+  );
+}
+
+function formatMaterial(m) {
+  if (!Array.isArray(m)) {
+    return m;
+  }
+  return m.join(i18n.delimiter[LANG]);
 }
 
 function find(m) {
@@ -22,25 +32,13 @@ function find(m) {
 
 function findWeekday(day) {
   // prettier-ignore
-  if (LANG === "zh_CN") {
-    switch (day) {
-      case 1: case 4: return "一四日";
-      case 2: case 5: return "二五日";
-      case 3: case 6: return "三六日";
-      default:        return "";
-    }
-  } else {
-    // default "en"
-    switch (day) {
-      case 1: case 4: return "Mon, Thu, Sun";
-      case 2: case 5: return "Tue, Fri, Sun";
-      case 3: case 6: return "Wed, Sat, Sun";
-      default:        return "";
-    }
+  switch (day) {
+    case 1: case 4: return i18n.weekdays.mon_thu[LANG];
+    case 2: case 5: return i18n.weekdays.tue_fri[LANG];
+    case 3: case 6: return i18n.weekdays.wed_sat[LANG];
+    default:        return "";
   }
 }
-
-console.log(byCharacter("Amber"));
 
 ///
 
