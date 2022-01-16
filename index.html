@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      td {
+        vertical-align: top;
+      }
+    </style>
   </head>
   <body>
     <input id="query" type="text" />
@@ -14,10 +19,12 @@
     <script type="module" src="assets.js"></script>
     <script type="module" src="q.js"></script>
     <script type="module">
-      import { byCharacter } from "./q.js";
+      import { byCharacter, findCharacter, render } from "./q.js";
       document.getElementById("byCharacter").addEventListener("click", () => {
-        document.querySelector("div.output").innerHTML +=
-          JSON.stringify(byCharacter(document.getElementById("query").value)) + "<br>";
+        const query = document.getElementById("query").value;
+        const rendered = render(findCharacter(query), byCharacter(query));
+        console.log(rendered);
+        document.querySelector("div.output").innerHTML += rendered;
       });
     </script>
   </body>
