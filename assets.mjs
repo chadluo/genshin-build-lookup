@@ -906,6 +906,7 @@ export const materials = {
 export const domains = {
   "Cecilia Garden": {
     name: { en: "Cecilia Garden", zh_CN: "塞西莉亚苗圃" },
+    type: "weapon",
     materials_by_weekday: [
       "All",
       "Tile of Decarabian's Tower",
@@ -915,10 +916,12 @@ export const domains = {
   },
   "Hidden Palace of Lianshan Formula": {
     name: { en: "Hidden Palace of Lianshan Formula", zh_CN: "震雷连山密宫" },
+    type: "weapon",
     materials_by_weekday: ["All", "Luminous Sands from Guyun", "Mist Veiled Lead Elixir", "Grain of Aerosiderite"],
   },
   "Court of Flowing Sand": {
     name: { en: "Court of Flowing Sand", zh_CN: "砂流之庭" },
+    type: "weapon",
     materials_by_weekday: [
       "All",
       "Coral Branch of a Distant Sea",
@@ -928,14 +931,17 @@ export const domains = {
   },
   "Forsaken Rift": {
     name: { en: "Forsaken Rift", zh_CN: "忘却之峡" },
+    type: "talent",
     materials_by_weekday: ["All", "Freedom", "Resistance", "Ballad"],
   },
   "Taishan Mansion": {
     name: { en: "Taishan Mansion", zh_CN: "太山府" },
+    type: "talent",
     materials_by_weekday: ["All", "Prosperity", "Diligence", "Gold"],
   },
   "Violet Court": {
     name: { en: "Violet Court", zh_CN: "菫色之庭" },
+    type: "talent",
     materials_by_weekday: ["All", "Transience", "Elegance", "Light"],
   },
 };

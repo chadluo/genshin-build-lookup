@@ -14,6 +14,9 @@ document.getElementById("byWeapon").addEventListener("click", () => {
 document.getElementById("byBoss").addEventListener("click", () => {
   output.innerHTML += renderBoss(query.value);
 });
+document.getElementById("byDomain").addEventListener("click", () => {
+  output.innerHTML += renderDomain(query.value);
+});
 
 function renderCharacter(character) {
   return render2(findCharacter(character), byCharacter(character));
@@ -25,6 +28,13 @@ function renderWeapon(weapon) {
 
 function renderBoss(boss) {
   return render2(findBoss(boss), byBoss(boss));
+}
+
+function renderDomain(domain) {
+  const inputs = domain.split(",");
+  const domainName = inputs[0].trim();
+  const weekday = parseInt(inputs[1].trim(), 10);
+  return render2(findDomain(domainName, weekday), byDomain(domainName, weekday));
 }
 
 function findCharacter(character) {
@@ -90,11 +100,30 @@ function byBoss(boss) {
     ),
     new Map()
   );
-  return ms.reduce(
-    (map, m) => (map.set(materials[m].name, (map.get(materials[m].name) || []).concat(findWeaponsForMaterial(m))), map),
-    cs
+  // return ms.reduce(
+  //   (map, m) => (map.set(materials[m].name, (map.get(materials[m].name) || []).concat(findWeaponsForMaterial(m))), map),
+  //   cs
+  // );
+  return cs;
+}
+
+function findDomain(domain, weekday) {
+  const d = domains[domain];
+  return Object.fromEntries(
+    Object.entries(d.name).map(([lang, value]) => [lang, value + " " + findWeekday(lang, weekday)])
   );
 }
+
+function byDomain(domain, weekday) {
+  const d = domains[domain];
+  const m = d.materials_by_weekday[weekday > 3 ? weekday - 3 : weekday];
+  return new Map([
+    [materials[m].name, { weapon: findWeaponsForMaterial, talent: findCharactersForMaterial }[d.type](m)],
+  ]);
+}
+
+console.log(byDomain("Cecilia Garden", 1));
+console.log(byDomain("Taishan Mansion", 2));
 
 function findCharactersForMaterial(m) {
   return Object.values(characters)
