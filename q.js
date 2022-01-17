@@ -4,11 +4,17 @@ document.getElementById("lang-select").addEventListener("change", (event) => {
   document.documentElement.setAttribute("lang", event.target.value);
 });
 document.getElementById("byCharacter").addEventListener("click", () => {
-  document.querySelector("div.output").innerHTML += render(document.getElementById("query").value);
+  document.querySelector("div.output").innerHTML += renderCharacter(document.getElementById("query").value);
+});
+document.getElementById("byWeapon").addEventListener("click", () => {
+  document.querySelector("div.output").innerHTML += renderWeapon(document.getElementById("query").value);
 });
 
-function render(character) {
+function renderCharacter(character) {
   return render2(findCharacter(character), byCharacter(character));
+}
+function renderWeapon(weapon) {
+  return render2(findWeapon(weapon), byWeapon(weapon));
 }
 
 /**
@@ -37,6 +43,17 @@ function findCharacter(character) {
 
 function byCharacter(character) {
   return characters[character].materials.reduce(
+    (map, m) => (map.set(materials[m].name, findEnemyForMaterial(m)), map),
+    new Map()
+  );
+}
+
+function findWeapon(weapon) {
+  return weapons[weapon].name;
+}
+
+function byWeapon(weapon) {
+  return weapons[weapon].materials.reduce(
     (map, m) => (map.set(materials[m].name, findEnemyForMaterial(m)), map),
     new Map()
   );
@@ -79,15 +96,6 @@ function findWeekday(lang, day) {
 
 ///
 
-function byWeapon(weapon) {
-  const w = weapons[weapon];
-  return w.materials.map((m) => materials[m].name["zh_CN"]);
-}
-
-// console.log(byWeapon("Skyward Harp"));
-
-///
-
 function byEnemy(enemy) {}
 
 // console.log(byEnemy("Primo Geovishap"));
@@ -101,7 +109,7 @@ function formatArray(e) {
 function formatName(name) {
   return Object.entries(name)
     .map(([lang, value]) => {
-      return `<span class="i18n ${lang}">${Array.isArray(value) ? value.join(i18n.delimiter[lang]) : value}</span>`;
+      return `<span class="i18n ${lang}">${Array.isArray(value) ? value.join("<br>") : value}</span>`;
     })
     .join("");
 }
