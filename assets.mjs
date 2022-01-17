@@ -911,22 +911,11 @@ export const domains = {
       "Tile of Decarabian's Tower",
       "Boreal Wolf's Milk Tooth",
       "Fetters of the Dandelion Gladiator",
-      "Tile of Decarabian's Tower",
-      "Boreal Wolf's Milk Tooth",
-      "Fetters of the Dandelion Gladiator",
     ],
   },
   "Hidden Palace of Lianshan Formula": {
     name: { en: "Hidden Palace of Lianshan Formula", zh_CN: "震雷连山密宫" },
-    materials_by_weekday: [
-      "All",
-      "Luminous Sands from Guyun",
-      "Mist Veiled Lead Elixir",
-      "Grain of Aerosiderite",
-      "Luminous Sands from Guyun",
-      "Mist Veiled Lead Elixir",
-      "Grain of Aerosiderite",
-    ],
+    materials_by_weekday: ["All", "Luminous Sands from Guyun", "Mist Veiled Lead Elixir", "Grain of Aerosiderite"],
   },
   "Court of Flowing Sand": {
     name: { en: "Court of Flowing Sand", zh_CN: "砂流之庭" },
@@ -935,22 +924,19 @@ export const domains = {
       "Coral Branch of a Distant Sea",
       "Narukami's Wisdom",
       "Mask of the Wicked Lieutenant",
-      "Coral Branch of a Distant Sea",
-      "Narukami's Wisdom",
-      "Mask of the Wicked Lieutenant",
     ],
   },
   "Forsaken Rift": {
     name: { en: "Forsaken Rift", zh_CN: "忘却之峡" },
-    materials_by_weekday: ["All", "Freedom", "Resistance", "Ballad", "Freedom", "Resistance", "Ballad"],
+    materials_by_weekday: ["All", "Freedom", "Resistance", "Ballad"],
   },
   "Taishan Mansion": {
     name: { en: "Taishan Mansion", zh_CN: "太山府" },
-    materials_by_weekday: ["All", "Prosperity", "Diligence", "Gold", "Prosperity", "Diligence", "Gold"],
+    materials_by_weekday: ["All", "Prosperity", "Diligence", "Gold"],
   },
   "Violet Court": {
     name: { en: "Violet Court", zh_CN: "菫色之庭" },
-    materials_by_weekday: ["All", "Transience", "Elegance", "Light", "Transience", "Elegance", "Light"],
+    materials_by_weekday: ["All", "Transience", "Elegance", "Light"],
   },
 };
 
@@ -1033,7 +1019,7 @@ export const bosses = {
       "Ring of Boreas",
       "Spirit Locket of Boreas",
     ],
-    name: { en: "Wolf of the North Challenge / Andrius", zh_CN: "北风的王狼 安德留斯" },
+    name: { en: "Wolf of the North Challenge / Andrius", zh_CN: "北风的王狼 / 安德留斯" },
   },
   "Confront Stormterror": {
     materials: [
@@ -1044,7 +1030,7 @@ export const bosses = {
       "Dvalin's Claw",
       "Dvalin's Sigh",
     ],
-    name: { en: "Confront Stormterror / Dvalin", zh_CN: "深入风龙废墟 风魔龙・特瓦林" },
+    name: { en: "Confront Stormterror / Dvalin", zh_CN: "深入风龙废墟 / 风魔龙・特瓦林" },
   },
   "Enter the Golden House": {
     materials: [
@@ -1055,7 +1041,7 @@ export const bosses = {
       "Shard of a Foul Legacy",
       "Shadow of the Warrior",
     ],
-    name: { en: "Enter the Golden House / Childe", zh_CN: "进入「黄金屋」 公子" },
+    name: { en: "Enter the Golden House / Childe", zh_CN: "进入「黄金屋」 / 公子" },
   },
   "Beneath the Dragon-Queller": {
     materials: [
@@ -1068,11 +1054,11 @@ export const bosses = {
       "Bloodjade Branch",
       "Gilded Scale",
     ],
-    name: { en: "Beneath the Dragon-Queller / Azhdaha", zh_CN: "「伏龙树」之底 若陀龙王" },
+    name: { en: "Beneath the Dragon-Queller / Azhdaha", zh_CN: "「伏龙树」之底 / 若陀龙王" },
   },
   "Narukami Island: Tenshukaku": {
     materials: ["Shivada Jade", "Agnidus Agate", "Molten Moment", "Hellfire Butterfly", "Ashen Heart"],
-    name: { en: "Narukami Island: Tenshukaku / La Signora", zh_CN: "鸣神岛・天守 女士" },
+    name: { en: "Narukami Island: Tenshukaku / La Signora", zh_CN: "鸣神岛・天守 / 女士" },
   },
 };
 

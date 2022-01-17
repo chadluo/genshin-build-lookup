@@ -5,12 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
+      .i18n {
+        display: none;
+      }
+      html:lang(en) .i18n.en,
+      html:lang(zh_CN) .i18n.zh_CN {
+        display: inline;
+      }
+      th,
       td {
         vertical-align: top;
       }
     </style>
   </head>
   <body>
+    <select name="lang-select" id="lang-select">
+      <option value="en">en</option>
+      <option value="zh_CN">zh_CN</option>
+    </select>
     <input id="query" type="text" />
     <button id="byCharacter">character</button>
     <button id="byWeapon">weapon</button>
@@ -18,14 +30,5 @@
 
     <script type="module" src="assets.js"></script>
     <script type="module" src="q.js"></script>
-    <script type="module">
-      import { byCharacter, findCharacter, render } from "./q.js";
-      document.getElementById("byCharacter").addEventListener("click", () => {
-        const query = document.getElementById("query").value;
-        const rendered = render(findCharacter(query), byCharacter(query));
-        console.log(rendered);
-        document.querySelector("div.output").innerHTML += rendered;
-      });
-    </script>
   </body>
 </html>
