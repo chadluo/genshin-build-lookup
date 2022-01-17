@@ -37,14 +37,13 @@ function renderItemsTable(items, title) {
 }
 
 function createLink(id, item) {
-  return `<a data-id="${id}">${formatName(item.name)}</a>`;
+  return `<a data-id='${id}'>${formatName(item.name)}</a>`;
 }
 
 selectors.addEventListener("click", (event) => {
   const path = event.composedPath();
   const table = path.find((e) => e.tagName === "TABLE");
   const a = path.find((e) => e.tagName === "A");
-  console.log(table, a);
   switch (table.dataset.type) {
     case CHARACTERS:
       output.innerHTML += renderCharacter(a.dataset.id);
