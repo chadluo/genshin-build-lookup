@@ -1,7 +1,60 @@
 import { bosses, characters, domains, i18n, materials, weapons } from "./assets.mjs";
 
+const CHARACTERS = "characters";
+const WEAPONS = "weapons";
+
+const selectors = document.querySelector("div.selectors");
+selectors.innerHTML += renderItemsTable(characters, CHARACTERS);
+selectors.innerHTML += renderItemsTable(weapons, WEAPONS);
+
 const output = document.querySelector("div.output");
 const query = document.getElementById("query");
+
+function renderItemsTable(items, title) {
+  const byRarity = Object.entries(items).reduce((acc, [id, obj]) => {
+    let key = obj["rarity"];
+    if (!acc[key]) {
+      acc[key] = [];
+    }
+    acc[key].push([id, obj]);
+    return acc;
+  }, {});
+
+  const titleName = formatName(i18n[title]);
+
+  return `<details open><summary>${titleName}</summary>
+  <table class="ctable" data-type="${title}"><tr><th>${formatName(i18n.rarity)}</th><th>${titleName}</th></tr>
+   ${Object.keys(byRarity)
+     .sort()
+     .reverse()
+     .map(
+       (rarity) =>
+         `<tr><td>${rarity}</td><td>${byRarity[rarity]
+           .map(([id, obj]) => createLink(id, obj))
+           .join(formatName(i18n.delimiter))}</td></tr>`
+     )
+     .join("")}</table></details>`;
+}
+
+function createLink(id, item) {
+  return `<a data-id="${id}">${formatName(item.name)}</a>`;
+}
+
+selectors.addEventListener("click", (event) => {
+  const path = event.composedPath();
+  const table = path.find((e) => e.tagName === "TABLE");
+  const a = path.find((e) => e.tagName === "A");
+  console.log(table, a);
+  switch (table.dataset.type) {
+    case CHARACTERS:
+      output.innerHTML += renderCharacter(a.dataset.id);
+      break;
+    case WEAPONS:
+      output.innerHTML += renderWeapon(a.dataset.id);
+      break;
+  }
+});
+
 document.getElementById("lang-select").addEventListener("change", (event) => {
   document.documentElement.setAttribute("lang", event.target.value);
 });
@@ -16,6 +69,9 @@ document.getElementById("byBoss").addEventListener("click", () => {
 });
 document.getElementById("byDomain").addEventListener("click", () => {
   output.innerHTML += renderDomain(query.value);
+});
+document.getElementById("clear").addEventListener("click", () => {
+  output.innerHTML = "";
 });
 
 function renderCharacter(character) {
@@ -100,10 +156,6 @@ function byBoss(boss) {
     ),
     new Map()
   );
-  // return ms.reduce(
-  //   (map, m) => (map.set(materials[m].name, (map.get(materials[m].name) || []).concat(findWeaponsForMaterial(m))), map),
-  //   cs
-  // );
   return cs;
 }
 
@@ -121,9 +173,6 @@ function byDomain(domain, weekday) {
     [materials[m].name, { weapon: findWeaponsForMaterial, talent: findCharactersForMaterial }[d.type](m)],
   ]);
 }
-
-console.log(byDomain("Cecilia Garden", 1));
-console.log(byDomain("Taishan Mansion", 2));
 
 function findCharactersForMaterial(m) {
   return Object.values(characters)
@@ -144,7 +193,7 @@ function findWeaponsForMaterial(m) {
  */
 function render2(id, object) {
   const materials = Array.from(object.keys());
-  return `<table>
+  return `<table class="qtable">
     <tr>
       <th rowspan="${materials.length}">${formatName(id)}</th>
       <td>${formatName(materials[0])}</td>

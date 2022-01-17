@@ -1,0 +1,40 @@
+a:hover {
+  cursor: pointer;
+  color: blue;
+}
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+.i18n {
+  display: none;
+}
+html:lang(en) .i18n.en,
+html:lang(zh_CN) .i18n.zh_CN {
+  display: inline-block;
+}
+.ctable tr:nth-child(1) > th:nth-child(1) {
+  width: 10%;
+  text-align: left;
+}
+.ctable td {
+  white-space: pre-wrap;
+}
+.qtable {
+  width: 100%;
+}
+.qtable tr:nth-child(1) > th {
+  width: 15%;
+  text-align: left;
+}
+.qtable tr:nth-child(1) > td:nth-child(2) {
+  width: 25%;
+}
+.qtable tr:nth-child(odd) td {
+  background: #eee;
+}
+
+th,
+td {
+  vertical-align: top;
+}
