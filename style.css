@@ -16,7 +16,7 @@ a:hover {
   display: none;
 }
 html:lang(en) .i18n.en,
-html:lang(zh_CN) .i18n.zh_CN {
+html:lang(zh-CN) .i18n.zh-CN {
   display: inline-block;
 }
 

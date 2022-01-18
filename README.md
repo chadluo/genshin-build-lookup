@@ -1,4 +1,4 @@
-# Example
+## Example
 
 | Character | Material | Enemy                  |
 | --------- | -------- | ---------------------- |
@@ -10,300 +10,56 @@
 | 渔获   | 今昔剧画 | 砂流之庭 流沙之葬 三六日 |
 |        | 混沌     | 遗迹机兵                 |
 
-# Structures
+## Structures
 
-## character
+### character
 
 ```json
 {
   "id": "1",
   "name": {
-    "zh_CN": "香菱"
+    "zh-CN": "香菱"
   },
   "ascension": [1, 2, 3],
   "talent": [4, 5, 6]
 }
 ```
 
-## material
+### material
 
 ```json
 {
   "id": 2,
   "name": {
-    "zh_CN": "常燃火种"
+    "zh-CN": "常燃火种"
   },
   "enemy": [3]
 }
 ```
 
-## enemy
+### enemy
 
 ```json
 {
   "id": 3,
   "name": {
-    "zh_CN": "炎爆树"
+    "zh-CN": "炎爆树"
   },
   "material": [2]
 }
 ```
 
-# [\u4E00-\u9FCC]
-
-# Algorithm
+## Algorithm
 
 For character/weapon, find materials & then enemy
 
 For enemy, find materials & then character/weapon
 
----
+## Notes
 
-| Name               | zh_CN      | ascension materials                   | talent materials           |
-| ------------------ | ---------- | ------------------------------------- | -------------------------- |
-| Albedo             | 阿贝多     | 坚牢黄玉 玄岩之塔 塞西莉亚花 绘卷     | 诗文 绘卷 吞天之鲸・只角   |
-| Aloy               | 埃洛伊     | 哀叙冰玉 晶凝之华 晶化骨髓 浮游核     | 自由 浮游核 熔毁之刻       |
-| Amber              | 安柏       | 燃愿玛瑙 常燃火种 小灯草 箭簇         | 自由 箭簇 东风的吐息       |
-| Arataki Itto       | 荒泷一斗   | 坚牢黄玉 兽境王器 鬼兜虫 史莱姆       | 风雅 史莱姆 灰烬之心       |
-| Barbara            | 芭芭拉     | 涤净青金 净水之心 慕风蘑菇 绘卷       | 自由 绘卷 北风之环         |
-| Beidou             | 北斗       | 最胜紫晶 雷光棱镜 夜泊石 鸦印         | 黄金 鸦印 东风的吐息       |
-| Bennett            | 班尼特     | 燃愿玛瑙 常燃火种 风车菊 鸦印         | 抗争 鸦印 东风之翎         |
-| Chongyun           | 重云       | 哀叙冰玉 极寒之核 石珀 面具           | 勤劳 面具 东风的吐息       |
-| Diluc              | 迪卢克     | 燃愿玛瑙 常燃火种 小灯草 徽记         | 抗争 徽记 东风之翎         |
-| Diona              | 迪奥娜     | 哀叙冰玉 极寒之核 嘟嘟莲 箭簇         | 自由 箭簇 魔王之刃・残片   |
-| Eula               | 优菈       | 哀叙冰玉 晶凝之华 蒲公英籽 面具       | 抗争 面具 龙王之冕         |
-| Fischl             | 菲谢尔     | 最胜紫晶 雷光棱镜 小灯草 箭簇         | 诗文 箭簇 北风的魂匣       |
-| Ganyu              | 甘雨       | 哀叙冰玉 极寒之核 清心 花蜜           | 勤劳 花蜜 武炼之魂・孤影   |
-| Gorou              | 五郎       | 坚牢黄玉 恒常机关之心 珊瑚真珠 浮游核 | 天光 浮游核 熔毁之刻       |
-| Hu Tao             | 胡桃       | 燃愿玛瑙 未熟之玉 霓裳花 花蜜         | 勤劳 花蜜 魔王之刃・残片   |
-| Jean               | 琴         | 自在松石 飓风之种 蒲公英籽 面具       | 抗争 面具 东风之翎         |
-| Kaedehara Kazuha   | 枫原万叶   | 自在松石 魔偶机心 海灵芝 鸦印         | 勤劳 鸦印 鎏金之鳞         |
-| Kaeya              | 凯亚       | 哀叙冰玉 极寒之核 嘟嘟莲 鸦印         | 诗文 鸦印 北风的魂匣       |
-| Kamisato Ayaka     | 神里绫华   | 哀叙冰玉 恒常机关之心 绯樱绣球 刀镡   | 风雅 刀镡 血玉之枝         |
-| Keqing             | 刻晴       | 最胜紫晶 雷光棱镜 石珀 花蜜           | 繁荣 花蜜 北风之环         |
-| Klee               | 可莉       | 燃愿玛瑙 常燃火种 慕风蘑菇 绘卷       | 自由 绘卷 北风之环         |
-| Kujou Sara         | 九条裟罗   | 最胜紫晶 雷霆数珠 血斛 面具           | 风雅 面具 灰烬之心         |
-| Lisa               | 丽莎       | 最胜紫晶 雷光棱镜 落落莓 史莱姆       | 诗文 史莱姆 东风之爪       |
-| Mona               | 莫娜       | 涤净青金 净水之心 慕风蘑菇 花蜜       | 抗争 花蜜 北风之环         |
-| Ningguang          | 凝光       | 坚牢黄玉 玄岩之塔 琉璃百合 徽记       | 繁荣 徽记 北风的魂匣       |
-| Noelle             | 诺艾尔     | 坚牢黄玉 玄岩之塔 落落莓 面具         | 抗争 面具 东风之爪         |
-| Qiqi               | 七七       | 哀叙冰玉 极寒之核 琉璃袋 绘卷         | 繁荣 绘卷 北风之尾         |
-| Raiden Shogun      | 雷电将军   | 最胜紫晶 雷霆数珠 天云草实 刀镡       | 天光 刀镡 熔毁之刻         |
-| Razor              | 雷泽       | 最胜紫晶 雷光棱镜 钩钩果 面具         | 抗争 面具 东风之爪         |
-| Rosaria            | 罗莎莉亚   | 哀叙冰玉 极寒之核 落落莓 徽记         | 诗文 徽记 武炼之魂・孤影   |
-| Sangonomiya Kokomi | 珊瑚宫心海 | 涤净青金 排异之露 珊瑚真珠 浮游核     | 浮世 浮游核 狱火之蝶       |
-| Sayu               | 早柚       | 自在松石 魔偶机心 晶化骨髓 花蜜       | 天光 花蜜 鎏金之鳞         |
-| Shenhe             | 申鹤       | 哀叙冰玉 龙嗣伪鳍 清心 花蜜           | 繁荣 花蜜 狱火之蝶         |
-| Sucrose            | 砂糖       | 自在松石 飓风之种 风车菊 花蜜         | 自由 花蜜 北风的魂匣       |
-| Tartaglia          | 达达利亚   | 涤净青金 净水之心 星螺 徽记           | 自由 徽记 魔王之刃・残片   |
-| Thoma              | 托马       | 燃愿玛瑙 阴燃之珠 幽灯蕈 鸦印         | 浮世 鸦印 狱火之蝶         |
-| Venti              | 温迪       | 自在松石 飓风之种 塞西莉亚花 史莱姆   | 诗文 史莱姆 北风之尾       |
-| Xiangling          | 香菱       | 燃愿玛瑙 常燃火种 绝云椒椒 史莱姆     | 勤劳 史莱姆 东风之爪       |
-| Xiao               | 魈         | 自在松石 未熟之玉 清心 史莱姆         | 繁荣 史莱姆 武炼之魂・孤影 |
-| Xingqiu            | 行秋       | 涤净青金 净水之心 霓裳花 面具         | 黄金 面具 北风之尾         |
-| Xinyan             | 辛焱       | 燃愿玛瑙 常燃火种 琉璃袋 鸦印         | 黄金 鸦印 吞天之鲸・只角   |
-| Yanfei             | 烟绯       | 燃愿玛瑙 未熟之玉 夜泊石 鸦印         | 黄金 鸦印 血玉之枝         |
-| Yoimiya            | 宵宫       | 燃愿玛瑙 阴燃之珠 鸣草 绘卷           | 浮世 绘卷 龙王之冕         |
-| Yun Jin            | 云堇       | 坚牢黄玉 兽境王器 琉璃百合 面具       | 勤劳 面具 灰烬之心         |
-| Zhongli            | 钟离       | 坚牢黄玉 玄岩之塔 石珀 史莱姆         | 黄金 史莱姆 吞天之鲸・只角 |
+For item ids in `assets.mjs`, single quotes (`'`) and (`"`) must be escaped as HTML entities.
 
----
+Multiple languages support:
 
-| talent     | zh_CN | weekday |
-| ---------- | ----- | ------- |
-| Freedom    | 自由  | MT      |
-| Resistance | 抗争  | TF      |
-| Ballad     | 诗文  | WS      |
-| Prosperity | 繁荣  | MT      |
-| Diligence  | 勤劳  | TF      |
-| Gold       | 黄金  | WS      |
-| Transience | 浮世  | MT      |
-| Elegance   | 风雅  | TF      |
-| Light      | 天光  | WS      |
-
----
-
-| Enemy                      | zh_CN        | Material                                                       |
-| -------------------------- | ------------ | -------------------------------------------------------------- |
-| Andrius                    | 北风狼       | 坚牢黄玉 哀叙冰玉 燃愿玛瑙 北风之环 北风之尾 北风的魂匣        |
-| Dvalin                     | 风魔龙       | 涤净青金 最胜紫晶 东风之翎 东风之爪 东风的吐息                 |
-| Azhdaha                    | 若陀龙王     | 坚牢黄玉 哀叙冰玉 燃愿玛瑙 最胜紫晶 龙王之冕 血玉之枝 鎏金之鳞 |
-| Childe                     | 公子         | 哀叙冰玉 最胜紫晶 吞天之鲸・只角 魔王之刃・残片 武炼之魂・孤影 |
-| La Signora                 | 女士         | 哀叙冰玉 燃愿玛瑙 熔毁之刻 狱火之蝶 灰烬之心                   |
-| Primo Geovishap            | 古岩龙蜥     | 坚牢黄玉 哀叙冰玉 燃愿玛瑙 涤净青金 最胜紫晶 未熟之玉          |
-| Cryo Regisvine             | 急冻树       | 哀叙冰玉 极寒之核                                              |
-| Perpetual Mechanical Array | 恒常机关阵列 | 坚牢黄玉 哀叙冰玉 恒常机关之心                                 |
-| Cryo Hypostasis            | 无相之冰     | 哀叙冰玉 晶凝之华                                              |
-| Geo Hypostasis             | 无相之岩     | 坚牢黄玉 玄岩之塔                                              |
-| Hydro Hypostasis           | 无相之水     | 涤净青金 排异之露                                              |
-| Pyro Hypostasis            | 无相之火     | 燃愿玛瑙 阴燃之珠                                              |
-| Electro Hypostasis         | 无相之雷     | 最胜紫晶 雷光棱镜                                              |
-| Anemo Hypostasis           | 无相之风     | 自在松石 飓风之种                                              |
-| Bathysmal Vishap Herd      | 深海龙蜥     | 哀叙冰玉 最胜紫晶 龙嗣伪鳍                                     |
-| Pyro Regisvine             | 爆炎树       | 燃愿玛瑙 常燃火种                                              |
-| Lochfolk                   | 纯水精灵     | 涤净青金 净水之心                                              |
-| Thunder Manifestation      | 雷音权现     | 最胜紫晶 雷霆数珠                                              |
-| Maguu Kenki                | 魔偶剑鬼     | 哀叙冰玉 魔偶机心                                              |
-| Golden Wolflord            | 黄金王兽     | 坚牢黄玉 兽境王器                                              |
-
----
-
-| bow                               | zh_CN        | materials                                                               |
-| --------------------------------- | ------------ | ----------------------------------------------------------------------- |
-| Polar Star                        | 冬极白星     | 今昔剧画 隐兽爪 浮游核                                                  |
-| Thundering Pulse                  | 飞雷之弦振   | 鸣神御灵 棱镜 箭簇                                                      |
-| Elegy for the End                 | 终末嗟叹之诗 | 凛风奔狼 号角 徽记                                                      |
-| Skyward Harp                      | 天空之翼     | 凛风奔狼 地脉 箭簇                                                      |
-| Amos' Bow                         | 阿莫斯之弓   | 狮牙斗士 混沌 史莱姆                                                    |
-| Alley Hunter                      | 暗巷猎手     | 狮牙斗士 混沌 史莱姆                                                    |
-| The Viridescent Hunt              | 苍翠猎弓     | 高塔孤王 号角 箭簇                                                      |
-| The Stringless                    | 绝弦         | 高塔孤王 号角 箭簇                                                      |
-| Sacrificial Bow                   | 祭礼弓       | 凛风奔狼 地脉 史莱姆                                                    |
-| Rust                              | 弓藏         | 孤云寒林 祭刀 面具                                                      |
-| Royal Bow                         | 宗室长弓     | 狮牙斗士 混沌 绘卷                                                      |
-| Predator                          | 掠食者       | 鸣神御灵 棱镜 箭簇                                                      |
-| Prototype Crescent                | 试作澹月     | 雾海云间 雾虚 鸦印                                                      |
-| Mouun's Moon                      | 曚云之月     | 鸣神御灵 棱镜 浮游核                                                    |
-| Mitternachts Waltz                | 幽夜华尔兹   | 高塔孤王 号角 鸦印                                                      |
-| Hamayumi                          | 破魔之弓     | 鸣神御灵 棱镜 箭簇                                                      |
-| Favonius Warbow                   | 西风猎弓     | 狮牙斗士 混沌 花蜜                                                      |
-| Compound Bow                      | 钢轮弓       | 漆黑陨铁 骨片 徽记                                                      |
-| Blackcliff Warbow                 | 黑岩战弓     | 孤云寒林 祭刀 花蜜                                                      |
-| Windblume Ode                     | 风花之颂     | 狮牙斗士 地脉 花蜜                                                      |
-| Raven Bow                         | 鸦羽弓       | 高塔孤王 号角 箭簇                                                      |
-| Recurve Bow                       | 反曲弓       | 狮牙斗士 炉心 绘卷                                                      |
-| Messenger                         | 信使         | 雾海云间 雾虚 鸦印                                                      |
-| Sharpshooter's Oath               | 神射手之誓   | 凛风奔狼 地脉 史莱姆                                                    |
-| Slingshot                         | 弹弓         | 孤云寒林 祭刀 面具                                                      |
-| Lost Prayer to the Sacred Winds   | 四风原典     | 狮牙斗士 混沌 史莱姆                                                    |
-| Skyward Atlas                     | 天空之卷     | 凛风奔狼 地脉 箭簇                                                      |
-| Everlasting Moonglow              | 不灭月华     | 远海夷地 棱镜 浮游核                                                    |
-| Memory of Dust                    | 尘世之锁     | 漆黑陨铁 骨片 面具                                                      |
-| Wine and Song                     | 暗巷的酒与诗 | 凛风奔狼 地脉 绘卷                                                      |
-| The Widsith                       | 流浪乐章     | 凛风奔狼 地脉 面具                                                      |
-| Solar Pearl                       | 匣里日月     | 孤云寒林 祭刀 花蜜                                                      |
-| Sacrificial Fragments             | 祭礼残章     | 狮牙斗士 混沌 鸦印                                                      |
-| Royal Grimoire                    | 宗室秘法录   | 高塔孤王 号角 徽记                                                      |
-| Prototype Amber                   | 试作金珀     | 雾海云间 雾虚 箭簇                                                      |
-| Mappa Mare                        | 万国诸海图谱 | 漆黑陨铁 骨片 史莱姆                                                    |
-| Hakushin Ring                     | 白辰之环     | 远海夷地的金枝偏光棱镜 18 偏光棱镜禁咒绘卷 12 禁咒绘卷                  |
-| Frostbearer                       | 忍冬之果     | 狮牙斗士的理想混沌炉心 18 混沌炉心原素花蜜 12 原素花蜜                  |
-| Favonius Codex                    | 西风秘典     | 高塔孤王的碎梦 4 高塔孤王的碎梦黑晶号角 18 黑晶号角禁咒绘卷 12 禁咒绘卷 |
-| Eye of Perception                 | 昭心         |                                                                         |
-| Dodoco Tales                      | 嘟嘟可故事集 |                                                                         |
-| Blackcliff Agate                  | 黑岩绯玉     |                                                                         |
-| Magic Guide                       | 魔导绪论     |                                                                         |
-| Otherworldly Story                | 异世界行记   |                                                                         |
-| Emerald Orb                       | 翡玉法球     |                                                                         |
-| Thrilling Tales of Dragon Slayers | 讨龙英杰谭   |                                                                         |
-| Twin Nephrite                     | 甲级宝珏     |                                                                         |
-| Wolf's Gravestone                 | 狼的末路     |
-| Skyward Pride                     | 天空之傲     |
-| The Unforged                      | 无工之剑     |
-| Song of Broken Pines              | 松籁响起之时 |
-| Redhorn Stonethresher             | 赤角石溃杵   |
-| Akuoumaru                         | 恶王丸       |
-| Royal Greatsword                  | 宗室大剑     |
-| Whiteblind                        | 白影剑       |
-| The Bell                          | 钟剑         |
-| Snow-Tombed Starsilver            | 雪葬的星银   |
-| Favonius Greatsword               | 西风大剑     |
-| Katsuragikiri Nagamasa            | 桂木斩长正   |
-| Sacrificial Greatsword            | 祭礼大剑     |
-| Serpent Spine                     | 螭骨剑       |
-| Blackcliff Slasher                | 黑岩斩刀     |
-| Rainslasher                       | 雨裁         |
-| Prototype Archaic                 | 试作古华     |
-| Luxurious Sea-Lord                | 衔珠海皇     |
-| Lithic Blade                      | 千岩古剑     |
-| Quartz                            | 飞天大御剑   |
-| Skyrider Greatsword               | 以理服人     |
-| Debate Club                       | 以理服人     |
-| Bloodtainted Greatsword           | 沐浴龙血的剑 |
-| White Iron Greatsword             | 白铁大剑     |
-| Ferrous Shadow                    | 铁影阔剑     |
-| Engulfing Lightning               | 薙草之稻光   |
-| Skyward Spine                     | 天空之脊     |
-| Primordial Jade Winged-Spear      | 和璞鸢       |
-| Calamity Queller                  | 息灾         |
-| Staff of Homa                     | 护摩之杖     |
-| Vortex Vanquisher                 | 贯虹之槊     |
-| Prototype Starglitter             | 试作星镰     |
-| Lithic Spear                      | 千岩长枪     |
-| Kitain Cross Spear                | 喜多院十文字 |
-| "The Catch"                       | 「渔获」     |
-| Favonius Lance                    | 西风长枪     |
-| Dragonspine Spear                 | 龙脊长枪     |
-| Dragon's Bane                     | 匣里灭辰     |
-| Deathmatch                        | 决斗之枪     |
-| Crescent Pike                     | 流月针       |
-| Blackcliff Pole                   | 黑岩刺枪     |
-| Wavebreaker's Fin                 | 断浪长鳍     |
-| Royal Spear                       | 宗室猎枪     |
-| Halberd                           | 钺矛         |
-| Black Tassel                      | 黑缨枪       |
-| White Tassel                      | 白缨枪       |
-| Mistsplitter Reforged             | 雾切之回光   |
-| Aquila Favonia                    | 风鹰剑       |
-| Summit Shaper                     | 斫峰之刃     |
-| Skyward Blade                     | 天空之刃     |
-| Freedom-Sworn                     | 苍古自由之誓 |
-| Primordial Jade Cutter            | 磐岩结绿     |
-| The Flute                         | 笛剑         |
-| The Black Sword                   | 黑剑         |
-| The Alley Flash                   | 暗巷闪光     |
-| Sword of Descension               | 降临之剑     |
-| Sacrificial Sword                 | 祭礼剑       |
-| Royal Longsword                   | 宗室长剑     |
-| Prototype Rancour                 | 试作斩岩     |
-| Amenoma Kageuchi                  | 天目影打刀   |
-| Lion's Roar                       | 匣里龙吟     |
-| Iron Sting                        | 铁蜂刺       |
-| Festering Desire                  | 腐殖之剑     |
-| Favonius Sword                    | 西风剑       |
-| Cinnabar Spindle                  | 辰砂之纺锤   |
-| Blackcliff Longsword              | 黑岩长剑     |
-| Harbinger of Dawn                 | 黎明神剑     |
-| Fillet Blade                      | 吃虎鱼刀     |
-| Skyrider Sword                    | 飞天御剑     |
-| Dark Iron Sword                   | 暗铁剑       |
-| Cool Steel                        | 冷刃         |
-| Traveler's Handy Sword            | 旅行剑       |
-
----
-
-| 材料     | 武器                                                                                                                                                                                                                   |
-| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 高塔孤王 | 风鹰剑 松籁响起之时 宗室秘法录 西风秘典 绝弦 西风剑 钟剑 宗室长剑 暗巷闪光 苍翠猎弓 雪葬的星银 幽夜华尔兹 辰砂之纺锤 冷刃 铁影阔剑 魔导绪论 鸦羽弓 银剑 口袋魔导书 无锋剑 学徒笔记                                     |
-| 凛风奔狼 | 天空之卷 天空之刃 天空之傲 天空之翼 终末嗟叹之诗 流浪乐章 祭礼弓 笛剑 祭礼大剑 黑剑 决斗之枪 龙脊长枪 暗巷的酒与诗 嘟嘟可故事集 降临之剑 黎明神剑 沐浴龙血的剑 讨龙英杰谭 神射手之誓 佣兵重剑 历练的猎弓 训练大剑 猎弓 |
-| 狮牙斗士 | 四风原典 狼的末路 阿莫斯之弓 天空之脊 苍古自由之誓 祭礼残章 宗室大剑 西风猎弓 宗室长弓 祭礼剑 西风大剑 西风长枪 腐殖之剑 忍冬之果 风花之颂 暗巷猎手 旅行剑 白铁大剑 异世界行记 反曲弓 铁尖枪 新手长枪                  |
-| 孤云寒林 | 和璞鸢 斫峰之刃 黑岩绯玉 白影剑 黑岩长剑 流月针 弓藏 匣里日月 黑岩战弓 千岩古剑 匣里龙吟 暗铁剑 白缨枪 翡玉法球 弹弓                                                                                                   |
-| 雾海云间 | 无工之剑 磐岩结绿 息灾 雨裁 试作斩岩 黑岩刺枪 试作金珀 试作澹月 昭心 匣里灭辰 黑岩斩刀 宗室猎枪 以理服人 吃虎鱼刀 钺矛 甲级宝珏 信使                                                                                   |
-| 漆黑陨铁 | 尘世之锁 贯虹之槊 护摩之杖 万国诸海图谱 试作古华 铁蜂刺 试作星镰 钢轮弓 螭骨剑 千岩长枪 衔珠海皇 飞天御剑 飞天大御剑 黑缨枪 黑缨枪                                                                                     |
-| 远海夷地 | 雾切之回光 不灭月华 天目影打刀 白辰之环 恶王丸                                                                                                                                                                         |
-| 鸣神御灵 | 飞雷之弦振 赤角石溃杵 破魔之弓 桂木斩长正 掠食者 曚云之月                                                                                                                                                              |
-| 今昔剧画 | 薙草之稻光 冬极白星 喜多院十文字 「渔获」 断浪长鳍                                                                                                                                                                     |
-
-| 材料 | 武器                                                                                                                                                                                                               |
-| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 号角 | 风鹰剑 终末嗟叹之诗 松籁响起之时 宗室秘法录 西风秘典 绝弦 西风剑 钟剑 宗室长剑 暗巷闪光 苍翠猎弓 腐殖之剑 雪葬的星银 幽夜华尔兹 冷刃 铁影阔剑 魔导绪论 鸦羽弓 银剑 口袋魔导书 无锋剑 学徒笔记                      |
-| 地脉 | 天空之卷 天空之刃 天空之傲 天空之翼 护摩之杖 流浪乐章 祭礼弓 笛剑 祭礼大剑 黑剑 决斗之枪 风花之颂 暗巷的酒与诗 嘟嘟可故事集 降临之剑 黎明神剑 沐浴龙血的剑 讨龙英杰谭 神射手之誓 佣兵重剑 历练的猎弓 训练大剑 猎弓 |
-| 混沌 | 四风原典 狼的末路 阿莫斯之弓 天空之脊 苍古自由之誓 祭礼残章 宗室大剑 西风猎弓 宗室长弓 祭礼剑 西风大剑 西风长枪 忍冬之果 暗巷猎手 辰砂之纺锤 旅行剑 白铁大剑 异世界行记 反曲弓 铁尖枪 新手长枪                     |
-| 祭刀 | 和璞鸢 斫峰之刃 黑岩绯玉 白影剑 黑岩长剑 流月针 弓藏 匣里日月 黑岩战弓 千岩古剑 匣里龙吟 暗铁剑 白缨枪 翡玉法球 弹弓                                                                                               |
-| 雾虚 | 无工之剑 磐岩结绿 息灾 雨裁 试作斩岩 黑岩刺枪 试作金珀 试作澹月 昭心 匣里灭辰 黑岩斩刀 宗室猎枪 龙脊长枪 以理服人 吃虎鱼刀 钺矛 甲级宝珏 信使                                                                      |
-| 骨片 | 尘世之锁 贯虹之槊 万国诸海图谱 试作古华 铁蜂刺 试作星镰 钢轮弓 螭骨剑 千岩长枪 衔珠海皇 飞天御剑 飞天大御剑 黑缨枪                                                                                                 |
-| 混沌 | 雾切之回光 薙草之稻光 天目影打刀 喜多院十文字 桂木斩长正 「渔获」                                                                                                                                                  |
-| 棱镜 | 飞雷之弦振 不灭月华 白辰之环 破魔之弓 掠食者 曚云之月                                                                                                                                                              |
-| 隐兽 | 冬极白星赤角石溃杵赤角石溃杵恶王丸恶王丸断浪长鳍断浪长鳍                                                                                                                                                           |
-
-| 材料   | 武器                                                                                                                                                                                |
-| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 史莱姆 | 四风原典 天空之刃 天空之傲 阿莫斯之弓 护摩之杖 万国诸海图谱 宗室大剑 祭礼弓 笛剑 黑剑 西风长枪 雪葬的星银 暗巷猎手 衔珠海皇 黎明神剑 白铁大剑 魔导绪论 神射手之誓 佣兵重剑 训练大剑 |
-| 面具   | 尘世之锁 斫峰之刃 松籁响起之时 流浪乐章 试作古华 宗室长剑 试作星镰 弓藏 昭心 嘟嘟可故事集 辰砂之纺锤 以理服人 暗铁剑 异世界行记 弹弓 口袋魔导书 学徒笔记                            |
-| 箭簇   | 风鹰剑 天空之卷 天空之翼 飞雷之弦振 绝弦 西风剑 祭礼大剑 黑岩长剑 试作金珀 苍翠猎弓 千岩长枪 千岩古剑 破魔之弓 掠食者 冷刃 沐浴龙血的剑 黑缨枪 鸦羽弓 银剑 无锋剑                   |
-| 绘卷   | 狼的末路 天空之脊 苍古自由之誓 黑岩绯玉 西风秘典 雨裁 宗室长弓 祭礼剑 暗巷闪光 匣里灭辰 白辰之环 旅行剑 讨龙英杰谭 反曲弓 铁尖枪 新手长枪                                           |
-| 徽记   | 和璞鸢 终末嗟叹之诗 宗室秘法录 西风大剑 试作斩岩 黑岩刺枪 钢轮弓 黑岩斩刀 宗室猎枪 腐殖之剑 龙脊长枪 飞天御剑 白缨枪 甲级宝珏                                                       |
-| 鸦印   | 贯虹之槊 无工之剑 磐岩结绿 祭礼残章 白影剑 流月针 试作澹月 暗巷的酒与诗 幽夜华尔兹 喜多院十文字 匣里龙吟 降临之剑 吃虎鱼刀 飞天大御剑 翡玉法球 信使 历练的猎弓 猎弓                 |
-| 花蜜   | 息灾 西风猎弓 钟剑 铁蜂刺 螭骨剑 匣里日月 决斗之枪 黑岩战弓 忍冬之果 风花之颂 铁影阔剑 钺矛                                                                                         |
-| 刀镡   | 雾切之回光 薙草之稻光 赤角石溃杵 天目影打刀 桂木斩长正 恶王丸 断浪长鳍                                                                                                              |
-| 浮游核 | 不灭月华 冬极白星 「渔获」 曚云之月                                                                                                                                                 |
+1. add names in `assets.mjs` tagged with corresponding BCP47 code
+2. add option in `//*[@id="lang-select"]`
