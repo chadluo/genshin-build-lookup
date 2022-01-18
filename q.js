@@ -2,10 +2,11 @@ import { bosses, characters, domains, i18n, materials, weapons } from "./assets.
 
 const CHARACTERS = "characters";
 const WEAPONS = "weapons";
-const TROUNCE_DOMAINS = "trounce_domains";
-const ENEMIES = "enemies";
-const TALENT_DOMAINS = "talent_domains";
-const WEAPON_DOMAINS = "weapon_domains";
+
+const WEEKLY_BOSSES = "w";
+const BOSSES = "b";
+const TALENT_DOMAINS = "td";
+const WEAPON_DOMAINS = "wd";
 
 const selectors = document.querySelector("div.selectors");
 selectors.innerHTML += renderItemsTable(characters, CHARACTERS);
@@ -15,67 +16,63 @@ selectors.innerHTML += renderEnemiesTable();
 const output = document.querySelector("div.output");
 const query = document.getElementById("query");
 
-function renderItemsTable(items, title) {
-  const byRarity = Object.entries(items).reduce((acc, [id, obj]) => {
-    let key = obj["rarity"];
-    if (!acc[key]) {
-      acc[key] = [];
-    }
-    acc[key].push([id, obj]);
-    return acc;
-  }, {});
-  const titleName = formatName(i18n[title]);
-  return `<details open><summary>${titleName}</summary>
-  <table class="ctable"><tr><th>${formatName(i18n.rarity)}</th><th>${titleName}</th></tr>
+function renderItemsTable(items, type) {
+  const byRarity = groupBy("rarity", Object.entries(items));
+  const typeName = formatName(i18n[type]);
+  return `<details open><summary>${typeName}</summary>
+  <table class="ctable"><tr><th>${formatName(i18n.rarity)}</th><th>${typeName}</th></tr>
    ${Object.keys(byRarity)
      .sort()
      .reverse()
      .map(
        (rarity) =>
-         `<tr><td>${rarity}</td><td>${byRarity[rarity]
-           .map(([id, obj]) => createLink(id, title, obj.name))
-           .join(formatName(i18n.delimiter))}</td></tr>`
+         `<tr><td>${"🟊".repeat(rarity)}</td><td>${Object.values(groupBy("category", byRarity[rarity]))
+           .map(
+             (arr) => "<p>" + arr.map(([id, obj]) => createLink(id, type, obj.name)).join(formatName(i18n.delimiter))
+           )
+           .join("")}</td></tr>`
      )
      .join("")}</table></details>`;
 }
 
 function renderEnemiesTable() {
-  const trounce_domains = [
+  const weekly_boss_ids = [
     "Confront Stormterror",
     "Enter the Golden House",
     "Narukami Island: Tenshukaku",
-    "Wolf of the North Challenge",
     "Beneath the Dragon-Queller",
+    "Wolf of the North Challenge",
   ];
-  const enemies = [
-    "Anemo Hypostasis",
-    "Bathysmal Vishap Herd",
-    "Cryo Hypostasis",
-    "Cryo Regisvine",
+  const boss_ids = [
     "Electro Hypostasis",
+    "Anemo Hypostasis",
+    "Cryo Regisvine",
     "Geo Hypostasis",
-    "Golden Wolflord",
-    "Hydro Hypostasis",
-    "Maguu Kenki",
-    "Perpetual Mechanical Array",
-    "Primo Geovishap",
-    "Pyro Hypostasis",
-    "Pyro Regisvine",
     "Rhodeia of Loch",
+    "Pyro Regisvine",
+    "Primo Geovishap",
+    "Cryo Hypostasis",
+    "Maguu Kenki",
+    "Pyro Hypostasis",
+    "Perpetual Mechanical Array",
+    "Hydro Hypostasis",
     "Thunder Manifestation",
+    "Golden Wolflord",
+    "Bathysmal Vishap Herd",
   ];
   const talent_domains = ["Forsaken Rift", "Taishan Mansion", "Violet Court"];
   const weapon_domains = ["Cecilia Garden", "Hidden Palace of Lianshan Formula", "Court of Flowing Sand"];
-  return `<details open><summary>Enemies</summary>
-  <table class="ctable"><tr><th>Type</th><th>Enemies</th></tr>
-    <tr><th>Trounce domains</th><td>${trounce_domains
-      .map((d) => createLink(d, TROUNCE_DOMAINS, bosses[d].name))
-      .join(formatName(i18n.delimiter))}</td></tr>
-    <tr><th>Enemies</th><td>${enemies
-      .map((d) => createLink(d, ENEMIES, bosses[d].name))
-      .join(formatName(i18n.delimiter))}</td></tr>
-    <tr><th>Talent domains</th><td>${formatDomains(talent_domains, TALENT_DOMAINS)}</td></tr>
-    <tr><th>Weapon domains</th><td>${formatDomains(weapon_domains, WEAPON_DOMAINS)}</td></tr>
+
+  return `<details open><summary>${formatName(i18n.enemies_domains)}</summary>
+  <table class="ctable"><tr><th>${formatName(i18n.type)}</th><th>${formatName(i18n.enemies_domains)}</th></tr>
+    <tr><th>${formatName(i18n.weekly_bosses)}</th><td>${weekly_boss_ids
+    .map((d) => createLink(d, WEEKLY_BOSSES, bosses[d].name))
+    .join(formatName(i18n.delimiter))}</td></tr>
+    <tr><th>${formatName(i18n.bosses)}</th><td>${boss_ids
+    .map((d) => createLink(d, BOSSES, bosses[d].name))
+    .join(formatName(i18n.delimiter))}</td></tr>
+    <tr><th>${formatName(i18n.talent_domains)}</th><td>${formatDomains(talent_domains, TALENT_DOMAINS)}</td></tr>
+    <tr><th>${formatName(i18n.weapon_domains)}</th><td>${formatDomains(weapon_domains, WEAPON_DOMAINS)}</td></tr>
   </table></details>`;
 }
 
@@ -87,20 +84,19 @@ function formatDomains(ids, type) {
   return ids
     .map(
       (d) =>
-        formatName(domains[d].name) +
-        " / " +
-        ["mon_thu", "tue_fri", "wed_sat"]
+        `<p>${formatName(domains[d].name)} / ${["mon_thu", "tue_fri", "wed_sat"]
           .map(
             (weekday, i) =>
               `<a data-id='${d}' data-weekday='${i + 1}' data-type='${type}'>${formatName(i18n.weekdays[weekday])}</a>`
           )
-          .join(formatName(i18n.delimiter))
+          .join(formatName(i18n.delimiter))}`
     )
-    .join("<br>");
+    .join("");
 }
 
 selectors.addEventListener("click", (event) => {
   const a = event.composedPath().find((e) => e.tagName === "A");
+  if (!a) return;
   switch (a.dataset.type) {
     case CHARACTERS:
       output.innerHTML += renderCharacter(a.dataset.id);
@@ -108,8 +104,8 @@ selectors.addEventListener("click", (event) => {
     case WEAPONS:
       output.innerHTML += renderWeapon(a.dataset.id);
       break;
-    case TROUNCE_DOMAINS:
-    case ENEMIES:
+    case WEEKLY_BOSSES:
+    case BOSSES:
       output.innerHTML += renderBoss(a.dataset.id);
       break;
     case TALENT_DOMAINS:
@@ -173,11 +169,15 @@ function byCharacter(character) {
 }
 
 function findWeapon(weapon) {
-  return weapons[weapon].name;
+  return weapons[escapeQuotes(weapon)].name;
+}
+
+function escapeQuotes(str) {
+  return str.replaceAll("'", "&apos;").replaceAll('"', "&quot;");
 }
 
 function byWeapon(weapon) {
-  return weapons[weapon].materials.reduce(
+  return weapons[escapeQuotes(weapon)].materials.reduce(
     (map, m) => (map.set(materials[m].name, findEnemiesForMaterial(m)), map),
     new Map()
   );
@@ -190,7 +190,7 @@ function findEnemiesForMaterial(m) {
       Object.fromEntries(
         Object.entries(domain.name).map(([lang, value]) => [
           lang,
-          value + " " + findWeekday(lang, domain.materials_by_weekday.indexOf(m)),
+          value + " / " + findWeekday(lang, domain.materials_by_weekday.indexOf(m)),
         ])
       )
     );
@@ -275,7 +275,7 @@ function render2(id, object) {
 }
 
 function formatArray(e) {
-  return Array.isArray(e) ? e.map(formatName).join("<br>") : formatName(e);
+  return Array.isArray(e) ? e.map(formatName).join(formatName(i18n.delimiter)) : formatName(e);
 }
 
 function formatName(name) {
@@ -284,4 +284,14 @@ function formatName(name) {
       return `<span class="i18n ${lang}">${Array.isArray(value) ? value.join("<br>") : value}</span>`;
     })
     .join("");
+}
+
+function groupBy(field, arr) {
+  return arr.reduce((obj, [id, item]) => {
+    if (!obj[item[field]]) {
+      obj[item[field]] = [];
+    }
+    obj[item[field]].push([id, item]);
+    return obj;
+  }, {});
 }

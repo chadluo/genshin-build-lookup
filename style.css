@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Noto+Sans:wght@400;700&display=swap");
+
+body {
+  font-family: "Noto Sans", "Noto Sans SC", sans-serif;
+}
+
 a:hover {
   cursor: pointer;
   color: blue;
@@ -13,27 +19,35 @@ html:lang(en) .i18n.en,
 html:lang(zh_CN) .i18n.zh_CN {
   display: inline-block;
 }
-.ctable,
-.qtable {
-  border-spacing: 0;
-  border: 1px solid #ccc;
+
+/* tables */
+
+details {
+  margin-top: 2em;
 }
-.ctable th,
-.ctable td,
-.qtable th,
-.qtable td {
-  padding: 0.25em;
-  border-bottom: 1px solid #ccc;
-  border-right: 1px solid #ccc;
+table,
+th,
+td {
+  border-collapse: collapse;
+  border: 0.5px solid #ccc;
 }
-.ctable tr:nth-child(1) > th:nth-child(1) {
-  width: 10%;
+th,
+td {
+  padding: 0.25em 0.5em;
+  vertical-align: top;
+}
+.ctable {
+  margin-top: 0.5em;
+}
+.ctable tr > th:nth-child(1) {
+  width: 15%;
   text-align: left;
 }
 .ctable td {
   white-space: pre-wrap;
 }
 .qtable {
+  margin-top: 2em;
   width: 100%;
 }
 .qtable tr:nth-child(1) > th {
@@ -41,10 +55,11 @@ html:lang(zh_CN) .i18n.zh_CN {
   text-align: left;
 }
 .qtable tr:nth-child(1) > td:nth-child(2) {
-  width: 25%;
+  width: 30%;
 }
-
-th,
-td {
-  vertical-align: top;
+td p {
+  margin: 0;
+}
+td p + p {
+  margin-top: 0.5em;
 }
