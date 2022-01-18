@@ -13,6 +13,19 @@ html:lang(en) .i18n.en,
 html:lang(zh_CN) .i18n.zh_CN {
   display: inline-block;
 }
+.ctable,
+.qtable {
+  border-spacing: 0;
+  border: 1px solid #ccc;
+}
+.ctable th,
+.ctable td,
+.qtable th,
+.qtable td {
+  padding: 0.25em;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
 .ctable tr:nth-child(1) > th:nth-child(1) {
   width: 10%;
   text-align: left;
@@ -29,9 +42,6 @@ html:lang(zh_CN) .i18n.zh_CN {
 }
 .qtable tr:nth-child(1) > td:nth-child(2) {
   width: 25%;
-}
-.qtable tr:nth-child(odd) td {
-  background: #eee;
 }
 
 th,
