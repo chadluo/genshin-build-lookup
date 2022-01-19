@@ -1346,7 +1346,7 @@ export const bosses = {
 };
 
 export const i18n = {
-  supported_languages: ["en", "zh-CN"],
+  supported_languages: { en: "English", "zh-CN": "简体中文" },
   delimiter: { en: " · ", "zh-CN": "・" },
   weekdays: {
     mon_thu: { en: "Mon, Thu, Sun", "zh-CN": "一四日" },

@@ -2,6 +2,7 @@
 
 body {
   font-family: "Noto Sans", "Noto Sans SC", sans-serif;
+  margin: 0;
 }
 
 a:hover {
@@ -10,7 +11,7 @@ a:hover {
 }
 .container {
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
 }
 .i18n {
   display: none;
@@ -20,10 +21,51 @@ html.zh-CN .i18n:lang(zh-CN) {
   display: inline-block;
 }
 
+/* navbar */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4rem;
+  line-height: 4rem;
+  background: white;
+  border-bottom: 1px solid #ccc;
+}
+
+nav .container {
+  display: flex;
+}
+nav h1 {
+  font-size: 1rem;
+  height: 4rem;
+  line-height: 4rem;
+  margin: 0 2em 0 0;
+}
+nav .links {
+  flex-grow: 1;
+}
+nav .links a + a {
+  margin-left: 1em;
+}
+
+nav + div {
+  margin-top: 5rem;
+}
+
 /* tables */
 
+.selectors {
+  margin-top: 3rem;
+}
+
 details {
-  margin-top: 2em;
+  margin-top: -3rem;
+  padding-top: 5rem;
+}
+details:target table {
+  background: #f4f4f4;
 }
 table,
 th,
@@ -47,7 +89,7 @@ td {
   white-space: pre-wrap;
 }
 .qtable {
-  margin-top: 2em;
+  margin-top: 2rem;
   width: 100%;
 }
 .qtable tr:nth-child(1) > th {
@@ -61,4 +103,9 @@ td p {
 }
 td p + p {
   margin-top: 0.5em;
+}
+
+#clear {
+  margin-top: 1rem;
+  margin-bottom: 3rem;
 }

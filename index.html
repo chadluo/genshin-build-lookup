@@ -6,22 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
+    <nav>
+      <div class="container">
+        <h1>
+          <span class="i18n" lang="en">Genshin Impact Build Lookup</span>
+          <span class="i18n" lang="zh-CN">原神培养查询</span>
+        </h1>
+        <span class="links">
+          <a href="#characters"
+            ><span class="i18n" lang="en">Characters</span><span class="i18n" lang="zh-CN">角色</span></a
+          >
+          <a href="#weapons"><span class="i18n" lang="en">Weapons</span><span class="i18n" lang="zh-CN">武器</span></a>
+          <a href="#enemies"
+            ><span class="i18n" lang="en">Enemies &amp; Domains</span><span class="i18n" lang="zh-CN">秘境讨伐</span></a
+          >
+        </span>
+        <span class="lang-select-dropdown">
+          <select name="lang-select" id="lang-select"></select>
+        </span>
+      </div>
+    </nav>
     <div class="container">
-      <select name="lang-select" id="lang-select">
-        <option value="en">en</option>
-        <option value="zh-CN">zh-CN</option>
-      </select>
-      <input id="query" type="text" />
-      <button id="byCharacter"><span class="i18n en">character</span><span class="i18n zh-CN">角色</span></button>
-      <button id="byWeapon"><span class="i18n en">weapon</span><span class="i18n zh-CN">武器</span></button>
-      <button id="byBoss"><span class="i18n en">boss</span><span class="i18n zh-CN">Boss</span></button>
-      <button id="byDomain"><span class="i18n en">domain</span><span class="i18n zh-CN">秘境</span></button>
-      <button id="clear"><span class="i18n en">clear</span><span class="i18n zh-CN">清空</span></button>
-
       <div class="selectors"></div>
-
       <div class="output"></div>
+      <button id="clear"><span class="i18n" lang="en">clear</span><span class="i18n" lang="zh-CN">清空</span></button>
     </div>
 
     <script type="module" src="assets.js"></script>

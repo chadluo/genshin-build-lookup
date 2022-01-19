@@ -10,11 +10,14 @@ const WEAPON_DOMAINS = "wd";
 
 const selectors = document.querySelector("div.selectors");
 const output = document.querySelector("div.output");
-const query = document.getElementById("query");
 
 window.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("lang-select").innerHTML = Object.entries(i18n.supported_languages)
+    .map(([lang, name]) => `<option value="${lang}">${name}</option>`)
+    .join("");
+
   let lang = navigator.language;
-  if (!i18n.supported_languages.includes(lang)) {
+  if (!i18n.supported_languages.hasOwnProperty(lang)) {
     lang = "en";
   }
   setLanguage(lang);
@@ -28,7 +31,7 @@ window.addEventListener("DOMContentLoaded", () => {
 function renderItemsTable(items, type) {
   const byRarity = groupBy("rarity", Object.entries(items));
   const typeName = formatName(i18n[type]);
-  return `<details open><summary>${typeName}</summary>
+  return `<details id="${type}" open><summary>${typeName}</summary>
   <table class="ctable"><tr><th>${formatName(i18n.rarity)}</th><th>${typeName}</th></tr>
    ${Object.keys(byRarity)
      .sort()
@@ -72,7 +75,7 @@ function renderEnemiesTable() {
   const talent_domains = ["Forsaken Rift", "Taishan Mansion", "Violet Court"];
   const weapon_domains = ["Cecilia Garden", "Hidden Palace of Lianshan Formula", "Court of Flowing Sand"];
 
-  return `<details open><summary>${formatName(i18n.enemies_domains)}</summary>
+  return `<details id="enemies" open><summary>${formatName(i18n.enemies_domains)}</summary>
   <table class="ctable"><tr><th>${formatName(i18n.type)}</th><th>${formatName(i18n.enemies_domains)}</th></tr>
     <tr><th>${formatName(i18n.weekly_bosses)}</th><td>${weekly_boss_ids
     .map((d) => createLink(d, WEEKLY_BOSSES, bosses[d].name))
@@ -142,18 +145,6 @@ function setLanguage(lang) {
   document.documentElement.classList.add(lang);
 }
 
-document.getElementById("byCharacter").addEventListener("click", () => {
-  output.innerHTML += renderCharacter(query.value);
-});
-document.getElementById("byWeapon").addEventListener("click", () => {
-  output.innerHTML += renderWeapon(query.value);
-});
-document.getElementById("byBoss").addEventListener("click", () => {
-  output.innerHTML += renderBoss(query.value);
-});
-document.getElementById("byDomain").addEventListener("click", () => {
-  output.innerHTML += renderDomain2(query.value);
-});
 document.getElementById("clear").addEventListener("click", () => {
   output.innerHTML = "";
 });
