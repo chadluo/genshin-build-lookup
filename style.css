@@ -30,6 +30,7 @@ th,
 td {
   border-collapse: collapse;
   border: 0.5px solid #ccc;
+  text-align: left;
 }
 th,
 td {
@@ -41,7 +42,6 @@ td {
 }
 .ctable tr > th:nth-child(1) {
   width: 15%;
-  text-align: left;
 }
 .ctable td {
   white-space: pre-wrap;
@@ -52,7 +52,6 @@ td {
 }
 .qtable tr:nth-child(1) > th {
   width: 15%;
-  text-align: left;
 }
 .qtable tr:nth-child(1) > td:nth-child(2) {
   width: 30%;

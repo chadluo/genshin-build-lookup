@@ -9,12 +9,15 @@ const TALENT_DOMAINS = "td";
 const WEAPON_DOMAINS = "wd";
 
 const selectors = document.querySelector("div.selectors");
-selectors.innerHTML += renderItemsTable(characters, CHARACTERS);
-selectors.innerHTML += renderItemsTable(weapons, WEAPONS);
-selectors.innerHTML += renderEnemiesTable();
-
 const output = document.querySelector("div.output");
 const query = document.getElementById("query");
+
+window.addEventListener("DOMContentLoaded", () => {
+  selectors.innerHTML += renderItemsTable(characters, CHARACTERS);
+  selectors.innerHTML += renderItemsTable(weapons, WEAPONS);
+  selectors.innerHTML += renderEnemiesTable();
+  output.innerHTML += renderWeekdayDomainTables();
+});
 
 function renderItemsTable(items, type) {
   const byRarity = groupBy("rarity", Object.entries(items));
@@ -115,6 +118,15 @@ selectors.addEventListener("click", (event) => {
   }
 });
 
+function renderWeekdayDomainTables() {
+  const weekday = new Date().getDay();
+  return weekday === 0
+    ? ""
+    : `<table class="qtable">${Object.keys(domains)
+        .map((domain) => renderQTableRows(findDomain(domain, weekday), byDomain(domain, weekday)))
+        .join("")}</table>`;
+}
+
 document.getElementById("lang-select").addEventListener("change", (event) => {
   document.documentElement.setAttribute("lang", event.target.value);
 });
@@ -135,15 +147,15 @@ document.getElementById("clear").addEventListener("click", () => {
 });
 
 function renderCharacter(character) {
-  return render2(findCharacter(character), byCharacter(character));
+  return renderFullQTable(findCharacter(character), byCharacter(character));
 }
 
 function renderWeapon(weapon) {
-  return render2(findWeapon(weapon), byWeapon(weapon));
+  return renderFullQTable(findWeapon(weapon), byWeapon(weapon));
 }
 
 function renderBoss(boss) {
-  return render2(findBoss(boss), byBoss(boss));
+  return renderFullQTable(findBoss(boss), byBoss(boss));
 }
 
 function renderDomain2(domain) {
@@ -154,7 +166,7 @@ function renderDomain2(domain) {
 }
 
 function renderDomain(domainName, weekday) {
-  return render2(findDomain(domainName, weekday), byDomain(domainName, weekday));
+  return renderFullQTable(findDomain(domainName, weekday), byDomain(domainName, weekday));
 }
 
 function findCharacter(character) {
@@ -230,7 +242,7 @@ function byBoss(boss) {
 function findDomain(domain, weekday) {
   const d = domains[domain];
   return Object.fromEntries(
-    Object.entries(d.name).map(([lang, value]) => [lang, value + " " + findWeekday(lang, weekday)])
+    Object.entries(d.name).map(([lang, value]) => [lang, value + "<br>" + findWeekday(lang, weekday)])
   );
 }
 
@@ -254,15 +266,18 @@ function findWeaponsForMaterial(m) {
     .map((w) => w.name);
 }
 
+function renderFullQTable(id, object) {
+  return `<table class="qtable">${renderQTableRows(id, object)}</table>`;
+}
+
 /**
  * object {
  *    material: [enemy]
  * }
  */
-function render2(id, object) {
+function renderQTableRows(id, object) {
   const materials = Array.from(object.keys());
-  return `<table class="qtable">
-    <tr>
+  return `<tr>
       <th rowspan="${materials.length}">${formatName(id).replaceAll(" / ", "<br>")}</th>
       <td>${formatName(materials[0])}</td>
       <td>${formatArray(object.get(materials[0]))}</td>
@@ -270,8 +285,7 @@ function render2(id, object) {
     ${materials
       .slice(1)
       .map((m) => `<tr><td>${formatName(m)}</td><td>${formatArray(object.get(m))}</td></tr>`)
-      .join("")}
-  </table>`;
+      .join("")}`;
 }
 
 function formatArray(e) {
