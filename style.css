@@ -15,8 +15,8 @@ a:hover {
 .i18n {
   display: none;
 }
-html:lang(en) .i18n.en,
-html:lang(zh-CN) .i18n.zh-CN {
+html.en .i18n:lang(en),
+html.zh-CN .i18n:lang(zh-CN) {
   display: inline-block;
 }
 

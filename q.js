@@ -13,6 +13,12 @@ const output = document.querySelector("div.output");
 const query = document.getElementById("query");
 
 window.addEventListener("DOMContentLoaded", () => {
+  let lang = navigator.language;
+  if (!i18n.supported_languages.includes(lang)) {
+    lang = "en";
+  }
+  setLanguage(lang);
+
   selectors.innerHTML += renderItemsTable(characters, CHARACTERS);
   selectors.innerHTML += renderItemsTable(weapons, WEAPONS);
   selectors.innerHTML += renderEnemiesTable();
@@ -128,8 +134,14 @@ function renderWeekdayDomainTables() {
 }
 
 document.getElementById("lang-select").addEventListener("change", (event) => {
-  document.documentElement.setAttribute("lang", event.target.value);
+  setLanguage(event.target.value);
 });
+
+function setLanguage(lang) {
+  document.documentElement.classList.value = "";
+  document.documentElement.classList.add(lang);
+}
+
 document.getElementById("byCharacter").addEventListener("click", () => {
   output.innerHTML += renderCharacter(query.value);
 });
@@ -295,7 +307,7 @@ function formatArray(e) {
 function formatName(name) {
   return Object.entries(name)
     .map(([lang, value]) => {
-      return `<span class="i18n ${lang}">${Array.isArray(value) ? value.join("<br>") : value}</span>`;
+      return `<span class="i18n" lang="${lang}">${Array.isArray(value) ? value.join("<br>") : value}</span>`;
     })
     .join("");
 }
