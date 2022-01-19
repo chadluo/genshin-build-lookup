@@ -3,10 +3,10 @@ import { bosses, characters, domains, enemy_ids, i18n, materials, weapons } from
 const CHARACTERS = "characters";
 const WEAPONS = "weapons";
 
-const WEEKLY_BOSSES = "w";
-const BOSSES = "b";
-const TALENT_DOMAINS = "td";
-const WEAPON_DOMAINS = "wd";
+const WEEKLY_BOSSES = "weekly_bosses";
+const BOSSES = "bosses";
+const TALENT_DOMAINS = "talent_domains";
+const WEAPON_DOMAINS = "weapon_domains";
 
 const selectors = document.querySelector("div.selectors");
 const output = document.querySelector("div.output");
@@ -101,7 +101,7 @@ function renderWeekdayDomainTables() {
         .join("")}</table>`;
 }
 
-selectors.addEventListener("click", (event) => {
+function loadQTable(event) {
   const a = event.composedPath().find((e) => e.tagName === "A");
   if (!a) return;
   switch (a.dataset.type) {
@@ -120,7 +120,10 @@ selectors.addEventListener("click", (event) => {
       output.innerHTML += renderDomain(a.dataset.id, a.dataset.weekday);
       break;
   }
-});
+}
+
+selectors.addEventListener("click", loadQTable);
+output.addEventListener("click", loadQTable);
 
 function renderCharacter(character) {
   return renderFullQTable(findCharacter(character), byCharacter(character));
@@ -165,22 +168,22 @@ function byWeapon(weapon) {
 }
 
 function findEnemiesForMaterial(m) {
-  const ds = Object.values(domains)
-    .filter((domain) => domain.materials_by_weekday.includes(m))
-    .map((domain) =>
-      Object.fromEntries(
-        Object.entries(domain.name).map(([lang, value]) => [
-          lang,
-          value + " / " + findWeekday(lang, domain.materials_by_weekday.indexOf(m)),
-        ])
-      )
-    );
-
+  const ds = Object.entries(domains)
+    .filter(([id, domain]) => domain.materials_by_weekday.includes(m))
+    .map(([id, domain]) => [
+      id,
+      {
+        name: Object.fromEntries(
+          Object.entries(domain.name).map(([lang, value]) => [
+            lang,
+            value + " / " + findWeekday(lang, domain.materials_by_weekday.indexOf(m)),
+          ])
+        ),
+        type: domain.type,
+      },
+    ]);
   if (ds.length) return ds;
-
-  return Object.values(bosses)
-    .filter((b) => b.materials.includes(m))
-    .map((b) => b.name);
+  return Object.entries(bosses).filter(([id, b]) => b.materials.includes(m));
 }
 
 function findWeekday(lang, day) {
@@ -217,32 +220,31 @@ function findDomain(domain, weekday) {
 function byDomain(domain, weekday) {
   const d = domains[domain];
   const m = d.materials_by_weekday[weekday > 3 ? weekday - 3 : weekday];
-  return new Map([
-    [materials[m].name, { weapon: findWeaponsForMaterial, talent: findCharactersForMaterial }[d.type](m)],
-  ]);
+  return new Map([[materials[m].name, d.type === "weapon" ? findWeaponsForMaterial(m) : findCharactersForMaterial(m)]]);
 }
 
 function findCharactersForMaterial(m) {
-  return Object.values(characters)
-    .filter((c) => c.materials.includes(m))
-    .map((c) => c.name);
+  return Object.entries(characters)
+    .filter(([id, c]) => c.materials.includes(m))
+    .map(([id, c]) => {
+      c.type = CHARACTERS;
+      return [id, c];
+    });
 }
 
 function findWeaponsForMaterial(m) {
-  return Object.values(weapons)
-    .filter((w) => w.materials.includes(m))
-    .map((w) => w.name);
+  return Object.entries(weapons)
+    .filter(([id, w]) => w.materials.includes(m))
+    .map(([id, c]) => {
+      c.type = WEAPONS;
+      return [id, c];
+    });
 }
 
 function renderFullQTable(id, object) {
   return `<table class="qtable">${renderQTableRows(id, object)}</table>`;
 }
 
-/**
- * object {
- *    material: [enemy]
- * }
- */
 function renderQTableRows(id, object) {
   const materials = Array.from(object.keys());
   return `<tr>
@@ -257,7 +259,9 @@ function renderQTableRows(id, object) {
 }
 
 function formatArray(e) {
-  return Array.isArray(e) ? e.map(formatName).join(formatName(i18n.delimiter)) : formatName(e);
+  return Array.isArray(e)
+    ? e.map(([id, obj]) => renderLink(id, obj.type, obj.name)).join(formatName(i18n.delimiter))
+    : renderLink(e[0], e[1].type, e[1].name);
 }
 
 function formatName(name) {
