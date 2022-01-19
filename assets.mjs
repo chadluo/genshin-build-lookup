@@ -1180,6 +1180,35 @@ export const materials = {
 
 // enemies
 
+export const enemy_ids = {
+  weekly_bosses: [
+    "Confront Stormterror",
+    "Enter the Golden House",
+    "Narukami Island: Tenshukaku",
+    "Beneath the Dragon-Queller",
+    "Wolf of the North Challenge",
+  ],
+  bosses: [
+    "Electro Hypostasis",
+    "Anemo Hypostasis",
+    "Cryo Regisvine",
+    "Geo Hypostasis",
+    "Rhodeia of Loch",
+    "Pyro Regisvine",
+    "Primo Geovishap",
+    "Cryo Hypostasis",
+    "Maguu Kenki",
+    "Pyro Hypostasis",
+    "Perpetual Mechanical Array",
+    "Hydro Hypostasis",
+    "Thunder Manifestation",
+    "Golden Wolflord",
+    "Bathysmal Vishap Herd",
+  ],
+  talent_domains: ["Forsaken Rift", "Taishan Mansion", "Violet Court"],
+  weapon_domains: ["Cecilia Garden", "Hidden Palace of Lianshan Formula", "Court of Flowing Sand"],
+};
+
 export const domains = {
   "Cecilia Garden": {
     name: { en: "Cecilia Garden", "zh-CN": "塞西莉亚苗圃" },
