@@ -76,6 +76,10 @@ function renderLink(id, type, names) {
   return `<a data-id='${id}' data-type='${type}'>${formatName(names)}</a>`;
 }
 
+function renderDomainLink(id, weekday, type, names) {
+  return `<a data-id='${id}' data-weekday='${weekday}' data-type='${type}'>${formatName(names)}</a>`;
+}
+
 function formatDomains(ids, type) {
   return ids
     .map(
@@ -104,6 +108,12 @@ function renderWeekdayDomainTables() {
 function loadQTable(event) {
   const a = event.composedPath().find((e) => e.tagName === "A");
   if (!a) return;
+  const id = a.dataset.id;
+  const weekday = a.dataset.weekday;
+
+  document.querySelectorAll(".qtable").forEach((element) => {
+    element.classList.remove("highlighted");
+  });
   switch (a.dataset.type) {
     case CHARACTERS:
       output.innerHTML += renderCharacter(a.dataset.id);
@@ -120,6 +130,7 @@ function loadQTable(event) {
       output.innerHTML += renderDomain(a.dataset.id, a.dataset.weekday);
       break;
   }
+  window.scrollTo(0, document.body.offsetHeight);
 }
 
 selectors.addEventListener("click", loadQTable);
@@ -180,6 +191,7 @@ function findEnemiesForMaterial(m) {
           ])
         ),
         type: domain.type,
+        weekday: domain.materials_by_weekday.indexOf(m),
       },
     ]);
   if (ds.length) return ds;
@@ -244,7 +256,7 @@ function findWeaponsForMaterial(m) {
 }
 
 function renderFullQTable(id, object) {
-  return `<table class="qtable">${renderQTableRows(id, object)}</table>`;
+  return `<table class="qtable highlighted">${renderQTableRows(id, object)}</table>`;
 }
 
 function renderQTableRows(id, object) {
@@ -261,9 +273,13 @@ function renderQTableRows(id, object) {
 }
 
 function formatArray(e) {
-  return Array.isArray(e)
-    ? e.map(([id, obj]) => renderLink(id, obj.type, obj.name)).join(formatName(i18n.delimiter))
-    : renderLink(e[0], e[1].type, e[1].name);
+  return e
+    .map(([id, obj]) =>
+      obj.type === WEAPON_DOMAINS || obj.type === TALENT_DOMAINS
+        ? renderDomainLink(id, obj.weekday, obj.type, obj.name)
+        : renderLink(id, obj.type, obj.name)
+    )
+    .join(formatName(i18n.delimiter));
 }
 
 function formatName(name) {

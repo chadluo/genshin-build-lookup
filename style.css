@@ -92,6 +92,9 @@ td {
   margin-top: 2rem;
   width: 100%;
 }
+.qtable.highlighted {
+  background: #ffd;
+}
 .qtable tr:nth-child(1) > th {
   width: 15%;
 }
