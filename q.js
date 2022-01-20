@@ -110,27 +110,31 @@ function loadQTable(event) {
   if (!a) return;
   const id = a.dataset.id;
   const weekday = a.dataset.weekday;
-
+  if (id === sessionStorage.getItem("last_query_id") || weekday === sessionStorage.getItem("last_query_weekday")) {
+    return;
+  }
   document.querySelectorAll(".qtable").forEach((element) => {
     element.classList.remove("highlighted");
   });
   switch (a.dataset.type) {
     case CHARACTERS:
-      output.innerHTML += renderCharacter(a.dataset.id);
+      output.innerHTML += renderCharacter(id);
       break;
     case WEAPONS:
-      output.innerHTML += renderWeapon(a.dataset.id);
+      output.innerHTML += renderWeapon(id);
       break;
     case WEEKLY_BOSSES:
     case BOSSES:
-      output.innerHTML += renderBoss(a.dataset.id);
+      output.innerHTML += renderBoss(id);
       break;
     case TALENT_DOMAINS:
     case WEAPON_DOMAINS:
-      output.innerHTML += renderDomain(a.dataset.id, a.dataset.weekday);
+      output.innerHTML += renderDomain(id, weekday);
       break;
   }
   window.scrollTo(0, document.body.offsetHeight);
+  sessionStorage.setItem("last_query_id", id);
+  sessionStorage.setItem("last_query_weekday", weekday);
 }
 
 selectors.addEventListener("click", loadQTable);
