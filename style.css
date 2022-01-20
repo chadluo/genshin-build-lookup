@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Noto+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+Symbols+2&family=Noto+Sans:wght@400;700&display=swap");
 
 body {
-  font-family: "Noto Sans", "Noto Sans SC", sans-serif;
+  font-family: "Noto Sans Symbols 2", "Noto Sans", "Noto Sans SC", sans-serif;
   margin: 0;
 }
 
@@ -16,8 +16,8 @@ a:hover {
 .i18n {
   display: none;
 }
-html.en .i18n:lang(en),
-html.zh-CN .i18n:lang(zh-CN) {
+html:lang(en) .i18n:lang(en),
+html:lang(zh-CN) .i18n:lang(zh-CN) {
   display: inline-block;
 }
 

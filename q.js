@@ -32,8 +32,8 @@ document.getElementById("lang-select").addEventListener("change", (event) => {
 });
 
 function setLanguage(lang) {
-  document.documentElement.classList.value = "";
-  document.documentElement.classList.add(lang);
+  document.title = document.querySelector(`h1 > span[lang=${lang}]`).innerHTML;
+  document.documentElement.setAttribute("lang", lang);
 }
 
 /* content tables */
@@ -220,7 +220,9 @@ function findDomain(domain, weekday) {
 function byDomain(domain, weekday) {
   const d = domains[domain];
   const m = d.materials_by_weekday[weekday > 3 ? weekday - 3 : weekday];
-  return new Map([[materials[m].name, d.type === "weapon" ? findWeaponsForMaterial(m) : findCharactersForMaterial(m)]]);
+  return new Map([
+    [materials[m].name, d.type === WEAPON_DOMAINS ? findWeaponsForMaterial(m) : findCharactersForMaterial(m)],
+  ]);
 }
 
 function findCharactersForMaterial(m) {
