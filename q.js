@@ -16,7 +16,8 @@ window.addEventListener("DOMContentLoaded", () => {
     .map(([lang, name]) => `<option value="${lang}">${name}</option>`)
     .join("");
 
-  const lang = i18n.supported_languages.hasOwnProperty(navigator.language) ? navigator.language : "en";
+  const lang_candidate = localStorage.getItem("lang") || navigator.language;
+  const lang = i18n.supported_languages.hasOwnProperty(lang_candidate) ? lang_candidate : "en";
   setLanguage(lang);
 
   selectors.innerHTML += renderItemsTable(characters, CHARACTERS);
@@ -34,6 +35,7 @@ document.getElementById("lang-select").addEventListener("change", (event) => {
 function setLanguage(lang) {
   document.title = document.querySelector(`h1 > span[lang=${lang}]`).innerHTML;
   document.documentElement.setAttribute("lang", lang);
+  localStorage.setItem("lang", lang);
 }
 
 /* content tables */
