@@ -33,8 +33,9 @@ document.getElementById("lang-select").addEventListener("change", (event) => {
 });
 
 function setLanguage(lang) {
-  document.title = document.querySelector(`h1 > span[lang=${lang}]`).innerHTML;
   document.documentElement.setAttribute("lang", lang);
+  document.title = document.querySelector(`h1 > span[lang=${lang}]`).innerHTML;
+  document.getElementById("lang-select").value = lang;
   localStorage.setItem("lang", lang);
 }
 

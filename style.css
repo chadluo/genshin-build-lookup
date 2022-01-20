@@ -49,6 +49,10 @@ nav .links {
 nav .links a + a {
   margin-left: 1em;
 }
+#lang-select {
+  padding: 0.2em 0.1em;
+  border-color: #ccc;
+}
 
 nav + div {
   margin-top: 5rem;
