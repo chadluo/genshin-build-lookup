@@ -1,7 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+Symbols+2&family=Noto+Sans:wght@400;700&display=swap");
-
 body {
-  font-family: "Noto Sans Symbols 2", "Noto Sans", "Noto Sans SC", sans-serif;
+  font-family: "Noto Sans", sans-serif;
+  line-height: 1.4rem;
   margin: 0;
 }
 
@@ -13,12 +12,19 @@ a:hover {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+/* i18n */
+
 .i18n {
   display: none;
 }
 html:lang(en) .i18n:lang(en),
 html:lang(zh-CN) .i18n:lang(zh-CN) {
   display: inline-block;
+}
+
+.i18n:lang(zh-CN) {
+  font-family: "Noto Sans SC", sans-serif;
 }
 
 /* navbar */
@@ -71,26 +77,22 @@ details {
 details:target table {
   background: #f4f4f4;
 }
-table,
-th,
-td {
+table {
   border-collapse: collapse;
-  border: 0.5px solid #ccc;
-  text-align: left;
 }
 th,
 td {
-  padding: 0.25em 0.5em;
+  padding: 0.5em;
+  text-align: left;
   vertical-align: top;
+  white-space: pre-wrap;
+  border: 0.5px solid #ccc;
 }
 .ctable {
   margin-top: 0.5em;
 }
 .ctable tr > th:nth-child(1) {
   width: 15%;
-}
-.ctable td {
-  white-space: pre-wrap;
 }
 .qtable {
   margin-top: 2rem;

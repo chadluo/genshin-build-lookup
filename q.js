@@ -11,6 +11,9 @@ const WEAPON_DOMAINS = "weapon_domains";
 const selectors = document.querySelector("div.selectors");
 const output = document.querySelector("div.output");
 
+let last_query_id;
+let last_query_weekday;
+
 window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("lang-select").innerHTML = Object.entries(i18n.supported_languages)
     .map(([lang, name]) => `<option value="${lang}">${name}</option>`)
@@ -51,7 +54,7 @@ function renderItemsTable(items, type) {
      .reverse()
      .map(
        (rarity) =>
-         `<tr><td>${"🟊".repeat(rarity)}</td><td>${Object.values(groupBy("category", byRarity[rarity]))
+         `<tr><td>${`⭐`.repeat(rarity)}</td><td>${Object.values(groupBy("category", byRarity[rarity]))
            .map(
              (arr) => "<p>" + arr.map(([id, obj]) => renderLink(id, type, obj.name)).join(formatName(i18n.delimiter))
            )
@@ -112,13 +115,9 @@ function loadQTable(event) {
   const a = event.composedPath().find((e) => e.tagName === "A");
   if (!a) return;
   const id = a.dataset.id;
-  const weekday = a.dataset.weekday;
-  if (id === sessionStorage.getItem("last_query_id") || weekday === sessionStorage.getItem("last_query_weekday")) {
-    return;
-  }
-  document.querySelectorAll(".qtable").forEach((element) => {
-    element.classList.remove("highlighted");
-  });
+  const weekday = a.dataset.weekday || "-1";
+  if (id === last_query_id && weekday === last_query_weekday) return;
+  document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
   switch (a.dataset.type) {
     case CHARACTERS:
       output.innerHTML += renderCharacter(id);
@@ -132,12 +131,12 @@ function loadQTable(event) {
       break;
     case TALENT_DOMAINS:
     case WEAPON_DOMAINS:
-      output.innerHTML += renderDomain(id, weekday);
+      output.innerHTML += renderDomain(id, parseInt(weekday));
       break;
   }
-  window.scrollTo(0, document.body.offsetHeight);
-  sessionStorage.setItem("last_query_id", id);
-  sessionStorage.setItem("last_query_weekday", weekday);
+  window.scrollTo({ left: 0, top: document.body.offsetHeight, behavior: "smooth" });
+  last_query_id = id;
+  last_query_weekday = weekday;
 }
 
 selectors.addEventListener("click", loadQTable);
@@ -188,21 +187,25 @@ function byWeapon(weapon) {
 function findEnemiesForMaterial(m) {
   const ds = Object.entries(domains)
     .filter(([id, domain]) => domain.materials_by_weekday.includes(m))
-    .map(([id, domain]) => [
-      id,
-      {
-        name: Object.fromEntries(
-          Object.entries(domain.name).map(([lang, value]) => [
-            lang,
-            value + " / " + findWeekday(lang, domain.materials_by_weekday.indexOf(m)),
-          ])
-        ),
-        type: domain.type,
-        weekday: domain.materials_by_weekday.indexOf(m),
-      },
-    ]);
+    .map(([id, domain]) => {
+      const day = domain.materials_by_weekday.indexOf(m);
+      return [
+        id,
+        {
+          name: Object.fromEntries(
+            Object.entries(domain.name).map(([lang, value]) => [lang, formatWeekday(value, lang, day)])
+          ),
+          type: domain.type,
+          weekday: day,
+        },
+      ];
+    });
   if (ds.length) return ds;
   return Object.entries(bosses).filter(([id, b]) => b.materials.includes(m));
+}
+
+function formatWeekday(name, lang, weekday) {
+  return `${name} / ${findWeekday(lang, weekday)}`;
 }
 
 function findWeekday(lang, day) {
@@ -231,9 +234,7 @@ function byBoss(boss) {
 
 function findDomain(domain, weekday) {
   const d = domains[domain];
-  return Object.fromEntries(
-    Object.entries(d.name).map(([lang, value]) => [lang, value + "<br>" + findWeekday(lang, weekday)])
-  );
+  return Object.fromEntries(Object.entries(d.name).map(([lang, value]) => [lang, formatWeekday(value, lang, weekday)]));
 }
 
 function byDomain(domain, weekday) {
