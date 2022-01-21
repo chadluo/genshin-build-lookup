@@ -61,22 +61,36 @@ function renderItemsTable(items, type) {
    ${Object.entries(groupBy("rarity", Object.entries(items)))
      .sort(([r1], [r2]) => r2 - r1)
      .map(([rarity, items]) => {
-       const byCategory = Object.values(groupBy("category", items));
+       const byCategory = Object.entries(groupBy("category", items));
        return `<tr><td rowspan="${byCategory.length}">${"⭐".repeat(rarity)}</td>
-       <td>${byCategory[0]
+       <td>${type === WEAPONS ? formatWeaponIcon(byCategory[0][0]) : ""}${byCategory[0][1]
          .map(([id, obj]) => renderLink(id, type, obj.name))
          .join(formatName(i18n.delimiter))}</td></tr>
        ${byCategory
          .slice(1)
          .map(
-           (category) =>
-             `<tr><td>${category
+           ([category, items]) =>
+             `<tr><td>${type === WEAPONS ? formatWeaponIcon(category) : ""}${items
                .map(([id, obj]) => renderLink(id, type, obj.name))
                .join(formatName(i18n.delimiter))}</td></tr>`
          )
          .join("")}`;
      })
      .join("")}</table></details>`;
+}
+
+function formatWeaponIcon(category) {
+  let icon;
+  // prettier-ignore
+  switch (category) {
+    case "bow":      icon = "🏹"; break;
+    case "catalyst": icon = "📕"; break;
+    case "claymore": icon = "🐟"; break;
+    case "polearm":  icon = "🌿"; break;
+    case "sword":    icon = "🗡️"; break;
+    default: return "";
+  }
+  return `<span class="weapon-icon">${icon}</span>`;
 }
 
 function renderEnemiesTable() {
