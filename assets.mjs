@@ -257,7 +257,7 @@ export const weapons = {
     name: { en: "Skyward Harp", "zh-CN": "天空之翼" },
     materials: ["Boreal Wolf's Milk Tooth", "Dead Ley Line Branch", "Firm Arrowhead"],
   },
-  "Amos&apos; Bow": {
+  "Amos’ Bow": {
     rarity: 5,
     category: "bow",
     name: { en: "Amos' Bow", "zh-CN": "阿莫斯之弓" },
@@ -311,10 +311,10 @@ export const weapons = {
     name: { en: "Prototype Crescent", "zh-CN": "试作澹月" },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Treasure Hoarder Insignia"],
   },
-  "Mouun&apos;s Moon": {
+  "Mouun’s Moon": {
     rarity: 4,
     category: "bow",
-    name: { en: "Mouun&apos;s Moon", "zh-CN": "曚云之月" },
+    name: { en: "Mouun’s Moon", "zh-CN": "曚云之月" },
     materials: ["Narukami's Wisdom", "Dismal Prism", "Spectral Husk"],
   },
   "Mitternachts Waltz": {
@@ -371,7 +371,7 @@ export const weapons = {
     name: { en: "Messenger", "zh-CN": "信使" },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Treasure Hoarder Insignia"],
   },
-  "Sharpshooter&apos;s Oath": {
+  "Sharpshooter’s Oath": {
     rarity: 3,
     category: "bow",
     name: { en: "Sharpshooter's Oath", "zh-CN": "神射手之誓" },
@@ -515,7 +515,7 @@ export const weapons = {
     name: { en: "Twin Nephrite", "zh-CN": "甲级宝珏" },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Recruit's Insignia"],
   },
-  "Wolf&apos;s Gravestone": {
+  "Wolf’s Gravestone": {
     rarity: 5,
     category: "claymore",
     name: { en: "Wolf's Gravestone", "zh-CN": "狼的末路" },
@@ -713,10 +713,10 @@ export const weapons = {
     name: { en: "Kitain Cross Spear", "zh-CN": "喜多院十文字" },
     materials: ["Mask of the Wicked Lieutenant", "Chaos Gear", "Treasure Hoarder Insignia"],
   },
-  "&quot;The Catch&quot;": {
+  "“The Catch”": {
     rarity: 4,
     category: "polearm",
-    name: { en: "&quot;The Catch&quot;", "zh-CN": "「渔获」" },
+    name: { en: "“The Catch”", "zh-CN": "「渔获」" },
     materials: ["Mask of the Wicked Lieutenant", "Chaos Gear", "Spectral Husk"],
   },
   "Favonius Lance": {
@@ -731,7 +731,7 @@ export const weapons = {
     name: { en: "Dragonspine Spear", "zh-CN": "龙脊长枪" },
     materials: ["Boreal Wolf's Milk Tooth", "Mist Grass Pollen", "Recruit's Insignia"],
   },
-  "Dragon&apos;s Bane": {
+  "Dragon’s Bane": {
     rarity: 4,
     category: "polearm",
     name: { en: "Dragon's Bane", "zh-CN": "匣里灭辰" },
@@ -755,7 +755,7 @@ export const weapons = {
     name: { en: "Blackcliff Pole", "zh-CN": "黑岩刺枪" },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Recruit's Insignia"],
   },
-  "Wavebreaker&apos;s Fin": {
+  "Wavebreaker’s Fin": {
     rarity: 4,
     category: "polearm",
     name: { en: "Wavebreaker's Fin", "zh-CN": "断浪长鳍" },
@@ -869,7 +869,7 @@ export const weapons = {
     name: { en: "Amenoma Kageuchi", "zh-CN": "天目影打刀" },
     materials: ["Coral Branch of a Distant Sea", "Chaos Gear", "Old Handguard"],
   },
-  "Lion&apos;s Roar": {
+  "Lion’s Roar": {
     rarity: 4,
     category: "sword",
     name: { en: "Lion's Roar", "zh-CN": "匣里龙吟" },
@@ -935,7 +935,7 @@ export const weapons = {
     name: { en: "Cool Steel", "zh-CN": "冷刃" },
     materials: ["Tile of Decarabian's Tower", "Heavy Horn", "Firm Arrowhead"],
   },
-  "Traveler&apos;s Handy Sword": {
+  "Traveler’s Handy Sword": {
     rarity: 3,
     category: "sword",
     name: { en: "Traveler's Handy Sword", "zh-CN": "旅行剑" },

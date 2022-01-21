@@ -73,21 +73,21 @@ nav + div {
 #today::before {
   content: "📅";
   display: block;
-  margin: 2.5rem 0;
+  margin-bottom: 2rem;
   text-align: center;
 }
 
 .output::before {
   content: "🚜";
   display: block;
-  margin: 2.5rem 0;
+  margin-bottom: 2rem;
   text-align: center;
 }
 
+#today,
 details {
   margin-top: -3rem;
-  padding-top: 5rem;
-  transition: height 0.2s linear;
+  padding-top: 6rem;
 }
 details:target summary {
   font-weight: bold;

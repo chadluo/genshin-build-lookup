@@ -180,15 +180,11 @@ function byCharacter(character) {
 }
 
 function findWeapon(weapon) {
-  return weapons[escapeQuotes(weapon)].name;
-}
-
-function escapeQuotes(str) {
-  return str.replaceAll("'", "&apos;").replaceAll('"', "&quot;");
+  return weapons[weapon].name;
 }
 
 function byWeapon(weapon) {
-  return weapons[escapeQuotes(weapon)].materials.reduce(
+  return weapons[weapon].materials.reduce(
     (map, m) => (map.set(materials[m].name, findEnemiesForMaterial(m)), map),
     new Map()
   );
