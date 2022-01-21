@@ -9,6 +9,7 @@ const TALENT_DOMAINS = "talent_domains";
 const WEAPON_DOMAINS = "weapon_domains";
 
 const selectors = document.querySelector("div.selectors");
+const today = document.querySelector("div#today");
 const output = document.querySelector("div.output");
 
 let last_query_id;
@@ -26,8 +27,17 @@ window.addEventListener("DOMContentLoaded", () => {
   selectors.innerHTML += renderItemsTable(characters, CHARACTERS);
   selectors.innerHTML += renderItemsTable(weapons, WEAPONS);
   selectors.innerHTML += renderEnemiesTable();
-  output.innerHTML += renderWeekdayDomainTables();
+  today.innerHTML = renderWeekdayDomainTables();
 });
+
+function renderWeekdayDomainTables() {
+  const weekday = new Date().getDay();
+  return weekday === 0
+    ? ""
+    : `<table today-domains" class="qtable">${Object.keys(domains)
+        .map((domain) => renderQTableRows(findDomain(domain, weekday), byDomain(domain, weekday)))
+        .join("")}</table>`;
+}
 
 /* language selector */
 
@@ -110,15 +120,6 @@ function formatDomain(id, type) {
 
 /* search result tables */
 
-function renderWeekdayDomainTables() {
-  const weekday = new Date().getDay();
-  return weekday === 0
-    ? ""
-    : `<table class="qtable">${Object.keys(domains)
-        .map((domain) => renderQTableRows(findDomain(domain, weekday), byDomain(domain, weekday)))
-        .join("")}</table>`;
-}
-
 function loadQTable(event) {
   const a = event.composedPath().find((e) => e.tagName === "A");
   if (!a) return;
@@ -148,6 +149,7 @@ function loadQTable(event) {
 }
 
 selectors.addEventListener("click", loadQTable);
+today.addEventListener("click", loadQTable);
 output.addEventListener("click", loadQTable);
 
 function renderCharacter(character) {
