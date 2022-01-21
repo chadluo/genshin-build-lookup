@@ -74,8 +74,8 @@ details {
   margin-top: -3rem;
   padding-top: 5rem;
 }
-details:target table {
-  background: #f4f4f4;
+details:target summary {
+  font-weight: bold;
 }
 table {
   border-collapse: collapse;
@@ -106,12 +106,6 @@ td {
 }
 .qtable tr:nth-child(1) > td:nth-child(2) {
   width: 30%;
-}
-td p {
-  margin: 0;
-}
-td p + p {
-  margin-top: 0.5em;
 }
 
 #clear {

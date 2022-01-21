@@ -45,21 +45,27 @@ function setLanguage(lang) {
 /* content tables */
 
 function renderItemsTable(items, type) {
-  const byRarity = groupBy("rarity", Object.entries(items));
   const typeName = formatName(i18n[type]);
   return `<details id="${type}" open><summary>${typeName}</summary>
   <table class="ctable"><tr><th>${formatName(i18n.rarity)}</th><th>${typeName}</th></tr>
-   ${Object.keys(byRarity)
-     .sort()
-     .reverse()
-     .map(
-       (rarity) =>
-         `<tr><td>${`⭐`.repeat(rarity)}</td><td>${Object.values(groupBy("category", byRarity[rarity]))
-           .map(
-             (arr) => "<p>" + arr.map(([id, obj]) => renderLink(id, type, obj.name)).join(formatName(i18n.delimiter))
-           )
-           .join("")}</td></tr>`
-     )
+   ${Object.entries(groupBy("rarity", Object.entries(items)))
+     .sort(([r1], [r2]) => r2 - r1)
+     .map(([rarity, items]) => {
+       const byCategory = Object.values(groupBy("category", items));
+       return `<tr><td rowspan="${byCategory.length}">${"⭐".repeat(rarity)}</td>
+       <td>${byCategory[0]
+         .map(([id, obj]) => renderLink(id, type, obj.name))
+         .join(formatName(i18n.delimiter))}</td></tr>
+       ${byCategory
+         .slice(1)
+         .map(
+           (category) =>
+             `<tr><td>${category
+               .map(([id, obj]) => renderLink(id, type, obj.name))
+               .join(formatName(i18n.delimiter))}</td></tr>`
+         )
+         .join("")}`;
+     })
      .join("")}</table></details>`;
 }
 
@@ -72,10 +78,18 @@ function renderEnemiesTable() {
     <tr><th>${formatName(i18n.bosses)}</th><td>${enemy_ids.bosses
     .map((d) => renderLink(d, BOSSES, bosses[d].name))
     .join(formatName(i18n.delimiter))}</td></tr>
-    <tr><th>${formatName(i18n.talent_domains)}</th>
-    <td>${formatDomains(enemy_ids.talent_domains, TALENT_DOMAINS)}</td></tr>
-    <tr><th>${formatName(i18n.weapon_domains)}</th>
-    <td>${formatDomains(enemy_ids.weapon_domains, WEAPON_DOMAINS)}</td></tr></table></details>`;
+    <tr><th rowspan="${enemy_ids.talent_domains.length}">${formatName(i18n.talent_domains)}</th>
+    ${formatDomain(enemy_ids.talent_domains[0], TALENT_DOMAINS)}</tr>
+    ${enemy_ids.talent_domains
+      .slice(1)
+      .map((id) => `<tr>${formatDomain(id, TALENT_DOMAINS)}</tr>`)
+      .join("")}
+    <tr><th rowspan="${enemy_ids.weapon_domains.length}">${formatName(i18n.weapon_domains)}</th>
+    ${formatDomain(enemy_ids.weapon_domains[0], WEAPON_DOMAINS)}</tr>
+    ${enemy_ids.weapon_domains
+      .slice(1)
+      .map((id) => `<tr>${formatDomain(id, WEAPON_DOMAINS)}</tr>`)
+      .join("")}`;
 }
 
 function renderLink(id, type, names) {
@@ -86,18 +100,12 @@ function renderDomainLink(id, weekday, type, names) {
   return `<a data-id='${id}' data-weekday='${weekday}' data-type='${type}'>${formatName(names)}</a>`;
 }
 
-function formatDomains(ids, type) {
-  return ids
-    .map(
-      (d) =>
-        `<p>${formatName(domains[d].name)} / ${["mon_thu", "tue_fri", "wed_sat"]
-          .map(
-            (weekday, i) =>
-              `<a data-id='${d}' data-weekday='${i + 1}' data-type='${type}'>${formatName(i18n.weekdays[weekday])}</a>`
-          )
-          .join(formatName(i18n.delimiter))}`
-    )
-    .join("");
+function formatDomain(id, type) {
+  return `<td>${formatName(domains[id].name)} / ${["mon_thu", "tue_fri", "wed_sat"]
+    .map((weekday, i) => {
+      return `<a data-id='${id}' data-weekday='${i + 1}' data-type='${type}'>${formatName(i18n.weekdays[weekday])}</a>`;
+    })
+    .join(formatName(i18n.delimiter))}</td>`;
 }
 
 /* search result tables */
@@ -186,7 +194,7 @@ function byWeapon(weapon) {
 
 function findEnemiesForMaterial(m) {
   const ds = Object.entries(domains)
-    .filter(([id, domain]) => domain.materials_by_weekday.includes(m))
+    .filter(([, domain]) => domain.materials_by_weekday.includes(m))
     .map(([id, domain]) => {
       const day = domain.materials_by_weekday.indexOf(m);
       return [
