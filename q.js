@@ -24,10 +24,17 @@ window.addEventListener("DOMContentLoaded", () => {
   const lang = i18n.supported_languages.hasOwnProperty(lang_candidate) ? lang_candidate : "en";
   setLanguage(lang);
 
-  selectors.innerHTML += renderItemsTable(characters, TYPE_CHARACTER);
-  selectors.innerHTML += renderItemsTable(weapons, TYPE_WEAPON);
-  selectors.innerHTML += renderEnemiesTable();
+  const bookmarks = JSON.parse(localStorage.getItem("bookmarks") || "[]");
+
+  selectors.innerHTML += renderItemsTable(characters, TYPE_CHARACTER, bookmarks.length !== 0);
+  selectors.innerHTML += renderItemsTable(weapons, TYPE_WEAPON, bookmarks.length !== 0);
+  selectors.innerHTML += renderEnemiesTable(bookmarks.length !== 0);
   today.innerHTML = renderWeekdayDomainTables();
+
+  bookmarks.forEach(([type, id, weekday]) => {
+    return (output.innerHTML += renderQTable(type, id, weekday));
+  });
+  document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
 });
 
 function renderWeekdayDomainTables() {
@@ -57,9 +64,9 @@ function setLanguage(lang) {
 
 /* content tables */
 
-function renderItemsTable(items, type) {
+function renderItemsTable(items, type, hasBookmarks) {
   const typeName = formatName(i18n[type]);
-  return `<details id="${type}" open><summary>${typeName}</summary>
+  return `<details id="${type}" ${hasBookmarks ? "" : "open"}><summary>${typeName}</summary>
   <table class="ctable"><tr><th>${formatName(i18n.rarity)}</th><th>${typeName}</th></tr>
    ${Object.entries(groupBy("rarity", Object.entries(items)))
      .sort(([r1], [r2]) => r2 - r1)
@@ -96,8 +103,8 @@ function formatWeaponIcon(category) {
   return `<span class="weapon-icon">${icon}</span>`;
 }
 
-function renderEnemiesTable() {
-  return `<details id="enemies" open><summary>${formatName(i18n.enemies_domains)}</summary>
+function renderEnemiesTable(hasBookmarks) {
+  return `<details id="enemies" ${hasBookmarks ? "" : "open"}><summary>${formatName(i18n.enemies_domains)}</summary>
   <table class="ctable"><tr><th>${formatName(i18n.type)}</th><th>${formatName(i18n.enemies_domains)}</th></tr>
     <tr><th>${formatName(i18n.weekly_boss)}</th><td>${enemy_ids.weekly_bosses
     .map((d) => renderLink(d, TYPE_WEEKLY_BOSS, bosses[d].name))
@@ -148,24 +155,9 @@ function loadQTable(event) {
   const id = a.dataset.id;
   const weekday = a.dataset.weekday || "-1";
   if (id === last_query_id && weekday === last_query_weekday) return;
-  document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
   const type = a.dataset.type;
-  switch (type) {
-    case TYPE_CHARACTER:
-      output.innerHTML += renderCharacter(id);
-      break;
-    case TYPE_WEAPON:
-      output.innerHTML += renderWeapon(id);
-      break;
-    case TYPE_WEEKLY_BOSS:
-    case TYPE_BOSS:
-      output.innerHTML += renderBoss(type, id);
-      break;
-    case TYPE_TALENT_DOMAIN:
-    case TYPE_WEAPON_DOMAIN:
-      output.innerHTML += renderDomain(type, id, parseInt(weekday));
-      break;
-  }
+  document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
+  output.innerHTML += renderQTable(type, id, weekday);
   window.scrollTo({ left: 0, top: document.body.offsetHeight, behavior: "smooth" });
   last_query_id = id;
   last_query_weekday = weekday;
@@ -175,20 +167,19 @@ selectors.addEventListener("click", loadQTable);
 today.addEventListener("click", loadQTable);
 output.addEventListener("click", loadQTable);
 
-function renderCharacter(character) {
-  return renderFullQTable(TYPE_CHARACTER, character, findCharacter(character), byCharacter(character));
-}
-
-function renderWeapon(weapon) {
-  return renderFullQTable(TYPE_WEAPON, weapon, findWeapon(weapon), byWeapon(weapon));
-}
-
-function renderBoss(type, boss) {
-  return renderFullQTable(type, boss, findBoss(boss), byBoss(boss));
-}
-
-function renderDomain(type, domainName, weekday) {
-  return renderFullQTable(type, domainName, findDomain(domainName, weekday), byDomain(domainName, weekday), weekday);
+function renderQTable(type, id, weekday) {
+  switch (type) {
+    case TYPE_CHARACTER:
+      return renderFullQTable(TYPE_CHARACTER, id, findCharacter(id), byCharacter(id));
+    case TYPE_WEAPON:
+      return renderFullQTable(TYPE_WEAPON, id, findWeapon(id), byWeapon(id));
+    case TYPE_WEEKLY_BOSS:
+    case TYPE_BOSS:
+      return renderFullQTable(type, id, findBoss(id), byBoss(id));
+    case TYPE_TALENT_DOMAIN:
+    case TYPE_WEAPON_DOMAIN:
+      return renderFullQTable(type, id, findDomain(id, weekday), byDomain(id, weekday), weekday);
+  }
 }
 
 function findCharacter(character) {

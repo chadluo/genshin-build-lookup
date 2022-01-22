@@ -80,20 +80,22 @@ nav + div {
 
 .weapon-icon {
   display: inline-block;
-  width: 1.5em;
+}
+.weapon-icon::after {
+  content: " ";
 }
 
 #today::before {
   content: "📅";
   display: block;
-  margin-bottom: 2rem;
+  margin: 3rem 0;
   text-align: center;
 }
 
-.output::before {
+.output:not(:empty)::before {
   content: "🚜";
   display: block;
-  margin-bottom: 2rem;
+  margin: 3rem 0;
   text-align: center;
 }
 
