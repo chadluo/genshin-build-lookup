@@ -349,6 +349,13 @@ function bookmark(type, id, weekday) {
   const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
   const index = bookmarks.findIndex(([t, i, w]) => t === type && i === id && w === weekday);
   if (index === -1) {
+    document
+      .querySelectorAll(
+        type === TYPE_TALENT_DOMAIN || type === TYPE_WEAPON_DOMAIN
+          ? `a[data-id="${id}"][data-weekday="${weekday}"]`
+          : `a[data-id="${id}"]`
+      )
+      .forEach((e) => e.classList.add("bookmarked"));
     bookmarks.push([type, id, weekday]);
     localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
   }
@@ -358,6 +365,13 @@ function unbookmark(type, id, weekday) {
   const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
   const index = bookmarks.findIndex(([t, i, w]) => t === type && i === id && w === weekday);
   if (index !== -1) {
+    document
+      .querySelectorAll(
+        type === TYPE_TALENT_DOMAIN || type === TYPE_WEAPON_DOMAIN
+          ? `a[data-id="${id}"][data-weekday="${weekday}"]`
+          : `a[data-id="${id}"]`
+      )
+      .forEach((e) => e.classList.remove("bookmarked"));
     bookmarks.splice(index, 1);
     localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
   }
