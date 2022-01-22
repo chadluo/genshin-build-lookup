@@ -155,3 +155,17 @@ th input[type="checkbox"] {
   margin-top: 1rem;
   margin-bottom: 3rem;
 }
+
+a#clear,
+a.source {
+  display: block;
+  text-align: center;
+  line-height: 2em;
+  margin: 1em 20% 3em;
+  text-decoration: none;
+}
+
+a#clear:hover,
+a.source:hover {
+  background: whitesmoke;
+}
