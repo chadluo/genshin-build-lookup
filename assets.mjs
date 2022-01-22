@@ -1212,7 +1212,7 @@ export const enemy_ids = {
 export const domains = {
   "Cecilia Garden": {
     name: { en: "Cecilia Garden", "zh-CN": "塞西莉亚苗圃" },
-    type: "weapon_domains",
+    type: "weapon_domain",
     materials_by_weekday: [
       "All",
       "Tile of Decarabian's Tower",
@@ -1222,12 +1222,12 @@ export const domains = {
   },
   "Hidden Palace of Lianshan Formula": {
     name: { en: "Hidden Palace of Lianshan Formula", "zh-CN": "震雷连山密宫" },
-    type: "weapon_domains",
+    type: "weapon_domain",
     materials_by_weekday: ["All", "Luminous Sands from Guyun", "Mist Veiled Lead Elixir", "Grain of Aerosiderite"],
   },
   "Court of Flowing Sand": {
     name: { en: "Court of Flowing Sand", "zh-CN": "砂流之庭" },
-    type: "weapon_domains",
+    type: "weapon_domain",
     materials_by_weekday: [
       "All",
       "Coral Branch of a Distant Sea",
@@ -1237,17 +1237,17 @@ export const domains = {
   },
   "Forsaken Rift": {
     name: { en: "Forsaken Rift", "zh-CN": "忘却之峡" },
-    type: "talent_domains",
+    type: "talent_domain",
     materials_by_weekday: ["All", "Freedom", "Resistance", "Ballad"],
   },
   "Taishan Mansion": {
     name: { en: "Taishan Mansion", "zh-CN": "太山府" },
-    type: "talent_domains",
+    type: "talent_domain",
     materials_by_weekday: ["All", "Prosperity", "Diligence", "Gold"],
   },
   "Violet Court": {
     name: { en: "Violet Court", "zh-CN": "菫色之庭" },
-    type: "talent_domains",
+    type: "talent_domain",
     materials_by_weekday: ["All", "Transience", "Elegance", "Light"],
   },
 };
@@ -1255,52 +1255,52 @@ export const domains = {
 export const bosses = {
   "Anemo Hypostasis": {
     materials: ["Vayuda Turquoise", "Hurricane Seed"],
-    type: "bosses",
+    type: "boss",
     name: { en: "Anemo Hypostasis", "zh-CN": "无相之风" },
   },
   "Bathysmal Vishap Herd": {
     materials: ["Shivada Jade", "Vajrada Amethyst", "Dragonheir's False Fin"],
-    type: "bosses",
+    type: "boss",
     name: { en: "Bathysmal Vishap Herd", "zh-CN": "深海龙蜥" },
   },
   "Cryo Hypostasis": {
     materials: ["Shivada Jade", "Crystalline Bloom"],
-    type: "bosses",
+    type: "boss",
     name: { en: "Cryo Hypostasis", "zh-CN": "无相之冰" },
   },
   "Cryo Regisvine": {
     materials: ["Shivada Jade", "Hoarfrost Core"],
-    type: "bosses",
+    type: "boss",
     name: { en: "Cryo Regisvine", "zh-CN": "急冻树" },
   },
   "Electro Hypostasis": {
     materials: ["Vajrada Amethyst", "Lightning Prism"],
-    type: "bosses",
+    type: "boss",
     name: { en: "Electro Hypostasis", "zh-CN": "无相之雷" },
   },
   "Geo Hypostasis": {
     materials: ["Prithiva Topaz", "Basalt Pillar"],
-    type: "bosses",
+    type: "boss",
     name: { en: "Geo Hypostasis", "zh-CN": "无相之岩" },
   },
   "Golden Wolflord": {
     materials: ["Prithiva Topaz", "Riftborn Regalia"],
-    type: "bosses",
+    type: "boss",
     name: { en: "Golden Wolflord", "zh-CN": "黄金王兽" },
   },
   "Hydro Hypostasis": {
     materials: ["Varunada Lazurite", "Dew of Repudiation"],
-    type: "bosses",
+    type: "boss",
     name: { en: "Hydro Hypostasis", "zh-CN": "无相之水" },
   },
   "Maguu Kenki": {
     materials: ["Vayuda Turquoise", "Shivada Jade", "Marionette Core"],
-    type: "bosses",
+    type: "boss",
     name: { en: "Maguu Kenki", "zh-CN": "魔偶剑鬼" },
   },
   "Perpetual Mechanical Array": {
     materials: ["Prithiva Topaz", "Shivada Jade", "Perpetual Heart"],
-    type: "bosses",
+    type: "boss",
     name: { en: "Perpetual Mechanical Array", "zh-CN": "恒常机关阵列" },
   },
   "Primo Geovishap": {
@@ -1312,27 +1312,27 @@ export const bosses = {
       "Vajrada Amethyst",
       "Juvenile Jade",
     ],
-    type: "bosses",
+    type: "boss",
     name: { en: "Primo Geovishap", "zh-CN": "古岩龙蜥" },
   },
   "Pyro Hypostasis": {
     materials: ["Agnidus Agate", "Smoldering Pearl"],
-    type: "bosses",
+    type: "boss",
     name: { en: "Pyro Hypostasis", "zh-CN": "无相之火" },
   },
   "Pyro Regisvine": {
     materials: ["Agnidus Agate", "Everflame Seed"],
-    type: "bosses",
+    type: "boss",
     name: { en: "Pyro Regisvine", "zh-CN": "爆炎树" },
   },
   "Rhodeia of Loch": {
     materials: ["Varunada Lazurite", "Cleansing Heart"],
-    type: "bosses",
+    type: "boss",
     name: { en: "Rhodeia of Loch", "zh-CN": "纯水精灵" },
   },
   "Thunder Manifestation": {
     materials: ["Vajrada Amethyst", "Storm Beads"],
-    type: "bosses",
+    type: "boss",
     name: { en: "Thunder Manifestation", "zh-CN": "雷音权现" },
   },
 
@@ -1346,7 +1346,7 @@ export const bosses = {
       "Ring of Boreas",
       "Spirit Locket of Boreas",
     ],
-    type: "weekly_bosses",
+    type: "weekly_boss",
     name: { en: "Wolf of the North Challenge / Andrius", "zh-CN": "北风的王狼 / 安德留斯" },
   },
   "Confront Stormterror": {
@@ -1358,7 +1358,7 @@ export const bosses = {
       "Dvalin's Claw",
       "Dvalin's Sigh",
     ],
-    type: "weekly_bosses",
+    type: "weekly_boss",
     name: { en: "Confront Stormterror / Dvalin", "zh-CN": "深入风龙废墟 / 风魔龙・特瓦林" },
   },
   "Enter the Golden House": {
@@ -1370,7 +1370,7 @@ export const bosses = {
       "Shard of a Foul Legacy",
       "Shadow of the Warrior",
     ],
-    type: "weekly_bosses",
+    type: "weekly_boss",
     name: { en: "Enter the Golden House / Childe", "zh-CN": "进入「黄金屋」 / 公子" },
   },
   "Beneath the Dragon-Queller": {
@@ -1384,12 +1384,12 @@ export const bosses = {
       "Bloodjade Branch",
       "Gilded Scale",
     ],
-    type: "weekly_bosses",
+    type: "weekly_boss",
     name: { en: "Beneath the Dragon-Queller / Azhdaha", "zh-CN": "「伏龙树」之底 / 若陀龙王" },
   },
   "Narukami Island: Tenshukaku": {
     materials: ["Shivada Jade", "Agnidus Agate", "Molten Moment", "Hellfire Butterfly", "Ashen Heart"],
-    type: "weekly_bosses",
+    type: "weekly_boss",
     name: { en: "Narukami Island: Tenshukaku / La Signora", "zh-CN": "鸣神岛・天守 / 女士" },
   },
 };
@@ -1406,11 +1406,11 @@ export const i18n = {
     en: "Rarity",
     "zh-CN": "稀有度",
   },
-  characters: {
+  character: {
     en: "Characters",
     "zh-CN": "角色",
   },
-  weapons: {
+  weapon: {
     en: "Weapons",
     "zh-CN": "武器",
   },
@@ -1418,19 +1418,19 @@ export const i18n = {
     en: "Enemies & Domains",
     "zh-CN": "秘境讨伐",
   },
-  weekly_bosses: {
+  weekly_boss: {
     en: "Weekly Bosses",
     "zh-CN": "周本",
   },
-  bosses: {
+  boss: {
     en: "Bosses",
     "zh-CN": "首领",
   },
-  talent_domains: {
+  talent_domain: {
     en: "Talent Domains",
     "zh-CN": "天赋本",
   },
-  weapon_domains: {
+  weapon_domain: {
     en: "Weapon Domains",
     "zh-CN": "武器本",
   },

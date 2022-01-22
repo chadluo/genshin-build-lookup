@@ -4,6 +4,14 @@ body {
   margin: 0;
 }
 
+a {
+  color: gray;
+}
+a.bookmarked {
+  color: black;
+  font-weight: bold;
+}
+
 a:hover {
   cursor: pointer;
   color: blue;
@@ -72,7 +80,7 @@ nav + div {
 
 .weapon-icon {
   display: inline-block;
-  width: 2em;
+  width: 1.5em;
 }
 
 #today::before {
@@ -109,7 +117,11 @@ td {
   text-align: left;
   vertical-align: top;
   white-space: pre-wrap;
-  /* border: 0.5px solid #ccc; */
+}
+th input[type="checkbox"] {
+  display: inline;
+  top: 0;
+  left: 0;
 }
 .ctable {
   margin-top: 0.5em;
@@ -124,10 +136,16 @@ td {
 .qtable.highlighted {
   background: #ffd;
 }
-.qtable tr:nth-child(1) > th {
+.qtable tr:nth-child(1) th {
+  width: 1.5em;
+}
+.qtable tr:nth-child(1) td:nth-child(2) {
   width: 20%;
 }
-.qtable tr:nth-child(1) > td:nth-child(2) {
+.qtable th + td {
+  font-weight: bold;
+}
+.qtable tr:nth-child(1) td:nth-child(3) {
   width: 25%;
 }
 

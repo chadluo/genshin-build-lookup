@@ -1,12 +1,12 @@
 import { bosses, characters, domains, enemy_ids, i18n, materials, weapons } from "./assets.mjs";
 
-const CHARACTERS = "characters";
-const WEAPONS = "weapons";
+const TYPE_CHARACTER = "character";
+const TYPE_WEAPON = "weapon";
 
-const WEEKLY_BOSSES = "weekly_bosses";
-const BOSSES = "bosses";
-const TALENT_DOMAINS = "talent_domains";
-const WEAPON_DOMAINS = "weapon_domains";
+const TYPE_WEEKLY_BOSS = "weekly_boss";
+const TYPE_BOSS = "boss";
+const TYPE_TALENT_DOMAIN = "talent_domain";
+const TYPE_WEAPON_DOMAIN = "weapon_domain";
 
 const selectors = document.querySelector("div.selectors");
 const today = document.querySelector("div#today");
@@ -24,18 +24,21 @@ window.addEventListener("DOMContentLoaded", () => {
   const lang = i18n.supported_languages.hasOwnProperty(lang_candidate) ? lang_candidate : "en";
   setLanguage(lang);
 
-  selectors.innerHTML += renderItemsTable(characters, CHARACTERS);
-  selectors.innerHTML += renderItemsTable(weapons, WEAPONS);
+  selectors.innerHTML += renderItemsTable(characters, TYPE_CHARACTER);
+  selectors.innerHTML += renderItemsTable(weapons, TYPE_WEAPON);
   selectors.innerHTML += renderEnemiesTable();
   today.innerHTML = renderWeekdayDomainTables();
 });
 
 function renderWeekdayDomainTables() {
-  const weekday = new Date().getDay();
+  const day = new Date().getDay();
+  const weekday = day > 3 ? day - 3 : day;
   return weekday === 0
     ? ""
-    : `<table today-domains" class="qtable">${Object.keys(domains)
-        .map((domain) => renderQTableRows(findDomain(domain, weekday), byDomain(domain, weekday)))
+    : `<table class="qtable">${Object.entries(domains)
+        .map(([id, domain]) =>
+          renderQTableRows(domain.type, id, findDomain(id, weekday), byDomain(id, weekday), weekday)
+        )
         .join("")}</table>`;
 }
 
@@ -63,14 +66,14 @@ function renderItemsTable(items, type) {
      .map(([rarity, items]) => {
        const byCategory = Object.entries(groupBy("category", items));
        return `<tr><td rowspan="${byCategory.length}">${"⭐".repeat(rarity)}</td>
-       <td>${type === WEAPONS ? formatWeaponIcon(byCategory[0][0]) : ""}${byCategory[0][1]
+       <td>${type === TYPE_WEAPON ? formatWeaponIcon(byCategory[0][0]) : ""}${byCategory[0][1]
          .map(([id, obj]) => renderLink(id, type, obj.name))
          .join(formatName(i18n.delimiter))}</td></tr>
        ${byCategory
          .slice(1)
          .map(
            ([category, items]) =>
-             `<tr><td>${type === WEAPONS ? formatWeaponIcon(category) : ""}${items
+             `<tr><td>${type === TYPE_WEAPON ? formatWeaponIcon(category) : ""}${items
                .map(([id, obj]) => renderLink(id, type, obj.name))
                .join(formatName(i18n.delimiter))}</td></tr>`
          )
@@ -96,38 +99,43 @@ function formatWeaponIcon(category) {
 function renderEnemiesTable() {
   return `<details id="enemies" open><summary>${formatName(i18n.enemies_domains)}</summary>
   <table class="ctable"><tr><th>${formatName(i18n.type)}</th><th>${formatName(i18n.enemies_domains)}</th></tr>
-    <tr><th>${formatName(i18n.weekly_bosses)}</th><td>${enemy_ids.weekly_bosses
-    .map((d) => renderLink(d, WEEKLY_BOSSES, bosses[d].name))
+    <tr><th>${formatName(i18n.weekly_boss)}</th><td>${enemy_ids.weekly_bosses
+    .map((d) => renderLink(d, TYPE_WEEKLY_BOSS, bosses[d].name))
     .join(formatName(i18n.delimiter))}</td></tr>
-    <tr><th>${formatName(i18n.bosses)}</th><td>${enemy_ids.bosses
-    .map((d) => renderLink(d, BOSSES, bosses[d].name))
+    <tr><th>${formatName(i18n.boss)}</th><td>${enemy_ids.bosses
+    .map((d) => renderLink(d, TYPE_BOSS, bosses[d].name))
     .join(formatName(i18n.delimiter))}</td></tr>
-    <tr><th rowspan="${enemy_ids.talent_domains.length}">${formatName(i18n.talent_domains)}</th>
-    ${formatDomain(enemy_ids.talent_domains[0], TALENT_DOMAINS)}</tr>
+    <tr><th rowspan="${enemy_ids.talent_domains.length}">${formatName(i18n.talent_domain)}</th>
+    ${formatDomain(enemy_ids.talent_domains[0], TYPE_TALENT_DOMAIN)}</tr>
     ${enemy_ids.talent_domains
       .slice(1)
-      .map((id) => `<tr>${formatDomain(id, TALENT_DOMAINS)}</tr>`)
+      .map((id) => `<tr>${formatDomain(id, TYPE_TALENT_DOMAIN)}</tr>`)
       .join("")}
-    <tr><th rowspan="${enemy_ids.weapon_domains.length}">${formatName(i18n.weapon_domains)}</th>
-    ${formatDomain(enemy_ids.weapon_domains[0], WEAPON_DOMAINS)}</tr>
+    <tr><th rowspan="${enemy_ids.weapon_domains.length}">${formatName(i18n.weapon_domain)}</th>
+    ${formatDomain(enemy_ids.weapon_domains[0], TYPE_WEAPON_DOMAIN)}</tr>
     ${enemy_ids.weapon_domains
       .slice(1)
-      .map((id) => `<tr>${formatDomain(id, WEAPON_DOMAINS)}</tr>`)
+      .map((id) => `<tr>${formatDomain(id, TYPE_WEAPON_DOMAIN)}</tr>`)
       .join("")}`;
 }
 
 function renderLink(id, type, names) {
-  return `<a data-id='${id}' data-type='${type}'>${formatName(names)}</a>`;
+  return `<a data-id='${id}' data-type='${type}' ${isBookmarked(type, id, 0) ? "class='bookmarked'" : ""}
+  >${formatName(names)}</a>`;
 }
 
 function renderDomainLink(id, weekday, type, names) {
-  return `<a data-id='${id}' data-weekday='${weekday}' data-type='${type}'>${formatName(names)}</a>`;
+  return `<a data-id='${id}' data-weekday='${weekday}' data-type='${type}' ${
+    isBookmarked(type, id, weekday) ? "class='bookmarked'" : ""
+  }>${formatName(names)}</a>`;
 }
 
 function formatDomain(id, type) {
   return `<td>${formatName(domains[id].name)} / ${["mon_thu", "tue_fri", "wed_sat"]
     .map((weekday, i) => {
-      return `<a data-id='${id}' data-weekday='${i + 1}' data-type='${type}'>${formatName(i18n.weekdays[weekday])}</a>`;
+      return `<a data-id='${id}' data-weekday='${i + 1}' data-type='${type}' ${
+        isBookmarked(type, id, i + 1) ? "class='bookmarked'" : ""
+      }>${formatName(i18n.weekdays[weekday])}</a>`;
     })
     .join(formatName(i18n.delimiter))}</td>`;
 }
@@ -141,20 +149,21 @@ function loadQTable(event) {
   const weekday = a.dataset.weekday || "-1";
   if (id === last_query_id && weekday === last_query_weekday) return;
   document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
-  switch (a.dataset.type) {
-    case CHARACTERS:
+  const type = a.dataset.type;
+  switch (type) {
+    case TYPE_CHARACTER:
       output.innerHTML += renderCharacter(id);
       break;
-    case WEAPONS:
+    case TYPE_WEAPON:
       output.innerHTML += renderWeapon(id);
       break;
-    case WEEKLY_BOSSES:
-    case BOSSES:
-      output.innerHTML += renderBoss(id);
+    case TYPE_WEEKLY_BOSS:
+    case TYPE_BOSS:
+      output.innerHTML += renderBoss(type, id);
       break;
-    case TALENT_DOMAINS:
-    case WEAPON_DOMAINS:
-      output.innerHTML += renderDomain(id, parseInt(weekday));
+    case TYPE_TALENT_DOMAIN:
+    case TYPE_WEAPON_DOMAIN:
+      output.innerHTML += renderDomain(type, id, parseInt(weekday));
       break;
   }
   window.scrollTo({ left: 0, top: document.body.offsetHeight, behavior: "smooth" });
@@ -167,19 +176,19 @@ today.addEventListener("click", loadQTable);
 output.addEventListener("click", loadQTable);
 
 function renderCharacter(character) {
-  return renderFullQTable(findCharacter(character), byCharacter(character));
+  return renderFullQTable(TYPE_CHARACTER, character, findCharacter(character), byCharacter(character));
 }
 
 function renderWeapon(weapon) {
-  return renderFullQTable(findWeapon(weapon), byWeapon(weapon));
+  return renderFullQTable(TYPE_WEAPON, weapon, findWeapon(weapon), byWeapon(weapon));
 }
 
-function renderBoss(boss) {
-  return renderFullQTable(findBoss(boss), byBoss(boss));
+function renderBoss(type, boss) {
+  return renderFullQTable(type, boss, findBoss(boss), byBoss(boss));
 }
 
-function renderDomain(domainName, weekday) {
-  return renderFullQTable(findDomain(domainName, weekday), byDomain(domainName, weekday));
+function renderDomain(type, domainName, weekday) {
+  return renderFullQTable(type, domainName, findDomain(domainName, weekday), byDomain(domainName, weekday), weekday);
 }
 
 function findCharacter(character) {
@@ -261,7 +270,7 @@ function byDomain(domain, weekday) {
   const d = domains[domain];
   const m = d.materials_by_weekday[weekday > 3 ? weekday - 3 : weekday];
   return new Map([
-    [materials[m].name, d.type === WEAPON_DOMAINS ? findWeaponsForMaterial(m) : findCharactersForMaterial(m)],
+    [materials[m].name, d.type === TYPE_WEAPON_DOMAIN ? findWeaponsForMaterial(m) : findCharactersForMaterial(m)],
   ]);
 }
 
@@ -269,28 +278,31 @@ function findCharactersForMaterial(m) {
   return Object.entries(characters)
     .filter(([id, c]) => c.materials.includes(m))
     .map(([id, c]) => {
-      c.type = CHARACTERS;
+      c.type = TYPE_CHARACTER;
       return [id, c];
     });
 }
 
 function findWeaponsForMaterial(m) {
   return Object.entries(weapons)
-    .filter(([id, w]) => w.materials.includes(m))
+    .filter(([, w]) => w.materials.includes(m))
     .map(([id, c]) => {
-      c.type = WEAPONS;
+      c.type = TYPE_WEAPON;
       return [id, c];
     });
 }
 
-function renderFullQTable(id, object) {
-  return `<table class="qtable highlighted">${renderQTableRows(id, object)}</table>`;
+function renderFullQTable(type, id, name, object, weekday) {
+  return `<table class="qtable highlighted">${renderQTableRows(type, id, name, object, weekday)}</table>`;
 }
 
-function renderQTableRows(id, object) {
+function renderQTableRows(type, id, name, object, weekday) {
   const materials = Array.from(object.keys());
   return `<tr>
-      <th rowspan="${materials.length}">${formatName(id).replaceAll(" / ", "<br>")}</th>
+      <th rowspan="${materials.length}"><input type="checkbox" data-type="${type}" data-id="${id}"
+      ${weekday ? `data-weekday="${weekday}"` : ""}
+      ${isBookmarked(type, id, weekday) ? "checked" : ""}></th>
+      <td rowspan="${materials.length}">${formatName(name).replaceAll(" / ", "<br>")}</td>
       <td>${formatName(materials[0])}</td>
       <td>${formatArray(object.get(materials[0]))}</td>
     </tr>
@@ -303,7 +315,7 @@ function renderQTableRows(id, object) {
 function formatArray(e) {
   return e
     .map(([id, obj]) =>
-      obj.type === WEAPON_DOMAINS || obj.type === TALENT_DOMAINS
+      obj.type === TYPE_WEAPON_DOMAIN || obj.type === TYPE_TALENT_DOMAIN
         ? renderDomainLink(id, obj.weekday, obj.type, obj.name)
         : renderLink(id, obj.type, obj.name)
     )
@@ -316,6 +328,48 @@ function formatName(name) {
       return `<span class="i18n" lang="${lang}">${Array.isArray(value) ? value.join("<br>") : value}</span>`;
     })
     .join("");
+}
+
+/* bookmarks */
+
+function updateBookmark(event) {
+  const input = event.target;
+  if (input.tagName !== "INPUT") return;
+  const type = input.dataset.type;
+  const id = input.dataset.id;
+  const weekday = parseInt(input.dataset.weekday || "0");
+  if (input.checked) {
+    bookmark(type, id, weekday);
+  } else {
+    unbookmark(type, id, weekday);
+  }
+}
+
+today.addEventListener("change", updateBookmark);
+output.addEventListener("change", updateBookmark);
+
+function isBookmarked(type, id, weekday) {
+  return (JSON.parse(localStorage.getItem("bookmarks")) || []).some(
+    ([t, i, w]) => t === type && i === id && w === (weekday || 0)
+  );
+}
+
+function bookmark(type, id, weekday) {
+  const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
+  const index = bookmarks.findIndex(([t, i, w]) => t === type && i === id && w === weekday);
+  if (index === -1) {
+    bookmarks.push([type, id, weekday]);
+    localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+  }
+}
+
+function unbookmark(type, id, weekday) {
+  const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
+  const index = bookmarks.findIndex(([t, i, w]) => t === type && i === id && w === weekday);
+  if (index !== -1) {
+    bookmarks.splice(index, 1);
+    localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+  }
 }
 
 /* helpers */
