@@ -31,9 +31,7 @@ window.addEventListener("DOMContentLoaded", () => {
   selectors.innerHTML += renderEnemiesTable(bookmarks.length !== 0);
   today.innerHTML = renderWeekdayDomainTables();
 
-  bookmarks.forEach(([type, id, weekday]) => {
-    return (output.innerHTML += renderQTable(type, id, weekday));
-  });
+  bookmarks.forEach(([type, id, weekday]) => output.append(createQTable(type, id, weekday)));
   document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
 });
 
@@ -49,11 +47,21 @@ function renderWeekdayDomainTables() {
         .join("")}</table>`;
 }
 
+/* nav */
+
+document.querySelector("nav .links").addEventListener("click", (event) => {
+  const link = event.target;
+  if (link.tagName !== "A") return;
+  const target = document.getElementById(link.dataset.target);
+  if (target.tagName === "DETAILS") {
+    target.open = true;
+  }
+  target.scrollIntoView();
+});
+
 /* language selector */
 
-document.getElementById("lang-select").addEventListener("change", (event) => {
-  setLanguage(event.target.value);
-});
+document.getElementById("lang-select").addEventListener("change", (event) => setLanguage(event.target.value));
 
 function setLanguage(lang) {
   document.documentElement.setAttribute("lang", lang);
@@ -157,8 +165,9 @@ function loadQTable(event) {
   if (id === last_query_id && weekday === last_query_weekday) return;
   const type = a.dataset.type;
   document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
-  output.innerHTML += renderQTable(type, id, weekday);
-  window.scrollTo({ left: 0, top: document.body.offsetHeight });
+  const qtable = createQTable(type, id, weekday);
+  output.appendChild(qtable);
+  qtable.scrollIntoView();
   last_query_id = id;
   last_query_weekday = weekday;
 }
@@ -167,19 +176,29 @@ selectors.addEventListener("click", loadQTable);
 today.addEventListener("click", loadQTable);
 output.addEventListener("click", loadQTable);
 
-function renderQTable(type, id, weekday) {
+function createQTable(type, id, weekday) {
+  let renderedTableContent;
   switch (type) {
     case TYPE_CHARACTER:
-      return renderFullQTable(TYPE_CHARACTER, id, findCharacter(id), byCharacter(id));
+      renderedTableContent = renderFullQTable(TYPE_CHARACTER, id, findCharacter(id), byCharacter(id));
+      break;
     case TYPE_WEAPON:
-      return renderFullQTable(TYPE_WEAPON, id, findWeapon(id), byWeapon(id));
+      renderedTableContent = renderFullQTable(TYPE_WEAPON, id, findWeapon(id), byWeapon(id));
+      break;
     case TYPE_WEEKLY_BOSS:
     case TYPE_BOSS:
-      return renderFullQTable(type, id, findBoss(id), byBoss(id));
+      renderedTableContent = renderFullQTable(type, id, findBoss(id), byBoss(id));
+      break;
     case TYPE_TALENT_DOMAIN:
     case TYPE_WEAPON_DOMAIN:
-      return renderFullQTable(type, id, findDomain(id, weekday), byDomain(id, weekday), weekday);
+      renderedTableContent = renderFullQTable(type, id, findDomain(id, weekday), byDomain(id, weekday), weekday);
+      break;
   }
+
+  const tableWrapper = document.createElement("div");
+  tableWrapper.classList.add("qtableWrapper");
+  tableWrapper.innerHTML = renderedTableContent;
+  return tableWrapper;
 }
 
 function findCharacter(character) {

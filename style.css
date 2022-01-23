@@ -102,16 +102,21 @@ nav + div {
   margin: 3rem 0;
   text-align: center;
 }
+#today:empty {
+  display: none;
+}
 
 #output:not(:empty)::before {
   content: "🚜";
   display: block;
-  margin: 3rem 0;
+  margin: 0;
   text-align: center;
 }
 
+details,
 #today,
-details {
+#output,
+.qtableWrapper {
   margin-top: -3rem;
   padding-top: 6rem;
 }
@@ -119,6 +124,7 @@ details:target summary {
   font-weight: bold;
 }
 table {
+  width: 100%;
   border-collapse: collapse;
 }
 tr:not(.ctable tr:nth-child(1)) {
@@ -140,10 +146,6 @@ th input[type="checkbox"] {
 }
 .ctable tr > th:nth-child(1) {
   width: 20%;
-}
-.qtable {
-  margin-top: 2rem;
-  width: 100%;
 }
 .qtable.highlighted {
   animation: 1s highlight;
