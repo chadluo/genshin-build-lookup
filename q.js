@@ -39,7 +39,7 @@ function renderWeekdayDomainTables() {
   const day = new Date().getDay() % 3;
   const weekdays = day === 0 ? [1, 2, 3] : [day];
   return `<details id="today" ${day === 0 ? "" : "open"}>
-    <summary>${formatName(i18n.today)}</summary>
+    <summary>${formatTableCaption("today")}</summary>
     <table class="qtable">${Object.entries(domains)
       .flatMap(([id, domain]) =>
         weekdays.map((weekday) =>
@@ -75,8 +75,7 @@ function setLanguage(lang) {
 /* content tables */
 
 function renderItemsTable(items, type, hasBookmarks) {
-  const typeName = formatName(i18n[type]);
-  return `<details id="${type}" ${hasBookmarks ? "" : "open"}><summary>${typeName}</summary>
+  return `<details id="${type}" ${hasBookmarks ? "" : "open"}><summary>${formatTableCaption(type)}</summary>
   <table class="ctable">${Object.entries(groupBy("rarity", Object.entries(items)))
     .sort(([r1], [r2]) => r2 - r1)
     .map(([rarity, items]) => {
@@ -98,6 +97,18 @@ function renderItemsTable(items, type, hasBookmarks) {
     .join("")}</table></details>`;
 }
 
+function formatTableCaption(type) {
+  let icon;
+  // prettier-ignore
+  switch (type) {
+    case "character":       icon = "🦸"; break;
+    case "weapon":          icon = "🗡️"; break;
+    case "enemies_domains": icon = "🌱"; break;
+    case "today":           icon = "📅"; break;
+  }
+  return `${icon} ${formatName(i18n[type])}`;
+}
+
 function formatWeaponIcon(category) {
   let icon;
   // prettier-ignore
@@ -113,7 +124,8 @@ function formatWeaponIcon(category) {
 }
 
 function renderEnemiesTable(hasBookmarks) {
-  return `<details id="enemies" ${hasBookmarks ? "" : "open"}><summary>${formatName(i18n.enemies_domains)}</summary>
+  return `<details id="enemies" ${hasBookmarks ? "" : "open"}>
+  <summary>${formatTableCaption("enemies_domains")}</summary>
   <table class="ctable"><tr><th>${formatName(i18n.weekly_boss)}</th><td>${enemy_ids.weekly_bosses
     .map((d) => renderLink(d, TYPE_WEEKLY_BOSS, bosses[d].name))
     .join(formatName(i18n.delimiter))}</td></tr>
