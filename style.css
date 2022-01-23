@@ -58,11 +58,17 @@ nav h1 {
   line-height: 4rem;
   margin: 0 2em 0 0;
 }
+@media screen and (max-width: 800px) {
+  nav h1 {
+    display: none;
+  }
+}
 nav .links {
   flex-grow: 1;
 }
-nav .links a + a {
-  margin-left: 1em;
+nav a {
+  text-decoration: none;
+  padding: 0.5em;
 }
 #lang-select {
   padding: 0.2em 0.1em;
@@ -86,14 +92,14 @@ nav + div {
   content: " ";
 }
 
-#today::before {
+#today:not(:empty)::before {
   content: "📅";
   display: block;
   margin: 3rem 0;
   text-align: center;
 }
 
-.output:not(:empty)::before {
+#output:not(:empty)::before {
   content: "🚜";
   display: block;
   margin: 3rem 0;

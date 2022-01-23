@@ -9,8 +9,8 @@ const TYPE_TALENT_DOMAIN = "talent_domain";
 const TYPE_WEAPON_DOMAIN = "weapon_domain";
 
 const selectors = document.querySelector("div.selectors");
-const today = document.querySelector("div#today");
-const output = document.querySelector("div.output");
+const today = document.getElementById("today");
+const output = document.getElementById("output");
 
 let last_query_id;
 let last_query_weekday;
