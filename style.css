@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Noto Sans", sans-serif;
   line-height: 1.4rem;
@@ -142,7 +146,13 @@ th input[type="checkbox"] {
   width: 100%;
 }
 .qtable.highlighted {
-  background: #ffd;
+  animation: 1s highlight;
+}
+/* prettier-ignore */
+@keyframes highlight {
+  from { background: #ffd; }
+  50%  { background: #ffd; }
+  to   { background: none; }
 }
 .qtable tr:nth-child(1) th {
   width: 1.5em;
@@ -162,7 +172,6 @@ th input[type="checkbox"] {
   td {
     display: inline-block;
     width: 100%;
-    padding: 0.5em;
   }
   .qtable tr:nth-child(1) td:nth-child(2) {
     width: calc(100% - 1.5em);

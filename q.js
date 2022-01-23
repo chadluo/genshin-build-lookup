@@ -158,7 +158,7 @@ function loadQTable(event) {
   const type = a.dataset.type;
   document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
   output.innerHTML += renderQTable(type, id, weekday);
-  window.scrollTo({ left: 0, top: document.body.offsetHeight, behavior: "smooth" });
+  window.scrollTo({ left: 0, top: document.body.offsetHeight });
   last_query_id = id;
   last_query_weekday = weekday;
 }
