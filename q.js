@@ -75,15 +75,14 @@ function setLanguage(lang) {
 function renderItemsTable(items, type, hasBookmarks) {
   const typeName = formatName(i18n[type]);
   return `<details id="${type}" ${hasBookmarks ? "" : "open"}><summary>${typeName}</summary>
-  <table class="ctable"><tr><th>${formatName(i18n.rarity)}</th><th>${typeName}</th></tr>
-   ${Object.entries(groupBy("rarity", Object.entries(items)))
-     .sort(([r1], [r2]) => r2 - r1)
-     .map(([rarity, items]) => {
-       const byCategory = Object.entries(groupBy("category", items));
-       return `<tr><td rowspan="${byCategory.length}">${"⭐".repeat(rarity)}</td>
+  <table class="ctable">${Object.entries(groupBy("rarity", Object.entries(items)))
+    .sort(([r1], [r2]) => r2 - r1)
+    .map(([rarity, items]) => {
+      const byCategory = Object.entries(groupBy("category", items));
+      return `<tr><th rowspan="${byCategory.length}">${"⭐".repeat(rarity)}</th>
        <td>${type === TYPE_WEAPON ? formatWeaponIcon(byCategory[0][0]) : ""}${byCategory[0][1]
-         .map(([id, obj]) => renderLink(id, type, obj.name))
-         .join(formatName(i18n.delimiter))}</td></tr>
+        .map(([id, obj]) => renderLink(id, type, obj.name))
+        .join(formatName(i18n.delimiter))}</td></tr>
        ${byCategory
          .slice(1)
          .map(
@@ -93,8 +92,8 @@ function renderItemsTable(items, type, hasBookmarks) {
                .join(formatName(i18n.delimiter))}</td></tr>`
          )
          .join("")}`;
-     })
-     .join("")}</table></details>`;
+    })
+    .join("")}</table></details>`;
 }
 
 function formatWeaponIcon(category) {
@@ -113,8 +112,7 @@ function formatWeaponIcon(category) {
 
 function renderEnemiesTable(hasBookmarks) {
   return `<details id="enemies" ${hasBookmarks ? "" : "open"}><summary>${formatName(i18n.enemies_domains)}</summary>
-  <table class="ctable"><tr><th>${formatName(i18n.type)}</th><th>${formatName(i18n.enemies_domains)}</th></tr>
-    <tr><th>${formatName(i18n.weekly_boss)}</th><td>${enemy_ids.weekly_bosses
+  <table class="ctable"><tr><th>${formatName(i18n.weekly_boss)}</th><td>${enemy_ids.weekly_bosses
     .map((d) => renderLink(d, TYPE_WEEKLY_BOSS, bosses[d].name))
     .join(formatName(i18n.delimiter))}</td></tr>
     <tr><th>${formatName(i18n.boss)}</th><td>${enemy_ids.bosses
@@ -316,11 +314,16 @@ function renderFullQTable(type, id, name, object, weekday) {
 function renderQTableRows(type, id, name, object, weekday) {
   const materials = Array.from(object.keys());
   return `<tr>
-      <th rowspan="${materials.length}"><input type="checkbox" id="${formatId(type, id, weekday)}"
-      data-type="${type}" data-id="${id}" ${weekday ? `data-weekday="${weekday}"` : ""}
-      ${isBookmarked(type, id, weekday) ? "checked" : ""}><label
-       for="${formatId(type, id, weekday)}">${formatName(name).replaceAll(" / ", "<br>")}</label>
-      </td>
+      <th rowspan="${materials.length}">
+        <input type="checkbox" id="${formatId(type, id, weekday)}"
+          data-type="${type}" data-id="${id}" ${weekday ? `data-weekday="${weekday}"` : ""}
+          ${isBookmarked(type, id, weekday) ? "checked" : ""}>
+        <label for="${formatId(type, id, weekday)}">
+          ${formatName(name).replaceAll(
+            " / ",
+            "<span class='mobile'> / </span><span class='desktop'><br></span>"
+          )}</label>
+      </th>
       <td>${formatName(materials[0])}</td>
       <td>${formatArray(object.get(materials[0]))}</td>
     </tr>

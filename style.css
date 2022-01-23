@@ -26,6 +26,22 @@ a:hover {
   margin: 0 auto;
 }
 
+.desktop {
+  display: inline;
+}
+.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: inline;
+  }
+}
+
 /* i18n */
 
 .i18n {
@@ -135,8 +151,10 @@ td {
   padding: 0.5em 0;
   text-align: left;
   vertical-align: top;
-  white-space: pre-wrap;
   box-sizing: border-box;
+}
+td {
+  white-space: pre-wrap;
 }
 th input[type="checkbox"] {
   margin-left: 0;
@@ -163,7 +181,6 @@ th span {
 }
 .qtable tr:nth-child(1) th {
   width: 20%;
-  font-weight: bold;
 }
 .qtable tr:nth-child(1) td:nth-child(2) {
   width: 25%;
@@ -171,7 +188,10 @@ th span {
 
 @media screen and (max-width: 800px) {
   th,
-  td {
+  td,
+  .qtable tr:nth-child(1) th,
+  .ctable tr > th:nth-child(1),
+  .qtable tr:nth-child(1) td:nth-child(2) {
     display: inline-block;
     width: 100%;
   }

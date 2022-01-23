@@ -1402,10 +1402,6 @@ export const i18n = {
     tue_fri: { en: "Tue, Fri, Sun", "zh-CN": "二五日" },
     wed_sat: { en: "Wed, Sat, Sun", "zh-CN": "三六日" },
   },
-  rarity: {
-    en: "Rarity",
-    "zh-CN": "稀有度",
-  },
   character: {
     en: "Characters",
     "zh-CN": "角色",
@@ -1433,9 +1429,5 @@ export const i18n = {
   weapon_domain: {
     en: "Weapon Domains",
     "zh-CN": "武器本",
-  },
-  type: {
-    en: "Type",
-    "zh-CN": "类型",
   },
 };
