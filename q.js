@@ -165,7 +165,7 @@ function loadQTable(event) {
   if (id === last_query_id && weekday === last_query_weekday) return;
   const type = a.dataset.type;
   document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
-  const qtable = createQTable(type, id, weekday);
+  const qtable = createQTable(type, id, parseInt(weekday));
   output.appendChild(qtable);
   qtable.scrollIntoView();
   last_query_id = id;
@@ -248,6 +248,7 @@ function formatWeekday(name, lang, weekday) {
 }
 
 function findWeekday(lang, day) {
+  console.log(lang, day);
   // prettier-ignore
   switch (day) {
     case 1: case 4: return i18n.weekdays.mon_thu[lang];
@@ -307,6 +308,7 @@ function renderFullQTable(type, id, name, object, weekday) {
 }
 
 function renderQTableRows(type, id, name, object, weekday) {
+  console.log(name);
   const materials = Array.from(object.keys());
   return `<tr>
       <th rowspan="${materials.length}"><input type="checkbox" data-type="${type}" data-id="${id}"
