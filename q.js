@@ -29,22 +29,24 @@ window.addEventListener("DOMContentLoaded", () => {
   selectors.innerHTML += renderItemsTable(characters, TYPE_CHARACTER, bookmarks.length !== 0);
   selectors.innerHTML += renderItemsTable(weapons, TYPE_WEAPON, bookmarks.length !== 0);
   selectors.innerHTML += renderEnemiesTable(bookmarks.length !== 0);
-  today.innerHTML = renderWeekdayDomainTables();
+  selectors.innerHTML += renderWeekdayDomainTables();
 
   bookmarks.forEach(([type, id, weekday]) => output.append(createQTable(type, id, weekday)));
   document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
 });
 
 function renderWeekdayDomainTables() {
-  const day = new Date().getDay();
-  const weekday = day > 3 ? day - 3 : day;
-  return weekday === 0
-    ? ""
-    : `<table class="qtable">${Object.entries(domains)
-        .map(([id, domain]) =>
+  const day = new Date().getDay() % 3;
+  const weekdays = day === 0 ? [1, 2, 3] : [day];
+  return `<details id="today" ${day === 0 ? "" : "open"}>
+    <summary>${formatName(i18n.today)}</summary>
+    <table class="qtable">${Object.entries(domains)
+      .flatMap(([id, domain]) =>
+        weekdays.map((weekday) =>
           renderQTableRows(domain.type, id, findDomain(id, weekday), byDomain(id, weekday), weekday)
         )
-        .join("")}</table>`;
+      )
+      .join("")}</table></details>`;
 }
 
 /* nav */
@@ -177,7 +179,6 @@ function findOrLoadQTable(event) {
 }
 
 selectors.addEventListener("click", findOrLoadQTable);
-today.addEventListener("click", findOrLoadQTable);
 output.addEventListener("click", findOrLoadQTable);
 
 function createQTable(type, id, weekday) {
@@ -373,8 +374,6 @@ function updateBookmark(event) {
     unbookmark(type, id, weekday);
   }
 }
-
-today.addEventListener("change", updateBookmark);
 output.addEventListener("change", updateBookmark);
 
 function isBookmarked(type, id, weekday) {

@@ -112,16 +112,6 @@ nav + div {
   content: " ";
 }
 
-#today:not(:empty)::before {
-  content: "📅";
-  display: block;
-  margin: 3rem 0;
-  text-align: center;
-}
-#today:empty {
-  display: none;
-}
-
 #output:not(:empty)::before {
   content: "🚜";
   display: block;
@@ -162,9 +152,10 @@ th input[type="checkbox"] {
   margin-right: 0.5em;
 }
 th span {
-  max-width: calc(100% - 1.5em);
+  max-width: calc(100% - 2em);
 }
-.ctable {
+.ctable,
+#today .qtable {
   margin-top: 0.5em;
 }
 .ctable tr > th:nth-child(1) {

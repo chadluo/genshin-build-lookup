@@ -1430,4 +1430,8 @@ export const i18n = {
     en: "Weapon Domains",
     "zh-CN": "武器本",
   },
+  today: {
+    en: "Today",
+    "zh-CN": "今日",
+  },
 };
