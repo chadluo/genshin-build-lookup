@@ -157,24 +157,30 @@ function formatDomain(id, type) {
 
 /* search result tables */
 
-function loadQTable(event) {
+function findOrLoadQTable(event) {
   const a = event.composedPath().find((e) => e.tagName === "A");
   if (!a) return;
   const id = a.dataset.id;
-  const weekday = a.dataset.weekday || "-1";
+  const weekday = a.dataset.weekday;
   if (id === last_query_id && weekday === last_query_weekday) return;
   const type = a.dataset.type;
   document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
-  const qtable = createQTable(type, id, parseInt(weekday));
-  output.appendChild(qtable);
-  qtable.scrollIntoView();
-  last_query_id = id;
-  last_query_weekday = weekday;
+  const existed = document.querySelector(`table[name="${formatId(type, id, weekday)}"]`);
+  if (!existed) {
+    const qtable = createQTable(type, id, parseInt(weekday));
+    output.appendChild(qtable);
+    qtable.scrollIntoView();
+    last_query_id = id;
+    last_query_weekday = weekday;
+  } else {
+    existed.classList.add("highlighted");
+    existed.scrollIntoView();
+  }
 }
 
-selectors.addEventListener("click", loadQTable);
-today.addEventListener("click", loadQTable);
-output.addEventListener("click", loadQTable);
+selectors.addEventListener("click", findOrLoadQTable);
+today.addEventListener("click", findOrLoadQTable);
+output.addEventListener("click", findOrLoadQTable);
 
 function createQTable(type, id, weekday) {
   let renderedTableContent;
@@ -248,7 +254,6 @@ function formatWeekday(name, lang, weekday) {
 }
 
 function findWeekday(lang, day) {
-  console.log(lang, day);
   // prettier-ignore
   switch (day) {
     case 1: case 4: return i18n.weekdays.mon_thu[lang];
@@ -304,17 +309,18 @@ function findWeaponsForMaterial(m) {
 }
 
 function renderFullQTable(type, id, name, object, weekday) {
-  return `<table class="qtable highlighted">${renderQTableRows(type, id, name, object, weekday)}</table>`;
+  return `<table name="${formatId(type, id, weekday)}" class="qtable highlighted"
+  >${renderQTableRows(type, id, name, object, weekday)}</table>`;
 }
 
 function renderQTableRows(type, id, name, object, weekday) {
-  console.log(name);
   const materials = Array.from(object.keys());
   return `<tr>
-      <th rowspan="${materials.length}"><input type="checkbox" data-type="${type}" data-id="${id}"
-      ${weekday ? `data-weekday="${weekday}"` : ""}
-      ${isBookmarked(type, id, weekday) ? "checked" : ""}></th>
-      <td rowspan="${materials.length}">${formatName(name).replaceAll(" / ", "<br>")}</td>
+      <th rowspan="${materials.length}"><input type="checkbox" id="${formatId(type, id, weekday)}"
+      data-type="${type}" data-id="${id}" ${weekday ? `data-weekday="${weekday}"` : ""}
+      ${isBookmarked(type, id, weekday) ? "checked" : ""}><label
+       for="${formatId(type, id, weekday)}">${formatName(name).replaceAll(" / ", "<br>")}</label>
+      </td>
       <td>${formatName(materials[0])}</td>
       <td>${formatArray(object.get(materials[0]))}</td>
     </tr>
@@ -322,6 +328,14 @@ function renderQTableRows(type, id, name, object, weekday) {
       .slice(1)
       .map((m) => `<tr><td>${formatName(m)}</td><td>${formatArray(object.get(m))}</td></tr>`)
       .join("")}`;
+}
+
+function formatId(...parts) {
+  return parts
+    .filter((p) => p)
+    .join("-")
+    .replaceAll(" ", "-")
+    .replaceAll("’", "");
 }
 
 function formatArray(e) {

@@ -140,6 +140,11 @@ td {
 }
 th input[type="checkbox"] {
   margin-left: 0;
+  vertical-align: top;
+  margin-right: 0.5em;
+}
+th span {
+  max-width: calc(100% - 1.5em);
 }
 .ctable {
   margin-top: 0.5em;
@@ -157,15 +162,10 @@ th input[type="checkbox"] {
   to   { background: none; }
 }
 .qtable tr:nth-child(1) th {
-  width: 1.5em;
-}
-.qtable tr:nth-child(1) td:nth-child(2) {
   width: 20%;
-}
-.qtable th + td {
   font-weight: bold;
 }
-.qtable tr:nth-child(1) td:nth-child(3) {
+.qtable tr:nth-child(1) td:nth-child(2) {
   width: 25%;
 }
 
@@ -173,12 +173,6 @@ th input[type="checkbox"] {
   th,
   td {
     display: inline-block;
-    width: 100%;
-  }
-  .qtable tr:nth-child(1) td:nth-child(2) {
-    width: calc(100% - 1.5em);
-  }
-  .qtable tr:nth-child(1) td:nth-child(3) {
     width: 100%;
   }
 }
