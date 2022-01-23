@@ -120,7 +120,6 @@ nav + div {
 }
 
 details,
-#today,
 #output,
 .qtableWrapper {
   margin-top: -3rem;
@@ -133,7 +132,7 @@ table {
   width: 100%;
   border-collapse: collapse;
 }
-tr:not(.ctable tr:nth-child(1)) {
+tr {
   border-top: 0.5px solid #ccc;
 }
 th,
@@ -156,7 +155,7 @@ th span {
 }
 .ctable,
 #today .qtable {
-  margin-top: 0.5em;
+  margin-top: 1em;
 }
 .ctable tr > th:nth-child(1) {
   width: 20%;
