@@ -1,65 +1,58 @@
+# Genshin Impact build materials lookup
+
+## Targets
+
+**Main:**
+
+- For a character/weapon, what talent/ascention materials do I need, and what resin bosses provides them
+- For a resin boss, what materials does it drop and what characters/weapons can use them
+- What talent/weapon materials can I get today and what characters/weapons can use them
+
+**Not main:**
+
+- Bookmark characters/weaons/bosses for quick ref
+- Multi language support
+
 ## Example
 
-| Character | Material | Enemy                  |
-| --------- | -------- | ---------------------- |
-| 香菱      | 常燃火种 | 炎爆树                 |
-|           | 勤劳     | 太山府 深炎之底 二五日 |
+| Character | Material       | Enemy                          |
+| --------- | -------------- | ------------------------------ |
+| Xiangling | Everflame Seed | Pyro Regisvine                 |
+|           | Diligence      | Taishan Mansion: Tue, Fri, Sun |
+|           | Dvalin’s Claw  | Dvalin                         |
 
-| Weapon | Material | Enemy                    |
-| ------ | -------- | ------------------------ |
-| 渔获   | 今昔剧画 | 砂流之庭 流沙之葬 三六日 |
-|        | 混沌     | 遗迹机兵                 |
-
-## Structures
-
-### character
-
-```json
-{
-  "id": "1",
-  "name": {
-    "zh-CN": "香菱"
-  },
-  "ascension": [1, 2, 3],
-  "talent": [4, 5, 6]
-}
-```
-
-### material
-
-```json
-{
-  "id": 2,
-  "name": {
-    "zh-CN": "常燃火种"
-  },
-  "enemy": [3]
-}
-```
-
-### enemy
-
-```json
-{
-  "id": 3,
-  "name": {
-    "zh-CN": "炎爆树"
-  },
-  "material": [2]
-}
-```
-
-## Algorithm
-
-For character/weapon, find materials & then enemy
-
-For enemy, find materials & then character/weapon
+| Weapon      | Material          | Enemy                                |
+| ----------- | ----------------- | ------------------------------------ |
+| “The Catch” | Mask of the Kijin | Court of Flowing Sand: Wed, Sat, Sun |
+|             | Chaos Oculus      | Ruin Sentinels                       |
 
 ## Notes
 
-For item ids in `assets.mjs`, single quotes (`'`) and (`"`) must be escaped as HTML entities.
+### Ambiguous materials
 
-Multiple languages support:
+Material categories of different level and no name ambiguity are collapsed like talent books and ascension gemstones. If
+a category contains ambiguous names, everything is listed. Examples:
 
-1. add names in `assets.mjs` tagged with corresponding BCP47 code
-2. add option in `//*[@id="lang-select"]`
+- Chaos Gear/Axis/Oculus v.s. Chaos Device/Circuit/Core
+- Inazuma weapon ascension material masks (Mask of the Wicked Lieutenant etc.) and Hilichurls masks (Damaged Mask etc.)
+
+May change in future if it can be made clear enough.
+
+### Quotes
+
+To avoid clash with JS/JSON string quotes and complicated escapes and conversions, single quotes (`'`) and double quotes
+(`"`) must be converted to 'smart quotes' in item ids and names:
+
+| Unicode | Name                        | Character | Notes              |
+| ------- | --------------------------- | --------- | ------------------ |
+| U+2018  | LEFT SINGLE QUOTATION MARK  | `‘`       |                    |
+| U+2019  | RIGHT SINGLE QUOTATION MARK | `’`       | Also as Apostrophe |
+| U+201C  | LEFT DOUBLE QUOTATION MARK  | `“`       |                    |
+| U+201D  | RIGHT DOUBLE QUOTATION MARK | `”`       |                    |
+
+### Languages
+
+To add a new language, in `assets.mjs`:
+
+- Add names for existing items, tagged with corresponding BCP47 code
+- Add language code and name to `i18n.supported_languages`
