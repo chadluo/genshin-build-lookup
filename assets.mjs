@@ -1210,6 +1210,21 @@ export const enemy_ids = {
 };
 
 export const domains = {
+  "Forsaken Rift": {
+    name: { en: "Forsaken Rift", "zh-CN": "忘却之峡" },
+    type: "talent_domain",
+    materials_by_weekday: ["All", "Freedom", "Resistance", "Ballad"],
+  },
+  "Taishan Mansion": {
+    name: { en: "Taishan Mansion", "zh-CN": "太山府" },
+    type: "talent_domain",
+    materials_by_weekday: ["All", "Prosperity", "Diligence", "Gold"],
+  },
+  "Violet Court": {
+    name: { en: "Violet Court", "zh-CN": "菫色之庭" },
+    type: "talent_domain",
+    materials_by_weekday: ["All", "Transience", "Elegance", "Light"],
+  },
   "Cecilia Garden": {
     name: { en: "Cecilia Garden", "zh-CN": "塞西莉亚苗圃" },
     type: "weapon_domain",
@@ -1234,21 +1249,6 @@ export const domains = {
       "Narukami’s Wisdom",
       "Mask of the Wicked Lieutenant",
     ],
-  },
-  "Forsaken Rift": {
-    name: { en: "Forsaken Rift", "zh-CN": "忘却之峡" },
-    type: "talent_domain",
-    materials_by_weekday: ["All", "Freedom", "Resistance", "Ballad"],
-  },
-  "Taishan Mansion": {
-    name: { en: "Taishan Mansion", "zh-CN": "太山府" },
-    type: "talent_domain",
-    materials_by_weekday: ["All", "Prosperity", "Diligence", "Gold"],
-  },
-  "Violet Court": {
-    name: { en: "Violet Court", "zh-CN": "菫色之庭" },
-    type: "talent_domain",
-    materials_by_weekday: ["All", "Transience", "Elegance", "Light"],
   },
 };
 
