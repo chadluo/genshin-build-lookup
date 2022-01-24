@@ -137,10 +137,13 @@ tr {
 }
 th,
 td {
-  padding: 0.5em 0;
+  padding: 0.5em 0.5em 0.5em 0;
   text-align: left;
   vertical-align: top;
   box-sizing: border-box;
+}
+td:last-child {
+  padding-right: 0;
 }
 td {
   white-space: pre-wrap;
@@ -173,7 +176,7 @@ th span {
   width: 20%;
 }
 .qtable tr:nth-child(1) td:nth-child(2) {
-  width: 25%;
+  width: 30%;
 }
 
 @media screen and (max-width: 800px) {
@@ -184,6 +187,7 @@ th span {
   .qtable tr:nth-child(1) td:nth-child(2) {
     display: inline-block;
     width: 100%;
+    padding: 0.5em 0;
   }
 }
 
