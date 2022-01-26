@@ -52,8 +52,14 @@ html:lang(zh-CN) .i18n:lang(zh-CN) {
   display: inline-block;
 }
 
-.i18n:lang(zh-CN) {
+:lang(zh-CN) {
   font-family: "Noto Sans SC", sans-serif;
+}
+
+:lang(zh-CN) em,
+em:lang(zh-CN) {
+  font-style: normal;
+  font-weight: bold;
 }
 
 /* navbar */
@@ -191,21 +197,19 @@ th span {
   }
 }
 
-#clear {
-  margin-top: 1rem;
-  margin-bottom: 3rem;
-}
-
-a#clear,
-a.source {
+a#clear {
   display: block;
+  margin: 2rem auto;
+  padding: 0.5em 0;
   text-align: center;
-  line-height: 2em;
-  margin: 1em 20% 3em;
   text-decoration: none;
 }
 
-a#clear:hover,
-a.source:hover {
+a#clear:hover {
   background: whitesmoke;
+}
+
+footer {
+  margin: 3rem 0;
+  text-align: center;
 }

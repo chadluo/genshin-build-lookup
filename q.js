@@ -431,6 +431,8 @@ function unbookmark(type, id, weekday) {
 /* helpers */
 
 document.getElementById("clear").addEventListener("click", () => {
+  last_query_id = null;
+  last_query_weekday = null;
   output.innerHTML = "";
 });
 
