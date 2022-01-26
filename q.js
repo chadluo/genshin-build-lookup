@@ -1,3 +1,5 @@
+"use strict";
+
 import { bosses, characters, domains, enemy_ids, i18n, materials, weapons } from "./assets.mjs";
 
 const TYPE_CHARACTER = "character";
@@ -35,8 +37,8 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 function renderWeekdayDomainTables() {
-  const day = new Date().getDay() % 3;
-  const weekdays = day === 0 ? [1, 2, 3] : [day];
+  const day = new Date().getDay();
+  const weekdays = day === 0 ? [1, 2, 3] : [day > 3 ? day - 3 : day];
   return `<details id="today" ${day === 0 ? "" : "open"}>
     <summary>${formatTableCaption("today")}</summary>
     <table class="qtable">${Object.entries(domains)
