@@ -1,4 +1,8 @@
-# Genshin Impact build materials lookup
+# Yuanliao: Genshin Impact build materials lookup
+
+原料: raw material.
+
+> 神有原神，魔有原魔，壶有原壶，那材料自然也有原料（本来就有
 
 ## Targets
 
