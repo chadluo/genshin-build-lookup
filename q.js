@@ -280,10 +280,13 @@ function findBoss(boss) {
 }
 
 function byBoss(boss) {
-  // no weapons use boss materials
   return bosses[boss].materials.reduce(
     (map, m) => (
-      map.set(materials[m].name, (map.get(materials[m].name) || []).concat(findCharactersForMaterial(m))), map
+      map.set(
+        materials[m].name,
+        (map.get(materials[m].name) || []).concat(findCharactersForMaterial(m)).concat(findWeaponsForMaterial(m))
+      ),
+      map
     ),
     new Map()
   );
