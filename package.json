@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Genshin impact build material lookup",
   "main": "q.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chadluo/genshin-build-lookup.git"
