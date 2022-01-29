@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/chadluo/genshin-build-lookup#readme",
   "devDependencies": {
-    "@playwright/test": "^1.18.1"
+    "@playwright/test": "^1.18.1",
+    "http-server": "^14.1.0"
   }
 }
