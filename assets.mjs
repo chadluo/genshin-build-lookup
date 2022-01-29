@@ -976,7 +976,16 @@ export const weapons = {
     rarity: 4,
     category: "polearm",
     name: { en: "“The Catch”", "zh-CN": "「渔获」" },
-    materials: ["Mask of the Wicked Lieutenant", "Chaos Gear", "Spectral Husk"],
+    materials: [
+      "Mask of the Wicked Lieutenant",
+      "Chaos Gear",
+      "Spectral Husk",
+      "Raimei Angelfish",
+      "Golden Koi",
+      "Rusty Koi",
+      "Pufferfish",
+      "Bitter Pufferfish",
+    ],
   },
   "Favonius Lance": {
     rarity: 4,
@@ -1509,6 +1518,13 @@ export const materials = {
   Starsilver: { name: { en: "Starsilver", "zh-CN": "星银矿石" } },
   "Vitalized Dragontooth": { name: { en: "Vitalized Dragontooth", "zh-CN": "汲取了生命力的龙牙" } },
   "Amethyst Lump": { name: { en: "Amethyst Lump", "zh-CN": "紫晶块" } },
+
+  // fishing
+  "Raimei Angelfish": { name: { en: "Raimei Angelfish", "zh-CN": "雷鸣仙" } },
+  "Golden Koi": { name: { en: "Golden Koi", "zh-CN": "金赤假龙" } },
+  "Rusty Koi": { name: { en: "Rusty Koi", "zh-CN": "锖假龙" } },
+  Pufferfish: { name: { en: "Pufferfish", "zh-CN": "炮鲀" } },
+  "Bitter Pufferfish": { name: { en: "Bitter Pufferfish", "zh-CN": "苦炮鲀" } },
 };
 
 // enemies
