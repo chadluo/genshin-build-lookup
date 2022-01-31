@@ -35,13 +35,6 @@ test.describe("availability & languages", async () => {
 
     await expect(page.locator(":has-text('Xiangling')").first()).toBeVisible();
   });
-
-  // set locale en
-  // expect english
-  // expect switch
-  // set locale zh
-  // expect zh
-  // expect switch
 });
 
 test.skip("queries", async ({ page, baseURL }) => {

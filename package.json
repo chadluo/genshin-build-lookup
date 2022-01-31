@@ -4,6 +4,10 @@
   "description": "Genshin impact build material lookup",
   "main": "q.js",
   "scripts": {
+    "build": "tsc && npm run build:cp-html && npm run build:cp-css",
+    "build:cp-html": "cp ./src/index.html ./public",
+    "build:cp-css": "cp ./src/style.css ./public",
+    "serve": "http-server -p 3000",
     "test": "playwright test"
   },
   "repository": {
@@ -19,6 +23,9 @@
   "homepage": "https://github.com/chadluo/genshin-build-lookup#readme",
   "devDependencies": {
     "@playwright/test": "^1.18.1",
-    "http-server": "^14.1.0"
+    "@tsconfig/recommended": "^1.0.1",
+    "http-server": "^14.1.0",
+    "tsc": "^2.0.4",
+    "typescript": "^4.5.5"
   }
 }

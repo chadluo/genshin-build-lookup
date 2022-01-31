@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "lib": [
+            "DOM",
+            "ES2021.String"
+        ],
+        "module": "ES2015",
+        "outDir": "public",
+    },
+    "extends": "@tsconfig/recommended/tsconfig.json"
+}

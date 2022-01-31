@@ -1,5 +1,40 @@
 "use strict";
 
+interface I18nObject {
+  en: string;
+  "zh-CN": string;
+}
+
+interface I18nObjectMulti {
+  en: string | string[];
+  "zh-CN": string | string[];
+}
+
+interface Character {
+  rarity: number;
+  name: I18nObject;
+  materials: string[];
+}
+
+enum WeaponCategory {
+  BOW,
+  CATALYST,
+  CLAYMORE,
+  POLEARM,
+  SWORD,
+}
+
+interface Weapon {
+  rarity: number;
+  category: WeaponCategory;
+  name: I18nObject;
+  materials: string[];
+}
+
+interface Material {
+  name: I18nObjectMulti;
+}
+
 // characters
 
 export const characters = {
@@ -396,86 +431,86 @@ export const characters = {
     name: { en: "Zhongli", "zh-CN": "钟离" },
     materials: ["Prithiva Topaz", "Basalt Pillar", "Tusk of Monoceros Caeli", "Gold", "Slime Condensate", "Cor Lapis"],
   },
-};
+} as { [id: string]: Character };
 
 // weapons
 
 export const weapons = {
   "Polar Star": {
     rarity: 5,
-    category: "bow",
+    category: WeaponCategory.BOW,
     name: { en: "Polar Star", "zh-CN": "冬极白星" },
     materials: ["Mask of the Wicked Lieutenant", "Concealed Claw", "Spectral Husk"],
   },
   "Thundering Pulse": {
     rarity: 5,
-    category: "bow",
+    category: WeaponCategory.BOW,
     name: { en: "Thundering Pulse", "zh-CN": "飞雷之弦振" },
     materials: ["Narukami’s Wisdom", "Dismal Prism", "Firm Arrowhead"],
   },
   "Elegy for the End": {
     rarity: 5,
-    category: "bow",
+    category: WeaponCategory.BOW,
     name: { en: "Elegy for the End", "zh-CN": "终末嗟叹之诗" },
     materials: ["Boreal Wolf’s Milk Tooth", "Heavy Horn", "Recruit’s Insignia"],
   },
   "Skyward Harp": {
     rarity: 5,
-    category: "bow",
+    category: WeaponCategory.BOW,
     name: { en: "Skyward Harp", "zh-CN": "天空之翼" },
     materials: ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Firm Arrowhead"],
   },
   "Amos’ Bow": {
     rarity: 5,
-    category: "bow",
+    category: WeaponCategory.BOW,
     name: { en: "Amos’ Bow", "zh-CN": "阿莫斯之弓" },
     materials: ["Fetters of the Dandelion Gladiator", "Chaos Device", "Slime Condensate"],
   },
   "Alley Hunter": {
     rarity: 4,
-    category: "bow",
+    category: WeaponCategory.BOW,
     name: { en: "Alley Hunter", "zh-CN": "暗巷猎手" },
     materials: ["Fetters of the Dandelion Gladiator", "Chaos Device", "Slime Condensate"],
   },
   "The Viridescent Hunt": {
     rarity: 4,
-    category: "bow",
+    category: WeaponCategory.BOW,
     name: { en: "The Viridescent Hunt", "zh-CN": "苍翠猎弓" },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Firm Arrowhead"],
   },
   "The Stringless": {
     rarity: 4,
-    category: "bow",
+    category: WeaponCategory.BOW,
     name: { en: "The Stringless", "zh-CN": "绝弦" },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Firm Arrowhead"],
   },
   "Sacrificial Bow": {
     rarity: 4,
-    category: "bow",
+    category: WeaponCategory.BOW,
     name: { en: "Sacrificial Bow", "zh-CN": "祭礼弓" },
     materials: ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Slime Condensate"],
   },
   Rust: {
     rarity: 4,
-    category: "bow",
+    category: WeaponCategory.BOW,
     name: { en: "Rust", "zh-CN": "弓藏" },
     materials: ["Luminous Sands from Guyun", "Hunter’s Sacrificial Knife", "Damaged Mask"],
   },
   "Royal Bow": {
     rarity: 4,
-    category: "bow",
+    category: WeaponCategory.BOW,
     name: { en: "Royal Bow", "zh-CN": "宗室长弓" },
     materials: ["Fetters of the Dandelion Gladiator", "Chaos Device", "Divining Scroll"],
   },
   Predator: {
     rarity: 4,
-    category: "bow",
+    category: WeaponCategory.BOW,
     name: { en: "Predator", "zh-CN": "掠食者" },
     materials: ["Narukami’s Wisdom", "Dismal Prism", "Firm Arrowhead"],
   },
   "Prototype Crescent": {
     rarity: 4,
-    category: "bow",
+    category: WeaponCategory.BOW,
     name: { en: "Prototype Crescent", "zh-CN": "试作澹月" },
     materials: [
       "Northlander Bow Billet",
@@ -488,19 +523,19 @@ export const weapons = {
   },
   "Mouun’s Moon": {
     rarity: 4,
-    category: "bow",
+    category: WeaponCategory.BOW,
     name: { en: "Mouun’s Moon", "zh-CN": "曚云之月" },
     materials: ["Narukami’s Wisdom", "Dismal Prism", "Spectral Husk"],
   },
   "Mitternachts Waltz": {
     rarity: 4,
-    category: "bow",
+    category: WeaponCategory.BOW,
     name: { en: "Mitternachts Waltz", "zh-CN": "幽夜华尔兹" },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Treasure Hoarder Insignia"],
   },
   Hamayumi: {
     rarity: 4,
-    category: "bow",
+    category: WeaponCategory.BOW,
     name: { en: "Hamayumi", "zh-CN": "破魔之弓" },
     materials: [
       "Northlander Bow Billet",
@@ -513,13 +548,13 @@ export const weapons = {
   },
   "Favonius Warbow": {
     rarity: 4,
-    category: "bow",
+    category: WeaponCategory.BOW,
     name: { en: "Favonius Warbow", "zh-CN": "西风猎弓" },
     materials: ["Fetters of the Dandelion Gladiator", "Chaos Device", "Whopperflower Nectar"],
   },
   "Compound Bow": {
     rarity: 4,
-    category: "bow",
+    category: WeaponCategory.BOW,
     name: { en: "Compound Bow", "zh-CN": "钢轮弓" },
     materials: [
       "Northlander Bow Billet",
@@ -532,103 +567,103 @@ export const weapons = {
   },
   "Blackcliff Warbow": {
     rarity: 4,
-    category: "bow",
+    category: WeaponCategory.BOW,
     name: { en: "Blackcliff Warbow", "zh-CN": "黑岩战弓" },
     materials: ["Luminous Sands from Guyun", "Hunter’s Sacrificial Knife", "Whopperflower Nectar"],
   },
   "Windblume Ode": {
     rarity: 4,
-    category: "bow",
+    category: WeaponCategory.BOW,
     name: { en: "Windblume Ode", "zh-CN": "风花之颂" },
     materials: ["Fetters of the Dandelion Gladiator", "Dead Ley Line Branch", "Whopperflower Nectar"],
   },
   "Raven Bow": {
     rarity: 3,
-    category: "bow",
+    category: WeaponCategory.BOW,
     name: { en: "Raven Bow", "zh-CN": "鸦羽弓" },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Firm Arrowhead"],
   },
   "Recurve Bow": {
     rarity: 3,
-    category: "bow",
+    category: WeaponCategory.BOW,
     name: { en: "Recurve Bow", "zh-CN": "反曲弓" },
     materials: ["Fetters of the Dandelion Gladiator", "Chaos Device", "Divining Scroll"],
   },
   Messenger: {
     rarity: 3,
-    category: "bow",
+    category: WeaponCategory.BOW,
     name: { en: "Messenger", "zh-CN": "信使" },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Treasure Hoarder Insignia"],
   },
   "Sharpshooter’s Oath": {
     rarity: 3,
-    category: "bow",
+    category: WeaponCategory.BOW,
     name: { en: "Sharpshooter’s Oath", "zh-CN": "神射手之誓" },
     materials: ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Slime Condensate"],
   },
   Slingshot: {
     rarity: 3,
-    category: "bow",
+    category: WeaponCategory.BOW,
     name: { en: "Slingshot", "zh-CN": "弹弓" },
     materials: ["Luminous Sands from Guyun", "Hunter’s Sacrificial Knife", "Damaged Mask"],
   },
   "Lost Prayer to the Sacred Winds": {
     rarity: 5,
-    category: "catalyst",
+    category: WeaponCategory.CATALYST,
     name: { en: "Lost Prayer to the Sacred Winds", "zh-CN": "四风原典" },
     materials: ["Fetters of the Dandelion Gladiator", "Chaos Device", "Slime Condensate"],
   },
   "Skyward Atlas": {
     rarity: 5,
-    category: "catalyst",
+    category: WeaponCategory.CATALYST,
     name: { en: "Skyward Atlas", "zh-CN": "天空之卷" },
     materials: ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Firm Arrowhead"],
   },
   "Everlasting Moonglow": {
     rarity: 5,
-    category: "catalyst",
+    category: WeaponCategory.CATALYST,
     name: { en: "Everlasting Moonglow", "zh-CN": "不灭月华" },
     materials: ["Coral Branch of a Distant Sea", "Dismal Prism", "Spectral Husk"],
   },
   "Memory of Dust": {
     rarity: 5,
-    category: "catalyst",
+    category: WeaponCategory.CATALYST,
     name: { en: "Memory of Dust", "zh-CN": "尘世之锁" },
     materials: ["Grain of Aerosiderite", "Fragile Bone Shard", "Damaged Mask"],
   },
   "Wine and Song": {
     rarity: 4,
-    category: "catalyst",
+    category: WeaponCategory.CATALYST,
     name: { en: "Wine and Song", "zh-CN": "暗巷的酒与诗" },
     materials: ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Treasure Hoarder Insignia"],
   },
   "The Widsith": {
     rarity: 4,
-    category: "catalyst",
+    category: WeaponCategory.CATALYST,
     name: { en: "The Widsith", "zh-CN": "流浪乐章" },
     materials: ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Damaged Mask"],
   },
   "Solar Pearl": {
     rarity: 4,
-    category: "catalyst",
+    category: WeaponCategory.CATALYST,
     name: { en: "Solar Pearl", "zh-CN": "匣里日月" },
     materials: ["Luminous Sands from Guyun", "Hunter’s Sacrificial Knife", "Whopperflower Nectar"],
   },
   "Sacrificial Fragments": {
     rarity: 4,
-    category: "catalyst",
+    category: WeaponCategory.CATALYST,
     name: { en: "Sacrificial Fragments", "zh-CN": "祭礼残章" },
     materials: ["Fetters of the Dandelion Gladiator", "Chaos Device", "Treasure Hoarder Insignia"],
   },
   "Royal Grimoire": {
     rarity: 4,
-    category: "catalyst",
+    category: WeaponCategory.CATALYST,
     name: { en: "Royal Grimoire", "zh-CN": "宗室秘法录" },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Recruit’s Insignia"],
   },
   "Prototype Amber": {
     rarity: 4,
-    category: "catalyst",
+    category: WeaponCategory.CATALYST,
     name: { en: "Prototype Amber", "zh-CN": "试作金珀" },
     materials: [
       "Northlander Catalyst Billet",
@@ -641,7 +676,7 @@ export const weapons = {
   },
   "Mappa Mare": {
     rarity: 4,
-    category: "catalyst",
+    category: WeaponCategory.CATALYST,
     name: { en: "Mappa Mare", "zh-CN": "万国诸海图谱" },
     materials: [
       "Northlander Catalyst Billet",
@@ -654,7 +689,7 @@ export const weapons = {
   },
   "Hakushin Ring": {
     rarity: 4,
-    category: "catalyst",
+    category: WeaponCategory.CATALYST,
     name: { en: "Hakushin Ring", "zh-CN": "白辰之环" },
     materials: [
       "Northlander Catalyst Billet",
@@ -667,7 +702,7 @@ export const weapons = {
   },
   Frostbearer: {
     rarity: 4,
-    category: "catalyst",
+    category: WeaponCategory.CATALYST,
     name: { en: "Frostbearer", "zh-CN": "忍冬之果" },
     materials: [
       "Northlander Catalyst Billet",
@@ -680,103 +715,103 @@ export const weapons = {
   },
   "Favonius Codex": {
     rarity: 4,
-    category: "catalyst",
+    category: WeaponCategory.CATALYST,
     name: { en: "Favonius Codex", "zh-CN": "西风秘典" },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Divining Scroll"],
   },
   "Eye of Perception": {
     rarity: 4,
-    category: "catalyst",
+    category: WeaponCategory.CATALYST,
     name: { en: "Eye of Perception", "zh-CN": "昭心" },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Damaged Mask"],
   },
   "Dodoco Tales": {
     rarity: 4,
-    category: "catalyst",
+    category: WeaponCategory.CATALYST,
     name: { en: "Dodoco Tales", "zh-CN": "嘟嘟可故事集" },
     materials: ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Damaged Mask"],
   },
   "Blackcliff Agate": {
     rarity: 4,
-    category: "catalyst",
+    category: WeaponCategory.CATALYST,
     name: { en: "Blackcliff Agate", "zh-CN": "黑岩绯玉" },
     materials: ["Luminous Sands from Guyun", "Hunter’s Sacrificial Knife", "Divining Scroll"],
   },
   "Magic Guide": {
     rarity: 3,
-    category: "catalyst",
+    category: WeaponCategory.CATALYST,
     name: { en: "Magic Guide", "zh-CN": "魔导绪论" },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Slime Condensate"],
   },
   "Otherworldly Story": {
     rarity: 3,
-    category: "catalyst",
+    category: WeaponCategory.CATALYST,
     name: { en: "Otherworldly Story", "zh-CN": "异世界行记" },
     materials: ["Fetters of the Dandelion Gladiator", "Chaos Device", "Damaged Mask"],
   },
   "Emerald Orb": {
     rarity: 3,
-    category: "catalyst",
+    category: WeaponCategory.CATALYST,
     name: { en: "Emerald Orb", "zh-CN": "翡玉法球" },
     materials: ["Luminous Sands from Guyun", "Hunter’s Sacrificial Knife", "Treasure Hoarder Insignia"],
   },
   "Thrilling Tales of Dragon Slayers": {
     rarity: 3,
-    category: "catalyst",
+    category: WeaponCategory.CATALYST,
     name: { en: "Thrilling Tales of Dragon Slayers", "zh-CN": "讨龙英杰谭" },
     materials: ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Divining Scroll"],
   },
   "Twin Nephrite": {
     rarity: 3,
-    category: "catalyst",
+    category: WeaponCategory.CATALYST,
     name: { en: "Twin Nephrite", "zh-CN": "甲级宝珏" },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Recruit’s Insignia"],
   },
   "Wolf’s Gravestone": {
     rarity: 5,
-    category: "claymore",
+    category: WeaponCategory.CLAYMORE,
     name: { en: "Wolf’s Gravestone", "zh-CN": "狼的末路" },
     materials: ["Fetters of the Dandelion Gladiator", "Chaos Device", "Divining Scroll"],
   },
   "Skyward Pride": {
     rarity: 5,
-    category: "claymore",
+    category: WeaponCategory.CLAYMORE,
     name: { en: "Skyward Pride", "zh-CN": "天空之傲" },
     materials: ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Slime Condensate"],
   },
   "The Unforged": {
     rarity: 5,
-    category: "claymore",
+    category: WeaponCategory.CLAYMORE,
     name: { en: "The Unforged", "zh-CN": "无工之剑" },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Treasure Hoarder Insignia"],
   },
   "Song of Broken Pines": {
     rarity: 5,
-    category: "claymore",
+    category: WeaponCategory.CLAYMORE,
     name: { en: "Song of Broken Pines", "zh-CN": "松籁响起之时" },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Damaged Mask"],
   },
   "Redhorn Stonethresher": {
     rarity: 5,
-    category: "claymore",
+    category: WeaponCategory.CLAYMORE,
     name: { en: "Redhorn Stonethresher", "zh-CN": "赤角石溃杵" },
     materials: ["Narukami’s Wisdom", "Concealed Claw", "Old Handguard"],
   },
   Akuoumaru: {
     rarity: 4,
-    category: "claymore",
+    category: WeaponCategory.CLAYMORE,
     name: { en: "Akuoumaru", "zh-CN": "恶王丸" },
     materials: ["Coral Branch of a Distant Sea", "Concealed Claw", "Old Handguard"],
   },
   "Royal Greatsword": {
     rarity: 4,
-    category: "claymore",
+    category: WeaponCategory.CLAYMORE,
     name: { en: "Royal Greatsword", "zh-CN": "宗室大剑" },
     materials: ["Fetters of the Dandelion Gladiator", "Chaos Device", "Slime Condensate"],
   },
   Whiteblind: {
     rarity: 4,
-    category: "claymore",
+    category: WeaponCategory.CLAYMORE,
     name: { en: "Whiteblind", "zh-CN": "白影剑" },
     materials: [
       "Northlander Claymore Billet",
@@ -789,13 +824,13 @@ export const weapons = {
   },
   "The Bell": {
     rarity: 4,
-    category: "claymore",
+    category: WeaponCategory.CLAYMORE,
     name: { en: "The Bell", "zh-CN": "钟剑" },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Whopperflower Nectar"],
   },
   "Snow-Tombed Starsilver": {
     rarity: 4,
-    category: "claymore",
+    category: WeaponCategory.CLAYMORE,
     name: { en: "Snow-Tombed Starsilver", "zh-CN": "雪葬的星银" },
     materials: [
       "Northlander Claymore Billet",
@@ -808,13 +843,13 @@ export const weapons = {
   },
   "Favonius Greatsword": {
     rarity: 4,
-    category: "claymore",
+    category: WeaponCategory.CLAYMORE,
     name: { en: "Favonius Greatsword", "zh-CN": "西风大剑" },
     materials: ["Fetters of the Dandelion Gladiator", "Chaos Device", "Recruit’s Insignia"],
   },
   "Katsuragikiri Nagamasa": {
     rarity: 4,
-    category: "claymore",
+    category: WeaponCategory.CLAYMORE,
     name: { en: "Katsuragikiri Nagamasa", "zh-CN": "桂木斩长正" },
     materials: [
       "Northlander Claymore Billet",
@@ -827,31 +862,31 @@ export const weapons = {
   },
   "Sacrificial Greatsword": {
     rarity: 4,
-    category: "claymore",
+    category: WeaponCategory.CLAYMORE,
     name: { en: "Sacrificial Greatsword", "zh-CN": "祭礼大剑" },
     materials: ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Firm Arrowhead"],
   },
   "Serpent Spine": {
     rarity: 4,
-    category: "claymore",
+    category: WeaponCategory.CLAYMORE,
     name: { en: "Serpent Spine", "zh-CN": "螭骨剑" },
     materials: ["Grain of Aerosiderite", "Fragile Bone Shard", "Whopperflower Nectar"],
   },
   "Blackcliff Slasher": {
     rarity: 4,
-    category: "claymore",
+    category: WeaponCategory.CLAYMORE,
     name: { en: "Blackcliff Slasher", "zh-CN": "黑岩斩刀" },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Recruit’s Insignia"],
   },
   Rainslasher: {
     rarity: 4,
-    category: "claymore",
+    category: WeaponCategory.CLAYMORE,
     name: { en: "Rainslasher", "zh-CN": "雨裁" },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Divining Scroll"],
   },
   "Prototype Archaic": {
     rarity: 4,
-    category: "claymore",
+    category: WeaponCategory.CLAYMORE,
     name: { en: "Prototype Archaic", "zh-CN": "试作古华" },
     materials: [
       "Northlander Claymore Billet",
@@ -864,85 +899,85 @@ export const weapons = {
   },
   "Luxurious Sea-Lord": {
     rarity: 4,
-    category: "claymore",
+    category: WeaponCategory.CLAYMORE,
     name: { en: "Luxurious Sea-Lord", "zh-CN": "衔珠海皇" },
     materials: ["Grain of Aerosiderite", "Fragile Bone Shard", "Slime Condensate"],
   },
   "Lithic Blade": {
     rarity: 4,
-    category: "claymore",
+    category: WeaponCategory.CLAYMORE,
     name: { en: "Lithic Blade", "zh-CN": "千岩古剑" },
     materials: ["Luminous Sands from Guyun", "Hunter’s Sacrificial Knife", "Firm Arrowhead"],
   },
   "Skyrider Greatsword": {
     rarity: 3,
-    category: "claymore",
+    category: WeaponCategory.CLAYMORE,
     name: { en: "Skyrider Greatsword", "zh-CN": "飞天大御剑" },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Damaged Mask"],
   },
   "Debate Club": {
     rarity: 3,
-    category: "claymore",
+    category: WeaponCategory.CLAYMORE,
     name: { en: "Debate Club", "zh-CN": "以理服人" },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Damaged Mask"],
   },
   "Bloodtainted Greatsword": {
     rarity: 3,
-    category: "claymore",
+    category: WeaponCategory.CLAYMORE,
     name: { en: "Bloodtainted Greatsword", "zh-CN": "沐浴龙血的剑" },
     materials: ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Firm Arrowhead"],
   },
   "White Iron Greatsword": {
     rarity: 3,
-    category: "claymore",
+    category: WeaponCategory.CLAYMORE,
     name: { en: "White Iron Greatsword", "zh-CN": "白铁大剑" },
     materials: ["Fetters of the Dandelion Gladiator", "Chaos Device", "Slime Condensate"],
   },
   "Ferrous Shadow": {
     rarity: 3,
-    category: "claymore",
+    category: WeaponCategory.CLAYMORE,
     name: { en: "Ferrous Shadow", "zh-CN": "铁影阔剑" },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Whopperflower Nectar"],
   },
   "Engulfing Lightning": {
     rarity: 5,
-    category: "polearm",
+    category: WeaponCategory.POLEARM,
     name: { en: "Engulfing Lightning", "zh-CN": "薙草之稻光" },
     materials: ["Mask of the Wicked Lieutenant", "Chaos Gear", "Old Handguard"],
   },
   "Skyward Spine": {
     rarity: 5,
-    category: "polearm",
+    category: WeaponCategory.POLEARM,
     name: { en: "Skyward Spine", "zh-CN": "天空之脊" },
     materials: ["Fetters of the Dandelion Gladiator", "Chaos Device", "Divining Scroll"],
   },
   "Primordial Jade Winged-Spear": {
     rarity: 5,
-    category: "polearm",
+    category: WeaponCategory.POLEARM,
     name: { en: "Primordial Jade Winged-Spear", "zh-CN": "和璞鸢" },
     materials: ["Luminous Sands from Guyun", "Hunter’s Sacrificial Knife", "Recruit’s Insignia"],
   },
   "Calamity Queller": {
     rarity: 5,
-    category: "polearm",
+    category: WeaponCategory.POLEARM,
     name: { en: "Calamity Queller", "zh-CN": "息灾" },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Whopperflower Nectar"],
   },
   "Staff of Homa": {
     rarity: 5,
-    category: "polearm",
+    category: WeaponCategory.POLEARM,
     name: { en: "Staff of Homa", "zh-CN": "护摩之杖" },
     materials: ["Grain of Aerosiderite", "Dead Ley Line Branch", "Slime Condensate"],
   },
   "Vortex Vanquisher": {
     rarity: 5,
-    category: "polearm",
+    category: WeaponCategory.POLEARM,
     name: { en: "Vortex Vanquisher", "zh-CN": "贯虹之槊" },
     materials: ["Grain of Aerosiderite", "Fragile Bone Shard", "Treasure Hoarder Insignia"],
   },
   "Prototype Starglitter": {
     rarity: 4,
-    category: "polearm",
+    category: WeaponCategory.POLEARM,
     name: { en: "Prototype Starglitter", "zh-CN": "试作星镰" },
     materials: [
       "Northlander Polearm Billet",
@@ -955,13 +990,13 @@ export const weapons = {
   },
   "Lithic Spear": {
     rarity: 4,
-    category: "polearm",
+    category: WeaponCategory.POLEARM,
     name: { en: "Lithic Spear", "zh-CN": "千岩长枪" },
     materials: ["Grain of Aerosiderite", "Fragile Bone Shard", "Firm Arrowhead"],
   },
   "Kitain Cross Spear": {
     rarity: 4,
-    category: "polearm",
+    category: WeaponCategory.POLEARM,
     name: { en: "Kitain Cross Spear", "zh-CN": "喜多院十文字" },
     materials: [
       "Northlander Polearm Billet",
@@ -974,7 +1009,7 @@ export const weapons = {
   },
   "“The Catch”": {
     rarity: 4,
-    category: "polearm",
+    category: WeaponCategory.POLEARM,
     name: { en: "“The Catch”", "zh-CN": "「渔获」" },
     materials: [
       "Mask of the Wicked Lieutenant",
@@ -989,13 +1024,13 @@ export const weapons = {
   },
   "Favonius Lance": {
     rarity: 4,
-    category: "polearm",
+    category: WeaponCategory.POLEARM,
     name: { en: "Favonius Lance", "zh-CN": "西风长枪" },
     materials: ["Fetters of the Dandelion Gladiator", "Chaos Device", "Slime Condensate"],
   },
   "Dragonspine Spear": {
     rarity: 4,
-    category: "polearm",
+    category: WeaponCategory.POLEARM,
     name: { en: "Dragonspine Spear", "zh-CN": "龙脊长枪" },
     materials: [
       "Northlander Polearm Billet",
@@ -1008,19 +1043,19 @@ export const weapons = {
   },
   "Dragon’s Bane": {
     rarity: 4,
-    category: "polearm",
+    category: WeaponCategory.POLEARM,
     name: { en: "Dragon’s Bane", "zh-CN": "匣里灭辰" },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Divining Scroll"],
   },
   Deathmatch: {
     rarity: 4,
-    category: "polearm",
+    category: WeaponCategory.POLEARM,
     name: { en: "Deathmatch", "zh-CN": "决斗之枪" },
     materials: ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Whopperflower Nectar"],
   },
   "Crescent Pike": {
     rarity: 4,
-    category: "polearm",
+    category: WeaponCategory.POLEARM,
     name: { en: "Crescent Pike", "zh-CN": "流月针" },
     materials: [
       "Northlander Polearm Billet",
@@ -1033,115 +1068,115 @@ export const weapons = {
   },
   "Blackcliff Pole": {
     rarity: 4,
-    category: "polearm",
+    category: WeaponCategory.POLEARM,
     name: { en: "Blackcliff Pole", "zh-CN": "黑岩刺枪" },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Recruit’s Insignia"],
   },
   "Wavebreaker’s Fin": {
     rarity: 4,
-    category: "polearm",
+    category: WeaponCategory.POLEARM,
     name: { en: "Wavebreaker’s Fin", "zh-CN": "断浪长鳍" },
     materials: ["Mask of the Wicked Lieutenant", "Concealed Claw", "Old Handguard"],
   },
   "Royal Spear": {
     rarity: 4,
-    category: "polearm",
+    category: WeaponCategory.POLEARM,
     name: { en: "Royal Spear", "zh-CN": "宗室猎枪" },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Recruit’s Insignia"],
   },
   Halberd: {
     rarity: 3,
-    category: "polearm",
+    category: WeaponCategory.POLEARM,
     name: { en: "Halberd", "zh-CN": "钺矛" },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Whopperflower Nectar"],
   },
   "Black Tassel": {
     rarity: 3,
-    category: "polearm",
+    category: WeaponCategory.POLEARM,
     name: { en: "Black Tassel", "zh-CN": "黑缨枪" },
     materials: ["Grain of Aerosiderite", "Fragile Bone Shard", "Firm Arrowhead"],
   },
   "White Tassel": {
     rarity: 3,
-    category: "polearm",
+    category: WeaponCategory.POLEARM,
     name: { en: "White Tassel", "zh-CN": "白缨枪" },
     materials: ["Luminous Sands from Guyun", "Hunter’s Sacrificial Knife", "Recruit’s Insignia"],
   },
   "Mistsplitter Reforged": {
     rarity: 5,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "Mistsplitter Reforged", "zh-CN": "雾切之回光" },
     materials: ["Coral Branch of a Distant Sea", "Chaos Gear", "Old Handguard"],
   },
   "Aquila Favonia": {
     rarity: 5,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "Aquila Favonia", "zh-CN": "风鹰剑" },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Firm Arrowhead"],
   },
   "Summit Shaper": {
     rarity: 5,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "Summit Shaper", "zh-CN": "斫峰之刃" },
     materials: ["Luminous Sands from Guyun", "Hunter’s Sacrificial Knife", "Damaged Mask"],
   },
   "Skyward Blade": {
     rarity: 5,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "Skyward Blade", "zh-CN": "天空之刃" },
     materials: ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Slime Condensate"],
   },
   "Freedom-Sworn": {
     rarity: 5,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "Freedom-Sworn", "zh-CN": "苍古自由之誓" },
     materials: ["Fetters of the Dandelion Gladiator", "Chaos Device", "Divining Scroll"],
   },
   "Primordial Jade Cutter": {
     rarity: 5,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "Primordial Jade Cutter", "zh-CN": "磐岩结绿" },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Treasure Hoarder Insignia"],
   },
   "The Flute": {
     rarity: 4,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "The Flute", "zh-CN": "笛剑" },
     materials: ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Slime Condensate"],
   },
   "The Black Sword": {
     rarity: 4,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "The Black Sword", "zh-CN": "黑剑" },
     materials: ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Slime Condensate"],
   },
   "The Alley Flash": {
     rarity: 4,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "The Alley Flash", "zh-CN": "暗巷闪光" },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Divining Scroll"],
   },
   "Sword of Descension": {
     rarity: 4,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "Sword of Descension", "zh-CN": "降临之剑" },
     materials: ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Treasure Hoarder Insignia"],
   },
   "Sacrificial Sword": {
     rarity: 4,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "Sacrificial Sword", "zh-CN": "祭礼剑" },
     materials: ["Fetters of the Dandelion Gladiator", "Chaos Device", "Divining Scroll"],
   },
   "Royal Longsword": {
     rarity: 4,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "Royal Longsword", "zh-CN": "宗室长剑" },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Damaged Mask"],
   },
   "Prototype Rancour": {
     rarity: 4,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "Prototype Rancour", "zh-CN": "试作斩岩" },
     materials: [
       "Northlander Sword Billet",
@@ -1154,7 +1189,7 @@ export const weapons = {
   },
   "Amenoma Kageuchi": {
     rarity: 4,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "Amenoma Kageuchi", "zh-CN": "天目影打刀" },
     materials: [
       "Northlander Sword Billet",
@@ -1167,13 +1202,13 @@ export const weapons = {
   },
   "Lion’s Roar": {
     rarity: 4,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "Lion’s Roar", "zh-CN": "匣里龙吟" },
     materials: ["Luminous Sands from Guyun", "Hunter’s Sacrificial Knife", "Treasure Hoarder Insignia"],
   },
   "Iron Sting": {
     rarity: 4,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "Iron Sting", "zh-CN": "铁蜂刺" },
     materials: [
       "Northlander Sword Billet",
@@ -1186,72 +1221,68 @@ export const weapons = {
   },
   "Festering Desire": {
     rarity: 4,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "Festering Desire", "zh-CN": "腐殖之剑" },
     materials: ["Fetters of the Dandelion Gladiator", "Heavy Horn", "Recruit’s Insignia"],
   },
   "Favonius Sword": {
     rarity: 4,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "Favonius Sword", "zh-CN": "西风剑" },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Firm Arrowhead"],
   },
   "Cinnabar Spindle": {
     rarity: 4,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "Cinnabar Spindle", "zh-CN": "辰砂之纺锤" },
     materials: ["Tile of Decarabian’s Tower", "Chaos Device", "Damaged Mask"],
   },
   "Blackcliff Longsword": {
     rarity: 4,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "Blackcliff Longsword", "zh-CN": "黑岩长剑" },
     materials: ["Luminous Sands from Guyun", "Hunter’s Sacrificial Knife", "Firm Arrowhead"],
   },
   "Harbinger of Dawn": {
     rarity: 3,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "Harbinger of Dawn", "zh-CN": "黎明神剑" },
     materials: ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Slime Condensate"],
   },
   "Fillet Blade": {
     rarity: 3,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "Fillet Blade", "zh-CN": "吃虎鱼刀" },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Treasure Hoarder Insignia"],
   },
   "Skyrider Sword": {
     rarity: 3,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "Skyrider Sword", "zh-CN": "飞天御剑" },
     materials: ["Grain of Aerosiderite", "Fragile Bone Shard", "Recruit’s Insignia"],
   },
   "Dark Iron Sword": {
     rarity: 3,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "Dark Iron Sword", "zh-CN": "暗铁剑" },
     materials: ["Luminous Sands from Guyun", "Hunter’s Sacrificial Knife", "Damaged Mask"],
   },
   "Cool Steel": {
     rarity: 3,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "Cool Steel", "zh-CN": "冷刃" },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Firm Arrowhead"],
   },
   "Traveler’s Handy Sword": {
     rarity: 3,
-    category: "sword",
+    category: WeaponCategory.SWORD,
     name: { en: "Traveler’s Handy Sword", "zh-CN": "旅行剑" },
     materials: ["Fetters of the Dandelion Gladiator", "Chaos Device", "Divining Scroll"],
   },
-};
+} as { [id: string]: Weapon };
 
 // materials
 
-/**
- * id: base level of each type
- * name: all levels
- */
 export const materials = {
   // common
   "Slime Condensate": {
@@ -1525,7 +1556,7 @@ export const materials = {
   "Rusty Koi": { name: { en: "Rusty Koi", "zh-CN": "锖假龙" } },
   Pufferfish: { name: { en: "Pufferfish", "zh-CN": "炮鲀" } },
   "Bitter Pufferfish": { name: { en: "Bitter Pufferfish", "zh-CN": "苦炮鲀" } },
-};
+} as { [id: string]: Material };
 
 // enemies
 

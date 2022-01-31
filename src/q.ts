@@ -1,6 +1,4 @@
-"use strict";
-
-import { bosses, characters, domains, enemy_ids, i18n, materials, weapons } from "./assets.mjs";
+import { bosses, characters, domains, enemy_ids, i18n, materials, weapons } from "./assets.js";
 
 const TYPE_CHARACTER = "character";
 const TYPE_WEAPON = "weapon";
@@ -12,12 +10,13 @@ const TYPE_WEAPON_DOMAIN = "weapon_domain";
 
 const selectors = document.querySelector("div.selectors");
 const output = document.getElementById("output");
+const lang_select = document.getElementById("lang-select");
 
-let last_query_id;
-let last_query_weekday;
+let last_query_id: string | null;
+let last_query_weekday: string | null;
 
 window.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("lang-select").innerHTML = Object.entries(i18n.supported_languages)
+  lang_select!.innerHTML = Object.entries(i18n.supported_languages)
     .map(([lang, name]) => `<option value="${lang}">${name}</option>`)
     .join("");
 
@@ -27,12 +26,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const bookmarks = JSON.parse(localStorage.getItem("bookmarks") || "[]");
 
-  selectors.innerHTML += renderItemsTable(characters, TYPE_CHARACTER, bookmarks.length !== 0);
-  selectors.innerHTML += renderItemsTable(weapons, TYPE_WEAPON, bookmarks.length !== 0);
-  selectors.innerHTML += renderEnemiesTable(bookmarks.length !== 0);
-  selectors.innerHTML += renderWeekdayDomainTables();
+  selectors!.innerHTML += renderItemsTable(characters, TYPE_CHARACTER, bookmarks.length !== 0);
+  selectors!.innerHTML += renderItemsTable(weapons, TYPE_WEAPON, bookmarks.length !== 0);
+  selectors!.innerHTML += renderEnemiesTable(bookmarks.length !== 0);
+  selectors!.innerHTML += renderWeekdayDomainTables();
 
-  bookmarks.forEach(([type, id, weekday]) => output.append(createQTable(type, id, weekday)));
+  bookmarks.forEach(([type, id, weekday]: [string, string, number]) => output!.append(createQTable(type, id, weekday)));
   document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
 });
 
@@ -52,11 +51,11 @@ function renderWeekdayDomainTables() {
 
 /* nav */
 
-document.querySelector("nav .links").addEventListener("click", (event) => {
-  const link = event.target;
-  if (link.tagName !== "A") return;
-  const target = document.getElementById(link.dataset.target);
-  if (target.tagName === "DETAILS") {
+document.querySelector("nav .links")!.addEventListener("click", (event) => {
+  const link = event.target as HTMLElement;
+  if (!link || link.tagName !== "A") return;
+  const target = document.getElementById(link.dataset.target || "") as HTMLDetailsElement;
+  if (target && target.tagName === "DETAILS") {
     target.open = true;
   }
   target.scrollIntoView();
@@ -64,18 +63,18 @@ document.querySelector("nav .links").addEventListener("click", (event) => {
 
 /* language selector */
 
-document.getElementById("lang-select").addEventListener("change", (event) => setLanguage(event.target.value));
+lang_select!.addEventListener("change", (event) => setLanguage((event.target as HTMLSelectElement).value));
 
-function setLanguage(lang) {
+function setLanguage(lang: string) {
   document.documentElement.setAttribute("lang", lang);
-  document.title = document.querySelector(`h1 > span[lang=${lang}]`).innerHTML;
-  document.getElementById("lang-select").value = lang;
+  document.title = (document.querySelector(`h1 > span[lang=${lang}]`) as HTMLSpanElement).innerHTML;
+  (lang_select as HTMLSelectElement).value = lang;
   localStorage.setItem("lang", lang);
 }
 
 /* content tables */
 
-function renderItemsTable(items, type, hasBookmarks) {
+function renderItemsTable(items: { [s: string]: unknown } | ArrayLike<unknown>, type: string, hasBookmarks: boolean) {
   return `<details id="${type}" ${hasBookmarks ? "" : "open"}><summary>${formatTableCaption(type)}</summary>
   <table class="ctable">${Object.entries(groupBy("rarity", Object.entries(items)))
     .sort(([r1], [r2]) => r2 - r1)
@@ -98,7 +97,7 @@ function renderItemsTable(items, type, hasBookmarks) {
     .join("")}</table></details>`;
 }
 
-function formatTableCaption(type) {
+function formatTableCaption(type: string) {
   let icon;
   // prettier-ignore
   switch (type) {
@@ -110,12 +109,12 @@ function formatTableCaption(type) {
   return `${icon} ${formatName(i18n[type])}`;
 }
 
-function formatWeaponIcon(category) {
+function formatWeaponIcon(category: string) {
   let icon;
   // prettier-ignore
   switch (category) {
     case "bow":      icon = "🏹"; break;
-    case "catalyst": icon = "📕"; break;
+    case "catalyst": icon = "📖"; break;
     case "claymore": icon = "🐟"; break;
     case "polearm":  icon = "🌿"; break;
     case "sword":    icon = "🗡️"; break;
@@ -124,7 +123,7 @@ function formatWeaponIcon(category) {
   return `<span class="weapon-icon">${icon}</span>`;
 }
 
-function renderEnemiesTable(hasBookmarks) {
+function renderEnemiesTable(hasBookmarks: boolean) {
   return `<details id="enemies" ${hasBookmarks ? "" : "open"}>
   <summary>${formatTableCaption("enemies_domains")}</summary>
   <table class="ctable"><tr><th>${formatName(i18n.weekly_boss)}</th><td>${enemy_ids.weekly_bosses
@@ -147,18 +146,18 @@ function renderEnemiesTable(hasBookmarks) {
       .join("")}`;
 }
 
-function renderLink(id, type, names) {
+function renderLink(id: string, type: string, names: any) {
   return `<a data-id='${id}' data-type='${type}' ${isBookmarked(type, id, 0) ? "class='bookmarked'" : ""}
   >${formatName(names)}</a>`;
 }
 
-function renderDomainLink(id, weekday, type, names) {
+function renderDomainLink(id: any, weekday: any, type: any, names: any) {
   return `<a data-id='${id}' data-weekday='${weekday}' data-type='${type}' ${
     isBookmarked(type, id, weekday) ? "class='bookmarked'" : ""
   }>${formatName(names)}</a>`;
 }
 
-function formatDomain(id, type) {
+function formatDomain(id: string, type: string) {
   return `<td>${formatName(domains[id].name)} / ${["mon_thu", "tue_fri", "wed_sat"]
     .map((weekday, i) => {
       return `<a data-id='${id}' data-weekday='${i + 1}' data-type='${type}' ${
@@ -170,7 +169,7 @@ function formatDomain(id, type) {
 
 /* search result tables */
 
-function findOrLoadQTable(event) {
+function findOrLoadQTable(event: Event) {
   const a = event.composedPath().find((e) => e.tagName === "A");
   if (!a) return;
   const id = a.dataset.id;
@@ -191,21 +190,21 @@ function findOrLoadQTable(event) {
   }
 }
 
-selectors.addEventListener("click", findOrLoadQTable);
-output.addEventListener("click", findOrLoadQTable);
+selectors!.addEventListener("click", findOrLoadQTable);
+output!.addEventListener("click", findOrLoadQTable);
 
-function createQTable(type, id, weekday) {
+function createQTable(type: string, id: string, weekday: number) {
   let renderedTableContent;
   switch (type) {
     case TYPE_CHARACTER:
-      renderedTableContent = renderFullQTable(TYPE_CHARACTER, id, findCharacter(id), byCharacter(id));
+      renderedTableContent = renderFullQTable(TYPE_CHARACTER, id, findCharacter(id), byCharacter(id), weekday);
       break;
     case TYPE_WEAPON:
-      renderedTableContent = renderFullQTable(TYPE_WEAPON, id, findWeapon(id), byWeapon(id));
+      renderedTableContent = renderFullQTable(TYPE_WEAPON, id, findWeapon(id), byWeapon(id), weekday);
       break;
     case TYPE_WEEKLY_BOSS:
     case TYPE_BOSS:
-      renderedTableContent = renderFullQTable(type, id, findBoss(id), byBoss(id));
+      renderedTableContent = renderFullQTable(type, id, findBoss(id), byBoss(id), weekday);
       break;
     case TYPE_TALENT_DOMAIN:
     case TYPE_WEAPON_DOMAIN:
@@ -219,29 +218,97 @@ function createQTable(type, id, weekday) {
   return tableWrapper;
 }
 
-function findCharacter(character) {
+function findCharacter(character: string) {
   return characters[character].name;
 }
 
-function byCharacter(character) {
+function byCharacter(character: string) {
   return characters[character].materials.reduce(
-    (map, m) => (map.set(materials[m].name, findEnemiesForMaterial(m)), map),
+    (
+      map: {
+        set: (
+          arg0: any,
+          arg1:
+            | [
+                string,
+                (
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                )
+              ][]
+            | (string | { name: { [k: string]: string }; type: string; weekday: number })[][]
+        ) => any;
+      },
+      m: string
+    ) => (map.set(materials[m].name, findEnemiesForMaterial(m)), map),
     new Map()
   );
 }
 
-function findWeapon(weapon) {
+function findWeapon(weapon: string) {
   return weapons[weapon].name;
 }
 
-function byWeapon(weapon) {
+function byWeapon(weapon: string) {
   return weapons[weapon].materials.reduce(
-    (map, m) => (map.set(materials[m].name, findEnemiesForMaterial(m)), map),
+    (
+      map: {
+        set: (
+          arg0: any,
+          arg1:
+            | [
+                string,
+                (
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                  | { materials: string[]; type: string; name: { en: string; "zh-CN": string } }
+                )
+              ][]
+            | (string | { name: { [k: string]: string }; type: string; weekday: number })[][]
+        ) => any;
+      },
+      m: string
+    ) => (map.set(materials[m].name, findEnemiesForMaterial(m)), map),
     new Map()
   );
 }
 
-function findEnemiesForMaterial(m) {
+function findEnemiesForMaterial(m: string) {
   const ds = Object.entries(domains)
     .filter(([, domain]) => domain.materials_by_weekday.includes(m))
     .map(([id, domain]) => {
@@ -261,11 +328,11 @@ function findEnemiesForMaterial(m) {
   return Object.entries(bosses).filter(([id, b]) => b.materials.includes(m));
 }
 
-function formatWeekday(name, lang, weekday) {
+function formatWeekday(name: unknown, lang: string, weekday: number) {
   return `${name} / ${findWeekday(lang, weekday)}`;
 }
 
-function findWeekday(lang, day) {
+function findWeekday(lang: string | number, day: any) {
   // prettier-ignore
   switch (day) {
     case 1: case 4: return i18n.weekdays.mon_thu[lang];
@@ -275,13 +342,13 @@ function findWeekday(lang, day) {
   }
 }
 
-function findBoss(boss) {
+function findBoss(boss: string) {
   return bosses[boss].name;
 }
 
-function byBoss(boss) {
+function byBoss(boss: string) {
   return bosses[boss].materials.reduce(
-    (map, m) => (
+    (map: { set: (arg0: any, arg1: any) => any; get: (arg0: any) => any }, m: string | number) => (
       map.set(
         materials[m].name,
         (map.get(materials[m].name) || []).concat(findCharactersForMaterial(m)).concat(findWeaponsForMaterial(m))
@@ -292,12 +359,12 @@ function byBoss(boss) {
   );
 }
 
-function findDomain(domain, weekday) {
+function findDomain(domain: string, weekday: number) {
   const d = domains[domain];
   return Object.fromEntries(Object.entries(d.name).map(([lang, value]) => [lang, formatWeekday(value, lang, weekday)]));
 }
 
-function byDomain(domain, weekday) {
+function byDomain(domain: string, weekday: number) {
   const d = domains[domain];
   const m = d.materials_by_weekday[weekday > 3 ? weekday - 3 : weekday];
   return new Map([
@@ -305,7 +372,7 @@ function byDomain(domain, weekday) {
   ]);
 }
 
-function findCharactersForMaterial(m) {
+function findCharactersForMaterial(m: string) {
   return Object.entries(characters)
     .filter(([id, c]) => c.materials.includes(m))
     .map(([id, c]) => {
@@ -314,7 +381,7 @@ function findCharactersForMaterial(m) {
     });
 }
 
-function findWeaponsForMaterial(m) {
+function findWeaponsForMaterial(m: string) {
   return Object.entries(weapons)
     .filter(([, w]) => w.materials.includes(m))
     .map(([id, c]) => {
@@ -323,19 +390,32 @@ function findWeaponsForMaterial(m) {
     });
 }
 
-function renderFullQTable(type, id, name, object, weekday) {
+function renderFullQTable(
+  type: string,
+  id: string,
+  name: { [k: string]: string },
+  object: Map<any, (string | { rarity: number; name: { en: string; "zh-CN": string }; materials: string[] })[][]>,
+  weekday: number
+) {
   return `<table name="${formatId(type, id, weekday)}" class="qtable highlighted"
   >${renderQTableRows(type, id, name, object, weekday)}</table>`;
 }
 
-function renderQTableRows(type, id, name, object, weekday) {
+function renderQTableRows(
+  type: string,
+  id: string,
+  name: { [k: string]: string },
+  object: Map<any, (string | { rarity: number; name: { en: string; "zh-CN": string }; materials: string[] })[][]>,
+  weekday: number
+) {
   const materials = Array.from(object.keys());
+  const formattedId = formatId(type, id, weekday);
   return `<tr>
       <th rowspan="${materials.length}">
-        <input type="checkbox" id="${formatId(type, id, weekday)}"
+        <input type="checkbox" id="${formattedId}"
           data-type="${type}" data-id="${id}" ${weekday ? `data-weekday="${weekday}"` : ""}
           ${isBookmarked(type, id, weekday) ? "checked" : ""}>
-        <label for="${formatId(type, id, weekday)}">
+        <label for="${formattedId}">
           ${formatName(name).replaceAll(
             " / ",
             "<span class='mobile'> / </span><span class='desktop'><br></span>"
@@ -350,7 +430,7 @@ function renderQTableRows(type, id, name, object, weekday) {
       .join("")}`;
 }
 
-function formatId(...parts) {
+function formatId(...parts: any[]) {
   return parts
     .filter((p) => p)
     .join("-")
@@ -358,7 +438,7 @@ function formatId(...parts) {
     .replaceAll("’", "");
 }
 
-function formatArray(e) {
+function formatArray(e: [any, any][]) {
   return e
     .map(([id, obj]) =>
       obj.type === TYPE_WEAPON_DOMAIN || obj.type === TYPE_TALENT_DOMAIN
@@ -368,7 +448,7 @@ function formatArray(e) {
     .join(formatName(i18n.delimiter));
 }
 
-function formatName(name) {
+function formatName(name: unknown) {
   return Object.entries(name)
     .map(([lang, value]) => {
       return `<span class="i18n" lang="${lang}">${Array.isArray(value) ? value.join("<br>") : value}</span>`;
@@ -378,7 +458,7 @@ function formatName(name) {
 
 /* bookmarks */
 
-function updateBookmark(event) {
+function updateBookmark(event: { target: any }) {
   const input = event.target;
   if (input.tagName !== "INPUT") return;
   const type = input.dataset.type;
@@ -393,15 +473,15 @@ function updateBookmark(event) {
 selectors.addEventListener("change", updateBookmark);
 output.addEventListener("change", updateBookmark);
 
-function isBookmarked(type, id, weekday) {
+function isBookmarked(type: string, id: string, weekday: number) {
   return (JSON.parse(localStorage.getItem("bookmarks")) || []).some(
-    ([t, i, w]) => t === type && i === id && w === (weekday || 0)
+    ([t, i, w]: [string, string, number]) => t === type && i === id && w === (weekday || 0)
   );
 }
 
-function bookmark(type, id, weekday) {
+function bookmark(type: string, id: any, weekday: number) {
   const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
-  const index = bookmarks.findIndex(([t, i, w]) => t === type && i === id && w === weekday);
+  const index = bookmarks.findIndex(([t, i, w]: [string, string, number]) => t === type && i === id && w === weekday);
   if (index === -1) {
     document
       .querySelectorAll(
@@ -415,9 +495,9 @@ function bookmark(type, id, weekday) {
   }
 }
 
-function unbookmark(type, id, weekday) {
+function unbookmark(type: string, id: any, weekday: number) {
   const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
-  const index = bookmarks.findIndex(([t, i, w]) => t === type && i === id && w === weekday);
+  const index = bookmarks.findIndex(([t, i, w]: [string, string, number]) => t === type && i === id && w === weekday);
   if (index !== -1) {
     document
       .querySelectorAll(
@@ -433,14 +513,14 @@ function unbookmark(type, id, weekday) {
 
 /* helpers */
 
-document.getElementById("clear").addEventListener("click", () => {
+document.getElementById("clear")!.addEventListener("click", () => {
   last_query_id = null;
   last_query_weekday = null;
-  output.innerHTML = "";
+  output!.innerHTML = "";
 });
 
-function groupBy(field, arr) {
-  return arr.reduce((obj, [id, item]) => {
+function groupBy(field: string, arr) {
+  return arr.reduce((obj: { [x: string]: any[][] }, [id, item]: any) => {
     if (!obj[item[field]]) {
       obj[item[field]] = [];
     }
