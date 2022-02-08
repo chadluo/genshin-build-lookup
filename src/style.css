@@ -155,6 +155,9 @@ details,
   margin-top: -3rem;
   padding-top: 6rem;
 }
+summary {
+  white-space: pre-wrap;
+}
 details:target summary {
   font-weight: bold;
 }

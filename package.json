@@ -30,7 +30,7 @@
   },
   "nodemonConfig": {
     "watch": "src",
-    "ext": "js,html,css",
+    "ext": "ts,html,css",
     "exec": "npm run build"
   }
 }
