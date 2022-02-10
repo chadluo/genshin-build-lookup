@@ -7,6 +7,7 @@ export type I18nObject = { [lang in SupportedLanguages]: string[] };
 
 export interface WishObject {
   id: string;
+  type: ItemType;
   rarity: number;
   name: I18nObject;
   materials: string[];
@@ -33,30 +34,35 @@ export interface Material {
 export const characters: Character[] = [
   {
     id: "Albedo",
+    type: "character",
     rarity: 5,
     name: { en: ["Albedo"], "zh-CN": ["阿贝多"] },
     materials: ["Prithiva Topaz", "Basalt Pillar", "Tusk of Monoceros Caeli", "Ballad", "Divining Scroll", "Cecilia"],
   },
   {
     id: "Aloy",
+    type: "character",
     rarity: 5,
     name: { en: ["Aloy"], "zh-CN": ["埃洛伊"] },
     materials: ["Shivada Jade", "Crystalline Bloom", "Molten Moment", "Freedom", "Spectral Husk", "Crystal Marrow"],
   },
   {
     id: "Amber",
+    type: "character",
     rarity: 4,
     name: { en: ["Amber"], "zh-CN": ["安柏"] },
     materials: ["Agnidus Agate", "Everflame Seed", "Dvalin’s Sigh", "Freedom", "Firm Arrowhead", "Small Lamp Grass"],
   },
   {
     id: "Arataki Itto",
+    type: "character",
     rarity: 5,
     name: { en: ["Arataki Itto"], "zh-CN": ["荒泷一斗"] },
     materials: ["Prithiva Topaz", "Riftborn Regalia", "Ashen Heart", "Elegance", "Slime Condensate", "Onikabuto"],
   },
   {
     id: "Barbara",
+    type: "character",
     rarity: 4,
     name: { en: ["Barbara"], "zh-CN": ["芭芭拉"] },
     materials: [
@@ -70,6 +76,7 @@ export const characters: Character[] = [
   },
   {
     id: "Beidou",
+    type: "character",
     rarity: 4,
     name: { en: ["Beidou"], "zh-CN": ["北斗"] },
     materials: [
@@ -83,6 +90,7 @@ export const characters: Character[] = [
   },
   {
     id: "Bennett",
+    type: "character",
     rarity: 4,
     name: { en: ["Bennett"], "zh-CN": ["班尼特"] },
     materials: [
@@ -96,12 +104,14 @@ export const characters: Character[] = [
   },
   {
     id: "Chongyun",
+    type: "character",
     rarity: 4,
     name: { en: ["Chongyun"], "zh-CN": ["重云"] },
     materials: ["Shivada Jade", "Hoarfrost Core", "Dvalin’s Sigh", "Diligence", "Damaged Mask", "Cor Lapis"],
   },
   {
     id: "Diluc",
+    type: "character",
     rarity: 5,
     name: { en: ["Diluc"], "zh-CN": ["迪卢克"] },
     materials: [
@@ -115,12 +125,14 @@ export const characters: Character[] = [
   },
   {
     id: "Diona",
+    type: "character",
     rarity: 4,
     name: { en: ["Diona"], "zh-CN": ["迪奥娜"] },
     materials: ["Shivada Jade", "Hoarfrost Core", "Shard of a Foul Legacy", "Freedom", "Firm Arrowhead", "Calla Lily"],
   },
   {
     id: "Eula",
+    type: "character",
     rarity: 5,
     name: { en: ["Eula"], "zh-CN": ["优菈"] },
     materials: [
@@ -134,6 +146,7 @@ export const characters: Character[] = [
   },
   {
     id: "Fischl",
+    type: "character",
     rarity: 4,
     name: { en: ["Fischl"], "zh-CN": ["菲谢尔"] },
     materials: [
@@ -147,6 +160,7 @@ export const characters: Character[] = [
   },
   {
     id: "Ganyu",
+    type: "character",
     rarity: 5,
     name: { en: ["Ganyu"], "zh-CN": ["甘雨"] },
     materials: [
@@ -160,12 +174,14 @@ export const characters: Character[] = [
   },
   {
     id: "Gorou",
+    type: "character",
     rarity: 4,
     name: { en: ["Gorou"], "zh-CN": ["五郎"] },
     materials: ["Prithiva Topaz", "Perpetual Heart", "Molten Moment", "Light", "Spectral Husk", "Sango Pearl"],
   },
   {
     id: "Hu Tao",
+    type: "character",
     rarity: 5,
     name: { en: ["Hu Tao"], "zh-CN": ["胡桃"] },
     materials: [
@@ -179,12 +195,14 @@ export const characters: Character[] = [
   },
   {
     id: "Jean",
+    type: "character",
     rarity: 5,
     name: { en: ["Jean"], "zh-CN": ["琴"] },
     materials: ["Vayuda Turquoise", "Hurricane Seed", "Dvalin’s Plume", "Resistance", "Damaged Mask", "Dandelion Seed"],
   },
   {
     id: "Kaedehara Kazuha",
+    type: "character",
     rarity: 5,
     name: { en: ["Kaedehara Kazuha"], "zh-CN": ["枫原万叶"] },
     materials: [
@@ -198,6 +216,7 @@ export const characters: Character[] = [
   },
   {
     id: "Kaeya",
+    type: "character",
     rarity: 4,
     name: { en: ["Kaeya"], "zh-CN": ["凯亚"] },
     materials: [
@@ -211,12 +230,14 @@ export const characters: Character[] = [
   },
   {
     id: "Kamisato Ayaka",
+    type: "character",
     rarity: 5,
     name: { en: ["Kamisato Ayaka"], "zh-CN": ["神里绫华"] },
     materials: ["Shivada Jade", "Perpetual Heart", "Bloodjade Branch", "Elegance", "Old Handguard", "Sakura Bloom"],
   },
   {
     id: "Keqing",
+    type: "character",
     rarity: 5,
     name: { en: ["Keqing"], "zh-CN": ["刻晴"] },
     materials: [
@@ -230,6 +251,7 @@ export const characters: Character[] = [
   },
   {
     id: "Klee",
+    type: "character",
     rarity: 5,
     name: { en: ["Klee"], "zh-CN": ["可莉"] },
     materials: [
@@ -243,18 +265,21 @@ export const characters: Character[] = [
   },
   {
     id: "Kujou Sara",
+    type: "character",
     rarity: 4,
     name: { en: ["Kujou Sara"], "zh-CN": ["九条裟罗"] },
     materials: ["Vajrada Amethyst", "Storm Beads", "Ashen Heart", "Elegance", "Damaged Mask", "Dendrobium"],
   },
   {
     id: "Lisa",
+    type: "character",
     rarity: 4,
     name: { en: ["Lisa"], "zh-CN": ["丽莎"] },
     materials: ["Vajrada Amethyst", "Lightning Prism", "Dvalin’s Claw", "Ballad", "Slime Condensate", "Valberry"],
   },
   {
     id: "Mona",
+    type: "character",
     rarity: 5,
     name: { en: ["Mona"], "zh-CN": ["莫娜"] },
     materials: [
@@ -268,6 +293,7 @@ export const characters: Character[] = [
   },
   {
     id: "Ningguang",
+    type: "character",
     rarity: 4,
     name: { en: ["Ningguang"], "zh-CN": ["凝光"] },
     materials: [
@@ -281,36 +307,42 @@ export const characters: Character[] = [
   },
   {
     id: "Noelle",
+    type: "character",
     rarity: 4,
     name: { en: ["Noelle"], "zh-CN": ["诺艾尔"] },
     materials: ["Prithiva Topaz", "Basalt Pillar", "Dvalin’s Claw", "Resistance", "Damaged Mask", "Valberry"],
   },
   {
     id: "Qiqi",
+    type: "character",
     rarity: 5,
     name: { en: ["Qiqi"], "zh-CN": ["七七"] },
     materials: ["Shivada Jade", "Hoarfrost Core", "Tail of Boreas", "Prosperity", "Divining Scroll", "Violetgrass"],
   },
   {
     id: "Raiden Shogun",
+    type: "character",
     rarity: 5,
     name: { en: ["Raiden Shogun"], "zh-CN": ["雷电将军"] },
     materials: ["Vajrada Amethyst", "Storm Beads", "Molten Moment", "Light", "Old Handguard", "Amakumo Fruit"],
   },
   {
     id: "Razor",
+    type: "character",
     rarity: 4,
     name: { en: ["Razor"], "zh-CN": ["雷泽"] },
     materials: ["Vajrada Amethyst", "Lightning Prism", "Dvalin’s Claw", "Resistance", "Damaged Mask", "Wolfhook"],
   },
   {
     id: "Rosaria",
+    type: "character",
     rarity: 4,
     name: { en: ["Rosaria"], "zh-CN": ["罗莎莉亚"] },
     materials: ["Shivada Jade", "Hoarfrost Core", "Shadow of the Warrior", "Ballad", "Recruit’s Insignia", "Valberry"],
   },
   {
     id: "Sangonomiya Kokomi",
+    type: "character",
     rarity: 5,
     name: { en: ["Sangonomiya Kokomi"], "zh-CN": ["珊瑚宫心海"] },
     materials: [
@@ -324,6 +356,7 @@ export const characters: Character[] = [
   },
   {
     id: "Sayu",
+    type: "character",
     rarity: 4,
     name: { en: ["Sayu"], "zh-CN": ["早柚"] },
     materials: [
@@ -337,6 +370,7 @@ export const characters: Character[] = [
   },
   {
     id: "Shenhe",
+    type: "character",
     rarity: 5,
     name: { en: ["Shenhe"], "zh-CN": ["申鹤"] },
     materials: [
@@ -350,6 +384,7 @@ export const characters: Character[] = [
   },
   {
     id: "Sucrose",
+    type: "character",
     rarity: 4,
     name: { en: ["Sucrose"], "zh-CN": ["砂糖"] },
     materials: [
@@ -363,6 +398,7 @@ export const characters: Character[] = [
   },
   {
     id: "Tartaglia",
+    type: "character",
     rarity: 5,
     name: { en: ["Tartaglia"], "zh-CN": ["达达利亚"] },
     materials: [
@@ -376,6 +412,7 @@ export const characters: Character[] = [
   },
   {
     id: "Thoma",
+    type: "character",
     rarity: 4,
     name: { en: ["Thoma"], "zh-CN": ["托马"] },
     materials: [
@@ -389,18 +426,21 @@ export const characters: Character[] = [
   },
   {
     id: "Venti",
+    type: "character",
     rarity: 5,
     name: { en: ["Venti"], "zh-CN": ["温迪"] },
     materials: ["Vayuda Turquoise", "Hurricane Seed", "Tail of Boreas", "Ballad", "Slime Condensate", "Cecilia"],
   },
   {
     id: "Xiangling",
+    type: "character",
     rarity: 4,
     name: { en: ["Xiangling"], "zh-CN": ["香菱"] },
     materials: ["Agnidus Agate", "Everflame Seed", "Dvalin’s Claw", "Diligence", "Slime Condensate", "Jueyun Chili"],
   },
   {
     id: "Xiao",
+    type: "character",
     rarity: 5,
     name: { en: ["Xiao"], "zh-CN": ["魈"] },
     materials: [
@@ -414,12 +454,14 @@ export const characters: Character[] = [
   },
   {
     id: "Xingqiu",
+    type: "character",
     rarity: 4,
     name: { en: ["Xingqiu"], "zh-CN": ["行秋"] },
     materials: ["Varunada Lazurite", "Cleansing Heart", "Tail of Boreas", "Gold", "Damaged Mask", "Silk Flower"],
   },
   {
     id: "Xinyan",
+    type: "character",
     rarity: 4,
     name: { en: ["Xinyan"], "zh-CN": ["辛焱"] },
     materials: [
@@ -433,6 +475,7 @@ export const characters: Character[] = [
   },
   {
     id: "Yanfei",
+    type: "character",
     rarity: 4,
     name: { en: ["Yanfei"], "zh-CN": ["烟绯"] },
     materials: [
@@ -446,6 +489,7 @@ export const characters: Character[] = [
   },
   {
     id: "Yoimiya",
+    type: "character",
     rarity: 5,
     name: { en: ["Yoimiya"], "zh-CN": ["宵宫"] },
     materials: [
@@ -459,12 +503,14 @@ export const characters: Character[] = [
   },
   {
     id: "Yun Jin",
+    type: "character",
     rarity: 4,
     name: { en: ["Yun Jin"], "zh-CN": ["云堇"] },
     materials: ["Prithiva Topaz", "Riftborn Regalia", "Ashen Heart", "Diligence", "Damaged Mask", "Glaze Lily"],
   },
   {
     id: "Zhongli",
+    type: "character",
     rarity: 5,
     name: { en: ["Zhongli"], "zh-CN": ["钟离"] },
     materials: ["Prithiva Topaz", "Basalt Pillar", "Tusk of Monoceros Caeli", "Gold", "Slime Condensate", "Cor Lapis"],
@@ -476,6 +522,7 @@ export const characters: Character[] = [
 export const weapons: Weapon[] = [
   {
     id: "Polar Star",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.BOW,
     name: { en: ["Polar Star"], "zh-CN": ["冬极白星"] },
@@ -483,6 +530,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Thundering Pulse",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.BOW,
     name: { en: ["Thundering Pulse"], "zh-CN": ["飞雷之弦振"] },
@@ -490,6 +538,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Elegy for the End",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.BOW,
     name: { en: ["Elegy for the End"], "zh-CN": ["终末嗟叹之诗"] },
@@ -497,6 +546,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Skyward Harp",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.BOW,
     name: { en: ["Skyward Harp"], "zh-CN": ["天空之翼"] },
@@ -504,6 +554,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Amos’ Bow",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.BOW,
     name: { en: ["Amos’ Bow"], "zh-CN": ["阿莫斯之弓"] },
@@ -511,6 +562,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Alley Hunter",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.BOW,
     name: { en: ["Alley Hunter"], "zh-CN": ["暗巷猎手"] },
@@ -518,6 +570,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "The Viridescent Hunt",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.BOW,
     name: { en: ["The Viridescent Hunt"], "zh-CN": ["苍翠猎弓"] },
@@ -525,6 +578,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "The Stringless",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.BOW,
     name: { en: ["The Stringless"], "zh-CN": ["绝弦"] },
@@ -532,6 +586,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Sacrificial Bow",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.BOW,
     name: { en: ["Sacrificial Bow"], "zh-CN": ["祭礼弓"] },
@@ -539,6 +594,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Rust",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.BOW,
     name: { en: ["Rust"], "zh-CN": ["弓藏"] },
@@ -546,6 +602,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Royal Bow",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.BOW,
     name: { en: ["Royal Bow"], "zh-CN": ["宗室长弓"] },
@@ -553,6 +610,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Predator",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.BOW,
     name: { en: ["Predator"], "zh-CN": ["掠食者"] },
@@ -560,6 +618,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Prototype Crescent",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.BOW,
     name: { en: ["Prototype Crescent"], "zh-CN": ["试作澹月"] },
@@ -574,6 +633,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Mouun’s Moon",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.BOW,
     name: { en: ["Mouun’s Moon"], "zh-CN": ["曚云之月"] },
@@ -581,6 +641,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Mitternachts Waltz",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.BOW,
     name: { en: ["Mitternachts Waltz"], "zh-CN": ["幽夜华尔兹"] },
@@ -588,6 +649,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Hamayumi",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.BOW,
     name: { en: ["Hamayumi"], "zh-CN": ["破魔之弓"] },
@@ -602,6 +664,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Favonius Warbow",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.BOW,
     name: { en: ["Favonius Warbow"], "zh-CN": ["西风猎弓"] },
@@ -609,6 +672,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Compound Bow",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.BOW,
     name: { en: ["Compound Bow"], "zh-CN": ["钢轮弓"] },
@@ -623,6 +687,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Blackcliff Warbow",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.BOW,
     name: { en: ["Blackcliff Warbow"], "zh-CN": ["黑岩战弓"] },
@@ -630,6 +695,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Windblume Ode",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.BOW,
     name: { en: ["Windblume Ode"], "zh-CN": ["风花之颂"] },
@@ -637,6 +703,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Raven Bow",
+    type: "weapon",
     rarity: 3,
     category: WeaponCategory.BOW,
     name: { en: ["Raven Bow"], "zh-CN": ["鸦羽弓"] },
@@ -644,6 +711,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Recurve Bow",
+    type: "weapon",
     rarity: 3,
     category: WeaponCategory.BOW,
     name: { en: ["Recurve Bow"], "zh-CN": ["反曲弓"] },
@@ -651,6 +719,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Messenger",
+    type: "weapon",
     rarity: 3,
     category: WeaponCategory.BOW,
     name: { en: ["Messenger"], "zh-CN": ["信使"] },
@@ -658,6 +727,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Sharpshooter’s Oath",
+    type: "weapon",
     rarity: 3,
     category: WeaponCategory.BOW,
     name: { en: ["Sharpshooter’s Oath"], "zh-CN": ["神射手之誓"] },
@@ -665,6 +735,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Slingshot",
+    type: "weapon",
     rarity: 3,
     category: WeaponCategory.BOW,
     name: { en: ["Slingshot"], "zh-CN": ["弹弓"] },
@@ -672,6 +743,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Lost Prayer to the Sacred Winds",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.CATALYST,
     name: { en: ["Lost Prayer to the Sacred Winds"], "zh-CN": ["四风原典"] },
@@ -679,6 +751,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Skyward Atlas",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.CATALYST,
     name: { en: ["Skyward Atlas"], "zh-CN": ["天空之卷"] },
@@ -686,6 +759,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Everlasting Moonglow",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.CATALYST,
     name: { en: ["Everlasting Moonglow"], "zh-CN": ["不灭月华"] },
@@ -693,6 +767,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Memory of Dust",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.CATALYST,
     name: { en: ["Memory of Dust"], "zh-CN": ["尘世之锁"] },
@@ -700,6 +775,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Wine and Song",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CATALYST,
     name: { en: ["Wine and Song"], "zh-CN": ["暗巷的酒与诗"] },
@@ -707,6 +783,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "The Widsith",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CATALYST,
     name: { en: ["The Widsith"], "zh-CN": ["流浪乐章"] },
@@ -714,6 +791,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Solar Pearl",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CATALYST,
     name: { en: ["Solar Pearl"], "zh-CN": ["匣里日月"] },
@@ -721,6 +799,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Sacrificial Fragments",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CATALYST,
     name: { en: ["Sacrificial Fragments"], "zh-CN": ["祭礼残章"] },
@@ -728,6 +807,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Royal Grimoire",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CATALYST,
     name: { en: ["Royal Grimoire"], "zh-CN": ["宗室秘法录"] },
@@ -735,6 +815,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Prototype Amber",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CATALYST,
     name: { en: ["Prototype Amber"], "zh-CN": ["试作金珀"] },
@@ -749,6 +830,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Mappa Mare",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CATALYST,
     name: { en: ["Mappa Mare"], "zh-CN": ["万国诸海图谱"] },
@@ -763,6 +845,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Hakushin Ring",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CATALYST,
     name: { en: ["Hakushin Ring"], "zh-CN": ["白辰之环"] },
@@ -777,6 +860,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Frostbearer",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CATALYST,
     name: { en: ["Frostbearer"], "zh-CN": ["忍冬之果"] },
@@ -791,6 +875,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Favonius Codex",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CATALYST,
     name: { en: ["Favonius Codex"], "zh-CN": ["西风秘典"] },
@@ -798,6 +883,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Eye of Perception",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CATALYST,
     name: { en: ["Eye of Perception"], "zh-CN": ["昭心"] },
@@ -805,6 +891,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Dodoco Tales",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CATALYST,
     name: { en: ["Dodoco Tales"], "zh-CN": ["嘟嘟可故事集"] },
@@ -812,6 +899,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Blackcliff Agate",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CATALYST,
     name: { en: ["Blackcliff Agate"], "zh-CN": ["黑岩绯玉"] },
@@ -819,6 +907,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Magic Guide",
+    type: "weapon",
     rarity: 3,
     category: WeaponCategory.CATALYST,
     name: { en: ["Magic Guide"], "zh-CN": ["魔导绪论"] },
@@ -826,6 +915,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Otherworldly Story",
+    type: "weapon",
     rarity: 3,
     category: WeaponCategory.CATALYST,
     name: { en: ["Otherworldly Story"], "zh-CN": ["异世界行记"] },
@@ -833,6 +923,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Emerald Orb",
+    type: "weapon",
     rarity: 3,
     category: WeaponCategory.CATALYST,
     name: { en: ["Emerald Orb"], "zh-CN": ["翡玉法球"] },
@@ -840,6 +931,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Thrilling Tales of Dragon Slayers",
+    type: "weapon",
     rarity: 3,
     category: WeaponCategory.CATALYST,
     name: { en: ["Thrilling Tales of Dragon Slayers"], "zh-CN": ["讨龙英杰谭"] },
@@ -847,6 +939,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Twin Nephrite",
+    type: "weapon",
     rarity: 3,
     category: WeaponCategory.CATALYST,
     name: { en: ["Twin Nephrite"], "zh-CN": ["甲级宝珏"] },
@@ -854,6 +947,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Wolf’s Gravestone",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Wolf’s Gravestone"], "zh-CN": ["狼的末路"] },
@@ -861,6 +955,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Skyward Pride",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Skyward Pride"], "zh-CN": ["天空之傲"] },
@@ -868,6 +963,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "The Unforged",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.CLAYMORE,
     name: { en: ["The Unforged"], "zh-CN": ["无工之剑"] },
@@ -875,6 +971,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Song of Broken Pines",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Song of Broken Pines"], "zh-CN": ["松籁响起之时"] },
@@ -882,6 +979,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Redhorn Stonethresher",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Redhorn Stonethresher"], "zh-CN": ["赤角石溃杵"] },
@@ -889,6 +987,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Akuoumaru",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Akuoumaru"], "zh-CN": ["恶王丸"] },
@@ -896,6 +995,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Royal Greatsword",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Royal Greatsword"], "zh-CN": ["宗室大剑"] },
@@ -903,6 +1003,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Whiteblind",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Whiteblind"], "zh-CN": ["白影剑"] },
@@ -917,6 +1018,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "The Bell",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CLAYMORE,
     name: { en: ["The Bell"], "zh-CN": ["钟剑"] },
@@ -924,6 +1026,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Snow-Tombed Starsilver",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Snow-Tombed Starsilver"], "zh-CN": ["雪葬的星银"] },
@@ -938,6 +1041,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Favonius Greatsword",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Favonius Greatsword"], "zh-CN": ["西风大剑"] },
@@ -945,6 +1049,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Katsuragikiri Nagamasa",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Katsuragikiri Nagamasa"], "zh-CN": ["桂木斩长正"] },
@@ -959,6 +1064,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Sacrificial Greatsword",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Sacrificial Greatsword"], "zh-CN": ["祭礼大剑"] },
@@ -966,6 +1072,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Serpent Spine",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Serpent Spine"], "zh-CN": ["螭骨剑"] },
@@ -973,6 +1080,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Blackcliff Slasher",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Blackcliff Slasher"], "zh-CN": ["黑岩斩刀"] },
@@ -980,6 +1088,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Rainslasher",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Rainslasher"], "zh-CN": ["雨裁"] },
@@ -987,6 +1096,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Prototype Archaic",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Prototype Archaic"], "zh-CN": ["试作古华"] },
@@ -1001,6 +1111,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Luxurious Sea-Lord",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Luxurious Sea-Lord"], "zh-CN": ["衔珠海皇"] },
@@ -1008,6 +1119,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Lithic Blade",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Lithic Blade"], "zh-CN": ["千岩古剑"] },
@@ -1015,6 +1127,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Skyrider Greatsword",
+    type: "weapon",
     rarity: 3,
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Skyrider Greatsword"], "zh-CN": ["飞天大御剑"] },
@@ -1022,6 +1135,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Debate Club",
+    type: "weapon",
     rarity: 3,
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Debate Club"], "zh-CN": ["以理服人"] },
@@ -1029,6 +1143,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Bloodtainted Greatsword",
+    type: "weapon",
     rarity: 3,
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Bloodtainted Greatsword"], "zh-CN": ["沐浴龙血的剑"] },
@@ -1036,6 +1151,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "White Iron Greatsword",
+    type: "weapon",
     rarity: 3,
     category: WeaponCategory.CLAYMORE,
     name: { en: ["White Iron Greatsword"], "zh-CN": ["白铁大剑"] },
@@ -1043,6 +1159,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Ferrous Shadow",
+    type: "weapon",
     rarity: 3,
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Ferrous Shadow"], "zh-CN": ["铁影阔剑"] },
@@ -1050,6 +1167,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Engulfing Lightning",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.POLEARM,
     name: { en: ["Engulfing Lightning"], "zh-CN": ["薙草之稻光"] },
@@ -1057,6 +1175,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Skyward Spine",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.POLEARM,
     name: { en: ["Skyward Spine"], "zh-CN": ["天空之脊"] },
@@ -1064,6 +1183,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Primordial Jade Winged-Spear",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.POLEARM,
     name: { en: ["Primordial Jade Winged-Spear"], "zh-CN": ["和璞鸢"] },
@@ -1071,6 +1191,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Calamity Queller",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.POLEARM,
     name: { en: ["Calamity Queller"], "zh-CN": ["息灾"] },
@@ -1078,6 +1199,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Staff of Homa",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.POLEARM,
     name: { en: ["Staff of Homa"], "zh-CN": ["护摩之杖"] },
@@ -1085,6 +1207,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Vortex Vanquisher",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.POLEARM,
     name: { en: ["Vortex Vanquisher"], "zh-CN": ["贯虹之槊"] },
@@ -1092,6 +1215,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Prototype Starglitter",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.POLEARM,
     name: { en: ["Prototype Starglitter"], "zh-CN": ["试作星镰"] },
@@ -1106,6 +1230,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Lithic Spear",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.POLEARM,
     name: { en: ["Lithic Spear"], "zh-CN": ["千岩长枪"] },
@@ -1113,6 +1238,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Kitain Cross Spear",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.POLEARM,
     name: { en: ["Kitain Cross Spear"], "zh-CN": ["喜多院十文字"] },
@@ -1127,6 +1253,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "“The Catch”",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.POLEARM,
     name: { en: ["“The Catch”"], "zh-CN": ["「渔获」"] },
@@ -1143,6 +1270,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Favonius Lance",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.POLEARM,
     name: { en: ["Favonius Lance"], "zh-CN": ["西风长枪"] },
@@ -1150,6 +1278,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Dragonspine Spear",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.POLEARM,
     name: { en: ["Dragonspine Spear"], "zh-CN": ["龙脊长枪"] },
@@ -1164,6 +1293,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Dragon’s Bane",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.POLEARM,
     name: { en: ["Dragon’s Bane"], "zh-CN": ["匣里灭辰"] },
@@ -1171,6 +1301,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Deathmatch",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.POLEARM,
     name: { en: ["Deathmatch"], "zh-CN": ["决斗之枪"] },
@@ -1178,6 +1309,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Crescent Pike",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.POLEARM,
     name: { en: ["Crescent Pike"], "zh-CN": ["流月针"] },
@@ -1192,6 +1324,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Blackcliff Pole",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.POLEARM,
     name: { en: ["Blackcliff Pole"], "zh-CN": ["黑岩刺枪"] },
@@ -1199,6 +1332,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Wavebreaker’s Fin",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.POLEARM,
     name: { en: ["Wavebreaker’s Fin"], "zh-CN": ["断浪长鳍"] },
@@ -1206,6 +1340,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Royal Spear",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.POLEARM,
     name: { en: ["Royal Spear"], "zh-CN": ["宗室猎枪"] },
@@ -1213,6 +1348,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Halberd",
+    type: "weapon",
     rarity: 3,
     category: WeaponCategory.POLEARM,
     name: { en: ["Halberd"], "zh-CN": ["钺矛"] },
@@ -1220,6 +1356,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Black Tassel",
+    type: "weapon",
     rarity: 3,
     category: WeaponCategory.POLEARM,
     name: { en: ["Black Tassel"], "zh-CN": ["黑缨枪"] },
@@ -1227,6 +1364,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "White Tassel",
+    type: "weapon",
     rarity: 3,
     category: WeaponCategory.POLEARM,
     name: { en: ["White Tassel"], "zh-CN": ["白缨枪"] },
@@ -1234,6 +1372,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Mistsplitter Reforged",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.SWORD,
     name: { en: ["Mistsplitter Reforged"], "zh-CN": ["雾切之回光"] },
@@ -1241,6 +1380,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Aquila Favonia",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.SWORD,
     name: { en: ["Aquila Favonia"], "zh-CN": ["风鹰剑"] },
@@ -1248,6 +1388,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Summit Shaper",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.SWORD,
     name: { en: ["Summit Shaper"], "zh-CN": ["斫峰之刃"] },
@@ -1255,6 +1396,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Skyward Blade",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.SWORD,
     name: { en: ["Skyward Blade"], "zh-CN": ["天空之刃"] },
@@ -1262,6 +1404,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Freedom-Sworn",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.SWORD,
     name: { en: ["Freedom-Sworn"], "zh-CN": ["苍古自由之誓"] },
@@ -1269,6 +1412,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Primordial Jade Cutter",
+    type: "weapon",
     rarity: 5,
     category: WeaponCategory.SWORD,
     name: { en: ["Primordial Jade Cutter"], "zh-CN": ["磐岩结绿"] },
@@ -1276,6 +1420,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "The Flute",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.SWORD,
     name: { en: ["The Flute"], "zh-CN": ["笛剑"] },
@@ -1283,6 +1428,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "The Black Sword",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.SWORD,
     name: { en: ["The Black Sword"], "zh-CN": ["黑剑"] },
@@ -1290,6 +1436,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "The Alley Flash",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.SWORD,
     name: { en: ["The Alley Flash"], "zh-CN": ["暗巷闪光"] },
@@ -1297,6 +1444,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Sword of Descension",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.SWORD,
     name: { en: ["Sword of Descension"], "zh-CN": ["降临之剑"] },
@@ -1304,6 +1452,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Sacrificial Sword",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.SWORD,
     name: { en: ["Sacrificial Sword"], "zh-CN": ["祭礼剑"] },
@@ -1311,6 +1460,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Royal Longsword",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.SWORD,
     name: { en: ["Royal Longsword"], "zh-CN": ["宗室长剑"] },
@@ -1318,6 +1468,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Prototype Rancour",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.SWORD,
     name: { en: ["Prototype Rancour"], "zh-CN": ["试作斩岩"] },
@@ -1332,6 +1483,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Amenoma Kageuchi",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.SWORD,
     name: { en: ["Amenoma Kageuchi"], "zh-CN": ["天目影打刀"] },
@@ -1346,6 +1498,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Lion’s Roar",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.SWORD,
     name: { en: ["Lion’s Roar"], "zh-CN": ["匣里龙吟"] },
@@ -1353,6 +1506,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Iron Sting",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.SWORD,
     name: { en: ["Iron Sting"], "zh-CN": ["铁蜂刺"] },
@@ -1367,6 +1521,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Festering Desire",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.SWORD,
     name: { en: ["Festering Desire"], "zh-CN": ["腐殖之剑"] },
@@ -1374,6 +1529,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Favonius Sword",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.SWORD,
     name: { en: ["Favonius Sword"], "zh-CN": ["西风剑"] },
@@ -1381,6 +1537,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Cinnabar Spindle",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.SWORD,
     name: { en: ["Cinnabar Spindle"], "zh-CN": ["辰砂之纺锤"] },
@@ -1388,6 +1545,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Blackcliff Longsword",
+    type: "weapon",
     rarity: 4,
     category: WeaponCategory.SWORD,
     name: { en: ["Blackcliff Longsword"], "zh-CN": ["黑岩长剑"] },
@@ -1395,6 +1553,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Harbinger of Dawn",
+    type: "weapon",
     rarity: 3,
     category: WeaponCategory.SWORD,
     name: { en: ["Harbinger of Dawn"], "zh-CN": ["黎明神剑"] },
@@ -1402,6 +1561,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Fillet Blade",
+    type: "weapon",
     rarity: 3,
     category: WeaponCategory.SWORD,
     name: { en: ["Fillet Blade"], "zh-CN": ["吃虎鱼刀"] },
@@ -1409,6 +1569,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Skyrider Sword",
+    type: "weapon",
     rarity: 3,
     category: WeaponCategory.SWORD,
     name: { en: ["Skyrider Sword"], "zh-CN": ["飞天御剑"] },
@@ -1416,6 +1577,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Dark Iron Sword",
+    type: "weapon",
     rarity: 3,
     category: WeaponCategory.SWORD,
     name: { en: ["Dark Iron Sword"], "zh-CN": ["暗铁剑"] },
@@ -1423,6 +1585,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Cool Steel",
+    type: "weapon",
     rarity: 3,
     category: WeaponCategory.SWORD,
     name: { en: ["Cool Steel"], "zh-CN": ["冷刃"] },
@@ -1430,6 +1593,7 @@ export const weapons: Weapon[] = [
   },
   {
     id: "Traveler’s Handy Sword",
+    type: "weapon",
     rarity: 3,
     category: WeaponCategory.SWORD,
     name: { en: ["Traveler’s Handy Sword"], "zh-CN": ["旅行剑"] },
@@ -1837,16 +2001,11 @@ export const domains: Domain[] = [
   },
 ];
 
-enum BossType {
-  Boss,
-  WeeklyBoss,
-}
-
 export interface Boss {
   id: string;
-  materials: string[];
-  type: BossType;
+  type: ItemType;
   name: I18nObject;
+  materials: string[];
 }
 
 const billets: string[] = [
@@ -1861,61 +2020,61 @@ export const bosses: Boss[] = [
   {
     id: "Anemo Hypostasis",
     materials: ["Vayuda Turquoise", "Hurricane Seed"],
-    type: BossType.Boss,
+    type: "boss",
     name: { en: ["Anemo Hypostasis"], "zh-CN": ["无相之风"] },
   },
   {
     id: "Bathysmal Vishap Herd",
     materials: ["Shivada Jade", "Vajrada Amethyst", "Dragonheir’s False Fin"],
-    type: BossType.Boss,
+    type: "boss",
     name: { en: ["Bathysmal Vishap Herd"], "zh-CN": ["深海龙蜥"] },
   },
   {
     id: "Cryo Hypostasis",
     materials: ["Shivada Jade", "Crystalline Bloom"],
-    type: BossType.Boss,
+    type: "boss",
     name: { en: ["Cryo Hypostasis"], "zh-CN": ["无相之冰"] },
   },
   {
     id: "Cryo Regisvine",
     materials: ["Shivada Jade", "Hoarfrost Core"],
-    type: BossType.Boss,
+    type: "boss",
     name: { en: ["Cryo Regisvine"], "zh-CN": ["急冻树"] },
   },
   {
     id: "Electro Hypostasis",
     materials: ["Vajrada Amethyst", "Lightning Prism"],
-    type: BossType.Boss,
+    type: "boss",
     name: { en: ["Electro Hypostasis"], "zh-CN": ["无相之雷"] },
   },
   {
     id: "Geo Hypostasis",
     materials: ["Prithiva Topaz", "Basalt Pillar"],
-    type: BossType.Boss,
+    type: "boss",
     name: { en: ["Geo Hypostasis"], "zh-CN": ["无相之岩"] },
   },
   {
     id: "Golden Wolflord",
     materials: ["Prithiva Topaz", "Riftborn Regalia"],
-    type: BossType.Boss,
+    type: "boss",
     name: { en: ["Golden Wolflord"], "zh-CN": ["黄金王兽"] },
   },
   {
     id: "Hydro Hypostasis",
     materials: ["Varunada Lazurite", "Dew of Repudiation"],
-    type: BossType.Boss,
+    type: "boss",
     name: { en: ["Hydro Hypostasis"], "zh-CN": ["无相之水"] },
   },
   {
     id: "Maguu Kenki",
     materials: ["Vayuda Turquoise", "Shivada Jade", "Marionette Core"],
-    type: BossType.Boss,
+    type: "boss",
     name: { en: ["Maguu Kenki"], "zh-CN": ["魔偶剑鬼"] },
   },
   {
     id: "Perpetual Mechanical Array",
     materials: ["Prithiva Topaz", "Shivada Jade", "Perpetual Heart"],
-    type: BossType.Boss,
+    type: "boss",
     name: { en: ["Perpetual Mechanical Array"], "zh-CN": ["恒常机关阵列"] },
   },
   {
@@ -1928,31 +2087,31 @@ export const bosses: Boss[] = [
       "Vajrada Amethyst",
       "Juvenile Jade",
     ],
-    type: BossType.Boss,
+    type: "boss",
     name: { en: ["Primo Geovishap"], "zh-CN": ["古岩龙蜥"] },
   },
   {
     id: "Pyro Hypostasis",
     materials: ["Agnidus Agate", "Smoldering Pearl"],
-    type: BossType.Boss,
+    type: "boss",
     name: { en: ["Pyro Hypostasis"], "zh-CN": ["无相之火"] },
   },
   {
     id: "Pyro Regisvine",
     materials: ["Agnidus Agate", "Everflame Seed"],
-    type: BossType.Boss,
+    type: "boss",
     name: { en: ["Pyro Regisvine"], "zh-CN": ["爆炎树"] },
   },
   {
     id: "Rhodeia of Loch",
     materials: ["Varunada Lazurite", "Cleansing Heart"],
-    type: BossType.Boss,
+    type: "boss",
     name: { en: ["Rhodeia of Loch"], "zh-CN": ["纯水精灵"] },
   },
   {
     id: "Thunder Manifestation",
     materials: ["Vajrada Amethyst", "Storm Beads"],
-    type: BossType.Boss,
+    type: "boss",
     name: { en: ["Thunder Manifestation"], "zh-CN": ["雷音权现"] },
   },
 
@@ -1968,7 +2127,7 @@ export const bosses: Boss[] = [
       "Spirit Locket of Boreas",
       ...billets,
     ],
-    type: BossType.WeeklyBoss,
+    type: "weekly_boss",
     name: { en: ["Wolf of the North Challenge / Andrius"], "zh-CN": ["北风的王狼 / 安德留斯"] },
   },
   {
@@ -1982,7 +2141,7 @@ export const bosses: Boss[] = [
       "Dvalin’s Sigh",
       ...billets,
     ],
-    type: BossType.WeeklyBoss,
+    type: "weekly_boss",
     name: { en: ["Confront Stormterror / Dvalin"], "zh-CN": ["深入风龙废墟 / 风魔龙・特瓦林"] },
   },
   {
@@ -1996,7 +2155,7 @@ export const bosses: Boss[] = [
       "Shadow of the Warrior",
       ...billets,
     ],
-    type: BossType.WeeklyBoss,
+    type: "weekly_boss",
     name: { en: ["Enter the Golden House / Childe"], "zh-CN": ["进入「黄金屋」 / 公子"] },
   },
   {
@@ -2012,13 +2171,13 @@ export const bosses: Boss[] = [
       "Gilded Scale",
       ...billets,
     ],
-    type: BossType.WeeklyBoss,
+    type: "weekly_boss",
     name: { en: ["Beneath the Dragon-Queller / Azhdaha"], "zh-CN": ["「伏龙树」之底 / 若陀龙王"] },
   },
   {
     id: "Narukami Island: Tenshukaku",
     materials: ["Shivada Jade", "Agnidus Agate", "Molten Moment", "Hellfire Butterfly", "Ashen Heart", ...billets],
-    type: BossType.WeeklyBoss,
+    type: "weekly_boss",
     name: { en: ["Narukami Island: Tenshukaku / La Signora"], "zh-CN": ["鸣神岛・天守 / 女士"] },
   },
 ];
@@ -2026,38 +2185,14 @@ export const bosses: Boss[] = [
 export const i18n: { [id: string]: I18nObject } = {
   supportedLanguageSelectors: { en: ["English"], "zh-CN": ["简体中文"] },
   delimiter: { en: [" · "], "zh-CN": ["・"] },
-  character: {
-    en: ["Characters"],
-    "zh-CN": ["角色"],
-  },
-  weapon: {
-    en: ["Weapons"],
-    "zh-CN": ["武器"],
-  },
-  enemies_domains: {
-    en: ["Enemies & Domains"],
-    "zh-CN": ["秘境讨伐"],
-  },
-  weekly_boss: {
-    en: ["Weekly Bosses"],
-    "zh-CN": ["周本"],
-  },
-  boss: {
-    en: ["Bosses"],
-    "zh-CN": ["首领"],
-  },
-  talent_domain: {
-    en: ["Talent Domains"],
-    "zh-CN": ["天赋本"],
-  },
-  weapon_domain: {
-    en: ["Weapon Domains"],
-    "zh-CN": ["武器本"],
-  },
-  today: {
-    en: ["Today"],
-    "zh-CN": ["今日"],
-  },
+  character: { en: ["Characters"], "zh-CN": ["角色"] },
+  weapon: { en: ["Weapons"], "zh-CN": ["武器"] },
+  enemies_domains: { en: ["Enemies & Domains"], "zh-CN": ["秘境讨伐"] },
+  weekly_boss: { en: ["Weekly Bosses"], "zh-CN": ["周本"] },
+  boss: { en: ["Bosses"], "zh-CN": ["首领"] },
+  talent_domain: { en: ["Talent Domains"], "zh-CN": ["天赋本"] },
+  weapon_domain: { en: ["Weapon Domains"], "zh-CN": ["武器本"] },
+  today: { en: ["Today"], "zh-CN": ["今日"] },
 };
 
 /**
