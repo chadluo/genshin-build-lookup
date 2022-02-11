@@ -15,11 +15,11 @@ jobs:
           node-version: "14.x"
           cache: "npm"
       - name: Install dependencies
-        run: npm ci
-      - name: build app
-        run: npm run build
+        run: npm ci --loglevel info
       - name: Install Playwright
         run: npx playwright install --with-deps
+      - name: build app
+        run: npm run build
       - name: Run Playwright tests
         run: npx playwright test
       - uses: actions/upload-artifact@v2
