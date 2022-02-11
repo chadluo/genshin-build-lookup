@@ -4,7 +4,7 @@
   "description": "Genshin impact build material lookup",
   "main": "q.js",
   "scripts": {
-    "build": "tsc && node copy.mjs",
+    "build": "npx tsc && node copy.mjs",
     "serve": "http-server -p 3000",
     "watch": "nodemon",
     "test": "playwright test"
