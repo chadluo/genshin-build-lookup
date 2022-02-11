@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Noto+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <nav>
+      <div class="container">
+        <h1>
+          <span class="i18n" lang="en">Yuanliao: Genshin Impact Build Lookup</span>
+          <span class="i18n" lang="zh-CN">原料：原神培养查询</span>
+        </h1>
+        <span class="links">
+          <a data-target="character">🦸</a>
+          <a data-target="weapon">🗡️</a>
+          <a data-target="enemies">🌱</a>
+          <a data-target="today">📅</a>
+          <a data-target="output">🚜</a>
+        </span>
+        <span class="lang-select-dropdown">
+          🌐
+          <select name="lang-select" id="lang-select"></select>
+        </span>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="selectors"></div>
+      <div id="output"></div>
+      <a id="clear">🧹</a>
+
+      <footer>
+        <!-- prettier-ignore -->
+        <span class="i18n" lang="en">
+          <ruby>
+            <em lang="zh-CN">原</em><rp>(</rp><rt>yuán</rt><rp>)</rp>
+            <em lang="zh-CN">料</em><rp>(</rp><rt>liào</rt><rp>)</rp>
+          </ruby>: Raw material.<br />
+          Yuanliao is a tool for Genshin Impact characters and weapons build materials lookup.</span>
+        <span class="i18n" lang="zh-CN"><em>原料</em>是一个查询原神角色武器培养所用材料的工具。</span>
+        <br />
+        <a href="https://github.com/chadluo/genshin-build-lookup">chadluo/genshin-build-lookup</a>
+      </footer>
+    </div>
+
+    <script type="module" src="./q.js"></script>
+  </body>
+</html>

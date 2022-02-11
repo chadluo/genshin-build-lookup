@@ -1,0 +1,246 @@
+:root {
+  --tomorrow-background: #ffffff;
+  --tomorrow-current-line: #efefef;
+  --tomorrow-selection: #d6d6d6;
+  --tomorrow-foreground: #4d4d4c;
+  --tomorrow-comment: #8e908c;
+  --tomorrow-red: #c82829;
+  --tomorrow-orange: #f5871f;
+  --tomorrow-yellow: #eab700; /* rgb(234, 183, 0) */
+  --tomorrow-green: #718c00;
+  --tomorrow-aqua: #3e999f;
+  --tomorrow-blue: #4271ae;
+  --tomorrow-purple: #8959a8;
+
+  --background: var(--tomorrow-background);
+  --foreground: var(--tomorrow-foreground);
+  --border-color: var(--tomorrow-selection);
+  --link: var(--tomorrow-comment);
+  --link-hover: var(--tomorrow-blue);
+  --link-bookmark: var(--tomorrow-foreground);
+  --button-background: var(--tomorrow-current-line);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: "Noto Sans", sans-serif;
+  line-height: 1.4rem;
+  margin: 0;
+}
+
+a {
+  color: var(--link);
+}
+a.bookmarked {
+  color: var(--link-bookmark);
+  font-weight: bold;
+}
+
+a:hover {
+  cursor: pointer;
+  color: var(--link-hover);
+}
+.container {
+  width: calc(100% - 2em);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.desktop {
+  display: inline;
+}
+.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: inline;
+  }
+}
+
+/* i18n */
+
+.i18n {
+  display: none;
+}
+html:lang(en) .i18n:lang(en),
+html:lang(zh-CN) .i18n:lang(zh-CN) {
+  display: inline-block;
+}
+
+:lang(zh-CN) {
+  font-family: "Noto Sans SC", sans-serif;
+}
+
+:lang(zh-CN) em,
+em:lang(zh-CN) {
+  font-style: normal;
+  font-weight: bold;
+}
+
+/* navbar */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4rem;
+  line-height: 4rem;
+  background-color: var(--background);
+  border-bottom: 1px solid var(--border-color);
+}
+
+nav .container {
+  display: flex;
+}
+nav h1 {
+  font-size: 1rem;
+  height: 4rem;
+  line-height: 4rem;
+  margin: 0 2em 0 0;
+}
+@media screen and (max-width: 800px) {
+  nav h1 {
+    display: none;
+  }
+}
+nav .links {
+  flex-grow: 1;
+}
+nav a {
+  text-decoration: none;
+  padding: 0.5em;
+}
+#lang-select {
+  padding: 0.25em 0.2em;
+}
+
+nav + div {
+  margin-top: 5rem;
+}
+
+/* tables */
+
+.selectors {
+  margin-top: 3rem;
+}
+
+.weapon-icon {
+  display: inline-block;
+}
+.weapon-icon::after {
+  content: " ";
+}
+
+#output:not(:empty)::before {
+  content: "🚜";
+  display: block;
+  margin: 0;
+  text-align: center;
+}
+
+details,
+#output,
+.qtableWrapper {
+  margin-top: -3rem;
+  padding-top: 6rem;
+}
+summary {
+  white-space: pre-wrap;
+}
+details:target summary {
+  font-weight: bold;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+tr {
+  border-top: 0.5px solid var(--border-color);
+}
+th,
+td {
+  padding: 0.5em 0.5em 0.5em 0;
+  text-align: left;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+td:last-child {
+  padding-right: 0;
+}
+td {
+  white-space: pre-wrap;
+}
+th input[type="checkbox"] {
+  margin-left: 0;
+  vertical-align: top;
+  margin-right: 0.5em;
+}
+th span {
+  max-width: calc(100% - 2em);
+}
+.ctable,
+#today .qtable {
+  margin-top: 1em;
+}
+.ctable tr > th:nth-child(1) {
+  width: 20%;
+}
+.qtable.highlighted {
+  animation: 1s highlight;
+}
+/* prettier-ignore */
+@keyframes highlight {
+  from { background: #ffd; }
+  50%  { background: #ffd; }
+  to   { background: none; }
+}
+.qtable tr:nth-child(1) th {
+  width: 20%;
+}
+.qtable tr:nth-child(1) td:nth-child(2) {
+  width: 30%;
+}
+
+@media screen and (max-width: 800px) {
+  th,
+  td,
+  .qtable tr:nth-child(1) th,
+  .ctable tr > th:nth-child(1),
+  .qtable tr:nth-child(1) td:nth-child(2) {
+    display: inline-block;
+    width: 100%;
+    padding: 0.5em 0;
+  }
+}
+
+#output:empty + #clear {
+  display: none;
+}
+
+a#clear {
+  display: block;
+  margin: 2rem auto;
+  padding: 0.5em 0;
+  text-align: center;
+  text-decoration: none;
+}
+
+a#clear:hover {
+  background: var(--button-background);
+}
+
+footer {
+  margin: 3rem 0;
+  text-align: center;
+}
