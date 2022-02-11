@@ -1,7 +1,10 @@
 import * as fs from "fs";
 
-fs.copyFile("./src/index.html", "./public/index.html", log);
-fs.copyFile("./src/style.css", "./public/style.css", log);
+const output = "./public/";
+
+fs.copyFile("./src/index.html", `${output}index.html`, log);
+fs.copyFile("./src/style.css", `${output}style.css`, log);
+fs.copyFile("./CNAME", `${output}CNAME`, log);
 
 function log(e) {
   if (e) {
