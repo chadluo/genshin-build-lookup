@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "lib": [
+            "DOM",
+            "ES2021.String"
+        ],
+        "module": "ES2015",
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "outDir": "public",
+        "strict": true
+    },
+    "extends": "@tsconfig/recommended/tsconfig.json",
+    "files": [
+        "src/q.ts",
+        "src/assets.ts"
+    ]
+}
