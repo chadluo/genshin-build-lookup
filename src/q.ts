@@ -92,6 +92,16 @@ function renderCharactersTable(hasBookmarks: boolean): string {
     </details>`;
 }
 
+function groupWishObjects<WO extends Assets.WishObject, T>(f: (w: WO) => T, ws: WO[]): Map<T, WO[]> {
+  return ws.reduce((m, w) => {
+    const key = f(w);
+    const arr = m.get(key) || [];
+    arr.push(w);
+    m.set(key, arr);
+    return m;
+  }, new Map<T, WO[]>());
+}
+
 function renderWeaponsTable(hasBookmarks: boolean) {
   const byRarity = groupWishObjects((w) => w.rarity, Assets.weapons);
   const rarities = Array.from(byRarity.keys()).sort().reverse();
@@ -113,7 +123,7 @@ function renderWeaponsTable(hasBookmarks: boolean) {
           (category) =>
             `<tr><td>${formatWeaponIcon(category)}${ws2
               .get(category)!
-              .map((c) => renderLink(c.id, TYPE_CHARACTER, c.name))
+              .map((c) => renderLink(c.id, TYPE_WEAPON, c.name))
               .join(formatName(Assets.i18n.delimiter))}</td></tr>`
         )
         .join("")}`;
@@ -217,7 +227,7 @@ function findOrLoadQTable(event: Event) {
   const a = (event.composedPath() as HTMLElement[]).find((e) => e.tagName === "A");
   if (!a) return;
   const id = a.dataset.id || "";
-  const weekday = a.dataset.weekday || "0";
+  const weekday = a.dataset.weekday || "";
   if (id === lastQuery.id && weekday === lastQuery.weekday) return;
   const type = a.dataset.type;
   if (!type) return;
@@ -227,12 +237,12 @@ function findOrLoadQTable(event: Event) {
     const qtable = createQTable(type, id, parseInt(weekday));
     output!.appendChild(qtable);
     qtable.scrollIntoView();
-    lastQuery.id = id;
-    lastQuery.weekday = weekday;
   } else {
     existed.classList.add("highlighted");
     existed.scrollIntoView();
   }
+  lastQuery.id = id;
+  lastQuery.weekday = weekday;
 }
 
 selectors.addEventListener("click", findOrLoadQTable);
@@ -263,7 +273,7 @@ function renderQTableContent(type: string, id: string, weekday: number): string 
 }
 
 function findCharacter(character: string): Assets.I18nObject {
-  return Assets.characters.filter((c) => c.id === character)[0]!.name;
+  return Assets.characters.find((c) => c.id === character)!.name;
 }
 
 function byCharacter(character: string): Map<I18nObject, [Assets.Domain, number][] | Assets.Boss[]> {
@@ -329,15 +339,12 @@ function byBoss(boss: string): Map<I18nObject, Character[] | Weapon[]> {
 }
 
 function findDomain(domainId: string, _weekday: number): I18nObject {
-  const d = Assets.domains.find((d) => d.id === domainId)!;
-  // return Object.fromEntries(Object.entries(d.name).map(([lang, value]) => [lang, formatWeekday(value, lang, weekday)]));
-  return d.name;
+  return Assets.domains.find((d) => d.id === domainId)!.name;
 }
 
 function byDomain(domainId: string, weekday: number): Map<Assets.I18nObject, Assets.WishObject[]> {
   const domain = Assets.domains.filter((d) => d.id === domainId)[0]!;
   const material = domain.materials_by_weekday[weekday];
-  console.log("domainId", domainId, "weekday", weekday, "domain", domain, "material", material);
   return new Map([
     [
       Assets.materials.find((m) => m.id === material)!.name,
@@ -378,7 +385,6 @@ function renderQTableRows(
   object: Map<I18nObject, Assets.WishObject[] | [Assets.Domain, number][] | Assets.Boss[]>,
   weekday: number
 ) {
-  console.log("renderQTableRows", id, weekday);
   const materials = Array.from(object.keys());
   const separator = "<span class='mobile'> / </span><span class='desktop'><br></span>";
   return `<tr>
@@ -430,8 +436,6 @@ function formatName(name: I18nObject): string {
     })
     .join("");
 }
-
-/* bookmarks */
 
 function updateBookmark(event: Event) {
   const input = event.target as HTMLInputElement;
@@ -486,14 +490,4 @@ function unbookmark(type: ItemType, id: string, weekday: number): void {
     bookmarks.splice(index, 1);
     localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
   }
-}
-
-function groupWishObjects<WO extends Assets.WishObject, T>(f: (w: WO) => T, ws: WO[]): Map<T, WO[]> {
-  return ws.reduce((m, w) => {
-    const key = f(w);
-    const arr = m.get(key) || [];
-    arr.push(w);
-    m.set(key, arr);
-    return m;
-  }, new Map<T, WO[]>());
 }
