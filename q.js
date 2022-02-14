@@ -1,3 +1,4 @@
+var _a;
 import { Assets } from "./assets.js";
 const TYPE_CHARACTER = "character";
 const TYPE_WEAPON = "weapon";
@@ -10,13 +11,14 @@ const output = document.getElementById("output");
 const lang_select = document.getElementById("lang-select");
 const lastQuery = { id: "", weekday: "" };
 window.addEventListener("DOMContentLoaded", () => {
+    var _a, _b;
     lang_select.innerHTML = Object.entries(Assets.i18n.supportedLanguageSelectors)
         .map(([lang, name]) => `<option value="${lang}">${name}</option>`)
         .join("");
-    const lang_candidate = localStorage.getItem("lang") || navigator.language;
+    const lang_candidate = (_a = localStorage.getItem("lang")) !== null && _a !== void 0 ? _a : navigator.language;
     const lang = Assets.i18n.supportedLanguageSelectors.hasOwnProperty(lang_candidate) ? lang_candidate : "en";
     setLanguage(lang);
-    const bookmarks = JSON.parse(localStorage.getItem("bookmarks") || "[]");
+    const bookmarks = JSON.parse((_b = localStorage.getItem("bookmarks")) !== null && _b !== void 0 ? _b : "[]");
     selectors.innerHTML += renderCharactersTable(bookmarks.length !== 0);
     selectors.innerHTML += renderWeaponsTable(bookmarks.length !== 0);
     selectors.innerHTML += renderEnemiesTable(bookmarks.length !== 0);
@@ -38,10 +40,11 @@ function renderDomains(weekdays) {
 }
 /* nav */
 document.querySelector("nav .links").addEventListener("click", (event) => {
+    var _a;
     const link = event.target;
     if (!link || link.tagName !== "A")
         return;
-    const target = document.getElementById(link.dataset.target || "");
+    const target = document.getElementById((_a = link.dataset.target) !== null && _a !== void 0 ? _a : "");
     if (target && target.tagName === "DETAILS") {
         target.open = true;
     }
@@ -73,8 +76,9 @@ function renderCharactersTable(hasBookmarks) {
 }
 function groupWishObjects(f, ws) {
     return ws.reduce((m, w) => {
+        var _a;
         const key = f(w);
-        const arr = m.get(key) || [];
+        const arr = (_a = m.get(key)) !== null && _a !== void 0 ? _a : [];
         arr.push(w);
         m.set(key, arr);
         return m;
@@ -179,11 +183,12 @@ function formatDomain(id, type) {
 }
 /* search result tables */
 function findOrLoadQTable(event) {
+    var _a, _b;
     const a = event.composedPath().find((e) => e.tagName === "A");
     if (!a)
         return;
-    const id = a.dataset.id || "";
-    const weekday = a.dataset.weekday || "";
+    const id = (_a = a.dataset.id) !== null && _a !== void 0 ? _a : "";
+    const weekday = (_b = a.dataset.weekday) !== null && _b !== void 0 ? _b : "";
     if (id === lastQuery.id && weekday === lastQuery.weekday)
         return;
     const type = a.dataset.type;
@@ -262,10 +267,13 @@ function findBoss(boss) {
 function byBoss(boss) {
     return Assets.bosses
         .find((b) => b.id === boss)
-        .materials.reduce((map, material) => (map.set(Assets.materials.find((m) => m.id === material).name, (map.get(Assets.materials.find((m) => m.id === material).name) || [])
-        .concat(findCharactersForMaterial(material))
-        .concat(findWeaponsForMaterial(material))),
-        map), new Map());
+        .materials.reduce((map, material) => {
+        var _a;
+        return (map.set(Assets.materials.find((m) => m.id === material).name, ((_a = map.get(Assets.materials.find((m) => m.id === material).name)) !== null && _a !== void 0 ? _a : [])
+            .concat(findCharactersForMaterial(material))
+            .concat(findWeaponsForMaterial(material))),
+            map);
+    }, new Map());
 }
 function findDomain(domainId, _weekday) {
     return Assets.domains.find((d) => d.id === domainId).name;
@@ -322,7 +330,7 @@ function formatId(...parts) {
         .map((p) => p.toString())
         .join("-")
         .replaceAll(" ", "-")
-        .replaceAll("’", "");
+        .replaceAll(/[’“”]/g, "");
 }
 function formatArray(es) {
     return es
@@ -345,15 +353,21 @@ function formatName(name) {
     })
         .join("");
 }
+(_a = document.getElementById("clear")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
+    const output = document.getElementById("output");
+    if (output)
+        output.innerHTML = "";
+});
 function updateBookmark(event) {
+    var _a;
     const input = event.target;
-    if (input === null || input.tagName !== "INPUT")
+    if (!input || input.tagName !== "INPUT")
         return;
     const type = input.dataset.type;
     const id = input.dataset.id;
     if (!type || !id)
         return;
-    const weekday = parseInt(input.dataset.weekday || "0");
+    const weekday = parseInt((_a = input.dataset.weekday) !== null && _a !== void 0 ? _a : "0");
     if (input.checked) {
         bookmark(type, id, weekday);
     }
@@ -364,10 +378,12 @@ function updateBookmark(event) {
 selectors.addEventListener("change", updateBookmark);
 output.addEventListener("change", updateBookmark);
 function isBookmarked(type, id, weekday) {
-    return JSON.parse(localStorage.getItem("bookmarks") || "[]").some(([t, i, w]) => t === type && i === id && w === (weekday || 0));
+    var _a;
+    return JSON.parse((_a = localStorage.getItem("bookmarks")) !== null && _a !== void 0 ? _a : "[]").some(([t, i, w]) => t === type && i === id && w === (weekday !== null && weekday !== void 0 ? weekday : 0));
 }
 function bookmark(type, id, weekday) {
-    const bookmarks = JSON.parse(localStorage.getItem("bookmarks") || "[]");
+    var _a;
+    const bookmarks = JSON.parse((_a = localStorage.getItem("bookmarks")) !== null && _a !== void 0 ? _a : "[]");
     const index = bookmarks.findIndex(([t, i, w]) => t === type && i === id && w === weekday);
     if (index === -1) {
         document
@@ -380,7 +396,8 @@ function bookmark(type, id, weekday) {
     }
 }
 function unbookmark(type, id, weekday) {
-    const bookmarks = JSON.parse(localStorage.getItem("bookmarks") || "[]");
+    var _a;
+    const bookmarks = JSON.parse((_a = localStorage.getItem("bookmarks")) !== null && _a !== void 0 ? _a : "[]");
     const index = bookmarks.findIndex(([t, i, w]) => t === type && i === id && w === weekday);
     if (index !== -1) {
         document

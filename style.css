@@ -168,6 +168,9 @@ table {
 tr {
   border-top: 0.5px solid var(--border-color);
 }
+tr:last-child {
+  border-bottom: 0.5px solid var(--border-color);
+}
 th,
 td {
   padding: 0.5em 0.5em 0.5em 0;
