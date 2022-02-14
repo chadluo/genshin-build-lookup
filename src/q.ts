@@ -411,7 +411,7 @@ function formatId(...parts: any[]) {
     .map((p) => p.toString())
     .join("-")
     .replaceAll(" ", "-")
-    .replaceAll("’", "");
+    .replaceAll(/[’“”]/g, "");
 }
 
 function formatArray(es: Assets.WishObject[] | [Assets.Domain, number][] | Assets.Boss[]) {

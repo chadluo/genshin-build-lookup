@@ -164,6 +164,7 @@ details:target summary {
 table {
   width: 100%;
   border-collapse: collapse;
+  border-bottom: 0.5px solid var(--border-color);
 }
 tr {
   border-top: 0.5px solid var(--border-color);
