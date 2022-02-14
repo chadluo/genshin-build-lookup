@@ -19,11 +19,11 @@ window.addEventListener("DOMContentLoaded", () => {
     .map(([lang, name]) => `<option value="${lang}">${name}</option>`)
     .join("");
 
-  const lang_candidate = localStorage.getItem("lang") || navigator.language;
+  const lang_candidate = localStorage.getItem("lang") ?? navigator.language;
   const lang = Assets.i18n.supportedLanguageSelectors.hasOwnProperty(lang_candidate) ? lang_candidate : "en";
   setLanguage(lang);
 
-  const bookmarks = JSON.parse(localStorage.getItem("bookmarks") || "[]");
+  const bookmarks = JSON.parse(localStorage.getItem("bookmarks") ?? "[]");
   selectors.innerHTML += renderCharactersTable(bookmarks.length !== 0);
   selectors.innerHTML += renderWeaponsTable(bookmarks.length !== 0);
   selectors.innerHTML += renderEnemiesTable(bookmarks.length !== 0);
@@ -56,7 +56,7 @@ function renderDomains(weekdays: number[]): string {
 document.querySelector("nav .links")!.addEventListener("click", (event) => {
   const link = event.target as HTMLElement;
   if (!link || link.tagName !== "A") return;
-  const target = document.getElementById(link.dataset.target || "") as HTMLDetailsElement;
+  const target = document.getElementById(link.dataset.target ?? "") as HTMLDetailsElement;
   if (target && target.tagName === "DETAILS") {
     target.open = true;
   }
@@ -95,7 +95,7 @@ function renderCharactersTable(hasBookmarks: boolean): string {
 function groupWishObjects<WO extends Assets.WishObject, T>(f: (w: WO) => T, ws: WO[]): Map<T, WO[]> {
   return ws.reduce((m, w) => {
     const key = f(w);
-    const arr = m.get(key) || [];
+    const arr = m.get(key) ?? [];
     arr.push(w);
     m.set(key, arr);
     return m;
@@ -226,8 +226,8 @@ function formatDomain(id: string, type: ItemType) {
 function findOrLoadQTable(event: Event) {
   const a = (event.composedPath() as HTMLElement[]).find((e) => e.tagName === "A");
   if (!a) return;
-  const id = a.dataset.id || "";
-  const weekday = a.dataset.weekday || "";
+  const id = a.dataset.id ?? "";
+  const weekday = a.dataset.weekday ?? "";
   if (id === lastQuery.id && weekday === lastQuery.weekday) return;
   const type = a.dataset.type;
   if (!type) return;
@@ -328,7 +328,7 @@ function byBoss(boss: string): Map<I18nObject, Character[] | Weapon[]> {
       (map, material: string) => (
         map.set(
           Assets.materials.find((m) => m.id === material)!.name,
-          (map.get(Assets.materials.find((m) => m.id === material)!.name) || [])
+          (map.get(Assets.materials.find((m) => m.id === material)!.name) ?? [])
             .concat(findCharactersForMaterial(material))
             .concat(findWeaponsForMaterial(material))
         ),
@@ -437,13 +437,18 @@ function formatName(name: I18nObject): string {
     .join("");
 }
 
+document.getElementById("clear")?.addEventListener("click", () => {
+  const output = document.getElementById("output");
+  if (output) output.innerHTML = "";
+});
+
 function updateBookmark(event: Event) {
   const input = event.target as HTMLInputElement;
-  if (input === null || input.tagName !== "INPUT") return;
+  if (!input || input.tagName !== "INPUT") return;
   const type = input.dataset.type as ItemType;
   const id = input.dataset.id;
   if (!type || !id) return;
-  const weekday = parseInt(input.dataset.weekday || "0");
+  const weekday = parseInt(input.dataset.weekday ?? "0");
   if (input.checked) {
     bookmark(type, id, weekday);
   } else {
@@ -455,13 +460,13 @@ selectors.addEventListener("change", updateBookmark);
 output.addEventListener("change", updateBookmark);
 
 function isBookmarked(type: ItemType, id: string, weekday: number) {
-  return JSON.parse(localStorage.getItem("bookmarks") || "[]").some(
-    ([t, i, w]: [string, string, number]) => t === type && i === id && w === (weekday || 0)
+  return JSON.parse(localStorage.getItem("bookmarks") ?? "[]").some(
+    ([t, i, w]: [string, string, number]) => t === type && i === id && w === (weekday ?? 0)
   );
 }
 
 function bookmark(type: ItemType, id: string, weekday: number) {
-  const bookmarks = JSON.parse(localStorage.getItem("bookmarks") || "[]");
+  const bookmarks = JSON.parse(localStorage.getItem("bookmarks") ?? "[]");
   const index = bookmarks.findIndex(([t, i, w]: [string, string, number]) => t === type && i === id && w === weekday);
   if (index === -1) {
     document
@@ -477,7 +482,7 @@ function bookmark(type: ItemType, id: string, weekday: number) {
 }
 
 function unbookmark(type: ItemType, id: string, weekday: number): void {
-  const bookmarks = JSON.parse(localStorage.getItem("bookmarks") || "[]");
+  const bookmarks = JSON.parse(localStorage.getItem("bookmarks") ?? "[]");
   const index = bookmarks.findIndex(([t, i, w]: [string, string, number]) => t === type && i === id && w === weekday);
   if (index !== -1) {
     document
