@@ -474,6 +474,16 @@ export const characters: Character[] = [
     ],
   },
   {
+    id: "Yae Miko",
+    type: "character",
+    rarity: 5,
+    name: {
+      en: ["Yae Miko"],
+      "zh-CN": ["八重神子"],
+    },
+    materials: ["Vajrada Amethyst", "Dragonheir’s False Fin", "Light", "Old Handguard", "Sea Ganoderma"],
+  },
+  {
     id: "Yanfei",
     type: "character",
     rarity: 4,
@@ -774,6 +784,14 @@ export const weapons: Weapon[] = [
     materials: ["Grain of Aerosiderite", "Fragile Bone Shard", "Damaged Mask"],
   },
   {
+    id: "Kagura’s Verity",
+    type: "weapon",
+    rarity: 5,
+    category: WeaponCategory.CATALYST,
+    name: { en: ["Kagura’s Verity"], "zh-CN": ["神乐之真意"] },
+    materials: ["Mask of the Wicked Lieutenant", "Concealed Claw", "Spectral Husk"],
+  },
+  {
     id: "Wine and Song",
     type: "weapon",
     rarity: 4,
@@ -904,6 +922,14 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.CATALYST,
     name: { en: ["Blackcliff Agate"], "zh-CN": ["黑岩绯玉"] },
     materials: ["Luminous Sands from Guyun", "Hunter’s Sacrificial Knife", "Divining Scroll"],
+  },
+  {
+    id: "Oathsworn Eye",
+    type: "weapon",
+    rarity: 4,
+    category: WeaponCategory.CATALYST,
+    name: { en: ["Oathsworn Eye"], "zh-CN": ["证誓之明瞳"] },
+    materials: ["Coral Branch of a Distant Sea", "Concealed Claw", "Spectral Husk"],
   },
   {
     id: "Magic Guide",
