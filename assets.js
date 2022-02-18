@@ -459,7 +459,14 @@ export const characters = [
             en: ["Yae Miko"],
             "zh-CN": ["八重神子"],
         },
-        materials: ["Vajrada Amethyst", "Dragonheir’s False Fin", "Light", "Old Handguard", "Sea Ganoderma"],
+        materials: [
+            "Vajrada Amethyst",
+            "Dragonheir’s False Fin",
+            "The Meaning of Aeons",
+            "Light",
+            "Old Handguard",
+            "Sea Ganoderma",
+        ],
     },
     {
         id: "Yanfei",
@@ -1799,6 +1806,9 @@ export const materials = [
     { id: "Molten Moment", name: { en: ["Molten Moment"], "zh-CN": ["熔毁之刻"] } },
     { id: "Hellfire Butterfly", name: { en: ["Hellfire Butterfly"], "zh-CN": ["狱火之蝶"] } },
     { id: "Ashen Heart", name: { en: ["Ashen Heart"], "zh-CN": ["灰烬之心"] } },
+    { id: "Mudra of the Malefic General", name: { en: ["Mudra of the Malefic General"], "zh-CN": ["凶将之手眼"] } },
+    { id: "Tears of the Calamitous God", name: { en: ["Tears of the Calamitous God"], "zh-CN": ["祸神之禊泪"] } },
+    { id: "The Meaning of Aeons", name: { en: ["The Meaning of Aeons"], "zh-CN": ["万劫之真意"] } },
     // weapons
     {
         id: "Tile of Decarabian’s Tower",
@@ -2152,6 +2162,21 @@ export const bosses = [
         materials: ["Shivada Jade", "Agnidus Agate", "Molten Moment", "Hellfire Butterfly", "Ashen Heart", ...billets],
         type: "weekly_boss",
         name: { en: ["Narukami Island: Tenshukaku / La Signora"], "zh-CN": ["鸣神岛・天守 / 女士"] },
+    },
+    {
+        id: "End of the Oneiric Euthymia",
+        materials: [
+            "Vajrada Amethyst",
+            "Mudra of the Malefic General",
+            "Tears of the Calamitous God",
+            "The Meaning of Aeons",
+            ...billets,
+        ],
+        type: "weekly_boss",
+        name: {
+            en: ["End of the Oneiric Euthymia / Magatsu Mitake Narukami no Mikoto"],
+            "zh-CN": ["梦想乐土之殁 / 祸津御建鸣神命"],
+        },
     },
 ];
 export const i18n = {
