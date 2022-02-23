@@ -1954,10 +1954,11 @@ export const enemy_ids: Map<string, string[]> = new Map(
   Object.entries({
     weekly_bosses: [
       "Confront Stormterror",
-      "Enter the Golden House",
-      "Narukami Island: Tenshukaku",
-      "Beneath the Dragon-Queller",
       "Wolf of the North Challenge",
+      "Enter the Golden House",
+      "Beneath the Dragon-Queller",
+      "Narukami Island: Tenshukaku",
+      "End of the Oneiric Euthymia",
     ],
     bosses: [
       "Electro Hypostasis",
