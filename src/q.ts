@@ -174,29 +174,29 @@ function getWeaponIcon(category: Assets.WeaponCategory) {
 }
 
 function renderEnemiesTable(hasBookmarks: boolean) {
+  const talentDomains = Assets.domains.filter((d) => d.type === "talent_domain");
+  const weaponDomains = Assets.domains.filter((d) => d.type === "weapon_domain");
   return `<details id="enemies" ${hasBookmarks ? "" : "open"}>
   <summary>${formatTableCaption("enemies_domains")}</summary>
-  <table class="ctable"><tr><th>${formatName(Assets.i18n.weekly_boss)}</th><td>${Assets.enemy_ids
-    .get("weekly_bosses")!
-    .map((boss) => renderLink(boss, TYPE_WEEKLY_BOSS, Assets.bosses.find((b) => b.id === boss)!.name))
+  <table class="ctable"><tr><th>${formatName(Assets.i18n.weekly_boss)}</th><td>${Assets.bosses
+    .filter((b) => b.type === "weekly_boss")
+    .map((boss) => renderLink(boss.id, TYPE_WEEKLY_BOSS, boss!.name))
     .join(formatName(Assets.i18n.delimiter))}</td></tr>
-    <tr><th>${formatName(Assets.i18n.boss)}</th><td>${Assets.enemy_ids
-    .get("bosses")!
-    .map((boss) => renderLink(boss, TYPE_BOSS, Assets.bosses.find((b) => b.id === boss)!.name))
+    <tr><th>${formatName(Assets.i18n.boss)}</th><td>${Assets.bosses
+    .filter((b) => b.type === "boss")
+    .map((boss) => renderLink(boss.id, TYPE_BOSS, boss.name))
     .join(formatName(Assets.i18n.delimiter))}</td></tr>
-    <tr><th rowspan="${Assets.enemy_ids.get("talent_domains")!.length}">${formatName(Assets.i18n.talent_domain)}</th>
-      ${formatDomain(Assets.enemy_ids.get("talent_domains")![0], TYPE_TALENT_DOMAIN)}</tr>
-    ${Assets.enemy_ids
-      .get("talent_domains")!
+    <tr><th rowspan="${talentDomains.length}">${formatName(Assets.i18n.talent_domain)}</th>
+      ${formatDomain(talentDomains[0].id, TYPE_TALENT_DOMAIN)}</tr>
+    ${talentDomains
       .slice(1)
-      .map((id) => `<tr>${formatDomain(id, TYPE_TALENT_DOMAIN)}</tr>`)
+      .map((d) => `<tr>${formatDomain(d.id, TYPE_TALENT_DOMAIN)}</tr>`)
       .join("")}
-    <tr><th rowspan="${Assets.enemy_ids.get("weapon_domains")!.length}">${formatName(Assets.i18n.weapon_domain)}</th>
-    ${formatDomain(Assets.enemy_ids.get("weapon_domains")![0], TYPE_WEAPON_DOMAIN)}</tr>
-    ${Assets.enemy_ids
-      .get("weapon_domains")!
+    <tr><th rowspan="${weaponDomains.length}">${formatName(Assets.i18n.weapon_domain)}</th>
+    ${formatDomain(weaponDomains[0].id, TYPE_WEAPON_DOMAIN)}</tr>
+    ${weaponDomains
       .slice(1)
-      .map((id) => `<tr>${formatDomain(id, TYPE_WEAPON_DOMAIN)}</tr>`)
+      .map((d) => `<tr>${formatDomain(d.id, TYPE_WEAPON_DOMAIN)}</tr>`)
       .join("")}`;
 }
 

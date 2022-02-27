@@ -1950,38 +1950,6 @@ export const materials: Material[] = [
 
 // enemies
 
-export const enemy_ids: Map<string, string[]> = new Map(
-  Object.entries({
-    weekly_bosses: [
-      "Confront Stormterror",
-      "Wolf of the North Challenge",
-      "Enter the Golden House",
-      "Beneath the Dragon-Queller",
-      "Narukami Island: Tenshukaku",
-      "End of the Oneiric Euthymia",
-    ],
-    bosses: [
-      "Electro Hypostasis",
-      "Anemo Hypostasis",
-      "Cryo Regisvine",
-      "Geo Hypostasis",
-      "Rhodeia of Loch",
-      "Pyro Regisvine",
-      "Primo Geovishap",
-      "Cryo Hypostasis",
-      "Maguu Kenki",
-      "Pyro Hypostasis",
-      "Perpetual Mechanical Array",
-      "Hydro Hypostasis",
-      "Thunder Manifestation",
-      "Golden Wolflord",
-      "Bathysmal Vishap Herd",
-    ],
-    talent_domains: ["Forsaken Rift", "Taishan Mansion", "Violet Court"],
-    weapon_domains: ["Cecilia Garden", "Hidden Palace of Lianshan Formula", "Court of Flowing Sand"],
-  })
-);
-
 export interface Domain {
   id: string;
   name: I18nObject;
@@ -2055,22 +2023,16 @@ const billets: string[] = [
 
 export const bosses: Boss[] = [
   {
+    id: "Electro Hypostasis",
+    materials: ["Vajrada Amethyst", "Lightning Prism"],
+    type: "boss",
+    name: { en: ["Electro Hypostasis"], "zh-CN": ["无相之雷"] },
+  },
+  {
     id: "Anemo Hypostasis",
     materials: ["Vayuda Turquoise", "Hurricane Seed"],
     type: "boss",
     name: { en: ["Anemo Hypostasis"], "zh-CN": ["无相之风"] },
-  },
-  {
-    id: "Bathysmal Vishap Herd",
-    materials: ["Shivada Jade", "Vajrada Amethyst", "Dragonheir’s False Fin"],
-    type: "boss",
-    name: { en: ["Bathysmal Vishap Herd"], "zh-CN": ["深海龙蜥"] },
-  },
-  {
-    id: "Cryo Hypostasis",
-    materials: ["Shivada Jade", "Crystalline Bloom"],
-    type: "boss",
-    name: { en: ["Cryo Hypostasis"], "zh-CN": ["无相之冰"] },
   },
   {
     id: "Cryo Regisvine",
@@ -2079,40 +2041,22 @@ export const bosses: Boss[] = [
     name: { en: ["Cryo Regisvine"], "zh-CN": ["急冻树"] },
   },
   {
-    id: "Electro Hypostasis",
-    materials: ["Vajrada Amethyst", "Lightning Prism"],
-    type: "boss",
-    name: { en: ["Electro Hypostasis"], "zh-CN": ["无相之雷"] },
-  },
-  {
     id: "Geo Hypostasis",
     materials: ["Prithiva Topaz", "Basalt Pillar"],
     type: "boss",
     name: { en: ["Geo Hypostasis"], "zh-CN": ["无相之岩"] },
   },
   {
-    id: "Golden Wolflord",
-    materials: ["Prithiva Topaz", "Riftborn Regalia"],
+    id: "Rhodeia of Loch",
+    materials: ["Varunada Lazurite", "Cleansing Heart"],
     type: "boss",
-    name: { en: ["Golden Wolflord"], "zh-CN": ["黄金王兽"] },
+    name: { en: ["Rhodeia of Loch"], "zh-CN": ["纯水精灵"] },
   },
   {
-    id: "Hydro Hypostasis",
-    materials: ["Varunada Lazurite", "Dew of Repudiation"],
+    id: "Pyro Regisvine",
+    materials: ["Agnidus Agate", "Everflame Seed"],
     type: "boss",
-    name: { en: ["Hydro Hypostasis"], "zh-CN": ["无相之水"] },
-  },
-  {
-    id: "Maguu Kenki",
-    materials: ["Vayuda Turquoise", "Shivada Jade", "Marionette Core"],
-    type: "boss",
-    name: { en: ["Maguu Kenki"], "zh-CN": ["魔偶剑鬼"] },
-  },
-  {
-    id: "Perpetual Mechanical Array",
-    materials: ["Prithiva Topaz", "Shivada Jade", "Perpetual Heart"],
-    type: "boss",
-    name: { en: ["Perpetual Mechanical Array"], "zh-CN": ["恒常机关阵列"] },
+    name: { en: ["Pyro Regisvine"], "zh-CN": ["爆炎树"] },
   },
   {
     id: "Primo Geovishap",
@@ -2128,22 +2072,34 @@ export const bosses: Boss[] = [
     name: { en: ["Primo Geovishap"], "zh-CN": ["古岩龙蜥"] },
   },
   {
+    id: "Cryo Hypostasis",
+    materials: ["Shivada Jade", "Crystalline Bloom"],
+    type: "boss",
+    name: { en: ["Cryo Hypostasis"], "zh-CN": ["无相之冰"] },
+  },
+  {
+    id: "Maguu Kenki",
+    materials: ["Vayuda Turquoise", "Shivada Jade", "Marionette Core"],
+    type: "boss",
+    name: { en: ["Maguu Kenki"], "zh-CN": ["魔偶剑鬼"] },
+  },
+  {
     id: "Pyro Hypostasis",
     materials: ["Agnidus Agate", "Smoldering Pearl"],
     type: "boss",
     name: { en: ["Pyro Hypostasis"], "zh-CN": ["无相之火"] },
   },
   {
-    id: "Pyro Regisvine",
-    materials: ["Agnidus Agate", "Everflame Seed"],
+    id: "Perpetual Mechanical Array",
+    materials: ["Prithiva Topaz", "Shivada Jade", "Perpetual Heart"],
     type: "boss",
-    name: { en: ["Pyro Regisvine"], "zh-CN": ["爆炎树"] },
+    name: { en: ["Perpetual Mechanical Array"], "zh-CN": ["恒常机关阵列"] },
   },
   {
-    id: "Rhodeia of Loch",
-    materials: ["Varunada Lazurite", "Cleansing Heart"],
+    id: "Hydro Hypostasis",
+    materials: ["Varunada Lazurite", "Dew of Repudiation"],
     type: "boss",
-    name: { en: ["Rhodeia of Loch"], "zh-CN": ["纯水精灵"] },
+    name: { en: ["Hydro Hypostasis"], "zh-CN": ["无相之水"] },
   },
   {
     id: "Thunder Manifestation",
@@ -2151,22 +2107,20 @@ export const bosses: Boss[] = [
     type: "boss",
     name: { en: ["Thunder Manifestation"], "zh-CN": ["雷音权现"] },
   },
+  {
+    id: "Golden Wolflord",
+    materials: ["Prithiva Topaz", "Riftborn Regalia"],
+    type: "boss",
+    name: { en: ["Golden Wolflord"], "zh-CN": ["黄金王兽"] },
+  },
+  {
+    id: "Bathysmal Vishap Herd",
+    materials: ["Shivada Jade", "Vajrada Amethyst", "Dragonheir’s False Fin"],
+    type: "boss",
+    name: { en: ["Bathysmal Vishap Herd"], "zh-CN": ["深海龙蜥"] },
+  },
 
   // weekly bosses
-  {
-    id: "Wolf of the North Challenge",
-    materials: [
-      "Shivada Jade",
-      "Agnidus Agate",
-      "Prithiva Topaz",
-      "Tail of Boreas",
-      "Ring of Boreas",
-      "Spirit Locket of Boreas",
-      ...billets,
-    ],
-    type: "weekly_boss",
-    name: { en: ["Wolf of the North Challenge / Andrius"], "zh-CN": ["北风的王狼 / 安德留斯"] },
-  },
   {
     id: "Confront Stormterror",
     materials: [
@@ -2180,6 +2134,20 @@ export const bosses: Boss[] = [
     ],
     type: "weekly_boss",
     name: { en: ["Confront Stormterror / Dvalin"], "zh-CN": ["深入风龙废墟 / 风魔龙・特瓦林"] },
+  },
+  {
+    id: "Wolf of the North Challenge",
+    materials: [
+      "Shivada Jade",
+      "Agnidus Agate",
+      "Prithiva Topaz",
+      "Tail of Boreas",
+      "Ring of Boreas",
+      "Spirit Locket of Boreas",
+      ...billets,
+    ],
+    type: "weekly_boss",
+    name: { en: ["Wolf of the North Challenge / Andrius"], "zh-CN": ["北风的王狼 / 安德留斯"] },
   },
   {
     id: "Enter the Golden House",
