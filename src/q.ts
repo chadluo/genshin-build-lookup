@@ -1,4 +1,4 @@
-import { Assets, Character, I18nObject, ItemType, SupportedLanguages, Weapon } from "./assets.js";
+import { Assets, Character, I18nObject, ItemType, Material, SupportedLanguages, Weapon } from "./assets.js";
 
 const TYPE_CHARACTER = "character";
 const TYPE_WEAPON = "weapon";
@@ -276,14 +276,14 @@ function findCharacter(character: string): Assets.I18nObject {
   return Assets.characters.find((c) => c.id === character)!.name;
 }
 
-function byCharacter(character: string): Map<I18nObject, [Assets.Domain, number][] | Assets.Boss[]> {
+function byCharacter(character: string): Map<Material, [Assets.Domain, number][] | Assets.Boss[]> {
   return Assets.characters
     .find((c) => c.id === character)!
     .materials.reduce(
       (map, m: string) => (
-        map.set(Assets.materials.filter((material) => material.id === m)[0]!.name, findEnemiesForMaterial(m)), map
+        map.set(Assets.materials.filter((material) => material.id === m)[0]!, findEnemiesForMaterial(m)), map
       ),
-      new Map<I18nObject, [Assets.Domain, number][] | Assets.Boss[]>()
+      new Map<Material, [Assets.Domain, number][] | Assets.Boss[]>()
     );
 }
 
@@ -291,14 +291,14 @@ function findWeapon(weapon: string): I18nObject {
   return Assets.weapons.find((w) => w.id === weapon)!.name;
 }
 
-function byWeapon(weapon: string): Map<I18nObject, [Assets.Domain, number][] | Assets.Boss[]> {
+function byWeapon(weapon: string): Map<Material, [Assets.Domain, number][] | Assets.Boss[]> {
   return Assets.weapons
     .find((w) => w.id === weapon)!
     .materials.reduce(
       (map, m: string) => (
-        map.set(Assets.materials.filter((material) => material.id === m)[0]!.name, findEnemiesForMaterial(m)), map
+        map.set(Assets.materials.filter((material) => material.id === m)[0]!, findEnemiesForMaterial(m)), map
       ),
-      new Map<I18nObject, [Assets.Domain, number][] | Assets.Boss[]>()
+      new Map<Material, [Assets.Domain, number][] | Assets.Boss[]>()
     );
 }
 
@@ -321,20 +321,20 @@ function findBoss(boss: string): I18nObject {
   return Assets.bosses.find((b) => b.id === boss)!.name;
 }
 
-function byBoss(boss: string): Map<I18nObject, Character[] | Weapon[]> {
+function byBoss(boss: string): Map<Material, Character[] | Weapon[]> {
   return Assets.bosses
     .find((b) => b.id === boss)!
     .materials.reduce(
       (map, material: string) => (
         map.set(
-          Assets.materials.find((m) => m.id === material)!.name,
-          (map.get(Assets.materials.find((m) => m.id === material)!.name) ?? [])
+          Assets.materials.find((m) => m.id === material)!,
+          (map.get(Assets.materials.find((m) => m.id === material)!) ?? [])
             .concat(findCharactersForMaterial(material))
             .concat(findWeaponsForMaterial(material))
         ),
         map
       ),
-      new Map<I18nObject, Character[] | Weapon[]>()
+      new Map<Material, Character[] | Weapon[]>()
     );
 }
 
@@ -342,12 +342,12 @@ function findDomain(domainId: string, _weekday: number): I18nObject {
   return Assets.domains.find((d) => d.id === domainId)!.name;
 }
 
-function byDomain(domainId: string, weekday: number): Map<Assets.I18nObject, Assets.WishObject[]> {
+function byDomain(domainId: string, weekday: number): Map<Material, Assets.WishObject[]> {
   const domain = Assets.domains.filter((d) => d.id === domainId)[0]!;
   const material = domain.materials_by_weekday[weekday];
   return new Map([
     [
-      Assets.materials.find((m) => m.id === material)!.name,
+      Assets.materials.find((m) => m.id === material)!,
       domain.type === "weapon_domain" ? findWeaponsForMaterial(material) : findCharactersForMaterial(material),
     ],
   ]);
@@ -365,7 +365,7 @@ function renderFullQTable(
   type: ItemType,
   id: string,
   name: I18nObject,
-  object: Map<I18nObject, Assets.WishObject[] | [Assets.Domain, number][] | Assets.Boss[]>,
+  object: Map<Material, Assets.WishObject[] | [Assets.Domain, number][] | Assets.Boss[]>,
   weekday: number
 ): string {
   return `<table name="${formatId(type, id, weekday)}" class="qtable highlighted"
@@ -382,7 +382,7 @@ function renderQTableRows(
   type: Assets.ItemType,
   id: string,
   name: I18nObject,
-  object: Map<I18nObject, Assets.WishObject[] | [Assets.Domain, number][] | Assets.Boss[]>,
+  object: Map<Material, Assets.WishObject[] | [Assets.Domain, number][] | Assets.Boss[]>,
   weekday: number
 ) {
   const materials = Array.from(object.keys());
@@ -393,13 +393,19 @@ function renderQTableRows(
         ${weekday ? `data-weekday="${weekday}"` : ""} ${isBookmarked(type, id, weekday) ? "checked" : ""}>
         ${formatName(name).replaceAll(" / ", separator)}</label>
       </th>
-      <td>${formatName(materials[0])}</td>
+      <td>${formatName(materials[0].name)}</td>
       <td>${formatArray(object.get(materials[0])!)}</td>
     </tr>
     ${materials
       .slice(1)
-      .map((m) => `<tr><td>${formatName(m)}</td><td>${formatArray(object.get(m)!)}</td></tr>`)
+      .map(
+        (m) => `<tr ${formatMaterialType(m)}><td>${formatName(m.name)}</td><td>${formatArray(object.get(m)!)}</td></tr>`
+      )
       .join("")}`;
+}
+
+function formatMaterialType(m: Material) {
+  return Assets.gems.includes(m.id) ? "class='gem'" : Assets.billets.includes(m.id) ? "class='billet'" : "";
 }
 
 /**
@@ -496,3 +502,17 @@ function unbookmark(type: ItemType, id: string, weekday: number): void {
     localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
   }
 }
+
+document.querySelector("input#show-gems")?.addEventListener("change", (event) => {
+  output.classList.toggle("show-gems", (event.target as HTMLInputElement)?.checked);
+  document.body.classList.remove("smooth");
+  window.scrollTo(0, document.body.scrollHeight);
+  document.body.classList.add("smooth");
+});
+
+document.querySelector("input#show-billets")?.addEventListener("change", (event) => {
+  output.classList.toggle("show-billets", (event.target as HTMLInputElement)?.checked);
+  document.body.classList.remove("smooth");
+  window.scrollTo(0, document.body.scrollHeight);
+  document.body.classList.add("smooth");
+});

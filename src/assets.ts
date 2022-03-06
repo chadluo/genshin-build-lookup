@@ -37,28 +37,28 @@ export const characters: Character[] = [
     type: "character",
     rarity: 5,
     name: { en: ["Albedo"], "zh-CN": ["阿贝多"] },
-    materials: ["Prithiva Topaz", "Basalt Pillar", "Tusk of Monoceros Caeli", "Ballad", "Divining Scroll", "Cecilia"],
+    materials: ["Basalt Pillar", "Prithiva Topaz", "Tusk of Monoceros Caeli", "Ballad", "Divining Scroll", "Cecilia"],
   },
   {
     id: "Aloy",
     type: "character",
     rarity: 5,
     name: { en: ["Aloy"], "zh-CN": ["埃洛伊"] },
-    materials: ["Shivada Jade", "Crystalline Bloom", "Molten Moment", "Freedom", "Spectral Husk", "Crystal Marrow"],
+    materials: ["Crystalline Bloom", "Shivada Jade", "Molten Moment", "Freedom", "Spectral Husk", "Crystal Marrow"],
   },
   {
     id: "Amber",
     type: "character",
     rarity: 4,
     name: { en: ["Amber"], "zh-CN": ["安柏"] },
-    materials: ["Agnidus Agate", "Everflame Seed", "Dvalin’s Sigh", "Freedom", "Firm Arrowhead", "Small Lamp Grass"],
+    materials: ["Everflame Seed", "Agnidus Agate", "Dvalin’s Sigh", "Freedom", "Firm Arrowhead", "Small Lamp Grass"],
   },
   {
     id: "Arataki Itto",
     type: "character",
     rarity: 5,
     name: { en: ["Arataki Itto"], "zh-CN": ["荒泷一斗"] },
-    materials: ["Prithiva Topaz", "Riftborn Regalia", "Ashen Heart", "Elegance", "Slime Condensate", "Onikabuto"],
+    materials: ["Riftborn Regalia", "Prithiva Topaz", "Ashen Heart", "Elegance", "Slime Condensate", "Onikabuto"],
   },
   {
     id: "Barbara",
@@ -66,8 +66,8 @@ export const characters: Character[] = [
     rarity: 4,
     name: { en: ["Barbara"], "zh-CN": ["芭芭拉"] },
     materials: [
-      "Varunada Lazurite",
       "Cleansing Heart",
+      "Varunada Lazurite",
       "Ring of Boreas",
       "Freedom",
       "Divining Scroll",
@@ -80,8 +80,8 @@ export const characters: Character[] = [
     rarity: 4,
     name: { en: ["Beidou"], "zh-CN": ["北斗"] },
     materials: [
-      "Vajrada Amethyst",
       "Lightning Prism",
+      "Vajrada Amethyst",
       "Dvalin’s Sigh",
       "Gold",
       "Treasure Hoarder Insignia",
@@ -94,8 +94,8 @@ export const characters: Character[] = [
     rarity: 4,
     name: { en: ["Bennett"], "zh-CN": ["班尼特"] },
     materials: [
-      "Agnidus Agate",
       "Everflame Seed",
+      "Agnidus Agate",
       "Dvalin’s Plume",
       "Resistance",
       "Treasure Hoarder Insignia",
@@ -107,7 +107,7 @@ export const characters: Character[] = [
     type: "character",
     rarity: 4,
     name: { en: ["Chongyun"], "zh-CN": ["重云"] },
-    materials: ["Shivada Jade", "Hoarfrost Core", "Dvalin’s Sigh", "Diligence", "Damaged Mask", "Cor Lapis"],
+    materials: ["Hoarfrost Core", "Shivada Jade", "Dvalin’s Sigh", "Diligence", "Damaged Mask", "Cor Lapis"],
   },
   {
     id: "Diluc",
@@ -115,8 +115,8 @@ export const characters: Character[] = [
     rarity: 5,
     name: { en: ["Diluc"], "zh-CN": ["迪卢克"] },
     materials: [
-      "Agnidus Agate",
       "Everflame Seed",
+      "Agnidus Agate",
       "Dvalin’s Plume",
       "Resistance",
       "Recruit’s Insignia",
@@ -128,7 +128,7 @@ export const characters: Character[] = [
     type: "character",
     rarity: 4,
     name: { en: ["Diona"], "zh-CN": ["迪奥娜"] },
-    materials: ["Shivada Jade", "Hoarfrost Core", "Shard of a Foul Legacy", "Freedom", "Firm Arrowhead", "Calla Lily"],
+    materials: ["Hoarfrost Core", "Shivada Jade", "Shard of a Foul Legacy", "Freedom", "Firm Arrowhead", "Calla Lily"],
   },
   {
     id: "Eula",
@@ -136,8 +136,8 @@ export const characters: Character[] = [
     rarity: 5,
     name: { en: ["Eula"], "zh-CN": ["优菈"] },
     materials: [
-      "Shivada Jade",
       "Crystalline Bloom",
+      "Shivada Jade",
       "Dragon Lord’s Crown",
       "Resistance",
       "Damaged Mask",
@@ -150,8 +150,8 @@ export const characters: Character[] = [
     rarity: 4,
     name: { en: ["Fischl"], "zh-CN": ["菲谢尔"] },
     materials: [
-      "Vajrada Amethyst",
       "Lightning Prism",
+      "Vajrada Amethyst",
       "Spirit Locket of Boreas",
       "Ballad",
       "Firm Arrowhead",
@@ -164,8 +164,8 @@ export const characters: Character[] = [
     rarity: 5,
     name: { en: ["Ganyu"], "zh-CN": ["甘雨"] },
     materials: [
-      "Shivada Jade",
       "Hoarfrost Core",
+      "Shivada Jade",
       "Shadow of the Warrior",
       "Diligence",
       "Whopperflower Nectar",
@@ -177,7 +177,7 @@ export const characters: Character[] = [
     type: "character",
     rarity: 4,
     name: { en: ["Gorou"], "zh-CN": ["五郎"] },
-    materials: ["Prithiva Topaz", "Perpetual Heart", "Molten Moment", "Light", "Spectral Husk", "Sango Pearl"],
+    materials: ["Perpetual Heart", "Prithiva Topaz", "Molten Moment", "Light", "Spectral Husk", "Sango Pearl"],
   },
   {
     id: "Hu Tao",
@@ -185,8 +185,8 @@ export const characters: Character[] = [
     rarity: 5,
     name: { en: ["Hu Tao"], "zh-CN": ["胡桃"] },
     materials: [
-      "Agnidus Agate",
       "Juvenile Jade",
+      "Agnidus Agate",
       "Shard of a Foul Legacy",
       "Diligence",
       "Whopperflower Nectar",
@@ -198,7 +198,7 @@ export const characters: Character[] = [
     type: "character",
     rarity: 5,
     name: { en: ["Jean"], "zh-CN": ["琴"] },
-    materials: ["Vayuda Turquoise", "Hurricane Seed", "Dvalin’s Plume", "Resistance", "Damaged Mask", "Dandelion Seed"],
+    materials: ["Hurricane Seed", "Vayuda Turquoise", "Dvalin’s Plume", "Resistance", "Damaged Mask", "Dandelion Seed"],
   },
   {
     id: "Kaedehara Kazuha",
@@ -206,8 +206,8 @@ export const characters: Character[] = [
     rarity: 5,
     name: { en: ["Kaedehara Kazuha"], "zh-CN": ["枫原万叶"] },
     materials: [
-      "Vayuda Turquoise",
       "Marionette Core",
+      "Vayuda Turquoise",
       "Gilded Scale",
       "Diligence",
       "Treasure Hoarder Insignia",
@@ -220,8 +220,8 @@ export const characters: Character[] = [
     rarity: 4,
     name: { en: ["Kaeya"], "zh-CN": ["凯亚"] },
     materials: [
-      "Shivada Jade",
       "Hoarfrost Core",
+      "Shivada Jade",
       "Spirit Locket of Boreas",
       "Ballad",
       "Treasure Hoarder Insignia",
@@ -233,7 +233,7 @@ export const characters: Character[] = [
     type: "character",
     rarity: 5,
     name: { en: ["Kamisato Ayaka"], "zh-CN": ["神里绫华"] },
-    materials: ["Shivada Jade", "Perpetual Heart", "Bloodjade Branch", "Elegance", "Old Handguard", "Sakura Bloom"],
+    materials: ["Perpetual Heart", "Shivada Jade", "Bloodjade Branch", "Elegance", "Old Handguard", "Sakura Bloom"],
   },
   {
     id: "Keqing",
@@ -241,8 +241,8 @@ export const characters: Character[] = [
     rarity: 5,
     name: { en: ["Keqing"], "zh-CN": ["刻晴"] },
     materials: [
-      "Vajrada Amethyst",
       "Lightning Prism",
+      "Vajrada Amethyst",
       "Ring of Boreas",
       "Prosperity",
       "Whopperflower Nectar",
@@ -255,8 +255,8 @@ export const characters: Character[] = [
     rarity: 5,
     name: { en: ["Klee"], "zh-CN": ["可莉"] },
     materials: [
-      "Agnidus Agate",
       "Everflame Seed",
+      "Agnidus Agate",
       "Ring of Boreas",
       "Freedom",
       "Divining Scroll",
@@ -268,14 +268,14 @@ export const characters: Character[] = [
     type: "character",
     rarity: 4,
     name: { en: ["Kujou Sara"], "zh-CN": ["九条裟罗"] },
-    materials: ["Vajrada Amethyst", "Storm Beads", "Ashen Heart", "Elegance", "Damaged Mask", "Dendrobium"],
+    materials: ["Storm Beads", "Vajrada Amethyst", "Ashen Heart", "Elegance", "Damaged Mask", "Dendrobium"],
   },
   {
     id: "Lisa",
     type: "character",
     rarity: 4,
     name: { en: ["Lisa"], "zh-CN": ["丽莎"] },
-    materials: ["Vajrada Amethyst", "Lightning Prism", "Dvalin’s Claw", "Ballad", "Slime Condensate", "Valberry"],
+    materials: ["Lightning Prism", "Vajrada Amethyst", "Dvalin’s Claw", "Ballad", "Slime Condensate", "Valberry"],
   },
   {
     id: "Mona",
@@ -283,8 +283,8 @@ export const characters: Character[] = [
     rarity: 5,
     name: { en: ["Mona"], "zh-CN": ["莫娜"] },
     materials: [
-      "Varunada Lazurite",
       "Cleansing Heart",
+      "Varunada Lazurite",
       "Ring of Boreas",
       "Resistance",
       "Whopperflower Nectar",
@@ -297,8 +297,8 @@ export const characters: Character[] = [
     rarity: 4,
     name: { en: ["Ningguang"], "zh-CN": ["凝光"] },
     materials: [
-      "Prithiva Topaz",
       "Basalt Pillar",
+      "Prithiva Topaz",
       "Spirit Locket of Boreas",
       "Prosperity",
       "Recruit’s Insignia",
@@ -310,35 +310,35 @@ export const characters: Character[] = [
     type: "character",
     rarity: 4,
     name: { en: ["Noelle"], "zh-CN": ["诺艾尔"] },
-    materials: ["Prithiva Topaz", "Basalt Pillar", "Dvalin’s Claw", "Resistance", "Damaged Mask", "Valberry"],
+    materials: ["Basalt Pillar", "Prithiva Topaz", "Dvalin’s Claw", "Resistance", "Damaged Mask", "Valberry"],
   },
   {
     id: "Qiqi",
     type: "character",
     rarity: 5,
     name: { en: ["Qiqi"], "zh-CN": ["七七"] },
-    materials: ["Shivada Jade", "Hoarfrost Core", "Tail of Boreas", "Prosperity", "Divining Scroll", "Violetgrass"],
+    materials: ["Hoarfrost Core", "Shivada Jade", "Tail of Boreas", "Prosperity", "Divining Scroll", "Violetgrass"],
   },
   {
     id: "Raiden Shogun",
     type: "character",
     rarity: 5,
     name: { en: ["Raiden Shogun"], "zh-CN": ["雷电将军"] },
-    materials: ["Vajrada Amethyst", "Storm Beads", "Molten Moment", "Light", "Old Handguard", "Amakumo Fruit"],
+    materials: ["Storm Beads", "Vajrada Amethyst", "Molten Moment", "Light", "Old Handguard", "Amakumo Fruit"],
   },
   {
     id: "Razor",
     type: "character",
     rarity: 4,
     name: { en: ["Razor"], "zh-CN": ["雷泽"] },
-    materials: ["Vajrada Amethyst", "Lightning Prism", "Dvalin’s Claw", "Resistance", "Damaged Mask", "Wolfhook"],
+    materials: ["Lightning Prism", "Vajrada Amethyst", "Dvalin’s Claw", "Resistance", "Damaged Mask", "Wolfhook"],
   },
   {
     id: "Rosaria",
     type: "character",
     rarity: 4,
     name: { en: ["Rosaria"], "zh-CN": ["罗莎莉亚"] },
-    materials: ["Shivada Jade", "Hoarfrost Core", "Shadow of the Warrior", "Ballad", "Recruit’s Insignia", "Valberry"],
+    materials: ["Hoarfrost Core", "Shivada Jade", "Shadow of the Warrior", "Ballad", "Recruit’s Insignia", "Valberry"],
   },
   {
     id: "Sangonomiya Kokomi",
@@ -346,8 +346,8 @@ export const characters: Character[] = [
     rarity: 5,
     name: { en: ["Sangonomiya Kokomi"], "zh-CN": ["珊瑚宫心海"] },
     materials: [
-      "Varunada Lazurite",
       "Dew of Repudiation",
+      "Varunada Lazurite",
       "Hellfire Butterfly",
       "Transience",
       "Spectral Husk",
@@ -360,8 +360,8 @@ export const characters: Character[] = [
     rarity: 4,
     name: { en: ["Sayu"], "zh-CN": ["早柚"] },
     materials: [
-      "Vayuda Turquoise",
       "Marionette Core",
+      "Vayuda Turquoise",
       "Gilded Scale",
       "Light",
       "Whopperflower Nectar",
@@ -374,8 +374,8 @@ export const characters: Character[] = [
     rarity: 5,
     name: { en: ["Shenhe"], "zh-CN": ["申鹤"] },
     materials: [
-      "Shivada Jade",
       "Dragonheir’s False Fin",
+      "Shivada Jade",
       "Hellfire Butterfly",
       "Prosperity",
       "Whopperflower Nectar",
@@ -388,8 +388,8 @@ export const characters: Character[] = [
     rarity: 4,
     name: { en: ["Sucrose"], "zh-CN": ["砂糖"] },
     materials: [
-      "Vayuda Turquoise",
       "Hurricane Seed",
+      "Vayuda Turquoise",
       "Spirit Locket of Boreas",
       "Freedom",
       "Whopperflower Nectar",
@@ -402,8 +402,8 @@ export const characters: Character[] = [
     rarity: 5,
     name: { en: ["Tartaglia"], "zh-CN": ["达达利亚"] },
     materials: [
-      "Varunada Lazurite",
       "Cleansing Heart",
+      "Varunada Lazurite",
       "Shard of a Foul Legacy",
       "Freedom",
       "Recruit’s Insignia",
@@ -416,8 +416,8 @@ export const characters: Character[] = [
     rarity: 4,
     name: { en: ["Thoma"], "zh-CN": ["托马"] },
     materials: [
-      "Agnidus Agate",
       "Smoldering Pearl",
+      "Agnidus Agate",
       "Hellfire Butterfly",
       "Transience",
       "Treasure Hoarder Insignia",
@@ -429,14 +429,14 @@ export const characters: Character[] = [
     type: "character",
     rarity: 5,
     name: { en: ["Venti"], "zh-CN": ["温迪"] },
-    materials: ["Vayuda Turquoise", "Hurricane Seed", "Tail of Boreas", "Ballad", "Slime Condensate", "Cecilia"],
+    materials: ["Hurricane Seed", "Vayuda Turquoise", "Tail of Boreas", "Ballad", "Slime Condensate", "Cecilia"],
   },
   {
     id: "Xiangling",
     type: "character",
     rarity: 4,
     name: { en: ["Xiangling"], "zh-CN": ["香菱"] },
-    materials: ["Agnidus Agate", "Everflame Seed", "Dvalin’s Claw", "Diligence", "Slime Condensate", "Jueyun Chili"],
+    materials: ["Everflame Seed", "Agnidus Agate", "Dvalin’s Claw", "Diligence", "Slime Condensate", "Jueyun Chili"],
   },
   {
     id: "Xiao",
@@ -444,8 +444,8 @@ export const characters: Character[] = [
     rarity: 5,
     name: { en: ["Xiao"], "zh-CN": ["魈"] },
     materials: [
-      "Vayuda Turquoise",
       "Juvenile Jade",
+      "Vayuda Turquoise",
       "Shadow of the Warrior",
       "Prosperity",
       "Slime Condensate",
@@ -457,7 +457,7 @@ export const characters: Character[] = [
     type: "character",
     rarity: 4,
     name: { en: ["Xingqiu"], "zh-CN": ["行秋"] },
-    materials: ["Varunada Lazurite", "Cleansing Heart", "Tail of Boreas", "Gold", "Damaged Mask", "Silk Flower"],
+    materials: ["Cleansing Heart", "Varunada Lazurite", "Tail of Boreas", "Gold", "Damaged Mask", "Silk Flower"],
   },
   {
     id: "Xinyan",
@@ -465,8 +465,8 @@ export const characters: Character[] = [
     rarity: 4,
     name: { en: ["Xinyan"], "zh-CN": ["辛焱"] },
     materials: [
-      "Agnidus Agate",
       "Everflame Seed",
+      "Agnidus Agate",
       "Tusk of Monoceros Caeli",
       "Gold",
       "Treasure Hoarder Insignia",
@@ -482,8 +482,8 @@ export const characters: Character[] = [
       "zh-CN": ["八重神子"],
     },
     materials: [
-      "Vajrada Amethyst",
       "Dragonheir’s False Fin",
+      "Vajrada Amethyst",
       "The Meaning of Aeons",
       "Light",
       "Old Handguard",
@@ -496,8 +496,8 @@ export const characters: Character[] = [
     rarity: 4,
     name: { en: ["Yanfei"], "zh-CN": ["烟绯"] },
     materials: [
-      "Agnidus Agate",
       "Juvenile Jade",
+      "Agnidus Agate",
       "Bloodjade Branch",
       "Gold",
       "Treasure Hoarder Insignia",
@@ -510,8 +510,8 @@ export const characters: Character[] = [
     rarity: 5,
     name: { en: ["Yoimiya"], "zh-CN": ["宵宫"] },
     materials: [
-      "Agnidus Agate",
       "Smoldering Pearl",
+      "Agnidus Agate",
       "Dragon Lord’s Crown",
       "Transience",
       "Divining Scroll",
@@ -523,14 +523,14 @@ export const characters: Character[] = [
     type: "character",
     rarity: 4,
     name: { en: ["Yun Jin"], "zh-CN": ["云堇"] },
-    materials: ["Prithiva Topaz", "Riftborn Regalia", "Ashen Heart", "Diligence", "Damaged Mask", "Glaze Lily"],
+    materials: ["Riftborn Regalia", "Prithiva Topaz", "Ashen Heart", "Diligence", "Damaged Mask", "Glaze Lily"],
   },
   {
     id: "Zhongli",
     type: "character",
     rarity: 5,
     name: { en: ["Zhongli"], "zh-CN": ["钟离"] },
-    materials: ["Prithiva Topaz", "Basalt Pillar", "Tusk of Monoceros Caeli", "Gold", "Slime Condensate", "Cor Lapis"],
+    materials: ["Basalt Pillar", "Prithiva Topaz", "Tusk of Monoceros Caeli", "Gold", "Slime Condensate", "Cor Lapis"],
   },
 ];
 
@@ -640,12 +640,12 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.BOW,
     name: { en: ["Prototype Crescent"], "zh-CN": ["试作澹月"] },
     materials: [
-      "Northlander Bow Billet",
-      "Crystal Chunk",
-      "White Iron Chunk",
       "Mist Veiled Lead Elixir",
       "Mist Grass Pollen",
       "Treasure Hoarder Insignia",
+      "Northlander Bow Billet",
+      "Crystal Chunk",
+      "White Iron Chunk",
     ],
   },
   {
@@ -671,12 +671,12 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.BOW,
     name: { en: ["Hamayumi"], "zh-CN": ["破魔之弓"] },
     materials: [
-      "Northlander Bow Billet",
-      "Amethyst Lump",
-      "White Iron Chunk",
       "Narukami’s Wisdom",
       "Dismal Prism",
       "Firm Arrowhead",
+      "Northlander Bow Billet",
+      "Amethyst Lump",
+      "White Iron Chunk",
     ],
   },
   {
@@ -694,12 +694,12 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.BOW,
     name: { en: ["Compound Bow"], "zh-CN": ["钢轮弓"] },
     materials: [
-      "Northlander Bow Billet",
-      "Crystal Chunk",
-      "White Iron Chunk",
       "Grain of Aerosiderite",
       "Fragile Bone Shard",
       "Recruit’s Insignia",
+      "Northlander Bow Billet",
+      "Crystal Chunk",
+      "White Iron Chunk",
     ],
   },
   {
@@ -845,12 +845,12 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.CATALYST,
     name: { en: ["Prototype Amber"], "zh-CN": ["试作金珀"] },
     materials: [
-      "Northlander Catalyst Billet",
-      "Crystal Chunk",
-      "White Iron Chunk",
       "Mist Veiled Lead Elixir",
       "Mist Grass Pollen",
       "Firm Arrowhead",
+      "Northlander Catalyst Billet",
+      "Crystal Chunk",
+      "White Iron Chunk",
     ],
   },
   {
@@ -860,12 +860,12 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.CATALYST,
     name: { en: ["Mappa Mare"], "zh-CN": ["万国诸海图谱"] },
     materials: [
-      "Northlander Catalyst Billet",
-      "Crystal Chunk",
-      "White Iron Chunk",
       "Grain of Aerosiderite",
       "Fragile Bone Shard",
       "Slime Condensate",
+      "Northlander Catalyst Billet",
+      "Crystal Chunk",
+      "White Iron Chunk",
     ],
   },
   {
@@ -875,12 +875,12 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.CATALYST,
     name: { en: ["Hakushin Ring"], "zh-CN": ["白辰之环"] },
     materials: [
-      "Northlander Catalyst Billet",
-      "Amethyst Lump",
-      "White Iron Chunk",
       "Coral Branch of a Distant Sea",
       "Dismal Prism",
       "Divining Scroll",
+      "Northlander Catalyst Billet",
+      "Amethyst Lump",
+      "White Iron Chunk",
     ],
   },
   {
@@ -890,12 +890,12 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.CATALYST,
     name: { en: ["Frostbearer"], "zh-CN": ["忍冬之果"] },
     materials: [
-      "Northlander Catalyst Billet",
-      "Crystal Chunk",
-      "Starsilver",
       "Fetters of the Dandelion Gladiator",
       "Chaos Device",
       "Whopperflower Nectar",
+      "Northlander Catalyst Billet",
+      "Crystal Chunk",
+      "Starsilver",
     ],
   },
   {
@@ -1041,12 +1041,12 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Whiteblind"], "zh-CN": ["白影剑"] },
     materials: [
-      "Northlander Claymore Billet",
-      "Crystal Chunk",
-      "White Iron Chunk",
       "Luminous Sands from Guyun",
       "Hunter’s Sacrificial Knife",
       "Treasure Hoarder Insignia",
+      "Northlander Claymore Billet",
+      "Crystal Chunk",
+      "White Iron Chunk",
     ],
   },
   {
@@ -1064,12 +1064,12 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Snow-Tombed Starsilver"], "zh-CN": ["雪葬的星银"] },
     materials: [
-      "Northlander Claymore Billet",
-      "Crystal Chunk",
-      "Starsilver",
       "Tile of Decarabian’s Tower",
       "Heavy Horn",
       "Slime Condensate",
+      "Northlander Claymore Billet",
+      "Crystal Chunk",
+      "Starsilver",
     ],
   },
   {
@@ -1087,12 +1087,12 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Katsuragikiri Nagamasa"], "zh-CN": ["桂木斩长正"] },
     materials: [
-      "Northlander Claymore Billet",
-      "Amethyst Lump",
-      "White Iron Chunk",
       "Narukami’s Wisdom",
       "Chaos Gear",
       "Old Handguard",
+      "Northlander Claymore Billet",
+      "Amethyst Lump",
+      "White Iron Chunk",
     ],
   },
   {
@@ -1134,12 +1134,12 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Prototype Archaic"], "zh-CN": ["试作古华"] },
     materials: [
-      "Northlander Claymore Billet",
-      "Crystal Chunk",
-      "White Iron Chunk",
       "Grain of Aerosiderite",
       "Fragile Bone Shard",
       "Damaged Mask",
+      "Northlander Claymore Billet",
+      "Crystal Chunk",
+      "White Iron Chunk",
     ],
   },
   {
@@ -1253,12 +1253,12 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.POLEARM,
     name: { en: ["Prototype Starglitter"], "zh-CN": ["试作星镰"] },
     materials: [
-      "Northlander Polearm Billet",
-      "Crystal Chunk",
-      "White Iron Chunk",
       "Grain of Aerosiderite",
       "Fragile Bone Shard",
       "Damaged Mask",
+      "Northlander Polearm Billet",
+      "Crystal Chunk",
+      "White Iron Chunk",
     ],
   },
   {
@@ -1276,12 +1276,12 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.POLEARM,
     name: { en: ["Kitain Cross Spear"], "zh-CN": ["喜多院十文字"] },
     materials: [
-      "Northlander Polearm Billet",
-      "Amethyst Lump",
-      "White Iron Chunk",
       "Mask of the Wicked Lieutenant",
       "Chaos Gear",
       "Treasure Hoarder Insignia",
+      "Northlander Polearm Billet",
+      "Amethyst Lump",
+      "White Iron Chunk",
     ],
   },
   {
@@ -1316,12 +1316,12 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.POLEARM,
     name: { en: ["Dragonspine Spear"], "zh-CN": ["龙脊长枪"] },
     materials: [
-      "Northlander Polearm Billet",
-      "Starsilver",
-      "Vitalized Dragontooth",
       "Boreal Wolf’s Milk Tooth",
       "Mist Grass Pollen",
       "Recruit’s Insignia",
+      "Northlander Polearm Billet",
+      "Starsilver",
+      "Vitalized Dragontooth",
     ],
   },
   {
@@ -1347,12 +1347,12 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.POLEARM,
     name: { en: ["Crescent Pike"], "zh-CN": ["流月针"] },
     materials: [
-      "Northlander Polearm Billet",
-      "Crystal Chunk",
-      "White Iron Chunk",
       "Luminous Sands from Guyun",
       "Hunter’s Sacrificial Knife",
       "Treasure Hoarder Insignia",
+      "Northlander Polearm Billet",
+      "Crystal Chunk",
+      "White Iron Chunk",
     ],
   },
   {
@@ -1506,12 +1506,12 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.SWORD,
     name: { en: ["Prototype Rancour"], "zh-CN": ["试作斩岩"] },
     materials: [
-      "Northlander Sword Billet",
-      "Crystal Chunk",
-      "White Iron Chunk",
       "Mist Veiled Lead Elixir",
       "Mist Grass Pollen",
       "Recruit’s Insignia",
+      "Northlander Sword Billet",
+      "Crystal Chunk",
+      "White Iron Chunk",
     ],
   },
   {
@@ -1521,12 +1521,12 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.SWORD,
     name: { en: ["Amenoma Kageuchi"], "zh-CN": ["天目影打刀"] },
     materials: [
-      "Northlander Sword Billet",
-      "Amethyst Lump",
-      "White Iron Chunk",
       "Coral Branch of a Distant Sea",
       "Chaos Gear",
       "Old Handguard",
+      "Northlander Sword Billet",
+      "Amethyst Lump",
+      "White Iron Chunk",
     ],
   },
   {
@@ -1544,12 +1544,12 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.SWORD,
     name: { en: ["Iron Sting"], "zh-CN": ["铁蜂刺"] },
     materials: [
-      "Northlander Sword Billet",
-      "Crystal Chunk",
-      "White Iron Chunk",
       "Grain of Aerosiderite",
       "Fragile Bone Shard",
       "Whopperflower Nectar",
+      "Northlander Sword Billet",
+      "Crystal Chunk",
+      "White Iron Chunk",
     ],
   },
   {
@@ -1948,6 +1948,15 @@ export const materials: Material[] = [
   { id: "Bitter Pufferfish", name: { en: ["Bitter Pufferfish"], "zh-CN": ["苦炮鲀"] } },
 ];
 
+export const gems = [
+  "Agnidus Agate",
+  "Varunada Lazurite",
+  "Vajrada Amethyst",
+  "Vayuda Turquoise",
+  "Shivada Jade",
+  "Prithiva Topaz",
+];
+
 // enemies
 
 export interface Domain {
@@ -2013,7 +2022,7 @@ export interface Boss {
   materials: string[];
 }
 
-const billets: string[] = [
+export const billets: string[] = [
   "Northlander Claymore Billet",
   "Northlander Polearm Billet",
   "Northlander Sword Billet",
@@ -2124,12 +2133,12 @@ export const bosses: Boss[] = [
   {
     id: "Confront Stormterror",
     materials: [
-      "Vayuda Turquoise",
-      "Vajrada Amethyst",
-      "Varunada Lazurite",
       "Dvalin’s Plume",
       "Dvalin’s Claw",
       "Dvalin’s Sigh",
+      "Vayuda Turquoise",
+      "Vajrada Amethyst",
+      "Varunada Lazurite",
       ...billets,
     ],
     type: "weekly_boss",
@@ -2138,12 +2147,12 @@ export const bosses: Boss[] = [
   {
     id: "Wolf of the North Challenge",
     materials: [
-      "Shivada Jade",
-      "Agnidus Agate",
-      "Prithiva Topaz",
       "Tail of Boreas",
       "Ring of Boreas",
       "Spirit Locket of Boreas",
+      "Shivada Jade",
+      "Agnidus Agate",
+      "Prithiva Topaz",
       ...billets,
     ],
     type: "weekly_boss",
@@ -2152,12 +2161,12 @@ export const bosses: Boss[] = [
   {
     id: "Enter the Golden House",
     materials: [
-      "Varunada Lazurite",
-      "Vajrada Amethyst",
-      "Shivada Jade",
       "Tusk of Monoceros Caeli",
       "Shard of a Foul Legacy",
       "Shadow of the Warrior",
+      "Varunada Lazurite",
+      "Vajrada Amethyst",
+      "Shivada Jade",
       ...billets,
     ],
     type: "weekly_boss",
@@ -2166,14 +2175,14 @@ export const bosses: Boss[] = [
   {
     id: "Beneath the Dragon-Queller",
     materials: [
+      "Dragon Lord’s Crown",
+      "Bloodjade Branch",
+      "Gilded Scale",
       "Agnidus Agate",
       "Shivada Jade",
       "Prithiva Topaz",
       "Varunada Lazurite",
       "Vajrada Amethyst",
-      "Dragon Lord’s Crown",
-      "Bloodjade Branch",
-      "Gilded Scale",
       ...billets,
     ],
     type: "weekly_boss",
@@ -2181,17 +2190,17 @@ export const bosses: Boss[] = [
   },
   {
     id: "Narukami Island: Tenshukaku",
-    materials: ["Shivada Jade", "Agnidus Agate", "Molten Moment", "Hellfire Butterfly", "Ashen Heart", ...billets],
+    materials: ["Molten Moment", "Hellfire Butterfly", "Ashen Heart", "Shivada Jade", "Agnidus Agate", ...billets],
     type: "weekly_boss",
     name: { en: ["Narukami Island: Tenshukaku / La Signora"], "zh-CN": ["鸣神岛・天守 / 女士"] },
   },
   {
     id: "End of the Oneiric Euthymia",
     materials: [
-      "Vajrada Amethyst",
       "Mudra of the Malefic General",
       "Tears of the Calamitous God",
       "The Meaning of Aeons",
+      "Vajrada Amethyst",
       ...billets,
     ],
     type: "weekly_boss",

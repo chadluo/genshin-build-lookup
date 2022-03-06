@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body>
+  <body class="smooth">
     <nav>
       <div class="container">
         <h1>
@@ -39,10 +39,22 @@
     </nav>
     <div class="container">
       <div class="selectors"></div>
-      <div id="output"></div>
+      <div id="output" class="show-gems show-billets"></div>
       <a id="clear">🧹</a>
 
       <footer>
+        <div class="switches">
+          <label>
+            <input type="checkbox" id="show-gems" checked />
+            <span class="i18n" lang="en">Show ascension gemstones</span>
+            <span class="i18n" lang="zh-CN">显示突破晶石</span>
+          </label>
+          <label>
+            <input type="checkbox" id="show-billets" checked />
+            <span class="i18n" lang="en">Show billets</span>
+            <span class="i18n" lang="zh-CN">显示原胚</span>
+          </label>
+        </div>
         <!-- prettier-ignore -->
         <span class="i18n" lang="en">
           <ruby>
