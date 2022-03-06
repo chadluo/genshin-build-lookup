@@ -15,7 +15,7 @@ window.addEventListener("DOMContentLoaded", () => {
     lang_select.innerHTML = Object.entries(Assets.i18n.supportedLanguageSelectors)
         .map(([lang, name]) => `<option value="${lang}">${name}</option>`)
         .join("");
-    const lang_candidate = (_a = localStorage.getItem("lang")) !== null && _a !== void 0 ? _a : navigator.language;
+    const lang_candidate = ((_a = localStorage.getItem("lang")) !== null && _a !== void 0 ? _a : navigator.language);
     const lang = Assets.i18n.supportedLanguageSelectors.hasOwnProperty(lang_candidate) ? lang_candidate : "en";
     setLanguage(lang);
     const bookmarks = JSON.parse((_b = localStorage.getItem("bookmarks")) !== null && _b !== void 0 ? _b : "[]");
@@ -26,18 +26,6 @@ window.addEventListener("DOMContentLoaded", () => {
     bookmarks.forEach(([type, id, weekday]) => output.append(createQTable(type, id, weekday)));
     document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
 });
-function renderWeekdayDomainTables() {
-    const day = getCurrentWeekday();
-    const weekdays = day === 0 ? [1, 2, 3] : [day];
-    return `<details id="today" ${day === 0 ? "" : "open"}>
-    <summary>${formatTableCaption("today")}</summary>
-    <table class="qtable">${renderDomains(weekdays)}</table></details>`;
-}
-function renderDomains(weekdays) {
-    return Assets.domains
-        .flatMap((domain) => weekdays.map((weekday) => renderQTableRows(domain.type, domain.id, findDomain(domain.id, weekday), byDomain(domain.id, weekday), weekday)))
-        .join("");
-}
 /* nav */
 document.querySelector("nav .links").addEventListener("click", (event) => {
     var _a;
@@ -54,9 +42,18 @@ document.querySelector("nav .links").addEventListener("click", (event) => {
 lang_select.addEventListener("change", (event) => setLanguage(event.target.value));
 function setLanguage(lang) {
     document.documentElement.setAttribute("lang", lang);
-    document.title = document.querySelector(`h1 > span[lang=${lang}]`).innerHTML;
+    document.title = Assets.i18n.siteTitle[lang].join("");
+    setSearchItems(lang);
     lang_select.value = lang;
     localStorage.setItem("lang", lang);
+}
+function setSearchItems(lang) {
+    document.getElementById("searchItems").innerHTML = []
+        .concat(Assets.characters)
+        .concat(Assets.weapons)
+        .sort((w1, w2) => w1.id.localeCompare(w2.id))
+        .map((w) => `<option value="${w.id}">${w.name[lang].join("")}</option>`)
+        .join("");
 }
 /* content tables */
 function renderCharactersTable(hasBookmarks) {
@@ -181,6 +178,18 @@ function formatDomain(id, type) {
     })
         .join(formatName(Assets.i18n.delimiter))}</td>`;
 }
+function renderWeekdayDomainTables() {
+    const day = getCurrentWeekday();
+    const weekdays = day === 0 ? [1, 2, 3] : [day];
+    return `<details id="today" ${day === 0 ? "" : "open"}>
+    <summary>${formatTableCaption("today")}</summary>
+    <table class="qtable">${renderDomains(weekdays)}</table></details>`;
+}
+function renderDomains(weekdays) {
+    return Assets.domains
+        .flatMap((domain) => weekdays.map((weekday) => renderQTableRows(domain.type, domain.id, findDomain(domain.id, weekday), byDomain(domain.id, weekday), weekday)))
+        .join("");
+}
 /* search result tables */
 function findOrLoadQTable(event) {
     var _a, _b;
@@ -194,6 +203,9 @@ function findOrLoadQTable(event) {
     const type = a.dataset.type;
     if (!type)
         return;
+    findOrLoadQTable2(type, id, weekday);
+}
+function findOrLoadQTable2(type, id, weekday) {
     document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
     const existed = document.querySelector(`table[name="${formatId(type, id, weekday)}"]`);
     if (!existed) {
@@ -210,6 +222,15 @@ function findOrLoadQTable(event) {
 }
 selectors.addEventListener("click", findOrLoadQTable);
 output.addEventListener("click", findOrLoadQTable);
+function selectFromSearch(event) {
+    console.log(event, event.data, event.inputType);
+    // chromium/firefox populate from options
+    if (!(event instanceof InputEvent) || event.inputType === "insertReplacementText") {
+        const id = event.target.value;
+        findOrLoadQTable2(Assets.characters.some((c) => c.id === id) ? TYPE_CHARACTER : TYPE_WEAPON, id, "");
+    }
+}
+document.querySelectorAll("input[list='searchItems']").forEach((i) => i.addEventListener("input", selectFromSearch));
 function createQTable(type, id, weekday) {
     const tableWrapper = document.createElement("div");
     tableWrapper.classList.add("qtableWrapper");
@@ -360,6 +381,8 @@ function formatName(name) {
     const output = document.getElementById("output");
     if (output)
         output.innerHTML = "";
+    lastQuery.id = "";
+    lastQuery.weekday = "";
 });
 function updateBookmark(event) {
     var _a;

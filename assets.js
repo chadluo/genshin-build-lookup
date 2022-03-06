@@ -2160,6 +2160,7 @@ export const bosses = [
 ];
 export const i18n = {
     supportedLanguageSelectors: { en: ["English"], "zh-CN": ["简体中文"] },
+    siteTitle: { en: ["Yuanliao: Genshin Impact Build Lookup"], "zh-CN": ["原料：原神培养查询"] },
     delimiter: { en: [" · "], "zh-CN": ["・"] },
     character: { en: ["Characters"], "zh-CN": ["角色"] },
     weapon: { en: ["Weapons"], "zh-CN": ["武器"] },
