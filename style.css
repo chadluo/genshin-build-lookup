@@ -21,16 +21,16 @@
   --button-background: var(--tomorrow-current-line);
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: "Noto Sans", sans-serif;
   line-height: 1.4rem;
   margin: 0;
+}
+
+.smooth {
+  scroll-behavior: smooth;
 }
 
 a {
@@ -227,6 +227,16 @@ th span {
   }
 }
 
+.gem,
+.billet {
+  display: none;
+}
+
+.show-gems .gem,
+.show-billets .billet {
+  display: table-row;
+}
+
 #output:empty + #clear {
   display: none;
 }
@@ -246,4 +256,12 @@ a#clear:hover {
 footer {
   margin: 3rem 0;
   text-align: center;
+}
+
+.switches {
+  margin-bottom: 1rem;
+}
+
+.switches label + label {
+  margin-left: 1em;
 }

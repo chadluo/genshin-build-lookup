@@ -1,4 +1,4 @@
-var _a;
+var _a, _b, _c;
 import { Assets } from "./assets.js";
 const TYPE_CHARACTER = "character";
 const TYPE_WEAPON = "weapon";
@@ -142,29 +142,29 @@ function getWeaponIcon(category) {
     }
 }
 function renderEnemiesTable(hasBookmarks) {
+    const talentDomains = Assets.domains.filter((d) => d.type === "talent_domain");
+    const weaponDomains = Assets.domains.filter((d) => d.type === "weapon_domain");
     return `<details id="enemies" ${hasBookmarks ? "" : "open"}>
   <summary>${formatTableCaption("enemies_domains")}</summary>
-  <table class="ctable"><tr><th>${formatName(Assets.i18n.weekly_boss)}</th><td>${Assets.enemy_ids
-        .get("weekly_bosses")
-        .map((boss) => renderLink(boss, TYPE_WEEKLY_BOSS, Assets.bosses.find((b) => b.id === boss).name))
+  <table class="ctable"><tr><th>${formatName(Assets.i18n.weekly_boss)}</th><td>${Assets.bosses
+        .filter((b) => b.type === "weekly_boss")
+        .map((boss) => renderLink(boss.id, TYPE_WEEKLY_BOSS, boss.name))
         .join(formatName(Assets.i18n.delimiter))}</td></tr>
-    <tr><th>${formatName(Assets.i18n.boss)}</th><td>${Assets.enemy_ids
-        .get("bosses")
-        .map((boss) => renderLink(boss, TYPE_BOSS, Assets.bosses.find((b) => b.id === boss).name))
+    <tr><th>${formatName(Assets.i18n.boss)}</th><td>${Assets.bosses
+        .filter((b) => b.type === "boss")
+        .map((boss) => renderLink(boss.id, TYPE_BOSS, boss.name))
         .join(formatName(Assets.i18n.delimiter))}</td></tr>
-    <tr><th rowspan="${Assets.enemy_ids.get("talent_domains").length}">${formatName(Assets.i18n.talent_domain)}</th>
-      ${formatDomain(Assets.enemy_ids.get("talent_domains")[0], TYPE_TALENT_DOMAIN)}</tr>
-    ${Assets.enemy_ids
-        .get("talent_domains")
+    <tr><th rowspan="${talentDomains.length}">${formatName(Assets.i18n.talent_domain)}</th>
+      ${formatDomain(talentDomains[0].id, TYPE_TALENT_DOMAIN)}</tr>
+    ${talentDomains
         .slice(1)
-        .map((id) => `<tr>${formatDomain(id, TYPE_TALENT_DOMAIN)}</tr>`)
+        .map((d) => `<tr>${formatDomain(d.id, TYPE_TALENT_DOMAIN)}</tr>`)
         .join("")}
-    <tr><th rowspan="${Assets.enemy_ids.get("weapon_domains").length}">${formatName(Assets.i18n.weapon_domain)}</th>
-    ${formatDomain(Assets.enemy_ids.get("weapon_domains")[0], TYPE_WEAPON_DOMAIN)}</tr>
-    ${Assets.enemy_ids
-        .get("weapon_domains")
+    <tr><th rowspan="${weaponDomains.length}">${formatName(Assets.i18n.weapon_domain)}</th>
+    ${formatDomain(weaponDomains[0].id, TYPE_WEAPON_DOMAIN)}</tr>
+    ${weaponDomains
         .slice(1)
-        .map((id) => `<tr>${formatDomain(id, TYPE_WEAPON_DOMAIN)}</tr>`)
+        .map((d) => `<tr>${formatDomain(d.id, TYPE_WEAPON_DOMAIN)}</tr>`)
         .join("")}`;
 }
 function renderLink(id, type, names) {
@@ -238,7 +238,7 @@ function findCharacter(character) {
 function byCharacter(character) {
     return Assets.characters
         .find((c) => c.id === character)
-        .materials.reduce((map, m) => (map.set(Assets.materials.filter((material) => material.id === m)[0].name, findEnemiesForMaterial(m)), map), new Map());
+        .materials.reduce((map, m) => (map.set(Assets.materials.filter((material) => material.id === m)[0], findEnemiesForMaterial(m)), map), new Map());
 }
 function findWeapon(weapon) {
     return Assets.weapons.find((w) => w.id === weapon).name;
@@ -246,7 +246,7 @@ function findWeapon(weapon) {
 function byWeapon(weapon) {
     return Assets.weapons
         .find((w) => w.id === weapon)
-        .materials.reduce((map, m) => (map.set(Assets.materials.filter((material) => material.id === m)[0].name, findEnemiesForMaterial(m)), map), new Map());
+        .materials.reduce((map, m) => (map.set(Assets.materials.filter((material) => material.id === m)[0], findEnemiesForMaterial(m)), map), new Map());
 }
 function findEnemiesForMaterial(m) {
     const dsm = Assets.domains.map((d) => [d, d.materials_by_weekday.indexOf(m)]);
@@ -269,7 +269,7 @@ function byBoss(boss) {
         .find((b) => b.id === boss)
         .materials.reduce((map, material) => {
         var _a;
-        return (map.set(Assets.materials.find((m) => m.id === material).name, ((_a = map.get(Assets.materials.find((m) => m.id === material).name)) !== null && _a !== void 0 ? _a : [])
+        return (map.set(Assets.materials.find((m) => m.id === material), ((_a = map.get(Assets.materials.find((m) => m.id === material))) !== null && _a !== void 0 ? _a : [])
             .concat(findCharactersForMaterial(material))
             .concat(findWeaponsForMaterial(material))),
             map);
@@ -283,7 +283,7 @@ function byDomain(domainId, weekday) {
     const material = domain.materials_by_weekday[weekday];
     return new Map([
         [
-            Assets.materials.find((m) => m.id === material).name,
+            Assets.materials.find((m) => m.id === material),
             domain.type === "weapon_domain" ? findWeaponsForMaterial(material) : findCharactersForMaterial(material),
         ],
     ]);
@@ -313,13 +313,16 @@ function renderQTableRows(type, id, name, object, weekday) {
         ${weekday ? `data-weekday="${weekday}"` : ""} ${isBookmarked(type, id, weekday) ? "checked" : ""}>
         ${formatName(name).replaceAll(" / ", separator)}</label>
       </th>
-      <td>${formatName(materials[0])}</td>
+      <td>${formatName(materials[0].name)}</td>
       <td>${formatArray(object.get(materials[0]))}</td>
     </tr>
     ${materials
         .slice(1)
-        .map((m) => `<tr><td>${formatName(m)}</td><td>${formatArray(object.get(m))}</td></tr>`)
+        .map((m) => `<tr ${formatMaterialType(m)}><td>${formatName(m.name)}</td><td>${formatArray(object.get(m))}</td></tr>`)
         .join("")}`;
+}
+function formatMaterialType(m) {
+    return Assets.gems.includes(m.id) ? "class='gem'" : Assets.billets.includes(m.id) ? "class='billet'" : "";
 }
 /**
  * Type, Id, Weekday
@@ -409,3 +412,17 @@ function unbookmark(type, id, weekday) {
         localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
     }
 }
+(_b = document.querySelector("input#show-gems")) === null || _b === void 0 ? void 0 : _b.addEventListener("change", (event) => {
+    var _a;
+    output.classList.toggle("show-gems", (_a = event.target) === null || _a === void 0 ? void 0 : _a.checked);
+    document.body.classList.remove("smooth");
+    window.scrollTo(0, document.body.scrollHeight);
+    document.body.classList.add("smooth");
+});
+(_c = document.querySelector("input#show-billets")) === null || _c === void 0 ? void 0 : _c.addEventListener("change", (event) => {
+    var _a;
+    output.classList.toggle("show-billets", (_a = event.target) === null || _a === void 0 ? void 0 : _a.checked);
+    document.body.classList.remove("smooth");
+    window.scrollTo(0, document.body.scrollHeight);
+    document.body.classList.add("smooth");
+});
