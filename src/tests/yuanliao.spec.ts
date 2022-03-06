@@ -7,7 +7,6 @@ test.describe("availability & languages", async () => {
 
     await page.goto(baseURL);
     await expect(page).toHaveTitle(/Yuanliao/);
-    await expect(page.locator("nav h1").first()).toContainText("Yuanliao: Genshin Impact Build Lookup");
 
     await expect(page.locator(":has-text('Xiangling')").first()).toBeVisible();
     await expect(page.locator(":has-text('The Catch')").first()).toBeVisible();
@@ -27,11 +26,9 @@ test.describe("availability & languages", async () => {
 
     await page.goto(baseURL);
     await expect(page).toHaveTitle(/原料/);
-    await expect(page.locator("nav h1").first()).toContainText("原料：原神培养查询");
 
     await page.selectOption("#lang-select", { label: "English" });
     await expect(page).toHaveTitle(/Yuanliao/);
-    await expect(page.locator("nav h1").first()).toContainText("Yuanliao: Genshin Impact Build Lookup");
 
     await expect(page.locator(":has-text('Xiangling')").first()).toBeVisible();
   });
