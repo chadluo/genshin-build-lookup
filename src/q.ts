@@ -19,7 +19,7 @@ window.addEventListener("DOMContentLoaded", () => {
     .map(([lang, name]) => `<option value="${lang}">${name}</option>`)
     .join("");
 
-  const lang_candidate = localStorage.getItem("lang") ?? navigator.language;
+  const lang_candidate: SupportedLanguages = (localStorage.getItem("lang") ?? navigator.language) as SupportedLanguages;
   const lang = Assets.i18n.supportedLanguageSelectors.hasOwnProperty(lang_candidate) ? lang_candidate : "en";
   setLanguage(lang);
 
@@ -32,24 +32,6 @@ window.addEventListener("DOMContentLoaded", () => {
   bookmarks.forEach(([type, id, weekday]: [string, string, number]) => output!.append(createQTable(type, id, weekday)));
   document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
 });
-
-function renderWeekdayDomainTables() {
-  const day = getCurrentWeekday();
-  const weekdays = day === 0 ? [1, 2, 3] : [day];
-  return `<details id="today" ${day === 0 ? "" : "open"}>
-    <summary>${formatTableCaption("today")}</summary>
-    <table class="qtable">${renderDomains(weekdays)}</table></details>`;
-}
-
-function renderDomains(weekdays: number[]): string {
-  return Assets.domains
-    .flatMap((domain) =>
-      weekdays.map((weekday) =>
-        renderQTableRows(domain.type, domain.id, findDomain(domain.id, weekday), byDomain(domain.id, weekday), weekday)
-      )
-    )
-    .join("");
-}
 
 /* nav */
 
@@ -65,13 +47,25 @@ document.querySelector("nav .links")!.addEventListener("click", (event) => {
 
 /* language selector */
 
-lang_select!.addEventListener("change", (event) => setLanguage((event.target as HTMLSelectElement).value));
+lang_select!.addEventListener("change", (event) =>
+  setLanguage((event.target as HTMLSelectElement).value as SupportedLanguages)
+);
 
-function setLanguage(lang: string) {
+function setLanguage(lang: SupportedLanguages) {
   document.documentElement.setAttribute("lang", lang);
-  document.title = (document.querySelector(`h1 > span[lang=${lang}]`) as HTMLSpanElement).innerHTML;
+  document.title = Assets.i18n.siteTitle[lang].join("");
+  setSearchItems(lang);
   (lang_select as HTMLSelectElement).value = lang;
   localStorage.setItem("lang", lang);
+}
+
+function setSearchItems(lang: SupportedLanguages) {
+  document.getElementById("searchItems")!.innerHTML = ([] as Assets.WishObject[])
+    .concat(Assets.characters)
+    .concat(Assets.weapons)
+    .sort((w1, w2) => w1.id.localeCompare(w2.id))
+    .map((w) => `<option value="${w.id}">${w.name[lang].join("")}</option>`)
+    .join("");
 }
 
 /* content tables */
@@ -221,6 +215,24 @@ function formatDomain(id: string, type: ItemType) {
     .join(formatName(Assets.i18n.delimiter))}</td>`;
 }
 
+function renderWeekdayDomainTables() {
+  const day = getCurrentWeekday();
+  const weekdays = day === 0 ? [1, 2, 3] : [day];
+  return `<details id="today" ${day === 0 ? "" : "open"}>
+    <summary>${formatTableCaption("today")}</summary>
+    <table class="qtable">${renderDomains(weekdays)}</table></details>`;
+}
+
+function renderDomains(weekdays: number[]): string {
+  return Assets.domains
+    .flatMap((domain) =>
+      weekdays.map((weekday) =>
+        renderQTableRows(domain.type, domain.id, findDomain(domain.id, weekday), byDomain(domain.id, weekday), weekday)
+      )
+    )
+    .join("");
+}
+
 /* search result tables */
 
 function findOrLoadQTable(event: Event) {
@@ -231,6 +243,10 @@ function findOrLoadQTable(event: Event) {
   if (id === lastQuery.id && weekday === lastQuery.weekday) return;
   const type = a.dataset.type;
   if (!type) return;
+  findOrLoadQTable2(type, id, weekday);
+}
+
+function findOrLoadQTable2(type: string, id: string, weekday: string) {
   document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
   const existed = document.querySelector(`table[name="${formatId(type, id, weekday)}"]`);
   if (!existed) {
@@ -247,6 +263,17 @@ function findOrLoadQTable(event: Event) {
 
 selectors.addEventListener("click", findOrLoadQTable);
 output.addEventListener("click", findOrLoadQTable);
+
+function selectFromSearch(event: Event) {
+  console.log(event, (event as InputEvent).data, (event as InputEvent).inputType);
+  // chromium/firefox populate from options
+  if (!(event instanceof InputEvent) || event.inputType === "insertReplacementText") {
+    const id = (event.target as HTMLInputElement).value;
+    findOrLoadQTable2(Assets.characters.some((c) => c.id === id) ? TYPE_CHARACTER : TYPE_WEAPON, id, "");
+  }
+}
+
+document.querySelectorAll("input[list='searchItems']").forEach((i) => i.addEventListener("input", selectFromSearch));
 
 function createQTable(type: string, id: string, weekday: number): HTMLDivElement {
   const tableWrapper = document.createElement("div");
@@ -446,6 +473,8 @@ function formatName(name: I18nObject): string {
 document.getElementById("clear")?.addEventListener("click", () => {
   const output = document.getElementById("output");
   if (output) output.innerHTML = "";
+  lastQuery.id = "";
+  lastQuery.weekday = "";
 });
 
 function updateBookmark(event: Event) {

@@ -103,26 +103,41 @@ nav {
 nav .container {
   display: flex;
 }
-nav h1 {
-  font-size: 1rem;
-  height: 4rem;
-  line-height: 4rem;
-  margin: 0 2em 0 0;
-}
-@media screen and (max-width: 800px) {
-  nav h1 {
-    display: none;
-  }
+nav .lang-select-dropdown {
+  flex-grow: 1;
 }
 nav .links {
-  flex-grow: 1;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+nav .search input {
+  transition: all 0.2s ease-out;
+}
+nav .search input::-webkit-calendar-picker-indicator {
+  display: none;
 }
 nav a {
   text-decoration: none;
   padding: 0.5em;
 }
-#lang-select {
+#lang-select,
+input[list="searchItems"] {
   padding: 0.25em 0.2em;
+}
+
+@media screen and (max-width: 800px) {
+  nav .search,
+  nav .search input {
+    position: relative;
+    left: 0;
+    width: 3em;
+  }
+  nav .search input:focus {
+    --width: 12em;
+    left: calc(3em - var(--width));
+    width: var(--width);
+  }
 }
 
 nav + div {
@@ -164,12 +179,10 @@ details:target summary {
 table {
   width: 100%;
   border-collapse: collapse;
+  border-bottom: 0.5px solid var(--border-color);
 }
 tr {
   border-top: 0.5px solid var(--border-color);
-}
-tr:last-child {
-  border-bottom: 0.5px solid var(--border-color);
 }
 th,
 td {
@@ -183,6 +196,9 @@ td:last-child {
 }
 td {
   white-space: pre-wrap;
+}
+td:empty {
+  display: none;
 }
 th input[type="checkbox"] {
   margin-left: 0;
@@ -218,12 +234,16 @@ th span {
 @media screen and (max-width: 800px) {
   th,
   td,
-  .qtable tr:nth-child(1) th,
   .ctable tr > th:nth-child(1),
+  .qtable tr:nth-child(1) th,
   .qtable tr:nth-child(1) td:nth-child(2) {
     display: inline-block;
     width: 100%;
     padding: 0.5em 0;
+  }
+  th + td,
+  td + td {
+    padding-top: 0;
   }
 }
 

@@ -20,10 +20,9 @@
   <body class="smooth">
     <nav>
       <div class="container">
-        <h1>
-          <span class="i18n" lang="en">Yuanliao: Genshin Impact Build Lookup</span>
-          <span class="i18n" lang="zh-CN">原料：原神培养查询</span>
-        </h1>
+        <span class="lang-select-dropdown">
+          <select name="lang-select" id="lang-select"></select>
+        </span>
         <span class="links">
           <a data-target="character">🦸</a>
           <a data-target="weapon">🗡️</a>
@@ -31,9 +30,8 @@
           <a data-target="today">📅</a>
           <a data-target="output">🚜</a>
         </span>
-        <span class="lang-select-dropdown">
-          🌐
-          <select name="lang-select" id="lang-select"></select>
+        <span class="search">
+          <input type="text" list="searchItems" placeholder="🔎︎" />
         </span>
       </div>
     </nav>
@@ -66,6 +64,8 @@
         <br />
         <a href="https://github.com/chadluo/genshin-build-lookup">chadluo/genshin-build-lookup</a>
       </footer>
+
+      <datalist id="searchItems"></datalist>
     </div>
 
     <script type="module" src="./q.js"></script>
