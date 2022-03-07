@@ -417,8 +417,11 @@ function renderQTableRows(
   return `<tr>
       <th rowspan="${materials.length}">
         <label><input type="checkbox" data-type="${type}" data-id="${id}"
-        ${weekday ? `data-weekday="${weekday}"` : ""} ${isBookmarked(type, id, weekday) ? "checked" : ""}>
-        ${formatName(name).replaceAll(" / ", separator)}</label>
+        ${weekday ? `data-weekday="${weekday}"` : ""} ${isBookmarked(type, id, weekday) ? "checked" : ""}><div>
+        ${(type === "talent_domain" || type === "weapon_domain"
+          ? formatDomainName(name, weekday)
+          : formatName(name)
+        ).replaceAll(" / ", separator)}</div></label>
       </th>
       <td>${formatName(materials[0].name)}</td>
       <td>${formatArray(object.get(materials[0])!)}</td>
@@ -429,6 +432,10 @@ function renderQTableRows(
         (m) => `<tr ${formatMaterialType(m)}><td>${formatName(m.name)}</td><td>${formatArray(object.get(m)!)}</td></tr>`
       )
       .join("")}`;
+}
+
+function formatDomainName(name: I18nObject, weekday: number) {
+  return formatName(name) + " / " + formatName(Assets.i18nWeekdays[weekday]);
 }
 
 function formatMaterialType(m: Material) {
