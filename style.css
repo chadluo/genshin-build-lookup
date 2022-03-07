@@ -205,6 +205,12 @@ th input[type="checkbox"] {
   vertical-align: top;
   margin-right: 0.5em;
 }
+th label {
+  display: flex;
+}
+label div {
+  flex-grow: 1;
+}
 th span {
   max-width: calc(100% - 2em);
 }
