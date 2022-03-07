@@ -276,12 +276,6 @@ function findEnemiesForMaterial(m) {
         return ds;
     return Assets.bosses.filter((b) => b.materials.includes(m));
 }
-function formatWeekday(name, lang, weekday) {
-    return `${name} / ${findWeekday(lang, weekday)}`;
-}
-function findWeekday(lang, day) {
-    return Assets.i18nWeekdays[day][lang];
-}
 function findBoss(boss) {
     return Assets.bosses.find((b) => b.id === boss).name;
 }
