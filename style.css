@@ -40,11 +40,11 @@ a.bookmarked {
   color: var(--link-bookmark);
   font-weight: bold;
 }
-
 a:hover {
   cursor: pointer;
   color: var(--link-hover);
 }
+
 .container {
   width: calc(100% - 2em);
   max-width: 1200px;
@@ -127,6 +127,9 @@ input[list="searchItems"] {
 }
 
 @media screen and (max-width: 800px) {
+  nav a {
+    padding: 0.25em;
+  }
   nav .search,
   nav .search input {
     position: relative;
@@ -201,9 +204,8 @@ td:empty {
   display: none;
 }
 th input[type="checkbox"] {
-  margin-left: 0;
   vertical-align: top;
-  margin-right: 0.5em;
+  margin: 0.4em 0.5em 0 0;
 }
 th label {
   display: flex;
@@ -286,6 +288,10 @@ footer {
 
 .switches {
   margin-bottom: 1rem;
+}
+
+.switches label {
+  display: inline-block;
 }
 
 .switches label + label {
