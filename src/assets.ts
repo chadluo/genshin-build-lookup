@@ -5,6 +5,9 @@ export type ItemType = "character" | "weapon" | "weekly_boss" | "boss" | "talent
 export type SupportedLanguages = "en" | "zh-CN";
 export type I18nObject = { [lang in SupportedLanguages]: string[] };
 
+export type TimezoneNames = "Asia" | "Europe" | "America";
+export const timezones: { [tz in TimezoneNames]: number } = { Asia: 8, Europe: 1, America: -5 };
+
 export interface WishObject {
   id: string;
   type: ItemType;
@@ -2223,6 +2226,9 @@ export const i18n: { [id: string]: I18nObject } = {
   talent_domain: { en: ["Talent Domains"], "zh-CN": ["天赋本"] },
   weapon_domain: { en: ["Weapon Domains"], "zh-CN": ["武器本"] },
   today: { en: ["Today"], "zh-CN": ["今日"] },
+  Asia: { en: ["Asia / TW, HK, MO / CN"], "zh-CN": ["亚服、港澳台服、国服"] },
+  Europe: { en: ["Europe"], "zh-CN": ["欧服"] },
+  America: { en: ["America"], "zh-CN": ["美服"] },
 };
 
 /**

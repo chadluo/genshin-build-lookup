@@ -23,11 +23,14 @@ window.addEventListener("DOMContentLoaded", () => {
   const lang = Assets.i18n.supportedLanguageSelectors.hasOwnProperty(lang_candidate) ? lang_candidate : "en";
   setLanguage(lang);
 
+  const serverTimezone: Assets.TimezoneNames =
+    (localStorage.getItem("timezone") as Assets.TimezoneNames) || guessTimezone();
+
   const bookmarks = JSON.parse(localStorage.getItem("bookmarks") ?? "[]");
   selectors.innerHTML += renderCharactersTable(bookmarks.length !== 0);
   selectors.innerHTML += renderWeaponsTable(bookmarks.length !== 0);
   selectors.innerHTML += renderEnemiesTable(bookmarks.length !== 0);
-  selectors.innerHTML += renderWeekdayDomainTables();
+  selectors.innerHTML += renderWeekdayDomainTables(serverTimezone, false);
 
   bookmarks.forEach(([type, id, weekday]: [string, string, number]) => output!.append(createQTable(type, id, weekday)));
   document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
@@ -130,14 +133,25 @@ function renderWeaponsTable(hasBookmarks: boolean) {
 }
 
 function formatTableCaption(type: string) {
-  return `${getTableCaptionIcon(type)} ${formatName(Assets.i18n[type])}${
-    type === "today" ? formatName(Assets.i18n.delimiter) + formatName(Assets.i18nWeekdays[getCurrentWeekday()]) : ""
-  }`;
+  return `${getTableCaptionIcon(type)} ${formatName(Assets.i18n[type])}`;
 }
 
-function getCurrentWeekday(): number {
-  const day = new Date().getDay();
-  return day > 3 ? day - 3 : day;
+/**
+ * @returns weekday at specific server timezone, range [0..3]
+ */
+function getWeekday(zone: Assets.TimezoneNames) {
+  const now = new Date();
+  const utcH = now.getUTCHours();
+  const utcDay = now.getUTCDay();
+  const zoneH = utcH + Assets.timezones[zone];
+  // refresh at 4am
+  const zoneDay = ((zoneH > 28 ? utcDay + 1 : zoneH < 4 ? utcDay - 1 : utcDay) + 7) % 7;
+  return zoneDay > 3 ? zoneDay - 3 : zoneDay;
+}
+
+function guessTimezone(): Assets.TimezoneNames {
+  const offset = -new Date().getTimezoneOffset() / 60;
+  return offset < -2 ? "America" : offset < 4.5 ? "Europe" : "Asia";
 }
 
 function getTableCaptionIcon(type: string): string {
@@ -215,12 +229,24 @@ function formatDomain(id: string, type: ItemType) {
     .join(formatName(Assets.i18n.delimiter))}</td>`;
 }
 
-function renderWeekdayDomainTables() {
-  const day = getCurrentWeekday();
+function renderWeekdayDomainTables(timezone: Assets.TimezoneNames, manual: boolean) {
+  const day = getWeekday(timezone);
   const weekdays = day === 0 ? [1, 2, 3] : [day];
-  return `<details id="today" ${day === 0 ? "" : "open"}>
+  return `<details id="today" ${day === 0 && !manual ? "" : "open"}>
     <summary>${formatTableCaption("today")}</summary>
+     ${renderServerTimezoneSelector(timezone)}
     <table class="qtable">${renderDomains(weekdays)}</table></details>`;
+}
+
+function renderServerTimezoneSelector(timezone: Assets.TimezoneNames) {
+  return `<div class="timezone-selector">${(["Asia", "Europe", "America"] as Assets.TimezoneNames[])
+    .map(
+      (zone) => `<label>
+        <input type="radio" name="timezone" value="${zone}" ${zone === timezone ? "checked" : ""}>
+        ${formatName(Assets.i18n[zone])}
+      </label>`
+    )
+    .join("")}</div>`;
 }
 
 function renderDomains(weekdays: number[]): string {
@@ -265,7 +291,6 @@ selectors.addEventListener("click", findOrLoadQTable);
 output.addEventListener("click", findOrLoadQTable);
 
 function selectFromSearch(event: Event) {
-  console.log(event, (event as InputEvent).data, (event as InputEvent).inputType);
   // chromium/firefox populate from options
   if (!(event instanceof InputEvent) || event.inputType === "insertReplacementText") {
     const id = (event.target as HTMLInputElement).value;
@@ -530,6 +555,18 @@ function unbookmark(type: ItemType, id: string, weekday: number): void {
     localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
   }
 }
+
+function selectTimezone(timezone: Assets.TimezoneNames) {
+  document.getElementById("today")!.outerHTML = renderWeekdayDomainTables(timezone, true);
+  localStorage.setItem("timezone", timezone);
+}
+
+selectors.addEventListener("change", (event) => {
+  const target = event.target as HTMLInputElement;
+  if (target.name === "timezone") {
+    selectTimezone(target.value as Assets.TimezoneNames);
+  }
+});
 
 document.querySelector("input#show-gems")?.addEventListener("change", (event) => {
   output.classList.toggle("show-gems", (event.target as HTMLInputElement)?.checked);
