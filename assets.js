@@ -1,5 +1,6 @@
 import * as Assets_1 from "./assets.js";
 export { Assets_1 as Assets };
+export const timezones = { Asia: 8, Europe: 1, America: -5 };
 export var WeaponCategory;
 (function (WeaponCategory) {
     WeaponCategory[WeaponCategory["BOW"] = 0] = "BOW";
@@ -2170,6 +2171,9 @@ export const i18n = {
     talent_domain: { en: ["Talent Domains"], "zh-CN": ["天赋本"] },
     weapon_domain: { en: ["Weapon Domains"], "zh-CN": ["武器本"] },
     today: { en: ["Today"], "zh-CN": ["今日"] },
+    Asia: { en: ["Asia / TW, HK, MO / CN"], "zh-CN": ["亚服、港澳台服、国服"] },
+    Europe: { en: ["Europe"], "zh-CN": ["欧服"] },
+    America: { en: ["America"], "zh-CN": ["美服"] },
 };
 /**
  * Index same as {@link Date.getDay}; [0] declared but not used.
