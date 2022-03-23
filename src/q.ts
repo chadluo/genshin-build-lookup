@@ -625,11 +625,9 @@ window.addEventListener("keydown", (event) => {
       return;
     case "KeyG":
       (document.querySelector("input#show-gems") as HTMLInputElement)?.click();
-      console.log(document.getElementById("show-gems"));
       return;
     case "KeyB":
       (document.querySelector("input#show-billets") as HTMLInputElement)?.click();
-      console.log(document.getElementById("show-billets"));
       return;
   }
 });
