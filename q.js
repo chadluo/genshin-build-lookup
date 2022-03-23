@@ -521,11 +521,9 @@ window.addEventListener("keydown", (event) => {
             return;
         case "KeyG":
             (_a = document.querySelector("input#show-gems")) === null || _a === void 0 ? void 0 : _a.click();
-            console.log(document.getElementById("show-gems"));
             return;
         case "KeyB":
             (_b = document.querySelector("input#show-billets")) === null || _b === void 0 ? void 0 : _b.click();
-            console.log(document.getElementById("show-billets"));
             return;
     }
 });
