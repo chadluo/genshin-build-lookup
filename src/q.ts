@@ -14,6 +14,8 @@ const lang_select: HTMLElement = document.getElementById("lang-select")!;
 
 const lastQuery = { id: "", weekday: "" };
 
+let currentHighlight = 0;
+
 window.addEventListener("DOMContentLoaded", () => {
   lang_select.innerHTML = Object.entries(Assets.i18n.supportedLanguageSelectors)
     .map(([lang, name]) => `<option value="${lang}">${name}</option>`)
@@ -34,6 +36,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
   bookmarks.forEach(([type, id, weekday]: [string, string, number]) => output!.append(createQTable(type, id, weekday)));
   document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
+
+  currentHighlight = Number.parseInt(sessionStorage.getItem("currentHighlight") || "0");
 });
 
 /* nav */
@@ -137,6 +141,13 @@ function formatTableCaption(type: string) {
 }
 
 /**
+ * Get current weekday of domain materials at given timezone, assuming no local DST.
+ *
+ * - Asia/HK, MO, TW/CN: UTC+8
+ * - Europe: UTC+1
+ * - America: UTC-5
+ *
+ * @see https://genshin.hoyoverse.com/en/news/detail/6638
  * @returns weekday at specific server timezone, range [0..3]
  */
 function getWeekday(zone: Assets.TimezoneNames) {
@@ -581,3 +592,75 @@ document.querySelector("input#show-billets")?.addEventListener("change", (event)
   window.scrollTo(0, document.body.scrollHeight);
   document.body.classList.add("smooth");
 });
+
+/* keyboard */
+
+window.addEventListener("keydown", (event) => {
+  const searchInput = document.querySelector(".search input") as HTMLInputElement;
+  const keyboard = document.querySelector(".keyboard");
+  switch (event.code) {
+    case "Slash":
+      if (event.shiftKey) {
+        // `?`
+        keyboard!.classList.add("highlighted");
+        keyboard!.scrollIntoView();
+      } else {
+        event.preventDefault();
+        searchInput.focus();
+      }
+      return;
+    case "Escape":
+      searchInput.blur();
+      return;
+    case "KeyJ":
+      currentHighlight = Math.min(currentHighlight + 1, navItemsMaxIndex());
+      selectNavItem();
+      return;
+    case "KeyK":
+      currentHighlight = Math.max(currentHighlight - 1, 0);
+      selectNavItem();
+      return;
+    case "Space":
+      toggleHighlightForSelectedNavItem(event);
+      return;
+    case "KeyG":
+      (document.querySelector("input#show-gems") as HTMLInputElement)?.click();
+      console.log(document.getElementById("show-gems"));
+      return;
+    case "KeyB":
+      (document.querySelector("input#show-billets") as HTMLInputElement)?.click();
+      console.log(document.getElementById("show-billets"));
+      return;
+  }
+});
+
+function navItemsMaxIndex() {
+  return document.querySelector("#today tbody")!.childElementCount + output.childElementCount - 1;
+}
+
+function selectNavItem() {
+  const navitem = getNavItem();
+  Array.from(document.querySelector("#today tbody")!.children).forEach((e) => e.classList.remove("selected"));
+  Array.from(output.children).forEach((e) => e.classList.remove("selected"));
+  navitem.classList.add("selected");
+  navitem.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+function getNavItem() {
+  const todayTableBody = document.querySelector("#today tbody")!;
+  if (currentHighlight < todayTableBody.childElementCount) {
+    return todayTableBody.children[currentHighlight];
+  } else {
+    return output.children[currentHighlight - todayTableBody.childElementCount];
+  }
+}
+
+function toggleHighlightForSelectedNavItem(event: KeyboardEvent) {
+  const navItem = getNavItem();
+  if (currentHighlight == 0 && !navItem.classList.contains("selected")) {
+    return;
+  }
+  event.preventDefault();
+  const input = getNavItem().querySelector("input[type=checkbox]") as HTMLInputElement;
+  input.click();
+}
