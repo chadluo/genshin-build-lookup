@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Noto+Sans:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Noto+Sans:wght@400;700&family=Noto+Sans+Mono&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
@@ -41,16 +41,45 @@
       <a id="clear">🧹</a>
 
       <footer>
+        <div class="keyboard">
+          <dl>
+            <dt><kbd>/</kbd></dt>
+            <dd>
+              <span class="i18n" lang="en">Search</span>
+              <span class="i18n" lang="zh-CN">搜索</span>
+            </dd>
+            <dt><kbd>j</kbd></dt>
+            <dd>
+              <span class="i18n" lang="en">Next</span>
+              <span class="i18n" lang="zh-CN">下一个</span>
+            </dd>
+            <dt><kbd>k</kbd></dt>
+            <dd>
+              <span class="i18n" lang="en">Previous</span>
+              <span class="i18n" lang="zh-CN">上一个</span>
+            </dd>
+            <dt><kbd>Space</kbd></dt>
+            <dd>
+              <span class="i18n" lang="en">Toggle bookmark</span>
+              <span class="i18n" lang="zh-CN">收藏</span>
+            </dd>
+            <dt><kbd>?</kbd></dt>
+            <dd>
+              <span class="i18n" lang="en">This</span>
+              <span class="i18n" lang="zh-CN">这里</span>
+            </dd>
+          </dl>
+        </div>
         <div class="switches">
           <label>
             <input type="checkbox" id="show-gems" checked />
-            <span class="i18n" lang="en">Show ascension gemstones</span>
-            <span class="i18n" lang="zh-CN">显示突破晶石</span>
+            <span class="i18n" lang="en">Show ascension gemstones (<kbd>g</kbd>)</span>
+            <span class="i18n" lang="zh-CN">显示突破晶石（<kbd>g</kbd>）</span>
           </label>
           <label>
             <input type="checkbox" id="show-billets" checked />
-            <span class="i18n" lang="en">Show billets</span>
-            <span class="i18n" lang="zh-CN">显示原胚</span>
+            <span class="i18n" lang="en">Show billets (<kbd>b</kbd>)</span>
+            <span class="i18n" lang="zh-CN">显示原胚（<kbd>b</kbd>）</span>
           </label>
         </div>
         <!-- prettier-ignore -->

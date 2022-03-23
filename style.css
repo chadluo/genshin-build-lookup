@@ -19,13 +19,14 @@
   --link-hover: var(--tomorrow-blue);
   --link-bookmark: var(--tomorrow-foreground);
   --button-background: var(--tomorrow-current-line);
+  --highlight: var(--tomorrow-current-line);
+  --kbd-background: var(--tomorrow-current-line);
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: "Noto Sans", sans-serif;
-  line-height: 1.4rem;
+  font: 1rem/1.4rem "Noto Sans", sans-serif;
   margin: 0;
 }
 
@@ -181,11 +182,9 @@ details:target summary {
 }
 .timezone-selector label {
   display: inline-block;
+  margin-right: 1.5em;
 }
-.timezone-selector label + label {
-  margin-left: 1em;
-}
-.timezone-selector label:nth-of-type(1) input {
+.timezone-selector input[type="radio"] {
   margin-left: 0;
 }
 table {
@@ -214,7 +213,7 @@ td:empty {
 }
 th input[type="checkbox"] {
   vertical-align: top;
-  margin: 0.4em 0.5em 0 0;
+  margin: 0.4em 0.5em 0;
 }
 th label {
   display: flex;
@@ -265,6 +264,11 @@ th span {
   }
 }
 
+#today .selected,
+#output .selected table {
+  background-color: var(--highlight);
+}
+
 .gem,
 .billet {
   display: none;
@@ -306,4 +310,28 @@ footer {
 
 .switches label + label {
   margin-left: 1em;
+}
+
+@media screen and (max-width: 800px) {
+  .keyboard {
+    display: none;
+  }
+}
+
+.keyboard dl {
+  margin: 0;
+}
+
+.keyboard dt,
+.keyboard dd {
+  display: inline;
+}
+kbd {
+  font-family: "Noto Sans Mono", monospace;
+  background-color: var(--kbd-background);
+  padding: 0.1em 0.2em;
+}
+.keyboard dd {
+  margin-left: 0;
+  margin-right: 1em;
 }
