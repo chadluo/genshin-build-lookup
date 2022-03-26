@@ -301,15 +301,13 @@ function findOrLoadQTable2(type: string, id: string, weekday: string) {
 selectors.addEventListener("click", findOrLoadQTable);
 output.addEventListener("click", findOrLoadQTable);
 
-function selectFromSearch(event: Event) {
+document.querySelector("input[list='searchItems']")?.addEventListener("input", (event) => {
   // chromium/firefox populate from options
   if (!(event instanceof InputEvent) || event.inputType === "insertReplacementText") {
     const id = (event.target as HTMLInputElement).value;
     findOrLoadQTable2(Assets.characters.some((c) => c.id === id) ? TYPE_CHARACTER : TYPE_WEAPON, id, "");
   }
-}
-
-document.querySelectorAll("input[list='searchItems']").forEach((i) => i.addEventListener("input", selectFromSearch));
+});
 
 function createQTable(type: string, id: string, weekday: number): HTMLDivElement {
   const tableWrapper = document.createElement("div");
@@ -596,6 +594,9 @@ document.querySelector("input#show-billets")?.addEventListener("change", (event)
 /* keyboard */
 
 window.addEventListener("keydown", (event) => {
+  if (["INPUT", "SELECT", "TEXTAREA"].includes((event.target as HTMLElement)?.tagName)) {
+    return;
+  }
   const searchInput = document.querySelector(".search input") as HTMLInputElement;
   const keyboard = document.querySelector(".keyboard");
   switch (event.code) {

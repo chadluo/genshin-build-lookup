@@ -326,12 +326,13 @@ footer {
 .keyboard dd {
   display: inline;
 }
-kbd {
-  font-family: "Noto Sans Mono", monospace;
-  background-color: var(--kbd-background);
-  padding: 0.1em 0.2em;
-}
 .keyboard dd {
   margin-left: 0;
   margin-right: 1em;
+}
+kbd,
+:lang(zh-CN) kbd {
+  font-family: "Noto Sans Mono", monospace;
+  background-color: var(--kbd-background);
+  padding: 0 0.15em;
 }
