@@ -1,4 +1,4 @@
-var _a, _b, _c;
+var _a, _b, _c, _d;
 import { Assets } from "./assets.js";
 const TYPE_CHARACTER = "character";
 const TYPE_WEAPON = "weapon";
@@ -253,14 +253,13 @@ function findOrLoadQTable2(type, id, weekday) {
 }
 selectors.addEventListener("click", findOrLoadQTable);
 output.addEventListener("click", findOrLoadQTable);
-function selectFromSearch(event) {
+(_a = document.querySelector("input[list='searchItems']")) === null || _a === void 0 ? void 0 : _a.addEventListener("input", (event) => {
     // chromium/firefox populate from options
     if (!(event instanceof InputEvent) || event.inputType === "insertReplacementText") {
         const id = event.target.value;
         findOrLoadQTable2(Assets.characters.some((c) => c.id === id) ? TYPE_CHARACTER : TYPE_WEAPON, id, "");
     }
-}
-document.querySelectorAll("input[list='searchItems']").forEach((i) => i.addEventListener("input", selectFromSearch));
+});
 function createQTable(type, id, weekday) {
     const tableWrapper = document.createElement("div");
     tableWrapper.classList.add("qtableWrapper");
@@ -406,7 +405,7 @@ function formatName(name) {
     })
         .join("");
 }
-(_a = document.getElementById("clear")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
+(_b = document.getElementById("clear")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
     const output = document.getElementById("output");
     if (output)
         output.innerHTML = "";
@@ -474,14 +473,14 @@ selectors.addEventListener("change", (event) => {
         selectTimezone(target.value);
     }
 });
-(_b = document.querySelector("input#show-gems")) === null || _b === void 0 ? void 0 : _b.addEventListener("change", (event) => {
+(_c = document.querySelector("input#show-gems")) === null || _c === void 0 ? void 0 : _c.addEventListener("change", (event) => {
     var _a;
     output.classList.toggle("show-gems", (_a = event.target) === null || _a === void 0 ? void 0 : _a.checked);
     document.body.classList.remove("smooth");
     window.scrollTo(0, document.body.scrollHeight);
     document.body.classList.add("smooth");
 });
-(_c = document.querySelector("input#show-billets")) === null || _c === void 0 ? void 0 : _c.addEventListener("change", (event) => {
+(_d = document.querySelector("input#show-billets")) === null || _d === void 0 ? void 0 : _d.addEventListener("change", (event) => {
     var _a;
     output.classList.toggle("show-billets", (_a = event.target) === null || _a === void 0 ? void 0 : _a.checked);
     document.body.classList.remove("smooth");
@@ -490,7 +489,10 @@ selectors.addEventListener("change", (event) => {
 });
 /* keyboard */
 window.addEventListener("keydown", (event) => {
-    var _a, _b;
+    var _a, _b, _c;
+    if (["INPUT", "SELECT", "TEXTAREA"].includes((_a = event.target) === null || _a === void 0 ? void 0 : _a.tagName)) {
+        return;
+    }
     const searchInput = document.querySelector(".search input");
     const keyboard = document.querySelector(".keyboard");
     switch (event.code) {
@@ -520,10 +522,10 @@ window.addEventListener("keydown", (event) => {
             toggleHighlightForSelectedNavItem(event);
             return;
         case "KeyG":
-            (_a = document.querySelector("input#show-gems")) === null || _a === void 0 ? void 0 : _a.click();
+            (_b = document.querySelector("input#show-gems")) === null || _b === void 0 ? void 0 : _b.click();
             return;
         case "KeyB":
-            (_b = document.querySelector("input#show-billets")) === null || _b === void 0 ? void 0 : _b.click();
+            (_c = document.querySelector("input#show-billets")) === null || _c === void 0 ? void 0 : _c.click();
             return;
     }
 });
