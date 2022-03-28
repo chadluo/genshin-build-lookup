@@ -239,6 +239,20 @@ export const characters: Character[] = [
     materials: ["Perpetual Heart", "Shivada Jade", "Bloodjade Branch", "Elegance", "Old Handguard", "Sakura Bloom"],
   },
   {
+    id: "Kamisato Ayato",
+    type: "character",
+    rarity: 5,
+    name: { en: ["Kamisato Ayato"], "zh-CN": ["神里绫人"] },
+    materials: [
+      "Dew of Repudiation",
+      "Varunada Lazurite",
+      "Mudra of the Malefic General",
+      "Elegance",
+      "Old Handguard",
+      "Sakura Bloom",
+    ],
+  },
+  {
     id: "Keqing",
     type: "character",
     rarity: 5,
@@ -755,6 +769,14 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.SWORD,
     name: { en: ["Primordial Jade Cutter"], "zh-CN": ["磐岩结绿"] },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Treasure Hoarder Insignia"],
+  },
+  {
+    id: "Haran Geppaku Futsu",
+    type: "weapon",
+    rarity: 5,
+    category: WeaponCategory.SWORD,
+    name: { en: ["Haran Geppaku Futsu"], "zh-CN": ["波乱月白经津"] },
+    materials: ["Narukami’s Wisdom", "Gloomy Statuette", "Old Handguard"],
   },
   {
     id: "Alley Hunter",
@@ -1635,7 +1657,9 @@ export const weapons: Weapon[] = [
     name: { en: ["Traveler’s Handy Sword"], "zh-CN": ["旅行剑"] },
     materials: ["Fetters of the Dandelion Gladiator", "Chaos Device", "Divining Scroll"],
   },
-]; // materials
+];
+
+// materials
 
 export const materials: Material[] = [
   // common
@@ -1757,6 +1781,13 @@ export const materials: Material[] = [
     name: {
       en: ["Concealed Claw", "Concealed Unguis", "Concealed Talon"],
       "zh-CN": ["隐兽指爪", "隐兽利爪", "隐兽鬼爪"],
+    },
+  },
+  {
+    id: "Gloomy Statuette",
+    name: {
+      en: ["Gloomy Statuette", "Dark Statuette", "Deathly Statuette"],
+      "zh-CN": ["晦暗刻像", "夤夜刻像", "幽邃刻像"],
     },
   },
 
