@@ -150,7 +150,7 @@ nav + div {
 
 /* tables */
 
-.selectors {
+#selectors {
   margin-top: 3rem;
 }
 
@@ -168,7 +168,7 @@ nav + div {
   text-align: center;
 }
 
-details,
+details.section,
 #output,
 .qtableWrapper {
   margin-top: -3rem;
@@ -177,7 +177,7 @@ details,
 summary {
   white-space: pre-wrap;
 }
-details:target summary {
+details.section:target summary {
   font-weight: bold;
 }
 .timezone-selector label {
@@ -277,6 +277,14 @@ th span {
 .show-gems .gem,
 .show-billets .billet {
   display: table-row;
+}
+
+details.alternative {
+  padding-left: 1em;
+}
+
+details.alternative summary {
+  margin-left: -1em;
 }
 
 #output:empty + #clear {

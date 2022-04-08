@@ -8,7 +8,7 @@ const TYPE_BOSS = "boss";
 const TYPE_TALENT_DOMAIN = "talent_domain";
 const TYPE_WEAPON_DOMAIN = "weapon_domain";
 
-const selectors: HTMLElement = document.querySelector("div.selectors")!;
+const selectors: HTMLElement = document.getElementById("selectors")!;
 const output: HTMLElement = document.getElementById("output")!;
 const lang_select: HTMLElement = document.getElementById("lang-select")!;
 
@@ -87,7 +87,7 @@ function renderCharactersTable(hasBookmarks: boolean): string {
       <td>${cs.map((c) => renderLink(c.id, TYPE_CHARACTER, c.name)).join(formatName(Assets.i18n.delimiter))}</td></tr>`;
     })
     .join("");
-  return `<details id="${TYPE_CHARACTER}" ${hasBookmarks ? "" : "open"}>
+  return `<details id="${TYPE_CHARACTER}" class="section" ${hasBookmarks ? "" : "open"}>
     <summary>${formatTableCaption(TYPE_CHARACTER)}</summary>
     <table class="ctable">${tableContent}</table>
     </details>`;
@@ -130,7 +130,7 @@ function renderWeaponsTable(hasBookmarks: boolean) {
         .join("")}`;
     })
     .join("");
-  return `<details id="${TYPE_WEAPON}" ${hasBookmarks ? "" : "open"}>
+  return `<details id="${TYPE_WEAPON}" class="section" ${hasBookmarks ? "" : "open"}>
     <summary>${formatTableCaption(TYPE_WEAPON)}</summary>
     <table class="ctable">${tableContent}</table>
     </details>`;
@@ -195,7 +195,7 @@ function getWeaponIcon(category: Assets.WeaponCategory) {
 function renderEnemiesTable(hasBookmarks: boolean) {
   const talentDomains = Assets.domains.filter((d) => d.type === "talent_domain");
   const weaponDomains = Assets.domains.filter((d) => d.type === "weapon_domain");
-  return `<details id="enemies" ${hasBookmarks ? "" : "open"}>
+  return `<details id="enemies" class="section" ${hasBookmarks ? "" : "open"}>
   <summary>${formatTableCaption("enemies_domains")}</summary>
   <table class="ctable"><tr><th>${formatName(Assets.i18n.weekly_boss)}</th><td>${Assets.bosses
     .filter((b) => b.type === "weekly_boss")
@@ -243,7 +243,7 @@ function formatDomain(id: string, type: ItemType) {
 function renderWeekdayDomainTables(timezone: Assets.TimezoneNames, manual: boolean) {
   const day = getWeekday(timezone);
   const weekdays = day === 0 ? [1, 2, 3] : [day];
-  return `<details id="today" ${day === 0 && !manual ? "" : "open"}>
+  return `<details id="today" class="section" ${day === 0 && !manual ? "" : "open"}>
     <summary>${formatTableCaption("today")}</summary>
      ${renderServerTimezoneSelector(timezone)}
     <table class="qtable">${renderDomains(weekdays)}</table></details>`;
@@ -497,10 +497,14 @@ function formatArray(es: Assets.WishObject[] | [Assets.Domain, number][] | Asset
 
 function formatName(name: I18nObject): string {
   return Object.entries(name)
-    .map(([lang, value]) => {
-      return `<span class="i18n" lang="${lang}">${Array.isArray(value) ? value.join("<br>") : value}</span>`;
-    })
+    .map(([lang, value]) => `<span class="i18n" lang="${lang}">${formatMulti(value)}</span>`)
     .join("");
+}
+
+function formatMulti(names: string[]) {
+  return names.length === 1
+    ? names[0]
+    : `<details class="alternative" open><summary>${names[0]}</summary>${names.slice(1).join("<br>")}</details>`;
 }
 
 document.getElementById("clear")?.addEventListener("click", () => {
@@ -591,6 +595,18 @@ document.querySelector("input#show-billets")?.addEventListener("change", (event)
   document.body.classList.add("smooth");
 });
 
+document.querySelector("input#show-alternatives")?.addEventListener("change", (event) => {
+  const alternativeDetails = document.querySelectorAll("details.alternative");
+  if ((event.target as HTMLInputElement)?.checked) {
+    alternativeDetails.forEach((e) => e.setAttribute("open", ""));
+  } else {
+    alternativeDetails.forEach((e) => e.removeAttribute("open"));
+  }
+  document.body.classList.remove("smooth");
+  window.scrollTo(0, document.body.scrollHeight);
+  document.body.classList.add("smooth");
+});
+
 /* keyboard */
 
 window.addEventListener("keydown", (event) => {
@@ -629,6 +645,9 @@ window.addEventListener("keydown", (event) => {
       return;
     case "KeyB":
       (document.querySelector("input#show-billets") as HTMLInputElement)?.click();
+      return;
+    case "KeyA":
+      (document.querySelector("input#show-alternatives") as HTMLInputElement)?.click();
       return;
   }
 });
