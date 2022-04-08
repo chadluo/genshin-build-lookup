@@ -1,4 +1,4 @@
-var _a, _b, _c, _d;
+var _a, _b, _c, _d, _e;
 import { Assets } from "./assets.js";
 const TYPE_CHARACTER = "character";
 const TYPE_WEAPON = "weapon";
@@ -6,7 +6,7 @@ const TYPE_WEEKLY_BOSS = "weekly_boss";
 const TYPE_BOSS = "boss";
 const TYPE_TALENT_DOMAIN = "talent_domain";
 const TYPE_WEAPON_DOMAIN = "weapon_domain";
-const selectors = document.querySelector("div.selectors");
+const selectors = document.getElementById("selectors");
 const output = document.getElementById("output");
 const lang_select = document.getElementById("lang-select");
 const lastQuery = { id: "", weekday: "" };
@@ -69,7 +69,7 @@ function renderCharactersTable(hasBookmarks) {
       <td>${cs.map((c) => renderLink(c.id, TYPE_CHARACTER, c.name)).join(formatName(Assets.i18n.delimiter))}</td></tr>`;
     })
         .join("");
-    return `<details id="${TYPE_CHARACTER}" ${hasBookmarks ? "" : "open"}>
+    return `<details id="${TYPE_CHARACTER}" class="section" ${hasBookmarks ? "" : "open"}>
     <summary>${formatTableCaption(TYPE_CHARACTER)}</summary>
     <table class="ctable">${tableContent}</table>
     </details>`;
@@ -105,7 +105,7 @@ function renderWeaponsTable(hasBookmarks) {
             .join("")}`;
     })
         .join("");
-    return `<details id="${TYPE_WEAPON}" ${hasBookmarks ? "" : "open"}>
+    return `<details id="${TYPE_WEAPON}" class="section" ${hasBookmarks ? "" : "open"}>
     <summary>${formatTableCaption(TYPE_WEAPON)}</summary>
     <table class="ctable">${tableContent}</table>
     </details>`;
@@ -163,7 +163,7 @@ function getWeaponIcon(category) {
 function renderEnemiesTable(hasBookmarks) {
     const talentDomains = Assets.domains.filter((d) => d.type === "talent_domain");
     const weaponDomains = Assets.domains.filter((d) => d.type === "weapon_domain");
-    return `<details id="enemies" ${hasBookmarks ? "" : "open"}>
+    return `<details id="enemies" class="section" ${hasBookmarks ? "" : "open"}>
   <summary>${formatTableCaption("enemies_domains")}</summary>
   <table class="ctable"><tr><th>${formatName(Assets.i18n.weekly_boss)}</th><td>${Assets.bosses
         .filter((b) => b.type === "weekly_boss")
@@ -203,7 +203,7 @@ function formatDomain(id, type) {
 function renderWeekdayDomainTables(timezone, manual) {
     const day = getWeekday(timezone);
     const weekdays = day === 0 ? [1, 2, 3] : [day];
-    return `<details id="today" ${day === 0 && !manual ? "" : "open"}>
+    return `<details id="today" class="section" ${day === 0 && !manual ? "" : "open"}>
     <summary>${formatTableCaption("today")}</summary>
      ${renderServerTimezoneSelector(timezone)}
     <table class="qtable">${renderDomains(weekdays)}</table></details>`;
@@ -400,10 +400,13 @@ function formatArray(es) {
 }
 function formatName(name) {
     return Object.entries(name)
-        .map(([lang, value]) => {
-        return `<span class="i18n" lang="${lang}">${Array.isArray(value) ? value.join("<br>") : value}</span>`;
-    })
+        .map(([lang, value]) => `<span class="i18n" lang="${lang}">${formatMulti(value)}</span>`)
         .join("");
+}
+function formatMulti(names) {
+    return names.length === 1
+        ? names[0]
+        : `<details class="alternative" open><summary>${names[0]}</summary>${names.slice(1).join("<br>")}</details>`;
 }
 (_b = document.getElementById("clear")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
     const output = document.getElementById("output");
@@ -487,9 +490,22 @@ selectors.addEventListener("change", (event) => {
     window.scrollTo(0, document.body.scrollHeight);
     document.body.classList.add("smooth");
 });
+(_e = document.querySelector("input#show-alternatives")) === null || _e === void 0 ? void 0 : _e.addEventListener("change", (event) => {
+    var _a;
+    const alternativeDetails = document.querySelectorAll("details.alternative");
+    if ((_a = event.target) === null || _a === void 0 ? void 0 : _a.checked) {
+        alternativeDetails.forEach((e) => e.setAttribute("open", ""));
+    }
+    else {
+        alternativeDetails.forEach((e) => e.removeAttribute("open"));
+    }
+    document.body.classList.remove("smooth");
+    window.scrollTo(0, document.body.scrollHeight);
+    document.body.classList.add("smooth");
+});
 /* keyboard */
 window.addEventListener("keydown", (event) => {
-    var _a, _b, _c;
+    var _a, _b, _c, _d;
     if (["INPUT", "SELECT", "TEXTAREA"].includes((_a = event.target) === null || _a === void 0 ? void 0 : _a.tagName)) {
         return;
     }
@@ -526,6 +542,9 @@ window.addEventListener("keydown", (event) => {
             return;
         case "KeyB":
             (_c = document.querySelector("input#show-billets")) === null || _c === void 0 ? void 0 : _c.click();
+            return;
+        case "KeyA":
+            (_d = document.querySelector("input#show-alternatives")) === null || _d === void 0 ? void 0 : _d.click();
             return;
     }
 });

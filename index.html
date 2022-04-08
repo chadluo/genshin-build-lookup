@@ -36,8 +36,8 @@
       </div>
     </nav>
     <div class="container">
-      <div class="selectors"></div>
-      <div id="output" class="show-gems show-billets"></div>
+      <div id="selectors" class="show-gems show-billets show-alternatives"></div>
+      <div id="output" class="show-gems show-billets show-alternatives"></div>
       <a id="clear">🧹</a>
 
       <footer>
@@ -80,6 +80,11 @@
             <input type="checkbox" id="show-billets" checked />
             <span class="i18n" lang="en">Show billets (<kbd>b</kbd>)</span>
             <span class="i18n" lang="zh-CN">显示原胚（<kbd>b</kbd>）</span>
+          </label>
+          <label>
+            <input type="checkbox" id="show-alternatives" checked />
+            <span class="i18n" lang="en">Show alternatives (<kbd>a</kbd>)</span>
+            <span class="i18n" lang="zh-CN">显示同种材料（<kbd>a</kbd>）</span>
           </label>
         </div>
         <!-- prettier-ignore -->
