@@ -2064,6 +2064,19 @@ export const billets: string[] = [
   "Northlander Catalyst Billet",
 ];
 
+export const forgingMaterials: string[] = [
+  "Crystal Chunk",
+  "White Iron Chunk",
+  "Starsilver",
+  "Vitalized Dragontooth",
+  "Amethyst Lump",
+  "Raimei Angelfish",
+  "Golden Koi",
+  "Rusty Koi",
+  "Pufferfish",
+  "Bitter Pufferfish",
+];
+
 export const bosses: Boss[] = [
   {
     id: "Electro Hypostasis",

@@ -465,7 +465,11 @@ function formatDomainName(name: I18nObject, weekday: number) {
 }
 
 function formatMaterialType(m: Material) {
-  return Assets.gems.includes(m.id) ? "class='gem'" : Assets.billets.includes(m.id) ? "class='billet'" : "";
+  return Assets.gems.includes(m.id)
+    ? "class='gem'"
+    : Assets.billets.includes(m.id) || Assets.forgingMaterials.includes(m.id)
+    ? "class='billet'"
+    : "";
 }
 
 /**
