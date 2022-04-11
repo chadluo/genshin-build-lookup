@@ -502,9 +502,12 @@ function formatName(name: I18nObject): string {
 }
 
 function formatMulti(names: string[]) {
+  const showAlternatives = (document.querySelector("input#show-alternatives") as HTMLInputElement).checked;
   return names.length === 1
     ? names[0]
-    : `<details class="alternative" open><summary>${names[0]}</summary>${names.slice(1).join("<br>")}</details>`;
+    : `<details class="alternative" ${showAlternatives ? "open" : ""}><summary>${names[0]}</summary>${names
+        .slice(1)
+        .join("<br>")}</details>`;
 }
 
 document.getElementById("clear")?.addEventListener("click", () => {
