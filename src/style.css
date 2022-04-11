@@ -212,7 +212,6 @@ td:empty {
   display: none;
 }
 th input[type="checkbox"] {
-  vertical-align: top;
   margin: 0.4em 0.5em 0;
 }
 th label {
@@ -258,6 +257,9 @@ th span {
     width: 100%;
     padding: 0.5em 0;
   }
+  th input[type="checkbox"] {
+    margin-left: 0;
+  }
   th + td,
   td + td {
     padding-top: 0;
@@ -284,7 +286,7 @@ details.alternative {
 }
 
 details.alternative summary {
-  margin-left: -1em;
+  list-style-position: outside;
 }
 
 #output:empty + #clear {
