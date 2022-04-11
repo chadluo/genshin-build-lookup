@@ -371,7 +371,11 @@ function formatDomainName(name, weekday) {
     return formatName(name) + " / " + formatName(Assets.i18nWeekdays[weekday]);
 }
 function formatMaterialType(m) {
-    return Assets.gems.includes(m.id) ? "class='gem'" : Assets.billets.includes(m.id) ? "class='billet'" : "";
+    return Assets.gems.includes(m.id)
+        ? "class='gem'"
+        : Assets.billets.includes(m.id) || Assets.forgingMaterials.includes(m.id)
+            ? "class='billet'"
+            : "";
 }
 /**
  * Type, Id, Weekday
@@ -404,9 +408,12 @@ function formatName(name) {
         .join("");
 }
 function formatMulti(names) {
+    const showAlternatives = document.querySelector("input#show-alternatives").checked;
     return names.length === 1
         ? names[0]
-        : `<details class="alternative" open><summary>${names[0]}</summary>${names.slice(1).join("<br>")}</details>`;
+        : `<details class="alternative" ${showAlternatives ? "open" : ""}><summary>${names[0]}</summary>${names
+            .slice(1)
+            .join("<br>")}</details>`;
 }
 (_b = document.getElementById("clear")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
     const output = document.getElementById("output");
