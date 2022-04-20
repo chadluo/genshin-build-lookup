@@ -15,6 +15,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="preload" as="script" href="q.js" />
+    <link rel="preload" as="script" href="assets.js" />
   </head>
 
   <body class="smooth">
@@ -104,6 +106,6 @@
       <datalist id="searchItems"></datalist>
     </div>
 
-    <script type="module" src="./q.js"></script>
+    <script type="module" src="./q.js" defer></script>
   </body>
 </html>
