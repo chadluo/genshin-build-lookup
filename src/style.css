@@ -189,27 +189,26 @@ details.section:target summary {
 }
 table {
   width: 100%;
-  border-collapse: collapse;
-  border-bottom: 0.5px solid var(--border-color);
-}
-tr {
-  border-top: 0.5px solid var(--border-color);
+  border-spacing: 0;
+  border-bottom: 1px solid var(--border-color);
 }
 th,
 td {
   padding: 0.5em 0.5em 0.5em 0;
   text-align: left;
   vertical-align: top;
-  box-sizing: border-box;
+}
+@media screen and (min-width: 801px) {
+  th,
+  td {
+    border-top: 1px solid var(--border-color);
+  }
 }
 td:last-child {
   padding-right: 0;
 }
 td {
   white-space: pre-wrap;
-}
-td:empty {
-  display: none;
 }
 th input[type="checkbox"] {
   margin: 0.4em 0.5em 0;
@@ -249,13 +248,14 @@ th span {
 
 @media screen and (max-width: 800px) {
   th,
-  td,
-  .ctable tr > th:nth-child(1),
-  .qtable tr:nth-child(1) th,
-  .qtable tr:nth-child(1) td:nth-child(2) {
+  td {
     display: inline-block;
-    width: 100%;
+    width: 100% !important;
     padding: 0.5em 0;
+  }
+  tr th:first-child,
+  tr td:first-child {
+    border-top: 1px solid var(--border-color);
   }
   th input[type="checkbox"] {
     margin-left: 0;
@@ -263,6 +263,9 @@ th span {
   th + td,
   td + td {
     padding-top: 0;
+  }
+  td:empty {
+    display: none;
   }
 }
 
