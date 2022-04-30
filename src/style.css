@@ -231,6 +231,10 @@ th span {
 .ctable tr > th:nth-child(1) {
   width: 20%;
 }
+#enemies tr:nth-child(1) td:nth-child(2) {
+  width: 30%;
+}
+
 .qtable.highlighted {
   animation: 1s highlight;
 }
