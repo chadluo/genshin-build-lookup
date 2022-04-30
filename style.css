@@ -176,6 +176,7 @@ details.section,
 }
 summary {
   white-space: pre-wrap;
+  cursor: pointer;
 }
 details.section:target summary {
   font-weight: bold;
@@ -230,6 +231,10 @@ th span {
 .ctable tr > th:nth-child(1) {
   width: 20%;
 }
+#enemies tr:nth-child(1) td:nth-child(2) {
+  width: 30%;
+}
+
 .qtable.highlighted {
   animation: 1s highlight;
 }
@@ -308,44 +313,67 @@ a#clear:hover {
   background: var(--button-background);
 }
 
+/* ******************** Footers ******************** */
+
 footer {
   margin: 3rem 0;
-  text-align: center;
 }
 
-.switches {
-  margin-bottom: 1rem;
+@media screen and (min-width: 801px) {
+  footer {
+    display: flex;
+  }
+  .switches,
+  .keyboard {
+    flex: 1 0 30%;
+  }
+  .declarations {
+    flex: 0 0 40%;
+    text-align: right;
+  }
+  .declarations ruby > rt {
+    line-height: 0.7rem;
+  }
+  .declarations span[lang="en"] {
+    margin-top: -0.7rem;
+  }
 }
 
-.switches label {
-  display: inline-block;
+.switches ul {
+  margin: 0;
+  padding: 0;
 }
 
-.switches label + label {
-  margin-left: 1em;
+.switches li {
+  list-style: none;
 }
 
 @media screen and (max-width: 800px) {
   .keyboard {
     display: none;
   }
+  .declarations {
+    text-align: center;
+    margin-top: 1em;
+  }
 }
 
 .keyboard dl {
+  display: grid;
+  grid-template-columns: max-content auto;
   margin: 0;
 }
+.keyboard dt {
+  grid-column-start: 1;
+}
+.keyboard dd {
+  grid-column-start: 2;
+  margin-left: 1em;
+}
 
-.keyboard dt,
-.keyboard dd {
-  display: inline;
-}
-.keyboard dd {
-  margin-left: 0;
-  margin-right: 1em;
-}
 kbd,
 :lang(zh-CN) kbd {
-  font-family: "Noto Sans Mono", monospace;
+  font-family: "Courier Prime", monospace;
   background-color: var(--kbd-background);
   padding: 0 0.15em;
 }

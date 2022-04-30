@@ -161,18 +161,30 @@ function getWeaponIcon(category) {
     }
 }
 function renderEnemiesTable(hasBookmarks) {
+    const weeklyBosses = groupBosses((b) => b.region, Assets.bosses.filter((b) => b.type === "weekly_boss"));
+    const weeklyBossKeys = Array.from(weeklyBosses.keys());
+    const bosses = groupBosses((b) => b.region, Assets.bosses.filter((b) => b.type === "boss"));
+    const bossKeys = Array.from(bosses.keys());
     const talentDomains = Assets.domains.filter((d) => d.type === "talent_domain");
     const weaponDomains = Assets.domains.filter((d) => d.type === "weapon_domain");
     return `<details id="enemies" class="section" ${hasBookmarks ? "" : "open"}>
   <summary>${formatTableCaption("enemies_domains")}</summary>
-  <table class="ctable"><tr><th>${formatName(Assets.i18n.weekly_boss)}</th><td>${Assets.bosses
-        .filter((b) => b.type === "weekly_boss")
-        .map((boss) => renderLink(boss.id, TYPE_WEEKLY_BOSS, boss.name))
-        .join(formatName(Assets.i18n.delimiter))}</td></tr>
-    <tr><th>${formatName(Assets.i18n.boss)}</th><td>${Assets.bosses
-        .filter((b) => b.type === "boss")
-        .map((boss) => renderLink(boss.id, TYPE_BOSS, boss.name))
-        .join(formatName(Assets.i18n.delimiter))}</td></tr>
+  <table class="ctable">
+    <tr>
+    <th rowspan="${weeklyBossKeys.length}">${formatName(Assets.i18n.weekly_boss)}</th>
+    ${formatBossesForRegion(Assets.Regions[weeklyBossKeys[0]], weeklyBosses.get(weeklyBossKeys[0]))}
+    </tr>
+    ${weeklyBossKeys
+        .slice(1)
+        .map((k) => `<tr>${formatBossesForRegion(Assets.Regions[k], weeklyBosses.get(k))}</tr>`)
+        .join("")}
+    <tr><th rowspan="${bossKeys.length}">${formatName(Assets.i18n.boss)}</th>
+    ${formatBossesForRegion(Assets.Regions[bossKeys[0]], bosses.get(bossKeys[0]))}
+    </tr>
+    ${bossKeys
+        .slice(1)
+        .map((k) => `<tr>${formatBossesForRegion(Assets.Regions[k], bosses.get(k))}</tr>`)
+        .join("")}
     <tr><th rowspan="${talentDomains.length}">${formatName(Assets.i18n.talent_domain)}</th>
       ${formatDomain(talentDomains[0].id, TYPE_TALENT_DOMAIN)}</tr>
     ${talentDomains
@@ -184,7 +196,17 @@ function renderEnemiesTable(hasBookmarks) {
     ${weaponDomains
         .slice(1)
         .map((d) => `<tr>${formatDomain(d.id, TYPE_WEAPON_DOMAIN)}</tr>`)
-        .join("")}`;
+        .join("")}</table>`;
+}
+function groupBosses(f, bs) {
+    return bs.reduce((m, b) => {
+        var _a;
+        const key = f(b);
+        const arr = (_a = m.get(key)) !== null && _a !== void 0 ? _a : [];
+        arr.push(b);
+        m.set(key, arr);
+        return m;
+    }, new Map());
 }
 function renderLink(id, type, names) {
     return `<a data-id='${id}' data-type='${type}' ${isBookmarked(type, id, 0) ? "class='bookmarked'" : ""}
@@ -193,8 +215,16 @@ function renderLink(id, type, names) {
 function renderDomainLink(id, weekday, type, names) {
     return `<a data-id='${id}' data-weekday='${weekday}' data-type='${type}' ${isBookmarked(type, id, weekday) ? "class='bookmarked'" : ""}>${formatName(names)} ${formatName(Assets.i18nWeekdays[weekday])}</a>`;
 }
+/**
+ * Return structure: td*2
+ */
+function formatBossesForRegion(region, bosses) {
+    return `<td>${formatName(region)}</td><td>${bosses
+        .map((boss) => renderLink(boss.id, TYPE_WEEKLY_BOSS, boss.name))
+        .join(formatName(Assets.i18n.delimiter))}</td>`;
+}
 function formatDomain(id, type) {
-    return `<td>${formatName(Assets.domains.filter((d) => d.id === id)[0].name)} / ${[1, 2, 3]
+    return `<td>${formatName(Assets.domains.filter((d) => d.id === id)[0].name)}</td><td>${[1, 2, 3]
         .map((i) => {
         return `<a data-id='${id}' data-weekday='${i}' data-type='${type}' ${isBookmarked(type, id, i) ? "class='bookmarked'" : ""}>${formatName(Assets.i18nWeekdays[i])}</a>`;
     })

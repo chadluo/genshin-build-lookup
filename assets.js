@@ -2025,42 +2025,49 @@ export const forgingMaterials = [
 export const bosses = [
     {
         id: "Electro Hypostasis",
+        region: "Mondstadt",
         materials: ["Lightning Prism", "Vajrada Amethyst"],
         type: "boss",
         name: { en: ["Electro Hypostasis"], "zh-CN": ["无相之雷"] },
     },
     {
         id: "Anemo Hypostasis",
+        region: "Mondstadt",
         materials: ["Hurricane Seed", "Vayuda Turquoise"],
         type: "boss",
         name: { en: ["Anemo Hypostasis"], "zh-CN": ["无相之风"] },
     },
     {
         id: "Cryo Regisvine",
+        region: "Mondstadt",
         materials: ["Hoarfrost Core", "Shivada Jade"],
         type: "boss",
         name: { en: ["Cryo Regisvine"], "zh-CN": ["急冻树"] },
     },
     {
         id: "Geo Hypostasis",
+        region: "Liyue",
         materials: ["Basalt Pillar", "Prithiva Topaz"],
         type: "boss",
         name: { en: ["Geo Hypostasis"], "zh-CN": ["无相之岩"] },
     },
     {
         id: "Rhodeia of Loch",
+        region: "Liyue",
         materials: ["Cleansing Heart", "Varunada Lazurite"],
         type: "boss",
         name: { en: ["Rhodeia of Loch"], "zh-CN": ["纯水精灵"] },
     },
     {
         id: "Pyro Regisvine",
+        region: "Liyue",
         materials: ["Everflame Seed", "Agnidus Agate"],
         type: "boss",
         name: { en: ["Pyro Regisvine"], "zh-CN": ["爆炎树"] },
     },
     {
         id: "Primo Geovishap",
+        region: "Liyue",
         materials: [
             "Juvenile Jade",
             "Prithiva Topaz",
@@ -2074,48 +2081,56 @@ export const bosses = [
     },
     {
         id: "Cryo Hypostasis",
+        region: "Mondstadt",
         materials: ["Crystalline Bloom", "Shivada Jade"],
         type: "boss",
         name: { en: ["Cryo Hypostasis"], "zh-CN": ["无相之冰"] },
     },
     {
         id: "Maguu Kenki",
+        region: "Inazuma",
         materials: ["Marionette Core", "Vayuda Turquoise", "Shivada Jade"],
         type: "boss",
         name: { en: ["Maguu Kenki"], "zh-CN": ["魔偶剑鬼"] },
     },
     {
         id: "Pyro Hypostasis",
+        region: "Inazuma",
         materials: ["Smoldering Pearl", "Agnidus Agate"],
         type: "boss",
         name: { en: ["Pyro Hypostasis"], "zh-CN": ["无相之火"] },
     },
     {
         id: "Perpetual Mechanical Array",
+        region: "Inazuma",
         materials: ["Perpetual Heart", "Prithiva Topaz", "Shivada Jade"],
         type: "boss",
         name: { en: ["Perpetual Mechanical Array"], "zh-CN": ["恒常机关阵列"] },
     },
     {
         id: "Hydro Hypostasis",
+        region: "Inazuma",
         materials: ["Dew of Repudiation", "Varunada Lazurite"],
         type: "boss",
         name: { en: ["Hydro Hypostasis"], "zh-CN": ["无相之水"] },
     },
     {
         id: "Thunder Manifestation",
+        region: "Inazuma",
         materials: ["Storm Beads", "Vajrada Amethyst"],
         type: "boss",
         name: { en: ["Thunder Manifestation"], "zh-CN": ["雷音权现"] },
     },
     {
         id: "Golden Wolflord",
+        region: "Inazuma",
         materials: ["Riftborn Regalia", "Prithiva Topaz"],
         type: "boss",
         name: { en: ["Golden Wolflord"], "zh-CN": ["黄金王兽"] },
     },
     {
         id: "Bathysmal Vishap Herd",
+        region: "Inazuma",
         materials: ["Dragonheir’s False Fin", "Shivada Jade", "Vajrada Amethyst"],
         type: "boss",
         name: { en: ["Bathysmal Vishap Herd"], "zh-CN": ["深海龙蜥之群"] },
@@ -2123,6 +2138,7 @@ export const bosses = [
     // weekly bosses
     {
         id: "Confront Stormterror",
+        region: "Mondstadt",
         materials: [
             "Dvalin’s Plume",
             "Dvalin’s Claw",
@@ -2137,6 +2153,7 @@ export const bosses = [
     },
     {
         id: "Wolf of the North Challenge",
+        region: "Mondstadt",
         materials: [
             "Tail of Boreas",
             "Ring of Boreas",
@@ -2151,6 +2168,7 @@ export const bosses = [
     },
     {
         id: "Enter the Golden House",
+        region: "Liyue",
         materials: [
             "Tusk of Monoceros Caeli",
             "Shard of a Foul Legacy",
@@ -2165,6 +2183,7 @@ export const bosses = [
     },
     {
         id: "Beneath the Dragon-Queller",
+        region: "Liyue",
         materials: [
             "Dragon Lord’s Crown",
             "Bloodjade Branch",
@@ -2181,12 +2200,14 @@ export const bosses = [
     },
     {
         id: "Narukami Island: Tenshukaku",
+        region: "Inazuma",
         materials: ["Molten Moment", "Hellfire Butterfly", "Ashen Heart", "Shivada Jade", "Agnidus Agate", ...billets],
         type: "weekly_boss",
         name: { en: ["Narukami Island: Tenshukaku / La Signora"], "zh-CN": ["鸣神岛・天守 / 女士"] },
     },
     {
         id: "End of the Oneiric Euthymia",
+        region: "Inazuma",
         materials: [
             "Mudra of the Malefic General",
             "Tears of the Calamitous God",
@@ -2201,6 +2222,11 @@ export const bosses = [
         },
     },
 ];
+export const Regions = {
+    Mondstadt: { en: ["Mondstadt"], "zh-CN": ["蒙德"] },
+    Liyue: { en: ["Liyue"], "zh-CN": ["璃月"] },
+    Inazuma: { en: ["Inazuma"], "zh-CN": ["稻妻"] },
+};
 export const i18n = {
     supportedLanguageSelectors: { en: ["English"], "zh-CN": ["简体中文"] },
     siteTitle: { en: ["Yuanliao: Genshin Impact Build Lookup"], "zh-CN": ["原料：原神培养查询"] },

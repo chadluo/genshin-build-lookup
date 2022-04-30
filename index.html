@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Noto+Sans:wght@400;700&family=Noto+Sans+Mono&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Noto+Sans:wght@400;700&family=Courier+Prime&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
@@ -50,15 +50,10 @@
               <span class="i18n" lang="en">Search</span>
               <span class="i18n" lang="zh-CN">搜索</span>
             </dd>
-            <dt><kbd>j</kbd></dt>
+            <dt><kbd>j</kbd> / <kbd>k</kbd></dt>
             <dd>
-              <span class="i18n" lang="en">Next</span>
-              <span class="i18n" lang="zh-CN">下一个</span>
-            </dd>
-            <dt><kbd>k</kbd></dt>
-            <dd>
-              <span class="i18n" lang="en">Previous</span>
-              <span class="i18n" lang="zh-CN">上一个</span>
+              <span class="i18n" lang="en">Next / Previous</span>
+              <span class="i18n" lang="zh-CN">下一个 / 上一个</span>
             </dd>
             <dt><kbd>Space</kbd></dt>
             <dd>
@@ -73,34 +68,44 @@
           </dl>
         </div>
         <div class="switches">
-          <label>
-            <input type="checkbox" id="show-gems" checked />
-            <span class="i18n" lang="en">Show ascension gemstones (<kbd>g</kbd>)</span>
-            <span class="i18n" lang="zh-CN">显示突破晶石（<kbd>g</kbd>）</span>
-          </label>
-          <label>
-            <input type="checkbox" id="show-billets" checked />
-            <span class="i18n" lang="en" title="Including forging and fishing materials"
-              >Show billets (<kbd>b</kbd>)</span
-            >
-            <span class="i18n" lang="zh-CN" title="含锻造与钓鱼素材">显示原胚（<kbd>b</kbd>）</span>
-          </label>
-          <label>
-            <input type="checkbox" id="show-alternatives" checked />
-            <span class="i18n" lang="en">Show alternatives (<kbd>a</kbd>)</span>
-            <span class="i18n" lang="zh-CN">显示同种材料（<kbd>a</kbd>）</span>
-          </label>
+          <ul>
+            <li>
+              <label>
+                <input type="checkbox" id="show-gems" checked />
+                <span class="i18n" lang="en">Show ascension gemstones (<kbd>g</kbd>)</span>
+                <span class="i18n" lang="zh-CN">显示突破晶石（<kbd>g</kbd>）</span>
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" id="show-billets" checked />
+                <span class="i18n" lang="en" title="Including forging and fishing materials"
+                  >Show billets (<kbd>b</kbd>)</span
+                >
+                <span class="i18n" lang="zh-CN" title="含锻造与钓鱼素材">显示原胚（<kbd>b</kbd>）</span>
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" id="show-alternatives" checked />
+                <span class="i18n" lang="en">Show alternatives (<kbd>a</kbd>)</span>
+                <span class="i18n" lang="zh-CN">显示同种材料（<kbd>a</kbd>）</span>
+              </label>
+            </li>
+          </ul>
         </div>
         <!-- prettier-ignore -->
-        <span class="i18n" lang="en">
-          <ruby>
-            <em lang="zh-CN">原</em><rp>(</rp><rt>yuán</rt><rp>)</rp>
-            <em lang="zh-CN">料</em><rp>(</rp><rt>liào</rt><rp>)</rp>
-          </ruby>: Raw material.<br />
-          Yuanliao is a tool for Genshin Impact characters and weapons build materials lookup.</span>
-        <span class="i18n" lang="zh-CN"><em>原料</em>是一个查询原神角色武器培养所用材料的工具。</span>
-        <br />
-        <a href="https://github.com/chadluo/genshin-build-lookup">chadluo/genshin-build-lookup</a>
+        <div class="declarations">
+          <span class="i18n" lang="en">
+            <ruby>
+              <em lang="zh-CN">原</em><rp>(</rp><rt>yuán</rt><rp>)</rp>
+              <em lang="zh-CN">料</em><rp>(</rp><rt>liào</rt><rp>)</rp>
+            </ruby>: Raw material.<br />
+            Yuanliao is a tool for Genshin Impact characters and weapons build materials lookup.</span>
+          <span class="i18n" lang="zh-CN"><em>原料</em>是一个查询原神角色武器培养所用材料的工具。</span>
+          <br />
+          <a href="https://github.com/chadluo/genshin-build-lookup">chadluo/genshin-build-lookup</a>
+        </div>
       </footer>
 
       <datalist id="searchItems"></datalist>
