@@ -1,4 +1,4 @@
-import { Assets, I18nObject, Character, ItemType, Material, SupportedLanguages, Weapon } from "./assets.js";
+import { Assets, Character, I18nObject, ItemType, Material, SupportedLanguages, Weapon } from "./assets.js";
 
 const TYPE_CHARACTER = "character";
 const TYPE_WEAPON = "weapon";
