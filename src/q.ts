@@ -1,4 +1,4 @@
-import { Assets, Character, I18nObject, ItemType, Material, SupportedLanguages, Weapon } from "./assets.js";
+import * as Assets from "./assets";
 
 const TYPE_CHARACTER = "character";
 const TYPE_WEAPON = "weapon";
@@ -21,7 +21,8 @@ window.addEventListener("DOMContentLoaded", () => {
     .map(([lang, name]) => `<option value="${lang}">${name}</option>`)
     .join("");
 
-  const lang_candidate: SupportedLanguages = (localStorage.getItem("lang") ?? navigator.language) as SupportedLanguages;
+  const lang_candidate: Assets.SupportedLanguages = (localStorage.getItem("lang") ??
+    navigator.language) as Assets.SupportedLanguages;
   const lang = Assets.i18n.supportedLanguageSelectors.hasOwnProperty(lang_candidate) ? lang_candidate : "en";
   setLanguage(lang);
 
@@ -55,10 +56,10 @@ document.querySelector("nav .links")!.addEventListener("click", (event) => {
 /* language selector */
 
 lang_select!.addEventListener("change", (event) =>
-  setLanguage((event.target as HTMLSelectElement).value as SupportedLanguages)
+  setLanguage((event.target as HTMLSelectElement).value as Assets.SupportedLanguages)
 );
 
-function setLanguage(lang: SupportedLanguages) {
+function setLanguage(lang: Assets.SupportedLanguages) {
   document.documentElement.setAttribute("lang", lang);
   document.title = Assets.i18n.siteTitle[lang].join("");
   setSearchItems(lang);
@@ -66,7 +67,7 @@ function setLanguage(lang: SupportedLanguages) {
   localStorage.setItem("lang", lang);
 }
 
-function setSearchItems(lang: SupportedLanguages) {
+function setSearchItems(lang: Assets.SupportedLanguages) {
   document.getElementById("searchItems")!.innerHTML = ([] as Assets.WishObject[])
     .concat(Assets.characters)
     .concat(Assets.weapons)
@@ -247,12 +248,12 @@ function groupBosses<T>(f: (b: Assets.Boss) => T, bs: Assets.Boss[]): Map<T, Ass
   }, new Map<T, Assets.Boss[]>());
 }
 
-function renderLink(id: string, type: ItemType, names: any) {
+function renderLink(id: string, type: Assets.ItemType, names: any) {
   return `<a data-id='${id}' data-type='${type}' ${isBookmarked(type, id, 0) ? "class='bookmarked'" : ""}
   >${formatName(names)}</a>`;
 }
 
-function renderDomainLink(id: string, weekday: number, type: ItemType, names: I18nObject) {
+function renderDomainLink(id: string, weekday: number, type: Assets.ItemType, names: Assets.I18nObject) {
   return `<a data-id='${id}' data-weekday='${weekday}' data-type='${type}' ${
     isBookmarked(type, id, weekday) ? "class='bookmarked'" : ""
   }>${formatName(names)} ${formatName(Assets.i18nWeekdays[weekday])}</a>`;
@@ -261,13 +262,13 @@ function renderDomainLink(id: string, weekday: number, type: ItemType, names: I1
 /**
  * Return structure: td*2
  */
-function formatBossesForRegion(region: I18nObject, bosses: Assets.Boss[]) {
+function formatBossesForRegion(region: Assets.I18nObject, bosses: Assets.Boss[]) {
   return `<td>${formatName(region)}</td><td>${bosses
     .map((boss) => renderLink(boss.id, TYPE_WEEKLY_BOSS, boss!.name))
     .join(formatName(Assets.i18n.delimiter))}</td>`;
 }
 
-function formatDomain(id: string, type: ItemType) {
+function formatDomain(id: string, type: Assets.ItemType) {
   return `<td>${formatName(Assets.domains.filter((d) => d.id === id)[0]!.name)}</td><td>${[1, 2, 3]
     .map((i) => {
       return `<a data-id='${id}' data-weekday='${i}' data-type='${type}' ${
@@ -370,33 +371,33 @@ function renderQTableContent(type: string, id: string, weekday: number): string 
   }
 }
 
-function findCharacter(character: string): I18nObject {
+function findCharacter(character: string): Assets.I18nObject {
   return Assets.characters.find((c) => c.id === character)!.name;
 }
 
-function byCharacter(character: string): Map<Material, [Assets.Domain, number][] | Assets.Boss[]> {
+function byCharacter(character: string): Map<Assets.Material, [Assets.Domain, number][] | Assets.Boss[]> {
   return Assets.characters
     .find((c) => c.id === character)!
     .materials.reduce(
       (map, m: string) => (
         map.set(Assets.materials.filter((material) => material.id === m)[0]!, findEnemiesForMaterial(m)), map
       ),
-      new Map<Material, [Assets.Domain, number][] | Assets.Boss[]>()
+      new Map<Assets.Material, [Assets.Domain, number][] | Assets.Boss[]>()
     );
 }
 
-function findWeapon(weapon: string): I18nObject {
+function findWeapon(weapon: string): Assets.I18nObject {
   return Assets.weapons.find((w) => w.id === weapon)!.name;
 }
 
-function byWeapon(weapon: string): Map<Material, [Assets.Domain, number][] | Assets.Boss[]> {
+function byWeapon(weapon: string): Map<Assets.Material, [Assets.Domain, number][] | Assets.Boss[]> {
   return Assets.weapons
     .find((w) => w.id === weapon)!
     .materials.reduce(
       (map, m: string) => (
         map.set(Assets.materials.filter((material) => material.id === m)[0]!, findEnemiesForMaterial(m)), map
       ),
-      new Map<Material, [Assets.Domain, number][] | Assets.Boss[]>()
+      new Map<Assets.Material, [Assets.Domain, number][] | Assets.Boss[]>()
     );
 }
 
@@ -407,11 +408,11 @@ function findEnemiesForMaterial(m: string): [Assets.Domain, number][] | Assets.B
   return Assets.bosses.filter((b) => b.materials.includes(m));
 }
 
-function findBoss(boss: string): I18nObject {
+function findBoss(boss: string): Assets.I18nObject {
   return Assets.bosses.find((b) => b.id === boss)!.name;
 }
 
-function byBoss(boss: string): Map<Material, Character[] | Weapon[]> {
+function byBoss(boss: string): Map<Assets.Material, Assets.Character[] | Assets.Weapon[]> {
   return Assets.bosses
     .find((b) => b.id === boss)!
     .materials.reduce(
@@ -424,15 +425,15 @@ function byBoss(boss: string): Map<Material, Character[] | Weapon[]> {
         ),
         map
       ),
-      new Map<Material, Character[] | Weapon[]>()
+      new Map<Assets.Material, Assets.Character[] | Assets.Weapon[]>()
     );
 }
 
-function findDomain(domainId: string, _weekday: number): I18nObject {
+function findDomain(domainId: string, _weekday: number): Assets.I18nObject {
   return Assets.domains.find((d) => d.id === domainId)!.name;
 }
 
-function byDomain(domainId: string, weekday: number): Map<Material, Assets.WishObject[]> {
+function byDomain(domainId: string, weekday: number): Map<Assets.Material, Assets.WishObject[]> {
   const domain = Assets.domains.filter((d) => d.id === domainId)[0]!;
   const material = domain.materials_by_weekday[weekday];
   return new Map([
@@ -452,10 +453,10 @@ function findWeaponsForMaterial(m: string): Assets.Weapon[] {
 }
 
 function renderFullQTable(
-  type: ItemType,
+  type: Assets.ItemType,
   id: string,
-  name: I18nObject,
-  object: Map<Material, Assets.WishObject[] | [Assets.Domain, number][] | Assets.Boss[]>,
+  name: Assets.I18nObject,
+  object: Map<Assets.Material, Assets.WishObject[] | [Assets.Domain, number][] | Assets.Boss[]>,
   weekday: number
 ): string {
   return `<table name="${formatId(type, id, weekday)}" class="qtable highlighted"
@@ -471,8 +472,8 @@ function renderFullQTable(
 function renderQTableRows(
   type: Assets.ItemType,
   id: string,
-  name: I18nObject,
-  object: Map<Material, Assets.WishObject[] | [Assets.Domain, number][] | Assets.Boss[]>,
+  name: Assets.I18nObject,
+  object: Map<Assets.Material, Assets.WishObject[] | [Assets.Domain, number][] | Assets.Boss[]>,
   weekday: number
 ) {
   const materials = Array.from(object.keys());
@@ -497,11 +498,11 @@ function renderQTableRows(
       .join("")}`;
 }
 
-function formatDomainName(name: I18nObject, weekday: number) {
+function formatDomainName(name: Assets.I18nObject, weekday: number) {
   return formatName(name) + " / " + formatName(Assets.i18nWeekdays[weekday]);
 }
 
-function formatMaterialType(m: Material) {
+function formatMaterialType(m: Assets.Material) {
   return Assets.gems.includes(m.id)
     ? "class='gem'"
     : Assets.billets.includes(m.id) || Assets.forgingMaterials.includes(m.id)
@@ -536,7 +537,7 @@ function formatArray(es: Assets.WishObject[] | [Assets.Domain, number][] | Asset
     .join(formatName(Assets.i18n.delimiter));
 }
 
-function formatName(name: I18nObject): string {
+function formatName(name: Assets.I18nObject): string {
   return Object.entries(name)
     .map(([lang, value]) => `<span class="i18n" lang="${lang}">${formatMulti(value)}</span>`)
     .join("");
@@ -561,7 +562,7 @@ document.getElementById("clear")?.addEventListener("click", () => {
 function updateBookmark(event: Event) {
   const input = event.target as HTMLInputElement;
   if (!input || input.tagName !== "INPUT") return;
-  const type = input.dataset.type as ItemType;
+  const type = input.dataset.type as Assets.ItemType;
   const id = input.dataset.id;
   if (!type || !id) return;
   const weekday = parseInt(input.dataset.weekday ?? "0");
@@ -575,13 +576,13 @@ function updateBookmark(event: Event) {
 selectors.addEventListener("change", updateBookmark);
 output.addEventListener("change", updateBookmark);
 
-function isBookmarked(type: ItemType, id: string, weekday: number) {
+function isBookmarked(type: Assets.ItemType, id: string, weekday: number) {
   return JSON.parse(localStorage.getItem("bookmarks") ?? "[]").some(
     ([t, i, w]: [string, string, number]) => t === type && i === id && w === (weekday ?? 0)
   );
 }
 
-function bookmark(type: ItemType, id: string, weekday: number) {
+function bookmark(type: Assets.ItemType, id: string, weekday: number) {
   const bookmarks = JSON.parse(localStorage.getItem("bookmarks") ?? "[]");
   const index = bookmarks.findIndex(([t, i, w]: [string, string, number]) => t === type && i === id && w === weekday);
   if (index === -1) {
@@ -597,7 +598,7 @@ function bookmark(type: ItemType, id: string, weekday: number) {
   }
 }
 
-function unbookmark(type: ItemType, id: string, weekday: number): void {
+function unbookmark(type: Assets.ItemType, id: string, weekday: number): void {
   const bookmarks = JSON.parse(localStorage.getItem("bookmarks") ?? "[]");
   const index = bookmarks.findIndex(([t, i, w]: [string, string, number]) => t === type && i === id && w === weekday);
   if (index !== -1) {

@@ -1,4 +1,4 @@
-export * as Assets from "./assets.js";
+declare module "assets";
 
 export type ItemType = "character" | "weapon" | "weekly_boss" | "boss" | "talent_domain" | "weapon_domain";
 

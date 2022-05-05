@@ -8,8 +8,12 @@
         "noImplicitAny": true,
         "noImplicitReturns": true,
         "outDir": "public",
+        "sourceMap": true,
         "strict": true
     },
+    "exclude": [
+        "src/tests/yuanliao.spec.ts"
+    ],
     "extends": "@tsconfig/recommended/tsconfig.json",
     "files": [
         "src/q.ts",
