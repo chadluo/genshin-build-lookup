@@ -1,4 +1,5 @@
 import * as Assets from "./assets";
+import "./style.css";
 
 const TYPE_CHARACTER = "character";
 const TYPE_WEAPON = "weapon";

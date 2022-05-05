@@ -6,18 +6,21 @@ module.exports = {
   output: {
     filename: "q.js",
     path: path.resolve(__dirname, "public"),
-    clean: true,
   },
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.ts?$/,
         use: "ts-loader",
         exclude: [/node_modules/, /tests/],
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: [".tsx", ".ts", ".js", ".html", ".css"],
   },
 };
