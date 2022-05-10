@@ -15,8 +15,7 @@
         "src/tests/yuanliao.spec.ts"
     ],
     "extends": "@tsconfig/recommended/tsconfig.json",
-    "files": [
-        "src/q.ts",
-        "src/assets.ts"
+    "include": [
+        "src/*.ts"
     ]
 }

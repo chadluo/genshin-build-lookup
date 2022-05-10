@@ -1,5 +1,9 @@
-import * as Assets from "./assets";
+import * as Characters from "./characters";
+import * as Enemies from "./enemies";
+import * as Materials from "./materials";
 import "./style.css";
+import * as Types from "./types";
+import * as Weapons from "./weapons";
 
 const TYPE_CHARACTER = "character";
 const TYPE_WEAPON = "weapon";
@@ -13,22 +17,57 @@ const selectors: HTMLElement = document.getElementById("selectors")!;
 const output: HTMLElement = document.getElementById("output")!;
 const lang_select: HTMLElement = document.getElementById("lang-select")!;
 
+type TimezoneNames = "Asia" | "Europe" | "America";
+const timezones: { [tz in TimezoneNames]: number } = { Asia: 8, Europe: 1, America: -5 };
+
+const regions: { [id in Types.Region]: Types.I18nObject } = {
+  Mondstadt: { en: ["Mondstadt"], "zh-CN": ["蒙德"] },
+  Liyue: { en: ["Liyue"], "zh-CN": ["璃月"] },
+  Inazuma: { en: ["Inazuma"], "zh-CN": ["稻妻"] },
+};
+
+const i18n: { [id: string]: Types.I18nObject } = {
+  supportedLanguageSelectors: { en: ["English"], "zh-CN": ["简体中文"] },
+  siteTitle: { en: ["Yuanliao: Genshin Impact Build Lookup"], "zh-CN": ["原料：原神培养查询"] },
+  delimiter: { en: [" · "], "zh-CN": ["・"] },
+  character: { en: ["Characters"], "zh-CN": ["角色"] },
+  weapon: { en: ["Weapons"], "zh-CN": ["武器"] },
+  enemies_domains: { en: ["Enemies & Domains"], "zh-CN": ["秘境讨伐"] },
+  weekly_boss: { en: ["Weekly Bosses"], "zh-CN": ["周本"] },
+  boss: { en: ["Bosses"], "zh-CN": ["首领"] },
+  talent_domain: { en: ["Talent Domains"], "zh-CN": ["天赋本"] },
+  weapon_domain: { en: ["Weapon Domains"], "zh-CN": ["武器本"] },
+  today: { en: ["Today"], "zh-CN": ["今日"] },
+  Asia: { en: ["Asia / TW, HK, MO / CN"], "zh-CN": ["亚服、港澳台服、国服"] },
+  Europe: { en: ["Europe"], "zh-CN": ["欧服"] },
+  America: { en: ["America"], "zh-CN": ["美服"] },
+};
+
+/**
+ * Index same as {@link Date.getDay}; [0] declared but not used.
+ */
+export const i18nWeekdays: Types.I18nObject[] = [
+  { en: ["Sun"], "zh-CN": ["日"] },
+  { en: ["Mon, Thu, Sun"], "zh-CN": ["一四日"] },
+  { en: ["Tue, Fri, Sun"], "zh-CN": ["二五日"] },
+  { en: ["Wed, Sat, Sun"], "zh-CN": ["三六日"] },
+];
+
 const lastQuery = { id: "", weekday: "" };
 
 let currentHighlight = 0;
 
 window.addEventListener("DOMContentLoaded", () => {
-  lang_select.innerHTML = Object.entries(Assets.i18n.supportedLanguageSelectors)
+  lang_select.innerHTML = Object.entries(i18n.supportedLanguageSelectors)
     .map(([lang, name]) => `<option value="${lang}">${name}</option>`)
     .join("");
 
-  const lang_candidate: Assets.SupportedLanguages = (localStorage.getItem("lang") ??
-    navigator.language) as Assets.SupportedLanguages;
-  const lang = Assets.i18n.supportedLanguageSelectors.hasOwnProperty(lang_candidate) ? lang_candidate : "en";
+  const lang_candidate: Types.SupportedLanguages = (localStorage.getItem("lang") ??
+    navigator.language) as Types.SupportedLanguages;
+  const lang = i18n.supportedLanguageSelectors.hasOwnProperty(lang_candidate) ? lang_candidate : "en";
   setLanguage(lang);
 
-  const serverTimezone: Assets.TimezoneNames =
-    (localStorage.getItem("timezone") as Assets.TimezoneNames) || guessTimezone();
+  const serverTimezone: TimezoneNames = (localStorage.getItem("timezone") as TimezoneNames) || guessTimezone();
 
   const bookmarks = JSON.parse(localStorage.getItem("bookmarks") ?? "[]");
   selectors.innerHTML += renderCharactersTable(bookmarks.length !== 0);
@@ -57,21 +96,21 @@ document.querySelector("nav .links")!.addEventListener("click", (event) => {
 /* language selector */
 
 lang_select!.addEventListener("change", (event) =>
-  setLanguage((event.target as HTMLSelectElement).value as Assets.SupportedLanguages)
+  setLanguage((event.target as HTMLSelectElement).value as Types.SupportedLanguages)
 );
 
-function setLanguage(lang: Assets.SupportedLanguages) {
+function setLanguage(lang: Types.SupportedLanguages) {
   document.documentElement.setAttribute("lang", lang);
-  document.title = Assets.i18n.siteTitle[lang].join("");
+  document.title = i18n.siteTitle[lang].join("");
   setSearchItems(lang);
   (lang_select as HTMLSelectElement).value = lang;
   localStorage.setItem("lang", lang);
 }
 
-function setSearchItems(lang: Assets.SupportedLanguages) {
-  document.getElementById("searchItems")!.innerHTML = ([] as Assets.WishObject[])
-    .concat(Assets.characters)
-    .concat(Assets.weapons)
+function setSearchItems(lang: Types.SupportedLanguages) {
+  document.getElementById("searchItems")!.innerHTML = ([] as Types.WishObject[])
+    .concat(Characters.characters)
+    .concat(Weapons.weapons)
     .sort((w1, w2) => w1.id.localeCompare(w2.id))
     .map((w) => `<option value="${w.id}">${w.name[lang].join("")}</option>`)
     .join("");
@@ -80,13 +119,13 @@ function setSearchItems(lang: Assets.SupportedLanguages) {
 /* content tables */
 
 function renderCharactersTable(hasBookmarks: boolean): string {
-  const byRarity = groupWishObjects((o) => o.rarity, Assets.characters);
+  const byRarity = groupWishObjects((o) => o.rarity, Characters.characters);
   const rarities = Array.from(byRarity.keys()).sort().reverse();
   const tableContent = rarities
     .map((rarity) => {
-      const cs: Assets.Character[] = byRarity.get(rarity)!;
+      const cs: Types.Character[] = byRarity.get(rarity)!;
       return `<tr><th>${"⭐".repeat(rarity)}</th>
-      <td>${cs.map((c) => renderLink(c.id, TYPE_CHARACTER, c.name)).join(formatName(Assets.i18n.delimiter))}</td></tr>`;
+      <td>${cs.map((c) => renderLink(c.id, TYPE_CHARACTER, c.name)).join(formatName(i18n.delimiter))}</td></tr>`;
     })
     .join("");
   return `<details id="${TYPE_CHARACTER}" class="section" ${hasBookmarks ? "" : "open"}>
@@ -95,7 +134,7 @@ function renderCharactersTable(hasBookmarks: boolean): string {
     </details>`;
 }
 
-function groupWishObjects<WO extends Assets.WishObject, T>(f: (w: WO) => T, ws: WO[]): Map<T, WO[]> {
+function groupWishObjects<WO extends Types.WishObject, T>(f: (w: WO) => T, ws: WO[]): Map<T, WO[]> {
   return ws.reduce((m, w) => {
     const key = f(w);
     const arr = m.get(key) ?? [];
@@ -106,20 +145,17 @@ function groupWishObjects<WO extends Assets.WishObject, T>(f: (w: WO) => T, ws: 
 }
 
 function renderWeaponsTable(hasBookmarks: boolean) {
-  const byRarity = groupWishObjects((w) => w.rarity, Assets.weapons);
+  const byRarity = groupWishObjects((w) => w.rarity, Weapons.weapons);
   const rarities = Array.from(byRarity.keys()).sort().reverse();
   const tableContent = rarities
     .map((rarity) => {
-      const ws2: Map<Assets.WeaponCategory, Assets.Weapon[]> = groupWishObjects(
-        (w) => w.category,
-        byRarity.get(rarity)!
-      );
+      const ws2: Map<Types.WeaponCategory, Types.Weapon[]> = groupWishObjects((w) => w.category, byRarity.get(rarity)!);
       const categories = Array.from(ws2.keys());
       return `<tr><th rowspan="${categories.length}">${"⭐".repeat(rarity)}</th>
       <td>${formatWeaponIcon(categories[0])}${ws2
         .get(categories[0])!
         .map((w) => renderLink(w.id, TYPE_WEAPON, w.name))
-        .join(formatName(Assets.i18n.delimiter))}</td></tr>
+        .join(formatName(i18n.delimiter))}</td></tr>
       ${categories
         .slice(1)
         .map(
@@ -127,7 +163,7 @@ function renderWeaponsTable(hasBookmarks: boolean) {
             `<tr><td>${formatWeaponIcon(category)}${ws2
               .get(category)!
               .map((c) => renderLink(c.id, TYPE_WEAPON, c.name))
-              .join(formatName(Assets.i18n.delimiter))}</td></tr>`
+              .join(formatName(i18n.delimiter))}</td></tr>`
         )
         .join("")}`;
     })
@@ -139,7 +175,7 @@ function renderWeaponsTable(hasBookmarks: boolean) {
 }
 
 function formatTableCaption(type: string) {
-  return `${getTableCaptionIcon(type)} ${formatName(Assets.i18n[type])}`;
+  return `${getTableCaptionIcon(type)} ${formatName(i18n[type])}`;
 }
 
 /**
@@ -152,17 +188,17 @@ function formatTableCaption(type: string) {
  * @see https://genshin.hoyoverse.com/en/news/detail/6638
  * @returns weekday at specific server timezone, range [0..3]
  */
-function getWeekday(zone: Assets.TimezoneNames) {
+function getWeekday(zone: TimezoneNames) {
   const now = new Date();
   const utcH = now.getUTCHours();
   const utcDay = now.getUTCDay();
-  const zoneH = utcH + Assets.timezones[zone];
+  const zoneH = utcH + timezones[zone];
   // refresh at 4am
   const zoneDay = ((zoneH > 28 ? utcDay + 1 : zoneH < 4 ? utcDay - 1 : utcDay) + 7) % 7;
   return zoneDay > 3 ? zoneDay - 3 : zoneDay;
 }
 
-function guessTimezone(): Assets.TimezoneNames {
+function guessTimezone(): TimezoneNames {
   const offset = -new Date().getTimezoneOffset() / 60;
   return offset < -2 ? "America" : offset < 4.5 ? "Europe" : "Asia";
 }
@@ -178,60 +214,60 @@ function getTableCaptionIcon(type: string): string {
   }
 }
 
-function formatWeaponIcon(category: Assets.WeaponCategory) {
+function formatWeaponIcon(category: Types.WeaponCategory) {
   return `<span class="weapon-icon">${getWeaponIcon(category)}</span>`;
 }
 
-function getWeaponIcon(category: Assets.WeaponCategory) {
+function getWeaponIcon(category: Types.WeaponCategory) {
   // prettier-ignore
   switch (category) {
-    case Assets.WeaponCategory.BOW:      return "🏹";
-    case Assets.WeaponCategory.CATALYST: return "📖";
-    case Assets.WeaponCategory.CLAYMORE: return "🐟";
-    case Assets.WeaponCategory.POLEARM:  return "🌿";
-    case Assets.WeaponCategory.SWORD:    return "🗡️";
+    case Types.WeaponCategory.BOW:      return "🏹";
+    case Types.WeaponCategory.CATALYST: return "📖";
+    case Types.WeaponCategory.CLAYMORE: return "🐟";
+    case Types.WeaponCategory.POLEARM:  return "🌿";
+    case Types.WeaponCategory.SWORD:    return "🗡️";
     default:                             return "";
   }
 }
 
 function renderEnemiesTable(hasBookmarks: boolean) {
-  const weeklyBosses: Map<Assets.Region, Assets.Boss[]> = groupBosses(
+  const weeklyBosses: Map<Types.Region, Enemies.Boss[]> = groupBosses(
     (b) => b.region,
-    Assets.bosses.filter((b) => b.type === "weekly_boss")
+    Enemies.bosses.filter((b) => b.type === "weekly_boss")
   );
   const weeklyBossKeys = Array.from(weeklyBosses.keys());
-  const bosses: Map<Assets.Region, Assets.Boss[]> = groupBosses(
+  const bosses: Map<Types.Region, Enemies.Boss[]> = groupBosses(
     (b) => b.region,
-    Assets.bosses.filter((b) => b.type === "boss")
+    Enemies.bosses.filter((b) => b.type === "boss")
   );
   const bossKeys = Array.from(bosses.keys());
-  const talentDomains = Assets.domains.filter((d) => d.type === "talent_domain");
-  const weaponDomains = Assets.domains.filter((d) => d.type === "weapon_domain");
+  const talentDomains = Enemies.domains.filter((d) => d.type === "talent_domain");
+  const weaponDomains = Enemies.domains.filter((d) => d.type === "weapon_domain");
   return `<details id="enemies" class="section" ${hasBookmarks ? "" : "open"}>
   <summary>${formatTableCaption("enemies_domains")}</summary>
   <table class="ctable">
     <tr>
-    <th rowspan="${weeklyBossKeys.length}">${formatName(Assets.i18n.weekly_boss)}</th>
-    ${formatBossesForRegion(Assets.Regions[weeklyBossKeys[0]], weeklyBosses.get(weeklyBossKeys[0])!)}
+    <th rowspan="${weeklyBossKeys.length}">${formatName(i18n.weekly_boss)}</th>
+    ${formatBossesForRegion(regions[weeklyBossKeys[0]], weeklyBosses.get(weeklyBossKeys[0])!)}
     </tr>
     ${weeklyBossKeys
       .slice(1)
-      .map((k) => `<tr>${formatBossesForRegion(Assets.Regions[k], weeklyBosses.get(k)!)}</tr>`)
+      .map((k) => `<tr>${formatBossesForRegion(regions[k], weeklyBosses.get(k)!)}</tr>`)
       .join("")}
-    <tr><th rowspan="${bossKeys.length}">${formatName(Assets.i18n.boss)}</th>
-    ${formatBossesForRegion(Assets.Regions[bossKeys[0]], bosses.get(bossKeys[0])!)}
+    <tr><th rowspan="${bossKeys.length}">${formatName(i18n.boss)}</th>
+    ${formatBossesForRegion(regions[bossKeys[0]], bosses.get(bossKeys[0])!)}
     </tr>
     ${bossKeys
       .slice(1)
-      .map((k) => `<tr>${formatBossesForRegion(Assets.Regions[k], bosses.get(k)!)}</tr>`)
+      .map((k) => `<tr>${formatBossesForRegion(regions[k], bosses.get(k)!)}</tr>`)
       .join("")}
-    <tr><th rowspan="${talentDomains.length}">${formatName(Assets.i18n.talent_domain)}</th>
+    <tr><th rowspan="${talentDomains.length}">${formatName(i18n.talent_domain)}</th>
       ${formatDomain(talentDomains[0].id, TYPE_TALENT_DOMAIN)}</tr>
     ${talentDomains
       .slice(1)
       .map((d) => `<tr>${formatDomain(d.id, TYPE_TALENT_DOMAIN)}</tr>`)
       .join("")}
-    <tr><th rowspan="${weaponDomains.length}">${formatName(Assets.i18n.weapon_domain)}</th>
+    <tr><th rowspan="${weaponDomains.length}">${formatName(i18n.weapon_domain)}</th>
     ${formatDomain(weaponDomains[0].id, TYPE_WEAPON_DOMAIN)}</tr>
     ${weaponDomains
       .slice(1)
@@ -239,47 +275,47 @@ function renderEnemiesTable(hasBookmarks: boolean) {
       .join("")}</table>`;
 }
 
-function groupBosses<T>(f: (b: Assets.Boss) => T, bs: Assets.Boss[]): Map<T, Assets.Boss[]> {
+function groupBosses<T>(f: (b: Enemies.Boss) => T, bs: Enemies.Boss[]): Map<T, Enemies.Boss[]> {
   return bs.reduce((m, b) => {
     const key = f(b);
     const arr = m.get(key) ?? [];
     arr.push(b);
     m.set(key, arr);
     return m;
-  }, new Map<T, Assets.Boss[]>());
+  }, new Map<T, Enemies.Boss[]>());
 }
 
-function renderLink(id: string, type: Assets.ItemType, names: any) {
+function renderLink(id: string, type: Types.ItemType, names: any) {
   return `<a data-id='${id}' data-type='${type}' ${isBookmarked(type, id, 0) ? "class='bookmarked'" : ""}
   >${formatName(names)}</a>`;
 }
 
-function renderDomainLink(id: string, weekday: number, type: Assets.ItemType, names: Assets.I18nObject) {
+function renderDomainLink(id: string, weekday: number, type: Types.ItemType, names: Types.I18nObject) {
   return `<a data-id='${id}' data-weekday='${weekday}' data-type='${type}' ${
     isBookmarked(type, id, weekday) ? "class='bookmarked'" : ""
-  }>${formatName(names)} ${formatName(Assets.i18nWeekdays[weekday])}</a>`;
+  }>${formatName(names)} ${formatName(i18nWeekdays[weekday])}</a>`;
 }
 
 /**
  * Return structure: td*2
  */
-function formatBossesForRegion(region: Assets.I18nObject, bosses: Assets.Boss[]) {
+function formatBossesForRegion(region: Types.I18nObject, bosses: Enemies.Boss[]) {
   return `<td>${formatName(region)}</td><td>${bosses
     .map((boss) => renderLink(boss.id, TYPE_WEEKLY_BOSS, boss!.name))
-    .join(formatName(Assets.i18n.delimiter))}</td>`;
+    .join(formatName(i18n.delimiter))}</td>`;
 }
 
-function formatDomain(id: string, type: Assets.ItemType) {
-  return `<td>${formatName(Assets.domains.filter((d) => d.id === id)[0]!.name)}</td><td>${[1, 2, 3]
+function formatDomain(id: string, type: Types.ItemType) {
+  return `<td>${formatName(Enemies.domains.filter((d) => d.id === id)[0]!.name)}</td><td>${[1, 2, 3]
     .map((i) => {
       return `<a data-id='${id}' data-weekday='${i}' data-type='${type}' ${
         isBookmarked(type, id, i) ? "class='bookmarked'" : ""
-      }>${formatName(Assets.i18nWeekdays[i]!)}</a>`;
+      }>${formatName(i18nWeekdays[i]!)}</a>`;
     })
-    .join(formatName(Assets.i18n.delimiter))}</td>`;
+    .join(formatName(i18n.delimiter))}</td>`;
 }
 
-function renderWeekdayDomainTables(timezone: Assets.TimezoneNames, manual: boolean) {
+function renderWeekdayDomainTables(timezone: TimezoneNames, manual: boolean) {
   const day = getWeekday(timezone);
   const weekdays = day === 0 ? [1, 2, 3] : [day];
   return `<details id="today" class="section" ${day === 0 && !manual ? "" : "open"}>
@@ -288,19 +324,19 @@ function renderWeekdayDomainTables(timezone: Assets.TimezoneNames, manual: boole
     <table class="qtable">${renderDomains(weekdays)}</table></details>`;
 }
 
-function renderServerTimezoneSelector(timezone: Assets.TimezoneNames) {
-  return `<div class="timezone-selector">${(["Asia", "Europe", "America"] as Assets.TimezoneNames[])
+function renderServerTimezoneSelector(timezone: TimezoneNames) {
+  return `<div class="timezone-selector">${(["Asia", "Europe", "America"] as TimezoneNames[])
     .map(
       (zone) => `<label>
         <input type="radio" name="timezone" value="${zone}" ${zone === timezone ? "checked" : ""}>
-        ${formatName(Assets.i18n[zone])}
+        ${formatName(i18n[zone])}
       </label>`
     )
     .join("")}</div>`;
 }
 
 function renderDomains(weekdays: number[]): string {
-  return Assets.domains
+  return Enemies.domains
     .flatMap((domain) =>
       weekdays.map((weekday) =>
         renderQTableRows(domain.type, domain.id, findDomain(domain.id, weekday), byDomain(domain.id, weekday), weekday)
@@ -344,7 +380,7 @@ document.querySelector("input[list='searchItems']")?.addEventListener("input", (
   // chromium/firefox populate from options
   if (!(event instanceof InputEvent) || event.inputType === "insertReplacementText") {
     const id = (event.target as HTMLInputElement).value;
-    findOrLoadQTable2(Assets.characters.some((c) => c.id === id) ? TYPE_CHARACTER : TYPE_WEAPON, id, "");
+    findOrLoadQTable2(Characters.characters.some((c) => c.id === id) ? TYPE_CHARACTER : TYPE_WEAPON, id, "");
   }
 });
 
@@ -372,92 +408,92 @@ function renderQTableContent(type: string, id: string, weekday: number): string 
   }
 }
 
-function findCharacter(character: string): Assets.I18nObject {
-  return Assets.characters.find((c) => c.id === character)!.name;
+function findCharacter(character: string): Types.I18nObject {
+  return Characters.characters.find((c) => c.id === character)!.name;
 }
 
-function byCharacter(character: string): Map<Assets.Material, [Assets.Domain, number][] | Assets.Boss[]> {
-  return Assets.characters
+function byCharacter(character: string): Map<Materials.Material, [Enemies.Domain, number][] | Enemies.Boss[]> {
+  return Characters.characters
     .find((c) => c.id === character)!
     .materials.reduce(
       (map, m: string) => (
-        map.set(Assets.materials.filter((material) => material.id === m)[0]!, findEnemiesForMaterial(m)), map
+        map.set(Materials.materials.filter((material) => material.id === m)[0]!, findEnemiesForMaterial(m)), map
       ),
-      new Map<Assets.Material, [Assets.Domain, number][] | Assets.Boss[]>()
+      new Map<Materials.Material, [Enemies.Domain, number][] | Enemies.Boss[]>()
     );
 }
 
-function findWeapon(weapon: string): Assets.I18nObject {
-  return Assets.weapons.find((w) => w.id === weapon)!.name;
+function findWeapon(weapon: string): Types.I18nObject {
+  return Weapons.weapons.find((w) => w.id === weapon)!.name;
 }
 
-function byWeapon(weapon: string): Map<Assets.Material, [Assets.Domain, number][] | Assets.Boss[]> {
-  return Assets.weapons
+function byWeapon(weapon: string): Map<Materials.Material, [Enemies.Domain, number][] | Enemies.Boss[]> {
+  return Weapons.weapons
     .find((w) => w.id === weapon)!
     .materials.reduce(
       (map, m: string) => (
-        map.set(Assets.materials.filter((material) => material.id === m)[0]!, findEnemiesForMaterial(m)), map
+        map.set(Materials.materials.filter((material) => material.id === m)[0]!, findEnemiesForMaterial(m)), map
       ),
-      new Map<Assets.Material, [Assets.Domain, number][] | Assets.Boss[]>()
+      new Map<Materials.Material, [Enemies.Domain, number][] | Enemies.Boss[]>()
     );
 }
 
-function findEnemiesForMaterial(m: string): [Assets.Domain, number][] | Assets.Boss[] {
-  const dsm: [Assets.Domain, number][] = Assets.domains.map((d) => [d, d.materials_by_weekday.indexOf(m)]);
+function findEnemiesForMaterial(m: string): [Enemies.Domain, number][] | Enemies.Boss[] {
+  const dsm: [Enemies.Domain, number][] = Enemies.domains.map((d) => [d, d.materials_by_weekday.indexOf(m)]);
   const ds = dsm.filter(([, weekday]) => weekday !== -1);
   if (ds.length) return ds;
-  return Assets.bosses.filter((b) => b.materials.includes(m));
+  return Enemies.bosses.filter((b) => b.materials.includes(m));
 }
 
-function findBoss(boss: string): Assets.I18nObject {
-  return Assets.bosses.find((b) => b.id === boss)!.name;
+function findBoss(boss: string): Types.I18nObject {
+  return Enemies.bosses.find((b) => b.id === boss)!.name;
 }
 
-function byBoss(boss: string): Map<Assets.Material, Assets.Character[] | Assets.Weapon[]> {
-  return Assets.bosses
+function byBoss(boss: string): Map<Materials.Material, Types.Character[] | Types.Weapon[]> {
+  return Enemies.bosses
     .find((b) => b.id === boss)!
     .materials.reduce(
       (map, material: string) => (
         map.set(
-          Assets.materials.find((m) => m.id === material)!,
-          (map.get(Assets.materials.find((m) => m.id === material)!) ?? [])
+          Materials.materials.find((m) => m.id === material)!,
+          (map.get(Materials.materials.find((m) => m.id === material)!) ?? [])
             .concat(findCharactersForMaterial(material))
             .concat(findWeaponsForMaterial(material))
         ),
         map
       ),
-      new Map<Assets.Material, Assets.Character[] | Assets.Weapon[]>()
+      new Map<Materials.Material, Types.Character[] | Types.Weapon[]>()
     );
 }
 
-function findDomain(domainId: string, _weekday: number): Assets.I18nObject {
-  return Assets.domains.find((d) => d.id === domainId)!.name;
+function findDomain(domainId: string, _weekday: number): Types.I18nObject {
+  return Enemies.domains.find((d) => d.id === domainId)!.name;
 }
 
-function byDomain(domainId: string, weekday: number): Map<Assets.Material, Assets.WishObject[]> {
-  const domain = Assets.domains.filter((d) => d.id === domainId)[0]!;
+function byDomain(domainId: string, weekday: number): Map<Materials.Material, Types.WishObject[]> {
+  const domain = Enemies.domains.filter((d) => d.id === domainId)[0]!;
   const material = domain.materials_by_weekday[weekday];
   return new Map([
     [
-      Assets.materials.find((m) => m.id === material)!,
+      Materials.materials.find((m) => m.id === material)!,
       domain.type === "weapon_domain" ? findWeaponsForMaterial(material) : findCharactersForMaterial(material),
     ],
   ]);
 }
 
-function findCharactersForMaterial(m: string): Assets.Character[] {
-  return Assets.characters.filter((c) => c.materials.includes(m));
+function findCharactersForMaterial(m: string): Types.Character[] {
+  return Characters.characters.filter((c) => c.materials.includes(m));
 }
 
-function findWeaponsForMaterial(m: string): Assets.Weapon[] {
-  return Assets.weapons.filter((w) => w.materials.includes(m));
+function findWeaponsForMaterial(m: string): Types.Weapon[] {
+  return Weapons.weapons.filter((w) => w.materials.includes(m));
 }
 
 function renderFullQTable(
-  type: Assets.ItemType,
+  type: Types.ItemType,
   id: string,
-  name: Assets.I18nObject,
-  object: Map<Assets.Material, Assets.WishObject[] | [Assets.Domain, number][] | Assets.Boss[]>,
+  name: Types.I18nObject,
+  object: Map<Materials.Material, Types.WishObject[] | [Enemies.Domain, number][] | Enemies.Boss[]>,
   weekday: number
 ): string {
   return `<table name="${formatId(type, id, weekday)}" class="qtable highlighted"
@@ -471,10 +507,10 @@ function renderFullQTable(
  * | Boss             | Material | Characters/Weapons |
  */
 function renderQTableRows(
-  type: Assets.ItemType,
+  type: Types.ItemType,
   id: string,
-  name: Assets.I18nObject,
-  object: Map<Assets.Material, Assets.WishObject[] | [Assets.Domain, number][] | Assets.Boss[]>,
+  name: Types.I18nObject,
+  object: Map<Materials.Material, Types.WishObject[] | [Enemies.Domain, number][] | Enemies.Boss[]>,
   weekday: number
 ) {
   const materials = Array.from(object.keys());
@@ -499,14 +535,14 @@ function renderQTableRows(
       .join("")}`;
 }
 
-function formatDomainName(name: Assets.I18nObject, weekday: number) {
-  return formatName(name) + " / " + formatName(Assets.i18nWeekdays[weekday]);
+function formatDomainName(name: Types.I18nObject, weekday: number) {
+  return formatName(name) + " / " + formatName(i18nWeekdays[weekday]);
 }
 
-function formatMaterialType(m: Assets.Material) {
-  return Assets.gems.includes(m.id)
+function formatMaterialType(m: Materials.Material) {
+  return Materials.gems.includes(m.id)
     ? "class='gem'"
-    : Assets.billets.includes(m.id) || Assets.forgingMaterials.includes(m.id)
+    : Materials.billets.includes(m.id) || Materials.forgingMaterials.includes(m.id)
     ? "class='billet'"
     : "";
 }
@@ -523,7 +559,7 @@ function formatId(...parts: any[]) {
     .replaceAll(/[’“”]/g, "");
 }
 
-function formatArray(es: Assets.WishObject[] | [Assets.Domain, number][] | Assets.Boss[]) {
+function formatArray(es: Types.WishObject[] | [Enemies.Domain, number][] | Enemies.Boss[]) {
   return es
     .map((e) => {
       const [obj, weekday] = Array.isArray(e) ? [e[0], e[1]] : [e, 0];
@@ -535,10 +571,10 @@ function formatArray(es: Assets.WishObject[] | [Assets.Domain, number][] | Asset
           return renderLink(obj.id, obj.type, obj.name);
       }
     })
-    .join(formatName(Assets.i18n.delimiter));
+    .join(formatName(i18n.delimiter));
 }
 
-function formatName(name: Assets.I18nObject): string {
+function formatName(name: Types.I18nObject): string {
   return Object.entries(name)
     .map(([lang, value]) => `<span class="i18n" lang="${lang}">${formatMulti(value)}</span>`)
     .join("");
@@ -563,7 +599,7 @@ document.getElementById("clear")?.addEventListener("click", () => {
 function updateBookmark(event: Event) {
   const input = event.target as HTMLInputElement;
   if (!input || input.tagName !== "INPUT") return;
-  const type = input.dataset.type as Assets.ItemType;
+  const type = input.dataset.type as Types.ItemType;
   const id = input.dataset.id;
   if (!type || !id) return;
   const weekday = parseInt(input.dataset.weekday ?? "0");
@@ -577,13 +613,13 @@ function updateBookmark(event: Event) {
 selectors.addEventListener("change", updateBookmark);
 output.addEventListener("change", updateBookmark);
 
-function isBookmarked(type: Assets.ItemType, id: string, weekday: number) {
+function isBookmarked(type: Types.ItemType, id: string, weekday: number) {
   return JSON.parse(localStorage.getItem("bookmarks") ?? "[]").some(
     ([t, i, w]: [string, string, number]) => t === type && i === id && w === (weekday ?? 0)
   );
 }
 
-function bookmark(type: Assets.ItemType, id: string, weekday: number) {
+function bookmark(type: Types.ItemType, id: string, weekday: number) {
   const bookmarks = JSON.parse(localStorage.getItem("bookmarks") ?? "[]");
   const index = bookmarks.findIndex(([t, i, w]: [string, string, number]) => t === type && i === id && w === weekday);
   if (index === -1) {
@@ -599,7 +635,7 @@ function bookmark(type: Assets.ItemType, id: string, weekday: number) {
   }
 }
 
-function unbookmark(type: Assets.ItemType, id: string, weekday: number): void {
+function unbookmark(type: Types.ItemType, id: string, weekday: number): void {
   const bookmarks = JSON.parse(localStorage.getItem("bookmarks") ?? "[]");
   const index = bookmarks.findIndex(([t, i, w]: [string, string, number]) => t === type && i === id && w === weekday);
   if (index !== -1) {
@@ -615,7 +651,7 @@ function unbookmark(type: Assets.ItemType, id: string, weekday: number): void {
   }
 }
 
-function selectTimezone(timezone: Assets.TimezoneNames) {
+function selectTimezone(timezone: TimezoneNames) {
   document.getElementById("today")!.outerHTML = renderWeekdayDomainTables(timezone, true);
   localStorage.setItem("timezone", timezone);
 }
@@ -623,7 +659,7 @@ function selectTimezone(timezone: Assets.TimezoneNames) {
 selectors.addEventListener("change", (event) => {
   const target = event.target as HTMLInputElement;
   if (target.name === "timezone") {
-    selectTimezone(target.value as Assets.TimezoneNames);
+    selectTimezone(target.value as TimezoneNames);
   }
 });
 
