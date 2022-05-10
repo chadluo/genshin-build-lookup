@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Genshin impact build material lookup",
   "scripts": {
-    "build": "npx tsc && node copy.mjs",
-    "serve": "http-server -p 3000",
+    "build": "webpack",
+    "serve": "webpack serve --open",
     "watch": "nodemon",
     "test": "playwright test"
   },
@@ -29,7 +29,8 @@
     "ts-loader": "^9.3.0",
     "typescript": "^4.6.4",
     "webpack": "^5.72.0",
-    "webpack-cli": "^4.9.2"
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0"
   },
   "nodemonConfig": {
     "watch": "src",

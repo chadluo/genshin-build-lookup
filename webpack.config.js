@@ -23,4 +23,8 @@ module.exports = {
   resolve: {
     extensions: [".tsx", ".ts", ".js", ".html", ".css"],
   },
+  devServer: {
+    static: "./public",
+    port: 3000,
+  },
 };
