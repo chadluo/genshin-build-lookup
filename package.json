@@ -23,6 +23,7 @@
     "@playwright/test": "^1.19.1",
     "@tsconfig/recommended": "^1.0.1",
     "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
     "http-server": "^14.1.0",
     "nodemon": "^2.0.15",
     "style-loader": "^3.3.1",

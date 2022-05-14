@@ -1,4 +1,5 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/q.ts",
@@ -6,6 +7,7 @@ module.exports = {
   output: {
     filename: "q.js",
     path: path.resolve(__dirname, "public"),
+    clean: true,
   },
   module: {
     rules: [
@@ -27,4 +29,5 @@ module.exports = {
     static: "./public",
     port: 3000,
   },
+  plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
 };
