@@ -1,5 +1,6 @@
 import * as Characters from "./characters";
 import * as Enemies from "./enemies";
+import * as Keyboard from "./keyboard";
 import * as Materials from "./materials";
 import "./style.css";
 import * as Types from "./types";
@@ -55,8 +56,6 @@ export const i18nWeekdays: Types.I18nObject[] = [
 
 const lastQuery = { id: "", weekday: "" };
 
-let currentHighlight = 0;
-
 window.addEventListener("DOMContentLoaded", () => {
   lang_select.innerHTML = Object.entries(i18n.supportedLanguageSelectors)
     .map(([lang, name]) => `<option value="${lang}">${name}</option>`)
@@ -78,7 +77,7 @@ window.addEventListener("DOMContentLoaded", () => {
   bookmarks.forEach(([type, id, weekday]: [string, string, number]) => output!.append(createQTable(type, id, weekday)));
   document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
 
-  currentHighlight = Number.parseInt(sessionStorage.getItem("currentHighlight") || "0");
+  Keyboard.initKeyboard();
 });
 
 /* nav */
@@ -688,79 +687,3 @@ document.querySelector("input#show-alternatives")?.addEventListener("change", (e
   window.scrollTo(0, document.body.scrollHeight);
   document.body.classList.add("smooth");
 });
-
-/* keyboard */
-
-window.addEventListener("keydown", (event) => {
-  if (["INPUT", "SELECT", "TEXTAREA"].includes((event.target as HTMLElement)?.tagName)) {
-    return;
-  }
-  const searchInput = document.querySelector(".search input") as HTMLInputElement;
-  const keyboard = document.querySelector(".keyboard");
-  switch (event.code) {
-    case "Slash":
-      if (event.shiftKey) {
-        // `?`
-        keyboard!.classList.add("highlighted");
-        keyboard!.scrollIntoView();
-      } else {
-        event.preventDefault();
-        searchInput.focus();
-      }
-      return;
-    case "Escape":
-      searchInput.blur();
-      return;
-    case "KeyJ":
-      currentHighlight = Math.min(currentHighlight + 1, navItemsMaxIndex());
-      selectNavItem();
-      return;
-    case "KeyK":
-      currentHighlight = Math.max(currentHighlight - 1, 0);
-      selectNavItem();
-      return;
-    case "Space":
-      toggleHighlightForSelectedNavItem(event);
-      return;
-    case "KeyG":
-      (document.querySelector("input#show-gems") as HTMLInputElement)?.click();
-      return;
-    case "KeyB":
-      (document.querySelector("input#show-billets") as HTMLInputElement)?.click();
-      return;
-    case "KeyA":
-      (document.querySelector("input#show-alternatives") as HTMLInputElement)?.click();
-      return;
-  }
-});
-
-function navItemsMaxIndex() {
-  return document.querySelector("#today tbody")!.childElementCount + output.childElementCount - 1;
-}
-
-function selectNavItem() {
-  const navitem = getNavItem();
-  Array.from(document.querySelector("#today tbody")!.children).forEach((e) => e.classList.remove("selected"));
-  Array.from(output.children).forEach((e) => e.classList.remove("selected"));
-  navitem.classList.add("selected");
-  navitem.scrollIntoView({ behavior: "smooth", block: "nearest" });
-}
-
-function getNavItem() {
-  const todayTableBody = document.querySelector("#today tbody")!;
-  if (currentHighlight < todayTableBody.childElementCount) {
-    return todayTableBody.children[currentHighlight];
-  } else {
-    return output.children[currentHighlight - todayTableBody.childElementCount];
-  }
-}
-
-function toggleHighlightForSelectedNavItem(event: KeyboardEvent) {
-  const navItem = getNavItem();
-  if (currentHighlight == 0 && !navItem.classList.contains("selected")) {
-    return;
-  }
-  event.preventDefault();
-  const input = getNavItem().querySelector("input[type=checkbox]") as HTMLInputElement;
-  input.click();
-}
