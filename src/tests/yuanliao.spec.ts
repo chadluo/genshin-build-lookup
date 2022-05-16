@@ -2,7 +2,10 @@ import { expect, test } from "@playwright/test";
 
 test.describe("availability & languages", async () => {
   test("english", async ({ browser, baseURL }) => {
-    const context = await browser.newContext({ locale: "en-US" });
+    const context = await browser.newContext({
+      locale: "en-US",
+      storageState: { cookies: [], origins: [{ origin: "", localStorage: [] }] },
+    });
     const page = await context.newPage();
 
     await page.goto(baseURL);
@@ -36,7 +39,10 @@ test.describe("availability & languages", async () => {
 
 test.describe("queries", async () => {
   test("character table", async ({ browser, baseURL }) => {
-    const content = await browser.newContext({ locale: "en-US" });
+    const content = await browser.newContext({
+      locale: "en-US",
+      storageState: { cookies: [], origins: [{ origin: "", localStorage: [] }] },
+    });
     const page = await content.newPage();
     await page.goto(baseURL);
 
@@ -57,7 +63,10 @@ test.describe("queries", async () => {
   });
 
   test("weapon table", async ({ browser, baseURL }) => {
-    const content = await browser.newContext({ locale: "en-US" });
+    const content = await browser.newContext({
+      locale: "en-US",
+      storageState: { cookies: [], origins: [{ origin: "", localStorage: [] }] },
+    });
     const page = await content.newPage();
     await page.goto(baseURL);
 
