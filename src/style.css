@@ -289,12 +289,15 @@ th span {
   display: table-row;
 }
 
-details.alternative {
-  padding-left: 1em;
+details.alternative summary {
+  list-style: none;
+  color: var(--link);
+  font-weight: bold;
 }
 
-details.alternative summary {
-  list-style-position: outside;
+details.alternative[open] summary {
+  color: var(--foreground);
+  font-weight: normal;
 }
 
 #output:empty + #clear {
