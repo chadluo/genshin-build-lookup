@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/q.ts",
-  mode: "development",
+  mode: "production",
   output: {
     filename: "q.js",
     path: path.resolve(__dirname, "public"),

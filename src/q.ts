@@ -118,20 +118,30 @@ function setSearchItems(lang: Types.SupportedLanguages) {
 /* content tables */
 
 function renderCharactersTable(hasBookmarks: boolean): string {
-  const byRarity = groupWishObjects((o) => o.rarity, Characters.characters);
-  const rarities = Array.from(byRarity.keys()).sort().reverse();
-  const tableContent = rarities
-    .map((rarity) => {
-      const cs: Types.Character[] = byRarity.get(rarity)!;
-      return `<tr><th>${"⭐".repeat(rarity)}</th>
-      <td>${cs.map((c) => renderLink(c.id, TYPE_CHARACTER, c.name)).join(formatName(i18n.delimiter))}</td></tr>`;
-    })
-    .join("");
   return `<details id="${TYPE_CHARACTER}" class="section" ${hasBookmarks ? "" : "open"}>
     <summary>${formatTableCaption(TYPE_CHARACTER)}</summary>
-    <table class="ctable">${tableContent}</table>
+    <table class="ctable" is="characters-table"></table>
     </details>`;
 }
+
+customElements.define(
+  "characters-table",
+  class extends HTMLTableElement {
+    constructor() {
+      super();
+      const byRarity = groupWishObjects((o) => o.rarity, Characters.characters);
+      const rarities = Array.from(byRarity.keys()).sort().reverse();
+      this.innerHTML = rarities
+        .map((rarity) => {
+          const cs: Types.Character[] = byRarity.get(rarity)!;
+          return `<tr><th>${"⭐".repeat(rarity)}</th>
+      <td>${cs.map((c) => renderLink(c.id, TYPE_CHARACTER, c.name)).join(formatName(i18n.delimiter))}</td></tr>`;
+        })
+        .join("");
+    }
+  },
+  { extends: "table" }
+);
 
 function groupWishObjects<WO extends Types.WishObject, T>(f: (w: WO) => T, ws: WO[]): Map<T, WO[]> {
   return ws.reduce((m, w) => {
@@ -144,17 +154,31 @@ function groupWishObjects<WO extends Types.WishObject, T>(f: (w: WO) => T, ws: W
 }
 
 function renderWeaponsTable(hasBookmarks: boolean) {
-  const byRarity = groupWishObjects((w) => w.rarity, Weapons.weapons);
-  const rarities = Array.from(byRarity.keys()).sort().reverse();
-  const tableContent = rarities
-    .map((rarity) => {
-      const ws2: Map<Types.WeaponCategory, Types.Weapon[]> = groupWishObjects((w) => w.category, byRarity.get(rarity)!);
-      const categories = Array.from(ws2.keys());
-      return `<tr><th rowspan="${categories.length}">${"⭐".repeat(rarity)}</th>
+  return `<details id="${TYPE_WEAPON}" class="section" ${hasBookmarks ? "" : "open"}>
+    <summary>${formatTableCaption(TYPE_WEAPON)}</summary>
+    <table class="ctable" is="weapons-table"></table>
+    </details>`;
+}
+
+customElements.define(
+  "weapons-table",
+  class extends HTMLTableElement {
+    constructor() {
+      super();
+      const byRarity = groupWishObjects((w) => w.rarity, Weapons.weapons);
+      const rarities = Array.from(byRarity.keys()).sort().reverse();
+      this.innerHTML = rarities
+        .map((rarity) => {
+          const ws2: Map<Types.WeaponCategory, Types.Weapon[]> = groupWishObjects(
+            (w) => w.category,
+            byRarity.get(rarity)!
+          );
+          const categories = Array.from(ws2.keys());
+          return `<tr><th rowspan="${categories.length}">${"⭐".repeat(rarity)}</th>
       <td>${formatWeaponIcon(categories[0])}${ws2
-        .get(categories[0])!
-        .map((w) => renderLink(w.id, TYPE_WEAPON, w.name))
-        .join(formatName(i18n.delimiter))}</td></tr>
+            .get(categories[0])!
+            .map((w) => renderLink(w.id, TYPE_WEAPON, w.name))
+            .join(formatName(i18n.delimiter))}</td></tr>
       ${categories
         .slice(1)
         .map(
@@ -165,13 +189,12 @@ function renderWeaponsTable(hasBookmarks: boolean) {
               .join(formatName(i18n.delimiter))}</td></tr>`
         )
         .join("")}`;
-    })
-    .join("");
-  return `<details id="${TYPE_WEAPON}" class="section" ${hasBookmarks ? "" : "open"}>
-    <summary>${formatTableCaption(TYPE_WEAPON)}</summary>
-    <table class="ctable">${tableContent}</table>
-    </details>`;
-}
+        })
+        .join("");
+    }
+  },
+  { extends: "table" }
+);
 
 function formatTableCaption(type: string) {
   return `${getTableCaptionIcon(type)} ${formatName(i18n[type])}`;
@@ -230,49 +253,59 @@ function getWeaponIcon(category: Types.WeaponCategory) {
 }
 
 function renderEnemiesTable(hasBookmarks: boolean) {
-  const weeklyBosses: Map<Types.Region, Enemies.Boss[]> = groupBosses(
-    (b) => b.region,
-    Enemies.bosses.filter((b) => b.type === "weekly_boss")
-  );
-  const weeklyBossKeys = Array.from(weeklyBosses.keys());
-  const bosses: Map<Types.Region, Enemies.Boss[]> = groupBosses(
-    (b) => b.region,
-    Enemies.bosses.filter((b) => b.type === "boss")
-  );
-  const bossKeys = Array.from(bosses.keys());
-  const talentDomains = Enemies.domains.filter((d) => d.type === "talent_domain");
-  const weaponDomains = Enemies.domains.filter((d) => d.type === "weapon_domain");
   return `<details id="enemies" class="section" ${hasBookmarks ? "" : "open"}>
   <summary>${formatTableCaption("enemies_domains")}</summary>
-  <table class="ctable">
-    <tr>
-    <th rowspan="${weeklyBossKeys.length}">${formatName(i18n.weekly_boss)}</th>
-    ${formatBossesForRegion(regions[weeklyBossKeys[0]], weeklyBosses.get(weeklyBossKeys[0])!)}
-    </tr>
-    ${weeklyBossKeys
-      .slice(1)
-      .map((k) => `<tr>${formatBossesForRegion(regions[k], weeklyBosses.get(k)!)}</tr>`)
-      .join("")}
-    <tr><th rowspan="${bossKeys.length}">${formatName(i18n.boss)}</th>
-    ${formatBossesForRegion(regions[bossKeys[0]], bosses.get(bossKeys[0])!)}
-    </tr>
-    ${bossKeys
-      .slice(1)
-      .map((k) => `<tr>${formatBossesForRegion(regions[k], bosses.get(k)!)}</tr>`)
-      .join("")}
-    <tr><th rowspan="${talentDomains.length}">${formatName(i18n.talent_domain)}</th>
-      ${formatDomain(talentDomains[0].id, TYPE_TALENT_DOMAIN)}</tr>
-    ${talentDomains
-      .slice(1)
-      .map((d) => `<tr>${formatDomain(d.id, TYPE_TALENT_DOMAIN)}</tr>`)
-      .join("")}
-    <tr><th rowspan="${weaponDomains.length}">${formatName(i18n.weapon_domain)}</th>
-    ${formatDomain(weaponDomains[0].id, TYPE_WEAPON_DOMAIN)}</tr>
-    ${weaponDomains
-      .slice(1)
-      .map((d) => `<tr>${formatDomain(d.id, TYPE_WEAPON_DOMAIN)}</tr>`)
-      .join("")}</table>`;
+  <table class="ctable" is="enemies-table"></table>`;
 }
+
+customElements.define(
+  "enemies-table",
+  class extends HTMLTableElement {
+    constructor() {
+      super();
+      const weeklyBosses: Map<Types.Region, Enemies.Boss[]> = groupBosses(
+        (b) => b.region,
+        Enemies.bosses.filter((b) => b.type === "weekly_boss")
+      );
+      const weeklyBossKeys = Array.from(weeklyBosses.keys());
+      const bosses: Map<Types.Region, Enemies.Boss[]> = groupBosses(
+        (b) => b.region,
+        Enemies.bosses.filter((b) => b.type === "boss")
+      );
+      const bossKeys = Array.from(bosses.keys());
+      const talentDomains = Enemies.domains.filter((d) => d.type === "talent_domain");
+      const weaponDomains = Enemies.domains.filter((d) => d.type === "weapon_domain");
+      this.innerHTML = `<tr>
+      <th rowspan="${weeklyBossKeys.length}">${formatName(i18n.weekly_boss)}</th>
+      ${formatBossesForRegion(regions[weeklyBossKeys[0]], weeklyBosses.get(weeklyBossKeys[0])!)}
+      </tr>
+      ${weeklyBossKeys
+        .slice(1)
+        .map((k) => `<tr>${formatBossesForRegion(regions[k], weeklyBosses.get(k)!)}</tr>`)
+        .join("")}
+      <tr><th rowspan="${bossKeys.length}">${formatName(i18n.boss)}</th>
+      ${formatBossesForRegion(regions[bossKeys[0]], bosses.get(bossKeys[0])!)}
+      </tr>
+      ${bossKeys
+        .slice(1)
+        .map((k) => `<tr>${formatBossesForRegion(regions[k], bosses.get(k)!)}</tr>`)
+        .join("")}
+      <tr><th rowspan="${talentDomains.length}">${formatName(i18n.talent_domain)}</th>
+        ${formatDomain(talentDomains[0].id, TYPE_TALENT_DOMAIN)}</tr>
+      ${talentDomains
+        .slice(1)
+        .map((d) => `<tr>${formatDomain(d.id, TYPE_TALENT_DOMAIN)}</tr>`)
+        .join("")}
+      <tr><th rowspan="${weaponDomains.length}">${formatName(i18n.weapon_domain)}</th>
+      ${formatDomain(weaponDomains[0].id, TYPE_WEAPON_DOMAIN)}</tr>
+      ${weaponDomains
+        .slice(1)
+        .map((d) => `<tr>${formatDomain(d.id, TYPE_WEAPON_DOMAIN)}</tr>`)
+        .join("")}`;
+    }
+  },
+  { extends: "table" }
+);
 
 function groupBosses<T>(f: (b: Enemies.Boss) => T, bs: Enemies.Boss[]): Map<T, Enemies.Boss[]> {
   return bs.reduce((m, b) => {
