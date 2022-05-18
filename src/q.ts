@@ -71,7 +71,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const bookmarks = JSON.parse(localStorage.getItem("bookmarks") ?? "[]");
   selectors.innerHTML += `<characters-table ${bookmarks.length === 0 ? "" : "hasBookmarks"}></characters-table>`;
   selectors.innerHTML += `<weapons-table ${bookmarks.length === 0 ? "" : "hasBookmarks"}></weapons-table>`;
-  selectors.innerHTML += renderEnemiesTable(bookmarks.length !== 0);
+  selectors.innerHTML += `<enemies-table ${bookmarks.length === 0 ? "" : "hasBookmarks"}></enemies-table>`;
   selectors.innerHTML += renderWeekdayDomainTables(serverTimezone, false);
 
   bookmarks.forEach(([type, id, weekday]: [string, string, number]) => output!.append(createQTable(type, id, weekday)));
@@ -246,15 +246,9 @@ function getWeaponIcon(category: Types.WeaponCategory) {
   }
 }
 
-function renderEnemiesTable(hasBookmarks: boolean) {
-  return `<details id="enemies" class="section" ${hasBookmarks ? "" : "open"}>
-  <summary>${formatTableCaption("enemies_domains")}</summary>
-  <table class="ctable" is="enemies-table"></table>`;
-}
-
 customElements.define(
   "enemies-table",
-  class extends HTMLTableElement {
+  class extends HTMLElement {
     constructor() {
       super();
       const weeklyBosses: Map<Types.Region, Enemies.Boss[]> = groupBosses(
@@ -269,7 +263,10 @@ customElements.define(
       const bossKeys = Array.from(bosses.keys());
       const talentDomains = Enemies.domains.filter((d) => d.type === "talent_domain");
       const weaponDomains = Enemies.domains.filter((d) => d.type === "weapon_domain");
-      this.innerHTML = `<tr>
+      this.innerHTML = `<details id="enemies" class="section" ${this.hasBookmarks() ? "" : "open"}>
+    <summary>${formatTableCaption("enemies_domains")}</summary>
+    <table class="ctable">
+    <tr>
       <th rowspan="${weeklyBossKeys.length}">${formatName(i18n.weekly_boss)}</th>
       ${formatBossesForRegion(regions[weeklyBossKeys[0]], weeklyBosses.get(weeklyBossKeys[0])!)}
       </tr>
@@ -295,10 +292,12 @@ customElements.define(
       ${weaponDomains
         .slice(1)
         .map((d) => `<tr>${formatDomain(d.id, TYPE_WEAPON_DOMAIN)}</tr>`)
-        .join("")}`;
+        .join("")}</table></details>`;
     }
-  },
-  { extends: "table" }
+    hasBookmarks() {
+      return this.hasAttribute("hasBookmarks");
+    }
+  }
 );
 
 function groupBosses<T>(f: (b: Enemies.Boss) => T, bs: Enemies.Boss[]): Map<T, Enemies.Boss[]> {
