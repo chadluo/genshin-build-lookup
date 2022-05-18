@@ -69,8 +69,8 @@ window.addEventListener("DOMContentLoaded", () => {
   const serverTimezone: TimezoneNames = (localStorage.getItem("timezone") as TimezoneNames) || guessTimezone();
 
   const bookmarks = JSON.parse(localStorage.getItem("bookmarks") ?? "[]");
-  selectors.innerHTML += renderCharactersTable(bookmarks.length !== 0);
-  selectors.innerHTML += renderWeaponsTable(bookmarks.length !== 0);
+  selectors.innerHTML += `<characters-table ${bookmarks.length === 0 ? "" : "hasBookmarks"}></characters-table>`;
+  selectors.innerHTML += `<weapons-table ${bookmarks.length === 0 ? "" : "hasBookmarks"}></weapons-table>`;
   selectors.innerHTML += renderEnemiesTable(bookmarks.length !== 0);
   selectors.innerHTML += renderWeekdayDomainTables(serverTimezone, false);
 
@@ -117,30 +117,27 @@ function setSearchItems(lang: Types.SupportedLanguages) {
 
 /* content tables */
 
-function renderCharactersTable(hasBookmarks: boolean): string {
-  return `<details id="${TYPE_CHARACTER}" class="section" ${hasBookmarks ? "" : "open"}>
-    <summary>${formatTableCaption(TYPE_CHARACTER)}</summary>
-    <table class="ctable" is="characters-table"></table>
-    </details>`;
-}
-
 customElements.define(
   "characters-table",
-  class extends HTMLTableElement {
+  class extends HTMLElement {
     constructor() {
       super();
       const byRarity = groupWishObjects((o) => o.rarity, Characters.characters);
       const rarities = Array.from(byRarity.keys()).sort().reverse();
-      this.innerHTML = rarities
+      this.innerHTML = `<details id="${TYPE_CHARACTER}" class="section" ${this.hasBookmarks() ? "" : "open"}>
+      <summary>${formatTableCaption(TYPE_CHARACTER)}</summary>
+      <table class="ctable">${rarities
         .map((rarity) => {
           const cs: Types.Character[] = byRarity.get(rarity)!;
           return `<tr><th>${"⭐".repeat(rarity)}</th>
       <td>${cs.map((c) => renderLink(c.id, TYPE_CHARACTER, c.name)).join(formatName(i18n.delimiter))}</td></tr>`;
         })
-        .join("");
+        .join("")}</table></details>`;
     }
-  },
-  { extends: "table" }
+    hasBookmarks(): boolean {
+      return this.hasAttribute("hasBookmarks");
+    }
+  }
 );
 
 function groupWishObjects<WO extends Types.WishObject, T>(f: (w: WO) => T, ws: WO[]): Map<T, WO[]> {
@@ -153,21 +150,16 @@ function groupWishObjects<WO extends Types.WishObject, T>(f: (w: WO) => T, ws: W
   }, new Map<T, WO[]>());
 }
 
-function renderWeaponsTable(hasBookmarks: boolean) {
-  return `<details id="${TYPE_WEAPON}" class="section" ${hasBookmarks ? "" : "open"}>
-    <summary>${formatTableCaption(TYPE_WEAPON)}</summary>
-    <table class="ctable" is="weapons-table"></table>
-    </details>`;
-}
-
 customElements.define(
   "weapons-table",
-  class extends HTMLTableElement {
+  class extends HTMLElement {
     constructor() {
       super();
       const byRarity = groupWishObjects((w) => w.rarity, Weapons.weapons);
       const rarities = Array.from(byRarity.keys()).sort().reverse();
-      this.innerHTML = rarities
+      this.innerHTML = `<details id="${TYPE_WEAPON}" class="section" ${this.hasBookmarks() ? "" : "open"}>
+      <summary>${formatTableCaption(TYPE_WEAPON)}</summary><table class="ctable">
+      ${rarities
         .map((rarity) => {
           const ws2: Map<Types.WeaponCategory, Types.Weapon[]> = groupWishObjects(
             (w) => w.category,
@@ -190,10 +182,12 @@ customElements.define(
         )
         .join("")}`;
         })
-        .join("");
+        .join("")}</table></details>`;
     }
-  },
-  { extends: "table" }
+    hasBookmarks(): boolean {
+      return this.hasAttribute("hasBookmarks");
+    }
+  }
 );
 
 function formatTableCaption(type: string) {
