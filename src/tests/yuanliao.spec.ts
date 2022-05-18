@@ -2,10 +2,7 @@ import { expect, test } from "@playwright/test";
 
 test.describe("availability & languages", async () => {
   test("english", async ({ browser, baseURL }) => {
-    const context = await browser.newContext({
-      locale: "en-US",
-      storageState: { cookies: [], origins: [{ origin: "", localStorage: [] }] },
-    });
+    const context = await browser.newContext({ locale: "en-US" });
     const page = await context.newPage();
 
     await page.goto(baseURL);
