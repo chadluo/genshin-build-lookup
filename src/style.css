@@ -188,6 +188,9 @@ details.section:target summary {
 .timezone-selector input[type="radio"] {
   margin-left: 0;
 }
+.timezone-selector span {
+  white-space: pre-wrap;
+}
 table {
   width: 100%;
   border-spacing: 0;
@@ -228,6 +231,11 @@ th span {
 .timezone-selector {
   margin-top: 1em;
 }
+
+#today .domainWeekday {
+  display: none;
+}
+
 .ctable tr > th:nth-child(1) {
   width: 20%;
 }

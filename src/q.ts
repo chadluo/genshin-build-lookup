@@ -47,7 +47,7 @@ const i18n: { [id: string]: Types.I18nObject } = {
 /**
  * Index same as {@link Date.getDay}; [0] declared but not used.
  */
-export const i18nWeekdays: Types.I18nObject[] = [
+const i18nWeekdays: Types.I18nObject[] = [
   { en: ["Sun"], "zh-CN": ["日"] },
   { en: ["Mon, Thu, Sun"], "zh-CN": ["一四日"] },
   { en: ["Tue, Fri, Sun"], "zh-CN": ["二五日"] },
@@ -354,7 +354,7 @@ function renderServerTimezoneSelector(timezone: TimezoneNames) {
     .map(
       (zone) => `<label>
         <input type="radio" name="timezone" value="${zone}" ${zone === timezone ? "checked" : ""}>
-        ${formatName(i18n[zone])}
+        ${formatName(i18n[zone]) + formatName(i18n.delimiter) + formatName(i18nWeekdays[getWeekday(zone)])}
       </label>`
     )
     .join("")}</div>`;
@@ -561,7 +561,7 @@ function renderQTableRows(
 }
 
 function formatDomainName(name: Types.I18nObject, weekday: number) {
-  return formatName(name) + " / " + formatName(i18nWeekdays[weekday]);
+  return `${formatName(name)}<span class="domainWeekday"> / ${formatName(i18nWeekdays[weekday])}</span>`;
 }
 
 function formatMaterialType(m: Materials.Material) {
