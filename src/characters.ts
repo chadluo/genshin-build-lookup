@@ -535,6 +535,13 @@ export const characters: Types.Character[] = [
     ],
   },
   {
+    id: "Yelan",
+    type: "character",
+    rarity: 5,
+    name: { en: ["Yelan"], "zh-CN": ["夜兰"] },
+    materials: ["Runic Fang", "Varunada Lazurite", "Gilded Scale", "Prosperity", "Recruit’s Insignia", "Starconch"],
+  },
+  {
     id: "Yoimiya",
     type: "character",
     rarity: 5,

@@ -208,6 +208,7 @@ export const materials: Material[] = [
   { id: "Storm Beads", name: { en: ["Storm Beads"], "zh-CN": ["雷霆数珠"] } },
   { id: "Riftborn Regalia", name: { en: ["Riftborn Regalia"], "zh-CN": ["兽境王器"] } },
   { id: "Dragonheir’s False Fin", name: { en: ["Dragonheir’s False Fin"], "zh-CN": ["龙嗣伪鳍"] } },
+  { id: "Runic Fang", name: { en: ["Runic Fang"], "zh-CN": ["符纹之齿"] } },
 
   // character talents
   { id: "Freedom", name: { en: ["Freedom"], "zh-CN": ["自由"] } },

@@ -180,6 +180,13 @@ export const bosses: Boss[] = [
     type: "boss",
     name: { en: ["Bathysmal Vishap Herd"], "zh-CN": ["深海龙蜥之群"] },
   },
+  {
+    id: "Ruin Serpent",
+    region: "Liyue",
+    materials: ["Runic Fang", "Prithiva Topaz"],
+    type: "boss",
+    name: { en: ["Ruin Serpent"], "zh-CN": ["遗迹巨蛇"] },
+  },
 
   // weekly bosses
   {
