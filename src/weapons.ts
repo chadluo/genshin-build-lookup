@@ -44,6 +44,14 @@ export const weapons: Types.Weapon[] = [
     materials: ["Fetters of the Dandelion Gladiator", "Chaos Device", "Slime Condensate"],
   },
   {
+    id: "Aqua Simulacra",
+    type: "weapon",
+    rarity: 5,
+    category: Types.WeaponCategory.BOW,
+    name: { en: ["Aqua Simulacra"], "zh-CN": ["若水"] },
+    materials: ["Luminous Sands from Guyun", "Gloomy Statuette", "Spectral Husk"],
+  },
+  {
     id: "Lost Prayer to the Sacred Winds",
     type: "weapon",
     rarity: 5,
@@ -367,6 +375,14 @@ export const weapons: Types.Weapon[] = [
     category: Types.WeaponCategory.BOW,
     name: { en: ["Windblume Ode"], "zh-CN": ["风花之颂"] },
     materials: ["Fetters of the Dandelion Gladiator", "Dead Ley Line Branch", "Whopperflower Nectar"],
+  },
+  {
+    id: "Fading Twilight",
+    type: "weapon",
+    rarity: 4,
+    category: Types.WeaponCategory.BOW,
+    name: { en: ["Fading Twilight"], "zh-CN": ["落霞"] },
+    materials: ["Grain of Aerosiderite", "Hunter’s Sacrificial Knife", "Divining Scroll"],
   },
   {
     id: "Wine and Song",
