@@ -21,6 +21,9 @@ const lang_select: HTMLElement = document.getElementById("lang-select")!;
 type TimezoneNames = "Asia" | "Europe" | "America";
 const timezones: { [tz in TimezoneNames]: number } = { Asia: 8, Europe: 1, America: -5 };
 
+/* 2.7 */
+const recent_new = ["Yelan", "Aqua Simulacra", "Fading Twilight"];
+
 const regions: { [id in Types.Region]: Types.I18nObject } = {
   Mondstadt: { en: ["Mondstadt"], "zh-CN": ["蒙德"] },
   Liyue: { en: ["Liyue"], "zh-CN": ["璃月"] },
@@ -311,14 +314,23 @@ function groupBosses<T>(f: (b: Enemies.Boss) => T, bs: Enemies.Boss[]): Map<T, E
 }
 
 function renderLink(id: string, type: Types.ItemType, names: any) {
-  return `<a data-id='${id}' data-type='${type}' ${isBookmarked(type, id, 0) ? "class='bookmarked'" : ""}
-  >${formatName(names)}</a>`;
+  const classes = [];
+  if (isBookmarked(type, id, 0)) {
+    classes.push("bookmarked");
+  }
+  if (recent_new.includes(id)) {
+    classes.push("recent-new");
+  }
+  return `<a data-id='${id}' data-type='${type}' class="${classes.join(" ")}">${formatName(names)}</a>`;
 }
 
 function renderDomainLink(id: string, weekday: number, type: Types.ItemType, names: Types.I18nObject) {
-  return `<a data-id='${id}' data-weekday='${weekday}' data-type='${type}' ${
-    isBookmarked(type, id, weekday) ? "class='bookmarked'" : ""
-  }>${formatName(names)} ${formatName(i18nWeekdays[weekday])}</a>`;
+  const classes = [];
+  if (isBookmarked(type, id, weekday)) {
+    classes.push("bookmarked");
+  }
+  return `<a data-id='${id}' data-weekday='${weekday}' data-type='${type}' class='${classes.join(" ")}'
+  >${formatName(names)} ${formatName(i18nWeekdays[weekday])}</a>`;
 }
 
 /**

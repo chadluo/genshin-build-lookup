@@ -18,6 +18,7 @@
   --link: var(--tomorrow-comment);
   --link-hover: var(--tomorrow-blue);
   --link-bookmark: var(--tomorrow-foreground);
+  --link-recent-new: var(--tomorrow-orange);
   --button-background: var(--tomorrow-current-line);
   --highlight: var(--tomorrow-current-line);
   --kbd-background: var(--tomorrow-current-line);
@@ -36,6 +37,9 @@ body {
 
 a {
   color: var(--link);
+}
+a.recent-new {
+  color: var(--link-recent-new);
 }
 a.bookmarked {
   color: var(--link-bookmark);
