@@ -131,7 +131,7 @@ customElements.define(
       <summary>${formatTableCaption(TYPE_CHARACTER)}</summary>
       <table class="ctable">${rarities
         .map((rarity) => {
-          const cs: Types.Character[] = byRarity.get(rarity)!;
+          const cs: Characters.Character[] = byRarity.get(rarity)!;
           return `<tr><th>${"⭐".repeat(rarity)}</th>
       <td>${cs.map((c) => renderLink(c.id, TYPE_CHARACTER, c.name)).join(formatName(i18n.delimiter))}</td></tr>`;
         })
@@ -486,20 +486,19 @@ function findBoss(boss: string): Types.I18nObject {
   return Enemies.bosses.find((b) => b.id === boss)!.name;
 }
 
-function byBoss(boss: string): Map<Materials.Material, Types.Character[] | Types.Weapon[]> {
+function byBoss(boss: string): Map<Materials.Material, (Characters.Character | Types.Weapon)[]> {
   return Enemies.bosses
     .find((b) => b.id === boss)!
     .materials.reduce(
       (map, material: string) => (
-        map.set(
-          Materials.materials.find((m) => m.id === material)!,
-          (map.get(Materials.materials.find((m) => m.id === material)!) ?? [])
-            .concat(findCharactersForMaterial(material))
-            .concat(findWeaponsForMaterial(material))
-        ),
+        map.set(Materials.materials.find((m) => m.id === material)!, [
+          ...(map.get(Materials.materials.find((m) => m.id === material)!) ?? []),
+          ...findCharactersForMaterial(material),
+          ...findWeaponsForMaterial(material),
+        ]),
         map
       ),
-      new Map<Materials.Material, Types.Character[] | Types.Weapon[]>()
+      new Map<Materials.Material, (Characters.Character | Types.Weapon)[]>()
     );
 }
 
@@ -518,7 +517,7 @@ function byDomain(domainId: string, weekday: number): Map<Materials.Material, Ty
   ]);
 }
 
-function findCharactersForMaterial(m: string): Types.Character[] {
+function findCharactersForMaterial(m: string): Characters.Character[] {
   return Characters.characters.filter((c) => c.materials.includes(m));
 }
 
@@ -530,7 +529,7 @@ function renderFullQTable(
   type: Types.ItemType,
   id: string,
   name: Types.I18nObject,
-  object: Map<Materials.Material, Types.WishObject[] | [Enemies.Domain, number][] | Enemies.Boss[]>,
+  object: Map<Materials.Material, (Types.WishObject | [Enemies.Domain, number] | Enemies.Boss)[]>,
   weekday: number
 ): string {
   return `<table name="${formatId(type, id, weekday)}" class="qtable highlighted"
@@ -547,7 +546,7 @@ function renderQTableRows(
   type: Types.ItemType,
   id: string,
   name: Types.I18nObject,
-  object: Map<Materials.Material, Types.WishObject[] | [Enemies.Domain, number][] | Enemies.Boss[]>,
+  object: Map<Materials.Material, (Types.WishObject | [Enemies.Domain, number] | Enemies.Boss)[]>,
   weekday: number
 ) {
   const materials = Array.from(object.keys());
@@ -577,7 +576,7 @@ function formatDomainName(name: Types.I18nObject, weekday: number) {
 }
 
 function formatMaterialType(m: Materials.Material) {
-  return Materials.gems.includes(m.id)
+  return Materials.gems.includes(m.id as any)
     ? "class='gem'"
     : Materials.billets.includes(m.id) || Materials.forgingMaterials.includes(m.id)
     ? "class='billet'"
@@ -596,7 +595,7 @@ function formatId(...parts: any[]) {
     .replaceAll(/[’“”]/g, "");
 }
 
-function formatArray(es: Types.WishObject[] | [Enemies.Domain, number][] | Enemies.Boss[]) {
+function formatArray(es: (Types.WishObject | [Enemies.Domain, number] | Enemies.Boss)[]) {
   return es
     .map((e) => {
       const [obj, weekday] = Array.isArray(e) ? [e[0], e[1]] : [e, 0];

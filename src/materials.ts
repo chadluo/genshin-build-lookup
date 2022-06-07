@@ -14,7 +14,124 @@ export const gems = [
   "Vayuda Turquoise",
   "Shivada Jade",
   "Prithiva Topaz",
+] as const;
+
+export type Gem = typeof gems[number];
+
+export const general = [
+  "Slime Condensate",
+  "Damaged Mask",
+  "Divining Scroll",
+  "Firm Arrowhead",
+  "Heavy Horn",
+  "Dead Ley Line Branch",
+  "Chaos Device",
+  "Mist Grass Pollen",
+  "Hunter’s Sacrificial Knife",
+  "Recruit’s Insignia",
+  "Treasure Hoarder Insignia",
+  "Whopperflower Nectar",
+  "Fragile Bone Shard",
+  "Old Handguard",
+  "Chaos Gear",
+  "Dismal Prism",
+  "Spectral Husk",
+  "Concealed Claw",
+  "Gloomy Statuette",
 ];
+
+export type General = typeof general[number];
+
+export const localSpecialities = [
+  "Calla Lily",
+  "Cecilia",
+  "Dandelion Seed",
+  "Philanemo Mushroom",
+  "Small Lamp Grass",
+  "Valberry",
+  "Windwheel Aster",
+  "Wolfhook",
+  "Cor Lapis",
+  "Glaze Lily",
+  "Jueyun Chili",
+  "Noctilucous Jade",
+  "Qingxin",
+  "Silk Flower",
+  "Starconch",
+  "Violetgrass",
+  "Amakumo Fruit",
+  "Crystal Marrow",
+  "Dendrobium",
+  "Fluorescent Fungus",
+  "Naku Weed",
+  "Onikabuto",
+  "Sakura Bloom",
+  "Sango Pearl",
+  "Sea Ganoderma",
+] as const;
+
+export type LocalSpecialities = typeof localSpecialities[number];
+
+export const characterAscension = [
+  "Brilliant Diamond",
+  "Agnidus Agate",
+  "Varunada Lazurite",
+  "Vajrada Amethyst",
+  "Vayuda Turquoise",
+  "Shivada Jade",
+  "Prithiva Topaz",
+  "Hurricane Seed",
+  "Lightning Prism",
+  "Basalt Pillar",
+  "Hoarfrost Core",
+  "Everflame Seed",
+  "Cleansing Heart",
+  "Juvenile Jade",
+  "Crystalline Bloom",
+  "Marionette Core",
+  "Perpetual Heart",
+  "Smoldering Pearl",
+  "Dew of Repudiation",
+  "Storm Beads",
+  "Riftborn Regalia",
+  "Dragonheir’s False Fin",
+  "Runic Fang",
+] as const;
+
+export type CharacterAscension = typeof characterAscension[number];
+
+export const talent = [
+  "Freedom",
+  "Resistance",
+  "Ballad",
+  "Prosperity",
+  "Diligence",
+  "Gold",
+  "Transience",
+  "Elegance",
+  "Light",
+  "Crown of Insight",
+  "Dvalin’s Plume",
+  "Dvalin’s Claw",
+  "Dvalin’s Sigh",
+  "Tail of Boreas",
+  "Ring of Boreas",
+  "Spirit Locket of Boreas",
+  "Tusk of Monoceros Caeli",
+  "Shard of a Foul Legacy",
+  "Shadow of the Warrior",
+  "Dragon Lord’s Crown",
+  "Bloodjade Branch",
+  "Gilded Scale",
+  "Molten Moment",
+  "Hellfire Butterfly",
+  "Ashen Heart",
+  "Mudra of the Malefic General",
+  "Tears of the Calamitous God",
+  "The Meaning of Aeons",
+] as const;
+
+export type Talent = typeof talent[number];
 
 export const billets: string[] = [
   "Northlander Claymore Billet",

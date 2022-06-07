@@ -1,8 +1,20 @@
 declare module "characters";
 
+import * as Material from "./materials";
 import * as Types from "./types";
 
-export const characters: Types.Character[] = [
+export interface Character extends Types.WishObject {
+  materials: [
+    Material.CharacterAscension,
+    Material.Gem,
+    Material.Talent,
+    Material.Talent,
+    Material.General,
+    Material.LocalSpecialities
+  ];
+}
+
+export const characters: Character[] = [
   {
     id: "Albedo",
     type: "character",
@@ -407,54 +419,6 @@ export const characters: Types.Character[] = [
       "Transience",
       "Treasure Hoarder Insignia",
       "Fluorescent Fungus",
-    ],
-  },
-  {
-    id: "Traveler (Anemo)",
-    type: "character",
-    rarity: 5,
-    name: { en: ["Traveler (Anemo)"], "zh-CN": ["旅行者（风）"] },
-    materials: [
-      "Brilliant Diamond",
-      "Dvalin’s Sigh",
-      "Freedom",
-      "Resistance",
-      "Ballad",
-      "Damaged Mask",
-      "Divining Scroll",
-      "Windwheel Aster",
-    ],
-  },
-  {
-    id: "Traveler (Geo)",
-    type: "character",
-    rarity: 5,
-    name: { en: ["Traveler (Geo)"], "zh-CN": ["旅行者（岩）"] },
-    materials: [
-      "Brilliant Diamond",
-      "Tail of Boreas",
-      "Prosperity",
-      "Diligence",
-      "Gold",
-      "Damaged Mask",
-      "Firm Arrowhead",
-      "Windwheel Aster",
-    ],
-  },
-  {
-    id: "Traveler (Electro)",
-    type: "character",
-    rarity: 5,
-    name: { en: ["Traveler (Electro)"], "zh-CN": ["旅行者（雷）"] },
-    materials: [
-      "Brilliant Diamond",
-      "Dragon Lord’s Crown",
-      "Transience",
-      "Elegance",
-      "Light",
-      "Damaged Mask",
-      "Old Handguard",
-      "Windwheel Aster",
     ],
   },
   {

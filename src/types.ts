@@ -1,5 +1,7 @@
 declare module "types";
 
+export type Region = "Mondstadt" | "Liyue" | "Inazuma";
+
 export type ItemType = "character" | "weapon" | "weekly_boss" | "boss" | "talent_domain" | "weapon_domain";
 
 export type SupportedLanguages = "en" | "zh-CN";
@@ -13,7 +15,6 @@ export interface WishObject {
   materials: string[];
 }
 
-export interface Character extends WishObject {}
 export interface Weapon extends WishObject {
   category: WeaponCategory;
 }
@@ -24,5 +25,3 @@ export enum WeaponCategory {
   POLEARM,
   SWORD,
 }
-
-export type Region = "Mondstadt" | "Liyue" | "Inazuma";
