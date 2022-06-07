@@ -399,7 +399,7 @@ function findOrLoadQTable(event: Event) {
 
 function findOrLoadQTable2(type: string, id: string, weekday: string) {
   document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
-  const existed = document.querySelector(`tr[name="${formatId(type, id, weekday)}"]`);
+  const existed = output.querySelector(`tr[name="${formatId(type, id, weekday)}"]`);
   if (!existed) {
     output.innerHTML += renderQTableContent(type, id, parseInt(weekday));
     const rows = output.querySelectorAll("th");

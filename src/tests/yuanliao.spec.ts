@@ -16,7 +16,7 @@ test.describe("availability & languages", async () => {
     await page.selectOption("#lang-select", { label: "简体中文" });
 
     await expect(page.locator(":has-text('香菱')").first()).toBeVisible();
-    await expect(page.locator(":has-text('「渔获」')").first()).toBeVisible();
+    await expect(page.locator(":has-text('渔获')").first()).toBeVisible();
     await expect(page.locator(":has-text('深入风龙废墟 / 风魔龙・特瓦林')").first()).toBeVisible();
   });
 
@@ -43,20 +43,20 @@ test.describe("queries", async () => {
     const page = await content.newPage();
     await page.goto(baseURL);
 
-    const characterTable = "table[name='character-Xiangling']";
-    await expect(page.locator(characterTable)).not.toBeVisible();
+    const characterRow = "tr[name='character-Xiangling']";
+    await expect(page.locator(characterRow)).not.toBeVisible();
     await page.click("text=Xiangling");
-    await expect(page.locator(characterTable)).toBeVisible();
+    await expect(page.locator(characterRow)).toBeVisible();
 
-    const bossTable = "table[name='boss-Pyro-Regisvine']";
-    await expect(page.locator(bossTable)).not.toBeVisible();
+    const bossRow = "tr[name='boss-Pyro-Regisvine']";
+    await expect(page.locator(bossRow)).not.toBeVisible();
     await page.click("#output >> text=Pyro Regisvine");
-    await expect(page.locator(bossTable)).toBeVisible();
+    await expect(page.locator(bossRow)).toBeVisible();
 
-    const talentDomainTable = "table[name='talent_domain-Taishan-Mansion-2']";
-    await expect(page.locator(talentDomainTable)).not.toBeVisible();
+    const talentDomainRow = "#output tr[name='talent_domain-Taishan-Mansion-2']";
+    await expect(page.locator(talentDomainRow)).not.toBeVisible();
     await page.click("#output >> text=Taishan Mansion");
-    await expect(page.locator(talentDomainTable)).toBeVisible();
+    await expect(page.locator(talentDomainRow)).toBeVisible();
   });
 
   test("weapon table", async ({ browser, baseURL }) => {
@@ -67,15 +67,15 @@ test.describe("queries", async () => {
     const page = await content.newPage();
     await page.goto(baseURL);
 
-    const weaponTable = "table[name='weapon-The-Catch']";
-    await expect(page.locator(weaponTable)).not.toBeVisible();
+    const weaponRow = "tr[name='weapon-The-Catch']";
+    await expect(page.locator(weaponRow)).not.toBeVisible();
     await page.click("text=The Catch");
-    await expect(page.locator(weaponTable)).toBeVisible();
+    await expect(page.locator(weaponRow)).toBeVisible();
 
-    const weaponDomainTable = "table[name='weapon_domain-Court-of-Flowing-Sand-3']";
-    await expect(page.locator(weaponDomainTable)).not.toBeVisible();
+    const weaponDomainRow = "#output tr[name='weapon_domain-Court-of-Flowing-Sand-3']";
+    await expect(page.locator(weaponDomainRow)).not.toBeVisible();
     await page.click("#output >> text=Court of Flowing Sand");
-    await expect(page.locator(weaponDomainTable)).toBeVisible();
+    await expect(page.locator(weaponDomainRow)).toBeVisible();
   });
 });
 
