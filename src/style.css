@@ -168,13 +168,11 @@ nav + div {
 #output:not(:empty)::before {
   content: "🚜";
   display: block;
-  margin: 0;
-  text-align: center;
+  margin: 2rem 0;
 }
 
 details.section,
-#output,
-.qtableWrapper {
+#output {
   margin-top: -3rem;
   padding-top: 6rem;
 }
@@ -198,6 +196,8 @@ details.section:target summary {
 table {
   width: 100%;
   border-spacing: 0;
+}
+table:not(:empty) {
   border-bottom: 1px solid var(--border-color);
 }
 th,

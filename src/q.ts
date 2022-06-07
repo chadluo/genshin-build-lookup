@@ -77,7 +77,9 @@ window.addEventListener("DOMContentLoaded", () => {
   selectors.innerHTML += `<enemies-table ${bookmarks.length === 0 ? "" : "hasBookmarks"}></enemies-table>`;
   selectors.innerHTML += renderWeekdayDomainTables(serverTimezone, false);
 
-  bookmarks.forEach(([type, id, weekday]: [string, string, number]) => output!.append(createQTable(type, id, weekday)));
+  bookmarks.forEach(
+    ([type, id, weekday]: [string, string, number]) => (output.innerHTML += renderQTableContent(type, id, weekday))
+  );
   document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
 
   Keyboard.initKeyboard();
@@ -397,11 +399,11 @@ function findOrLoadQTable(event: Event) {
 
 function findOrLoadQTable2(type: string, id: string, weekday: string) {
   document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
-  const existed = document.querySelector(`table[name="${formatId(type, id, weekday)}"]`);
+  const existed = document.querySelector(`tr[name="${formatId(type, id, weekday)}"]`);
   if (!existed) {
-    const qtable = createQTable(type, id, parseInt(weekday));
-    output!.appendChild(qtable);
-    qtable.scrollIntoView();
+    output.innerHTML += renderQTableContent(type, id, parseInt(weekday));
+    const rows = output.querySelectorAll("th");
+    rows[rows.length - 1].scrollIntoView();
   } else {
     existed.classList.add("highlighted");
     existed.scrollIntoView();
@@ -421,25 +423,18 @@ document.querySelector("input[list='searchItems']")?.addEventListener("input", (
   }
 });
 
-function createQTable(type: string, id: string, weekday: number): HTMLDivElement {
-  const tableWrapper = document.createElement("div");
-  tableWrapper.classList.add("qtableWrapper");
-  tableWrapper.innerHTML = renderQTableContent(type, id, weekday);
-  return tableWrapper;
-}
-
 function renderQTableContent(type: string, id: string, weekday: number): string {
   switch (type) {
     case TYPE_CHARACTER:
-      return renderFullQTable(type, id, findCharacter(id), byCharacter(id), weekday);
+      return renderQTableRows(type, id, findCharacter(id), byCharacter(id), weekday);
     case TYPE_WEAPON:
-      return renderFullQTable(type, id, findWeapon(id), byWeapon(id), weekday);
+      return renderQTableRows(type, id, findWeapon(id), byWeapon(id), weekday);
     case TYPE_WEEKLY_BOSS:
     case TYPE_BOSS:
-      return renderFullQTable(type, id, findBoss(id), byBoss(id), weekday);
+      return renderQTableRows(type, id, findBoss(id), byBoss(id), weekday);
     case TYPE_TALENT_DOMAIN:
     case TYPE_WEAPON_DOMAIN:
-      return renderFullQTable(type, id, findDomain(id, weekday), byDomain(id, weekday), weekday);
+      return renderQTableRows(type, id, findDomain(id, weekday), byDomain(id, weekday), weekday);
     default:
       return "";
   }
@@ -551,7 +546,7 @@ function renderQTableRows(
 ) {
   const materials = Array.from(object.keys());
   const separator = "<span class='mobile'> / </span><span class='desktop'><br></span>";
-  return `<tr>
+  return `<tr name="${formatId(type, id, weekday)}">
       <th rowspan="${materials.length}">
         <label><input type="checkbox" data-type="${type}" data-id="${id}"
         ${weekday ? `data-weekday="${weekday}"` : ""} ${isBookmarked(type, id, weekday) ? "checked" : ""}><div>
@@ -626,8 +621,7 @@ function formatMulti(names: string[]) {
 }
 
 document.getElementById("clear")?.addEventListener("click", () => {
-  const output = document.getElementById("output");
-  if (output) output.innerHTML = "";
+  output.innerHTML = "";
   lastQuery.id = "";
   lastQuery.weekday = "";
 });
