@@ -12,16 +12,47 @@
   --tomorrow-blue: #4271ae;
   --tomorrow-purple: #8959a8;
 
-  --background: var(--tomorrow-background);
-  --foreground: var(--tomorrow-foreground);
-  --border-color: var(--tomorrow-selection);
-  --link: var(--tomorrow-comment);
-  --link-hover: var(--tomorrow-blue);
-  --link-bookmark: var(--tomorrow-foreground);
-  --link-recent-new: var(--tomorrow-orange);
-  --button-background: var(--tomorrow-current-line);
-  --highlight: var(--tomorrow-current-line);
-  --kbd-background: var(--tomorrow-current-line);
+  --tomorrow-night-eighties-background: #2d2d2d;
+  --tomorrow-night-eighties-current-line: #393939;
+  --tomorrow-night-eighties-selection: #515151;
+  --tomorrow-night-eighties-foreground: #cccccc;
+  --tomorrow-night-eighties-comment: #999999;
+  --tomorrow-night-eighties-red: #f2777a;
+  --tomorrow-night-eighties-orange: #f99157;
+  --tomorrow-night-eighties-yellow: #ffcc66;
+  --tomorrow-night-eighties-green: #99cc99;
+  --tomorrow-night-eighties-aqua: #66cccc;
+  --tomorrow-night-eighties-blue: #6699cc;
+  --tomorrow-night-eighties-purple: #cc99cc;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: var(--tomorrow-background);
+    --foreground: var(--tomorrow-foreground);
+    --border-color: var(--tomorrow-selection);
+    --link: var(--tomorrow-comment);
+    --link-hover: var(--tomorrow-blue);
+    --link-bookmark: var(--tomorrow-foreground);
+    --link-recent-new: var(--tomorrow-orange);
+    --button-background: var(--tomorrow-current-line);
+    --highlight: var(--tomorrow-current-line);
+    --kbd-background: var(--tomorrow-current-line);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--tomorrow-night-eighties-background);
+    --foreground: var(--tomorrow-night-eighties-foreground);
+    --border-color: var(--tomorrow-night-eighties-selection);
+    --link: var(--tomorrow-night-eighties-comment);
+    --link-hover: var(--tomorrow-night-eighties-blue);
+    --link-bookmark: var(--tomorrow-night-eighties-foreground);
+    --link-recent-new: var(--tomorrow-night-eighties-orange);
+    --button-background: var(--tomorrow-night-eighties-current-line);
+    --highlight: var(--tomorrow-night-eighties-current-line);
+    --kbd-background: var(--tomorrow-night-eighties-current-line);
+  }
 }
 
 body {
