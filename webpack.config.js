@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const WorkboxPlugin = require("workbox-webpack-plugin");
 
 module.exports = {
   entry: "./src/q.ts",
@@ -29,5 +30,8 @@ module.exports = {
     static: "./public",
     port: 3000,
   },
-  plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
+  plugins: [
+    new HtmlWebpackPlugin({ template: "./src/index.html" }),
+    new WorkboxPlugin.GenerateSW({ clientsClaim: true, skipWaiting: true }),
+  ],
 };

@@ -59,6 +59,15 @@ const i18nWeekdays: Types.I18nObject[] = [
 
 const lastQuery = { id: "", weekday: "" };
 
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/service-worker.js")
+      .then((registration) => console.log("SW registered: ", registration))
+      .catch((registrationError) => console.log("SW registration failed: ", registrationError));
+  });
+}
+
 window.addEventListener("DOMContentLoaded", () => {
   lang_select.innerHTML = Object.entries(i18n.supportedLanguageSelectors)
     .map(([lang, name]) => `<option value="${lang}">${name}</option>`)
