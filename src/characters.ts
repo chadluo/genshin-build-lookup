@@ -268,6 +268,20 @@ export const characters: Character[] = [
     materials: ["Storm Beads", "Vajrada Amethyst", "Ashen Heart", "Elegance", "Damaged Mask", "Dendrobium"],
   },
   {
+    id: "Kuki Shinobu",
+    type: "character",
+    rarity: 4,
+    name: { en: ["Kuki Shinobu"], "zh-CN": ["久岐忍"] },
+    materials: [
+      "Runic Fang",
+      "Vajrada Amethyst",
+      "Tears of the Calamitous God",
+      "Elegance",
+      "Spectral Husk",
+      "Naku Weed",
+    ],
+  },
+  {
     id: "Lisa",
     type: "character",
     rarity: 4,
