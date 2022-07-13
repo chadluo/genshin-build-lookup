@@ -931,6 +931,14 @@ export const weapons: Types.Weapon[] = [
     materials: ["Luminous Sands from Guyun", "Hunter’s Sacrificial Knife", "Firm Arrowhead"],
   },
   {
+    id: "Kagotsurube Isshin",
+    type: "weapon",
+    rarity: 4,
+    category: Types.WeaponCategory.SWORD,
+    name: { en: ["Kagotsurube Isshin"], "zh-CN": ["笼钓瓶一心"] },
+    materials: ["Mask of the Wicked Lieutenant", "Gloomy Statuette", "Spectral Husk"],
+  },
+  {
     id: "Raven Bow",
     type: "weapon",
     rarity: 3,

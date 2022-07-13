@@ -21,8 +21,8 @@ const lang_select: HTMLElement = document.getElementById("lang-select")!;
 type TimezoneNames = "Asia" | "Europe" | "America";
 const timezones: { [tz in TimezoneNames]: number } = { Asia: 8, Europe: 1, America: -5 };
 
-/* 2.7 */
-const recent_new = ["Yelan", "Aqua Simulacra", "Fading Twilight", "Kuki Shinobu"];
+/* 2.8 */
+const recent_new = ["Shikanoin Heizou", "Kagotsurube Isshin"];
 
 const regions: { [id in Types.Region]: Types.I18nObject } = {
   Mondstadt: { en: ["Mondstadt"], "zh-CN": ["蒙德"] },

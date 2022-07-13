@@ -394,6 +394,20 @@ export const characters: Character[] = [
     ],
   },
   {
+    id: "Shikanoin Heizou",
+    type: "character",
+    rarity: 4,
+    name: { en: ["Shikanoin Heizou"], "zh-CN": ["鹿野院平藏"] },
+    materials: [
+      "Runic Fang",
+      "Vayuda Turquoise",
+      "The Meaning of Aeons",
+      "Transience",
+      "Treasure Hoarder Insignia",
+      "Onikabuto",
+    ],
+  },
+  {
     id: "Sucrose",
     type: "character",
     rarity: 4,
