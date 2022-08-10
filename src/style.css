@@ -254,6 +254,7 @@ th input[type="checkbox"] {
 }
 th label {
   display: flex;
+  align-items: flex-start;
 }
 label div {
   flex-grow: 1;
