@@ -175,7 +175,7 @@ customElements.define(
       <summary>${formatTableCaption(TYPE_WEAPON)}</summary><table class="ctable">
       ${rarities
         .map((rarity) => {
-          const ws2: Map<Types.WeaponCategory, Types.Weapon[]> = groupWishObjects(
+          const ws2: Map<Weapons.WeaponCategory, Weapons.Weapon[]> = groupWishObjects(
             (w) => w.category,
             byRarity.get(rarity)!
           );
@@ -244,18 +244,18 @@ function getTableCaptionIcon(type: string): string {
   }
 }
 
-function formatWeaponIcon(category: Types.WeaponCategory) {
+function formatWeaponIcon(category: Weapons.WeaponCategory) {
   return `<span class="weapon-icon">${getWeaponIcon(category)}</span>`;
 }
 
-function getWeaponIcon(category: Types.WeaponCategory) {
+function getWeaponIcon(category: Weapons.WeaponCategory) {
   // prettier-ignore
   switch (category) {
-    case Types.WeaponCategory.BOW:      return "🏹";
-    case Types.WeaponCategory.CATALYST: return "📖";
-    case Types.WeaponCategory.CLAYMORE: return "🐟";
-    case Types.WeaponCategory.POLEARM:  return "🌿";
-    case Types.WeaponCategory.SWORD:    return "🗡️";
+    case Weapons.WeaponCategory.BOW:      return "🏹";
+    case Weapons.WeaponCategory.CATALYST: return "📖";
+    case Weapons.WeaponCategory.CLAYMORE: return "🐟";
+    case Weapons.WeaponCategory.POLEARM:  return "🌿";
+    case Weapons.WeaponCategory.SWORD:    return "🗡️";
     default:                             return "";
   }
 }
@@ -490,7 +490,7 @@ function findBoss(boss: string): Types.I18nObject {
   return Enemies.bosses.find((b) => b.id === boss)!.name;
 }
 
-function byBoss(boss: string): Map<Materials.Material, (Characters.Character | Types.Weapon)[]> {
+function byBoss(boss: string): Map<Materials.Material, (Characters.Character | Weapons.Weapon)[]> {
   return Enemies.bosses
     .find((b) => b.id === boss)!
     .materials.reduce(
@@ -502,7 +502,7 @@ function byBoss(boss: string): Map<Materials.Material, (Characters.Character | T
         ]),
         map
       ),
-      new Map<Materials.Material, (Characters.Character | Types.Weapon)[]>()
+      new Map<Materials.Material, (Characters.Character | Weapons.Weapon)[]>()
     );
 }
 
@@ -525,7 +525,7 @@ function findCharactersForMaterial(m: string): Characters.Character[] {
   return Characters.characters.filter((c) => c.materials.includes(m));
 }
 
-function findWeaponsForMaterial(m: string): Types.Weapon[] {
+function findWeaponsForMaterial(m: string): Weapons.Weapon[] {
   return Weapons.weapons.filter((w) => w.materials.includes(m));
 }
 

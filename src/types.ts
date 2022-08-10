@@ -14,14 +14,3 @@ export interface WishObject {
   name: I18nObject;
   materials: string[];
 }
-
-export interface Weapon extends WishObject {
-  category: WeaponCategory;
-}
-export enum WeaponCategory {
-  BOW,
-  CATALYST,
-  CLAYMORE,
-  POLEARM,
-  SWORD,
-}
