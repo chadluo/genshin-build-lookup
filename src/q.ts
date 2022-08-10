@@ -1,3 +1,4 @@
+import * as Bookmarks from "./bookmarks";
 import * as Characters from "./characters";
 import * as Enemies from "./enemies";
 import * as Keyboard from "./keyboard";
@@ -5,14 +6,6 @@ import * as Materials from "./materials";
 import "./style.css";
 import * as Types from "./types";
 import * as Weapons from "./weapons";
-
-const TYPE_CHARACTER = "character";
-const TYPE_WEAPON = "weapon";
-
-const TYPE_WEEKLY_BOSS = "weekly_boss";
-const TYPE_BOSS = "boss";
-const TYPE_TALENT_DOMAIN = "talent_domain";
-const TYPE_WEAPON_DOMAIN = "weapon_domain";
 
 const selectors: HTMLElement = document.getElementById("selectors")!;
 const output: HTMLElement = document.getElementById("output")!;
@@ -81,9 +74,10 @@ window.addEventListener("DOMContentLoaded", () => {
   const serverTimezone: TimezoneNames = (localStorage.getItem("timezone") as TimezoneNames) || guessTimezone();
 
   const bookmarks = JSON.parse(localStorage.getItem("bookmarks") ?? "[]");
-  selectors.innerHTML += `<characters-table ${bookmarks.length === 0 ? "" : "hasBookmarks"}></characters-table>`;
-  selectors.innerHTML += `<weapons-table ${bookmarks.length === 0 ? "" : "hasBookmarks"}></weapons-table>`;
-  selectors.innerHTML += `<enemies-table ${bookmarks.length === 0 ? "" : "hasBookmarks"}></enemies-table>`;
+  const hasBookmarks = bookmarks.length === 0 ? "" : "hasBookmarks";
+  selectors.innerHTML += `<characters-table ${hasBookmarks}></characters-table>`;
+  selectors.innerHTML += `<weapons-table ${hasBookmarks}></weapons-table>`;
+  selectors.innerHTML += `<enemies-table ${hasBookmarks}></enemies-table>`;
   selectors.innerHTML += renderWeekdayDomainTables(serverTimezone, false);
 
   bookmarks.forEach(
@@ -138,13 +132,13 @@ customElements.define(
       super();
       const byRarity = groupWishObjects((o) => o.rarity, Characters.characters);
       const rarities = Array.from(byRarity.keys()).sort().reverse();
-      this.innerHTML = `<details id="${TYPE_CHARACTER}" class="section" ${this.hasBookmarks() ? "" : "open"}>
-      <summary>${formatTableCaption(TYPE_CHARACTER)}</summary>
+      this.innerHTML = `<details id="${Types.TYPE_CHARACTER}" class="section" ${this.hasBookmarks() ? "" : "open"}>
+      <summary>${formatTableCaption(Types.TYPE_CHARACTER)}</summary>
       <table class="ctable">${rarities
         .map((rarity) => {
           const cs: Characters.Character[] = byRarity.get(rarity)!;
           return `<tr><th>${"⭐".repeat(rarity)}</th>
-      <td>${cs.map((c) => renderLink(c.id, TYPE_CHARACTER, c.name)).join(formatName(i18n.delimiter))}</td></tr>`;
+      <td>${cs.map((c) => renderLink(c.id, Types.TYPE_CHARACTER, c.name)).join(formatName(i18n.delimiter))}</td></tr>`;
         })
         .join("")}</table></details>`;
     }
@@ -171,8 +165,8 @@ customElements.define(
       super();
       const byRarity = groupWishObjects((w) => w.rarity, Weapons.weapons);
       const rarities = Array.from(byRarity.keys()).sort().reverse();
-      this.innerHTML = `<details id="${TYPE_WEAPON}" class="section" ${this.hasBookmarks() ? "" : "open"}>
-      <summary>${formatTableCaption(TYPE_WEAPON)}</summary><table class="ctable">
+      this.innerHTML = `<details id="${Types.TYPE_WEAPON}" class="section" ${this.hasBookmarks() ? "" : "open"}>
+      <summary>${formatTableCaption(Types.TYPE_WEAPON)}</summary><table class="ctable">
       ${rarities
         .map((rarity) => {
           const ws2: Map<Weapons.WeaponCategory, Weapons.Weapon[]> = groupWishObjects(
@@ -183,7 +177,7 @@ customElements.define(
           return `<tr><th rowspan="${categories.length}">${"⭐".repeat(rarity)}</th>
       <td>${formatWeaponIcon(categories[0])}${ws2
             .get(categories[0])!
-            .map((w) => renderLink(w.id, TYPE_WEAPON, w.name))
+            .map((w) => renderLink(w.id, Types.TYPE_WEAPON, w.name))
             .join(formatName(i18n.delimiter))}</td></tr>
       ${categories
         .slice(1)
@@ -191,7 +185,7 @@ customElements.define(
           (category) =>
             `<tr><td>${formatWeaponIcon(category)}${ws2
               .get(category)!
-              .map((c) => renderLink(c.id, TYPE_WEAPON, c.name))
+              .map((c) => renderLink(c.id, Types.TYPE_WEAPON, c.name))
               .join(formatName(i18n.delimiter))}</td></tr>`
         )
         .join("")}`;
@@ -296,16 +290,16 @@ customElements.define(
         .map((k) => `<tr>${formatBossesForRegion(regions[k], bosses.get(k)!)}</tr>`)
         .join("")}
       <tr><th rowspan="${talentDomains.length}">${formatName(i18n.talent_domain)}</th>
-        ${formatDomain(talentDomains[0].id, TYPE_TALENT_DOMAIN)}</tr>
+        ${formatDomain(talentDomains[0].id, Types.TYPE_TALENT_DOMAIN)}</tr>
       ${talentDomains
         .slice(1)
-        .map((d) => `<tr>${formatDomain(d.id, TYPE_TALENT_DOMAIN)}</tr>`)
+        .map((d) => `<tr>${formatDomain(d.id, Types.TYPE_TALENT_DOMAIN)}</tr>`)
         .join("")}
       <tr><th rowspan="${weaponDomains.length}">${formatName(i18n.weapon_domain)}</th>
-      ${formatDomain(weaponDomains[0].id, TYPE_WEAPON_DOMAIN)}</tr>
+      ${formatDomain(weaponDomains[0].id, Types.TYPE_WEAPON_DOMAIN)}</tr>
       ${weaponDomains
         .slice(1)
-        .map((d) => `<tr>${formatDomain(d.id, TYPE_WEAPON_DOMAIN)}</tr>`)
+        .map((d) => `<tr>${formatDomain(d.id, Types.TYPE_WEAPON_DOMAIN)}</tr>`)
         .join("")}</table></details>`;
     }
     hasBookmarks() {
@@ -326,7 +320,7 @@ function groupBosses<T>(f: (b: Enemies.Boss) => T, bs: Enemies.Boss[]): Map<T, E
 
 function renderLink(id: string, type: Types.ItemType, names: any) {
   const classes = [];
-  if (isBookmarked(type, id, 0)) {
+  if (Bookmarks.isBookmarked(type, id, 0)) {
     classes.push("bookmarked");
   }
   if (recent_new.includes(id)) {
@@ -337,7 +331,7 @@ function renderLink(id: string, type: Types.ItemType, names: any) {
 
 function renderDomainLink(id: string, weekday: number, type: Types.ItemType, names: Types.I18nObject) {
   const classes = [];
-  if (isBookmarked(type, id, weekday)) {
+  if (Bookmarks.isBookmarked(type, id, weekday)) {
     classes.push("bookmarked");
   }
   return `<a data-id='${id}' data-weekday='${weekday}' data-type='${type}' class='${classes.join(" ")}'
@@ -349,7 +343,7 @@ function renderDomainLink(id: string, weekday: number, type: Types.ItemType, nam
  */
 function formatBossesForRegion(region: Types.I18nObject, bosses: Enemies.Boss[]) {
   return `<td>${formatName(region)}</td><td>${bosses
-    .map((boss) => renderLink(boss.id, TYPE_WEEKLY_BOSS, boss!.name))
+    .map((boss) => renderLink(boss.id, Types.TYPE_WEEKLY_BOSS, boss!.name))
     .join(formatName(i18n.delimiter))}</td>`;
 }
 
@@ -357,7 +351,7 @@ function formatDomain(id: string, type: Types.ItemType) {
   return `<td>${formatName(Enemies.domains.filter((d) => d.id === id)[0]!.name)}</td><td>${[1, 2, 3]
     .map((i) => {
       return `<a data-id='${id}' data-weekday='${i}' data-type='${type}' ${
-        isBookmarked(type, id, i) ? "class='bookmarked'" : ""
+        Bookmarks.isBookmarked(type, id, i) ? "class='bookmarked'" : ""
       }>${formatName(i18nWeekdays[i]!)}</a>`;
     })
     .join(formatName(i18n.delimiter))}</td>`;
@@ -428,21 +422,25 @@ document.querySelector("input[list='searchItems']")?.addEventListener("input", (
   // chromium/firefox populate from options
   if (!(event instanceof InputEvent) || event.inputType === "insertReplacementText") {
     const id = (event.target as HTMLInputElement).value;
-    findOrLoadQTable2(Characters.characters.some((c) => c.id === id) ? TYPE_CHARACTER : TYPE_WEAPON, id, "");
+    findOrLoadQTable2(
+      Characters.characters.some((c) => c.id === id) ? Types.TYPE_CHARACTER : Types.TYPE_WEAPON,
+      id,
+      ""
+    );
   }
 });
 
 function renderQTableContent(type: string, id: string, weekday: number): string {
   switch (type) {
-    case TYPE_CHARACTER:
+    case Types.TYPE_CHARACTER:
       return renderQTableRows(type, id, findCharacter(id), byCharacter(id), weekday);
-    case TYPE_WEAPON:
+    case Types.TYPE_WEAPON:
       return renderQTableRows(type, id, findWeapon(id), byWeapon(id), weekday);
-    case TYPE_WEEKLY_BOSS:
-    case TYPE_BOSS:
+    case Types.TYPE_WEEKLY_BOSS:
+    case Types.TYPE_BOSS:
       return renderQTableRows(type, id, findBoss(id), byBoss(id), weekday);
-    case TYPE_TALENT_DOMAIN:
-    case TYPE_WEAPON_DOMAIN:
+    case Types.TYPE_TALENT_DOMAIN:
+    case Types.TYPE_WEAPON_DOMAIN:
       return renderQTableRows(type, id, findDomain(id, weekday), byDomain(id, weekday), weekday);
     default:
       return "";
@@ -558,11 +556,12 @@ function renderQTableRows(
   return `<tr name="${formatId(type, id, weekday)}">
       <th rowspan="${materials.length}">
         <label><input type="checkbox" data-type="${type}" data-id="${id}"
-        ${weekday ? `data-weekday="${weekday}"` : ""} ${isBookmarked(type, id, weekday) ? "checked" : ""}><div>
-        ${(type === "talent_domain" || type === "weapon_domain"
-          ? formatDomainName(name, weekday)
-          : formatName(name)
-        ).replaceAll(" / ", separator)}</div></label>
+        ${weekday ? `data-weekday="${weekday}"` : ""} ${
+    Bookmarks.isBookmarked(type, id, weekday) ? "checked" : ""
+  }><div> ${(type === "talent_domain" || type === "weapon_domain"
+    ? formatDomainName(name, weekday)
+    : formatName(name)
+  ).replaceAll(" / ", separator)}</div></label>
       </th>
       <td>${formatName(materials[0].name)}</td>
       <td>${formatArray(object.get(materials[0])!)}</td>
@@ -604,8 +603,8 @@ function formatArray(es: (Types.WishObject | [Enemies.Domain, number] | Enemies.
     .map((e) => {
       const [obj, weekday] = Array.isArray(e) ? [e[0], e[1]] : [e, 0];
       switch (obj.type) {
-        case TYPE_TALENT_DOMAIN:
-        case TYPE_WEAPON_DOMAIN:
+        case Types.TYPE_TALENT_DOMAIN:
+        case Types.TYPE_WEAPON_DOMAIN:
           return renderDomainLink(obj.id, weekday, obj.type, obj.name);
         default:
           return renderLink(obj.id, obj.type, obj.name);
@@ -635,60 +634,8 @@ document.getElementById("clear")?.addEventListener("click", () => {
   lastQuery.weekday = "";
 });
 
-function updateBookmark(event: Event) {
-  const input = event.target as HTMLInputElement;
-  if (!input || input.tagName !== "INPUT") return;
-  const type = input.dataset.type as Types.ItemType;
-  const id = input.dataset.id;
-  if (!type || !id) return;
-  const weekday = parseInt(input.dataset.weekday ?? "0");
-  if (input.checked) {
-    bookmark(type, id, weekday);
-  } else {
-    unbookmark(type, id, weekday);
-  }
-}
-
-selectors.addEventListener("change", updateBookmark);
-output.addEventListener("change", updateBookmark);
-
-function isBookmarked(type: Types.ItemType, id: string, weekday: number) {
-  return JSON.parse(localStorage.getItem("bookmarks") ?? "[]").some(
-    ([t, i, w]: [string, string, number]) => t === type && i === id && w === (weekday ?? 0)
-  );
-}
-
-function bookmark(type: Types.ItemType, id: string, weekday: number) {
-  const bookmarks = JSON.parse(localStorage.getItem("bookmarks") ?? "[]");
-  const index = bookmarks.findIndex(([t, i, w]: [string, string, number]) => t === type && i === id && w === weekday);
-  if (index === -1) {
-    document
-      .querySelectorAll(
-        type === TYPE_TALENT_DOMAIN || type === TYPE_WEAPON_DOMAIN
-          ? `a[data-id="${id}"][data-weekday="${weekday}"]`
-          : `a[data-id="${id}"]`
-      )
-      .forEach((e) => e.classList.add("bookmarked"));
-    bookmarks.push([type, id, weekday]);
-    localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
-  }
-}
-
-function unbookmark(type: Types.ItemType, id: string, weekday: number): void {
-  const bookmarks = JSON.parse(localStorage.getItem("bookmarks") ?? "[]");
-  const index = bookmarks.findIndex(([t, i, w]: [string, string, number]) => t === type && i === id && w === weekday);
-  if (index !== -1) {
-    document
-      .querySelectorAll(
-        type === TYPE_TALENT_DOMAIN || type === TYPE_WEAPON_DOMAIN
-          ? `a[data-id="${id}"][data-weekday="${weekday}"]`
-          : `a[data-id="${id}"]`
-      )
-      .forEach((e) => e.classList.remove("bookmarked"));
-    bookmarks.splice(index, 1);
-    localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
-  }
-}
+selectors.addEventListener("change", Bookmarks.updateBookmark);
+output.addEventListener("change", Bookmarks.updateBookmark);
 
 function selectTimezone(timezone: TimezoneNames) {
   document.getElementById("today")!.outerHTML = renderWeekdayDomainTables(timezone, true);
