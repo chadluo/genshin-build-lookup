@@ -4,7 +4,7 @@
   "description": "Genshin impact build material lookup",
   "scripts": {
     "build": "webpack",
-    "serve": "webpack serve --open --mode development",
+    "serve": "webpack serve --open --mode=development",
     "test": "playwright test"
   },
   "repository": {

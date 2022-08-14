@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WorkboxPlugin = require("workbox-webpack-plugin");
 
-module.exports = {
+const config = {
   entry: "./src/q.ts",
   mode: "production",
   output: {
@@ -30,8 +30,14 @@ module.exports = {
     static: "./public",
     port: 3000,
   },
-  plugins: [
-    new HtmlWebpackPlugin({ template: "./src/index.html" }),
-    new WorkboxPlugin.GenerateSW({ clientsClaim: true, skipWaiting: true }),
-  ],
+  plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
+};
+
+module.exports = (env, argv) => {
+  // don't load for development
+  if (argv.mode === "production") {
+    config.plugins.push(new WorkboxPlugin.GenerateSW({ clientsClaim: true, skipWaiting: true }));
+  }
+
+  return config;
 };
