@@ -21,6 +21,9 @@ const upcoming = [
   "Forest Regalia",
   "Moonpiercer",
   "Sapwood Blade",
+  "Tighnari",
+  "Collei",
+  "Dori",
 ];
 
 /*** version specific contents ***/
@@ -538,7 +541,7 @@ function byDomain(domainId: string, weekday: number): Map<Materials.Material, Ty
 }
 
 function findCharactersForMaterial(m: string): Characters.Character[] {
-  return Characters.characters.filter((c) => c.materials.includes(m));
+  return Characters.characters.filter((c) => c.materials !== [] && c.materials.includes(m));
 }
 
 function findWeaponsForMaterial(m: string): Weapons.Weapon[] {

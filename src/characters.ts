@@ -4,14 +4,16 @@ import * as Material from "./materials";
 import * as Types from "./types";
 
 export interface Character extends Types.WishObject {
-  materials: [
-    Material.CharacterAscension,
-    Material.Gem,
-    Material.Talent,
-    Material.Talent,
-    Material.General,
-    Material.LocalSpecialities
-  ];
+  materials:
+    | string[]
+    | [
+        Material.CharacterAscension,
+        Material.Gem,
+        Material.Talent,
+        Material.Talent,
+        Material.General,
+        Material.LocalSpecialities
+      ];
 }
 
 export const characters: Character[] = [
@@ -92,6 +94,7 @@ export const characters: Character[] = [
     name: { en: ["Chongyun"], "zh-CN": ["重云"] },
     materials: ["Hoarfrost Core", "Shivada Jade", "Dvalin’s Sigh", "Diligence", "Damaged Mask", "Cor Lapis"],
   },
+  { id: "Collei", type: "character", rarity: 4, name: { en: ["Collei"], "zh-CN": ["柯莱"] }, materials: [] },
   {
     id: "Diluc",
     type: "character",
@@ -113,6 +116,7 @@ export const characters: Character[] = [
     name: { en: ["Diona"], "zh-CN": ["迪奥娜"] },
     materials: ["Hoarfrost Core", "Shivada Jade", "Shard of a Foul Legacy", "Freedom", "Firm Arrowhead", "Calla Lily"],
   },
+  { id: "Dori", type: "character", rarity: 4, name: { en: ["Dori"], "zh-CN": ["多莉"] }, materials: [] },
   {
     id: "Eula",
     type: "character",
@@ -449,6 +453,7 @@ export const characters: Character[] = [
       "Fluorescent Fungus",
     ],
   },
+  { id: "Tighnari", type: "character", rarity: 5, name: { en: ["Tighnari"], "zh-CN": ["提纳里"] }, materials: [] },
   {
     id: "Venti",
     type: "character",
