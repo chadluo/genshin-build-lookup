@@ -64,6 +64,14 @@ export const weapons: Weapon[] = [
     materials: ["Luminous Sands from Guyun", "Gloomy Statuette", "Spectral Husk"],
   },
   {
+    id: "Hunter’s Path",
+    type: "weapon",
+    rarity: 5,
+    category: WeaponCategory.BOW,
+    name: { en: ["Hunter’s Path"], "zh-CN": ["猎人之径"] },
+    materials: [],
+  },
+  {
     id: "Lost Prayer to the Sacred Winds",
     type: "weapon",
     rarity: 5,
@@ -397,6 +405,22 @@ export const weapons: Weapon[] = [
     materials: ["Grain of Aerosiderite", "Hunter’s Sacrificial Knife", "Divining Scroll"],
   },
   {
+    id: "End of the Line",
+    type: "weapon",
+    rarity: 4,
+    category: WeaponCategory.BOW,
+    name: { en: ["End of the Line"], "zh-CN": ["竭泽"] },
+    materials: [],
+  },
+  {
+    id: "King’s Squire",
+    type: "weapon",
+    rarity: 4,
+    category: WeaponCategory.BOW,
+    name: { en: ["King’s Squire"], "zh-CN": ["王下近侍"] },
+    materials: [],
+  },
+  {
     id: "Wine and Song",
     type: "weapon",
     rarity: 4,
@@ -535,6 +559,14 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.CATALYST,
     name: { en: ["Oathsworn Eye"], "zh-CN": ["证誓之明瞳"] },
     materials: ["Coral Branch of a Distant Sea", "Concealed Claw", "Spectral Husk"],
+  },
+  {
+    id: "Fruit of Fulfillment",
+    type: "weapon",
+    rarity: 4,
+    category: WeaponCategory.CATALYST,
+    name: { en: ["Fruit of Fulfillment"], "zh-CN": ["盈满之实"] },
+    materials: [],
   },
   {
     id: "Akuoumaru",
@@ -677,6 +709,14 @@ export const weapons: Weapon[] = [
     materials: ["Luminous Sands from Guyun", "Hunter’s Sacrificial Knife", "Firm Arrowhead"],
   },
   {
+    id: "Forest Regalia",
+    type: "weapon",
+    rarity: 4,
+    category: WeaponCategory.CLAYMORE,
+    name: { en: ["Forest Regalia"], "zh-CN": ["森林王器"] },
+    materials: [],
+  },
+  {
     id: "Prototype Starglitter",
     type: "weapon",
     rarity: 4,
@@ -808,6 +848,14 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.POLEARM,
     name: { en: ["Royal Spear"], "zh-CN": ["宗室猎枪"] },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Recruit’s Insignia"],
+  },
+  {
+    id: "Moonpiercer",
+    type: "weapon",
+    rarity: 4,
+    category: WeaponCategory.POLEARM,
+    name: { en: ["Moonpiercer"], "zh-CN": ["贯月矢"] },
+    materials: [],
   },
   {
     id: "The Flute",
@@ -949,6 +997,14 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.SWORD,
     name: { en: ["Kagotsurube Isshin"], "zh-CN": ["笼钓瓶一心"] },
     materials: ["Mask of the Wicked Lieutenant", "Gloomy Statuette", "Spectral Husk"],
+  },
+  {
+    id: "Sapwood Blade",
+    type: "weapon",
+    rarity: 4,
+    category: WeaponCategory.SWORD,
+    name: { en: ["Sapwood Blade"], "zh-CN": ["原木刀"] },
+    materials: [],
   },
   {
     id: "Raven Bow",

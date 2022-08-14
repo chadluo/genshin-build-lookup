@@ -7,15 +7,30 @@ import "./style.css";
 import * as Types from "./types";
 import * as Weapons from "./weapons";
 
+/*** version specific contents ***/
+
+/* 2.8 */
+const recent_new = ["Shikanoin Heizou", "Kagotsurube Isshin"];
+
+/* 3.0 */
+const upcoming = [
+  "Hunter’s Path",
+  "End of the Line",
+  "King’s Squire",
+  "Fruit of Fulfillment",
+  "Forest Regalia",
+  "Moonpiercer",
+  "Sapwood Blade",
+];
+
+/*** version specific contents ***/
+
 const selectors: HTMLElement = document.getElementById("selectors")!;
 const output: HTMLElement = document.getElementById("output")!;
 const lang_select: HTMLElement = document.getElementById("lang-select")!;
 
 type TimezoneNames = "Asia" | "Europe" | "America";
 const timezones: { [tz in TimezoneNames]: number } = { Asia: 8, Europe: 1, America: -5 };
-
-/* 2.8 */
-const recent_new = ["Shikanoin Heizou", "Kagotsurube Isshin"];
 
 const regions: { [id in Types.Region]: Types.I18nObject } = {
   Mondstadt: { en: ["Mondstadt"], "zh-CN": ["蒙德"] },
@@ -318,13 +333,16 @@ function groupBosses<T>(f: (b: Enemies.Boss) => T, bs: Enemies.Boss[]): Map<T, E
   }, new Map<T, Enemies.Boss[]>());
 }
 
-function renderLink(id: string, type: Types.ItemType, names: any) {
+function renderLink(id: string, type: Types.ItemType, names: Types.I18nObject) {
   const classes = [];
   if (Bookmarks.isBookmarked(type, id, 0)) {
     classes.push("bookmarked");
   }
   if (recent_new.includes(id)) {
     classes.push("recent-new");
+  }
+  if (upcoming.includes(id)) {
+    classes.push("upcoming");
   }
   return `<a data-id='${id}' data-type='${type}' class="${classes.join(" ")}">${formatName(names)}</a>`;
 }
@@ -527,17 +545,6 @@ function findWeaponsForMaterial(m: string): Weapons.Weapon[] {
   return Weapons.weapons.filter((w) => w.materials.includes(m));
 }
 
-function renderFullQTable(
-  type: Types.ItemType,
-  id: string,
-  name: Types.I18nObject,
-  object: Map<Materials.Material, (Types.WishObject | [Enemies.Domain, number] | Enemies.Boss)[]>,
-  weekday: number
-): string {
-  return `<table name="${formatId(type, id, weekday)}" class="qtable highlighted"
-  >${renderQTableRows(type, id, name, object, weekday)}</table>`;
-}
-
 /**
  * Sample structure:
  *
@@ -563,15 +570,24 @@ function renderQTableRows(
     : formatName(name)
   ).replaceAll(" / ", separator)}</div></label>
       </th>
-      <td>${formatName(materials[0].name)}</td>
-      <td>${formatArray(object.get(materials[0])!)}</td>
+      ${renderQTableRow(materials, object.get(materials[0])!)}
     </tr>
-    ${materials
-      .slice(1)
-      .map(
-        (m) => `<tr ${formatMaterialType(m)}><td>${formatName(m.name)}</td><td>${formatArray(object.get(m)!)}</td></tr>`
-      )
-      .join("")}`;
+    ${
+      materials.length === 0
+        ? ""
+        : materials
+            .slice(1)
+            .map((m) => `<tr ${formatMaterialType(m)}> ${renderQTableRow([m], object.get(m)!)} </tr>`)
+            .join("")
+    }`;
+}
+
+function renderQTableRow(
+  materials: Materials.Material[],
+  objects: (Types.WishObject | [Enemies.Domain, number] | Enemies.Boss)[]
+) {
+  return `<td>${materials.length === 0 ? "" : formatName(materials[0].name)}</td>
+    <td>${materials.length === 0 ? "" : formatArray(objects)}</td>`;
 }
 
 function formatDomainName(name: Types.I18nObject, weekday: number) {
