@@ -93,9 +93,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const bookmarks = JSON.parse(localStorage.getItem("bookmarks") ?? "[]");
   const hasBookmarks = bookmarks.length === 0 ? "" : "hasBookmarks";
-  selectors.innerHTML += `<characters-table ${hasBookmarks}></characters-table>`;
-  selectors.innerHTML += `<weapons-table ${hasBookmarks}></weapons-table>`;
-  selectors.innerHTML += `<enemies-table ${hasBookmarks}></enemies-table>`;
+  selectors.innerHTML += `<characters-table id="character" ${hasBookmarks}></characters-table>`;
+  selectors.innerHTML += `<weapons-table id="weapon" ${hasBookmarks}></weapons-table>`;
+  selectors.innerHTML += `<enemies-table id="enemies" ${hasBookmarks}></enemies-table>`;
   selectors.innerHTML += renderWeekdayDomainTables(serverTimezone, false);
 
   bookmarks.forEach(
@@ -111,10 +111,9 @@ window.addEventListener("DOMContentLoaded", () => {
 document.querySelector("nav .links")!.addEventListener("click", (event) => {
   const link = event.target as HTMLElement;
   if (!link || link.tagName !== "A") return;
-  const target = document.getElementById(link.dataset.target ?? "") as HTMLDetailsElement;
-  if (target && target.tagName === "DETAILS") {
-    target.open = true;
-  }
+  const target = document.getElementById(link.dataset.target ?? "")!;
+  let details = target.querySelector("details.section") as HTMLDetailsElement;
+  if (details) details.open = true;
   target.scrollIntoView();
 });
 
@@ -150,7 +149,7 @@ customElements.define(
       super();
       const byRarity = groupWishObjects((o) => o.rarity, Characters.characters);
       const rarities = Array.from(byRarity.keys()).sort().reverse();
-      this.innerHTML = `<details id="${Types.TYPE_CHARACTER}" class="section" ${this.hasBookmarks() ? "" : "open"}>
+      this.innerHTML = `<details class="section" ${this.hasBookmarks() ? "" : "open"}>
       <summary>${formatTableCaption(Types.TYPE_CHARACTER)}</summary>
       <table class="ctable">${rarities
         .map((rarity) => {
@@ -183,7 +182,7 @@ customElements.define(
       super();
       const byRarity = groupWishObjects((w) => w.rarity, Weapons.weapons);
       const rarities = Array.from(byRarity.keys()).sort().reverse();
-      this.innerHTML = `<details id="${Types.TYPE_WEAPON}" class="section" ${this.hasBookmarks() ? "" : "open"}>
+      this.innerHTML = `<details class="section" ${this.hasBookmarks() ? "" : "open"}>
       <summary>${formatTableCaption(Types.TYPE_WEAPON)}</summary><table class="ctable">
       ${rarities
         .map((rarity) => {
@@ -289,7 +288,7 @@ customElements.define(
       const bossKeys = Array.from(bosses.keys());
       const talentDomains = Enemies.domains.filter((d) => d.type === "talent_domain");
       const weaponDomains = Enemies.domains.filter((d) => d.type === "weapon_domain");
-      this.innerHTML = `<details id="enemies" class="section" ${this.hasBookmarks() ? "" : "open"}>
+      this.innerHTML = `<details class="section" ${this.hasBookmarks() ? "" : "open"}>
     <summary>${formatTableCaption("enemies_domains")}</summary>
     <table class="ctable">
     <tr>
@@ -381,10 +380,10 @@ function formatDomain(id: string, type: Types.ItemType) {
 function renderWeekdayDomainTables(timezone: TimezoneNames, manual: boolean) {
   const day = getWeekday(timezone);
   const weekdays = day === 0 ? [1, 2, 3] : [day];
-  return `<details id="today" class="section" ${day === 0 && !manual ? "" : "open"}>
+  return `<div id="today"><details class="section" ${day === 0 && !manual ? "" : "open"}>
     <summary>${formatTableCaption("today")}</summary>
      ${renderServerTimezoneSelector(timezone)}
-    <table class="qtable">${renderDomains(weekdays)}</table></details>`;
+    <table class="qtable">${renderDomains(weekdays)}</table></details></div>`;
 }
 
 function renderServerTimezoneSelector(timezone: TimezoneNames) {

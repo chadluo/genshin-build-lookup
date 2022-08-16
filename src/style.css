@@ -201,16 +201,23 @@ nav + div {
   content: " ";
 }
 
-#output:not(:empty)::before {
-  content: "🚜";
+#character,
+#weapon,
+#enemies,
+#today {
   display: block;
-  margin: 2rem 0;
 }
-
-details.section,
+#character,
+#weapon,
+#enemies,
+#today,
 #output {
   margin-top: -3rem;
   padding-top: 6rem;
+}
+details.section {
+  border: 1px solid var(--border-color);
+  padding: 0.75em 1em;
 }
 summary {
   white-space: pre-wrap;
@@ -233,7 +240,7 @@ table {
   width: 100%;
   border-spacing: 0;
 }
-table:not(:empty) {
+#output:not(:empty) {
   border-bottom: 1px solid var(--border-color);
 }
 th,
@@ -284,7 +291,7 @@ th span {
   width: 30%;
 }
 
-.qtable.highlighted {
+.highlighted {
   animation: 1s highlight;
 }
 /* prettier-ignore */
