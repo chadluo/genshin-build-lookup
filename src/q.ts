@@ -656,11 +656,6 @@ document.getElementById("clear")?.addEventListener("click", () => {
 selectors.addEventListener("change", Bookmarks.updateBookmark);
 output.addEventListener("change", Bookmarks.updateBookmark);
 
-function selectTimezone(timezone: TimezoneNames) {
-  document.getElementById("today")!.outerHTML = renderWeekdayDomainTables(timezone, true);
-  localStorage.setItem("timezone", timezone);
-}
-
 selectors.addEventListener("change", (event) => {
   const target = event.target as HTMLInputElement;
   if (target.name === "timezone") {
@@ -668,28 +663,7 @@ selectors.addEventListener("change", (event) => {
   }
 });
 
-document.querySelector("input#show-gems")?.addEventListener("change", (event) => {
-  output.classList.toggle("show-gems", (event.target as HTMLInputElement)?.checked);
-  document.body.classList.remove("smooth");
-  window.scrollTo(0, document.body.scrollHeight);
-  document.body.classList.add("smooth");
-});
-
-document.querySelector("input#show-billets")?.addEventListener("change", (event) => {
-  output.classList.toggle("show-billets", (event.target as HTMLInputElement)?.checked);
-  document.body.classList.remove("smooth");
-  window.scrollTo(0, document.body.scrollHeight);
-  document.body.classList.add("smooth");
-});
-
-document.querySelector("input#show-alternatives")?.addEventListener("change", (event) => {
-  const alternativeDetails = document.querySelectorAll("details.alternative");
-  if ((event.target as HTMLInputElement)?.checked) {
-    alternativeDetails.forEach((e) => e.setAttribute("open", ""));
-  } else {
-    alternativeDetails.forEach((e) => e.removeAttribute("open"));
-  }
-  document.body.classList.remove("smooth");
-  window.scrollTo(0, document.body.scrollHeight);
-  document.body.classList.add("smooth");
-});
+function selectTimezone(timezone: TimezoneNames) {
+  document.getElementById("today")!.outerHTML = renderWeekdayDomainTables(timezone, true);
+  localStorage.setItem("timezone", timezone);
+}
