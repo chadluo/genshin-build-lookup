@@ -151,13 +151,13 @@ customElements.define(
       const rarities = Array.from(byRarity.keys()).sort().reverse();
       this.innerHTML = `<details class="section" ${this.hasBookmarks() ? "" : "open"}>
       <summary>${formatTableCaption(Types.TYPE_CHARACTER)}</summary>
-      <table class="ctable">${rarities
-        .map((rarity) => {
-          const cs: Characters.Character[] = byRarity.get(rarity)!;
-          return `<tr><th>${"⭐".repeat(rarity)}</th>
+      <table class="ctable">${rarities.map((rarity) => this.showByRarity(rarity, byRarity)).join("")}</table>
+      </details>`;
+    }
+    showByRarity(rarity: number, byRarity: Map<number, Types.WishObject[]>) {
+      const cs: Characters.Character[] = byRarity.get(rarity)!;
+      return `<tr><th>${"⭐".repeat(rarity)}</th>
       <td>${cs.map((c) => renderLink(c.id, Types.TYPE_CHARACTER, c.name)).join(formatName(i18n.delimiter))}</td></tr>`;
-        })
-        .join("")}</table></details>`;
     }
     hasBookmarks(): boolean {
       return this.hasAttribute("hasBookmarks");
@@ -276,12 +276,12 @@ customElements.define(
   class extends HTMLElement {
     constructor() {
       super();
-      const weeklyBosses: Map<Types.Region, Enemies.Boss[]> = groupBosses(
+      const weeklyBosses: Map<Types.Region, Enemies.Boss[]> = this.groupBosses(
         (b) => b.region,
         Enemies.bosses.filter((b) => b.type === "weekly_boss")
       );
       const weeklyBossKeys = Array.from(weeklyBosses.keys());
-      const bosses: Map<Types.Region, Enemies.Boss[]> = groupBosses(
+      const bosses: Map<Types.Region, Enemies.Boss[]> = this.groupBosses(
         (b) => b.region,
         Enemies.bosses.filter((b) => b.type === "boss")
       );
@@ -293,47 +293,67 @@ customElements.define(
     <table class="ctable">
     <tr>
       <th rowspan="${weeklyBossKeys.length}">${formatName(i18n.weekly_boss)}</th>
-      ${formatBossesForRegion(regions[weeklyBossKeys[0]], weeklyBosses.get(weeklyBossKeys[0])!)}
+      ${this.formatBossesForRegion(regions[weeklyBossKeys[0]], weeklyBosses.get(weeklyBossKeys[0])!)}
       </tr>
       ${weeklyBossKeys
         .slice(1)
-        .map((k) => `<tr>${formatBossesForRegion(regions[k], weeklyBosses.get(k)!)}</tr>`)
+        .map((k) => `<tr>${this.formatBossesForRegion(regions[k], weeklyBosses.get(k)!)}</tr>`)
         .join("")}
       <tr><th rowspan="${bossKeys.length}">${formatName(i18n.boss)}</th>
-      ${formatBossesForRegion(regions[bossKeys[0]], bosses.get(bossKeys[0])!)}
+      ${this.formatBossesForRegion(regions[bossKeys[0]], bosses.get(bossKeys[0])!)}
       </tr>
       ${bossKeys
         .slice(1)
-        .map((k) => `<tr>${formatBossesForRegion(regions[k], bosses.get(k)!)}</tr>`)
+        .map((k) => `<tr>${this.formatBossesForRegion(regions[k], bosses.get(k)!)}</tr>`)
         .join("")}
       <tr><th rowspan="${talentDomains.length}">${formatName(i18n.talent_domain)}</th>
-        ${formatDomain(talentDomains[0].id, Types.TYPE_TALENT_DOMAIN)}</tr>
+        ${this.formatDomain(talentDomains[0].id, Types.TYPE_TALENT_DOMAIN)}</tr>
       ${talentDomains
         .slice(1)
-        .map((d) => `<tr>${formatDomain(d.id, Types.TYPE_TALENT_DOMAIN)}</tr>`)
+        .map((d) => `<tr>${this.formatDomain(d.id, Types.TYPE_TALENT_DOMAIN)}</tr>`)
         .join("")}
       <tr><th rowspan="${weaponDomains.length}">${formatName(i18n.weapon_domain)}</th>
-      ${formatDomain(weaponDomains[0].id, Types.TYPE_WEAPON_DOMAIN)}</tr>
+      ${this.formatDomain(weaponDomains[0].id, Types.TYPE_WEAPON_DOMAIN)}</tr>
       ${weaponDomains
         .slice(1)
-        .map((d) => `<tr>${formatDomain(d.id, Types.TYPE_WEAPON_DOMAIN)}</tr>`)
+        .map((d) => `<tr>${this.formatDomain(d.id, Types.TYPE_WEAPON_DOMAIN)}</tr>`)
         .join("")}</table></details>`;
     }
+
     hasBookmarks() {
       return this.hasAttribute("hasBookmarks");
     }
+
+    groupBosses<T>(f: (b: Enemies.Boss) => T, bs: Enemies.Boss[]): Map<T, Enemies.Boss[]> {
+      return bs.reduce((m, b) => {
+        const key = f(b);
+        const arr = m.get(key) ?? [];
+        arr.push(b);
+        m.set(key, arr);
+        return m;
+      }, new Map<T, Enemies.Boss[]>());
+    }
+
+    /**
+     * Return structure: td*2
+     */
+    formatBossesForRegion(region: Types.I18nObject, bosses: Enemies.Boss[]) {
+      return `<td>${formatName(region)}</td><td>${bosses
+        .map((boss) => renderLink(boss.id, Types.TYPE_WEEKLY_BOSS, boss!.name))
+        .join(formatName(i18n.delimiter))}</td>`;
+    }
+
+    formatDomain(id: string, type: Types.ItemType) {
+      return `<td>${formatName(Enemies.domains.filter((d) => d.id === id)[0]!.name)}</td><td>${[1, 2, 3]
+        .map((i) => {
+          return `<a data-id='${id}' data-weekday='${i}' data-type='${type}' ${
+            Bookmarks.isBookmarked(type, id, i) ? "class='bookmarked'" : ""
+          }>${formatName(i18nWeekdays[i]!)}</a>`;
+        })
+        .join(formatName(i18n.delimiter))}</td>`;
+    }
   }
 );
-
-function groupBosses<T>(f: (b: Enemies.Boss) => T, bs: Enemies.Boss[]): Map<T, Enemies.Boss[]> {
-  return bs.reduce((m, b) => {
-    const key = f(b);
-    const arr = m.get(key) ?? [];
-    arr.push(b);
-    m.set(key, arr);
-    return m;
-  }, new Map<T, Enemies.Boss[]>());
-}
 
 function renderLink(id: string, type: Types.ItemType, names: Types.I18nObject) {
   const classes = [];
@@ -347,34 +367,6 @@ function renderLink(id: string, type: Types.ItemType, names: Types.I18nObject) {
     classes.push("upcoming");
   }
   return `<a data-id='${id}' data-type='${type}' class="${classes.join(" ")}">${formatName(names)}</a>`;
-}
-
-function renderDomainLink(id: string, weekday: number, type: Types.ItemType, names: Types.I18nObject) {
-  const classes = [];
-  if (Bookmarks.isBookmarked(type, id, weekday)) {
-    classes.push("bookmarked");
-  }
-  return `<a data-id='${id}' data-weekday='${weekday}' data-type='${type}' class='${classes.join(" ")}'
-  >${formatName(names)} ${formatName(i18nWeekdays[weekday])}</a>`;
-}
-
-/**
- * Return structure: td*2
- */
-function formatBossesForRegion(region: Types.I18nObject, bosses: Enemies.Boss[]) {
-  return `<td>${formatName(region)}</td><td>${bosses
-    .map((boss) => renderLink(boss.id, Types.TYPE_WEEKLY_BOSS, boss!.name))
-    .join(formatName(i18n.delimiter))}</td>`;
-}
-
-function formatDomain(id: string, type: Types.ItemType) {
-  return `<td>${formatName(Enemies.domains.filter((d) => d.id === id)[0]!.name)}</td><td>${[1, 2, 3]
-    .map((i) => {
-      return `<a data-id='${id}' data-weekday='${i}' data-type='${type}' ${
-        Bookmarks.isBookmarked(type, id, i) ? "class='bookmarked'" : ""
-      }>${formatName(i18nWeekdays[i]!)}</a>`;
-    })
-    .join(formatName(i18n.delimiter))}</td>`;
 }
 
 function renderWeekdayDomainTables(timezone: TimezoneNames, manual: boolean) {
@@ -565,12 +557,13 @@ function renderQTableRows(
   return `<tr name="${formatId(type, id, weekday)}">
       <th rowspan="${materials.length}">
         <label><input type="checkbox" data-type="${type}" data-id="${id}"
-        ${weekday ? `data-weekday="${weekday}"` : ""} ${
-    Bookmarks.isBookmarked(type, id, weekday) ? "checked" : ""
-  }><div> ${(type === "talent_domain" || type === "weapon_domain"
-    ? formatDomainName(name, weekday)
-    : formatName(name)
-  ).replaceAll(" / ", separator)}</div></label>
+        ${weekday ? `data-weekday="${weekday}"` : ""}
+        ${Bookmarks.isBookmarked(type, id, weekday) ? "checked" : ""}>
+        <div> ${(type === "talent_domain" || type === "weapon_domain"
+          ? formatDomainName(name, weekday)
+          : formatName(name)
+        ).replaceAll(" / ", separator)}
+        </div></label>
       </th>
       ${renderQTableRow(materials, object.get(materials[0])!)}
     </tr>
@@ -629,6 +622,15 @@ function formatArray(es: (Types.WishObject | [Enemies.Domain, number] | Enemies.
       }
     })
     .join(formatName(i18n.delimiter));
+}
+
+function renderDomainLink(id: string, weekday: number, type: Types.ItemType, names: Types.I18nObject) {
+  const classes = [];
+  if (Bookmarks.isBookmarked(type, id, weekday)) {
+    classes.push("bookmarked");
+  }
+  return `<a data-id='${id}' data-weekday='${weekday}' data-type='${type}' class='${classes.join(" ")}'
+  >${formatName(names)} ${formatName(i18nWeekdays[weekday])}</a>`;
 }
 
 function formatName(name: Types.I18nObject): string {
