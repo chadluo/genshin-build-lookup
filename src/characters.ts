@@ -453,7 +453,13 @@ export const characters: Character[] = [
       "Fluorescent Fungus",
     ],
   },
-  { id: "Tighnari", type: "character", rarity: 5, name: { en: ["Tighnari"], "zh-CN": ["提纳里"] }, materials: [] },
+  {
+    id: "Tighnari",
+    type: "character",
+    rarity: 5,
+    name: { en: ["Tighnari"], "zh-CN": ["提纳里"] },
+    materials: ["Nagadus Emerald", "The Meaning of Aeons", "Admonition", "Fungal Spores", "Nilotpala Lotus"],
+  },
   {
     id: "Venti",
     type: "character",

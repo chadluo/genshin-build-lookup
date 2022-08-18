@@ -14,6 +14,7 @@ export const gems = [
   "Vayuda Turquoise",
   "Shivada Jade",
   "Prithiva Topaz",
+  "Nagadus Emerald",
 ] as const;
 
 export type Gem = typeof gems[number];
@@ -38,6 +39,7 @@ export const general = [
   "Spectral Husk",
   "Concealed Claw",
   "Gloomy Statuette",
+  "Fungal Spores",
 ];
 
 export type General = typeof general[number];
@@ -96,6 +98,7 @@ export const characterAscension = [
   "Riftborn Regalia",
   "Dragonheir’s False Fin",
   "Runic Fang",
+  "Nilotpala Lotus",
 ] as const;
 
 export type CharacterAscension = typeof characterAscension[number];
@@ -110,6 +113,7 @@ export const talent = [
   "Transience",
   "Elegance",
   "Light",
+  "Admonition",
   "Crown of Insight",
   "Dvalin’s Plume",
   "Dvalin’s Claw",
@@ -274,6 +278,13 @@ export const materials: Material[] = [
       "zh-CN": ["晦暗刻像", "夤夜刻像", "幽邃刻像"],
     },
   },
+  {
+    id: "Fungal Spores",
+    name: {
+      en: ["Fungal Spores", "Luminescent Pollen", "Crystalline Cyst Dust"],
+      "zh-CN": ["蕈兽孢子", "荧光孢粉", "孢囊晶尘"],
+    },
+  },
 
   // local specialities
   { id: "Calla Lily", name: { en: ["Calla Lily"], "zh-CN": ["嘟嘟莲"] } },
@@ -301,6 +312,7 @@ export const materials: Material[] = [
   { id: "Sakura Bloom", name: { en: ["Sakura Bloom"], "zh-CN": ["绯樱绣球"] } },
   { id: "Sango Pearl", name: { en: ["Sango Pearl"], "zh-CN": ["珊瑚真珠"] } },
   { id: "Sea Ganoderma", name: { en: ["Sea Ganoderma"], "zh-CN": ["海灵芝"] } },
+  { id: "Nilotpala Lotus", name: { en: ["Nilotpala Lotus"], "zh-CN": ["月莲"] } },
 
   // character ascension
   { id: "Brilliant Diamond", name: { en: ["Brilliant Diamond"], "zh-CN": ["璀璨原钻"] } },
@@ -310,6 +322,7 @@ export const materials: Material[] = [
   { id: "Vayuda Turquoise", name: { en: ["Vayuda Turquoise"], "zh-CN": ["自在松石"] } },
   { id: "Shivada Jade", name: { en: ["Shivada Jade"], "zh-CN": ["哀叙冰玉"] } },
   { id: "Prithiva Topaz", name: { en: ["Prithiva Topaz"], "zh-CN": ["坚牢黄玉"] } },
+  { id: "Nagadus Emerald", name: { en: ["Nagadus Emerald"], "zh-CN": ["生长碧翡"] } },
   { id: "Hurricane Seed", name: { en: ["Hurricane Seed"], "zh-CN": ["飓风之种"] } },
   { id: "Lightning Prism", name: { en: ["Lightning Prism"], "zh-CN": ["雷光棱镜"] } },
   { id: "Basalt Pillar", name: { en: ["Basalt Pillar"], "zh-CN": ["玄岩之塔"] } },
@@ -337,6 +350,7 @@ export const materials: Material[] = [
   { id: "Transience", name: { en: ["Transience"], "zh-CN": ["浮世"] } },
   { id: "Elegance", name: { en: ["Elegance"], "zh-CN": ["风雅"] } },
   { id: "Light", name: { en: ["Light"], "zh-CN": ["天光"] } },
+  { id: "Admonition", name: { en: ["Admonition"], "zh-CN": ["诤言"] } },
   { id: "Crown of Insight", name: { en: ["Crown of Insight"], "zh-CN": ["智识之冕"] } },
   { id: "Dvalin’s Plume", name: { en: ["Dvalin’s Plume"], "zh-CN": ["东风之翎"] } },
   { id: "Dvalin’s Claw", name: { en: ["Dvalin’s Claw"], "zh-CN": ["东风之爪"] } },
