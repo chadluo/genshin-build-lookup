@@ -90,14 +90,12 @@ window.addEventListener("DOMContentLoaded", () => {
   const lang = i18n.supportedLanguageSelectors.hasOwnProperty(lang_candidate) ? lang_candidate : "en";
   setLanguage(lang);
 
-  const serverTimezone: TimezoneNames = (localStorage.getItem("timezone") as TimezoneNames) || guessTimezone();
-
   const bookmarks = JSON.parse(localStorage.getItem("bookmarks") ?? "[]");
   const hasBookmarks = bookmarks.length === 0 ? "" : "hasBookmarks";
   selectors.innerHTML += `<characters-table id="character" ${hasBookmarks}></characters-table>`;
   selectors.innerHTML += `<weapons-table id="weapon" ${hasBookmarks}></weapons-table>`;
   selectors.innerHTML += `<enemies-table id="enemies" ${hasBookmarks}></enemies-table>`;
-  selectors.innerHTML += renderWeekdayDomainTables(serverTimezone, false);
+  selectors.innerHTML += `<today-table id="today"></today-table>`;
 
   bookmarks.forEach(
     ([type, id, weekday]: [string, string, number]) => (output.innerHTML += renderQTableContent(type, id, weekday))
@@ -370,26 +368,6 @@ function renderLink(id: string, type: Types.ItemType, names: Types.I18nObject) {
   return `<a data-id='${id}' data-type='${type}' class="${classes.join(" ")}">${formatName(names)}</a>`;
 }
 
-function renderWeekdayDomainTables(timezone: TimezoneNames, manual: boolean) {
-  const day = getWeekday(timezone);
-  const weekdays = day === 0 ? [1, 2, 3] : [day];
-  return `<div id="today"><details class="section" ${day === 0 && !manual ? "" : "open"}>
-    <summary>${formatTableCaption("today")}</summary>
-     ${renderServerTimezoneSelector(timezone)}
-    <table class="qtable">${renderDomains(weekdays)}</table></details></div>`;
-}
-
-function renderServerTimezoneSelector(timezone: TimezoneNames) {
-  return `<div class="timezone-selector">${(["Asia", "Europe", "America"] as TimezoneNames[])
-    .map(
-      (zone) => `<label>
-        <input type="radio" name="timezone" value="${zone}" ${zone === timezone ? "checked" : ""}>
-        ${formatName(i18n[zone]) + formatName(i18n.delimiter) + formatName(i18nWeekdays[getWeekday(zone)])}
-      </label>`
-    )
-    .join("")}</div>`;
-}
-
 function renderDomains(weekdays: number[]): string {
   return Enemies.domains
     .flatMap((domain) =>
@@ -399,6 +377,45 @@ function renderDomains(weekdays: number[]): string {
     )
     .join("");
 }
+
+customElements.define(
+  "today-table",
+  class extends HTMLElement {
+    constructor() {
+      super();
+      const day = getWeekday(this.getTimezone());
+      const weekdays = day === 0 ? [1, 2, 3] : [day];
+      this.innerHTML = `<details class="section" open>
+        <summary>${formatTableCaption("today")}</summary>
+        <div class="timezone-selector">${(["Asia", "Europe", "America"] as TimezoneNames[])
+          .map(
+            (zone) =>
+              `<label><input type="radio" name="timezone" value="${zone}" ${
+                zone === this.getTimezone() ? "checked" : ""
+              }>${this.formatZoneOption(zone)}</label>`
+          )
+          .join("")}</div>
+        <table class="qtable">${renderDomains(weekdays)}</table></details>`;
+      this.addEventListener("change", this.refreshDomains);
+    }
+    getTimezone() {
+      return (localStorage.getItem("timezone") as TimezoneNames) || guessTimezone();
+    }
+    formatZoneOption(zone: TimezoneNames) {
+      return formatName(i18n[zone]) + formatName(i18n.delimiter) + formatName(i18nWeekdays[getWeekday(zone)]);
+    }
+    refreshDomains(event: Event) {
+      const target = event.target as HTMLInputElement;
+      if (target.name === "timezone") {
+        const timezone = target.value as TimezoneNames;
+        const day = getWeekday(this.getTimezone());
+        const weekdays = day === 0 ? [1, 2, 3] : [day];
+        this.querySelector("table.qtable")!.innerHTML = renderDomains(weekdays);
+        localStorage.setItem("timezone", timezone);
+      }
+    }
+  }
+);
 
 /* search result tables */
 
@@ -524,7 +541,6 @@ function findDomain(domainId: string, _weekday: number): Types.I18nObject {
 function byDomain(domainId: string, weekday: number): Map<Materials.Material, Types.WishObject[]> {
   const domain = Enemies.domains.filter((d) => d.id === domainId)[0]!;
   const material = domain.materials_by_weekday[weekday];
-  console.log("domain", domain, "material", material);
   const map = new Map();
   if (material) {
     map.set(
@@ -660,15 +676,3 @@ document.getElementById("clear")?.addEventListener("click", () => {
 
 selectors.addEventListener("change", Bookmarks.updateBookmark);
 output.addEventListener("change", Bookmarks.updateBookmark);
-
-selectors.addEventListener("change", (event) => {
-  const target = event.target as HTMLInputElement;
-  if (target.name === "timezone") {
-    selectTimezone(target.value as TimezoneNames);
-  }
-});
-
-function selectTimezone(timezone: TimezoneNames) {
-  document.getElementById("today")!.outerHTML = renderWeekdayDomainTables(timezone, true);
-  localStorage.setItem("timezone", timezone);
-}
