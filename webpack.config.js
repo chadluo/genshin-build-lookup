@@ -30,12 +30,12 @@ const config = {
     static: "./public",
     port: 3000,
   },
-  plugins: [
-    new HtmlWebpackPlugin({ template: "./src/index.html" }),
-    new GenerateSW({ clientsClaim: true, skipWaiting: true, cleanupOutdatedCaches: true }),
-  ],
+  plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
 };
 
 module.exports = (env, args) => {
+  if (args.mode !== "development") {
+    config.plugins.push(new GenerateSW({ clientsClaim: true, skipWaiting: true, cleanupOutdatedCaches: true }));
+  }
   return config;
 };

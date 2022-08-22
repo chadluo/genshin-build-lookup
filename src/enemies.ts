@@ -38,6 +38,12 @@ export const domains: Domain[] = [
     materials_by_weekday: ["All", "Transience", "Elegance", "Light"],
   },
   {
+    id: "Steeple of Ignorance",
+    name: { en: ["Steeple of Ignorance"], "zh-CN": ["昏识塔"] },
+    type: "talent_domain",
+    materials_by_weekday: ["All"],
+  },
+  {
     id: "Cecilia Garden",
     name: { en: ["Cecilia Garden"], "zh-CN": ["塞西莉亚苗圃"] },
     type: "weapon_domain",
@@ -64,6 +70,12 @@ export const domains: Domain[] = [
       "Narukami’s Wisdom",
       "Mask of the Wicked Lieutenant",
     ],
+  },
+  {
+    id: "Tower of Abject Pride",
+    name: { en: ["Tower of Abject Pride"], "zh-CN": ["有顶塔"] },
+    type: "weapon_domain",
+    materials_by_weekday: ["All"],
   },
 ];
 
@@ -186,6 +198,20 @@ export const bosses: Boss[] = [
     materials: ["Runic Fang", "Prithiva Topaz"],
     type: "boss",
     name: { en: ["Ruin Serpent"], "zh-CN": ["遗迹巨蛇"] },
+  },
+  {
+    id: "Electro Regisvine",
+    region: "Sumeru",
+    materials: [],
+    type: "boss",
+    name: { en: ["Electro Regisvine"], "zh-CN": ["掣电树"] },
+  },
+  {
+    id: "Jadeplume Terrorshroom",
+    region: "Sumeru",
+    materials: [],
+    type: "boss",
+    name: { en: ["Jadeplume Terrorshroom"], "zh-CN": ["翠翎恐蕈"] },
   },
 
   // weekly bosses

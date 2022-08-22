@@ -39,6 +39,7 @@ const regions: { [id in Types.Region]: Types.I18nObject } = {
   Mondstadt: { en: ["Mondstadt"], "zh-CN": ["蒙德"] },
   Liyue: { en: ["Liyue"], "zh-CN": ["璃月"] },
   Inazuma: { en: ["Inazuma"], "zh-CN": ["稻妻"] },
+  Sumeru: { en: ["Sumeru"], "zh-CN": ["须弥"] },
 };
 
 const i18n: { [id: string]: Types.I18nObject } = {
@@ -523,12 +524,15 @@ function findDomain(domainId: string, _weekday: number): Types.I18nObject {
 function byDomain(domainId: string, weekday: number): Map<Materials.Material, Types.WishObject[]> {
   const domain = Enemies.domains.filter((d) => d.id === domainId)[0]!;
   const material = domain.materials_by_weekday[weekday];
-  return new Map([
-    [
+  console.log("domain", domain, "material", material);
+  const map = new Map();
+  if (material) {
+    map.set(
       Materials.materials.find((m) => m.id === material)!,
-      domain.type === "weapon_domain" ? findWeaponsForMaterial(material) : findCharactersForMaterial(material),
-    ],
-  ]);
+      domain.type === "weapon_domain" ? findWeaponsForMaterial(material) : findCharactersForMaterial(material)
+    );
+  }
+  return map;
 }
 
 function findCharactersForMaterial(m: string): Characters.Character[] {
@@ -555,7 +559,7 @@ function renderQTableRows(
   const materials = Array.from(object.keys());
   const separator = "<span class='mobile'> / </span><span class='desktop'><br></span>";
   return `<tr name="${formatId(type, id, weekday)}">
-      <th rowspan="${materials.length}">
+      <th ${materials.length === 0 ? "" : `rowspan="${materials.length}"`}>
         <label><input type="checkbox" data-type="${type}" data-id="${id}"
         ${weekday ? `data-weekday="${weekday}"` : ""}
         ${Bookmarks.isBookmarked(type, id, weekday) ? "checked" : ""}>
