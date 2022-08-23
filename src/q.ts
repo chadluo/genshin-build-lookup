@@ -90,20 +90,17 @@ window.addEventListener("DOMContentLoaded", () => {
   const lang = i18n.supportedLanguageSelectors.hasOwnProperty(lang_candidate) ? lang_candidate : "en";
   setLanguage(lang);
 
-  const bookmarks = JSON.parse(localStorage.getItem("bookmarks") ?? "[]");
-  const hasBookmarks = bookmarks.length === 0 ? "" : "hasBookmarks";
-  selectors.innerHTML += `<characters-table id="character" ${hasBookmarks}></characters-table>`;
-  selectors.innerHTML += `<weapons-table id="weapon" ${hasBookmarks}></weapons-table>`;
-  selectors.innerHTML += `<enemies-table id="enemies" ${hasBookmarks}></enemies-table>`;
-  selectors.innerHTML += `<today-table id="today"></today-table>`;
-
-  bookmarks.forEach(
+  JSON.parse(localStorage.getItem("bookmarks") ?? "[]").forEach(
     ([type, id, weekday]: [string, string, number]) => (output.innerHTML += renderQTableContent(type, id, weekday))
   );
   document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
 
   Keyboard.initKeyboard();
 });
+
+function hasBookmarks(): boolean {
+  return JSON.parse(localStorage.getItem("bookmarks") ?? "[]").length !== 0;
+}
 
 /* nav */
 
@@ -148,18 +145,16 @@ customElements.define(
       super();
       const byRarity = groupWishObjects((o) => o.rarity, Characters.characters);
       const rarities = Array.from(byRarity.keys()).sort().reverse();
-      this.innerHTML = `<details class="section" ${this.hasBookmarks() ? "" : "open"}>
+      this.innerHTML = `<details class="section" ${hasBookmarks() ? "" : "open"}>
       <summary>${formatTableCaption(Types.TYPE_CHARACTER)}</summary>
       <table class="ctable">${rarities.map((rarity) => this.showByRarity(rarity, byRarity)).join("")}</table>
       </details>`;
     }
+
     showByRarity(rarity: number, byRarity: Map<number, Types.WishObject[]>) {
       const cs: Characters.Character[] = byRarity.get(rarity)!;
       return `<tr><th>${"⭐".repeat(rarity)}</th>
       <td>${cs.map((c) => renderLink(c.id, Types.TYPE_CHARACTER, c.name)).join(formatName(i18n.delimiter))}</td></tr>`;
-    }
-    hasBookmarks(): boolean {
-      return this.hasAttribute("hasBookmarks");
     }
   }
 );
@@ -181,7 +176,7 @@ customElements.define(
       super();
       const byRarity = groupWishObjects((w) => w.rarity, Weapons.weapons);
       const rarities = Array.from(byRarity.keys()).sort().reverse();
-      this.innerHTML = `<details class="section" ${this.hasBookmarks() ? "" : "open"}>
+      this.innerHTML = `<details class="section" ${hasBookmarks() ? "" : "open"}>
       <summary>${formatTableCaption(Types.TYPE_WEAPON)}</summary><table class="ctable">
       ${rarities
         .map((rarity) => {
@@ -207,9 +202,6 @@ customElements.define(
         .join("")}`;
         })
         .join("")}</table></details>`;
-    }
-    hasBookmarks(): boolean {
-      return this.hasAttribute("hasBookmarks");
     }
   }
 );
@@ -287,7 +279,7 @@ customElements.define(
       const bossKeys = Array.from(bosses.keys());
       const talentDomains = Enemies.domains.filter((d) => d.type === "talent_domain");
       const weaponDomains = Enemies.domains.filter((d) => d.type === "weapon_domain");
-      this.innerHTML = `<details class="section" ${this.hasBookmarks() ? "" : "open"}>
+      this.innerHTML = `<details class="section" ${hasBookmarks() ? "" : "open"}>
     <summary>${formatTableCaption("enemies_domains")}</summary>
     <table class="ctable">
     <tr>
@@ -317,10 +309,6 @@ customElements.define(
         .slice(1)
         .map((d) => `<tr>${this.formatDomain(d.id, Types.TYPE_WEAPON_DOMAIN)}</tr>`)
         .join("")}</table></details>`;
-    }
-
-    hasBookmarks() {
-      return this.hasAttribute("hasBookmarks");
     }
 
     groupBosses<T>(f: (b: Enemies.Boss) => T, bs: Enemies.Boss[]): Map<T, Enemies.Boss[]> {
@@ -398,12 +386,15 @@ customElements.define(
         <table class="qtable">${renderDomains(weekdays)}</table></details>`;
       this.addEventListener("change", this.refreshDomains);
     }
+
     getTimezone() {
       return (localStorage.getItem("timezone") as TimezoneNames) || guessTimezone();
     }
+
     formatZoneOption(zone: TimezoneNames) {
       return formatName(i18n[zone]) + formatName(i18n.delimiter) + formatName(i18nWeekdays[getWeekday(zone)]);
     }
+
     refreshDomains(event: Event) {
       const target = event.target as HTMLInputElement;
       if (target.name === "timezone") {
