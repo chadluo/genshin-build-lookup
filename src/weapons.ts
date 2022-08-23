@@ -69,7 +69,7 @@ export const weapons: Weapon[] = [
     rarity: 5,
     category: WeaponCategory.BOW,
     name: { en: ["Hunter’s Path"], "zh-CN": ["猎人之径"] },
-    materials: [],
+    materials: ["Echo of Scorching Might", "Inactivated Fungal Nucleus", "Faded Red Satin"],
   },
   {
     id: "Lost Prayer to the Sacred Winds",
@@ -410,7 +410,7 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: WeaponCategory.BOW,
     name: { en: ["End of the Line"], "zh-CN": ["竭泽"] },
-    materials: [],
+    materials: ["Echo of Scorching Might", "Inactivated Fungal Nucleus", "Fungal Spores"],
   },
   {
     id: "King’s Squire",
@@ -418,7 +418,7 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: WeaponCategory.BOW,
     name: { en: ["King’s Squire"], "zh-CN": ["王下近侍"] },
-    materials: [],
+    materials: ["Echo of Scorching Might", "Inactivated Fungal Nucleus", "Firm Arrowhead"],
   },
   {
     id: "Wine and Song",
@@ -566,7 +566,7 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: WeaponCategory.CATALYST,
     name: { en: ["Fruit of Fulfillment"], "zh-CN": ["盈满之实"] },
-    materials: [],
+    materials: ["Oasis Garden’s Reminiscence", "Gloomy Statuette", "Fungal Spores"],
   },
   {
     id: "Akuoumaru",
@@ -714,7 +714,7 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: WeaponCategory.CLAYMORE,
     name: { en: ["Forest Regalia"], "zh-CN": ["森林王器"] },
-    materials: [],
+    materials: ["Copper Talisman of the Forest Dew", "Chaos Storage", "Faded Red Satin"],
   },
   {
     id: "Prototype Starglitter",
@@ -855,7 +855,7 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: WeaponCategory.POLEARM,
     name: { en: ["Moonpiercer"], "zh-CN": ["贯月矢"] },
-    materials: [],
+    materials: ["Oasis Garden’s Reminiscence", "Chaos Storage", "Recruit’s Insignia"],
   },
   {
     id: "The Flute",
@@ -1004,7 +1004,7 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: WeaponCategory.SWORD,
     name: { en: ["Sapwood Blade"], "zh-CN": ["原木刀"] },
-    materials: [],
+    materials: ["Copper Talisman of the Forest Dew", "Chaos Storage", "Faded Red Satin"],
   },
   {
     id: "Raven Bow",

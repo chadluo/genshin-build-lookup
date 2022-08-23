@@ -285,6 +285,27 @@ export const materials: Material[] = [
       "zh-CN": ["蕈兽孢子", "荧光孢粉", "孢囊晶尘"],
     },
   },
+  {
+    id: "Inactivated Fungal Nucleus",
+    name: {
+      en: ["Inactivated Fungal Nucleus"],
+      "zh-CN": ["失活菌核"],
+    },
+  },
+  {
+    id: "Faded Red Satin",
+    name: {
+      en: ["Faded Red Satin"],
+      "zh-CN": ["褪色红绸"],
+    },
+  },
+  {
+    id: "Chaos Storage",
+    name: {
+      en: ["Chaos Storage"],
+      "zh-CN": ["混沌容器"],
+    },
+  },
 
   // local specialities
   { id: "Calla Lily", name: { en: ["Calla Lily"], "zh-CN": ["嘟嘟莲"] } },
@@ -459,6 +480,18 @@ export const materials: Material[] = [
       en: ["Mask of the Wicked Lieutenant", "Mask of the Tiger’s Bite", "Mask of the One-Horned", "Mask of the Kijin"],
       "zh-CN": ["今昔剧画之恶尉", "今昔剧画之虎啮", "今昔剧画之一角", "今昔剧画之鬼人"],
     },
+  },
+  {
+    id: "Echo of Scorching Might",
+    name: { en: ["Echo of Scorching Might"], "zh-CN": ["烈日威权的残响"] },
+  },
+  {
+    id: "Copper Talisman of the Forest Dew",
+    name: { en: [" Copper Talisman of the Forest Dew"], "zh-CN": ["谧林涓露的铜符"] },
+  },
+  {
+    id: "Oasis Garden’s Reminiscence",
+    name: { en: ["Oasis Garden’s Reminiscence"], "zh-CN": ["绿洲花园的追忆"] },
   },
 
   // weapon forge
