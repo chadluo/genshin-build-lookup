@@ -94,7 +94,20 @@ export const characters: Character[] = [
     name: { en: ["Chongyun"], "zh-CN": ["重云"] },
     materials: ["Hoarfrost Core", "Shivada Jade", "Dvalin’s Sigh", "Diligence", "Damaged Mask", "Cor Lapis"],
   },
-  { id: "Collei", type: "character", rarity: 4, name: { en: ["Collei"], "zh-CN": ["柯莱"] }, materials: [] },
+  {
+    id: "Collei",
+    type: "character",
+    rarity: 4,
+    name: { en: ["Collei"], "zh-CN": ["柯莱"] },
+    materials: [
+      "Majestic Hooked Beak",
+      "Nagadus Emerald",
+      "Tears of the Calamitous God",
+      "Praxis",
+      "Firm Arrowhead",
+      "Rukkhashava Mushrooms",
+    ],
+  },
   {
     id: "Diluc",
     type: "character",
@@ -458,7 +471,14 @@ export const characters: Character[] = [
     type: "character",
     rarity: 5,
     name: { en: ["Tighnari"], "zh-CN": ["提纳里"] },
-    materials: ["Nagadus Emerald", "The Meaning of Aeons", "Admonition", "Fungal Spores", "Nilotpala Lotus"],
+    materials: [
+      "Majestic Hooked Beak",
+      "Nagadus Emerald",
+      "The Meaning of Aeons",
+      "Admonition",
+      "Fungal Spores",
+      "Nilotpala Lotus",
+    ],
   },
   {
     id: "Venti",

@@ -207,14 +207,14 @@ export const bosses: Boss[] = [
   {
     id: "Electro Regisvine",
     region: "Sumeru",
-    materials: [],
+    materials: ["Thunderclap Fruitcore", "Vajrada Amethyst"],
     type: "boss",
     name: { en: ["Electro Regisvine"], "zh-CN": ["掣电树"] },
   },
   {
     id: "Jadeplume Terrorshroom",
     region: "Sumeru",
-    materials: [],
+    materials: ["Majestic Hooked Beak", "Nagadus Emerald"],
     type: "boss",
     name: { en: ["Jadeplume Terrorshroom"], "zh-CN": ["翠翎恐蕈"] },
   },

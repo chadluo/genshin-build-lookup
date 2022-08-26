@@ -220,7 +220,6 @@ details.section {
   padding: 0.75em 1em;
 }
 summary {
-  white-space: pre-wrap;
   cursor: pointer;
 }
 details.section:target summary {

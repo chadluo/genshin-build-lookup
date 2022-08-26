@@ -334,6 +334,7 @@ export const materials: Material[] = [
   { id: "Sango Pearl", name: { en: ["Sango Pearl"], "zh-CN": ["珊瑚真珠"] } },
   { id: "Sea Ganoderma", name: { en: ["Sea Ganoderma"], "zh-CN": ["海灵芝"] } },
   { id: "Nilotpala Lotus", name: { en: ["Nilotpala Lotus"], "zh-CN": ["月莲"] } },
+  { id: "Rukkhashava Mushrooms", name: { en: ["Rukkhashava Mushrooms"], "zh-CN": ["树王圣体菇"] } },
 
   // character ascension
   { id: "Brilliant Diamond", name: { en: ["Brilliant Diamond"], "zh-CN": ["璀璨原钻"] } },
@@ -360,6 +361,7 @@ export const materials: Material[] = [
   { id: "Riftborn Regalia", name: { en: ["Riftborn Regalia"], "zh-CN": ["兽境王器"] } },
   { id: "Dragonheir’s False Fin", name: { en: ["Dragonheir’s False Fin"], "zh-CN": ["龙嗣伪鳍"] } },
   { id: "Runic Fang", name: { en: ["Runic Fang"], "zh-CN": ["符纹之齿"] } },
+  { id: "Majestic Hooked Beak", name: { en: ["Majestic Hooked Beak"], "zh-CN": ["蕈王钩喙"] } },
 
   // character talents
   { id: "Freedom", name: { en: ["Freedom"], "zh-CN": ["自由"] } },
