@@ -41,7 +41,7 @@ export const domains: Domain[] = [
     id: "Steeple of Ignorance",
     name: { en: ["Steeple of Ignorance"], "zh-CN": ["昏识塔"] },
     type: "talent_domain",
-    materials_by_weekday: ["All"],
+    materials_by_weekday: ["All", "Admonition", "Ingenuity", "Praxis"],
   },
   {
     id: "Cecilia Garden",
@@ -75,7 +75,12 @@ export const domains: Domain[] = [
     id: "Tower of Abject Pride",
     name: { en: ["Tower of Abject Pride"], "zh-CN": ["有顶塔"] },
     type: "weapon_domain",
-    materials_by_weekday: ["All"],
+    materials_by_weekday: [
+      "All",
+      "Copper Talisman of the Forest Dew",
+      "Oasis Garden’s Reminiscence",
+      "Echo of Scorching Might",
+    ],
   },
 ];
 

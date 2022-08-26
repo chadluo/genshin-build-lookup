@@ -372,6 +372,8 @@ export const materials: Material[] = [
   { id: "Elegance", name: { en: ["Elegance"], "zh-CN": ["风雅"] } },
   { id: "Light", name: { en: ["Light"], "zh-CN": ["天光"] } },
   { id: "Admonition", name: { en: ["Admonition"], "zh-CN": ["诤言"] } },
+  { id: "Ingenuity", name: { en: ["Ingenuity"], "zh-CN": ["巧思"] } },
+  { id: "Praxis", name: { en: ["Praxis"], "zh-CN": ["笃行"] } },
   { id: "Crown of Insight", name: { en: ["Crown of Insight"], "zh-CN": ["智识之冕"] } },
   { id: "Dvalin’s Plume", name: { en: ["Dvalin’s Plume"], "zh-CN": ["东风之翎"] } },
   { id: "Dvalin’s Claw", name: { en: ["Dvalin’s Claw"], "zh-CN": ["东风之爪"] } },
@@ -482,16 +484,35 @@ export const materials: Material[] = [
     },
   },
   {
-    id: "Echo of Scorching Might",
-    name: { en: ["Echo of Scorching Might"], "zh-CN": ["烈日威权的残响"] },
-  },
-  {
     id: "Copper Talisman of the Forest Dew",
-    name: { en: [" Copper Talisman of the Forest Dew"], "zh-CN": ["谧林涓露的铜符"] },
+    name: {
+      en: [
+        "Copper Talisman of the Forest Dew",
+        "Iron Talisman of the Forest Dew",
+        "Silver Talisman of the Forest Dew",
+        "Golden Talisman of the Forest Dew",
+      ],
+      "zh-CN": ["谧林涓露的铜符", "谧林涓露的铁符", "谧林涓露的银符", "谧林涓露的金符"],
+    },
   },
   {
     id: "Oasis Garden’s Reminiscence",
-    name: { en: ["Oasis Garden’s Reminiscence"], "zh-CN": ["绿洲花园的追忆"] },
+    name: {
+      en: ["Oasis Garden’s Reminiscence", "Oasis Garden’s Kindness", "Oasis Garden’s Mourning", "Oasis Garden’s Truth"],
+      "zh-CN": ["绿洲花园的追忆", "绿洲花园的恩惠", "绿洲花园的哀思", "绿洲花园的真谛"],
+    },
+  },
+  {
+    id: "Echo of Scorching Might",
+    name: {
+      en: [
+        "Echo of Scorching Might",
+        "Remnant Glow of Scorching Might",
+        "Dream of Scorching Might",
+        "Olden Days of Scorching Might",
+      ],
+      "zh-CN": ["烈日威权的残响", "烈日威权的余光", "烈日威权的梦想", "烈日威权的旧日"],
+    },
   },
 
   // weapon forge

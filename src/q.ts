@@ -9,11 +9,8 @@ import * as Weapons from "./weapons";
 
 /*** version specific contents ***/
 
-/* 2.8 */
-const recent_new = ["Shikanoin Heizou", "Kagotsurube Isshin"];
-
 /* 3.0 */
-const upcoming = [
+const recent_new = [
   "Hunter’s Path",
   "End of the Line",
   "King’s Squire",
@@ -25,6 +22,8 @@ const upcoming = [
   "Collei",
   "Dori",
 ];
+
+const upcoming: string[] = [];
 
 /*** version specific contents ***/
 
