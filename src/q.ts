@@ -356,16 +356,6 @@ function renderLink(id: string, type: Types.ItemType, names: Types.I18nObject) {
   return `<a data-id='${id}' data-type='${type}' class="${classes.join(" ")}">${formatName(names)}</a>`;
 }
 
-function renderDomains(weekdays: number[]): string {
-  return Enemies.domains
-    .flatMap((domain) =>
-      weekdays.map((weekday) =>
-        renderQTableRows(domain.type, domain.id, findDomain(domain.id, weekday), byDomain(domain.id, weekday), weekday)
-      )
-    )
-    .join("");
-}
-
 customElements.define(
   "today-table",
   class extends HTMLElement {
@@ -383,7 +373,7 @@ customElements.define(
               }>${this.formatZoneOption(zone)}</label>`
           )
           .join("")}</div>
-        <table class="qtable">${renderDomains(weekdays)}</table></details>`;
+        <table class="qtable">${this.renderDomains(weekdays)}</table></details>`;
       this.addEventListener("change", this.refreshDomains);
     }
 
@@ -399,11 +389,27 @@ customElements.define(
       const target = event.target as HTMLInputElement;
       if (target.name === "timezone") {
         const timezone = target.value as TimezoneNames;
-        const day = getWeekday(this.getTimezone());
+        const day = getWeekday(timezone);
         const weekdays = day === 0 ? [1, 2, 3] : [day];
-        this.querySelector("table.qtable")!.innerHTML = renderDomains(weekdays);
+        this.querySelector("table.qtable")!.innerHTML = this.renderDomains(weekdays);
         localStorage.setItem("timezone", timezone);
       }
+    }
+
+    renderDomains(weekdays: number[]): string {
+      return Enemies.domains
+        .flatMap((domain) =>
+          weekdays.map((weekday) =>
+            renderQTableRows(
+              domain.type,
+              domain.id,
+              findDomain(domain.id, weekday),
+              byDomain(domain.id, weekday),
+              weekday
+            )
+          )
+        )
+        .join("");
     }
   }
 );
