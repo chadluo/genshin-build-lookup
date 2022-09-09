@@ -129,7 +129,20 @@ export const characters: Character[] = [
     name: { en: ["Diona"], "zh-CN": ["迪奥娜"] },
     materials: ["Hoarfrost Core", "Shivada Jade", "Shard of a Foul Legacy", "Freedom", "Firm Arrowhead", "Calla Lily"],
   },
-  { id: "Dori", type: "character", rarity: 4, name: { en: ["Dori"], "zh-CN": ["多莉"] }, materials: [] },
+  {
+    id: "Dori",
+    type: "character",
+    rarity: 4,
+    name: { en: ["Dori"], "zh-CN": ["多莉"] },
+    materials: [
+      "Thunderclap Fruitcore",
+      "Vajrada Amethyst",
+      "Bloodjade Branch",
+      "Ingenuity",
+      "Faded Red Satin",
+      "Kalpalata Lotus",
+    ],
+  },
   {
     id: "Eula",
     type: "character",

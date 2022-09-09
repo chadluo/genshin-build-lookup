@@ -99,6 +99,7 @@ export const characterAscension = [
   "Dragonheir’s False Fin",
   "Runic Fang",
   "Nilotpala Lotus",
+  "Kalpalata Lotus",
 ] as const;
 
 export type CharacterAscension = typeof characterAscension[number];
@@ -335,6 +336,7 @@ export const materials: Material[] = [
   { id: "Sea Ganoderma", name: { en: ["Sea Ganoderma"], "zh-CN": ["海灵芝"] } },
   { id: "Nilotpala Lotus", name: { en: ["Nilotpala Lotus"], "zh-CN": ["月莲"] } },
   { id: "Rukkhashava Mushrooms", name: { en: ["Rukkhashava Mushrooms"], "zh-CN": ["树王圣体菇"] } },
+  { id: "Kalpalata Lotus", name: { en: ["Kalpalata Lotus"], "zh-CN": ["劫波莲"] } },
 
   // character ascension
   { id: "Brilliant Diamond", name: { en: ["Brilliant Diamond"], "zh-CN": ["璀璨原钻"] } },
@@ -362,6 +364,7 @@ export const materials: Material[] = [
   { id: "Dragonheir’s False Fin", name: { en: ["Dragonheir’s False Fin"], "zh-CN": ["龙嗣伪鳍"] } },
   { id: "Runic Fang", name: { en: ["Runic Fang"], "zh-CN": ["符纹之齿"] } },
   { id: "Majestic Hooked Beak", name: { en: ["Majestic Hooked Beak"], "zh-CN": ["蕈王钩喙"] } },
+  { id: "Thunderclap Fruitcore", name: { en: ["Thunderclap Fruitcore"], "zh-CN": ["藏雷野实"] } },
 
   // character talents
   { id: "Freedom", name: { en: ["Freedom"], "zh-CN": ["自由"] } },
