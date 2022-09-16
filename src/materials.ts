@@ -70,6 +70,9 @@ export const localSpecialities = [
   "Sakura Bloom",
   "Sango Pearl",
   "Sea Ganoderma",
+  "Rukkhashava Mushrooms",
+  "Kalpalata Lotus",
+  "Nilotpala Lotus",
 ] as const;
 
 export type LocalSpecialities = typeof localSpecialities[number];
@@ -82,6 +85,7 @@ export const characterAscension = [
   "Vayuda Turquoise",
   "Shivada Jade",
   "Prithiva Topaz",
+  "Nagadus Emerald",
   "Hurricane Seed",
   "Lightning Prism",
   "Basalt Pillar",
@@ -98,8 +102,8 @@ export const characterAscension = [
   "Riftborn Regalia",
   "Dragonheir’s False Fin",
   "Runic Fang",
-  "Nilotpala Lotus",
-  "Kalpalata Lotus",
+  "Thunderclap Fruitcore",
+  "Majestic Hooked Beak",
 ] as const;
 
 export type CharacterAscension = typeof characterAscension[number];
@@ -115,6 +119,8 @@ export const talent = [
   "Elegance",
   "Light",
   "Admonition",
+  "Ingenuity",
+  "Praxis",
   "Crown of Insight",
   "Dvalin’s Plume",
   "Dvalin’s Claw",

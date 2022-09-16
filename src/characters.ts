@@ -5,7 +5,7 @@ import * as Types from "./types";
 
 export interface Character extends Types.WishObject {
   materials:
-    | string[]
+    | ""
     | [
         Material.CharacterAscension,
         Material.Gem,
@@ -88,6 +88,13 @@ export const characters: Character[] = [
     ],
   },
   {
+    id: "Candace",
+    type: "character",
+    rarity: 4,
+    name: { en: ["Candace"], "zh-CN": ["坎蒂丝"] },
+    materials: "",
+  },
+  {
     id: "Chongyun",
     type: "character",
     rarity: 4,
@@ -107,6 +114,13 @@ export const characters: Character[] = [
       "Firm Arrowhead",
       "Rukkhashava Mushrooms",
     ],
+  },
+  {
+    id: "Cyno",
+    type: "character",
+    rarity: 5,
+    name: { en: ["Cyno"], "zh-CN": ["塞诺"] },
+    materials: "",
   },
   {
     id: "Diluc",
@@ -331,6 +345,13 @@ export const characters: Character[] = [
       "Whopperflower Nectar",
       "Philanemo Mushroom",
     ],
+  },
+  {
+    id: "Nilou",
+    type: "character",
+    rarity: 5,
+    name: { en: ["Nilou"], "zh-CN": ["妮露"] },
+    materials: "",
   },
   {
     id: "Ningguang",

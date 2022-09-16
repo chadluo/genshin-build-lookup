@@ -19,5 +19,5 @@ export interface WishObject {
   type: ItemType;
   rarity: number;
   name: I18nObject;
-  materials: string[];
+  materials: "" | string[];
 }

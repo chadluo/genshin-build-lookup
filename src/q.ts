@@ -23,7 +23,17 @@ const recent_new = [
   "Dori",
 ];
 
-const upcoming: string[] = [];
+const upcoming: string[] = [
+  "Candace",
+  "Cyno",
+  "Nilou",
+  "Staff of the Scarlet Sands",
+  "Key of the Khaj-Nisut",
+  "Wandering Evenstar",
+  "Makhaira Aquamarine",
+  "Missive Windspear",
+  "Xiphos’ Moonlight",
+];
 
 /*** version specific contents ***/
 
@@ -150,7 +160,7 @@ customElements.define(
       </details>`;
     }
 
-    showByRarity(rarity: number, byRarity: Map<number, Types.WishObject[]>) {
+    showByRarity(rarity: number, byRarity: Map<number, Characters.Character[]>) {
       const cs: Characters.Character[] = byRarity.get(rarity)!;
       return `<tr><th>${"⭐".repeat(rarity)}</th>
       <td>${cs.map((c) => renderLink(c.id, Types.TYPE_CHARACTER, c.name)).join(formatName(i18n.delimiter))}</td></tr>`;
@@ -478,14 +488,16 @@ function findCharacter(character: string): Types.I18nObject {
 }
 
 function byCharacter(character: string): Map<Materials.Material, [Enemies.Domain, number][] | Enemies.Boss[]> {
-  return Characters.characters
-    .find((c) => c.id === character)!
-    .materials.reduce(
-      (map, m: string) => (
-        map.set(Materials.materials.filter((material) => material.id === m)[0]!, findEnemiesForMaterial(m)), map
-      ),
-      new Map<Materials.Material, [Enemies.Domain, number][] | Enemies.Boss[]>()
-    );
+  const map = new Map<Materials.Material, [Enemies.Domain, number][] | Enemies.Boss[]>();
+  const materials = Characters.characters.find((c) => c.id === character)!.materials;
+  return materials === ""
+    ? map
+    : materials.reduce(
+        (map, m: string) => (
+          map.set(Materials.materials.filter((material) => material.id === m)[0]!, findEnemiesForMaterial(m)), map
+        ),
+        map
+      );
 }
 
 function findWeapon(weapon: string): Types.I18nObject {
@@ -493,14 +505,16 @@ function findWeapon(weapon: string): Types.I18nObject {
 }
 
 function byWeapon(weapon: string): Map<Materials.Material, [Enemies.Domain, number][] | Enemies.Boss[]> {
-  return Weapons.weapons
-    .find((w) => w.id === weapon)!
-    .materials.reduce(
-      (map, m: string) => (
-        map.set(Materials.materials.filter((material) => material.id === m)[0]!, findEnemiesForMaterial(m)), map
-      ),
-      new Map<Materials.Material, [Enemies.Domain, number][] | Enemies.Boss[]>()
-    );
+  const map = new Map<Materials.Material, [Enemies.Domain, number][] | Enemies.Boss[]>();
+  const materials = Weapons.weapons.find((w) => w.id === weapon)!.materials;
+  return materials === ""
+    ? map
+    : materials.reduce(
+        (map, m: string) => (
+          map.set(Materials.materials.filter((material) => material.id === m)[0]!, findEnemiesForMaterial(m)), map
+        ),
+        map
+      );
 }
 
 function findEnemiesForMaterial(m: string): [Enemies.Domain, number][] | Enemies.Boss[] {
@@ -548,7 +562,7 @@ function byDomain(domainId: string, weekday: number): Map<Materials.Material, Ty
 }
 
 function findCharactersForMaterial(m: string): Characters.Character[] {
-  return Characters.characters.filter((c) => c.materials !== [] && c.materials.includes(m));
+  return Characters.characters.filter((c) => c.materials !== "" && c.materials.includes(m));
 }
 
 function findWeaponsForMaterial(m: string): Weapons.Weapon[] {

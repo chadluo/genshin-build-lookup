@@ -200,6 +200,14 @@ export const weapons: Weapon[] = [
     materials: ["Grain of Aerosiderite", "Fragile Bone Shard", "Treasure Hoarder Insignia"],
   },
   {
+    id: "Staff of the Scarlet Sands",
+    type: "weapon",
+    rarity: 5,
+    category: WeaponCategory.POLEARM,
+    name: { en: ["Staff of the Scarlet Sands"], "zh-CN": ["赤沙之杖"] },
+    materials: [],
+  },
+  {
     id: "Mistsplitter Reforged",
     type: "weapon",
     rarity: 5,
@@ -254,6 +262,14 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.SWORD,
     name: { en: ["Haran Geppaku Futsu"], "zh-CN": ["波乱月白经津"] },
     materials: ["Narukami’s Wisdom", "Gloomy Statuette", "Old Handguard"],
+  },
+  {
+    id: "Key of the Khaj-Nisut",
+    type: "weapon",
+    rarity: 5,
+    category: WeaponCategory.SWORD,
+    name: { en: ["Key of the Khaj-Nisut"], "zh-CN": ["圣显之钥"] },
+    materials: [],
   },
   {
     id: "Alley Hunter",
@@ -569,6 +585,14 @@ export const weapons: Weapon[] = [
     materials: ["Oasis Garden’s Reminiscence", "Gloomy Statuette", "Fungal Spores"],
   },
   {
+    id: "Wandering Evenstar",
+    type: "weapon",
+    rarity: 4,
+    category: WeaponCategory.CATALYST,
+    name: { en: ["Wandering Evenstar"], "zh-CN": ["流浪的晚星"] },
+    materials: [],
+  },
+  {
     id: "Akuoumaru",
     type: "weapon",
     rarity: 4,
@@ -717,6 +741,14 @@ export const weapons: Weapon[] = [
     materials: ["Copper Talisman of the Forest Dew", "Chaos Storage", "Faded Red Satin"],
   },
   {
+    id: "Makhaira Aquamarine",
+    type: "weapon",
+    rarity: 4,
+    category: WeaponCategory.CLAYMORE,
+    name: { en: ["Makhaira Aquamarine"], "zh-CN": ["玛海菈的水色"] },
+    materials: [],
+  },
+  {
     id: "Prototype Starglitter",
     type: "weapon",
     rarity: 4,
@@ -856,6 +888,14 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.POLEARM,
     name: { en: ["Moonpiercer"], "zh-CN": ["贯月矢"] },
     materials: ["Oasis Garden’s Reminiscence", "Chaos Storage", "Recruit’s Insignia"],
+  },
+  {
+    id: "Missive Windspear",
+    type: "weapon",
+    rarity: 4,
+    category: WeaponCategory.POLEARM,
+    name: { en: ["Missive Windspear"], "zh-CN": ["风信之锋"] },
+    materials: [],
   },
   {
     id: "The Flute",
@@ -1005,6 +1045,14 @@ export const weapons: Weapon[] = [
     category: WeaponCategory.SWORD,
     name: { en: ["Sapwood Blade"], "zh-CN": ["原木刀"] },
     materials: ["Copper Talisman of the Forest Dew", "Chaos Storage", "Faded Red Satin"],
+  },
+  {
+    id: "Xiphos’ Moonlight",
+    type: "weapon",
+    rarity: 4,
+    category: WeaponCategory.SWORD,
+    name: { en: ["Xiphos’ Moonlight"], "zh-CN": ["西福斯的月光"] },
+    materials: [],
   },
   {
     id: "Raven Bow",
