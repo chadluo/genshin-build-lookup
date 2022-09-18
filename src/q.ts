@@ -372,7 +372,7 @@ customElements.define(
       super();
       const day = getWeekday(this.getTimezone());
       const weekdays = day === 0 ? [1, 2, 3] : [day];
-      this.innerHTML = `<details class="section" open>
+      this.innerHTML = `<details class="section" ${day === 0 ? "" : "open"}>
         <summary>${formatTableCaption("today")}</summary>
         <div class="timezone-selector">${(["Asia", "Europe", "America"] as TimezoneNames[])
           .map(
