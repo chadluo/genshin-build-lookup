@@ -474,7 +474,8 @@ function renderQTableContent(type: string, id: string, weekday: number): string 
       return renderQTableRows(type, id, findWeapon(id), byWeapon(id), weekday);
     case Types.TYPE_WEEKLY_BOSS:
     case Types.TYPE_BOSS:
-      return renderQTableRows(type, id, findBoss(id), byBoss(id), weekday);
+    case Types.TYPE_ENEMY:
+      return renderQTableRows(type, id, findEnemy(id), byEnemy(id), weekday);
     case Types.TYPE_TALENT_DOMAIN:
     case Types.TYPE_WEAPON_DOMAIN:
       return renderQTableRows(type, id, findDomain(id, weekday), byDomain(id, weekday), weekday);
@@ -487,8 +488,10 @@ function findCharacter(character: string): Types.I18nObject {
   return Characters.characters.find((c) => c.id === character)!.name;
 }
 
-function byCharacter(character: string): Map<Materials.Material, [Enemies.Domain, number][] | Enemies.Boss[]> {
-  const map = new Map<Materials.Material, [Enemies.Domain, number][] | Enemies.Boss[]>();
+function byCharacter(
+  character: string
+): Map<Materials.Material, [Enemies.Domain, number][] | Enemies.Boss[] | Enemies.Enemy[]> {
+  const map = new Map<Materials.Material, [Enemies.Domain, number][] | Enemies.Boss[] | Enemies.Enemy[]>();
   const materials = Characters.characters.find((c) => c.id === character)!.materials;
   return materials === ""
     ? map
@@ -504,8 +507,10 @@ function findWeapon(weapon: string): Types.I18nObject {
   return Weapons.weapons.find((w) => w.id === weapon)!.name;
 }
 
-function byWeapon(weapon: string): Map<Materials.Material, [Enemies.Domain, number][] | Enemies.Boss[]> {
-  const map = new Map<Materials.Material, [Enemies.Domain, number][] | Enemies.Boss[]>();
+function byWeapon(
+  weapon: string
+): Map<Materials.Material, [Enemies.Domain, number][] | Enemies.Boss[] | Enemies.Enemy[]> {
+  const map = new Map<Materials.Material, [Enemies.Domain, number][] | Enemies.Boss[] | Enemies.Enemy[]>();
   const materials = Weapons.weapons.find((w) => w.id === weapon)!.materials;
   return materials === ""
     ? map
@@ -517,20 +522,22 @@ function byWeapon(weapon: string): Map<Materials.Material, [Enemies.Domain, numb
       );
 }
 
-function findEnemiesForMaterial(m: string): [Enemies.Domain, number][] | Enemies.Boss[] {
+function findEnemiesForMaterial(m: string): [Enemies.Domain, number][] | Enemies.Boss[] | Enemies.Enemy[] {
   const dsm: [Enemies.Domain, number][] = Enemies.domains.map((d) => [d, d.materials_by_weekday.indexOf(m)]);
   const ds = dsm.filter(([, weekday]) => weekday !== -1);
   if (ds.length) return ds;
-  return Enemies.bosses.filter((b) => b.materials.includes(m));
+  const bs = Enemies.bosses.filter((b) => b.materials.includes(m));
+  if (bs.length) return bs;
+  return Enemies.enemies.filter((e) => e.materials.includes(m));
 }
 
-function findBoss(boss: string): Types.I18nObject {
-  return Enemies.bosses.find((b) => b.id === boss)!.name;
+function findEnemy(enemy: string): Types.I18nObject {
+  return [...Enemies.bosses, ...Enemies.enemies].find((b) => b.id === enemy)!.name;
 }
 
-function byBoss(boss: string): Map<Materials.Material, (Characters.Character | Weapons.Weapon)[]> {
-  return Enemies.bosses
-    .find((b) => b.id === boss)!
+function byEnemy(enemy: string): Map<Materials.Material, (Characters.Character | Weapons.Weapon)[]> {
+  return [...Enemies.bosses, ...Enemies.enemies]
+    .find((b) => b.id === enemy)!
     .materials.reduce(
       (map, material: string) => (
         map.set(Materials.materials.find((m) => m.id === material)!, [
@@ -579,7 +586,7 @@ function renderQTableRows(
   type: Types.ItemType,
   id: string,
   name: Types.I18nObject,
-  object: Map<Materials.Material, (Types.WishObject | [Enemies.Domain, number] | Enemies.Boss)[]>,
+  object: Map<Materials.Material, (Types.WishObject | [Enemies.Domain, number] | Enemies.Boss | Enemies.Enemy)[]>,
   weekday: number
 ) {
   const materials = Array.from(object.keys());
@@ -609,7 +616,7 @@ function renderQTableRows(
 
 function renderQTableRow(
   materials: Materials.Material[],
-  objects: (Types.WishObject | [Enemies.Domain, number] | Enemies.Boss)[]
+  objects: (Types.WishObject | [Enemies.Domain, number] | Enemies.Boss | Enemies.Enemy)[]
 ) {
   return `<td>${materials.length === 0 ? "" : formatName(materials[0].name)}</td>
     <td>${materials.length === 0 ? "" : formatArray(objects)}</td>`;
@@ -639,7 +646,7 @@ function formatId(...parts: any[]) {
     .replaceAll(/[’“”]/g, "");
 }
 
-function formatArray(es: (Types.WishObject | [Enemies.Domain, number] | Enemies.Boss)[]) {
+function formatArray(es: (Types.WishObject | [Enemies.Domain, number] | Enemies.Boss | Enemies.Enemy)[]) {
   return es
     .map((e) => {
       const [obj, weekday] = Array.isArray(e) ? [e[0], e[1]] : [e, 0];
