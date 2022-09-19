@@ -295,22 +295,22 @@ export const materials: Material[] = [
   {
     id: "Inactivated Fungal Nucleus",
     name: {
-      en: ["Inactivated Fungal Nucleus"],
-      "zh-CN": ["失活菌核"],
+      en: ["Inactivated Fungal Nucleus", "Dormant Fungal Nucleus", "Robust Fungal Nucleus"],
+      "zh-CN": ["失活菌核", "休眠菌核", "茁壮菌核"],
     },
   },
   {
     id: "Faded Red Satin",
     name: {
-      en: ["Faded Red Satin"],
-      "zh-CN": ["褪色红绸"],
+      en: ["Faded Red Satin", "Trimmed Red Silk", "Rich Red Brocade"],
+      "zh-CN": ["褪色红绸", "镶边红绸", "织金红绸"],
     },
   },
   {
     id: "Chaos Storage",
     name: {
-      en: ["Chaos Storage"],
-      "zh-CN": ["混沌容器"],
+      en: ["Chaos Storage", "Chaos Module", "Chaos Bolt"],
+      "zh-CN": ["混沌容器", "混沌模块", "混沌锚栓"],
     },
   },
 
