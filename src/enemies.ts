@@ -322,31 +322,12 @@ export const bosses: Boss[] = [
 ];
 
 export const enemies: Enemy[] = [
-  { id: "Slime", type: "enemy", name: { en: ["Slime"], "zh-CN": ["史莱姆"] }, materials: ["Slime Condensate"] },
-  { id: "Hilichurl", type: "enemy", name: { en: ["Hilichurl"], "zh-CN": ["丘丘人"] }, materials: ["Damaged Mask"] },
-  {
-    id: "Hilichurl Shooter",
-    type: "enemy",
-    name: { en: ["Hilichurl Shooter"], "zh-CN": ["射手丘丘人"] },
-    materials: ["Damaged Mask", "Firm Arrowhead"],
-  },
-  {
-    id: "Samachurl",
-    type: "enemy",
-    name: { en: ["Samachurl"], "zh-CN": ["丘丘萨满"] },
-    materials: ["Damaged Mask", "Divining Scroll"],
-  },
+  // normal
   {
     id: "Fatui Skirmisher",
     type: "enemy",
-    name: { en: ["Fatui Skirmisher"], "zh-CN": ["愚人众先遣队"] },
+    name: { en: ["Fatui Skirmisher"], "zh-CN": ["愚人众・先遣队"] },
     materials: ["Recruit’s Insignia"],
-  },
-  {
-    id: "Treasure Hoarders",
-    type: "enemy",
-    name: { en: ["Treasure Hoarders"], "zh-CN": ["盗宝团"] },
-    materials: ["Treasure Hoarder Insignia"],
   },
   {
     id: "Whopperflower",
@@ -354,15 +335,28 @@ export const enemies: Enemy[] = [
     name: { en: ["Whopperflower"], "zh-CN": ["骗骗花"] },
     materials: ["Whopperflower Nectar"],
   },
-  { id: "Nobushi", type: "enemy", name: { en: ["Nobushi"], "zh-CN": ["野伏"] }, materials: ["Old Handguard"] },
-  { id: "Kairagi", type: "enemy", name: { en: ["Kairagi"], "zh-CN": ["海乱鬼"] }, materials: ["Old Handguard"] },
-  { id: "Specter", type: "enemy", name: { en: ["Specter"], "zh-CN": ["飘浮灵"] }, materials: ["Spectral Husk"] },
   {
-    id: "Fungus",
+    id: "Hilichurl Shooter",
     type: "enemy",
-    name: { en: ["Fungus"], "zh-CN": ["蕈兽"] },
-    materials: ["Fungal Spores", "Inactivated Fungal Nucleus"],
+    name: { en: ["Hilichurl Shooter"], "zh-CN": ["丘丘射手"] },
+    materials: ["Damaged Mask", "Firm Arrowhead"],
   },
+  { id: "Hilichurl", type: "enemy", name: { en: ["Hilichurl"], "zh-CN": ["丘丘人"] }, materials: ["Damaged Mask"] },
+  {
+    id: "Samachurl",
+    type: "enemy",
+    name: { en: ["Samachurl"], "zh-CN": ["丘丘萨满"] },
+    materials: ["Damaged Mask", "Divining Scroll"],
+  },
+  { id: "Slime", type: "enemy", name: { en: ["Slime"], "zh-CN": ["史莱姆"] }, materials: ["Slime Condensate"] },
+  {
+    id: "Treasure Hoarder",
+    type: "enemy",
+    name: { en: ["Treasure Hoarder"], "zh-CN": ["盗宝团"] },
+    materials: ["Treasure Hoarder Insignia"],
+  },
+  { id: "Nobushi", type: "enemy", name: { en: ["Nobushi"], "zh-CN": ["野伏众"] }, materials: ["Old Handguard"] },
+  { id: "Specter", type: "enemy", name: { en: ["Specter"], "zh-CN": ["飘浮灵"] }, materials: ["Spectral Husk"] },
   {
     id: "The Eremites",
     type: "enemy",
@@ -370,16 +364,18 @@ export const enemies: Enemy[] = [
     materials: ["Faded Red Satin"],
   },
   {
-    id: "Mitachurl",
+    id: "Fungus",
     type: "enemy",
-    name: { en: ["Mitachurl"], "zh-CN": ["丘丘人暴徒"] },
-    materials: ["Damaged Mask", "Heavy Horn"],
+    name: { en: ["Fungus"], "zh-CN": ["蕈兽"] },
+    materials: ["Fungal Spores", "Inactivated Fungal Nucleus"],
   },
+
+  // elites
   {
-    id: "Lawachurl",
+    id: "Fatui Cicin Mage",
     type: "enemy",
-    name: { en: ["Lawachurl"], "zh-CN": ["丘丘王"] },
-    materials: ["Damaged Mask", "Heavy Horn"],
+    name: { en: ["Fatui Cicin Mage"], "zh-CN": ["愚人众・萤术士"] },
+    materials: ["Recruit’s Insignia", "Mist Grass Pollen"],
   },
   {
     id: "Abyss Mage",
@@ -401,34 +397,22 @@ export const enemies: Enemy[] = [
   },
   { id: "Ruin Guard", type: "enemy", name: { en: ["Ruin Guard"], "zh-CN": ["遗迹守卫"] }, materials: ["Chaos Device"] },
   {
+    id: "Mitachurl",
+    type: "enemy",
+    name: { en: ["Mitachurl"], "zh-CN": ["丘丘暴徒"] },
+    materials: ["Damaged Mask", "Heavy Horn"],
+  },
+  {
+    id: "Fatui Agent",
+    type: "enemy",
+    name: { en: ["Fatui Agent"], "zh-CN": ["愚人众・债务处理人"] },
+    materials: ["Recruit’s Insignia", "Hunter’s Sacrificial Knife"],
+  },
+  {
     id: "Ruin Hunter",
     type: "enemy",
     name: { en: ["Ruin Hunter"], "zh-CN": ["遗迹猎者"] },
     materials: ["Chaos Device"],
-  },
-  {
-    id: "Ruin Grader",
-    type: "enemy",
-    name: { en: ["Ruin Grader"], "zh-CN": ["遗迹重机"] },
-    materials: ["Chaos Device"],
-  },
-  {
-    id: "Fatui Cicin Mage",
-    type: "enemy",
-    name: { en: ["Fatui Cicin Mage"], "zh-CN": ["愚人众・萤术士"] },
-    materials: ["Recruit’s Insignia", "Mist Grass Pollen"],
-  },
-  {
-    id: "Fatui Pyro Agent",
-    type: "enemy",
-    name: { en: ["Fatui Pyro Agent"], "zh-CN": ["愚人众・火之债务处理人"] },
-    materials: ["Recruit’s Insignia", "Hunter’s Sacrificial Knife"],
-  },
-  {
-    id: "Mirror Maiden",
-    type: "enemy",
-    name: { en: ["Mirror Maiden"], "zh-CN": ["愚人众・藏镜仕女"] },
-    materials: ["Dismal Prism"],
   },
   {
     id: "Geovishap Hatchling",
@@ -437,42 +421,40 @@ export const enemies: Enemy[] = [
     materials: ["Fragile Bone Shard"],
   },
   {
+    id: "Hilichurl Chieftain",
+    type: "enemy",
+    name: { en: ["Hilichurl Chieftain"], "zh-CN": ["丘丘王"] },
+    materials: ["Damaged Mask", "Heavy Horn"],
+  },
+  {
     id: "Geovishap",
     type: "enemy",
     name: { en: ["Geovishap"], "zh-CN": ["岩龙蜥"] },
     materials: ["Fragile Bone Shard"],
   },
   {
+    id: "Fatui: Snezhnayan Maiden",
+    type: "enemy",
+    name: { en: ["Fatui: Snezhnayan Maiden"], "zh-CN": ["愚人众・冬国仕女"] },
+    materials: ["Dismal Prism"],
+  },
+  {
+    id: "Ruin Sentinels",
+    type: "enemy",
+    name: { en: ["Ruin Sentinels"], "zh-CN": ["遗迹机兵"] },
+    materials: ["Chaos Gear"],
+  },
+  {
+    id: "Wolves of the Rift",
+    type: "enemy",
+    name: { en: ["Wolves of the Rift"], "zh-CN": ["兽境之狼"] },
+    materials: ["Concealed Claw"],
+  },
+  {
     id: "Bathysmal Vishap",
     type: "enemy",
     name: { en: ["Bathysmal Vishap"], "zh-CN": ["深海龙蜥"] },
     materials: ["Fragile Bone Shard"],
-  },
-  {
-    id: "Ruin Cruiser",
-    type: "enemy",
-    name: { en: ["Ruin Cruiser"], "zh-CN": ["遗迹巡弋者"] },
-    materials: ["Chaos Gear"],
-  },
-  {
-    id: "Ruin Defender",
-    type: "enemy",
-    name: { en: ["Ruin Defender"], "zh-CN": ["遗迹防卫者"] },
-    materials: ["Chaos Gear"],
-  },
-  {
-    id: "Ruin Destroyer",
-    type: "enemy",
-    name: { en: ["Ruin Destroyer"], "zh-CN": ["遗迹歼击者"] },
-    materials: ["Chaos Gear"],
-  },
-  { id: "Ruin Scout", type: "enemy", name: { en: ["Ruin Scout"], "zh-CN": ["遗迹侦察者"] }, materials: ["Chaos Gear"] },
-  { id: "Rifthound", type: "enemy", name: { en: ["Rifthound"], "zh-CN": ["兽境猎犬"] }, materials: ["Concealed Claw"] },
-  {
-    id: "Rifthound Whelp",
-    type: "enemy",
-    name: { en: ["Rifthound Whelp"], "zh-CN": ["兽境幼兽"] },
-    materials: ["Concealed Claw"],
   },
   {
     id: "The Black Serpents",
@@ -485,5 +467,11 @@ export const enemies: Enemy[] = [
     type: "enemy",
     name: { en: ["Ruin Drake"], "zh-CN": ["遗迹龙兽"] },
     materials: ["Chaos Storage"],
+  },
+  {
+    id: "Ruin Grader",
+    type: "enemy",
+    name: { en: ["Ruin Grader"], "zh-CN": ["遗迹重机"] },
+    materials: ["Chaos Device"],
   },
 ];
