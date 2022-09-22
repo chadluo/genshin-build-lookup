@@ -609,7 +609,7 @@ function renderQTableRows(
         ? ""
         : materials
             .slice(1)
-            .map((m) => `<tr ${formatMaterialType(m)}> ${renderQTableRow([m], object.get(m)!)} </tr>`)
+            .map((m) => `<tr ${formatMaterialType(m)}>${renderQTableRow([m], object.get(m)!)}</tr>`)
             .join("")
     }`;
 }
@@ -619,7 +619,7 @@ function renderQTableRow(
   objects: (Types.WishObject | [Enemies.Domain, number] | Enemies.Boss | Enemies.Enemy)[]
 ) {
   return `<td>${materials.length === 0 ? "" : formatName(materials[0].name)}</td>
-    <td>${materials.length === 0 ? "" : formatArray(objects)}</td>`;
+    <td>${materials.length === 0 ? "" : formatArray(Materials.gems.includes(materials[0].id as any), objects)}</td>`;
 }
 
 function formatDomainName(name: Types.I18nObject, weekday: number) {
@@ -646,19 +646,23 @@ function formatId(...parts: any[]) {
     .replaceAll(/[’“”]/g, "");
 }
 
-function formatArray(es: (Types.WishObject | [Enemies.Domain, number] | Enemies.Boss | Enemies.Enemy)[]) {
-  return es
-    .map((e) => {
-      const [obj, weekday] = Array.isArray(e) ? [e[0], e[1]] : [e, 0];
-      switch (obj.type) {
-        case Types.TYPE_TALENT_DOMAIN:
-        case Types.TYPE_WEAPON_DOMAIN:
-          return renderDomainLink(obj.id, weekday, obj.type, obj.name);
-        default:
-          return renderLink(obj.id, obj.type, obj.name);
-      }
-    })
-    .join(formatName(i18n.delimiter));
+function formatArray(
+  collapsible: boolean,
+  es: (Types.WishObject | [Enemies.Domain, number] | Enemies.Boss | Enemies.Enemy)[]
+) {
+  const links = es.map((e) => {
+    const [obj, weekday] = Array.isArray(e) ? [e[0], e[1]] : [e, 0];
+    switch (obj.type) {
+      case Types.TYPE_TALENT_DOMAIN:
+      case Types.TYPE_WEAPON_DOMAIN:
+        return renderDomainLink(obj.id, weekday, obj.type, obj.name);
+      default:
+        return renderLink(obj.id, obj.type, obj.name);
+    }
+  });
+  return collapsible
+    ? `<details open><summary>${links[0]}</summary>${links.slice(1).join("<br>")}</details>`
+    : links.join(formatName(i18n.delimiter));
 }
 
 function renderDomainLink(id: string, weekday: number, type: Types.ItemType, names: Types.I18nObject) {

@@ -87,7 +87,12 @@ function toggleHighlightForSelectedNavItem(event: KeyboardEvent) {
 }
 
 document.querySelector("input#show-gems")?.addEventListener("change", (event) => {
-  output.classList.toggle("show-gems", (event.target as HTMLInputElement)?.checked);
+  const gemDetails = document.querySelectorAll(".gem details");
+  if ((event.target as HTMLInputElement)?.checked) {
+    gemDetails.forEach((e) => e.setAttribute("open", ""));
+  } else {
+    gemDetails.forEach((e) => e.removeAttribute("open"));
+  }
   document.body.classList.remove("smooth");
   window.scrollTo(0, document.body.scrollHeight);
   document.body.classList.add("smooth");
