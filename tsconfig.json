@@ -9,7 +9,8 @@
         "noImplicitReturns": true,
         "outDir": "public",
         "sourceMap": true,
-        "strict": true
+        "strict": true,
+        "strictNullChecks": true
     },
     "exclude": [
         "src/tests/yuanliao.spec.ts"

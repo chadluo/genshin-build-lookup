@@ -189,7 +189,7 @@ customElements.define(
       <summary>${formatTableCaption(Types.TYPE_WEAPON)}</summary><table class="ctable">
       ${rarities
         .map((rarity) => {
-          const ws2: Map<Weapons.WeaponCategory, Weapons.Weapon[]> = groupWishObjects(
+          const ws2: Map<Weapons.Category, Weapons.Weapon[]> = groupWishObjects(
             (w) => w.category,
             byRarity.get(rarity)!
           );
@@ -255,19 +255,19 @@ function getTableCaptionIcon(type: string): string {
   }
 }
 
-function formatWeaponIcon(category: Weapons.WeaponCategory) {
+function formatWeaponIcon(category: Weapons.Category) {
   return `<span class="weapon-icon">${getWeaponIcon(category)}</span>`;
 }
 
-function getWeaponIcon(category: Weapons.WeaponCategory) {
+function getWeaponIcon(category: Weapons.Category) {
   // prettier-ignore
   switch (category) {
-    case Weapons.WeaponCategory.BOW:      return "🏹";
-    case Weapons.WeaponCategory.CATALYST: return "📖";
-    case Weapons.WeaponCategory.CLAYMORE: return "🐟";
-    case Weapons.WeaponCategory.POLEARM:  return "🌿";
-    case Weapons.WeaponCategory.SWORD:    return "🗡️";
-    default:                             return "";
+    case "Bow":      return "🏹";
+    case "Catalyst": return "📖";
+    case "Claymore": return "🐟";
+    case "Polearm":  return "🌿";
+    case "Sword":    return "🗡️";
+    default:         return "";
   }
 }
 
