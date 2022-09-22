@@ -661,7 +661,9 @@ function formatArray(
     }
   });
   return collapsible
-    ? `<details open><summary>${links[0]}</summary>${links.slice(1).join("<br>")}</details>`
+    ? `<details ${(document.getElementById("show-gems") as HTMLInputElement)?.checked ? "open" : ""}><summary>${
+        links[0]
+      }</summary>${links.slice(1).join("<br>")}</details>`
     : links.join(formatName(i18n.delimiter));
 }
 
