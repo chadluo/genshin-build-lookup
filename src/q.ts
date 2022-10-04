@@ -11,19 +11,6 @@ import * as Weapons from "./weapons";
 
 /* 3.0 */
 const recent_new = [
-  "Hunter’s Path",
-  "End of the Line",
-  "King’s Squire",
-  "Fruit of Fulfillment",
-  "Forest Regalia",
-  "Moonpiercer",
-  "Sapwood Blade",
-  "Tighnari",
-  "Collei",
-  "Dori",
-];
-
-const upcoming: string[] = [
   "Candace",
   "Cyno",
   "Nilou",
@@ -34,6 +21,8 @@ const upcoming: string[] = [
   "Missive Windspear",
   "Xiphos’ Moonlight",
 ];
+
+const upcoming: string[] = [];
 
 /*** version specific contents ***/
 

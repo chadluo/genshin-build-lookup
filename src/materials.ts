@@ -73,6 +73,8 @@ export const localSpecialities = [
   "Rukkhashava Mushrooms",
   "Kalpalata Lotus",
   "Nilotpala Lotus",
+  "Scarab",
+  "Redcrest",
 ] as const;
 
 export type LocalSpecialities = typeof localSpecialities[number];
@@ -104,6 +106,7 @@ export const characterAscension = [
   "Runic Fang",
   "Thunderclap Fruitcore",
   "Majestic Hooked Beak",
+  "Light Guiding Tetrahedron",
 ] as const;
 
 export type CharacterAscension = typeof characterAscension[number];
@@ -343,6 +346,8 @@ export const materials: Material[] = [
   { id: "Nilotpala Lotus", name: { en: ["Nilotpala Lotus"], "zh-CN": ["月莲"] } },
   { id: "Rukkhashava Mushrooms", name: { en: ["Rukkhashava Mushrooms"], "zh-CN": ["树王圣体菇"] } },
   { id: "Kalpalata Lotus", name: { en: ["Kalpalata Lotus"], "zh-CN": ["劫波莲"] } },
+  { id: "Scarab", name: { en: ["Scarab"], "zh-CN": ["圣金虫"] } },
+  { id: "Redcrest", name: { en: ["Redcrest"], "zh-CN": ["赤念果"] } },
 
   // character ascension
   { id: "Brilliant Diamond", name: { en: ["Brilliant Diamond"], "zh-CN": ["璀璨原钻"] } },
@@ -371,6 +376,7 @@ export const materials: Material[] = [
   { id: "Runic Fang", name: { en: ["Runic Fang"], "zh-CN": ["符纹之齿"] } },
   { id: "Majestic Hooked Beak", name: { en: ["Majestic Hooked Beak"], "zh-CN": ["蕈王钩喙"] } },
   { id: "Thunderclap Fruitcore", name: { en: ["Thunderclap Fruitcore"], "zh-CN": ["藏雷野实"] } },
+  { id: "Light Guiding Tetrahedron", name: { en: ["Light Guiding Tetrahedron"], "zh-CN": ["导光四面体"] } },
 
   // character talents
   { id: "Freedom", name: { en: ["Freedom"], "zh-CN": ["自由"] } },

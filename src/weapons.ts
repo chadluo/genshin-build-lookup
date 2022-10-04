@@ -199,7 +199,7 @@ export const weapons: Weapon[] = [
     rarity: 5,
     category: "Polearm",
     name: { en: ["Staff of the Scarlet Sands"], "zh-CN": ["赤沙之杖"] },
-    materials: [],
+    materials: ["Oasis Garden’s Reminiscence", "Chaos Storage", "Fungal Spores"],
   },
   {
     id: "Mistsplitter Reforged",
@@ -740,7 +740,7 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Claymore",
     name: { en: ["Makhaira Aquamarine"], "zh-CN": ["玛海菈的水色"] },
-    materials: [],
+    materials: ["Echo of Scorching Might", "Chaos Storage", "Treasure Hoarder Insignia"],
   },
   {
     id: "Prototype Starglitter",
@@ -889,7 +889,7 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Polearm",
     name: { en: ["Missive Windspear"], "zh-CN": ["风信之锋"] },
-    materials: [],
+    materials: ["Boreal Wolf’s Milk Tooth", "Gloomy Statuette", "Slime Condensate"],
   },
   {
     id: "The Flute",

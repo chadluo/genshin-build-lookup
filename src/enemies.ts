@@ -225,6 +225,13 @@ export const bosses: Boss[] = [
     type: "boss",
     name: { en: ["Jadeplume Terrorshroom"], "zh-CN": ["翠翎恐蕈"] },
   },
+  {
+    id: "Algorithm of Semi-Intransient Matrix of Overseer Network",
+    region: "Sumeru",
+    materials: ["Agnidus Agate", "Vayuda Turquoise", "Light Guiding Tetrahedron"],
+    type: "boss",
+    name: { en: ["Algorithm of Semi-Intransient Matrix of Overseer Network"], "zh-CN": ["半永恒统辖矩阵"] },
+  },
 
   // weekly bosses
   {

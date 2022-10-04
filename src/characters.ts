@@ -92,7 +92,14 @@ export const characters: Character[] = [
     type: "character",
     rarity: 4,
     name: { en: ["Candace"], "zh-CN": ["坎蒂丝"] },
-    materials: "",
+    materials: [
+      "Light Guiding Tetrahedron",
+      "Varunada Lazurite",
+      "Tears of the Calamitous God",
+      "Admonition",
+      "Faded Red Satin",
+      "Redcrest",
+    ],
   },
   {
     id: "Chongyun",
@@ -120,7 +127,14 @@ export const characters: Character[] = [
     type: "character",
     rarity: 5,
     name: { en: ["Cyno"], "zh-CN": ["塞诺"] },
-    materials: "",
+    materials: [
+      "Thunderclap Fruitcore",
+      "Vajrada Amethyst",
+      "Mudra of the Malefic General",
+      "Admonition",
+      "Divining Scroll",
+      "Scarab",
+    ],
   },
   {
     id: "Diluc",
