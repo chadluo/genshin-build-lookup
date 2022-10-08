@@ -9,7 +9,7 @@ import * as Weapons from "./weapons";
 
 /*** version specific contents ***/
 
-/* 3.0 */
+/* 3.1 */
 const recent_new = [
   "Candace",
   "Cyno",

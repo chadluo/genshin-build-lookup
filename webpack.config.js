@@ -1,8 +1,11 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { GenerateSW } = require("workbox-webpack-plugin");
 
-const config = {
+const devMode = process.env.NODE_ENV !== "production";
+
+module.exports = {
   entry: "./src/q.ts",
   mode: "production",
   output: {
@@ -19,7 +22,7 @@ const config = {
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: [devMode ? "style-loader" : MiniCssExtractPlugin.loader, "css-loader"],
       },
     ],
   },
@@ -27,15 +30,14 @@ const config = {
     extensions: [".tsx", ".ts", ".js", ".html", ".css"],
   },
   devServer: {
-    static: "./public",
+    client: {
+      reconnect: false,
+    },
+    open: false,
     port: 3000,
+    static: "./public",
   },
-  plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
-};
-
-module.exports = (env, args) => {
-  if (args.mode !== "development") {
-    config.plugins.push(new GenerateSW({ clientsClaim: true, skipWaiting: true, cleanupOutdatedCaches: true }));
-  }
-  return config;
+  plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })]
+    .concat(devMode ? [] : [new MiniCssExtractPlugin()])
+    .concat(devMode ? [] : [new GenerateSW({ clientsClaim: true, skipWaiting: true, cleanupOutdatedCaches: true })]),
 };
