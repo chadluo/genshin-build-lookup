@@ -1,5 +1,6 @@
 declare module "bookmarks";
 
+import * as Names from "./names";
 import * as Types from "./types";
 
 export function isBookmarked(type: Types.ItemType, id: string, weekday: number) {
@@ -33,6 +34,9 @@ function bookmark(type: Types.ItemType, id: string, weekday: number) {
           : `a[data-id="${id}"]`
       )
       .forEach((e) => e.classList.add("bookmarked"));
+    document
+      .querySelectorAll(`tbody[name=${Names.formatId(type, id, weekday)}] input`)
+      .forEach((input) => ((<HTMLInputElement>input).checked = true));
     bookmarks.push([type, id, weekday]);
     localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
   }
@@ -49,6 +53,9 @@ function unbookmark(type: Types.ItemType, id: string, weekday: number): void {
           : `a[data-id="${id}"]`
       )
       .forEach((e) => e.classList.remove("bookmarked"));
+    document
+      .querySelectorAll(`tbody[name=${Names.formatId(type, id, weekday)}] input`)
+      .forEach((input) => ((<HTMLInputElement>input).checked = false));
     bookmarks.splice(index, 1);
     localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
   }

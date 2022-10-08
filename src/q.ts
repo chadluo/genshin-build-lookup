@@ -3,6 +3,7 @@ import * as Characters from "./characters";
 import * as Enemies from "./enemies";
 import * as Keyboard from "./keyboard";
 import * as Materials from "./materials";
+import * as Names from "./names";
 import "./style.css";
 import * as Types from "./types";
 import * as Weapons from "./weapons";
@@ -427,7 +428,7 @@ function findOrLoadQTable(event: Event) {
 
 function findOrLoadQTable2(type: string, id: string, weekday: string) {
   document.querySelectorAll(".highlighted").forEach((element) => element.classList.remove("highlighted"));
-  const existed = output.querySelector(`tbody[name="${formatId(type, id, weekday)}"]`);
+  const existed = output.querySelector(`tbody[name="${Names.formatId(type, id, weekday)}"]`);
   if (!existed) {
     output.innerHTML += renderQTableContent(type, id, parseInt(weekday));
     const rows = output.querySelectorAll("th");
@@ -580,7 +581,7 @@ function renderQTableRows(
 ) {
   const materials = Array.from(object.keys());
   const separator = "<span class='mobile'> / </span><span class='desktop'><br></span>";
-  return `<tbody name="${formatId(type, id, weekday)}"><tr>
+  return `<tbody name="${Names.formatId(type, id, weekday)}"><tr>
       <th ${materials.length === 0 ? "" : `rowspan="${materials.length}"`}>
         <label><input type="checkbox" data-type="${type}" data-id="${id}"
         ${weekday ? `data-weekday="${weekday}"` : ""}
@@ -621,18 +622,6 @@ function formatMaterialType(m: Materials.Material) {
     : Materials.billets.includes(m.id) || Materials.forgingMaterials.includes(m.id)
     ? "class='billet'"
     : "";
-}
-
-/**
- * Type, Id, Weekday
- */
-function formatId(...parts: any[]) {
-  return parts
-    .filter((p) => p)
-    .map((p) => p.toString())
-    .join("-")
-    .replaceAll(" ", "-")
-    .replaceAll(/[’“”]/g, "");
 }
 
 function formatArray(
