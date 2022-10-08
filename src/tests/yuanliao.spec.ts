@@ -5,7 +5,7 @@ test.describe("availability & languages", async () => {
     const context = await browser.newContext({ locale: "en-US" });
     const page = await context.newPage();
 
-    await page.goto(baseURL);
+    await page.goto(baseURL!);
     await expect(page).toHaveTitle(/Yuanliao/);
 
     await expect(page.locator(":has-text('Xiangling')").first()).toBeVisible();
@@ -24,7 +24,7 @@ test.describe("availability & languages", async () => {
     const context = await browser.newContext({ locale: "zh-CN" });
     const page = await context.newPage();
 
-    await page.goto(baseURL);
+    await page.goto(baseURL!);
     await expect(page).toHaveTitle(/原料/);
 
     await page.selectOption("#lang-select", { label: "English" });
@@ -41,19 +41,19 @@ test.describe("queries", async () => {
       storageState: { cookies: [], origins: [{ origin: "", localStorage: [] }] },
     });
     const page = await content.newPage();
-    await page.goto(baseURL);
+    await page.goto(baseURL!);
 
-    const characterRow = "tr[name='character-Xiangling']";
+    const characterRow = "tbody[name='character-Xiangling']";
     await expect(page.locator(characterRow)).not.toBeVisible();
     await page.click("text=Xiangling");
     await expect(page.locator(characterRow)).toBeVisible();
 
-    const bossRow = "tr[name='boss-Pyro-Regisvine']";
+    const bossRow = "tbody[name='boss-Pyro-Regisvine']";
     await expect(page.locator(bossRow)).not.toBeVisible();
     await page.click("#output >> text=Pyro Regisvine");
     await expect(page.locator(bossRow)).toBeVisible();
 
-    const talentDomainRow = "#output tr[name='talent_domain-Taishan-Mansion-2']";
+    const talentDomainRow = "#output tbody[name='talent_domain-Taishan-Mansion-2']";
     await expect(page.locator(talentDomainRow)).not.toBeVisible();
     await page.click("#output >> text=Taishan Mansion");
     await expect(page.locator(talentDomainRow)).toBeVisible();
@@ -65,14 +65,14 @@ test.describe("queries", async () => {
       storageState: { cookies: [], origins: [{ origin: "", localStorage: [] }] },
     });
     const page = await content.newPage();
-    await page.goto(baseURL);
+    await page.goto(baseURL!);
 
-    const weaponRow = "tr[name='weapon-The-Catch']";
+    const weaponRow = "tbody[name='weapon-The-Catch']";
     await expect(page.locator(weaponRow)).not.toBeVisible();
     await page.click("text=The Catch");
     await expect(page.locator(weaponRow)).toBeVisible();
 
-    const weaponDomainRow = "#output tr[name='weapon_domain-Court-of-Flowing-Sand-3']";
+    const weaponDomainRow = "#output tbody[name='weapon_domain-Court-of-Flowing-Sand-3']";
     await expect(page.locator(weaponDomainRow)).not.toBeVisible();
     await page.click("#output >> text=Court of Flowing Sand");
     await expect(page.locator(weaponDomainRow)).toBeVisible();
