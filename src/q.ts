@@ -426,8 +426,8 @@ function findOrLoadQTable(event: Event) {
 }
 
 function findOrLoadQTable2(type: string, id: string, weekday: string) {
-  document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
-  const existed = output.querySelector(`tr[name="${formatId(type, id, weekday)}"]`);
+  document.querySelectorAll(".highlighted").forEach((element) => element.classList.remove("highlighted"));
+  const existed = output.querySelector(`tbody[name="${formatId(type, id, weekday)}"]`);
   if (!existed) {
     output.innerHTML += renderQTableContent(type, id, parseInt(weekday));
     const rows = output.querySelectorAll("th");
@@ -580,7 +580,7 @@ function renderQTableRows(
 ) {
   const materials = Array.from(object.keys());
   const separator = "<span class='mobile'> / </span><span class='desktop'><br></span>";
-  return `<tr name="${formatId(type, id, weekday)}">
+  return `<tbody name="${formatId(type, id, weekday)}"><tr>
       <th ${materials.length === 0 ? "" : `rowspan="${materials.length}"`}>
         <label><input type="checkbox" data-type="${type}" data-id="${id}"
         ${weekday ? `data-weekday="${weekday}"` : ""}
@@ -600,7 +600,7 @@ function renderQTableRows(
             .slice(1)
             .map((m) => `<tr ${formatMaterialType(m)}>${renderQTableRow([m], object.get(m)!)}</tr>`)
             .join("")
-    }`;
+    }</tbody>`;
 }
 
 function renderQTableRow(

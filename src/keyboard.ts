@@ -56,19 +56,19 @@ export function initKeyboard() {
 }
 
 function navItemsMaxIndex() {
-  return document.querySelector("#today tbody")!.childElementCount + output.childElementCount - 1;
+  return document.querySelector("#today .qtable")!.childElementCount + output.childElementCount - 1;
 }
 
 function selectNavItem() {
   const navitem = getNavItem();
-  Array.from(document.querySelector("#today tbody")!.children).forEach((e) => e.classList.remove("selected"));
+  Array.from(document.querySelector("#today .qtable")!.children).forEach((e) => e.classList.remove("selected"));
   Array.from(output.children).forEach((e) => e.classList.remove("selected"));
   navitem.classList.add("selected");
   navitem.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
 function getNavItem() {
-  const todayTableBody = document.querySelector("#today tbody")!;
+  const todayTableBody = document.querySelector("#today .qtable")!;
   if (currentHighlight < todayTableBody.childElementCount) {
     return todayTableBody.children[currentHighlight];
   } else {
