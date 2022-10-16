@@ -1,5 +1,3 @@
-declare module "characters";
-
 import * as Material from "./materials";
 import * as Types from "./types";
 

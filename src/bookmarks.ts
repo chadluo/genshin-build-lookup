@@ -1,5 +1,3 @@
-declare module "bookmarks";
-
 import * as Names from "./names";
 import * as Types from "./types";
 

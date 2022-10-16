@@ -1,5 +1,3 @@
-declare module "keyboard";
-
 const output: HTMLElement = document.getElementById("output")!;
 
 let currentHighlight = 0;

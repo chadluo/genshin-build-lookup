@@ -1,5 +1,3 @@
-declare module "materials";
-
 import * as Types from "./types";
 
 export interface Material {

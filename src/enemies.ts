@@ -1,5 +1,3 @@
-declare module "enemies";
-
 import * as Materials from "./materials";
 import * as Types from "./types";
 

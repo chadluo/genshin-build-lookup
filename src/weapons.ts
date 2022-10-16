@@ -1,5 +1,3 @@
-declare module "weapons";
-
 import * as Types from "./types";
 
 export interface Weapon extends Types.WishObject {

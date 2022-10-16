@@ -1,5 +1,3 @@
-declare module "names";
-
 /**
  * Type, Id, Weekday
  */

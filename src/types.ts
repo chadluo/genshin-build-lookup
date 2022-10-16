@@ -1,5 +1,3 @@
-declare module "types";
-
 export type Region = "Mondstadt" | "Liyue" | "Inazuma" | "Sumeru";
 
 export type ItemType = "character" | "weapon" | "weekly_boss" | "boss" | "enemy" | "talent_domain" | "weapon_domain";
