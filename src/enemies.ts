@@ -479,4 +479,10 @@ export const enemies: Enemy[] = [
     name: { en: ["Ruin Grader"], "zh-CN": ["遗迹重机"] },
     materials: ["Chaos Device"],
   },
+  {
+    id: "Primal Construct",
+    type: "enemy",
+    name: { en: ["Primal Construct"], "zh-CN": ["元能构装体"] },
+    materials: ["Damaged Prism"],
+  },
 ];

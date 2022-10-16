@@ -261,7 +261,7 @@ export const weapons: Weapon[] = [
     rarity: 5,
     category: "Sword",
     name: { en: ["Key of the Khaj-Nisut"], "zh-CN": ["圣显之钥"] },
-    materials: [],
+    materials: ["Copper Talisman of the Forest Dew", "Damaged Prism", "Faded Red Satin"],
   },
   {
     id: "Alley Hunter",
@@ -582,7 +582,7 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Catalyst",
     name: { en: ["Wandering Evenstar"], "zh-CN": ["流浪的晚星"] },
-    materials: [],
+    materials: ["Oasis Garden’s Reminiscence", "Inactivated Fungal Nucleus", "Fungal Spores"],
   },
   {
     id: "Akuoumaru",
@@ -1044,7 +1044,7 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Sword",
     name: { en: ["Xiphos’ Moonlight"], "zh-CN": ["西福斯的月光"] },
-    materials: [],
+    materials: ["Copper Talisman of the Forest Dew", "Damaged Prism", "Faded Red Satin"],
   },
   {
     id: "Raven Bow",

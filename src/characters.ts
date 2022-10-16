@@ -363,7 +363,14 @@ export const characters: Character[] = [
     type: "character",
     rarity: 5,
     name: { en: ["Nilou"], "zh-CN": ["妮露"] },
-    materials: "",
+    materials: [
+      "Perpetual Caliber",
+      "Varunada Lazurite",
+      "Tears of the Calamitous God",
+      "Praxis",
+      "Fungal Spores",
+      "Padisarah",
+    ],
   },
   {
     id: "Ningguang",

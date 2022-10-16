@@ -38,6 +38,7 @@ export const general = [
   "Concealed Claw",
   "Gloomy Statuette",
   "Fungal Spores",
+  "Damaged Prism",
 ];
 
 export type General = typeof general[number];
@@ -73,6 +74,7 @@ export const localSpecialities = [
   "Nilotpala Lotus",
   "Scarab",
   "Redcrest",
+  "Padisarah",
 ] as const;
 
 export type LocalSpecialities = typeof localSpecialities[number];
@@ -105,6 +107,7 @@ export const characterAscension = [
   "Thunderclap Fruitcore",
   "Majestic Hooked Beak",
   "Light Guiding Tetrahedron",
+  "Perpetual Caliber",
 ] as const;
 
 export type CharacterAscension = typeof characterAscension[number];
@@ -314,6 +317,10 @@ export const materials: Material[] = [
       "zh-CN": ["混沌容器", "混沌模块", "混沌锚栓"],
     },
   },
+  {
+    id: "Damaged Prism",
+    name: { en: ["Damaged Prism", "Turbid Prism", "Radiant Prism"], "zh-CN": ["破缺棱晶", "混浊棱晶", "辉光棱晶"] },
+  },
 
   // local specialities
   { id: "Calla Lily", name: { en: ["Calla Lily"], "zh-CN": ["嘟嘟莲"] } },
@@ -346,6 +353,7 @@ export const materials: Material[] = [
   { id: "Kalpalata Lotus", name: { en: ["Kalpalata Lotus"], "zh-CN": ["劫波莲"] } },
   { id: "Scarab", name: { en: ["Scarab"], "zh-CN": ["圣金虫"] } },
   { id: "Redcrest", name: { en: ["Redcrest"], "zh-CN": ["赤念果"] } },
+  { id: "Padisarah", name: { en: ["Padisarah"], "zh-CN": ["帕蒂沙兰"] } },
 
   // character ascension
   { id: "Brilliant Diamond", name: { en: ["Brilliant Diamond"], "zh-CN": ["璀璨原钻"] } },
@@ -375,6 +383,7 @@ export const materials: Material[] = [
   { id: "Majestic Hooked Beak", name: { en: ["Majestic Hooked Beak"], "zh-CN": ["蕈王钩喙"] } },
   { id: "Thunderclap Fruitcore", name: { en: ["Thunderclap Fruitcore"], "zh-CN": ["藏雷野实"] } },
   { id: "Light Guiding Tetrahedron", name: { en: ["Light Guiding Tetrahedron"], "zh-CN": ["导光四面体"] } },
+  { id: "Perpetual Caliber", name: { en: ["Perpetual Caliber"], "zh-CN": ["永续机芯"] } },
 
   // character talents
   { id: "Freedom", name: { en: ["Freedom"], "zh-CN": ["自由"] } },
