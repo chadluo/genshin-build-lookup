@@ -4,13 +4,19 @@
             "DOM",
             "ES2021.String"
         ],
-        "module": "ES2015",
+        "module": "ES2020",
+        "moduleResolution": "node",
         "noImplicitAny": true,
         "noImplicitReturns": true,
         "outDir": "public",
         "sourceMap": true,
         "strict": true,
         "strictNullChecks": true
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "commonjs"
+        }
     },
     "exclude": [
         "src/tests/yuanliao.spec.ts"

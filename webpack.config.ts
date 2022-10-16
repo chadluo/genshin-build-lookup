@@ -1,7 +1,7 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { GenerateSW } = require("workbox-webpack-plugin");
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import path from "path";
+import { GenerateSW } from "workbox-webpack-plugin";
 
 const devMode = process.env.NODE_ENV !== "production";
 
@@ -37,7 +37,12 @@ module.exports = {
     port: 3000,
     static: "./public",
   },
-  plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })]
-    .concat(devMode ? [] : [new MiniCssExtractPlugin()])
-    .concat(devMode ? [] : [new GenerateSW({ clientsClaim: true, skipWaiting: true, cleanupOutdatedCaches: true })]),
+  plugins: ([new HtmlWebpackPlugin({ template: "./src/index.html" })] as any[]).concat(
+    devMode
+      ? []
+      : [
+          new MiniCssExtractPlugin(),
+          new GenerateSW({ clientsClaim: true, skipWaiting: true, cleanupOutdatedCaches: true }),
+        ]
+  ),
 };
