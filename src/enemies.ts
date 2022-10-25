@@ -1,9 +1,10 @@
+import * as I18n from "./i18n";
 import * as Materials from "./materials";
 import * as Types from "./types";
 
 export interface Domain {
   id: string;
-  name: Types.I18nObject;
+  name: I18n.I18nObject;
   type: Types.ItemType; // only talent_type and weapon_type
   materials_by_weekday: string[];
 }
@@ -12,14 +13,14 @@ export interface Boss {
   id: string;
   region: Types.Region;
   type: Types.ItemType;
-  name: Types.I18nObject;
+  name: I18n.I18nObject;
   materials: string[];
 }
 
 export interface Enemy {
   id: string;
   type: Types.ItemType;
-  name: Types.I18nObject;
+  name: I18n.I18nObject;
   materials: string[];
 }
 

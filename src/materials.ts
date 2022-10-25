@@ -1,8 +1,8 @@
-import * as Types from "./types";
+import * as I18n from "./i18n";
 
 export interface Material {
   id: string;
-  name: Types.I18nObject;
+  name: I18n.I18nObject;
 }
 
 export const gems = [

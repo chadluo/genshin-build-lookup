@@ -1,9 +1,8 @@
+import * as I18n from "./i18n";
+
 export type Region = "Mondstadt" | "Liyue" | "Inazuma" | "Sumeru";
 
 export type ItemType = "character" | "weapon" | "weekly_boss" | "boss" | "enemy" | "talent_domain" | "weapon_domain";
-
-export type SupportedLanguages = "en" | "zh-CN";
-export type I18nObject = { [lang in SupportedLanguages]: string[] };
 
 export const TYPE_CHARACTER = "character";
 export const TYPE_WEAPON = "weapon";
@@ -17,6 +16,6 @@ export interface WishObject {
   id: string;
   type: ItemType;
   rarity: number;
-  name: I18nObject;
+  name: I18n.I18nObject;
   materials: "" | string[];
 }
