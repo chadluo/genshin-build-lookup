@@ -274,7 +274,7 @@ th span {
   max-width: calc(100% - 2em);
 }
 .ctable,
-#today .qtable,
+.qtable,
 .timezone-selector {
   margin-top: 1em;
 }

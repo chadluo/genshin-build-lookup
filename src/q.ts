@@ -29,7 +29,7 @@ const upcoming: string[] = [];
 /*** version specific contents ***/
 
 const selectors: HTMLElement = document.getElementById("selectors")!;
-const output: HTMLElement = document.getElementById("output")!;
+const output: HTMLElement = document.getElementById("output-table")!;
 const lang_select: HTMLElement = document.getElementById("lang-select")!;
 
 type TimezoneNames = "Asia" | "Europe" | "America";
@@ -580,7 +580,7 @@ function renderQTableRow(
   objects: (Types.WishObject | [Enemies.Domain, number] | Enemies.Boss | Enemies.Enemy)[]
 ) {
   return `<td>${materials.length === 0 ? "" : formatName(materials[0].name)}</td>
-    <td>${materials.length === 0 ? "" : formatArray(Materials.gems.includes(materials[0].id as any), objects)}</td>`;
+    <td>${materials.length === 0 ? "" : formatArray(objects)}</td>`;
 }
 
 function formatDomainName(name: I18n.I18nObject, weekday: number) {
@@ -595,10 +595,7 @@ function formatMaterialType(m: Materials.Material) {
     : "";
 }
 
-function formatArray(
-  collapsible: boolean,
-  es: (Types.WishObject | [Enemies.Domain, number] | Enemies.Boss | Enemies.Enemy)[]
-) {
+function formatArray(es: (Types.WishObject | [Enemies.Domain, number] | Enemies.Boss | Enemies.Enemy)[]) {
   const links = es.map((e) => {
     const [obj, weekday] = Array.isArray(e) ? [e[0], e[1]] : [e, 0];
     switch (obj.type) {
@@ -609,11 +606,7 @@ function formatArray(
         return renderLink(obj.id, obj.type, obj.name);
     }
   });
-  return collapsible
-    ? `<details ${(document.getElementById("show-gems") as HTMLInputElement)?.checked ? "open" : ""}><summary>${
-        links[0]
-      }</summary>${links.slice(1).join("<br>")}</details>`
-    : links.join(formatName(I18n.i18n.delimiter));
+  return links.join(formatName(I18n.i18n.delimiter));
 }
 
 function renderDomainLink(id: string, weekday: number, type: Types.ItemType, names: I18n.I18nObject) {
