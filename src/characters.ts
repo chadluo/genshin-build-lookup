@@ -2,16 +2,14 @@ import * as Material from "./materials";
 import * as Types from "./types";
 
 export interface Character extends Types.WishObject {
-  materials:
-    | ""
-    | [
-        Material.CharacterAscension,
-        Material.Gem,
-        Material.Talent,
-        Material.Talent,
-        Material.General,
-        Material.LocalSpecialities
-      ];
+  materials?: [
+    Material.CharacterAscension,
+    Material.Gem,
+    Material.Talent,
+    Material.Talent,
+    Material.General,
+    Material.LocalSpecialities
+  ];
 }
 
 export const characters: Character[] = [
@@ -337,6 +335,7 @@ export const characters: Character[] = [
       "Naku Weed",
     ],
   },
+  { id: "Layla", type: "character", rarity: 4, name: { en: ["Layla"], "zh-CN": ["莱依拉"] } },
   {
     id: "Lisa",
     type: "character",
@@ -358,6 +357,7 @@ export const characters: Character[] = [
       "Philanemo Mushroom",
     ],
   },
+  { id: "Nahida", type: "character", rarity: 5, name: { en: ["Nahida"], "zh-CN": ["纳西妲"] } },
   {
     id: "Nilou",
     type: "character",

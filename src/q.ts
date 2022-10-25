@@ -24,7 +24,8 @@ const recent_new = [
   "Xiphos’ Moonlight",
 ];
 
-const upcoming: string[] = [];
+/* 3.2 */
+const upcoming: string[] = ["Nahida", "Layla", "A Thousand Floating Dreams"];
 
 /*** version specific contents ***/
 
@@ -454,7 +455,7 @@ function byCharacter(
 ): Map<Materials.Material, [Enemies.Domain, number][] | Enemies.Boss[] | Enemies.Enemy[]> {
   const map = new Map<Materials.Material, [Enemies.Domain, number][] | Enemies.Boss[] | Enemies.Enemy[]>();
   const materials = Characters.characters.find((c) => c.id === character)!.materials;
-  return materials === ""
+  return materials === undefined
     ? map
     : materials.reduce(
         (map, m: string) => (
@@ -473,7 +474,7 @@ function byWeapon(
 ): Map<Materials.Material, [Enemies.Domain, number][] | Enemies.Boss[] | Enemies.Enemy[]> {
   const map = new Map<Materials.Material, [Enemies.Domain, number][] | Enemies.Boss[] | Enemies.Enemy[]>();
   const materials = Weapons.weapons.find((w) => w.id === weapon)!.materials;
-  return materials === ""
+  return materials === undefined
     ? map
     : materials.reduce(
         (map, m: string) => (
@@ -530,11 +531,11 @@ function byDomain(domainId: string, weekday: number): Map<Materials.Material, Ty
 }
 
 function findCharactersForMaterial(m: string): Characters.Character[] {
-  return Characters.characters.filter((c) => c.materials !== "" && c.materials.includes(m));
+  return Characters.characters.filter((c) => c.materials !== undefined && c.materials.includes(m));
 }
 
 function findWeaponsForMaterial(m: string): Weapons.Weapon[] {
-  return Weapons.weapons.filter((w) => w.materials.includes(m));
+  return Weapons.weapons.filter((w) => w.materials?.includes(m));
 }
 
 /**

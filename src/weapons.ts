@@ -104,6 +104,13 @@ export const weapons: Weapon[] = [
     materials: ["Mask of the Wicked Lieutenant", "Concealed Claw", "Spectral Husk"],
   },
   {
+    id: "A Thousand Floating Dreams",
+    type: "weapon",
+    rarity: 5,
+    category: "Catalyst",
+    name: { en: ["A Thousand Floating Dreams"], "zh-CN": ["千夜浮梦"] },
+  },
+  {
     id: "Wolf’s Gravestone",
     type: "weapon",
     rarity: 5,
