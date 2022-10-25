@@ -56,7 +56,7 @@ To avoid clash with JS/JSON string quotes and complicated escapes and conversion
 
 ### Languages
 
-To add a new language, in `assets.mjs`:
+To add a new language:
 
-- Add names for existing items, tagged with corresponding BCP47 code
-- Add language code and name to `i18n.supported_languages`
+- in `i18n.ts`, add language code (BCP47) to `SupportedLanguages`
+- add corresponding name to all entities by compiler warning
