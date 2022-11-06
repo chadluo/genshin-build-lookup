@@ -108,6 +108,7 @@ export const characterAscension = [
   "Majestic Hooked Beak",
   "Light Guiding Tetrahedron",
   "Perpetual Caliber",
+  "Quelled Creeper",
 ] as const;
 
 export type CharacterAscension = typeof characterAscension[number];
@@ -144,6 +145,9 @@ export const talent = [
   "Mudra of the Malefic General",
   "Tears of the Calamitous God",
   "The Meaning of Aeons",
+  "Puppet Strings",
+  "Mirror of Mushin",
+  "Daka’s Bell",
 ] as const;
 
 export type Talent = typeof talent[number];
@@ -384,6 +388,7 @@ export const materials: Material[] = [
   { id: "Thunderclap Fruitcore", name: { en: ["Thunderclap Fruitcore"], "zh-CN": ["藏雷野实"] } },
   { id: "Light Guiding Tetrahedron", name: { en: ["Light Guiding Tetrahedron"], "zh-CN": ["导光四面体"] } },
   { id: "Perpetual Caliber", name: { en: ["Perpetual Caliber"], "zh-CN": ["永续机芯"] } },
+  { id: "Quelled Creeper", name: { en: ["Quelled Creeper"], "zh-CN": ["灭诤草蔓"] } },
 
   // character talents
   { id: "Freedom", name: { en: ["Freedom"], "zh-CN": ["自由"] } },
@@ -417,6 +422,9 @@ export const materials: Material[] = [
   { id: "Mudra of the Malefic General", name: { en: ["Mudra of the Malefic General"], "zh-CN": ["凶将之手眼"] } },
   { id: "Tears of the Calamitous God", name: { en: ["Tears of the Calamitous God"], "zh-CN": ["祸神之禊泪"] } },
   { id: "The Meaning of Aeons", name: { en: ["The Meaning of Aeons"], "zh-CN": ["万劫之真意"] } },
+  { id: "Puppet Strings", name: { en: ["Puppet Strings"], "zh-CN": ["傀儡的悬丝"] } },
+  { id: "Mirror of Mushin", name: { en: ["Mirror of Mushin"], "zh-CN": ["无心的渊镜"] } },
+  { id: "Daka’s Bell", name: { en: ["Daka’s Bell"], "zh-CN": ["空行的虚铃"] } },
 
   // weapons
   {

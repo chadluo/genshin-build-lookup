@@ -238,6 +238,13 @@ export const bosses: Boss[] = [
     type: "boss",
     name: { en: ["Aeonblight Drake"], "zh-CN": ["兆载永劫龙兽"] },
   },
+  {
+    id: "Dendro Hypostasis",
+    region: "Sumeru",
+    materials: ["Quelled Creeper", "Nagadus Emerald"],
+    type: "boss",
+    name: { en: ["Dendro Hypostasis"], "zh-CN": ["无相之草"] },
+  },
 
   // weekly bosses
   {
@@ -330,6 +337,16 @@ export const bosses: Boss[] = [
     name: {
       en: ["End of the Oneiric Euthymia / Magatsu Mitake Narukami no Mikoto"],
       "zh-CN": ["梦想乐土之殁 / 祸津御建鸣神命"],
+    },
+  },
+  {
+    id: "Joururi Workshop",
+    region: "Sumeru",
+    materials: ["Puppet Strings", "Mirror of Mushin", "Daka’s Bell"],
+    type: "weekly_boss",
+    name: {
+      en: ["Joururi Workshop / Everlasting Lord of Arcane Wisdom Shouki no Kami, the Prodigal"],
+      "zh-CN": ["净琉璃工坊 / 七叶寂照秘密主 「正机之神」"],
     },
   },
 ];

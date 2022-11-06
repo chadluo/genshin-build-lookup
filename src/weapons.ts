@@ -108,7 +108,11 @@ export const weapons: Weapon[] = [
     type: "weapon",
     rarity: 5,
     category: "Catalyst",
-    name: { en: ["A Thousand Floating Dreams"], "zh-CN": ["千夜浮梦"] },
+    name: {
+      en: ["A Thousand Floating Dreams"],
+      "zh-CN": ["千夜浮梦"],
+    },
+    materials: ["Oasis Garden’s Reminiscence", "Damaged Prism", "Fungal Spores"],
   },
   {
     id: "Wolf’s Gravestone",

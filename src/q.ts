@@ -11,21 +11,10 @@ import * as Weapons from "./weapons";
 
 /*** version specific contents ***/
 
-/* 3.1 */
-const recent_new = [
-  "Candace",
-  "Cyno",
-  "Nilou",
-  "Staff of the Scarlet Sands",
-  "Key of the Khaj-Nisut",
-  "Wandering Evenstar",
-  "Makhaira Aquamarine",
-  "Missive Windspear",
-  "Xiphos’ Moonlight",
-];
-
 /* 3.2 */
-const upcoming: string[] = ["Nahida", "Layla", "A Thousand Floating Dreams"];
+const recent_new = ["Nahida", "Layla", "A Thousand Floating Dreams"];
+
+const upcoming: string[] = [];
 
 /*** version specific contents ***/
 

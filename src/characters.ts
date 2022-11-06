@@ -357,7 +357,20 @@ export const characters: Character[] = [
       "Philanemo Mushroom",
     ],
   },
-  { id: "Nahida", type: "character", rarity: 5, name: { en: ["Nahida"], "zh-CN": ["纳西妲"] } },
+  {
+    id: "Nahida",
+    type: "character",
+    rarity: 5,
+    name: { en: ["Nahida"], "zh-CN": ["纳西妲"] },
+    materials: [
+      "Quelled Creeper",
+      "Nagadus Emerald",
+      "Puppet Strings",
+      "Ingenuity",
+      "Fungal Spores",
+      "Kalpalata Lotus",
+    ],
+  },
   {
     id: "Nilou",
     type: "character",
