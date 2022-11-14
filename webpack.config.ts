@@ -37,12 +37,11 @@ module.exports = {
     port: 3000,
     static: "./public",
   },
-  plugins: ([new HtmlWebpackPlugin({ template: "./src/index.html" })] as any[]).concat(
-    devMode
-      ? []
-      : [
-          new MiniCssExtractPlugin(),
-          new GenerateSW({ clientsClaim: true, skipWaiting: true, cleanupOutdatedCaches: true }),
-        ]
-  ),
+  plugins: devMode
+    ? [new HtmlWebpackPlugin({ template: "./src/index.html" })]
+    : [
+        new HtmlWebpackPlugin({ template: "./src/index.html" }),
+        new MiniCssExtractPlugin(),
+        new GenerateSW({ clientsClaim: true, skipWaiting: true, cleanupOutdatedCaches: true }),
+      ],
 };
