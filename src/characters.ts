@@ -335,7 +335,20 @@ export const characters: Character[] = [
       "Naku Weed",
     ],
   },
-  { id: "Layla", type: "character", rarity: 4, name: { en: ["Layla"], "zh-CN": ["莱依拉"] } },
+  {
+    id: "Layla",
+    type: "character",
+    rarity: 4,
+    name: { en: ["Layla"], "zh-CN": ["莱依拉"] },
+    materials: [
+      "Perpetual Caliber",
+      "Shivada Jade",
+      "Mirror of Mushin",
+      "Ingenuity",
+      "Divining Scroll",
+      "Nilotpala Lotus",
+    ],
+  },
   {
     id: "Lisa",
     type: "character",
