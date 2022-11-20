@@ -77,7 +77,7 @@ lang_select!.addEventListener("change", (event) =>
 
 function setLanguage(lang: I18n.SupportedLanguages) {
   document.documentElement.setAttribute("lang", lang);
-  document.title = I18n.i18n.siteTitle[lang].join("");
+  document.title = I18n.i18n.siteTitle[lang] as string;
   setSearchItems(lang);
   (lang_select as HTMLSelectElement).value = lang;
   localStorage.setItem("lang", lang);
@@ -88,7 +88,7 @@ function setSearchItems(lang: I18n.SupportedLanguages) {
     .concat(Characters.characters)
     .concat(Weapons.weapons)
     .sort((w1, w2) => w1.id.localeCompare(w2.id))
-    .map((w) => `<option value="${w.id}">${w.name[lang].join("")}</option>`)
+    .map((w) => `<option value="${w.id}">${w.name[lang] as string}</option>`)
     .join("");
 }
 
@@ -610,13 +610,15 @@ function renderDomainLink(id: string, weekday: number, type: Types.ItemType, nam
 
 function formatName(name: I18n.I18nObject): string {
   return Object.entries(name)
-    .map(([lang, value]) => `<span class="i18n" lang="${lang}">${formatMulti(value)}</span>`)
+    .map(([lang, value]) => `<span class="i18n" lang="${lang}">${formatValue(value)}</span>`)
     .join("");
 }
 
-function formatMulti(names: string[]) {
+function formatValue(names: string | string[]) {
   const showAlternatives = (document.querySelector("input#show-alternatives") as HTMLInputElement).checked;
-  return names.length === 1
+  return typeof names === "string"
+    ? names
+    : names.length === 1
     ? names[0]
     : `<details class="alternative" ${showAlternatives ? "open" : ""}><summary>${names[0]}</summary>${names
         .slice(1)
