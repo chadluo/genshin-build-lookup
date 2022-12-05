@@ -181,6 +181,7 @@ export const characters: Character[] = [
       "Dandelion Seed",
     ],
   },
+  { id: "Faruzan", type: "character", rarity: 4, name: { en: "Faruzan", "zh-CN": "珐露珊" } },
   {
     id: "Fischl",
     type: "character",
@@ -566,6 +567,7 @@ export const characters: Character[] = [
     name: { en: ["Venti"], "zh-CN": ["温迪"] },
     materials: ["Hurricane Seed", "Vayuda Turquoise", "Tail of Boreas", "Ballad", "Slime Condensate", "Cecilia"],
   },
+  { id: "Wanderer", type: "character", rarity: 5, name: { en: "Wanderer", "zh-CN": "流浪者" } },
   {
     id: "Xiangling",
     type: "character",

@@ -115,6 +115,14 @@ export const weapons: Weapon[] = [
     materials: ["Oasis Garden’s Reminiscence", "Damaged Prism", "Fungal Spores"],
   },
   {
+    id: "Tulaytulla’s Rememberance",
+    type: "weapon",
+    rarity: 5,
+    category: "Catalyst",
+    name: { en: "Tulaytulla’s Rememberance", "zh-CN": "图莱杜拉的回忆" },
+    materials: ["Echo of Scorching Might", "Inactivated Fungal Nucleus", "Fungal Spores"],
+  },
+  {
     id: "Wolf’s Gravestone",
     type: "weapon",
     rarity: 5,
@@ -1056,6 +1064,14 @@ export const weapons: Weapon[] = [
     category: "Sword",
     name: { en: ["Xiphos’ Moonlight"], "zh-CN": ["西福斯的月光"] },
     materials: ["Copper Talisman of the Forest Dew", "Damaged Prism", "Faded Red Satin"],
+  },
+  {
+    id: "Toukabou Shigure",
+    type: "weapon",
+    rarity: 4,
+    category: "Sword",
+    name: { en: "Toukabou Shigure", "zh-CN": "东花坊时雨" },
+    materials: ["Narukami’s Wisdom", "Damaged Prism", "Old Handguard"],
   },
   {
     id: "Raven Bow",

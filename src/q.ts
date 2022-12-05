@@ -14,7 +14,7 @@ import * as Weapons from "./weapons";
 /* 3.2 */
 const recent_new = ["Nahida", "Layla", "A Thousand Floating Dreams"];
 
-const upcoming: string[] = [];
+const upcoming: string[] = ["Wanderer", "Faruzan", "Tulaytulla’s Rememberance", "Toukabou Shigure"];
 
 /*** version specific contents ***/
 
