@@ -37,17 +37,17 @@ if ("serviceWorker" in navigator) {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  lang_select.innerHTML = Object.entries(I18n.i18n.supportedLanguageSelectors)
+  lang_select!.innerHTML = Object.entries(I18n.i18n.supportedLanguageSelectors)
     .map(([lang, name]) => `<option value="${lang}">${name}</option>`)
     .join("");
 
   const lang_candidate: I18n.SupportedLanguages = (localStorage.getItem("lang") ??
     navigator.language) as I18n.SupportedLanguages;
-  const lang = I18n.i18n.supportedLanguageSelectors.hasOwnProperty(lang_candidate) ? lang_candidate : "en";
+  const lang = Object.hasOwn(I18n.i18n.supportedLanguageSelectors, lang_candidate) ? lang_candidate : "en";
   setLanguage(lang);
 
   JSON.parse(localStorage.getItem("bookmarks") ?? "[]").forEach(
-    ([type, id, weekday]: [string, string, number]) => (output.innerHTML += renderQTableContent(type, id, weekday))
+    ([type, id, weekday]: [string, string, number]) => (output!.innerHTML += renderQTableContent(type, id, weekday))
   );
   document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
 
@@ -64,7 +64,7 @@ document.querySelector("nav .links")!.addEventListener("click", (event) => {
   const link = event.target as HTMLElement;
   if (!link || link.tagName !== "A") return;
   const target = document.getElementById(link.dataset.target ?? "")!;
-  let details = target.querySelector("details.section") as HTMLDetailsElement;
+  const details = target.querySelector("details.section") as HTMLDetailsElement;
   if (details) details.open = true;
   target.scrollIntoView();
 });
@@ -360,13 +360,7 @@ customElements.define(
       return Enemies.domains
         .flatMap((domain) =>
           weekdays.map((weekday) =>
-            renderQTableRows(
-              domain.type,
-              domain.id,
-              findDomain(domain.id, weekday),
-              byDomain(domain.id, weekday),
-              weekday
-            )
+            renderQTableRows(domain.type, domain.id, findDomain(domain.id), byDomain(domain.id, weekday), weekday)
           )
         )
         .join("");
@@ -389,10 +383,10 @@ function findOrLoadQTable(event: Event) {
 
 function findOrLoadQTable2(type: string, id: string, weekday: string) {
   document.querySelectorAll(".highlighted").forEach((element) => element.classList.remove("highlighted"));
-  const existed = output.querySelector(`tbody[name="${Names.formatId(type, id, weekday)}"]`);
+  const existed = output!.querySelector(`tbody[name="${Names.formatId(type, id, weekday)}"]`);
   if (!existed) {
-    output.innerHTML += renderQTableContent(type, id, parseInt(weekday));
-    const rows = output.querySelectorAll("th");
+    output!.innerHTML += renderQTableContent(type, id, parseInt(weekday));
+    const rows = output!.querySelectorAll("th");
     rows[rows.length - 1].scrollIntoView();
   } else {
     existed.classList.add("highlighted");
@@ -402,8 +396,8 @@ function findOrLoadQTable2(type: string, id: string, weekday: string) {
   lastQuery.weekday = weekday;
 }
 
-selectors.addEventListener("click", findOrLoadQTable);
-output.addEventListener("click", findOrLoadQTable);
+selectors?.addEventListener("click", findOrLoadQTable);
+output!.addEventListener("click", findOrLoadQTable);
 
 document.querySelector("input[list='searchItems']")?.addEventListener("input", (event) => {
   // chromium/firefox populate from options
@@ -429,7 +423,7 @@ function renderQTableContent(type: string, id: string, weekday: number): string 
       return renderQTableRows(type, id, findEnemy(id), byEnemy(id), weekday);
     case Types.TYPE_TALENT_DOMAIN:
     case Types.TYPE_WEAPON_DOMAIN:
-      return renderQTableRows(type, id, findDomain(id, weekday), byDomain(id, weekday), weekday);
+      return renderQTableRows(type, id, findDomain(id), byDomain(id, weekday), weekday);
     default:
       return "";
   }
@@ -502,7 +496,7 @@ function byEnemy(enemy: string): Map<Materials.Material, (Characters.Character |
     );
 }
 
-function findDomain(domainId: string, _weekday: number): I18n.I18nObject {
+function findDomain(domainId: string): I18n.I18nObject {
   return Enemies.domains.find((d) => d.id === domainId)!.name;
 }
 
@@ -578,14 +572,10 @@ function formatDomainName(name: I18n.I18nObject, weekday: number) {
 }
 
 function formatMaterialType(m: Materials.Material) {
-  return Materials.gems.includes(m.id as any)
-    ? "class='gem'"
-    : Materials.billets.includes(m.id) || Materials.forgingMaterials.includes(m.id)
-    ? "class='billet'"
-    : "";
+  return Materials.billets.includes(m.id) || Materials.forgingMaterials.includes(m.id) ? "class='billet'" : "";
 }
 
-function formatArray(es: (Types.WishObject | [Enemies.Domain, number] | Enemies.Boss | Enemies.Enemy)[]) {
+function formatArray(es: (Types.WishObject | [Enemies.Domain, number] | Enemies.Boss | Enemies.Enemy)[]): string {
   const links = es.map((e) => {
     const [obj, weekday] = Array.isArray(e) ? [e[0], e[1]] : [e, 0];
     switch (obj.type) {
@@ -631,5 +621,5 @@ document.getElementById("clear")?.addEventListener("click", () => {
   lastQuery.weekday = "";
 });
 
-selectors.addEventListener("change", Bookmarks.updateBookmark);
+selectors?.addEventListener("change", Bookmarks.updateBookmark);
 output.addEventListener("change", Bookmarks.updateBookmark);
