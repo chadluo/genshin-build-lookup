@@ -94,7 +94,7 @@ export const characters: Character[] = [
       "Tears of the Calamitous God",
       "Admonition",
       "Faded Red Satin",
-      "Redcrest",
+      "Henna Berry",
     ],
   },
   {
@@ -181,7 +181,20 @@ export const characters: Character[] = [
       "Dandelion Seed",
     ],
   },
-  { id: "Faruzan", type: "character", rarity: 4, name: { en: "Faruzan", "zh-CN": "珐露珊" } },
+  {
+    id: "Faruzan",
+    type: "character",
+    rarity: 4,
+    name: { en: "Faruzan", "zh-CN": "珐露珊" },
+    materials: [
+      "Light Guiding Tetrahedron",
+      "Vayuda Turquoise",
+      "Puppet Strings",
+      "Admonition",
+      "Faded Red Satin",
+      "Henna Berry",
+    ],
+  },
   {
     id: "Fischl",
     type: "character",
@@ -567,7 +580,20 @@ export const characters: Character[] = [
     name: { en: ["Venti"], "zh-CN": ["温迪"] },
     materials: ["Hurricane Seed", "Vayuda Turquoise", "Tail of Boreas", "Ballad", "Slime Condensate", "Cecilia"],
   },
-  { id: "Wanderer", type: "character", rarity: 5, name: { en: "Wanderer", "zh-CN": "流浪者" } },
+  {
+    id: "Wanderer",
+    type: "character",
+    rarity: 5,
+    name: { en: "Wanderer", "zh-CN": "流浪者" },
+    materials: [
+      "Perpetual Caliber",
+      "Vayuda Turquoise",
+      "Daka’s Bell",
+      "Praxis",
+      "Old Handguard",
+      "Rukkhashava Mushrooms",
+    ],
+  },
   {
     id: "Xiangling",
     type: "character",

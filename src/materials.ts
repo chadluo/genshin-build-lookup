@@ -73,7 +73,7 @@ export const localSpecialities = [
   "Kalpalata Lotus",
   "Nilotpala Lotus",
   "Scarab",
-  "Redcrest",
+  "Henna Berry",
   "Padisarah",
 ] as const;
 
@@ -356,7 +356,7 @@ export const materials: Material[] = [
   { id: "Rukkhashava Mushrooms", name: { en: "Rukkhashava Mushrooms", "zh-CN": "树王圣体菇" } },
   { id: "Kalpalata Lotus", name: { en: "Kalpalata Lotus", "zh-CN": "劫波莲" } },
   { id: "Scarab", name: { en: "Scarab", "zh-CN": "圣金虫" } },
-  { id: "Redcrest", name: { en: "Redcrest", "zh-CN": "赤念果" } },
+  { id: "Henna Berry", name: { en: "Henna Berry", "zh-CN": "赤念果" } },
   { id: "Padisarah", name: { en: "Padisarah", "zh-CN": "帕蒂沙兰" } },
 
   // character ascension
