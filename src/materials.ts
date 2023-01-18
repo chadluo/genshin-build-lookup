@@ -75,6 +75,7 @@ export const localSpecialities = [
   "Scarab",
   "Henna Berry",
   "Padisarah",
+  "Sand Grease Pupa",
 ] as const;
 
 export type LocalSpecialities = typeof localSpecialities[number];
@@ -109,6 +110,7 @@ export const characterAscension = [
   "Light Guiding Tetrahedron",
   "Perpetual Caliber",
   "Quelled Creeper",
+  "Pseudo-Stamens",
 ] as const;
 
 export type CharacterAscension = typeof characterAscension[number];
@@ -325,6 +327,13 @@ export const materials: Material[] = [
     id: "Damaged Prism",
     name: { en: ["Damaged Prism", "Turbid Prism", "Radiant Prism"], "zh-CN": ["破缺棱晶", "混浊棱晶", "辉光棱晶"] },
   },
+  {
+    id: "Desiccated Shell",
+    name: {
+      en: ["Desiccated Shell", "Sturdy Shell", "Marked Shell"],
+      "zh-CN": ["残毁的横脊", "密固的横脊", "锲纹的横脊"],
+    },
+  },
 
   // local specialities
   { id: "Calla Lily", name: { en: "Calla Lily", "zh-CN": "嘟嘟莲" } },
@@ -358,6 +367,7 @@ export const materials: Material[] = [
   { id: "Scarab", name: { en: "Scarab", "zh-CN": "圣金虫" } },
   { id: "Henna Berry", name: { en: "Henna Berry", "zh-CN": "赤念果" } },
   { id: "Padisarah", name: { en: "Padisarah", "zh-CN": "帕蒂沙兰" } },
+  { id: "Pseudo-Stamens", name: { en: "Pseudo-Stamens", "zh-CN": "苍砾蕊羽" } },
 
   // character ascension
   { id: "Brilliant Diamond", name: { en: "Brilliant Diamond", "zh-CN": "璀璨原钻" } },
@@ -389,6 +399,7 @@ export const materials: Material[] = [
   { id: "Light Guiding Tetrahedron", name: { en: "Light Guiding Tetrahedron", "zh-CN": "导光四面体" } },
   { id: "Perpetual Caliber", name: { en: "Perpetual Caliber", "zh-CN": "永续机芯" } },
   { id: "Quelled Creeper", name: { en: "Quelled Creeper", "zh-CN": "灭诤草蔓" } },
+  { id: "Sand Grease Pupa", name: { en: "Sand Grease Pupa", "zh-CN": "沙脂蛹" } },
 
   // character talents
   { id: "Freedom", name: { en: "Freedom", "zh-CN": "自由" } },

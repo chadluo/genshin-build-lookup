@@ -21,6 +21,20 @@ export const characters: Character[] = [
     materials: ["Basalt Pillar", "Prithiva Topaz", "Tusk of Monoceros Caeli", "Ballad", "Divining Scroll", "Cecilia"],
   },
   {
+    id: "Alhaitham",
+    type: "character",
+    rarity: 5,
+    name: { en: "Alhaitham", "zh-CN": "艾尔海森" },
+    materials: [
+      "Pseudo-Stamens",
+      "Nagadus Emerald",
+      "Mirror of Mushin",
+      "Ingenuity",
+      "Faded Red Satin",
+      "Sand Grease Pupa",
+    ],
+  },
+  {
     id: "Aloy",
     type: "character",
     rarity: 5,
@@ -663,6 +677,13 @@ export const characters: Character[] = [
       "Treasure Hoarder Insignia",
       "Noctilucous Jade",
     ],
+  },
+  {
+    id: "Yaoyao",
+    type: "character",
+    rarity: 4,
+    name: { en: "Yaoyao", "zh-CN": "瑶瑶" },
+    materials: ["Quelled Creeper", "Nagadus Emerald", "Daka’s Bell", "Diligence", "Slime Condensate", "Jueyun Chili"],
   },
   {
     id: "Yelan",

@@ -283,6 +283,14 @@ export const weapons: Weapon[] = [
     materials: ["Copper Talisman of the Forest Dew", "Damaged Prism", "Faded Red Satin"],
   },
   {
+    id: "Light of Foliar Incision",
+    type: "weapon",
+    rarity: 5,
+    category: "Sword",
+    name: { en: "Light of Foliar Incision", "zh-CN": "裁叶萃光" },
+    materials: ["Copper Talisman of the Forest Dew", "Desiccated Shell", "Faded Red Satin"],
+  },
+  {
     id: "Alley Hunter",
     type: "weapon",
     rarity: 4,

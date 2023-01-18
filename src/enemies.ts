@@ -245,6 +245,13 @@ export const bosses: Boss[] = [
     type: "boss",
     name: { en: ["Dendro Hypostasis"], "zh-CN": ["无相之草"] },
   },
+  {
+    id: "Setekh Wenut",
+    region: "Sumeru",
+    materials: ["Pseudo-Stamens", "Vayuda Turquoise"],
+    type: "boss",
+    name: { en: "Setekh Wenut", "zh-CN": "风蚀沙虫" },
+  },
 
   // weekly bosses
   {
@@ -509,5 +516,11 @@ export const enemies: Enemy[] = [
     type: "enemy",
     name: { en: ["Primal Construct"], "zh-CN": ["元能构装体"] },
     materials: ["Damaged Prism"],
+  },
+  {
+    id: "Consecrated Beast",
+    type: "enemy",
+    name: { en: "Consecrated Beast", "zh-CN": "圣骸兽" },
+    materials: ["Desiccated Shell"],
   },
 ];
