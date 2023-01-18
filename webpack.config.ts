@@ -1,7 +1,6 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import path from "path";
-import { GenerateSW } from "workbox-webpack-plugin";
 
 const devMode = process.env.NODE_ENV !== "production";
 
@@ -42,6 +41,6 @@ module.exports = {
     : [
         new HtmlWebpackPlugin({ template: "./src/index.html" }),
         new MiniCssExtractPlugin(),
-        new GenerateSW({ clientsClaim: true, skipWaiting: true, cleanupOutdatedCaches: true }),
+        // new GenerateSW({ clientsClaim: true, skipWaiting: true, cleanupOutdatedCaches: true }),
       ],
 };
