@@ -9,6 +9,8 @@ import "./style.css";
 import * as Types from "./types";
 import * as Weapons from "./weapons";
 
+import "./CNAME";
+
 /*** version specific contents ***/
 
 /* 3.4 */
