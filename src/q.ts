@@ -5,10 +5,11 @@ import * as I18n from "./i18n";
 import * as Keyboard from "./keyboard";
 import * as Materials from "./materials";
 import * as Names from "./names";
-import "./style.css";
 import * as Types from "./types";
 import * as Version from "./version";
 import * as Weapons from "./weapons";
+
+import "./style.css";
 
 import "./CNAME";
 
@@ -289,7 +290,9 @@ customElements.define(
             Bookmarks.isBookmarked(type, id, i) ? "class='bookmarked'" : ""
           }>${formatName(I18n.weekdays[i]!)}</a>`;
         })
-        .join(formatName(I18n.i18n.delimiter))}</td>`;
+        .join(formatName(I18n.i18n.delimiter))}${formatName(
+        I18n.i18n.delimiter
+      )}<a data-id="${id}" data-weekday="0" data-type="${type}">${formatName(I18n.i18n.showAll)}</a></td>`;
     }
   }
 );
@@ -417,7 +420,13 @@ function renderQTableContent(type: string, id: string, weekday: number): string 
       return renderQTableRows(type, id, findEnemy(id), byEnemy(id), weekday);
     case Types.TYPE_TALENT_DOMAIN:
     case Types.TYPE_WEAPON_DOMAIN:
-      return renderQTableRows(type, id, findDomain(id), byDomain(id, weekday), weekday);
+      if (weekday === 0) {
+        return [1, 2, 3]
+          .map((weekday) => renderQTableRows(type, id, findDomain(id), byDomain(id, weekday), weekday))
+          .join("");
+      } else {
+        return renderQTableRows(type, id, findDomain(id), byDomain(id, weekday), weekday);
+      }
     default:
       return "";
   }

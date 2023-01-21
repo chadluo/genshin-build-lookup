@@ -18,6 +18,7 @@ export const i18n: { [id: string]: I18nObject } = {
   Asia: { en: "Asia / TW, HK, MO / CN", "zh-CN": "亚服、港澳台服、国服" },
   Europe: { en: "Europe", "zh-CN": "欧服" },
   America: { en: "America", "zh-CN": "美服" },
+  showAll: { en: "Show All", "zh-CN": "显示全部" },
 };
 
 /**
