@@ -15,7 +15,7 @@ export const gems = [
   "Nagadus Emerald",
 ] as const;
 
-export type Gem = typeof gems[number];
+export type Gem = (typeof gems)[number];
 
 export const general = [
   "Slime Condensate",
@@ -41,7 +41,7 @@ export const general = [
   "Damaged Prism",
 ];
 
-export type General = typeof general[number];
+export type General = (typeof general)[number];
 
 export const localSpecialities = [
   "Calla Lily",
@@ -78,7 +78,7 @@ export const localSpecialities = [
   "Sand Grease Pupa",
 ] as const;
 
-export type LocalSpecialities = typeof localSpecialities[number];
+export type LocalSpecialities = (typeof localSpecialities)[number];
 
 export const characterAscension = [
   "Brilliant Diamond",
@@ -113,7 +113,7 @@ export const characterAscension = [
   "Pseudo-Stamens",
 ] as const;
 
-export type CharacterAscension = typeof characterAscension[number];
+export type CharacterAscension = (typeof characterAscension)[number];
 
 export const talent = [
   "Freedom",
@@ -152,7 +152,7 @@ export const talent = [
   "Daka’s Bell",
 ] as const;
 
-export type Talent = typeof talent[number];
+export type Talent = (typeof talent)[number];
 
 export const billets: string[] = [
   "Northlander Claymore Billet",

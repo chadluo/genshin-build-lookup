@@ -7,18 +7,10 @@ import * as Materials from "./materials";
 import * as Names from "./names";
 import "./style.css";
 import * as Types from "./types";
+import * as Version from "./version";
 import * as Weapons from "./weapons";
 
 import "./CNAME";
-
-/*** version specific contents ***/
-
-/* 3.4 */
-const recent_new = ["Alhaitham", "Yaoyao", "Light of Foliar Incision"];
-
-const upcoming: string[] = [];
-
-/*** version specific contents ***/
 
 const selectors: HTMLElement = document.getElementById("selectors")!;
 const output: HTMLElement = document.getElementById("output-table")!;
@@ -307,10 +299,10 @@ function renderLink(id: string, type: Types.ItemType, names: I18n.I18nObject) {
   if (Bookmarks.isBookmarked(type, id, 0)) {
     classes.push("bookmarked");
   }
-  if (recent_new.includes(id)) {
+  if (Version.recent_new.includes(id)) {
     classes.push("recent-new");
   }
-  if (upcoming.includes(id)) {
+  if (Version.upcoming.includes(id)) {
     classes.push("upcoming");
   }
   return `<a data-id='${id}' data-type='${type}' class="${classes.join(" ")}">${formatName(names)}</a>`;
