@@ -163,6 +163,13 @@ export const weapons: Weapon[] = [
     materials: ["Narukami’s Wisdom", "Concealed Claw", "Old Handguard"],
   },
   {
+    id: "Beacon of the Reed Sea",
+    type: "weapon",
+    rarity: 5,
+    category: "Claymore",
+    name: { en: "Beacon of the Reed Sea", "zh-CN": "苇海信标" },
+  },
+  {
     id: "Engulfing Lightning",
     type: "weapon",
     rarity: 5,
@@ -766,6 +773,13 @@ export const weapons: Weapon[] = [
     category: "Claymore",
     name: { en: ["Makhaira Aquamarine"], "zh-CN": ["玛海菈的水色"] },
     materials: ["Echo of Scorching Might", "Chaos Storage", "Treasure Hoarder Insignia"],
+  },
+  {
+    id: "Mailed Flower",
+    type: "weapon",
+    rarity: 4,
+    category: "Claymore",
+    name: { en: "Mailed Flower", "zh-CN": "饰铁之花" },
   },
   {
     id: "Prototype Starglitter",
