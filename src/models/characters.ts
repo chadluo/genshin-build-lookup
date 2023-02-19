@@ -1,5 +1,5 @@
+import * as Types from "../types";
 import * as Material from "./materials";
-import * as Types from "./types";
 
 export interface Character extends Types.WishObject {
   materials?: [

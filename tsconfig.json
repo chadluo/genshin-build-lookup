@@ -11,7 +11,6 @@
         "noImplicitReturns": true,
         "outDir": "public",
         "sourceMap": true,
-        "strict": true,
         "strictNullChecks": true
     },
     "ts-node": {
@@ -24,6 +23,8 @@
     ],
     "extends": "@tsconfig/recommended/tsconfig.json",
     "include": [
-        "src/*.ts"
+        "src/*.ts",
+        "src/models/*.ts",
+        "src/components/*.ts",
     ]
 }

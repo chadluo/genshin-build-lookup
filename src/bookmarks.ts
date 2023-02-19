@@ -58,3 +58,7 @@ function unbookmark(type: Types.ItemType, id: string, weekday: number): void {
     localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
   }
 }
+
+export function hasBookmarks(): boolean {
+  return JSON.parse(localStorage.getItem("bookmarks") ?? "[]").length !== 0;
+}

@@ -1,6 +1,6 @@
-import * as I18n from "./i18n";
+import * as I18n from "../i18n";
+import * as Types from "../types";
 import * as Materials from "./materials";
-import * as Types from "./types";
 
 export interface Domain {
   id: string;
