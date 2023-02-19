@@ -1,11 +1,32 @@
 import { isBookmarked } from "./bookmarks";
 import { i18n, I18nObject, weekdays } from "./i18n";
-import * as Characters from "./models/characters";
-import * as Enemies from "./models/enemies";
-import * as Materials from "./models/materials";
-import * as Weapons from "./models/weapons";
-import * as Types from "./types";
+import { Character, characters } from "./models/characters";
+import { Boss, Domain, domains, Enemy } from "./models/enemies";
+import { billets, forgingMaterials, Material, materials } from "./models/materials";
+import { Weapon, weapons } from "./models/weapons";
 import { recent_new, upcoming } from "./version";
+
+export type Region = "Mondstadt" | "Liyue" | "Inazuma" | "Sumeru";
+
+export type ItemType = "character" | "weapon" | "weekly_boss" | "boss" | "enemy" | "talent_domain" | "weapon_domain";
+
+export type WishItemType = typeof TYPE_CHARACTER | typeof TYPE_WEAPON;
+
+export const TYPE_CHARACTER = "character";
+export const TYPE_WEAPON = "weapon";
+export const TYPE_WEEKLY_BOSS = "weekly_boss";
+export const TYPE_BOSS = "boss";
+export const TYPE_ENEMY = "enemy";
+export const TYPE_TALENT_DOMAIN = "talent_domain";
+export const TYPE_WEAPON_DOMAIN = "weapon_domain";
+
+export interface WishItem {
+  id: string;
+  type: WishItemType;
+  rarity: number;
+  name: I18nObject;
+  materials?: string[];
+}
 
 export function formatTableCaption(type: string) {
   return `${getTableCaptionIcon(type)} ${formatName(i18n[type])}`;
@@ -28,7 +49,7 @@ export function formatName(name: I18nObject): string {
     .join("");
 }
 
-export function renderLink(id: string, type: Types.ItemType, names: I18nObject) {
+export function renderLink(id: string, type: ItemType, names: I18nObject) {
   const classes = [];
   if (isBookmarked(type, id, 0)) {
     classes.push("bookmarked");
@@ -53,7 +74,7 @@ export function formatValue(names: string | string[]) {
         .join("<br>")}</details>`;
 }
 
-export function groupWishObjects<WO extends Types.WishObject, T>(f: (w: WO) => T, ws: WO[]): Map<T, WO[]> {
+export function groupWishObjects<WO extends WishItem, T>(f: (w: WO) => T, ws: WO[]): Map<T, WO[]> {
   return ws.reduce((m, w) => {
     const key = f(w);
     const arr = m.get(key) ?? [];
@@ -70,10 +91,10 @@ export function groupWishObjects<WO extends Types.WishObject, T>(f: (w: WO) => T
  * | Boss             | Material | Characters/Weapons |
  */
 export function renderQTableRows(
-  type: Types.ItemType,
+  type: ItemType,
   id: string,
   name: I18nObject,
-  object: Map<Materials.Material, (Types.WishObject | [Enemies.Domain, number] | Enemies.Boss | Enemies.Enemy)[]>,
+  object: Map<Material, (WishItem | [Domain, number] | Boss | Enemy)[]>,
   weekday: number
 ) {
   const materials = Array.from(object.keys());
@@ -102,26 +123,23 @@ export function renderQTableRows(
 }
 
 export function findDomain(domainId: string): I18nObject {
-  return Enemies.domains.find((d) => d.id === domainId)!.name;
+  return domains.find((d) => d.id === domainId)!.name;
 }
 
-export function byDomain(domainId: string, weekday: number): Map<Materials.Material, Types.WishObject[]> {
-  const domain = Enemies.domains.filter((d) => d.id === domainId)[0]!;
+export function byDomain(domainId: string, weekday: number): Map<Material, WishItem[]> {
+  const domain = domains.filter((d) => d.id === domainId)[0]!;
   const material = domain.materials_by_weekday[weekday];
   const map = new Map();
   if (material) {
     map.set(
-      Materials.materials.find((m) => m.id === material)!,
+      materials.find((m) => m.id === material)!,
       domain.type === "weapon_domain" ? findWeaponsForMaterial(material) : findCharactersForMaterial(material)
     );
   }
   return map;
 }
 
-function renderQTableRow(
-  materials: Materials.Material[],
-  objects: (Types.WishObject | [Enemies.Domain, number] | Enemies.Boss | Enemies.Enemy)[]
-) {
+function renderQTableRow(materials: Material[], objects: (WishItem | [Domain, number] | Boss | Enemy)[]) {
   return `<td>${materials.length === 0 ? "" : formatName(materials[0].name)}</td>
     <td>${materials.length === 0 ? "" : formatArray(objects)}</td>`;
 }
@@ -130,8 +148,8 @@ function formatDomainName(name: I18nObject, weekday: number) {
   return `${formatName(name)}<span class="domainWeekday"> / ${formatName(weekdays[weekday])}</span>`;
 }
 
-function formatMaterialType(m: Materials.Material) {
-  return Materials.billets.includes(m.id) || Materials.forgingMaterials.includes(m.id) ? "class='billet'" : "";
+function formatMaterialType(m: Material) {
+  return billets.includes(m.id) || forgingMaterials.includes(m.id) ? "class='billet'" : "";
 }
 
 /**
@@ -146,12 +164,12 @@ export function formatId(...parts: any[]) {
     .replaceAll(/[’“”]/g, "");
 }
 
-function formatArray(es: (Types.WishObject | [Enemies.Domain, number] | Enemies.Boss | Enemies.Enemy)[]): string {
+function formatArray(es: (WishItem | [Domain, number] | Boss | Enemy)[]): string {
   const links = es.map((e) => {
     const [obj, weekday] = Array.isArray(e) ? [e[0], e[1]] : [e, 0];
     switch (obj.type) {
-      case Types.TYPE_TALENT_DOMAIN:
-      case Types.TYPE_WEAPON_DOMAIN:
+      case TYPE_TALENT_DOMAIN:
+      case TYPE_WEAPON_DOMAIN:
         return renderDomainLink(obj.id, weekday, obj.type, obj.name);
       default:
         return renderLink(obj.id, obj.type, obj.name);
@@ -160,15 +178,15 @@ function formatArray(es: (Types.WishObject | [Enemies.Domain, number] | Enemies.
   return links.join(formatName(i18n.delimiter));
 }
 
-export function findWeaponsForMaterial(m: string): Weapons.Weapon[] {
-  return Weapons.weapons.filter((w) => w.materials?.includes(m));
+export function findWeaponsForMaterial(m: string): Weapon[] {
+  return weapons.filter((w) => w.materials?.includes(m));
 }
 
-export function findCharactersForMaterial(m: string): Characters.Character[] {
-  return Characters.characters.filter((c) => c.materials !== undefined && c.materials.includes(m));
+export function findCharactersForMaterial(m: string): Character[] {
+  return characters.filter((c) => c.materials !== undefined && c.materials.includes(m));
 }
 
-function renderDomainLink(id: string, weekday: number, type: Types.ItemType, names: I18nObject) {
+function renderDomainLink(id: string, weekday: number, type: ItemType, names: I18nObject) {
   const classes = [];
   if (isBookmarked(type, id, weekday)) {
     classes.push("bookmarked");

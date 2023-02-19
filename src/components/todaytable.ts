@@ -1,6 +1,6 @@
 import { byDomain, findDomain, formatName, formatTableCaption, renderQTableRows } from "../base";
-import * as I18n from "../i18n";
-import * as Enemies from "../models/enemies";
+import { i18n, weekdays } from "../i18n";
+import { domains } from "../models/enemies";
 
 type TimezoneNames = "Asia" | "Europe" | "America";
 const timezones: { [tz in TimezoneNames]: number } = { Asia: 8, Europe: 1, America: -5 };
@@ -32,11 +32,7 @@ export function define() {
       }
 
       formatZoneOption(zone: TimezoneNames) {
-        return (
-          formatName(I18n.i18n[zone]) +
-          formatName(I18n.i18n.delimiter) +
-          formatName(I18n.weekdays[this.getWeekday(zone)])
-        );
+        return formatName(i18n[zone]) + formatName(i18n.delimiter) + formatName(weekdays[this.getWeekday(zone)]);
       }
 
       refreshDomains(event: Event) {
@@ -51,7 +47,7 @@ export function define() {
       }
 
       renderDomains(weekdays: number[]): string {
-        return Enemies.domains
+        return domains
           .flatMap((domain) =>
             weekdays.map((weekday) =>
               renderQTableRows(domain.type, domain.id, findDomain(domain.id), byDomain(domain.id, weekday), weekday)

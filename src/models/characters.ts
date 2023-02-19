@@ -1,15 +1,8 @@
-import * as Types from "../types";
-import * as Material from "./materials";
+import { WishItem } from "../base";
+import { CharacterAscension, Gem, General, LocalSpecialities, Talent } from "./materials";
 
-export interface Character extends Types.WishObject {
-  materials?: [
-    Material.CharacterAscension,
-    Material.Gem,
-    Material.Talent,
-    Material.Talent,
-    Material.General,
-    Material.LocalSpecialities
-  ];
+export interface Character extends WishItem {
+  materials?: [CharacterAscension, Gem, Talent, Talent, General, LocalSpecialities];
 }
 
 export const characters: Character[] = [

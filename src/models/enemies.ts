@@ -1,26 +1,26 @@
-import * as I18n from "../i18n";
-import * as Types from "../types";
-import * as Materials from "./materials";
+import { ItemType, Region } from "../base";
+import { I18nObject } from "../i18n";
+import { billets } from "./materials";
 
 export interface Domain {
   id: string;
-  name: I18n.I18nObject;
-  type: Types.ItemType; // only talent_type and weapon_type
+  name: I18nObject;
+  type: ItemType; // only talent_type and weapon_type
   materials_by_weekday: string[];
 }
 
 export interface Boss {
   id: string;
-  region: Types.Region;
-  type: Types.ItemType;
-  name: I18n.I18nObject;
+  region: Region;
+  type: ItemType;
+  name: I18nObject;
   materials: string[];
 }
 
 export interface Enemy {
   id: string;
-  type: Types.ItemType;
-  name: I18n.I18nObject;
+  type: ItemType;
+  name: I18nObject;
   materials: string[];
 }
 
@@ -264,7 +264,7 @@ export const bosses: Boss[] = [
       "Vayuda Turquoise",
       "Vajrada Amethyst",
       "Varunada Lazurite",
-      ...Materials.billets,
+      ...billets,
     ],
     type: "weekly_boss",
     name: { en: ["Confront Stormterror / Dvalin"], "zh-CN": ["深入风龙废墟 / 风魔龙・特瓦林"] },
@@ -279,7 +279,7 @@ export const bosses: Boss[] = [
       "Shivada Jade",
       "Agnidus Agate",
       "Prithiva Topaz",
-      ...Materials.billets,
+      ...billets,
     ],
     type: "weekly_boss",
     name: { en: ["Wolf of the North Challenge / Andrius"], "zh-CN": ["北风的王狼 / 安德留斯"] },
@@ -294,7 +294,7 @@ export const bosses: Boss[] = [
       "Varunada Lazurite",
       "Vajrada Amethyst",
       "Shivada Jade",
-      ...Materials.billets,
+      ...billets,
     ],
     type: "weekly_boss",
     name: { en: ["Enter the Golden House / Childe"], "zh-CN": ["进入「黄金屋」 / 公子"] },
@@ -311,7 +311,7 @@ export const bosses: Boss[] = [
       "Prithiva Topaz",
       "Varunada Lazurite",
       "Vajrada Amethyst",
-      ...Materials.billets,
+      ...billets,
     ],
     type: "weekly_boss",
     name: { en: ["Beneath the Dragon-Queller / Azhdaha"], "zh-CN": ["「伏龙树」之底 / 若陀龙王"] },
@@ -319,14 +319,7 @@ export const bosses: Boss[] = [
   {
     id: "Narukami Island: Tenshukaku",
     region: "Inazuma",
-    materials: [
-      "Molten Moment",
-      "Hellfire Butterfly",
-      "Ashen Heart",
-      "Shivada Jade",
-      "Agnidus Agate",
-      ...Materials.billets,
-    ],
+    materials: ["Molten Moment", "Hellfire Butterfly", "Ashen Heart", "Shivada Jade", "Agnidus Agate", ...billets],
     type: "weekly_boss",
     name: { en: ["Narukami Island: Tenshukaku / La Signora"], "zh-CN": ["鸣神岛・天守 / 女士"] },
   },
@@ -338,7 +331,7 @@ export const bosses: Boss[] = [
       "Tears of the Calamitous God",
       "The Meaning of Aeons",
       "Vajrada Amethyst",
-      ...Materials.billets,
+      ...billets,
     ],
     type: "weekly_boss",
     name: {

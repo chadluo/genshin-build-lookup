@@ -1,4 +1,4 @@
-import * as Types from "./types";
+import { Region } from "./base";
 
 export type SupportedLanguages = "en" | "zh-CN";
 export type I18nObject = { readonly [lang in SupportedLanguages]: string | string[] };
@@ -31,7 +31,7 @@ export const weekdays: I18nObject[] = [
   { en: "Wed, Sat, Sun", "zh-CN": "三六日" },
 ];
 
-export const regions: { [id in Types.Region]: I18nObject } = {
+export const regions: { [id in Region]: I18nObject } = {
   Mondstadt: { en: "Mondstadt", "zh-CN": "蒙德" },
   Liyue: { en: "Liyue", "zh-CN": "璃月" },
   Inazuma: { en: "Inazuma", "zh-CN": "稻妻" },

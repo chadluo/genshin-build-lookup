@@ -1,6 +1,6 @@
-import * as Types from "../types";
+import { WishItem } from "../base";
 
-export interface Weapon extends Types.WishObject {
+export interface Weapon extends WishItem {
   category: Category;
 }
 
