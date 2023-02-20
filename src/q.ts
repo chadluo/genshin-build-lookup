@@ -4,6 +4,7 @@ import {
   findDomain,
   findWeaponsForMaterial,
   formatId,
+  ItemType,
   renderQTableRows,
   TYPE_BOSS,
   TYPE_CHARACTER,
@@ -14,7 +15,7 @@ import {
   TYPE_WEEKLY_BOSS,
   WishItem,
 } from "./base";
-import { updateBookmark } from "./bookmarks";
+import { bookmark, updateBookmark } from "./bookmarks";
 import * as CharactersTable from "./components/characterstable";
 import * as EnemiesTable from "./components/enemiestable";
 import * as TodayTable from "./components/todaytable";
@@ -52,7 +53,8 @@ window.addEventListener("DOMContentLoaded", () => {
   setLanguage(lang);
 
   JSON.parse(localStorage.getItem("bookmarks") ?? "[]").forEach(
-    ([type, id, weekday]: [string, string, number]) => (output!.innerHTML += renderQTableContent(type, id, weekday))
+    ([type, id, weekday]: [string, string, number]) =>
+      (output!.innerHTML += renderQTableContent(type as ItemType, id, weekday))
   );
   document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
 
@@ -98,20 +100,22 @@ function setSearchItems(lang: SupportedLanguages) {
 function findOrLoadQTable(event: Event) {
   const a = (event.composedPath() as HTMLElement[]).find((e) => e.tagName === "A");
   if (!a) return;
-  const id = a.dataset.id ?? "";
-  const weekday = a.dataset.weekday ?? "";
+  const id = a.dataset.id;
+  const weekday = a.dataset.weekday;
   const type = a.dataset.type;
-  if (!type) return;
-  findOrLoadQTable2(type, id, weekday);
+  if (!id || !type) return;
+  findOrLoadQTable2(type as ItemType, id, weekday);
 }
 
-function findOrLoadQTable2(type: string, id: string, weekday: string) {
+function findOrLoadQTable2(type: ItemType, id: string, weekday?: string) {
   document.querySelectorAll(".highlighted").forEach((element) => element.classList.remove("highlighted"));
   const existed = output!.querySelector(`tbody[name="${formatId(type, id, weekday)}"]`);
   if (!existed) {
-    output!.innerHTML += renderQTableContent(type, id, parseInt(weekday));
+    const w = parseInt(weekday || "0");
+    output!.innerHTML += renderQTableContent(type, id, w);
     const rows = output!.querySelectorAll("th");
     rows[rows.length - 1].scrollIntoView();
+    bookmark(type as ItemType, id, w);
   } else {
     existed.classList.add("highlighted");
     existed.scrollIntoView();
@@ -129,7 +133,7 @@ document.querySelector("input[list='searchItems']")?.addEventListener("input", (
   }
 });
 
-function renderQTableContent(type: string, id: string, weekday: number): string {
+function renderQTableContent(type: ItemType, id: string, weekday: number): string {
   switch (type) {
     case TYPE_CHARACTER:
       return renderQTableRows(type, id, findCharacter(id), byCharacter(id), weekday);

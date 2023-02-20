@@ -20,7 +20,7 @@ export function updateBookmark(event: Event) {
   }
 }
 
-function bookmark(type: ItemType, id: string, weekday: number) {
+export function bookmark(type: ItemType, id: string, weekday: number) {
   const bookmarks = JSON.parse(localStorage.getItem("bookmarks") ?? "[]");
   const index = bookmarks.findIndex(([t, i, w]: [string, string, number]) => t === type && i === id && w === weekday);
   if (index === -1) {
