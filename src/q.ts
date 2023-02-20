@@ -33,8 +33,6 @@ const selectors: HTMLElement = document.getElementById("selectors")!;
 const output: HTMLElement = document.getElementById("output-table")!;
 const lang_select: HTMLElement = document.getElementById("lang-select")!;
 
-const lastQuery = { id: "", weekday: "" };
-
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
@@ -102,7 +100,6 @@ function findOrLoadQTable(event: Event) {
   if (!a) return;
   const id = a.dataset.id ?? "";
   const weekday = a.dataset.weekday ?? "";
-  if (id === lastQuery.id && weekday === lastQuery.weekday) return;
   const type = a.dataset.type;
   if (!type) return;
   findOrLoadQTable2(type, id, weekday);
@@ -119,8 +116,6 @@ function findOrLoadQTable2(type: string, id: string, weekday: string) {
     existed.classList.add("highlighted");
     existed.scrollIntoView();
   }
-  lastQuery.id = id;
-  lastQuery.weekday = weekday;
 }
 
 selectors?.addEventListener("click", findOrLoadQTable);
@@ -223,8 +218,6 @@ function byEnemy(enemy: string): Map<Materials.Material, (Character | Weapon)[]>
 
 document.getElementById("clear")?.addEventListener("click", () => {
   output.innerHTML = "";
-  lastQuery.id = "";
-  lastQuery.weekday = "";
 });
 
 selectors?.addEventListener("change", updateBookmark);
