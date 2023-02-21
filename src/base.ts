@@ -102,22 +102,19 @@ export function renderQTableRows(
   id: string,
   name: I18nObject,
   object: Map<Material, (WishItem | [Domain, number] | Boss | Enemy)[]>,
-  weekday: number
+  weekday: number,
+  remove: boolean
 ) {
   const materials = Array.from(object.keys());
   const separator = "<span class='mobile'> / </span><span class='desktop'><br></span>";
   return `<tbody name="${formatId(type, id, weekday)}"><tr>
       <th ${materials.length === 0 ? "" : `rowspan="${materials.length}"`}>
-        <label><input type="checkbox" data-type="${type}" data-id="${id}"
-        ${weekday ? `data-weekday="${weekday}"` : ""}
-        ${isBookmarked(type, id, weekday) ? "checked" : ""}>
-        <div> ${(type === "talent_domain" || type === "weapon_domain"
+        ${(type === TYPE_TALENT_DOMAIN || type === TYPE_WEAPON_DOMAIN
           ? formatDomainName(name, weekday)
           : formatName(name)
         ).replaceAll(" / ", separator)}
-        </div></label>
-      </th>
-      ${renderQTableRow(materials, object.get(materials[0])!)}
+        ${remove ? `<a class="remove" data-type="${type}" data-id="${id}" data-weekday="${weekday}">🧹</a>` : ""}
+      </th>${renderQTableRow(materials, object.get(materials[0])!)}
     </tr>
     ${
       materials.length === 0

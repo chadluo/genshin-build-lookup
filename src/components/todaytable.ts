@@ -50,7 +50,14 @@ export function define() {
         return domains
           .flatMap((domain) =>
             weekdays.map((weekday) =>
-              renderQTableRows(domain.type, domain.id, findDomain(domain.id), byDomain(domain.id, weekday), weekday)
+              renderQTableRows(
+                domain.type,
+                domain.id,
+                findDomain(domain.id),
+                byDomain(domain.id, weekday),
+                weekday,
+                false
+              )
             )
           )
           .join("");

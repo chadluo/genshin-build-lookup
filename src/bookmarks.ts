@@ -39,7 +39,7 @@ export function bookmark(type: ItemType, id: string, weekday: number) {
   }
 }
 
-function unbookmark(type: ItemType, id: string, weekday: number): void {
+export function unbookmark(type: ItemType, id: string, weekday: number): void {
   const bookmarks = JSON.parse(localStorage.getItem("bookmarks") ?? "[]");
   const index = bookmarks.findIndex(([t, i, w]: [string, string, number]) => t === type && i === id && w === weekday);
   if (index !== -1) {
