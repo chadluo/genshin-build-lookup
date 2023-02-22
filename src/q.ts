@@ -15,7 +15,7 @@ import {
   TYPE_WEEKLY_BOSS,
   WishItem,
 } from "./base";
-import { bookmark, unbookmark, updateBookmark } from "./bookmarks";
+import { bookmark, BOOKMARK_KEY, unbookmark, updateBookmark } from "./bookmarks";
 import * as CharactersTable from "./components/characterstable";
 import * as EnemiesTable from "./components/enemiestable";
 import * as TodayTable from "./components/todaytable";
@@ -52,7 +52,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const lang = Object.hasOwn(i18n.supportedLanguageSelectors, lang_candidate) ? lang_candidate : "en";
   setLanguage(lang);
 
-  JSON.parse(localStorage.getItem("bookmarks") ?? "[]").forEach(
+  JSON.parse(localStorage.getItem(BOOKMARK_KEY) ?? "[]").forEach(
     ([type, id, weekday]: [string, string, number]) =>
       (output!.innerHTML += renderQTableContent(type as ItemType, id, weekday))
   );
@@ -119,7 +119,9 @@ function findOrLoadQTable2(type: ItemType, id: string, weekday: number) {
     output!.innerHTML += renderQTableContent(type, id, weekday);
     const rows = output!.querySelectorAll("th");
     rows[rows.length - 1].scrollIntoView();
-    bookmark(type as ItemType, id, weekday);
+    if (weekday !== EnemiesTable.VIEW_ALL) {
+      bookmark(type as ItemType, id, weekday);
+    }
   } else {
     existed.classList.add("highlighted");
     existed.scrollIntoView();
@@ -149,7 +151,7 @@ function renderQTableContent(type: ItemType, id: string, weekday: number): strin
       return renderQTableRows(type, id, findEnemy(id), byEnemy(id), weekday, true);
     case TYPE_TALENT_DOMAIN:
     case TYPE_WEAPON_DOMAIN:
-      if (weekday === 0) {
+      if (weekday === EnemiesTable.VIEW_ALL) {
         return [1, 2, 3]
           .map((weekday) => renderQTableRows(type, id, findDomain(id), byDomain(id, weekday), weekday, true))
           .join("");

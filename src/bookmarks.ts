@@ -1,8 +1,12 @@
-import { formatId, ItemType, TYPE_TALENT_DOMAIN, TYPE_WEAPON_DOMAIN } from "./base";
+import { ItemType, TYPE_TALENT_DOMAIN, TYPE_WEAPON_DOMAIN } from "./base";
+
+type Bookmark = [ItemType, string, number];
+
+export const BOOKMARK_KEY = "bookmarks";
 
 export function isBookmarked(type: ItemType, id: string, weekday: number) {
-  return JSON.parse(localStorage.getItem("bookmarks") ?? "[]").some(
-    ([t, i, w]: [string, string, number]) => t === type && i === id && w === (weekday ?? 0)
+  return JSON.parse(localStorage.getItem(BOOKMARK_KEY) ?? "[]").some(
+    ([t, i, w]: Bookmark) => t === type && i === id && w === (weekday ?? 0)
   );
 }
 
@@ -21,8 +25,8 @@ export function updateBookmark(event: Event) {
 }
 
 export function bookmark(type: ItemType, id: string, weekday: number) {
-  const bookmarks = JSON.parse(localStorage.getItem("bookmarks") ?? "[]");
-  const index = bookmarks.findIndex(([t, i, w]: [string, string, number]) => t === type && i === id && w === weekday);
+  const bookmarks = JSON.parse(localStorage.getItem(BOOKMARK_KEY) ?? "[]") as Bookmark[];
+  const index = bookmarks.findIndex(([t, i, w]) => t === type && i === id && w === weekday);
   if (index === -1) {
     document
       .querySelectorAll(
@@ -31,17 +35,15 @@ export function bookmark(type: ItemType, id: string, weekday: number) {
           : `a[data-id="${id}"]`
       )
       .forEach((e) => e.classList.add("bookmarked"));
-    document
-      .querySelectorAll(`tbody[name=${formatId(type, id, weekday)}] input`)
-      .forEach((input) => ((<HTMLInputElement>input).checked = true));
     bookmarks.push([type, id, weekday]);
-    localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+    localStorage.setItem(BOOKMARK_KEY, JSON.stringify(bookmarks));
   }
+  return bookmarks;
 }
 
-export function unbookmark(type: ItemType, id: string, weekday: number): void {
-  const bookmarks = JSON.parse(localStorage.getItem("bookmarks") ?? "[]");
-  const index = bookmarks.findIndex(([t, i, w]: [string, string, number]) => t === type && i === id && w === weekday);
+export function unbookmark(type: ItemType, id: string, weekday: number) {
+  const bookmarks = JSON.parse(localStorage.getItem(BOOKMARK_KEY) ?? "[]") as Bookmark[];
+  const index = bookmarks.findIndex(([t, i, w]) => t === type && i === id && w === weekday);
   if (index !== -1) {
     document
       .querySelectorAll(
@@ -50,14 +52,13 @@ export function unbookmark(type: ItemType, id: string, weekday: number): void {
           : `a[data-id="${id}"]`
       )
       .forEach((e) => e.classList.remove("bookmarked"));
-    document
-      .querySelectorAll(`tbody[name=${formatId(type, id, weekday)}] input`)
-      .forEach((input) => ((<HTMLInputElement>input).checked = false));
     bookmarks.splice(index, 1);
     localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
   }
+  return bookmarks;
 }
 
 export function hasBookmarks(): boolean {
-  return JSON.parse(localStorage.getItem("bookmarks") ?? "[]").length !== 0;
+  const bookmarks = localStorage.getItem("bookmarks");
+  return bookmarks !== null && bookmarks !== "[]";
 }

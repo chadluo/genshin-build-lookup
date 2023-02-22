@@ -12,6 +12,8 @@ import { hasBookmarks, isBookmarked } from "../bookmarks";
 import { i18n, I18nObject, regions, weekdays } from "../i18n";
 import * as Enemies from "../models/enemies";
 
+export const VIEW_ALL = 6;
+
 export function define() {
   customElements.define(
     "enemies-table",
@@ -90,7 +92,7 @@ export function define() {
           })
           .join(formatName(i18n.delimiter))}${formatName(
           i18n.delimiter
-        )}<a data-id="${id}" data-weekday="0" data-type="${type}">${formatName(i18n.showAll)}</a></td>`;
+        )}<a data-id="${id}" data-weekday="${VIEW_ALL}" data-type="${type}">${formatName(i18n.showAll)}</a></td>`;
       }
     }
   );
