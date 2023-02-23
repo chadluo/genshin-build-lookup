@@ -139,7 +139,20 @@ export const characters: Character[] = [
       "Scarab",
     ],
   },
-  { id: "Dehya", type: "character", rarity: 5, name: { en: "Dehya", "zh-CN": "迪希雅" } },
+  {
+    id: "Dehya",
+    type: "character",
+    rarity: 5,
+    name: { en: "Dehya", "zh-CN": "迪希雅" },
+    materials: [
+      "Light Guiding Tetrahedron",
+      "Agnidus Agate",
+      "Puppet Strings",
+      "Praxis",
+      "Faded Red Satin",
+      "Sand Grease Pupa",
+    ],
+  },
   {
     id: "Diluc",
     type: "character",
