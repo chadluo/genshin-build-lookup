@@ -34,15 +34,6 @@ const selectors: HTMLElement = document.getElementById("selectors")!;
 const output: HTMLElement = document.getElementById("output-table")!;
 const lang_select: HTMLElement = document.getElementById("lang-select")!;
 
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker
-      .register("/service-worker.js")
-      .then((registration) => console.log("SW registered: ", registration))
-      .catch((registrationError) => console.log("SW registration failed: ", registrationError));
-  });
-}
-
 window.addEventListener("DOMContentLoaded", () => {
   lang_select!.innerHTML = Object.entries(i18n.supportedLanguageSelectors)
     .map(([lang, name]) => `<option value="${lang}">${name}</option>`)

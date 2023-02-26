@@ -168,6 +168,7 @@ export const weapons: Weapon[] = [
     rarity: 5,
     category: "Claymore",
     name: { en: "Beacon of the Reed Sea", "zh-CN": "苇海信标" },
+    materials: ["Echo of Scorching Might", "Desiccated Shell", "Faded Red Satin"],
   },
   {
     id: "Engulfing Lightning",
@@ -780,6 +781,7 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Claymore",
     name: { en: "Mailed Flower", "zh-CN": "饰铁之花" },
+    materials: ["Fetters of the Dandelion Gladiator", "Desiccated Shell", "Spectral Husk"],
   },
   {
     id: "Prototype Starglitter",
