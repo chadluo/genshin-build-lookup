@@ -24,8 +24,8 @@ const config: PlaywrightTestConfig = {
     { name: "Mobile Safari", use: { ...devices["iPhone 12"] } },
   ],
   webServer: {
-    command: "http-server -p 3000",
-    port: 3000,
+    command: "http-server -p 3001",
+    port: 3001,
   },
 };
 export default config;

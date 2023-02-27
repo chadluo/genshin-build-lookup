@@ -79,11 +79,24 @@ test.describe("queries", async () => {
   });
 });
 
-test.skip("bookmark", async ({ page, baseURL }) => {
-  // click character
-  // bookmark
-  // expect character bold
-  // clear
-  // refresh
-  // expect character table shown
+test.describe("bookmark", async () => {
+  test("click to bookmark & unbookmark", async ({ browser, baseURL }) => {
+    const content = await browser.newContext({
+      locale: "en-US",
+      storageState: { cookies: [], origins: [{ origin: "", localStorage: [] }] },
+    });
+    const page = await content.newPage();
+    await page.goto(baseURL!);
+
+    const characterRow = "tbody[name='character-Xiangling']";
+    await expect(page.locator(characterRow)).not.toBeVisible();
+    await page.click("text=Xiangling");
+    await expect(page.locator(characterRow)).toBeVisible();
+
+    await page.reload();
+    await expect(page.locator(characterRow)).toBeVisible();
+
+    await page.click("text=🧹");
+    await expect(page.locator(characterRow)).not.toBeVisible();
+  });
 });
