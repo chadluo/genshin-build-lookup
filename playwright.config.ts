@@ -1,5 +1,7 @@
 import { devices, PlaywrightTestConfig } from "@playwright/test";
 
+const TEST_PORT = 3001;
+
 const config: PlaywrightTestConfig = {
   testDir: "./src/tests",
   timeout: 10 * 1000,
@@ -12,7 +14,7 @@ const config: PlaywrightTestConfig = {
   reporter: "html",
   use: {
     actionTimeout: 0,
-    baseURL: "http://localhost:3000",
+    baseURL: `http://localhost:${TEST_PORT}`,
     trace: "on-first-retry",
     screenshot: "only-on-failure",
   },
@@ -24,8 +26,8 @@ const config: PlaywrightTestConfig = {
     { name: "Mobile Safari", use: { ...devices["iPhone 12"] } },
   ],
   webServer: {
-    command: "http-server -p 3001",
-    port: 3001,
+    command: `http-server -p ${TEST_PORT}`,
+    port: TEST_PORT,
   },
 };
 export default config;
