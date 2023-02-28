@@ -4,10 +4,10 @@ type Bookmark = [ItemType, string, number];
 
 export const BOOKMARK_KEY = "bookmarks";
 
+const bookmarks: Bookmark[] = JSON.parse(localStorage.getItem(BOOKMARK_KEY) ?? "[]") as Bookmark[];
+
 export function isBookmarked(type: ItemType, id: string, weekday: number) {
-  return JSON.parse(localStorage.getItem(BOOKMARK_KEY) ?? "[]").some(
-    ([t, i, w]: Bookmark) => t === type && i === id && w === (weekday ?? 0)
-  );
+  return bookmarks.some(([t, i, w]: Bookmark) => t === type && i === id && w === (weekday ?? 0));
 }
 
 export function updateBookmark(event: Event) {
@@ -25,7 +25,6 @@ export function updateBookmark(event: Event) {
 }
 
 export function bookmark(type: ItemType, id: string, weekday: number) {
-  const bookmarks = JSON.parse(localStorage.getItem(BOOKMARK_KEY) ?? "[]") as Bookmark[];
   const index = bookmarks.findIndex(([t, i, w]) => t === type && i === id && w === weekday);
   if (index === -1) {
     document
@@ -42,7 +41,6 @@ export function bookmark(type: ItemType, id: string, weekday: number) {
 }
 
 export function unbookmark(type: ItemType, id: string, weekday: number) {
-  const bookmarks = JSON.parse(localStorage.getItem(BOOKMARK_KEY) ?? "[]") as Bookmark[];
   const index = bookmarks.findIndex(([t, i, w]) => t === type && i === id && w === weekday);
   if (index !== -1) {
     document
@@ -59,6 +57,5 @@ export function unbookmark(type: ItemType, id: string, weekday: number) {
 }
 
 export function hasBookmarks(): boolean {
-  const bookmarks = localStorage.getItem("bookmarks");
-  return bookmarks !== null && bookmarks !== "[]";
+  return bookmarks !== null && bookmarks.length !== 0;
 }

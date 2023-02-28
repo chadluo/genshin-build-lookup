@@ -190,11 +190,11 @@ export function findCharactersForMaterial(m: string): Character[] {
   return characters.filter((c) => c.materials !== undefined && c.materials.includes(m));
 }
 
-function renderDomainLink(id: string, weekday: number, type: ItemType, names: I18nObject) {
+export function renderDomainLink(id: string, weekday: number, type: ItemType, names: I18nObject | null) {
   const classes = [];
   if (isBookmarked(type, id, weekday)) {
     classes.push("bookmarked");
   }
   return `<a data-id='${id}' data-weekday='${weekday}' data-type='${type}' class='${classes.join(" ")}'
-  >${formatName(names)} ${formatName(weekdays[weekday])}</a>`;
+  >${names === null ? "" : formatName(names)} ${formatName(weekdays[weekday])}</a>`;
 }

@@ -234,3 +234,4 @@ dist
 /public/*
 
 /playwright-report/*
+/test-results/*

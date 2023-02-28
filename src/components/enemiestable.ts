@@ -3,13 +3,14 @@ import {
   formatTableCaption,
   ItemType,
   Region,
+  renderDomainLink,
   renderLink,
   TYPE_TALENT_DOMAIN,
   TYPE_WEAPON_DOMAIN,
   TYPE_WEEKLY_BOSS,
 } from "../base";
-import { hasBookmarks, isBookmarked } from "../bookmarks";
-import { i18n, I18nObject, regions, weekdays } from "../i18n";
+import { hasBookmarks } from "../bookmarks";
+import { i18n, I18nObject, regions } from "../i18n";
 import * as Enemies from "../models/enemies";
 
 export const VIEW_ALL = 6;
@@ -85,11 +86,7 @@ export function define() {
 
       formatDomain(id: string, type: ItemType) {
         return `<td>${formatName(Enemies.domains.filter((d) => d.id === id)[0]!.name)}</td><td>${[1, 2, 3]
-          .map((i) => {
-            return `<a data-id='${id}' data-weekday='${i}' data-type='${type}' ${
-              isBookmarked(type, id, i) ? "class='bookmarked'" : ""
-            }>${formatName(weekdays[i]!)}</a>`;
-          })
+          .map((i) => renderDomainLink(id, i, type, null))
           .join(formatName(i18n.delimiter))}${formatName(
           i18n.delimiter
         )}<a data-id="${id}" data-weekday="${VIEW_ALL}" data-type="${type}">${formatName(i18n.showAll)}</a></td>`;
