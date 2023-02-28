@@ -64,7 +64,7 @@ body {
   margin: 0;
 }
 
-.smooth {
+body.smooth {
   scroll-behavior: smooth;
 }
 
@@ -381,12 +381,11 @@ footer {
   footer {
     display: flex;
   }
-  .switches,
-  .keyboard {
-    flex: 1 0 30%;
+  .switches {
+    flex: 0 0 40%;
   }
   .declarations {
-    flex: 0 0 40%;
+    flex: 0 0 60%;
     text-align: right;
   }
   .declarations ruby > rt {
