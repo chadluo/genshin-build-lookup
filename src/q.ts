@@ -247,7 +247,7 @@ window.addEventListener("keydown", (event) => {
     case "KeyG":
       (document.querySelector("input#show-gems") as HTMLInputElement)?.click();
       return;
-    case "KeyB":
+    case "KeyF":
       (document.querySelector("input#show-billets") as HTMLInputElement)?.click();
       return;
     case "KeyA":
