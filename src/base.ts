@@ -159,7 +159,7 @@ function formatMaterialType(m: Material) {
 /**
  * Type, Id, Weekday
  */
-export function formatId(...parts: any[]) {
+export function formatId(...parts: (string | number)[]) {
   return parts
     .filter((p) => p)
     .map((p) => p.toString())

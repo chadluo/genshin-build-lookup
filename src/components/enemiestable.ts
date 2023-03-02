@@ -5,6 +5,7 @@ import {
   Region,
   renderDomainLink,
   renderLink,
+  TYPE_BOSS,
   TYPE_TALENT_DOMAIN,
   TYPE_WEAPON_DOMAIN,
   TYPE_WEEKLY_BOSS,
@@ -23,16 +24,16 @@ export function define() {
         super();
         const weeklyBosses: Map<Region, Enemies.Boss[]> = this.groupBosses(
           (b) => b.region,
-          Enemies.bosses.filter((b) => b.type === "weekly_boss")
+          Enemies.bosses.filter((b) => b.type === TYPE_WEEKLY_BOSS)
         );
         const weeklyBossKeys = Array.from(weeklyBosses.keys());
         const bosses: Map<Region, Enemies.Boss[]> = this.groupBosses(
           (b) => b.region,
-          Enemies.bosses.filter((b) => b.type === "boss")
+          Enemies.bosses.filter((b) => b.type === TYPE_BOSS)
         );
         const bossKeys = Array.from(bosses.keys());
-        const talentDomains = Enemies.domains.filter((d) => d.type === "talent_domain");
-        const weaponDomains = Enemies.domains.filter((d) => d.type === "weapon_domain");
+        const talentDomains = Enemies.domains.filter((d) => d.type === TYPE_TALENT_DOMAIN);
+        const weaponDomains = Enemies.domains.filter((d) => d.type === TYPE_WEAPON_DOMAIN);
         this.innerHTML = `<details class="section" ${hasBookmarks() ? "" : "open"}>
     <summary>${formatTableCaption("enemies_domains")}</summary>
     <table class="ctable">

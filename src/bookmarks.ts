@@ -57,5 +57,5 @@ export function unbookmark(type: ItemType, id: string, weekday: number) {
 }
 
 export function hasBookmarks(): boolean {
-  return bookmarks !== null && bookmarks.length !== 0;
+  return bookmarks.length !== 0;
 }
