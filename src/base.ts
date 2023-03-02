@@ -2,7 +2,7 @@ import { isBookmarked } from "./bookmarks";
 import { i18n, I18nObject, weekdays } from "./i18n";
 import { Character, characters } from "./models/characters";
 import { Boss, Domain, domains, Enemy } from "./models/enemies";
-import { billets, forgingMaterials, Material, materials } from "./models/materials";
+import { billets, forgingMaterials, Gem, gems, Material, materials } from "./models/materials";
 import { Weapon, weapons } from "./models/weapons";
 import { recent_new, upcoming } from "./version";
 
@@ -153,7 +153,11 @@ function formatDomainName(name: I18nObject, weekday: number) {
 }
 
 function formatMaterialType(m: Material) {
-  return billets.includes(m.id) || forgingMaterials.includes(m.id) ? "class='billet'" : "";
+  return billets.includes(m.id) || forgingMaterials.includes(m.id)
+    ? "class='billet'"
+    : gems.includes(m.id as Gem)
+    ? "class='gem'"
+    : "";
 }
 
 /**
