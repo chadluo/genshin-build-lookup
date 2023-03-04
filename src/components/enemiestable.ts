@@ -36,7 +36,7 @@ export function define() {
         const weaponDomains = Enemies.domains.filter((d) => d.type === TYPE_WEAPON_DOMAIN);
         this.innerHTML = `<details class="section" ${hasBookmarks() ? "" : "open"}>
     <summary>${formatTableCaption("enemies_domains")}</summary>
-    <table class="ctable">
+    <table class="qtable">
     <tr>
       <th rowspan="${weeklyBossKeys.length}">${formatName(i18n.weekly_boss)}</th>
       ${this.formatBossesForRegion(regions[weeklyBossKeys[0]], weeklyBosses.get(weeklyBossKeys[0])!)}
