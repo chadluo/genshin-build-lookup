@@ -154,12 +154,20 @@ export const talent = [
 
 export type Talent = (typeof talent)[number];
 
-export const billets: string[] = [
+export const northlanderBillets: string[] = [
   "Northlander Claymore Billet",
   "Northlander Polearm Billet",
   "Northlander Sword Billet",
   "Northlander Bow Billet",
   "Northlander Catalyst Billet",
+];
+
+export const midlanderBillets: string[] = [
+  "Midlander Claymore Billet",
+  "Midlander Polearm Billet",
+  "Midlander Sword Billet",
+  "Midlander Bow Billet",
+  "Midlander Catalyst Billet",
 ];
 
 export const forgingMaterials: string[] = [
@@ -173,6 +181,9 @@ export const forgingMaterials: string[] = [
   "Rusty Koi",
   "Pufferfish",
   "Bitter Pufferfish",
+  "Peach of the Deep Waves",
+  "Lazurite Axe Marlin",
+  "Halcyon Jade Axe Marlin",
 ];
 
 export const materials: Material[] = [
@@ -564,6 +575,11 @@ export const materials: Material[] = [
   { id: "Northlander Sword Billet", name: { en: "Northlander Sword Billet", "zh-CN": "北陆单手剑原胚" } },
   { id: "Northlander Bow Billet", name: { en: "Northlander Bow Billet", "zh-CN": "北陆弓原胚" } },
   { id: "Northlander Catalyst Billet", name: { en: "Northlander Catalyst Billet", "zh-CN": "北陆法器原胚" } },
+  { id: "Midlander Claymore Billet", name: { en: "Midlander Claymore Billet", "zh-CN": "央陆双手剑原胚" } },
+  { id: "Midlander Polearm Billet", name: { en: "Midlander Polearm Billet", "zh-CN": "央陆长柄武器原胚" } },
+  { id: "Midlander Sword Billet", name: { en: "Midlander Sword Billet", "zh-CN": "央陆单手剑原胚" } },
+  { id: "Midlander Bow Billet", name: { en: "Midlander Bow Billet", "zh-CN": "央陆弓原胚" } },
+  { id: "Midlander Catalyst Billet", name: { en: "Midlander Catalyst Billet", "zh-CN": "央陆法器原胚" } },
   { id: "Crystal Chunk", name: { en: "Crystal Chunk", "zh-CN": "水晶块" } },
   { id: "White Iron Chunk", name: { en: "White Iron Chunk", "zh-CN": "白铁块" } },
   { id: "Starsilver", name: { en: "Starsilver", "zh-CN": "星银矿石" } },
@@ -576,4 +592,7 @@ export const materials: Material[] = [
   { id: "Rusty Koi", name: { en: "Rusty Koi", "zh-CN": "锖假龙" } },
   { id: "Pufferfish", name: { en: "Pufferfish", "zh-CN": "炮鲀" } },
   { id: "Bitter Pufferfish", name: { en: "Bitter Pufferfish", "zh-CN": "苦炮鲀" } },
+  { id: "Peach of the Deep Waves", name: { en: "Peach of the Deep Waves", "zh-CN": "沉波蜜桃" } },
+  { id: "Lazurite Axe Marlin", name: { en: "Lazurite Axe Marlin", "zh-CN": "青金斧枪鱼" } },
+  { id: "Halcyon Jade Axe Marlin", name: { en: "Halcyon Jade Axe Marlin", "zh-CN": "翡玉斧枪鱼" } },
 ];
