@@ -224,7 +224,8 @@ nav + div {
 }
 details.section {
   border: 1px solid var(--border-color);
-  padding: calc(var(--g) * 2);
+  border-radius: calc(var(--g) / 2);
+  padding: var(--g) calc(var(--g) * 2);
 }
 summary {
   line-height: calc(var(--g) * 4);
