@@ -4,5 +4,5 @@ const version: Record<string, string[]> = {
   "3.6": [],
 };
 
-export const recent_new = version["3.5"];
+export const recentNew = version["3.5"];
 export const upcoming = version["3.6"];

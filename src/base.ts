@@ -1,5 +1,5 @@
 import { isBookmarked } from "./bookmarks";
-import { i18n, I18nObject, weekdays } from "./i18n";
+import { I18nObject, ui, weekdays } from "./i18n";
 import { Character, characters } from "./models/characters";
 import { Boss, Domain, domains, Enemy } from "./models/enemies";
 import {
@@ -12,7 +12,7 @@ import {
   northlanderBillets,
 } from "./models/materials";
 import { Weapon, weapons } from "./models/weapons";
-import { recent_new, upcoming } from "./version";
+import { recentNew, upcoming } from "./version";
 
 export type Region = "Mondstadt" | "Liyue" | "Inazuma" | "Sumeru";
 
@@ -44,17 +44,17 @@ export interface WishItem {
 }
 
 export function formatTableCaption(type: string) {
-  return `${getTableCaptionIcon(type)} ${formatName(i18n[type])}`;
+  return `${getTableCaptionIcon(type)} ${formatName(ui[type])}`;
 }
 
 function getTableCaptionIcon(type: string): string {
   // prettier-ignore
   switch (type) {
-    case "character":       return "🦸";
-    case "weapon":          return "🗡️";
-    case "enemies_domains": return "🌱";
-    case "today":           return "📅";
-    default:                return "";
+    case "character":         return "🦸";
+    case "weapon":            return "🗡️";
+    case "enemiesAndDomains": return "🌱";
+    case "today":             return "📅";
+    default:                  return "";
   }
 }
 
@@ -69,7 +69,7 @@ export function renderLink(id: string, type: ItemType, names: I18nObject) {
   if (isBookmarked(type, id, 0)) {
     classes.push("bookmarked");
   }
-  if (recent_new.includes(id)) {
+  if (recentNew.includes(id)) {
     classes.push("recent-new");
   }
   if (upcoming.includes(id)) {
@@ -191,7 +191,7 @@ function formatArray(es: (WishItem | [Domain, number] | Boss | Enemy)[]): string
         return renderLink(obj.id, obj.type, obj.name);
     }
   });
-  return links.join(formatName(i18n.delimiter));
+  return links.join(formatName(ui.delimiter));
 }
 
 export function findWeaponsForMaterial(m: string): Weapon[] {

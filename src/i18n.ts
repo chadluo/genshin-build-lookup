@@ -1,19 +1,19 @@
 import { Region } from "./base";
 
 export type SupportedLanguages = "en" | "zh-CN";
-export type I18nObject = { readonly [lang in SupportedLanguages]: string | string[] };
+export type I18nObject = Readonly<Record<SupportedLanguages, string | string[]>>;
 
-export const i18n: { [id: string]: I18nObject } = {
+export const ui: Record<string, I18nObject> = {
   supportedLanguageSelectors: { en: "English", "zh-CN": "简体中文" },
   siteTitle: { en: "Yuanliao: Genshin Impact Build Lookup", "zh-CN": "原料：原神培养查询" },
   delimiter: { en: " | ", "zh-CN": "｜" },
   character: { en: "Characters", "zh-CN": "角色" },
   weapon: { en: "Weapons", "zh-CN": "武器" },
-  enemies_domains: { en: "Enemies & Domains", "zh-CN": "秘境讨伐" },
-  weekly_boss: { en: "Weekly Bosses", "zh-CN": "周本" },
+  enemiesAndDomains: { en: "Enemies & Domains", "zh-CN": "秘境讨伐" },
+  weeklyBoss: { en: "Weekly Bosses", "zh-CN": "周本" },
   boss: { en: "Bosses", "zh-CN": "首领" },
-  talent_domain: { en: "Talent Domains", "zh-CN": "天赋本" },
-  weapon_domain: { en: "Weapon Domains", "zh-CN": "武器本" },
+  talentDomain: { en: "Talent Domains", "zh-CN": "天赋本" },
+  weaponDomain: { en: "Weapon Domains", "zh-CN": "武器本" },
   today: { en: "Today", "zh-CN": "今日" },
   Asia: { en: "Asia / TW, HK, MO / CN", "zh-CN": "亚服、港澳台服、国服" },
   Europe: { en: "Europe", "zh-CN": "欧服" },

@@ -1,6 +1,6 @@
 import { formatName, formatTableCaption, groupWishObjects, renderLink, TYPE_WEAPON } from "../base";
 import { hasBookmarks } from "../bookmarks";
-import { i18n } from "../i18n";
+import { ui } from "../i18n";
 import { Category, Weapon, weapons } from "../models/weapons";
 
 export function define() {
@@ -21,7 +21,7 @@ export function define() {
       <td>${this.formatWeaponIcon(categories[0])}${ws2
             .get(categories[0])!
             .map((w) => renderLink(w.id, TYPE_WEAPON, w.name))
-            .join(formatName(i18n.delimiter))}</td></tr>
+            .join(formatName(ui.delimiter))}</td></tr>
       ${categories
         .slice(1)
         .map(
@@ -29,7 +29,7 @@ export function define() {
             `<tr><td>${this.formatWeaponIcon(category)}${ws2
               .get(category)!
               .map((c) => renderLink(c.id, TYPE_WEAPON, c.name))
-              .join(formatName(i18n.delimiter))}</td></tr>`
+              .join(formatName(ui.delimiter))}</td></tr>`
         )
         .join("")}`;
         })

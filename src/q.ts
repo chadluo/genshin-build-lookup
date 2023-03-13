@@ -20,7 +20,7 @@ import * as CharactersTable from "./components/characterstable";
 import * as EnemiesTable from "./components/enemiestable";
 import * as TodayTable from "./components/todaytable";
 import * as WeaponsTable from "./components/weaponstable";
-import { i18n, I18nObject, SupportedLanguages } from "./i18n";
+import { I18nObject, SupportedLanguages, ui } from "./i18n";
 import { Character, characters } from "./models/characters";
 import { Boss, bosses, Domain, domains, enemies, Enemy } from "./models/enemies";
 import * as Materials from "./models/materials";
@@ -31,15 +31,15 @@ import "./style.css";
 
 const selectors: HTMLElement = document.getElementById("selectors")!;
 const output: HTMLElement = document.getElementById("output-table")!;
-const lang_select: HTMLElement = document.getElementById("lang-select")!;
+const langSelect: HTMLElement = document.getElementById("lang-select")!;
 
 window.addEventListener("DOMContentLoaded", () => {
-  lang_select!.innerHTML = Object.entries(i18n.supportedLanguageSelectors)
+  langSelect!.innerHTML = Object.entries(ui.supportedLanguageSelectors)
     .map(([lang, name]) => `<option value="${lang}">${name}</option>`)
     .join("");
 
-  const lang_candidate: SupportedLanguages = (localStorage.getItem("lang") ?? navigator.language) as SupportedLanguages;
-  const lang = Object.hasOwn(i18n.supportedLanguageSelectors, lang_candidate) ? lang_candidate : "en";
+  const langCandidate: SupportedLanguages = (localStorage.getItem("lang") ?? navigator.language) as SupportedLanguages;
+  const lang = Object.hasOwn(ui.supportedLanguageSelectors, langCandidate) ? langCandidate : "en";
   setLanguage(lang);
 
   JSON.parse(localStorage.getItem(BOOKMARK_KEY) ?? "[]").forEach(
@@ -62,15 +62,15 @@ document.querySelector("nav .links")!.addEventListener("click", (event) => {
 
 /* language selector */
 
-lang_select!.addEventListener("change", (event) =>
+langSelect!.addEventListener("change", (event) =>
   setLanguage((event.target as HTMLSelectElement).value as SupportedLanguages)
 );
 
 function setLanguage(lang: SupportedLanguages) {
   document.documentElement.setAttribute("lang", lang);
-  document.title = i18n.siteTitle[lang] as string;
+  document.title = ui.siteTitle[lang] as string;
   setSearchItems(lang);
-  (lang_select as HTMLSelectElement).value = lang;
+  (langSelect as HTMLSelectElement).value = lang;
   localStorage.setItem("lang", lang);
 }
 

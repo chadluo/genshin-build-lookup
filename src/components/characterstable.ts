@@ -1,6 +1,6 @@
 import { formatName, formatTableCaption, groupWishObjects, renderLink, TYPE_CHARACTER } from "../base";
 import { hasBookmarks } from "../bookmarks";
-import { i18n } from "../i18n";
+import { ui } from "../i18n";
 import { Character, characters } from "../models/characters";
 
 export function define() {
@@ -20,7 +20,7 @@ export function define() {
       showByRarity(rarity: number, byRarity: Map<number, Character[]>) {
         const cs: Character[] = byRarity.get(rarity)!;
         return `<tr><th>${"⭐".repeat(rarity)}</th>
-      <td>${cs.map((c) => renderLink(c.id, TYPE_CHARACTER, c.name)).join(formatName(i18n.delimiter))}</td></tr>`;
+      <td>${cs.map((c) => renderLink(c.id, TYPE_CHARACTER, c.name)).join(formatName(ui.delimiter))}</td></tr>`;
       }
     }
   );

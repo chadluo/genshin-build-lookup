@@ -1,9 +1,9 @@
 import { byDomain, findDomain, formatName, formatTableCaption, renderQTableRows } from "../base";
-import { i18n, weekdays } from "../i18n";
+import { ui, weekdays } from "../i18n";
 import { domains } from "../models/enemies";
 
 type Timezone = "Asia" | "Europe" | "America";
-const timezones: { [tz in Timezone]: number } = { Asia: 8, Europe: 1, America: -5 };
+const timezones: Record<Timezone, number> = { Asia: 8, Europe: 1, America: -5 };
 
 export function define() {
   customElements.define(
@@ -32,7 +32,7 @@ export function define() {
       }
 
       formatZoneOption(zone: Timezone) {
-        return `${this.getTimezoneIcon(zone)} ${formatName(i18n[zone])}${formatName(i18n.delimiter)}${formatName(
+        return `${this.getTimezoneIcon(zone)} ${formatName(ui[zone])}${formatName(ui.delimiter)}${formatName(
           weekdays[this.getWeekday(zone)]
         )}`;
       }
