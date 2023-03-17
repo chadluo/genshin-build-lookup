@@ -31,7 +31,7 @@ export const weekdays: I18nObject[] = [
   { en: "Wed, Sat, Sun", "zh-CN": "三六日" },
 ];
 
-export const regions: { [id in Region]: I18nObject } = {
+export const regions: Record<Region, I18nObject> = {
   Mondstadt: { en: "Mondstadt", "zh-CN": "蒙德" },
   Liyue: { en: "Liyue", "zh-CN": "璃月" },
   Inazuma: { en: "Inazuma", "zh-CN": "稻妻" },

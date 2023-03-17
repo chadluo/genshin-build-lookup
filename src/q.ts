@@ -43,8 +43,7 @@ window.addEventListener("DOMContentLoaded", () => {
   setLanguage(lang);
 
   JSON.parse(localStorage.getItem(BOOKMARK_KEY) ?? "[]").forEach(
-    ([type, id, weekday]: [string, string, number]) =>
-      (output!.innerHTML += renderQTableContent(type as ItemType, id, weekday))
+    ([type, id, weekday]: [ItemType, string, number]) => (output!.innerHTML += renderQTableContent(type, id, weekday))
   );
   document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
 });

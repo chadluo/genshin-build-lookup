@@ -43,6 +43,9 @@ export interface WishItem {
   materials?: string[];
 }
 
+export type Timezone = "Asia" | "Europe" | "America";
+export const timezones: Record<Timezone, number> = { Asia: 8, Europe: 1, America: -5 };
+
 export function formatTableCaption(type: string) {
   return `${getTableCaptionIcon(type)} ${formatName(ui[type])}`;
 }
@@ -115,6 +118,7 @@ export function renderQTableRows(
 ) {
   const materials = Array.from(object.keys());
   const separator = "<span class='mobile'> / </span><span class='desktop'><br></span>";
+  const currentWeekday = getWeekday(getTimezone());
   return `<tbody name="${formatId(type, id, weekday)}"><tr>
       <th ${materials.length === 0 ? "" : `rowspan="${materials.length}"`}>
         ${(type === TYPE_TALENT_DOMAIN || type === TYPE_WEAPON_DOMAIN
@@ -122,14 +126,14 @@ export function renderQTableRows(
           : formatName(name)
         ).replaceAll(" / ", separator)}
         ${remove ? `<a class="remove" data-type="${type}" data-id="${id}" data-weekday="${weekday}">🧹</a>` : ""}
-      </th>${renderQTableRow(materials, object.get(materials[0])!)}
+      </th>${renderQTableRow(materials, object.get(materials[0])!, currentWeekday)}
     </tr>
     ${
       materials.length === 0
         ? ""
         : materials
             .slice(1)
-            .map((m) => `<tr ${formatMaterialType(m)}>${renderQTableRow([m], object.get(m)!)}</tr>`)
+            .map((m) => `<tr ${formatMaterialType(m)}>${renderQTableRow([m], object.get(m)!, currentWeekday)}</tr>`)
             .join("")
     }</tbody>`;
 }
@@ -151,9 +155,13 @@ export function byDomain(domainId: string, weekday: number): Map<Material, WishI
   return map;
 }
 
-function renderQTableRow(materials: Material[], objects: (WishItem | [Domain, number] | Boss | Enemy)[]) {
+function renderQTableRow(
+  materials: Material[],
+  objects: (WishItem | [Domain, number] | Boss | Enemy)[],
+  currentWeekday: number
+) {
   return `<td>${materials.length === 0 ? "" : formatName(materials[0].name)}</td>
-    <td>${materials.length === 0 ? "" : formatArray(objects)}</td>`;
+    <td>${materials.length === 0 ? "" : formatArray(objects, currentWeekday)}</td>`;
 }
 
 function formatDomainName(name: I18nObject, weekday: number) {
@@ -180,13 +188,13 @@ export function formatId(...parts: (string | number)[]) {
     .replaceAll(/[’“”]/g, "");
 }
 
-function formatArray(es: (WishItem | [Domain, number] | Boss | Enemy)[]): string {
+function formatArray(es: (WishItem | [Domain, number] | Boss | Enemy)[], currentWeekday: number): string {
   const links = es.map((e) => {
     const [obj, weekday] = Array.isArray(e) ? [e[0], e[1]] : [e, 0];
     switch (obj.type) {
       case TYPE_TALENT_DOMAIN:
       case TYPE_WEAPON_DOMAIN:
-        return renderDomainLink(obj.id, weekday, obj.type, obj.name);
+        return renderDomainLink(obj.id, weekday, obj.type, obj.name, currentWeekday);
       default:
         return renderLink(obj.id, obj.type, obj.name);
     }
@@ -202,11 +210,49 @@ export function findCharactersForMaterial(m: string): Character[] {
   return characters.filter((c) => c.materials !== undefined && c.materials.includes(m));
 }
 
-export function renderDomainLink(id: string, weekday: number, type: ItemType, names: I18nObject | null) {
+export function renderDomainLink(
+  id: string,
+  weekday: number,
+  type: ItemType,
+  names: I18nObject | null,
+  currentWeekday: number
+) {
   const classes = [];
   if (isBookmarked(type, id, weekday)) {
     classes.push("bookmarked");
   }
+  if (weekday === currentWeekday) {
+    classes.push("current");
+  }
   return `<a data-id='${id}' data-weekday='${weekday}' data-type='${type}' class='${classes.join(" ")}'
   >${names === null ? "" : formatName(names)} ${formatName(weekdays[weekday])}</a>`;
+}
+
+/**
+ * Get current weekday of domain materials at given timezone, assuming no local DST.
+ *
+ * - Asia/HK, MO, TW/CN: UTC+8
+ * - Europe: UTC+1
+ * - America: UTC-5
+ *
+ * @see https://genshin.hoyoverse.com/en/news/detail/6638
+ * @returns weekday at specific server timezone, range [0..3]
+ */
+export function getWeekday(zone: Timezone) {
+  const now = new Date();
+  const utcHour = now.getUTCHours();
+  const utcDay = now.getUTCDay();
+  const zoneH = utcHour + timezones[zone];
+  // refresh at 4am
+  const zoneDay = ((zoneH > 28 ? utcDay + 1 : zoneH < 4 ? utcDay - 1 : utcDay) + 7) % 7;
+  return zoneDay > 3 ? zoneDay - 3 : zoneDay;
+}
+
+export function getTimezone() {
+  return (localStorage.getItem("timezone") as Timezone) || guessTimezone();
+}
+
+export function guessTimezone(): Timezone {
+  const offset = -new Date().getTimezoneOffset() / 60;
+  return offset < -2 ? "America" : offset < 4.5 ? "Europe" : "Asia";
 }

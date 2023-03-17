@@ -1,9 +1,15 @@
-import { byDomain, findDomain, formatName, formatTableCaption, renderQTableRows } from "../base";
+import {
+  byDomain,
+  findDomain,
+  formatName,
+  formatTableCaption,
+  getTimezone,
+  getWeekday,
+  renderQTableRows,
+  Timezone,
+} from "../base";
 import { ui, weekdays } from "../i18n";
 import { domains } from "../models/enemies";
-
-type Timezone = "Asia" | "Europe" | "America";
-const timezones: Record<Timezone, number> = { Asia: 8, Europe: 1, America: -5 };
 
 export function define() {
   customElements.define(
@@ -11,7 +17,7 @@ export function define() {
     class extends HTMLElement {
       constructor() {
         super();
-        const day = this.getWeekday(this.getTimezone());
+        const day = getWeekday(getTimezone());
         const weekdays = day === 0 ? [1, 2, 3] : [day];
         this.innerHTML = `<details class="section" ${day === 0 ? "" : "open"}>
         <summary>${formatTableCaption("today")}</summary>
@@ -19,7 +25,7 @@ export function define() {
           .map(
             (zone) =>
               `<label><input type="radio" name="timezone" value="${zone}" ${
-                zone === this.getTimezone() ? "checked" : ""
+                zone === getTimezone() ? "checked" : ""
               }>${this.formatZoneOption(zone)}</label>`
           )
           .join("")}</div>
@@ -27,13 +33,9 @@ export function define() {
         this.addEventListener("change", this.refreshDomains);
       }
 
-      getTimezone() {
-        return (localStorage.getItem("timezone") as Timezone) || this.guessTimezone();
-      }
-
       formatZoneOption(zone: Timezone) {
         return `${this.getTimezoneIcon(zone)} ${formatName(ui[zone])}${formatName(ui.delimiter)}${formatName(
-          weekdays[this.getWeekday(zone)]
+          weekdays[getWeekday(zone)]
         )}`;
       }
 
@@ -41,7 +43,7 @@ export function define() {
         const target = event.target as HTMLInputElement;
         if (target.name === "timezone") {
           const timezone = target.value as Timezone;
-          const day = this.getWeekday(timezone);
+          const day = getWeekday(timezone);
           const weekdays = day === 0 ? [1, 2, 3] : [day];
           this.querySelector("table.qtable")!.innerHTML = this.renderDomains(weekdays);
           localStorage.setItem("timezone", timezone);
@@ -63,31 +65,6 @@ export function define() {
             )
           )
           .join("");
-      }
-
-      /**
-       * Get current weekday of domain materials at given timezone, assuming no local DST.
-       *
-       * - Asia/HK, MO, TW/CN: UTC+8
-       * - Europe: UTC+1
-       * - America: UTC-5
-       *
-       * @see https://genshin.hoyoverse.com/en/news/detail/6638
-       * @returns weekday at specific server timezone, range [0..3]
-       */
-      getWeekday(zone: Timezone) {
-        const now = new Date();
-        const utcHour = now.getUTCHours();
-        const utcDay = now.getUTCDay();
-        const zoneH = utcHour + timezones[zone];
-        // refresh at 4am
-        const zoneDay = ((zoneH > 28 ? utcDay + 1 : zoneH < 4 ? utcDay - 1 : utcDay) + 7) % 7;
-        return zoneDay > 3 ? zoneDay - 3 : zoneDay;
-      }
-
-      guessTimezone(): Timezone {
-        const offset = -new Date().getTimezoneOffset() / 60;
-        return offset < -2 ? "America" : offset < 4.5 ? "Europe" : "Asia";
       }
 
       getTimezoneIcon(zone: Timezone) {

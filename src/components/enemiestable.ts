@@ -1,6 +1,8 @@
 import {
   formatName,
   formatTableCaption,
+  getTimezone,
+  getWeekday,
   ItemType,
   Region,
   renderDomainLink,
@@ -88,7 +90,10 @@ export function define() {
 
       formatDomain(id: string, type: ItemType) {
         const domainName = formatName(Enemies.domains.filter((d) => d.id === id)[0]!.name);
-        const plainWeekdays = [1, 2, 3].map((i) => renderDomainLink(id, i, type, null)).join(formatName(ui.delimiter));
+        const currentWeekday = getWeekday(getTimezone());
+        const plainWeekdays = [1, 2, 3]
+          .map((i) => renderDomainLink(id, i, type, null, currentWeekday))
+          .join(formatName(ui.delimiter));
         return `<td>${domainName}</td><td>${plainWeekdays}${formatName(
           ui.delimiter
         )}<a data-id="${id}" data-weekday="${VIEW_ALL}" data-type="${type}">${formatName(ui.showAll)}</a></td>`;

@@ -37,6 +37,7 @@
     --link: var(--tomorrow-aqua);
     --link-hover: var(--tomorrow-blue);
     --link-bookmark: var(--tomorrow-foreground);
+    --link-current: var(--tomorrow-green);
     --link-recent-new: var(--tomorrow-orange);
     --link-upcoming: var(--tomorrow-comment);
     --button-background: var(--tomorrow-current-line);
@@ -53,6 +54,7 @@
     --link: var(--tomorrow-night-eighties-aqua);
     --link-hover: var(--tomorrow-night-eighties-blue);
     --link-bookmark: var(--tomorrow-night-eighties-foreground);
+    --link-bookmark: var(--tomorrow-night-eighties-green);
     --link-recent-new: var(--tomorrow-night-eighties-orange);
     --link-upcoming: var(--tomorrow-night-eighties-comment);
     --button-background: var(--tomorrow-night-eighties-current-line);
@@ -84,6 +86,9 @@ a.upcoming {
 a.bookmarked {
   color: var(--link-bookmark);
   font-weight: bold;
+}
+a.current {
+  color: var(--link-current);
 }
 a:hover {
   cursor: pointer;
