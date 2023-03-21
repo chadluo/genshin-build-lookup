@@ -393,7 +393,13 @@ export const characters: Character[] = [
     name: { en: ["Lisa"], "zh-CN": ["丽莎"] },
     materials: ["Lightning Prism", "Vajrada Amethyst", "Dvalin’s Claw", "Ballad", "Slime Condensate", "Valberry"],
   },
-  { id: "Mika", type: "character", rarity: 4, name: { en: "Mika", "zh-CN": "米卡" } },
+  {
+    id: "Mika",
+    type: "character",
+    rarity: 4,
+    name: { en: "Mika", "zh-CN": "米卡" },
+    materials: ["Pseudo-Stamens", "Shivada Jade", "Mirror of Mushin", "Ballad", "Recruit’s Insignia", "Wolfhook"],
+  },
   {
     id: "Mona",
     type: "character",
