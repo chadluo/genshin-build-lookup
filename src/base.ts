@@ -1,7 +1,7 @@
 import { isBookmarked } from "./bookmarks";
 import { I18nObject, ui, weekdays } from "./i18n";
 import { Character, characters } from "./models/characters";
-import { Boss, Domain, domains, Enemy } from "./models/enemies";
+import { Domain, domains } from "./models/enemies";
 import {
   forgingMaterials,
   Gem,
@@ -33,15 +33,12 @@ export type ItemType =
   | typeof TYPE_TALENT_DOMAIN
   | typeof TYPE_WEAPON_DOMAIN;
 
-export type WishItemType = typeof TYPE_CHARACTER | typeof TYPE_WEAPON;
-
-export interface WishItem {
+export type OfMaterial = {
   id: string;
-  type: WishItemType;
-  rarity: number;
+  type: ItemType;
   name: I18nObject;
   materials?: string[];
-}
+};
 
 export type Timezone = "Asia" | "Europe" | "America";
 export const timezones: Record<Timezone, number> = { Asia: 8, Europe: 1, America: -5 };
@@ -92,14 +89,14 @@ export function formatValue(names: string | string[]) {
         .join("<br>")}</details>`;
 }
 
-export function groupWishObjects<WO extends WishItem, T>(f: (w: WO) => T, ws: WO[]): Map<T, WO[]> {
+export function groupBy<W, T>(f: (w: W) => T, ws: W[]): Map<T, W[]> {
   return ws.reduce((m, w) => {
     const key = f(w);
     const arr = m.get(key) ?? [];
     arr.push(w);
     m.set(key, arr);
     return m;
-  }, new Map<T, WO[]>());
+  }, new Map<T, W[]>());
 }
 
 /**
@@ -112,7 +109,7 @@ export function renderQTableRows(
   type: ItemType,
   id: string,
   name: I18nObject,
-  object: Map<Material, (WishItem | [Domain, number] | Boss | Enemy)[]>,
+  object: Map<Material, (OfMaterial | [Domain, number])[]>,
   weekday: number,
   remove: boolean
 ) {
@@ -142,7 +139,7 @@ export function findDomain(domainId: string): I18nObject {
   return domains.find((d) => d.id === domainId)!.name;
 }
 
-export function byDomain(domainId: string, weekday: number): Map<Material, WishItem[]> {
+export function byDomain(domainId: string, weekday: number): Map<Material, OfMaterial[]> {
   const domain = domains.filter((d) => d.id === domainId)[0]!;
   const material = domain.materials_by_weekday[weekday];
   const map = new Map();
@@ -155,11 +152,7 @@ export function byDomain(domainId: string, weekday: number): Map<Material, WishI
   return map;
 }
 
-function renderQTableRow(
-  materials: Material[],
-  objects: (WishItem | [Domain, number] | Boss | Enemy)[],
-  currentWeekday: number
-) {
+function renderQTableRow(materials: Material[], objects: (OfMaterial | [Domain, number])[], currentWeekday: number) {
   return `<td>${materials.length === 0 ? "" : formatName(materials[0].name)}</td>
     <td>${materials.length === 0 ? "" : formatArray(objects, currentWeekday)}</td>`;
 }
@@ -188,7 +181,7 @@ export function formatId(...parts: (string | number)[]) {
     .replaceAll(/[’“”]/g, "");
 }
 
-function formatArray(es: (WishItem | [Domain, number] | Boss | Enemy)[], currentWeekday: number): string {
+function formatArray(es: (OfMaterial | [Domain, number])[], currentWeekday: number): string {
   const links = es.map((e) => {
     const [obj, weekday] = Array.isArray(e) ? [e[0], e[1]] : [e, 0];
     switch (obj.type) {

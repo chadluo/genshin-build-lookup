@@ -3,6 +3,7 @@ import {
   formatTableCaption,
   getTimezone,
   getWeekday,
+  groupBy,
   ItemType,
   Region,
   renderDomainLink,
@@ -21,12 +22,12 @@ export const VIEW_ALL = 6;
 export class EnemiesTable extends HTMLElement {
   constructor() {
     super();
-    const weeklyBosses: Map<Region, Enemies.Boss[]> = this.groupBosses(
+    const weeklyBosses: Map<Region, Enemies.Boss[]> = groupBy(
       (b) => b.region,
       Enemies.bosses.filter((b) => b.type === TYPE_WEEKLY_BOSS)
     );
     const weeklyBossKeys = Array.from(weeklyBosses.keys());
-    const bosses: Map<Region, Enemies.Boss[]> = this.groupBosses(
+    const bosses: Map<Region, Enemies.Boss[]> = groupBy(
       (b) => b.region,
       Enemies.bosses.filter((b) => b.type === TYPE_BOSS)
     );
@@ -64,16 +65,6 @@ export class EnemiesTable extends HTMLElement {
       .slice(1)
       .map((d) => `<tr>${this.formatDomain(d.id, TYPE_WEAPON_DOMAIN)}</tr>`)
       .join("")}</table></details>`;
-  }
-
-  groupBosses<T>(f: (b: Enemies.Boss) => T, bs: Enemies.Boss[]): Map<T, Enemies.Boss[]> {
-    return bs.reduce((m, b) => {
-      const key = f(b);
-      const arr = m.get(key) ?? [];
-      arr.push(b);
-      m.set(key, arr);
-      return m;
-    }, new Map<T, Enemies.Boss[]>());
   }
 
   /**

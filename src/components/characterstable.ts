@@ -1,4 +1,4 @@
-import { formatName, formatTableCaption, groupWishObjects, renderLink, TYPE_CHARACTER } from "../base";
+import { formatName, formatTableCaption, groupBy, renderLink, TYPE_CHARACTER } from "../base";
 import { hasBookmarks } from "../bookmarks";
 import { ui } from "../i18n";
 import { Character, characters } from "../models/characters";
@@ -6,7 +6,7 @@ import { Character, characters } from "../models/characters";
 export class CharactersTable extends HTMLElement {
   constructor() {
     super();
-    const byRarity = groupWishObjects((o) => o.rarity, characters);
+    const byRarity = groupBy((o) => o.rarity, characters);
     const rarities = Array.from(byRarity.keys()).sort().reverse();
     this.innerHTML = `<details class="section" ${hasBookmarks() ? "" : "open"}>
       <summary>${formatTableCaption(TYPE_CHARACTER)}</summary>

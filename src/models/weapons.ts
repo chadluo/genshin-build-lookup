@@ -1,8 +1,10 @@
-import { WishItem } from "../base";
+import { OfMaterial, TYPE_WEAPON } from "../base";
 
-export interface Weapon extends WishItem {
+export type Weapon = OfMaterial & {
+  type: typeof TYPE_WEAPON;
+  rarity: 3 | 4 | 5;
   category: Category;
-}
+};
 
 export type Category = "Bow" | "Catalyst" | "Claymore" | "Polearm" | "Sword";
 

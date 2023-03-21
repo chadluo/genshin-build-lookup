@@ -1,4 +1,4 @@
-import { formatName, formatTableCaption, groupWishObjects, renderLink, TYPE_WEAPON } from "../base";
+import { formatName, formatTableCaption, groupBy, renderLink, TYPE_WEAPON } from "../base";
 import { hasBookmarks } from "../bookmarks";
 import { ui } from "../i18n";
 import { Category, Weapon, weapons } from "../models/weapons";
@@ -6,13 +6,13 @@ import { Category, Weapon, weapons } from "../models/weapons";
 export class WeaponsTable extends HTMLElement {
   constructor() {
     super();
-    const byRarity = groupWishObjects((w) => w.rarity, weapons);
+    const byRarity = groupBy((w) => w.rarity, weapons);
     const rarities = Array.from(byRarity.keys()).sort().reverse();
     this.innerHTML = `<details class="section" ${hasBookmarks() ? "" : "open"}>
       <summary>${formatTableCaption(TYPE_WEAPON)}</summary><table class="ctable">
       ${rarities
         .map((rarity) => {
-          const ws2: Map<Category, Weapon[]> = groupWishObjects((w) => w.category, byRarity.get(rarity)!);
+          const ws2: Map<Category, Weapon[]> = groupBy((w) => w.category, byRarity.get(rarity)!);
           const categories = Array.from(ws2.keys());
           return `<tr><th rowspan="${categories.length}">${"⭐".repeat(rarity)}</th>
       <td>${this.formatWeaponIcon(categories[0])}${ws2

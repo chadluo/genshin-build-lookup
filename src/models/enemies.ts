@@ -1,4 +1,4 @@
-import { ItemType, Region } from "../base";
+import { ItemType, OfMaterial, Region } from "../base";
 import { I18nObject } from "../i18n";
 import { midlanderBillets, northlanderBillets } from "./materials";
 
@@ -9,20 +9,16 @@ export interface Domain {
   materials_by_weekday: string[];
 }
 
-export interface Boss {
-  id: string;
+export type Boss = OfMaterial & {
   region: Region;
   type: ItemType;
   name: I18nObject;
-  materials: string[];
-}
+};
 
-export interface Enemy {
-  id: string;
+export type Enemy = OfMaterial & {
   type: ItemType;
   name: I18nObject;
-  materials: string[];
-}
+};
 
 export const domains: Domain[] = [
   {

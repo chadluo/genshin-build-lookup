@@ -1,9 +1,11 @@
-import { WishItem } from "../base";
+import { OfMaterial, TYPE_CHARACTER } from "../base";
 import { CharacterAscension, Gem, General, LocalSpecialities, Talent } from "./materials";
 
-export interface Character extends WishItem {
+export type Character = OfMaterial & {
+  type: typeof TYPE_CHARACTER;
+  rarity: 4 | 5;
   materials?: [CharacterAscension, Gem, Talent, Talent, General, LocalSpecialities];
-}
+};
 
 export const characters: Character[] = [
   {

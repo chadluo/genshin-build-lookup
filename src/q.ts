@@ -5,6 +5,7 @@ import {
   findWeaponsForMaterial,
   formatId,
   ItemType,
+  OfMaterial,
   renderQTableRows,
   TYPE_BOSS,
   TYPE_CHARACTER,
@@ -13,7 +14,6 @@ import {
   TYPE_WEAPON,
   TYPE_WEAPON_DOMAIN,
   TYPE_WEEKLY_BOSS,
-  WishItem,
 } from "./base";
 import { bookmark, BOOKMARK_KEY, unbookmark, updateBookmark } from "./bookmarks";
 import { CharactersTable } from "./components/characterstable";
@@ -79,7 +79,7 @@ function setLanguage(lang: SupportedLanguages) {
 }
 
 function setSearchItems(lang: SupportedLanguages) {
-  document.getElementById("searchItems")!.innerHTML = ([] as WishItem[])
+  document.getElementById("searchItems")!.innerHTML = ([] as OfMaterial[])
     .concat(characters)
     .concat(weapons)
     .sort((w1, w2) => w1.id.localeCompare(w2.id))
@@ -176,8 +176,8 @@ function findWeapon(weapon: string): I18nObject {
   return weapons.find((w) => w.id === weapon)!.name;
 }
 
-function byWeapon(weapon: string): Map<Materials.Material, [Domain, number][] | Boss[] | Enemy[]> {
-  const map = new Map<Materials.Material, [Domain, number][] | Boss[] | Enemy[]>();
+function byWeapon(weapon: string): Map<Materials.Material, [Domain, number][] | OfMaterial[]> {
+  const map = new Map<Materials.Material, [Domain, number][] | OfMaterial[]>();
   const materials = weapons.find((w) => w.id === weapon)!.materials;
   return materials === undefined
     ? map
@@ -189,33 +189,34 @@ function byWeapon(weapon: string): Map<Materials.Material, [Domain, number][] | 
       );
 }
 
-function findEnemiesForMaterial(m: string): [Domain, number][] | Boss[] | Enemy[] {
+function findEnemiesForMaterial(m: string): [Domain, number][] | OfMaterial[] {
   const dsm: [Domain, number][] = domains.map((d) => [d, d.materials_by_weekday.indexOf(m)]);
   const ds = dsm.filter(([, weekday]) => weekday !== -1);
   if (ds.length) return ds;
-  const bs = bosses.filter((b) => b.materials.includes(m));
+  const bs = bosses.filter((b) => b.materials?.includes(m));
   if (bs.length) return bs;
-  return enemies.filter((e) => e.materials.includes(m));
+  return enemies.filter((e) => e.materials?.includes(m));
 }
 
 function findEnemy(enemy: string): I18nObject {
   return [...bosses, ...enemies].find((b) => b.id === enemy)!.name;
 }
 
-function byEnemy(enemy: string): Map<Materials.Material, (Character | Weapon)[]> {
-  return [...bosses, ...enemies]
-    .find((b) => b.id === enemy)!
-    .materials.reduce(
-      (map, material: string) => (
-        map.set(Materials.materials.find((m) => m.id === material)!, [
-          ...(map.get(Materials.materials.find((m) => m.id === material)!) ?? []),
-          ...findCharactersForMaterial(material),
-          ...findWeaponsForMaterial(material),
-        ]),
-        map
-      ),
-      new Map<Materials.Material, (Character | Weapon)[]>()
-    );
+function byEnemy(enemy: string): Map<Materials.Material, OfMaterial[]> {
+  const materials = [...bosses, ...enemies].find((b) => b.id === enemy)!.materials;
+  return materials === undefined
+    ? new Map()
+    : materials.reduce(
+        (map, material: string) => (
+          map.set(Materials.materials.find((m) => m.id === material)!, [
+            ...(map.get(Materials.materials.find((m) => m.id === material)!) ?? []),
+            ...findCharactersForMaterial(material),
+            ...findWeaponsForMaterial(material),
+          ]),
+          map
+        ),
+        new Map<Materials.Material, (Character | Weapon)[]>()
+      );
 }
 
 document.getElementById("clear")?.addEventListener("click", () => {
