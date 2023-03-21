@@ -16,10 +16,10 @@ import {
   WishItem,
 } from "./base";
 import { bookmark, BOOKMARK_KEY, unbookmark, updateBookmark } from "./bookmarks";
-import * as CharactersTable from "./components/characterstable";
-import * as EnemiesTable from "./components/enemiestable";
-import * as TodayTable from "./components/todaytable";
-import * as WeaponsTable from "./components/weaponstable";
+import { CharactersTable } from "./components/characterstable";
+import { EnemiesTable, VIEW_ALL } from "./components/enemiestable";
+import { TodayTable } from "./components/todaytable";
+import { WeaponsTable } from "./components/weaponstable";
 import { I18nObject, SupportedLanguages, ui } from "./i18n";
 import { Character, characters } from "./models/characters";
 import { Boss, bosses, Domain, domains, enemies, Enemy } from "./models/enemies";
@@ -32,6 +32,11 @@ import "./style.css";
 const selectors: HTMLElement = document.getElementById("selectors")!;
 const output: HTMLElement = document.getElementById("output-table")!;
 const langSelect: HTMLElement = document.getElementById("lang-select")!;
+
+customElements.define("characters-table", CharactersTable);
+customElements.define("weapons-table", WeaponsTable);
+customElements.define("enemies-table", EnemiesTable);
+customElements.define("today-table", TodayTable);
 
 window.addEventListener("DOMContentLoaded", () => {
   langSelect!.innerHTML = Object.entries(ui.supportedLanguageSelectors)
@@ -106,7 +111,7 @@ function findOrLoadQTable2(type: ItemType, id: string, weekday: number) {
     output!.innerHTML += renderQTableContent(type, id, weekday);
     const rows = output!.querySelectorAll("th");
     rows[rows.length - 1].scrollIntoView();
-    if (weekday !== EnemiesTable.VIEW_ALL) {
+    if (weekday !== VIEW_ALL) {
       bookmark(type as ItemType, id, weekday);
     }
   } else {
@@ -138,7 +143,7 @@ function renderQTableContent(type: ItemType, id: string, weekday: number): strin
       return renderQTableRows(type, id, findEnemy(id), byEnemy(id), weekday, true);
     case TYPE_TALENT_DOMAIN:
     case TYPE_WEAPON_DOMAIN:
-      if (weekday === EnemiesTable.VIEW_ALL) {
+      if (weekday === VIEW_ALL) {
         return [1, 2, 3]
           .map((weekday) => renderQTableRows(type, id, findDomain(id), byDomain(id, weekday), weekday, true))
           .join("");
@@ -219,11 +224,6 @@ document.getElementById("clear")?.addEventListener("click", () => {
 
 selectors?.addEventListener("change", updateBookmark);
 output.addEventListener("change", updateBookmark);
-
-CharactersTable.define();
-WeaponsTable.define();
-EnemiesTable.define();
-TodayTable.define();
 
 window.addEventListener("keydown", (event) => {
   if (

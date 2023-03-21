@@ -3,15 +3,12 @@ import { hasBookmarks } from "../bookmarks";
 import { ui } from "../i18n";
 import { Category, Weapon, weapons } from "../models/weapons";
 
-export function define() {
-  customElements.define(
-    "weapons-table",
-    class extends HTMLElement {
-      constructor() {
-        super();
-        const byRarity = groupWishObjects((w) => w.rarity, weapons);
-        const rarities = Array.from(byRarity.keys()).sort().reverse();
-        this.innerHTML = `<details class="section" ${hasBookmarks() ? "" : "open"}>
+export class WeaponsTable extends HTMLElement {
+  constructor() {
+    super();
+    const byRarity = groupWishObjects((w) => w.rarity, weapons);
+    const rarities = Array.from(byRarity.keys()).sort().reverse();
+    this.innerHTML = `<details class="section" ${hasBookmarks() ? "" : "open"}>
       <summary>${formatTableCaption(TYPE_WEAPON)}</summary><table class="ctable">
       ${rarities
         .map((rarity) => {
@@ -34,23 +31,21 @@ export function define() {
         .join("")}`;
         })
         .join("")}</table></details>`;
-      }
+  }
 
-      formatWeaponIcon(category: Category) {
-        return `<span class="weapon-icon">${this.getWeaponIcon(category)}</span>`;
-      }
+  formatWeaponIcon(category: Category) {
+    return `<span class="weapon-icon">${this.getWeaponIcon(category)}</span>`;
+  }
 
-      getWeaponIcon(category: Category) {
-        // prettier-ignore
-        switch (category) {
-          case "Bow":      return "🏹";
-          case "Catalyst": return "📖";
-          case "Claymore": return "🐟";
-          case "Polearm":  return "🌿";
-          case "Sword":    return "🗡️";
-          default:         return "";
-        }
-      }
+  getWeaponIcon(category: Category) {
+    // prettier-ignore
+    switch (category) {
+      case "Bow":      return "🏹";
+      case "Catalyst": return "📖";
+      case "Claymore": return "🐟";
+      case "Polearm":  return "🌿";
+      case "Sword":    return "🗡️";
+      default:         return "";
     }
-  );
+  }
 }
