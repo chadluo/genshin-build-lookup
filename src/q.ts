@@ -1,30 +1,12 @@
-import {
-  byDomain,
-  findCharactersForMaterial,
-  findDomain,
-  findWeaponsForMaterial,
-  formatId,
-  ItemType,
-  OfMaterial,
-  renderQTableRows,
-  TYPE_BOSS,
-  TYPE_CHARACTER,
-  TYPE_ENEMY,
-  TYPE_TALENT_DOMAIN,
-  TYPE_WEAPON,
-  TYPE_WEAPON_DOMAIN,
-  TYPE_WEEKLY_BOSS,
-} from "./base";
+import { formatId, ItemType, OfMaterial, renderQTableContent, TYPE_CHARACTER, TYPE_WEAPON } from "./base";
 import { bookmark, BOOKMARK_KEY, unbookmark, updateBookmark } from "./bookmarks";
 import { CharactersTable } from "./components/characterstable";
 import { EnemiesTable, VIEW_ALL } from "./components/enemiestable";
 import { TodayTable } from "./components/todaytable";
 import { WeaponsTable } from "./components/weaponstable";
-import { I18nObject, SupportedLanguages, ui } from "./i18n";
-import { Character, characters } from "./models/characters";
-import { Boss, bosses, Domain, domains, enemies, Enemy } from "./models/enemies";
-import * as Materials from "./models/materials";
-import { Weapon, weapons } from "./models/weapons";
+import { SupportedLanguages, ui } from "./i18n";
+import { characters } from "./models/characters";
+import { weapons } from "./models/weapons";
 
 import "./CNAME";
 import "./style.css";
@@ -130,94 +112,6 @@ document.querySelector("input[list='searchItems']")?.addEventListener("input", (
     findOrLoadQTable2(characters.some((c) => c.id === id) ? TYPE_CHARACTER : TYPE_WEAPON, id, 0);
   }
 });
-
-function renderQTableContent(type: ItemType, id: string, weekday: number): string {
-  switch (type) {
-    case TYPE_CHARACTER:
-      return renderQTableRows(type, id, findCharacter(id), byCharacter(id), weekday, true);
-    case TYPE_WEAPON:
-      return renderQTableRows(type, id, findWeapon(id), byWeapon(id), weekday, true);
-    case TYPE_WEEKLY_BOSS:
-    case TYPE_BOSS:
-    case TYPE_ENEMY:
-      return renderQTableRows(type, id, findEnemy(id), byEnemy(id), weekday, true);
-    case TYPE_TALENT_DOMAIN:
-    case TYPE_WEAPON_DOMAIN:
-      if (weekday === VIEW_ALL) {
-        return [1, 2, 3]
-          .map((weekday) => renderQTableRows(type, id, findDomain(id), byDomain(id, weekday), weekday, true))
-          .join("");
-      } else {
-        return renderQTableRows(type, id, findDomain(id), byDomain(id, weekday), weekday, true);
-      }
-    default:
-      return "";
-  }
-}
-
-function findCharacter(character: string): I18nObject {
-  return characters.find((c) => c.id === character)!.name;
-}
-
-function byCharacter(character: string): Map<Materials.Material, [Domain, number][] | Boss[] | Enemy[]> {
-  const map = new Map<Materials.Material, [Domain, number][] | Boss[] | Enemy[]>();
-  const materials = characters.find((c) => c.id === character)!.materials;
-  return materials === undefined
-    ? map
-    : materials.reduce(
-        (map, m: string) => (
-          map.set(Materials.materials.filter((material) => material.id === m)[0]!, findEnemiesForMaterial(m)), map
-        ),
-        map
-      );
-}
-
-function findWeapon(weapon: string): I18nObject {
-  return weapons.find((w) => w.id === weapon)!.name;
-}
-
-function byWeapon(weapon: string): Map<Materials.Material, [Domain, number][] | OfMaterial[]> {
-  const map = new Map<Materials.Material, [Domain, number][] | OfMaterial[]>();
-  const materials = weapons.find((w) => w.id === weapon)!.materials;
-  return materials === undefined
-    ? map
-    : materials.reduce(
-        (map, m: string) => (
-          map.set(Materials.materials.filter((material) => material.id === m)[0]!, findEnemiesForMaterial(m)), map
-        ),
-        map
-      );
-}
-
-function findEnemiesForMaterial(m: string): [Domain, number][] | OfMaterial[] {
-  const dsm: [Domain, number][] = domains.map((d) => [d, d.materials_by_weekday.indexOf(m)]);
-  const ds = dsm.filter(([, weekday]) => weekday !== -1);
-  if (ds.length) return ds;
-  const bs = bosses.filter((b) => b.materials?.includes(m));
-  if (bs.length) return bs;
-  return enemies.filter((e) => e.materials?.includes(m));
-}
-
-function findEnemy(enemy: string): I18nObject {
-  return [...bosses, ...enemies].find((b) => b.id === enemy)!.name;
-}
-
-function byEnemy(enemy: string): Map<Materials.Material, OfMaterial[]> {
-  const materials = [...bosses, ...enemies].find((b) => b.id === enemy)!.materials;
-  return materials === undefined
-    ? new Map()
-    : materials.reduce(
-        (map, material: string) => (
-          map.set(Materials.materials.find((m) => m.id === material)!, [
-            ...(map.get(Materials.materials.find((m) => m.id === material)!) ?? []),
-            ...findCharactersForMaterial(material),
-            ...findWeaponsForMaterial(material),
-          ]),
-          map
-        ),
-        new Map<Materials.Material, (Character | Weapon)[]>()
-      );
-}
 
 document.getElementById("clear")?.addEventListener("click", () => {
   output.innerHTML = "";
