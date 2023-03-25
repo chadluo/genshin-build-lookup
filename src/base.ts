@@ -1,8 +1,8 @@
 import { isBookmarked } from "./bookmarks";
 import { VIEW_ALL } from "./components/enemiestable";
 import { I18nObject, ui, weekdays } from "./i18n";
-import { Character, characters } from "./models/characters";
-import { Boss, bosses, Domain, domains, enemies, Enemy } from "./models/enemies";
+import { characters } from "./models/characters";
+import { bosses, Domain, domains, enemies } from "./models/enemies";
 import {
   forgingMaterials,
   Gem,
@@ -12,7 +12,7 @@ import {
   midlanderBillets,
   northlanderBillets,
 } from "./models/materials";
-import { Weapon, weapons } from "./models/weapons";
+import { weapons } from "./models/weapons";
 import { recentNew, upcoming } from "./version";
 
 export type Region = "Mondstadt" | "Liyue" | "Inazuma" | "Sumeru";
@@ -61,26 +61,34 @@ function getTableCaptionIcon(type: string): string {
 
 export function renderQTableContent(type: ItemType, id: string, weekday: number): string {
   switch (type) {
-    case TYPE_CHARACTER:
-      return renderQTableRows(type, id, findCharacter(id), byCharacter(id), weekday, true);
-    case TYPE_WEAPON:
-      return renderQTableRows(type, id, findWeapon(id), byWeapon(id), weekday, true);
+    case TYPE_CHARACTER: {
+      const character = characters.find((c) => c.id === id)!;
+      return renderQTableRows(type, id, character.name, byMaterials(character.materials), weekday, true);
+    }
+    case TYPE_WEAPON: {
+      const weapon = weapons.find((w) => w.id === id)!;
+      return renderQTableRows(type, id, weapon.name, byMaterials(weapon.materials), weekday, true);
+    }
     case TYPE_WEEKLY_BOSS:
     case TYPE_BOSS:
     case TYPE_ENEMY:
-      return renderQTableRows(type, id, findEnemy(id), byEnemy(id), weekday, true);
+      return renderQTableRows(type, id, findName([...bosses, ...enemies], id), byEnemy(id), weekday, true);
     case TYPE_TALENT_DOMAIN:
     case TYPE_WEAPON_DOMAIN:
       if (weekday === VIEW_ALL) {
         return [1, 2, 3]
-          .map((weekday) => renderQTableRows(type, id, findDomain(id), byDomain(id, weekday), weekday, true))
+          .map((weekday) => renderQTableRows(type, id, findName(domains, id), byDomain(id, weekday), weekday, true))
           .join("");
       } else {
-        return renderQTableRows(type, id, findDomain(id), byDomain(id, weekday), weekday, true);
+        return renderQTableRows(type, id, findName(domains, id), byDomain(id, weekday), weekday, true);
       }
     default:
       return "";
   }
+}
+
+export function findName(objects: OfMaterial[], id: string): I18nObject {
+  return objects.find((o) => o.id === id)!.name;
 }
 
 /**
@@ -119,30 +127,8 @@ export function renderQTableRows(
     }</tbody>`;
 }
 
-function findCharacter(character: string): I18nObject {
-  return characters.find((c) => c.id === character)!.name;
-}
-
-function byCharacter(character: string): Map<Material, [Domain, number][] | Boss[] | Enemy[]> {
-  const map = new Map<Material, [Domain, number][] | Boss[] | Enemy[]>();
-  const ms = characters.find((c) => c.id === character)!.materials;
-  return ms === undefined
-    ? map
-    : ms.reduce(
-        (map, m: string) => (
-          map.set(materials.filter((material) => material.id === m)[0]!, findEnemiesForMaterial(m)), map
-        ),
-        map
-      );
-}
-
-function findWeapon(weapon: string): I18nObject {
-  return weapons.find((w) => w.id === weapon)!.name;
-}
-
-function byWeapon(weapon: string): Map<Material, [Domain, number][] | OfMaterial[]> {
+function byMaterials(ms: string[] | undefined): Map<Material, [Domain, number][] | OfMaterial[]> {
   const map = new Map<Material, [Domain, number][] | OfMaterial[]>();
-  const ms = weapons.find((w) => w.id === weapon)!.materials;
   return ms === undefined
     ? map
     : ms.reduce(
@@ -162,10 +148,6 @@ function findEnemiesForMaterial(m: string): [Domain, number][] | OfMaterial[] {
   return enemies.filter((e) => e.materials?.includes(m));
 }
 
-function findEnemy(enemy: string): I18nObject {
-  return [...bosses, ...enemies].find((b) => b.id === enemy)!.name;
-}
-
 function byEnemy(enemy: string): Map<Material, OfMaterial[]> {
   const ms = [...bosses, ...enemies].find((b) => b.id === enemy)!.materials;
   return ms === undefined
@@ -174,17 +156,12 @@ function byEnemy(enemy: string): Map<Material, OfMaterial[]> {
         (map, material: string) => (
           map.set(materials.find((m) => m.id === material)!, [
             ...(map.get(materials.find((m) => m.id === material)!) ?? []),
-            ...findCharactersForMaterial(material),
-            ...findWeaponsForMaterial(material),
+            ...filterForMaterial([...characters, ...weapons], material),
           ]),
           map
         ),
-        new Map<Material, (Character | Weapon)[]>()
+        new Map<Material, OfMaterial[]>()
       );
-}
-
-export function findDomain(domainId: string): I18nObject {
-  return domains.find((d) => d.id === domainId)!.name;
 }
 
 export function byDomain(domainId: string, weekday: number): Map<Material, OfMaterial[]> {
@@ -194,18 +171,14 @@ export function byDomain(domainId: string, weekday: number): Map<Material, OfMat
   if (material) {
     map.set(
       materials.find((m) => m.id === material)!,
-      domain.type === "weapon_domain" ? findWeaponsForMaterial(material) : findCharactersForMaterial(material)
+      filterForMaterial(domain.type === TYPE_WEAPON_DOMAIN ? weapons : characters, material)
     );
   }
   return map;
 }
 
-export function findWeaponsForMaterial(m: string): Weapon[] {
-  return weapons.filter((w) => w.materials?.includes(m));
-}
-
-export function findCharactersForMaterial(m: string): Character[] {
-  return characters.filter((c) => c.materials !== undefined && c.materials.includes(m));
+function filterForMaterial(objects: OfMaterial[], m: string): OfMaterial[] {
+  return objects.filter((o) => o.materials?.includes(m));
 }
 
 export function formatName(name: I18nObject): string {

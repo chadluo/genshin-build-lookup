@@ -1,13 +1,4 @@
-import {
-  byDomain,
-  findDomain,
-  formatName,
-  formatTableCaption,
-  getTimezone,
-  getWeekday,
-  renderQTableRows,
-  Timezone,
-} from "../base";
+import { byDomain, formatName, formatTableCaption, getTimezone, getWeekday, renderQTableRows, Timezone } from "../base";
 import { ui, weekdays } from "../i18n";
 import { domains } from "../models/enemies";
 
@@ -49,10 +40,8 @@ export class TodayTable extends HTMLElement {
 
   renderDomains(weekdays: number[]): string {
     return domains
-      .flatMap((domain) =>
-        weekdays.map((weekday) =>
-          renderQTableRows(domain.type, domain.id, findDomain(domain.id), byDomain(domain.id, weekday), weekday, false)
-        )
+      .flatMap((d) =>
+        weekdays.map((weekday) => renderQTableRows(d.type, d.id, d.name, byDomain(d.id, weekday), weekday, false))
       )
       .join("");
   }
