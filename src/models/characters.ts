@@ -1,10 +1,10 @@
 import { OfMaterial, TYPE_CHARACTER } from "../base";
-import { CharacterAscension, Gem, General, LocalSpecialities, Talent } from "./materials";
+import { CharacterAscension, Gem, General, LocalSpecialities, TalentBook, TalentMaterial } from "./materials";
 
 export type Character = OfMaterial & {
   type: typeof TYPE_CHARACTER;
   rarity: 4 | 5;
-  materials?: [CharacterAscension, Gem, Talent, Talent, General, LocalSpecialities];
+  materials?: [CharacterAscension, Gem, TalentMaterial, TalentBook, General, LocalSpecialities];
 };
 
 export const characters: Character[] = [

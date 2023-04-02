@@ -1,176 +1,206 @@
 import { I18nObject } from "../i18n";
 
-export interface Material {
-  id: string;
-  name: I18nObject;
-}
+export type Material =
+  | {
+      id: General | CharacterAscension | TalentBook | TalentMaterial | LocalSpecialities | WeaponAscension | Elite;
+      name: I18nObject;
+    }
+  | {
+      id: Forging;
+      forging: true;
+      name: I18nObject;
+    }
+  | {
+      id: Gem;
+      gem: true;
+      name: I18nObject;
+    };
 
-export const gems = [
-  "Agnidus Agate",
-  "Varunada Lazurite",
-  "Vajrada Amethyst",
-  "Vayuda Turquoise",
-  "Shivada Jade",
-  "Prithiva Topaz",
-  "Nagadus Emerald",
-] as const;
+export type General =
+  | "Slime Condensate"
+  | "Damaged Mask"
+  | "Divining Scroll"
+  | "Firm Arrowhead"
+  | "Heavy Horn"
+  | "Dead Ley Line Branch"
+  | "Chaos Device"
+  | "Mist Grass Pollen"
+  | "Hunter’s Sacrificial Knife"
+  | "Recruit’s Insignia"
+  | "Treasure Hoarder Insignia"
+  | "Whopperflower Nectar"
+  | "Fragile Bone Shard"
+  | "Old Handguard"
+  | "Chaos Gear"
+  | "Dismal Prism"
+  | "Spectral Husk"
+  | "Concealed Claw"
+  | "Gloomy Statuette"
+  | "Fungal Spores"
+  | "Damaged Prism"
+  | "Faded Red Satin";
 
-export type Gem = (typeof gems)[number];
+export type CharacterAscension =
+  | "Brilliant Diamond"
+  | "Agnidus Agate"
+  | "Varunada Lazurite"
+  | "Vajrada Amethyst"
+  | "Vayuda Turquoise"
+  | "Shivada Jade"
+  | "Prithiva Topaz"
+  | "Nagadus Emerald"
+  | "Hurricane Seed"
+  | "Lightning Prism"
+  | "Basalt Pillar"
+  | "Hoarfrost Core"
+  | "Everflame Seed"
+  | "Cleansing Heart"
+  | "Juvenile Jade"
+  | "Crystalline Bloom"
+  | "Marionette Core"
+  | "Perpetual Heart"
+  | "Smoldering Pearl"
+  | "Dew of Repudiation"
+  | "Storm Beads"
+  | "Riftborn Regalia"
+  | "Dragonheir’s False Fin"
+  | "Runic Fang"
+  | "Thunderclap Fruitcore"
+  | "Majestic Hooked Beak"
+  | "Light Guiding Tetrahedron"
+  | "Perpetual Caliber"
+  | "Quelled Creeper"
+  | "Pseudo-Stamens";
 
-export const general = [
-  "Slime Condensate",
-  "Damaged Mask",
-  "Divining Scroll",
-  "Firm Arrowhead",
-  "Heavy Horn",
-  "Dead Ley Line Branch",
-  "Chaos Device",
-  "Mist Grass Pollen",
-  "Hunter’s Sacrificial Knife",
-  "Recruit’s Insignia",
-  "Treasure Hoarder Insignia",
-  "Whopperflower Nectar",
-  "Fragile Bone Shard",
-  "Old Handguard",
-  "Chaos Gear",
-  "Dismal Prism",
-  "Spectral Husk",
-  "Concealed Claw",
-  "Gloomy Statuette",
-  "Fungal Spores",
-  "Damaged Prism",
-];
+export type TalentBook =
+  | "Freedom"
+  | "Resistance"
+  | "Ballad"
+  | "Prosperity"
+  | "Diligence"
+  | "Gold"
+  | "Transience"
+  | "Elegance"
+  | "Light"
+  | "Admonition"
+  | "Ingenuity"
+  | "Praxis";
 
-export type General = (typeof general)[number];
+export type TalentMaterial =
+  | "Crown of Insight"
+  | "Dvalin’s Plume"
+  | "Dvalin’s Claw"
+  | "Dvalin’s Sigh"
+  | "Tail of Boreas"
+  | "Ring of Boreas"
+  | "Spirit Locket of Boreas"
+  | "Tusk of Monoceros Caeli"
+  | "Shard of a Foul Legacy"
+  | "Shadow of the Warrior"
+  | "Dragon Lord’s Crown"
+  | "Bloodjade Branch"
+  | "Gilded Scale"
+  | "Molten Moment"
+  | "Hellfire Butterfly"
+  | "Ashen Heart"
+  | "Mudra of the Malefic General"
+  | "Tears of the Calamitous God"
+  | "The Meaning of Aeons"
+  | "Puppet Strings"
+  | "Mirror of Mushin"
+  | "Daka’s Bell";
 
-export const localSpecialities = [
-  "Calla Lily",
-  "Cecilia",
-  "Dandelion Seed",
-  "Philanemo Mushroom",
-  "Small Lamp Grass",
-  "Valberry",
-  "Windwheel Aster",
-  "Wolfhook",
-  "Cor Lapis",
-  "Glaze Lily",
-  "Jueyun Chili",
-  "Noctilucous Jade",
-  "Qingxin",
-  "Silk Flower",
-  "Starconch",
-  "Violetgrass",
-  "Amakumo Fruit",
-  "Crystal Marrow",
-  "Dendrobium",
-  "Fluorescent Fungus",
-  "Naku Weed",
-  "Onikabuto",
-  "Sakura Bloom",
-  "Sango Pearl",
-  "Sea Ganoderma",
-  "Rukkhashava Mushrooms",
-  "Kalpalata Lotus",
-  "Nilotpala Lotus",
-  "Scarab",
-  "Henna Berry",
-  "Padisarah",
-  "Sand Grease Pupa",
-] as const;
+export type LocalSpecialities =
+  | "Calla Lily"
+  | "Cecilia"
+  | "Dandelion Seed"
+  | "Philanemo Mushroom"
+  | "Small Lamp Grass"
+  | "Valberry"
+  | "Windwheel Aster"
+  | "Wolfhook"
+  | "Cor Lapis"
+  | "Glaze Lily"
+  | "Jueyun Chili"
+  | "Noctilucous Jade"
+  | "Qingxin"
+  | "Silk Flower"
+  | "Starconch"
+  | "Violetgrass"
+  | "Amakumo Fruit"
+  | "Crystal Marrow"
+  | "Dendrobium"
+  | "Fluorescent Fungus"
+  | "Naku Weed"
+  | "Onikabuto"
+  | "Sakura Bloom"
+  | "Sango Pearl"
+  | "Sea Ganoderma"
+  | "Rukkhashava Mushrooms"
+  | "Kalpalata Lotus"
+  | "Nilotpala Lotus"
+  | "Scarab"
+  | "Henna Berry"
+  | "Padisarah"
+  | "Sand Grease Pupa";
 
-export type LocalSpecialities = (typeof localSpecialities)[number];
+export type WeaponAscension =
+  | "Mask of the Wicked Lieutenant"
+  | "Narukami’s Wisdom"
+  | "Boreal Wolf’s Milk Tooth"
+  | "Fetters of the Dandelion Gladiator"
+  | "Luminous Sands from Guyun"
+  | "Echo of Scorching Might"
+  | "Coral Branch of a Distant Sea"
+  | "Grain of Aerosiderite"
+  | "Oasis Garden’s Reminiscence"
+  | "Mist Veiled Lead Elixir"
+  | "Tile of Decarabian’s Tower"
+  | "Copper Talisman of the Forest Dew";
 
-export const characterAscension = [
-  "Brilliant Diamond",
-  "Agnidus Agate",
-  "Varunada Lazurite",
-  "Vajrada Amethyst",
-  "Vayuda Turquoise",
-  "Shivada Jade",
-  "Prithiva Topaz",
-  "Nagadus Emerald",
-  "Hurricane Seed",
-  "Lightning Prism",
-  "Basalt Pillar",
-  "Hoarfrost Core",
-  "Everflame Seed",
-  "Cleansing Heart",
-  "Juvenile Jade",
-  "Crystalline Bloom",
-  "Marionette Core",
-  "Perpetual Heart",
-  "Smoldering Pearl",
-  "Dew of Repudiation",
-  "Storm Beads",
-  "Riftborn Regalia",
-  "Dragonheir’s False Fin",
-  "Runic Fang",
-  "Thunderclap Fruitcore",
-  "Majestic Hooked Beak",
-  "Light Guiding Tetrahedron",
-  "Perpetual Caliber",
-  "Quelled Creeper",
-  "Pseudo-Stamens",
-] as const;
+export type Elite =
+  | "Concealed Claw"
+  | "Dismal Prism"
+  | "Heavy Horn"
+  | "Dead Ley Line Branch"
+  | "Chaos Device"
+  | "Gloomy Statuette"
+  | "Inactivated Fungal Nucleus"
+  | "Fragile Bone Shard"
+  | "Damaged Prism"
+  | "Mist Grass Pollen"
+  | "Desiccated Shell"
+  | "Chaos Gear"
+  | "Hunter’s Sacrificial Knife"
+  | "Chaos Storage";
 
-export type CharacterAscension = (typeof characterAscension)[number];
+export type Gem =
+  | "Brilliant Diamond"
+  | "Agnidus Agate"
+  | "Varunada Lazurite"
+  | "Vajrada Amethyst"
+  | "Vayuda Turquoise"
+  | "Shivada Jade"
+  | "Prithiva Topaz"
+  | "Nagadus Emerald";
 
-export const talent = [
-  "Freedom",
-  "Resistance",
-  "Ballad",
-  "Prosperity",
-  "Diligence",
-  "Gold",
-  "Transience",
-  "Elegance",
-  "Light",
-  "Admonition",
-  "Ingenuity",
-  "Praxis",
-  "Crown of Insight",
-  "Dvalin’s Plume",
-  "Dvalin’s Claw",
-  "Dvalin’s Sigh",
-  "Tail of Boreas",
-  "Ring of Boreas",
-  "Spirit Locket of Boreas",
-  "Tusk of Monoceros Caeli",
-  "Shard of a Foul Legacy",
-  "Shadow of the Warrior",
-  "Dragon Lord’s Crown",
-  "Bloodjade Branch",
-  "Gilded Scale",
-  "Molten Moment",
-  "Hellfire Butterfly",
-  "Ashen Heart",
-  "Mudra of the Malefic General",
-  "Tears of the Calamitous God",
-  "The Meaning of Aeons",
-  "Puppet Strings",
-  "Mirror of Mushin",
-  "Daka’s Bell",
-] as const;
-
-export type Talent = (typeof talent)[number];
-
-export const northlanderBillets: string[] = [
+export const northlanderBillets = [
   "Northlander Claymore Billet",
   "Northlander Polearm Billet",
   "Northlander Sword Billet",
   "Northlander Bow Billet",
   "Northlander Catalyst Billet",
-];
+] as const;
 
-export const midlanderBillets: string[] = [
+export const midlanderBillets = [
   "Midlander Claymore Billet",
   "Midlander Polearm Billet",
   "Midlander Sword Billet",
   "Midlander Bow Billet",
   "Midlander Catalyst Billet",
-];
+] as const;
 
-export const forgingMaterials: string[] = [
+export const forgingMaterials = [
   "Crystal Chunk",
   "White Iron Chunk",
   "Starsilver",
@@ -184,7 +214,9 @@ export const forgingMaterials: string[] = [
   "Peach of the Deep Waves",
   "Lazurite Axe Marlin",
   "Halcyon Jade Axe Marlin",
-];
+] as const;
+
+export type Forging = (typeof northlanderBillets | typeof midlanderBillets | typeof forgingMaterials)[number];
 
 export const materials: Material[] = [
   // common
@@ -380,15 +412,17 @@ export const materials: Material[] = [
   { id: "Padisarah", name: { en: "Padisarah", "zh-CN": "帕蒂沙兰" } },
   { id: "Pseudo-Stamens", name: { en: "Pseudo-Stamens", "zh-CN": "苍砾蕊羽" } },
 
+  // gem
+  { id: "Brilliant Diamond", gem: true, name: { en: "Brilliant Diamond", "zh-CN": "璀璨原钻" } },
+  { id: "Agnidus Agate", gem: true, name: { en: "Agnidus Agate", "zh-CN": "燃愿玛瑙" } },
+  { id: "Varunada Lazurite", gem: true, name: { en: "Varunada Lazurite", "zh-CN": "涤净青金" } },
+  { id: "Vajrada Amethyst", gem: true, name: { en: "Vajrada Amethyst", "zh-CN": "最胜紫晶" } },
+  { id: "Vayuda Turquoise", gem: true, name: { en: "Vayuda Turquoise", "zh-CN": "自在松石" } },
+  { id: "Shivada Jade", gem: true, name: { en: "Shivada Jade", "zh-CN": "哀叙冰玉" } },
+  { id: "Prithiva Topaz", gem: true, name: { en: "Prithiva Topaz", "zh-CN": "坚牢黄玉" } },
+  { id: "Nagadus Emerald", gem: true, name: { en: "Nagadus Emerald", "zh-CN": "生长碧翡" } },
+
   // character ascension
-  { id: "Brilliant Diamond", name: { en: "Brilliant Diamond", "zh-CN": "璀璨原钻" } },
-  { id: "Agnidus Agate", name: { en: "Agnidus Agate", "zh-CN": "燃愿玛瑙" } },
-  { id: "Varunada Lazurite", name: { en: "Varunada Lazurite", "zh-CN": "涤净青金" } },
-  { id: "Vajrada Amethyst", name: { en: "Vajrada Amethyst", "zh-CN": "最胜紫晶" } },
-  { id: "Vayuda Turquoise", name: { en: "Vayuda Turquoise", "zh-CN": "自在松石" } },
-  { id: "Shivada Jade", name: { en: "Shivada Jade", "zh-CN": "哀叙冰玉" } },
-  { id: "Prithiva Topaz", name: { en: "Prithiva Topaz", "zh-CN": "坚牢黄玉" } },
-  { id: "Nagadus Emerald", name: { en: "Nagadus Emerald", "zh-CN": "生长碧翡" } },
   { id: "Hurricane Seed", name: { en: "Hurricane Seed", "zh-CN": "飓风之种" } },
   { id: "Lightning Prism", name: { en: "Lightning Prism", "zh-CN": "雷光棱镜" } },
   { id: "Basalt Pillar", name: { en: "Basalt Pillar", "zh-CN": "玄岩之塔" } },
@@ -570,29 +604,57 @@ export const materials: Material[] = [
   },
 
   // weapon forge
-  { id: "Northlander Claymore Billet", name: { en: "Northlander Claymore Billet", "zh-CN": "北陆双手剑原胚" } },
-  { id: "Northlander Polearm Billet", name: { en: "Northlander Polearm Billet", "zh-CN": "北陆长柄武器原胚" } },
-  { id: "Northlander Sword Billet", name: { en: "Northlander Sword Billet", "zh-CN": "北陆单手剑原胚" } },
-  { id: "Northlander Bow Billet", name: { en: "Northlander Bow Billet", "zh-CN": "北陆弓原胚" } },
-  { id: "Northlander Catalyst Billet", name: { en: "Northlander Catalyst Billet", "zh-CN": "北陆法器原胚" } },
-  { id: "Midlander Claymore Billet", name: { en: "Midlander Claymore Billet", "zh-CN": "央陆双手剑原胚" } },
-  { id: "Midlander Polearm Billet", name: { en: "Midlander Polearm Billet", "zh-CN": "央陆长柄武器原胚" } },
-  { id: "Midlander Sword Billet", name: { en: "Midlander Sword Billet", "zh-CN": "央陆单手剑原胚" } },
-  { id: "Midlander Bow Billet", name: { en: "Midlander Bow Billet", "zh-CN": "央陆弓原胚" } },
-  { id: "Midlander Catalyst Billet", name: { en: "Midlander Catalyst Billet", "zh-CN": "央陆法器原胚" } },
-  { id: "Crystal Chunk", name: { en: "Crystal Chunk", "zh-CN": "水晶块" } },
-  { id: "White Iron Chunk", name: { en: "White Iron Chunk", "zh-CN": "白铁块" } },
-  { id: "Starsilver", name: { en: "Starsilver", "zh-CN": "星银矿石" } },
-  { id: "Vitalized Dragontooth", name: { en: "Vitalized Dragontooth", "zh-CN": "汲取了生命力的龙牙" } },
-  { id: "Amethyst Lump", name: { en: "Amethyst Lump", "zh-CN": "紫晶块" } },
+  {
+    id: "Northlander Claymore Billet",
+    forging: true,
+    name: { en: "Northlander Claymore Billet", "zh-CN": "北陆双手剑原胚" },
+  },
+  {
+    id: "Northlander Polearm Billet",
+    forging: true,
+    name: { en: "Northlander Polearm Billet", "zh-CN": "北陆长柄武器原胚" },
+  },
+  {
+    id: "Northlander Sword Billet",
+    forging: true,
+    name: { en: "Northlander Sword Billet", "zh-CN": "北陆单手剑原胚" },
+  },
+  { id: "Northlander Bow Billet", forging: true, name: { en: "Northlander Bow Billet", "zh-CN": "北陆弓原胚" } },
+  {
+    id: "Northlander Catalyst Billet",
+    forging: true,
+    name: { en: "Northlander Catalyst Billet", "zh-CN": "北陆法器原胚" },
+  },
+  {
+    id: "Midlander Claymore Billet",
+    forging: true,
+    name: { en: "Midlander Claymore Billet", "zh-CN": "央陆双手剑原胚" },
+  },
+  {
+    id: "Midlander Polearm Billet",
+    forging: true,
+    name: { en: "Midlander Polearm Billet", "zh-CN": "央陆长柄武器原胚" },
+  },
+  { id: "Midlander Sword Billet", forging: true, name: { en: "Midlander Sword Billet", "zh-CN": "央陆单手剑原胚" } },
+  { id: "Midlander Bow Billet", forging: true, name: { en: "Midlander Bow Billet", "zh-CN": "央陆弓原胚" } },
+  {
+    id: "Midlander Catalyst Billet",
+    forging: true,
+    name: { en: "Midlander Catalyst Billet", "zh-CN": "央陆法器原胚" },
+  },
+  { id: "Crystal Chunk", forging: true, name: { en: "Crystal Chunk", "zh-CN": "水晶块" } },
+  { id: "White Iron Chunk", forging: true, name: { en: "White Iron Chunk", "zh-CN": "白铁块" } },
+  { id: "Starsilver", forging: true, name: { en: "Starsilver", "zh-CN": "星银矿石" } },
+  { id: "Vitalized Dragontooth", forging: true, name: { en: "Vitalized Dragontooth", "zh-CN": "汲取了生命力的龙牙" } },
+  { id: "Amethyst Lump", forging: true, name: { en: "Amethyst Lump", "zh-CN": "紫晶块" } },
 
   // fishing
-  { id: "Raimei Angelfish", name: { en: "Raimei Angelfish", "zh-CN": "雷鸣仙" } },
-  { id: "Golden Koi", name: { en: "Golden Koi", "zh-CN": "金赤假龙" } },
-  { id: "Rusty Koi", name: { en: "Rusty Koi", "zh-CN": "锖假龙" } },
-  { id: "Pufferfish", name: { en: "Pufferfish", "zh-CN": "炮鲀" } },
-  { id: "Bitter Pufferfish", name: { en: "Bitter Pufferfish", "zh-CN": "苦炮鲀" } },
-  { id: "Peach of the Deep Waves", name: { en: "Peach of the Deep Waves", "zh-CN": "沉波蜜桃" } },
-  { id: "Lazurite Axe Marlin", name: { en: "Lazurite Axe Marlin", "zh-CN": "青金斧枪鱼" } },
-  { id: "Halcyon Jade Axe Marlin", name: { en: "Halcyon Jade Axe Marlin", "zh-CN": "翡玉斧枪鱼" } },
+  { id: "Raimei Angelfish", forging: true, name: { en: "Raimei Angelfish", "zh-CN": "雷鸣仙" } },
+  { id: "Golden Koi", forging: true, name: { en: "Golden Koi", "zh-CN": "金赤假龙" } },
+  { id: "Rusty Koi", forging: true, name: { en: "Rusty Koi", "zh-CN": "锖假龙" } },
+  { id: "Pufferfish", forging: true, name: { en: "Pufferfish", "zh-CN": "炮鲀" } },
+  { id: "Bitter Pufferfish", forging: true, name: { en: "Bitter Pufferfish", "zh-CN": "苦炮鲀" } },
+  { id: "Peach of the Deep Waves", forging: true, name: { en: "Peach of the Deep Waves", "zh-CN": "沉波蜜桃" } },
+  { id: "Lazurite Axe Marlin", forging: true, name: { en: "Lazurite Axe Marlin", "zh-CN": "青金斧枪鱼" } },
+  { id: "Halcyon Jade Axe Marlin", forging: true, name: { en: "Halcyon Jade Axe Marlin", "zh-CN": "翡玉斧枪鱼" } },
 ];

@@ -1,9 +1,15 @@
 import { OfMaterial, TYPE_WEAPON } from "../base";
+import { Elite, Forging, General, WeaponAscension } from "./materials";
 
 export type Weapon = OfMaterial & {
   type: typeof TYPE_WEAPON;
   rarity: 3 | 4 | 5;
   category: Category;
+  materials:
+    | [WeaponAscension, Elite, General]
+    | [WeaponAscension, Elite, General, Forging, Forging, Forging] // forged weapons
+    | [WeaponAscension, Elite, General, Forging, Forging, Forging, Forging, Forging] // the catch
+    | undefined;
 };
 
 export type Category = "Bow" | "Catalyst" | "Claymore" | "Polearm" | "Sword";

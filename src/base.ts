@@ -2,16 +2,8 @@ import { isBookmarked } from "./bookmarks";
 import { VIEW_ALL } from "./components/enemiestable";
 import { I18nObject, ui, weekdays } from "./i18n";
 import { characters } from "./models/characters";
-import { bosses, Domain, domains, enemies } from "./models/enemies";
-import {
-  forgingMaterials,
-  Gem,
-  gems,
-  Material,
-  materials,
-  midlanderBillets,
-  northlanderBillets,
-} from "./models/materials";
+import { Domain, bosses, domains, enemies } from "./models/enemies";
+import { Material, materials } from "./models/materials";
 import { weapons } from "./models/weapons";
 import { recentNew, upcoming } from "./version";
 
@@ -105,22 +97,22 @@ export function renderQTableRows(
   weekday: number,
   remove: boolean
 ) {
-  const materials = Array.from(object.keys());
+  const ms = Array.from(object.keys());
   const separator = "<span class='mobile'> / </span><span class='desktop'><br></span>";
   const currentWeekday = getWeekday(getTimezone());
   return `<tbody name="${formatId(type, id, weekday)}"><tr>
-      <th ${materials.length === 0 ? "" : `rowspan="${materials.length}"`}>
+      <th ${ms.length === 0 ? "" : `rowspan="${ms.length}"`}>
         ${(type === TYPE_TALENT_DOMAIN || type === TYPE_WEAPON_DOMAIN
           ? formatDomainName(name, weekday)
           : formatName(name)
         ).replaceAll(" / ", separator)}
         ${remove ? `<a class="remove" data-type="${type}" data-id="${id}" data-weekday="${weekday}">🧹</a>` : ""}
-      </th>${renderQTableRow(materials, object.get(materials[0])!, currentWeekday)}
+      </th>${renderQTableRow(ms, object.get(ms[0])!, currentWeekday)}
     </tr>
     ${
-      materials.length === 0
+      ms.length === 0
         ? ""
-        : materials
+        : ms
             .slice(1)
             .map((m) => `<tr ${formatMaterialType(m)}>${renderQTableRow([m], object.get(m)!, currentWeekday)}</tr>`)
             .join("")
@@ -232,11 +224,7 @@ function formatDomainName(name: I18nObject, weekday: number) {
 }
 
 function formatMaterialType(m: Material) {
-  return northlanderBillets.includes(m.id) || midlanderBillets.includes(m.id) || forgingMaterials.includes(m.id)
-    ? "class='billet'"
-    : gems.includes(m.id as Gem)
-    ? "class='gem'"
-    : "";
+  return "forging" in m ? "class='billet'" : "gem" in m ? "class='gem'" : "";
 }
 
 /**
