@@ -5,11 +5,10 @@ export type Weapon = OfMaterial & {
   type: typeof TYPE_WEAPON;
   rarity: 3 | 4 | 5;
   category: Category;
-  materials:
+  materials?:
     | [WeaponAscension, Elite, General]
     | [WeaponAscension, Elite, General, Forging, Forging, Forging] // forged weapons
-    | [WeaponAscension, Elite, General, Forging, Forging, Forging, Forging, Forging] // the catch
-    | undefined;
+    | [WeaponAscension, Elite, General, Forging, Forging, Forging, Forging, Forging]; // the catch
 };
 
 export type Category = "Bow" | "Catalyst" | "Claymore" | "Polearm" | "Sword";
@@ -129,6 +128,13 @@ export const weapons: Weapon[] = [
     category: "Catalyst",
     name: { en: "Tulaytulla’s Rememberance", "zh-CN": "图莱杜拉的回忆" },
     materials: ["Echo of Scorching Might", "Inactivated Fungal Nucleus", "Fungal Spores"],
+  },
+  {
+    id: "Jadefall’s Splendor",
+    type: "weapon",
+    rarity: 5,
+    category: "Catalyst",
+    name: { en: "Jadefall’s Splendor", "zh-CN": "碧落之珑" },
   },
   {
     id: "Wolf’s Gravestone",
