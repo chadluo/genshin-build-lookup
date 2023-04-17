@@ -135,6 +135,7 @@ export const weapons: Weapon[] = [
     rarity: 5,
     category: "Catalyst",
     name: { en: "Jadefall’s Splendor", "zh-CN": "碧落之珑" },
+    materials: ["Luminous Sands from Guyun", "A Flower Yet to Bloom", "Fungal Spores"],
   },
   {
     id: "Wolf’s Gravestone",

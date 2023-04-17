@@ -527,4 +527,10 @@ export const enemies: Enemy[] = [
     name: { en: "Consecrated Beast", "zh-CN": "圣骸兽" },
     materials: ["Desiccated Shell"],
   },
+  {
+    id: "Hilichurl Rogue",
+    type: "enemy",
+    name: { en: "Hilichurl Rogue", "zh-CN": ["丘丘游侠"] },
+    materials: ["A Flower Yet to Bloom"],
+  },
 ];

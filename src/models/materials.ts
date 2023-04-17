@@ -172,7 +172,8 @@ export type Elite =
   | "Desiccated Shell"
   | "Chaos Gear"
   | "Hunter’s Sacrificial Knife"
-  | "Chaos Storage";
+  | "Chaos Storage"
+  | "A Flower Yet to Bloom";
 
 export type Gem =
   | "Brilliant Diamond"
@@ -375,6 +376,13 @@ export const materials: Material[] = [
     name: {
       en: ["Desiccated Shell", "Sturdy Shell", "Marked Shell"],
       "zh-CN": ["残毁的横脊", "密固的横脊", "锲纹的横脊"],
+    },
+  },
+  {
+    id: "A Flower Yet to Bloom",
+    name: {
+      en: ["A Flower Yet to Bloom", "Treasured Flower", "Wanderer’s Blooming Flower"],
+      "zh-CN": ["来自何处的待放之花", "何人所珍藏之花", "漫游者的盛放之花"],
     },
   },
 
