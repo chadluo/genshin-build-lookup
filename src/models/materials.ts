@@ -70,7 +70,8 @@ export type CharacterAscension =
   | "Light Guiding Tetrahedron"
   | "Perpetual Caliber"
   | "Quelled Creeper"
-  | "Pseudo-Stamens";
+  | "Pseudo-Stamens"
+  | "Evergloom Ring";
 
 export type TalentBook =
   | "Freedom"
@@ -108,7 +109,10 @@ export type TalentMaterial =
   | "The Meaning of Aeons"
   | "Puppet Strings"
   | "Mirror of Mushin"
-  | "Daka’s Bell";
+  | "Daka’s Bell"
+  | "Worldspan Fern"
+  | "Primordial Greenbloom"
+  | "Everamber";
 
 export type LocalSpecialities =
   | "Calla Lily"
@@ -419,6 +423,7 @@ export const materials: Material[] = [
   { id: "Henna Berry", name: { en: "Henna Berry", "zh-CN": "赤念果" } },
   { id: "Padisarah", name: { en: "Padisarah", "zh-CN": "帕蒂沙兰" } },
   { id: "Pseudo-Stamens", name: { en: "Pseudo-Stamens", "zh-CN": "苍砾蕊羽" } },
+  { id: "Evergloom Ring", name: { en: "Evergloom Ring", "zh-CN": "常暗圆环" } },
 
   // gem
   { id: "Brilliant Diamond", gem: true, name: { en: "Brilliant Diamond", "zh-CN": "璀璨原钻" } },
@@ -489,6 +494,9 @@ export const materials: Material[] = [
   { id: "Puppet Strings", name: { en: "Puppet Strings", "zh-CN": "傀儡的悬丝" } },
   { id: "Mirror of Mushin", name: { en: "Mirror of Mushin", "zh-CN": "无心的渊镜" } },
   { id: "Daka’s Bell", name: { en: "Daka’s Bell", "zh-CN": "空行的虚铃" } },
+  { id: "Worldspan Fern", name: { en: "Worldspan Fern", "zh-CN": "生长天地之蕨草" } },
+  { id: "Primordial Greenbloom", name: { en: "Primordial Greenbloom", "zh-CN": "原初绿洲之初绽" } },
+  { id: "Everamber", name: { en: "Everamber", "zh-CN": "亘古树海之一瞬" } },
 
   // weapons
   {

@@ -50,7 +50,13 @@ export const characters: Character[] = [
     name: { en: ["Arataki Itto"], "zh-CN": ["荒泷一斗"] },
     materials: ["Riftborn Regalia", "Prithiva Topaz", "Ashen Heart", "Elegance", "Slime Condensate", "Onikabuto"],
   },
-  { id: "Baizhu", type: "character", rarity: 5, name: { en: "Baizhu", "zh-CN": "白术" } },
+  {
+    id: "Baizhu",
+    type: "character",
+    rarity: 5,
+    name: { en: "Baizhu", "zh-CN": "白术" },
+    materials: ["Evergloom Ring", "Nagadus Emerald", "Worldspan Fern", "Gold", "Fungal Spores", "Violetgrass"],
+  },
   {
     id: "Barbara",
     type: "character",

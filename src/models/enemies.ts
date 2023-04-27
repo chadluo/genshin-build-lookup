@@ -248,6 +248,13 @@ export const bosses: Boss[] = [
     type: "boss",
     name: { en: "Setekh Wenut", "zh-CN": "风蚀沙虫" },
   },
+  {
+    id: "Iniquitous Baptist",
+    region: "Sumeru",
+    materials: ["Evergloom Ring", "Vajrada Amethyst", "Shivada Jade", "Agnidus Agate", "Varunada Lazurite"],
+    type: "boss",
+    name: { en: "Iniquitous Baptist", "zh-CN": "深罪浸礼者" },
+  },
 
   // weekly bosses
   {
@@ -359,6 +366,13 @@ export const bosses: Boss[] = [
       en: ["Joururi Workshop / Everlasting Lord of Arcane Wisdom Shouki no Kami, the Prodigal"],
       "zh-CN": ["净琉璃工坊 / 七叶寂照秘密主 「正机之神」"],
     },
+  },
+  {
+    id: "The Realm of Beginnings",
+    region: "Sumeru",
+    materials: ["Worldspan Fern", "Primordial Greenbloom", "Everamber", "Nagadus Emerald", ...midlanderBillets],
+    type: "weekly_boss",
+    name: { en: "The Realm of Beginnings / Guardian of Apep’s Oasis", "zh-CN": "肇始之乡 / 阿佩普的绿洲守望者" },
   },
 ];
 
