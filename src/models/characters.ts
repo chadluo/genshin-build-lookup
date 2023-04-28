@@ -330,7 +330,20 @@ export const characters: Character[] = [
       "Sakura Bloom",
     ],
   },
-  { id: "Kaveh", type: "character", rarity: 4, name: { en: "Kaveh", "zh-CN": "卡维" } },
+  {
+    id: "Kaveh",
+    type: "character",
+    rarity: 4,
+    name: { en: "Kaveh", "zh-CN": "卡维" },
+    materials: [
+      "Quelled Creeper",
+      "Nagadus Emerald",
+      "Primordial Greenbloom",
+      "Ingenuity",
+      "Fungal Spores",
+      "Mourning Flower",
+    ],
+  },
   {
     id: "Keqing",
     type: "character",

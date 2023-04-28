@@ -146,7 +146,8 @@ export type LocalSpecialities =
   | "Scarab"
   | "Henna Berry"
   | "Padisarah"
-  | "Sand Grease Pupa";
+  | "Sand Grease Pupa"
+  | "Mourning Flower";
 
 export type WeaponAscension =
   | "Mask of the Wicked Lieutenant"
@@ -458,6 +459,7 @@ export const materials: Material[] = [
   { id: "Perpetual Caliber", name: { en: "Perpetual Caliber", "zh-CN": "永续机芯" } },
   { id: "Quelled Creeper", name: { en: "Quelled Creeper", "zh-CN": "灭诤草蔓" } },
   { id: "Sand Grease Pupa", name: { en: "Sand Grease Pupa", "zh-CN": "沙脂蛹" } },
+  { id: "Mourning Flower", name: { en: "Mourning Flower", "zh-CN": "悼灵花" } },
 
   // character talents
   { id: "Freedom", name: { en: "Freedom", "zh-CN": "自由" } },
