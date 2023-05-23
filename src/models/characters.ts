@@ -359,6 +359,13 @@ export const characters: Character[] = [
     ],
   },
   {
+    id: "Kirara",
+    type: "character",
+    rarity: 4,
+    name: { en: ["Kirara"], "zh-CN": ["绮良良"] },
+    materials: ["Evergloom Ring", "Nagadus Emerald", "Everamber", "Transience", "Spectral Husk", "Amakumo Fruit"],
+  },
+  {
     id: "Klee",
     type: "character",
     rarity: 5,

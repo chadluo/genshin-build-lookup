@@ -493,6 +493,17 @@ export const weapons: Weapon[] = [
     ],
   },
   {
+    id: "Ibis Piercer",
+    type: "weapon",
+    rarity: 4,
+    category: "Bow",
+    name: {
+      en: ["Ibis Piercer"],
+      "zh-CN": ["鹮穿之喙"],
+    },
+    materials: ["Copper Talisman of the Forest Dew", "A Flower Yet to Bloom", "Faded Red Satin"],
+  },
+  {
     id: "Wine and Song",
     type: "weapon",
     rarity: 4,
