@@ -4,7 +4,8 @@ const version: Record<string, string[]> = {
   "3.6": ["Baizhu", "Kaveh", "Jadefall’s Splendor"],
   "3.7": ["Kirara", "Ibis Piercer"],
   "3.8": [],
+  "4.0": [],
 };
 
-export const recentNew = version["3.7"];
-export const upcoming = version["3.8"];
+export const recentNew = version["3.8"];
+export const upcoming = version["4.0"];
