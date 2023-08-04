@@ -5,6 +5,9 @@ const version: Record<string, string[]> = {
   "3.7": ["Kirara", "Ibis Piercer"],
   "3.8": [],
   "4.0": [
+    "Lyney",
+    "Lynette",
+    "Freminet",
     "The First Great Magic",
     "Scion of the Blazing Sun",
     "Song of Stillness",
