@@ -1,0 +1,9 @@
+{
+    "commentAnchors.tags.anchors": {
+        "Newline": {
+            "iconColor": "default",
+            "highlightColor": "#A8C023",
+            "scope": "file"
+        }
+    }
+}

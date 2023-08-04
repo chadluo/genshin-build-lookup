@@ -4,7 +4,19 @@ const version: Record<string, string[]> = {
   "3.6": ["Baizhu", "Kaveh", "Jadefall’s Splendor"],
   "3.7": ["Kirara", "Ibis Piercer"],
   "3.8": [],
-  "4.0": [],
+  "4.0": [
+    "The First Great Magic",
+    "Scion of the Blazing Sun",
+    "Song of Stillness",
+    "Sacrificial Jade",
+    "Flowing Purity",
+    "Talking Stick",
+    "Tidal Shadow",
+    "Ballard of the Fjords",
+    "Rightful Reward",
+    "Wolf-Fang",
+    "Finale of the Deep",
+  ],
 };
 
 export const recentNew = version["3.8"];
