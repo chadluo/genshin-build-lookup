@@ -46,6 +46,12 @@ export const domains: Domain[] = [
     materials_by_weekday: ["All", "Admonition", "Ingenuity", "Praxis"],
   },
   {
+    id: "Pale Forgotten Glory",
+    name: { en: "Pale Forgotten Glory", "zh-CN": "苍白的遗荣" },
+    type: "talent_domain",
+    materials_by_weekday: ["All", "Equity", "Justice", "Order"],
+  },
+  {
     id: "Cecilia Garden",
     name: { en: ["Cecilia Garden"], "zh-CN": ["塞西莉亚苗圃"] },
     type: "weapon_domain",
@@ -58,9 +64,17 @@ export const domains: Domain[] = [
   },
   {
     id: "Hidden Palace of Lianshan Formula",
-    name: { en: ["Hidden Palace of Lianshan Formula"], "zh-CN": ["震雷连山密宫"] },
+    name: {
+      en: ["Hidden Palace of Lianshan Formula"],
+      "zh-CN": ["震雷连山密宫"],
+    },
     type: "weapon_domain",
-    materials_by_weekday: ["All", "Luminous Sands from Guyun", "Mist Veiled Lead Elixir", "Grain of Aerosiderite"],
+    materials_by_weekday: [
+      "All",
+      "Luminous Sands from Guyun",
+      "Mist Veiled Lead Elixir",
+      "Grain of Aerosiderite",
+    ],
   },
   {
     id: "Court of Flowing Sand",
@@ -223,9 +237,16 @@ export const bosses: Boss[] = [
   {
     id: "Algorithm of Semi-Intransient Matrix of Overseer Network",
     region: "Sumeru",
-    materials: ["Light Guiding Tetrahedron", "Agnidus Agate", "Vayuda Turquoise"],
+    materials: [
+      "Light Guiding Tetrahedron",
+      "Agnidus Agate",
+      "Vayuda Turquoise",
+    ],
     type: "boss",
-    name: { en: ["Algorithm of Semi-Intransient Matrix of Overseer Network"], "zh-CN": ["半永恒统辖矩阵"] },
+    name: {
+      en: ["Algorithm of Semi-Intransient Matrix of Overseer Network"],
+      "zh-CN": ["半永恒统辖矩阵"],
+    },
   },
   {
     id: "Aeonblight Drake",
@@ -251,12 +272,47 @@ export const bosses: Boss[] = [
   {
     id: "Iniquitous Baptist",
     region: "Sumeru",
-    materials: ["Evergloom Ring", "Vajrada Amethyst", "Shivada Jade", "Agnidus Agate", "Varunada Lazurite"],
+    materials: [
+      "Evergloom Ring",
+      "Vajrada Amethyst",
+      "Shivada Jade",
+      "Agnidus Agate",
+      "Varunada Lazurite",
+    ],
     type: "boss",
     name: { en: "Iniquitous Baptist", "zh-CN": "深罪浸礼者" },
   },
+  {
+    id: "Emperor of Fire and Iron",
+    region: "Fontaine",
+    materials: ["Emperor’s Resolution", "Agnidus Agate"],
+    type: "boss",
+    name: { en: "Emperor of Fire and Iron", "zh-CN": "铁甲熔火帝皇" },
+  },
+  {
+    id: "“Dirge of Coppelia”",
+    region: "Fontaine",
+    materials: [
+      "Artificed Spare Clockwork Component — Coppelia",
+      "Vayuda Turquoise",
+    ],
+    type: "boss",
+    name: { en: "“Dirge of Coppelia”", "zh-CN": "「歌裴莉娅的葬送」" },
+  },
+  {
+    id: "“Nemesis of Coppelius”",
+    region: "Fontaine",
+    materials: [
+      "Artificed Spare Clockwork Component — Coppelius",
+      "Shivada Jade",
+    ],
+    type: "boss",
+    name: { en: "“Nemesis of Coppelius”", "zh-CN": "「科培琉司的劫罚」" },
+  },
+  //
+  // Newline - normal boss
+  //
 
-  // weekly bosses
   {
     id: "Confront Stormterror",
     region: "Mondstadt",
@@ -270,7 +326,10 @@ export const bosses: Boss[] = [
       ...northlanderBillets,
     ],
     type: "weekly_boss",
-    name: { en: ["Confront Stormterror / Dvalin"], "zh-CN": ["深入风龙废墟 / 风魔龙・特瓦林"] },
+    name: {
+      en: ["Confront Stormterror / Dvalin"],
+      "zh-CN": ["深入风龙废墟 / 风魔龙・特瓦林"],
+    },
   },
   {
     id: "Wolf of the North Challenge",
@@ -285,7 +344,10 @@ export const bosses: Boss[] = [
       ...northlanderBillets,
     ],
     type: "weekly_boss",
-    name: { en: ["Wolf of the North Challenge / Andrius"], "zh-CN": ["北风的王狼 / 安德留斯"] },
+    name: {
+      en: ["Wolf of the North Challenge / Andrius"],
+      "zh-CN": ["北风的王狼 / 安德留斯"],
+    },
   },
   {
     id: "Enter the Golden House",
@@ -300,7 +362,10 @@ export const bosses: Boss[] = [
       ...northlanderBillets,
     ],
     type: "weekly_boss",
-    name: { en: ["Enter the Golden House / Childe"], "zh-CN": ["进入「黄金屋」 / 公子"] },
+    name: {
+      en: ["Enter the Golden House / Childe"],
+      "zh-CN": ["进入「黄金屋」 / 公子"],
+    },
   },
   {
     id: "Beneath the Dragon-Queller",
@@ -317,7 +382,10 @@ export const bosses: Boss[] = [
       ...northlanderBillets,
     ],
     type: "weekly_boss",
-    name: { en: ["Beneath the Dragon-Queller / Azhdaha"], "zh-CN": ["「伏龙树」之底 / 若陀龙王"] },
+    name: {
+      en: ["Beneath the Dragon-Queller / Azhdaha"],
+      "zh-CN": ["「伏龙树」之底 / 若陀龙王"],
+    },
   },
   {
     id: "Narukami Island: Tenshukaku",
@@ -331,7 +399,10 @@ export const bosses: Boss[] = [
       ...northlanderBillets,
     ],
     type: "weekly_boss",
-    name: { en: ["Narukami Island: Tenshukaku / La Signora"], "zh-CN": ["鸣神岛・天守 / 女士"] },
+    name: {
+      en: ["Narukami Island: Tenshukaku / La Signora"],
+      "zh-CN": ["鸣神岛・天守 / 女士"],
+    },
   },
   {
     id: "End of the Oneiric Euthymia",
@@ -363,21 +434,34 @@ export const bosses: Boss[] = [
     ],
     type: "weekly_boss",
     name: {
-      en: ["Joururi Workshop / Everlasting Lord of Arcane Wisdom Shouki no Kami, the Prodigal"],
+      en: [
+        "Joururi Workshop / Everlasting Lord of Arcane Wisdom Shouki no Kami, the Prodigal",
+      ],
       "zh-CN": ["净琉璃工坊 / 七叶寂照秘密主 「正机之神」"],
     },
   },
   {
     id: "The Realm of Beginnings",
     region: "Sumeru",
-    materials: ["Worldspan Fern", "Primordial Greenbloom", "Everamber", "Nagadus Emerald", ...midlanderBillets],
+    materials: [
+      "Worldspan Fern",
+      "Primordial Greenbloom",
+      "Everamber",
+      "Nagadus Emerald",
+      ...midlanderBillets,
+    ],
     type: "weekly_boss",
-    name: { en: "The Realm of Beginnings / Guardian of Apep’s Oasis", "zh-CN": "肇始之乡 / 阿佩普的绿洲守望者" },
+    name: {
+      en: "The Realm of Beginnings / Guardian of Apep’s Oasis",
+      "zh-CN": "肇始之乡 / 阿佩普的绿洲守望者",
+    },
   },
+  //
+  // Newline - weekly boss
+  //
 ];
 
 export const enemies: Enemy[] = [
-  // normal
   {
     id: "Fatui Skirmisher",
     type: "enemy",
@@ -396,22 +480,42 @@ export const enemies: Enemy[] = [
     name: { en: ["Hilichurl Shooter"], "zh-CN": ["丘丘射手"] },
     materials: ["Damaged Mask", "Firm Arrowhead"],
   },
-  { id: "Hilichurl", type: "enemy", name: { en: ["Hilichurl"], "zh-CN": ["丘丘人"] }, materials: ["Damaged Mask"] },
+  {
+    id: "Hilichurl",
+    type: "enemy",
+    name: { en: ["Hilichurl"], "zh-CN": ["丘丘人"] },
+    materials: ["Damaged Mask"],
+  },
   {
     id: "Samachurl",
     type: "enemy",
     name: { en: ["Samachurl"], "zh-CN": ["丘丘萨满"] },
     materials: ["Damaged Mask", "Divining Scroll"],
   },
-  { id: "Slime", type: "enemy", name: { en: ["Slime"], "zh-CN": ["史莱姆"] }, materials: ["Slime Condensate"] },
+  {
+    id: "Slime",
+    type: "enemy",
+    name: { en: ["Slime"], "zh-CN": ["史莱姆"] },
+    materials: ["Slime Condensate"],
+  },
   {
     id: "Treasure Hoarder",
     type: "enemy",
     name: { en: ["Treasure Hoarder"], "zh-CN": ["盗宝团"] },
     materials: ["Treasure Hoarder Insignia"],
   },
-  { id: "Nobushi", type: "enemy", name: { en: ["Nobushi"], "zh-CN": ["野伏众"] }, materials: ["Old Handguard"] },
-  { id: "Specter", type: "enemy", name: { en: ["Specter"], "zh-CN": ["飘浮灵"] }, materials: ["Spectral Husk"] },
+  {
+    id: "Nobushi",
+    type: "enemy",
+    name: { en: ["Nobushi"], "zh-CN": ["野伏众"] },
+    materials: ["Old Handguard"],
+  },
+  {
+    id: "Specter",
+    type: "enemy",
+    name: { en: ["Specter"], "zh-CN": ["飘浮灵"] },
+    materials: ["Spectral Husk"],
+  },
   {
     id: "The Eremites",
     type: "enemy",
@@ -424,8 +528,21 @@ export const enemies: Enemy[] = [
     name: { en: ["Fungus"], "zh-CN": ["蕈兽"] },
     materials: ["Fungal Spores", "Inactivated Fungal Nucleus"],
   },
+  {
+    id: "Clockwork Meka",
+    type: "enemy",
+    name: { en: "Clockwork Meka", "zh-CN": "发条机关" },
+    materials: ["Meshing Gear"],
+  },
+  {
+    id: "Fontemer Aberrant",
+    type: "enemy",
+    name: { en: "Fontemer Aberrant", "zh-CN": "原海异种" },
+  },
+  //
+  // Newline - normal enemy
+  //
 
-  // elites
   {
     id: "Fatui Cicin Mage",
     type: "enemy",
@@ -450,7 +567,12 @@ export const enemies: Enemy[] = [
     name: { en: ["Abyss Lector"], "zh-CN": ["深渊咏者"] },
     materials: ["Dead Ley Line Branch", "Gloomy Statuette"],
   },
-  { id: "Ruin Guard", type: "enemy", name: { en: ["Ruin Guard"], "zh-CN": ["遗迹守卫"] }, materials: ["Chaos Device"] },
+  {
+    id: "Ruin Guard",
+    type: "enemy",
+    name: { en: ["Ruin Guard"], "zh-CN": ["遗迹守卫"] },
+    materials: ["Chaos Device"],
+  },
   {
     id: "Mitachurl",
     type: "enemy",
@@ -547,4 +669,7 @@ export const enemies: Enemy[] = [
     name: { en: "Hilichurl Rogue", "zh-CN": ["丘丘游侠"] },
     materials: ["A Flower Yet to Bloom"],
   },
+  //
+  // Newline - elite enemy
+  //
 ];

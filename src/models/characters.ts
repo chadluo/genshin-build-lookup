@@ -537,12 +537,28 @@ export const characters: Character[] = [
     type: "character",
     rarity: 4,
     name: { en: "Lynette", "zh-CN": "琳妮特" },
+    materials: [
+      "Artificed Spare Clockwork Component — Coppelia",
+      "Vayuda Turquoise",
+      "Everamber",
+      "Order",
+      "Meshing Gear",
+      "Lumidouce Bell",
+    ],
   },
   {
     id: "Lyney",
     type: "character",
     rarity: 5,
     name: { en: "Lyney", "zh-CN": "林尼" },
+    materials: [
+      "Emperor’s Resolution",
+      "Agnidus Agate",
+      "Primordial Greenbloom",
+      "Equity",
+      "Recruit’s Insignia",
+      "Rainbow Rose",
+    ],
   },
   {
     id: "Mika",

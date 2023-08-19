@@ -1,8 +1,9 @@
 {
+    "commentAnchors.scrollPosition": "center",
     "commentAnchors.tags.anchors": {
         "Newline": {
-            "iconColor": "default",
             "highlightColor": "#A8C023",
+            "iconColor": "default",
             "scope": "file"
         }
     }

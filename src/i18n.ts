@@ -1,11 +1,16 @@
 import { Region } from "./base";
 
 export type SupportedLanguages = "en" | "zh-CN";
-export type I18nObject = Readonly<Record<SupportedLanguages, string | string[]>>;
+export type I18nObject = Readonly<
+  Record<SupportedLanguages, string | string[]>
+>;
 
 export const ui: Record<string, I18nObject> = {
   supportedLanguageSelectors: { en: "English", "zh-CN": "简体中文" },
-  siteTitle: { en: "Yuanliao: Genshin Impact Build Lookup", "zh-CN": "原料：原神培养查询" },
+  siteTitle: {
+    en: "Yuanliao: Genshin Impact Build Lookup",
+    "zh-CN": "原料：原神培养查询",
+  },
   delimiter: { en: " | ", "zh-CN": "｜" },
   character: { en: "Characters", "zh-CN": "角色" },
   weapon: { en: "Weapons", "zh-CN": "武器" },
@@ -36,4 +41,5 @@ export const regions: Record<Region, I18nObject> = {
   Liyue: { en: "Liyue", "zh-CN": "璃月" },
   Inazuma: { en: "Inazuma", "zh-CN": "稻妻" },
   Sumeru: { en: "Sumeru", "zh-CN": "须弥" },
+  Fontaine: { en: "Fontaine", "zh-CN": "枫丹" },
 };
