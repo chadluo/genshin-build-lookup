@@ -20,7 +20,8 @@ const version: Record<string, string[]> = {
     "Wolf-Fang",
     "Finale of the Deep",
   ],
+  "4.1": [],
 };
 
-export const recentNew = version["3.8"];
-export const upcoming = version["4.0"];
+export const recentNew = version["4.0"];
+export const upcoming = version["4.1"];
