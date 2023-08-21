@@ -26,7 +26,7 @@ export const characters: Character[] = [
     id: "Albedo",
     type: "character",
     rarity: 5,
-    name: { en: ["Albedo"], "zh-CN": ["阿贝多"] },
+    name: { ["en"]: ["Albedo"], ["zh-CN"]: ["阿贝多"] },
     materials: [
       "Basalt Pillar",
       "Prithiva Topaz",
@@ -40,7 +40,7 @@ export const characters: Character[] = [
     id: "Alhaitham",
     type: "character",
     rarity: 5,
-    name: { en: "Alhaitham", "zh-CN": "艾尔海森" },
+    name: { ["en"]: "Alhaitham", ["zh-CN"]: "艾尔海森" },
     materials: [
       "Pseudo-Stamens",
       "Nagadus Emerald",
@@ -54,7 +54,7 @@ export const characters: Character[] = [
     id: "Aloy",
     type: "character",
     rarity: 5,
-    name: { en: ["Aloy"], "zh-CN": ["埃洛伊"] },
+    name: { ["en"]: ["Aloy"], ["zh-CN"]: ["埃洛伊"] },
     materials: [
       "Crystalline Bloom",
       "Shivada Jade",
@@ -68,7 +68,7 @@ export const characters: Character[] = [
     id: "Amber",
     type: "character",
     rarity: 4,
-    name: { en: ["Amber"], "zh-CN": ["安柏"] },
+    name: { ["en"]: ["Amber"], ["zh-CN"]: ["安柏"] },
     materials: [
       "Everflame Seed",
       "Agnidus Agate",
@@ -82,7 +82,7 @@ export const characters: Character[] = [
     id: "Arataki Itto",
     type: "character",
     rarity: 5,
-    name: { en: ["Arataki Itto"], "zh-CN": ["荒泷一斗"] },
+    name: { ["en"]: ["Arataki Itto"], ["zh-CN"]: ["荒泷一斗"] },
     materials: [
       "Riftborn Regalia",
       "Prithiva Topaz",
@@ -96,7 +96,7 @@ export const characters: Character[] = [
     id: "Baizhu",
     type: "character",
     rarity: 5,
-    name: { en: "Baizhu", "zh-CN": "白术" },
+    name: { ["en"]: "Baizhu", ["zh-CN"]: "白术" },
     materials: [
       "Evergloom Ring",
       "Nagadus Emerald",
@@ -110,7 +110,7 @@ export const characters: Character[] = [
     id: "Barbara",
     type: "character",
     rarity: 4,
-    name: { en: ["Barbara"], "zh-CN": ["芭芭拉"] },
+    name: { ["en"]: ["Barbara"], ["zh-CN"]: ["芭芭拉"] },
     materials: [
       "Cleansing Heart",
       "Varunada Lazurite",
@@ -124,7 +124,7 @@ export const characters: Character[] = [
     id: "Beidou",
     type: "character",
     rarity: 4,
-    name: { en: ["Beidou"], "zh-CN": ["北斗"] },
+    name: { ["en"]: ["Beidou"], ["zh-CN"]: ["北斗"] },
     materials: [
       "Lightning Prism",
       "Vajrada Amethyst",
@@ -138,7 +138,7 @@ export const characters: Character[] = [
     id: "Bennett",
     type: "character",
     rarity: 4,
-    name: { en: ["Bennett"], "zh-CN": ["班尼特"] },
+    name: { ["en"]: ["Bennett"], ["zh-CN"]: ["班尼特"] },
     materials: [
       "Everflame Seed",
       "Agnidus Agate",
@@ -152,7 +152,7 @@ export const characters: Character[] = [
     id: "Candace",
     type: "character",
     rarity: 4,
-    name: { en: ["Candace"], "zh-CN": ["坎蒂丝"] },
+    name: { ["en"]: ["Candace"], ["zh-CN"]: ["坎蒂丝"] },
     materials: [
       "Light Guiding Tetrahedron",
       "Varunada Lazurite",
@@ -166,7 +166,7 @@ export const characters: Character[] = [
     id: "Chongyun",
     type: "character",
     rarity: 4,
-    name: { en: ["Chongyun"], "zh-CN": ["重云"] },
+    name: { ["en"]: ["Chongyun"], ["zh-CN"]: ["重云"] },
     materials: [
       "Hoarfrost Core",
       "Shivada Jade",
@@ -180,7 +180,7 @@ export const characters: Character[] = [
     id: "Collei",
     type: "character",
     rarity: 4,
-    name: { en: ["Collei"], "zh-CN": ["柯莱"] },
+    name: { ["en"]: ["Collei"], ["zh-CN"]: ["柯莱"] },
     materials: [
       "Majestic Hooked Beak",
       "Nagadus Emerald",
@@ -194,7 +194,7 @@ export const characters: Character[] = [
     id: "Cyno",
     type: "character",
     rarity: 5,
-    name: { en: ["Cyno"], "zh-CN": ["塞诺"] },
+    name: { ["en"]: ["Cyno"], ["zh-CN"]: ["塞诺"] },
     materials: [
       "Thunderclap Fruitcore",
       "Vajrada Amethyst",
@@ -208,7 +208,7 @@ export const characters: Character[] = [
     id: "Dehya",
     type: "character",
     rarity: 5,
-    name: { en: "Dehya", "zh-CN": "迪希雅" },
+    name: { ["en"]: "Dehya", ["zh-CN"]: "迪希雅" },
     materials: [
       "Light Guiding Tetrahedron",
       "Agnidus Agate",
@@ -222,7 +222,7 @@ export const characters: Character[] = [
     id: "Diluc",
     type: "character",
     rarity: 5,
-    name: { en: ["Diluc"], "zh-CN": ["迪卢克"] },
+    name: { ["en"]: ["Diluc"], ["zh-CN"]: ["迪卢克"] },
     materials: [
       "Everflame Seed",
       "Agnidus Agate",
@@ -236,7 +236,7 @@ export const characters: Character[] = [
     id: "Diona",
     type: "character",
     rarity: 4,
-    name: { en: ["Diona"], "zh-CN": ["迪奥娜"] },
+    name: { ["en"]: ["Diona"], ["zh-CN"]: ["迪奥娜"] },
     materials: [
       "Hoarfrost Core",
       "Shivada Jade",
@@ -250,7 +250,7 @@ export const characters: Character[] = [
     id: "Dori",
     type: "character",
     rarity: 4,
-    name: { en: ["Dori"], "zh-CN": ["多莉"] },
+    name: { ["en"]: ["Dori"], ["zh-CN"]: ["多莉"] },
     materials: [
       "Thunderclap Fruitcore",
       "Vajrada Amethyst",
@@ -264,7 +264,7 @@ export const characters: Character[] = [
     id: "Eula",
     type: "character",
     rarity: 5,
-    name: { en: ["Eula"], "zh-CN": ["优菈"] },
+    name: { ["en"]: ["Eula"], ["zh-CN"]: ["优菈"] },
     materials: [
       "Crystalline Bloom",
       "Shivada Jade",
@@ -278,7 +278,7 @@ export const characters: Character[] = [
     id: "Faruzan",
     type: "character",
     rarity: 4,
-    name: { en: "Faruzan", "zh-CN": "珐露珊" },
+    name: { ["en"]: "Faruzan", ["zh-CN"]: "珐露珊" },
     materials: [
       "Light Guiding Tetrahedron",
       "Vayuda Turquoise",
@@ -292,7 +292,7 @@ export const characters: Character[] = [
     id: "Fischl",
     type: "character",
     rarity: 4,
-    name: { en: ["Fischl"], "zh-CN": ["菲谢尔"] },
+    name: { ["en"]: ["Fischl"], ["zh-CN"]: ["菲谢尔"] },
     materials: [
       "Lightning Prism",
       "Vajrada Amethyst",
@@ -306,13 +306,13 @@ export const characters: Character[] = [
     id: "Freminet",
     type: "character",
     rarity: 4,
-    name: { en: "Freminet", "zh-CN": "菲米尼" },
+    name: { ["en"]: "Freminet", ["zh-CN"]: "菲米尼" },
   },
   {
     id: "Ganyu",
     type: "character",
     rarity: 5,
-    name: { en: ["Ganyu"], "zh-CN": ["甘雨"] },
+    name: { ["en"]: ["Ganyu"], ["zh-CN"]: ["甘雨"] },
     materials: [
       "Hoarfrost Core",
       "Shivada Jade",
@@ -326,7 +326,7 @@ export const characters: Character[] = [
     id: "Gorou",
     type: "character",
     rarity: 4,
-    name: { en: ["Gorou"], "zh-CN": ["五郎"] },
+    name: { ["en"]: ["Gorou"], ["zh-CN"]: ["五郎"] },
     materials: [
       "Perpetual Heart",
       "Prithiva Topaz",
@@ -340,7 +340,7 @@ export const characters: Character[] = [
     id: "Hu Tao",
     type: "character",
     rarity: 5,
-    name: { en: ["Hu Tao"], "zh-CN": ["胡桃"] },
+    name: { ["en"]: ["Hu Tao"], ["zh-CN"]: ["胡桃"] },
     materials: [
       "Juvenile Jade",
       "Agnidus Agate",
@@ -354,7 +354,7 @@ export const characters: Character[] = [
     id: "Jean",
     type: "character",
     rarity: 5,
-    name: { en: ["Jean"], "zh-CN": ["琴"] },
+    name: { ["en"]: ["Jean"], ["zh-CN"]: ["琴"] },
     materials: [
       "Hurricane Seed",
       "Vayuda Turquoise",
@@ -368,7 +368,7 @@ export const characters: Character[] = [
     id: "Kaedehara Kazuha",
     type: "character",
     rarity: 5,
-    name: { en: ["Kaedehara Kazuha"], "zh-CN": ["枫原万叶"] },
+    name: { ["en"]: ["Kaedehara Kazuha"], ["zh-CN"]: ["枫原万叶"] },
     materials: [
       "Marionette Core",
       "Vayuda Turquoise",
@@ -382,7 +382,7 @@ export const characters: Character[] = [
     id: "Kaeya",
     type: "character",
     rarity: 4,
-    name: { en: ["Kaeya"], "zh-CN": ["凯亚"] },
+    name: { ["en"]: ["Kaeya"], ["zh-CN"]: ["凯亚"] },
     materials: [
       "Hoarfrost Core",
       "Shivada Jade",
@@ -396,7 +396,7 @@ export const characters: Character[] = [
     id: "Kamisato Ayaka",
     type: "character",
     rarity: 5,
-    name: { en: ["Kamisato Ayaka"], "zh-CN": ["神里绫华"] },
+    name: { ["en"]: ["Kamisato Ayaka"], ["zh-CN"]: ["神里绫华"] },
     materials: [
       "Perpetual Heart",
       "Shivada Jade",
@@ -410,7 +410,7 @@ export const characters: Character[] = [
     id: "Kamisato Ayato",
     type: "character",
     rarity: 5,
-    name: { en: ["Kamisato Ayato"], "zh-CN": ["神里绫人"] },
+    name: { ["en"]: ["Kamisato Ayato"], ["zh-CN"]: ["神里绫人"] },
     materials: [
       "Dew of Repudiation",
       "Varunada Lazurite",
@@ -424,7 +424,7 @@ export const characters: Character[] = [
     id: "Kaveh",
     type: "character",
     rarity: 4,
-    name: { en: "Kaveh", "zh-CN": "卡维" },
+    name: { ["en"]: "Kaveh", ["zh-CN"]: "卡维" },
     materials: [
       "Quelled Creeper",
       "Nagadus Emerald",
@@ -438,7 +438,7 @@ export const characters: Character[] = [
     id: "Keqing",
     type: "character",
     rarity: 5,
-    name: { en: ["Keqing"], "zh-CN": ["刻晴"] },
+    name: { ["en"]: ["Keqing"], ["zh-CN"]: ["刻晴"] },
     materials: [
       "Lightning Prism",
       "Vajrada Amethyst",
@@ -452,7 +452,7 @@ export const characters: Character[] = [
     id: "Kirara",
     type: "character",
     rarity: 4,
-    name: { en: ["Kirara"], "zh-CN": ["绮良良"] },
+    name: { ["en"]: ["Kirara"], ["zh-CN"]: ["绮良良"] },
     materials: [
       "Evergloom Ring",
       "Nagadus Emerald",
@@ -466,7 +466,7 @@ export const characters: Character[] = [
     id: "Klee",
     type: "character",
     rarity: 5,
-    name: { en: ["Klee"], "zh-CN": ["可莉"] },
+    name: { ["en"]: ["Klee"], ["zh-CN"]: ["可莉"] },
     materials: [
       "Everflame Seed",
       "Agnidus Agate",
@@ -480,7 +480,7 @@ export const characters: Character[] = [
     id: "Kujou Sara",
     type: "character",
     rarity: 4,
-    name: { en: ["Kujou Sara"], "zh-CN": ["九条裟罗"] },
+    name: { ["en"]: ["Kujou Sara"], ["zh-CN"]: ["九条裟罗"] },
     materials: [
       "Storm Beads",
       "Vajrada Amethyst",
@@ -494,7 +494,7 @@ export const characters: Character[] = [
     id: "Kuki Shinobu",
     type: "character",
     rarity: 4,
-    name: { en: ["Kuki Shinobu"], "zh-CN": ["久岐忍"] },
+    name: { ["en"]: ["Kuki Shinobu"], ["zh-CN"]: ["久岐忍"] },
     materials: [
       "Runic Fang",
       "Vajrada Amethyst",
@@ -508,7 +508,7 @@ export const characters: Character[] = [
     id: "Layla",
     type: "character",
     rarity: 4,
-    name: { en: ["Layla"], "zh-CN": ["莱依拉"] },
+    name: { ["en"]: ["Layla"], ["zh-CN"]: ["莱依拉"] },
     materials: [
       "Perpetual Caliber",
       "Shivada Jade",
@@ -522,7 +522,7 @@ export const characters: Character[] = [
     id: "Lisa",
     type: "character",
     rarity: 4,
-    name: { en: ["Lisa"], "zh-CN": ["丽莎"] },
+    name: { ["en"]: ["Lisa"], ["zh-CN"]: ["丽莎"] },
     materials: [
       "Lightning Prism",
       "Vajrada Amethyst",
@@ -536,7 +536,7 @@ export const characters: Character[] = [
     id: "Lynette",
     type: "character",
     rarity: 4,
-    name: { en: "Lynette", "zh-CN": "琳妮特" },
+    name: { ["en"]: "Lynette", ["zh-CN"]: "琳妮特" },
     materials: [
       "Artificed Spare Clockwork Component — Coppelia",
       "Vayuda Turquoise",
@@ -550,7 +550,7 @@ export const characters: Character[] = [
     id: "Lyney",
     type: "character",
     rarity: 5,
-    name: { en: "Lyney", "zh-CN": "林尼" },
+    name: { ["en"]: "Lyney", ["zh-CN"]: "林尼" },
     materials: [
       "Emperor’s Resolution",
       "Agnidus Agate",
@@ -564,7 +564,7 @@ export const characters: Character[] = [
     id: "Mika",
     type: "character",
     rarity: 4,
-    name: { en: "Mika", "zh-CN": "米卡" },
+    name: { ["en"]: "Mika", ["zh-CN"]: "米卡" },
     materials: [
       "Pseudo-Stamens",
       "Shivada Jade",
@@ -578,7 +578,7 @@ export const characters: Character[] = [
     id: "Mona",
     type: "character",
     rarity: 5,
-    name: { en: ["Mona"], "zh-CN": ["莫娜"] },
+    name: { ["en"]: ["Mona"], ["zh-CN"]: ["莫娜"] },
     materials: [
       "Cleansing Heart",
       "Varunada Lazurite",
@@ -592,7 +592,7 @@ export const characters: Character[] = [
     id: "Nahida",
     type: "character",
     rarity: 5,
-    name: { en: ["Nahida"], "zh-CN": ["纳西妲"] },
+    name: { ["en"]: ["Nahida"], ["zh-CN"]: ["纳西妲"] },
     materials: [
       "Quelled Creeper",
       "Nagadus Emerald",
@@ -606,7 +606,7 @@ export const characters: Character[] = [
     id: "Nilou",
     type: "character",
     rarity: 5,
-    name: { en: ["Nilou"], "zh-CN": ["妮露"] },
+    name: { ["en"]: ["Nilou"], ["zh-CN"]: ["妮露"] },
     materials: [
       "Perpetual Caliber",
       "Varunada Lazurite",
@@ -620,7 +620,7 @@ export const characters: Character[] = [
     id: "Ningguang",
     type: "character",
     rarity: 4,
-    name: { en: ["Ningguang"], "zh-CN": ["凝光"] },
+    name: { ["en"]: ["Ningguang"], ["zh-CN"]: ["凝光"] },
     materials: [
       "Basalt Pillar",
       "Prithiva Topaz",
@@ -634,7 +634,7 @@ export const characters: Character[] = [
     id: "Noelle",
     type: "character",
     rarity: 4,
-    name: { en: ["Noelle"], "zh-CN": ["诺艾尔"] },
+    name: { ["en"]: ["Noelle"], ["zh-CN"]: ["诺艾尔"] },
     materials: [
       "Basalt Pillar",
       "Prithiva Topaz",
@@ -648,7 +648,7 @@ export const characters: Character[] = [
     id: "Qiqi",
     type: "character",
     rarity: 5,
-    name: { en: ["Qiqi"], "zh-CN": ["七七"] },
+    name: { ["en"]: ["Qiqi"], ["zh-CN"]: ["七七"] },
     materials: [
       "Hoarfrost Core",
       "Shivada Jade",
@@ -662,7 +662,7 @@ export const characters: Character[] = [
     id: "Raiden Shogun",
     type: "character",
     rarity: 5,
-    name: { en: ["Raiden Shogun"], "zh-CN": ["雷电将军"] },
+    name: { ["en"]: ["Raiden Shogun"], ["zh-CN"]: ["雷电将军"] },
     materials: [
       "Storm Beads",
       "Vajrada Amethyst",
@@ -676,7 +676,7 @@ export const characters: Character[] = [
     id: "Razor",
     type: "character",
     rarity: 4,
-    name: { en: ["Razor"], "zh-CN": ["雷泽"] },
+    name: { ["en"]: ["Razor"], ["zh-CN"]: ["雷泽"] },
     materials: [
       "Lightning Prism",
       "Vajrada Amethyst",
@@ -690,7 +690,7 @@ export const characters: Character[] = [
     id: "Rosaria",
     type: "character",
     rarity: 4,
-    name: { en: ["Rosaria"], "zh-CN": ["罗莎莉亚"] },
+    name: { ["en"]: ["Rosaria"], ["zh-CN"]: ["罗莎莉亚"] },
     materials: [
       "Hoarfrost Core",
       "Shivada Jade",
@@ -704,7 +704,7 @@ export const characters: Character[] = [
     id: "Sangonomiya Kokomi",
     type: "character",
     rarity: 5,
-    name: { en: ["Sangonomiya Kokomi"], "zh-CN": ["珊瑚宫心海"] },
+    name: { ["en"]: ["Sangonomiya Kokomi"], ["zh-CN"]: ["珊瑚宫心海"] },
     materials: [
       "Dew of Repudiation",
       "Varunada Lazurite",
@@ -718,7 +718,7 @@ export const characters: Character[] = [
     id: "Sayu",
     type: "character",
     rarity: 4,
-    name: { en: ["Sayu"], "zh-CN": ["早柚"] },
+    name: { ["en"]: ["Sayu"], ["zh-CN"]: ["早柚"] },
     materials: [
       "Marionette Core",
       "Vayuda Turquoise",
@@ -732,7 +732,7 @@ export const characters: Character[] = [
     id: "Shenhe",
     type: "character",
     rarity: 5,
-    name: { en: ["Shenhe"], "zh-CN": ["申鹤"] },
+    name: { ["en"]: ["Shenhe"], ["zh-CN"]: ["申鹤"] },
     materials: [
       "Dragonheir’s False Fin",
       "Shivada Jade",
@@ -746,7 +746,7 @@ export const characters: Character[] = [
     id: "Shikanoin Heizou",
     type: "character",
     rarity: 4,
-    name: { en: ["Shikanoin Heizou"], "zh-CN": ["鹿野院平藏"] },
+    name: { ["en"]: ["Shikanoin Heizou"], ["zh-CN"]: ["鹿野院平藏"] },
     materials: [
       "Runic Fang",
       "Vayuda Turquoise",
@@ -760,7 +760,7 @@ export const characters: Character[] = [
     id: "Sucrose",
     type: "character",
     rarity: 4,
-    name: { en: ["Sucrose"], "zh-CN": ["砂糖"] },
+    name: { ["en"]: ["Sucrose"], ["zh-CN"]: ["砂糖"] },
     materials: [
       "Hurricane Seed",
       "Vayuda Turquoise",
@@ -774,7 +774,7 @@ export const characters: Character[] = [
     id: "Tartaglia",
     type: "character",
     rarity: 5,
-    name: { en: ["Tartaglia"], "zh-CN": ["达达利亚"] },
+    name: { ["en"]: ["Tartaglia"], ["zh-CN"]: ["达达利亚"] },
     materials: [
       "Cleansing Heart",
       "Varunada Lazurite",
@@ -788,7 +788,7 @@ export const characters: Character[] = [
     id: "Thoma",
     type: "character",
     rarity: 4,
-    name: { en: ["Thoma"], "zh-CN": ["托马"] },
+    name: { ["en"]: ["Thoma"], ["zh-CN"]: ["托马"] },
     materials: [
       "Smoldering Pearl",
       "Agnidus Agate",
@@ -802,7 +802,7 @@ export const characters: Character[] = [
     id: "Tighnari",
     type: "character",
     rarity: 5,
-    name: { en: ["Tighnari"], "zh-CN": ["提纳里"] },
+    name: { ["en"]: ["Tighnari"], ["zh-CN"]: ["提纳里"] },
     materials: [
       "Majestic Hooked Beak",
       "Nagadus Emerald",
@@ -816,7 +816,7 @@ export const characters: Character[] = [
     id: "Venti",
     type: "character",
     rarity: 5,
-    name: { en: ["Venti"], "zh-CN": ["温迪"] },
+    name: { ["en"]: ["Venti"], ["zh-CN"]: ["温迪"] },
     materials: [
       "Hurricane Seed",
       "Vayuda Turquoise",
@@ -830,7 +830,7 @@ export const characters: Character[] = [
     id: "Wanderer",
     type: "character",
     rarity: 5,
-    name: { en: "Wanderer", "zh-CN": "流浪者" },
+    name: { ["en"]: "Wanderer", ["zh-CN"]: "流浪者" },
     materials: [
       "Perpetual Caliber",
       "Vayuda Turquoise",
@@ -844,7 +844,7 @@ export const characters: Character[] = [
     id: "Xiangling",
     type: "character",
     rarity: 4,
-    name: { en: ["Xiangling"], "zh-CN": ["香菱"] },
+    name: { ["en"]: ["Xiangling"], ["zh-CN"]: ["香菱"] },
     materials: [
       "Everflame Seed",
       "Agnidus Agate",
@@ -858,7 +858,7 @@ export const characters: Character[] = [
     id: "Xiao",
     type: "character",
     rarity: 5,
-    name: { en: ["Xiao"], "zh-CN": ["魈"] },
+    name: { ["en"]: ["Xiao"], ["zh-CN"]: ["魈"] },
     materials: [
       "Juvenile Jade",
       "Vayuda Turquoise",
@@ -872,7 +872,7 @@ export const characters: Character[] = [
     id: "Xingqiu",
     type: "character",
     rarity: 4,
-    name: { en: ["Xingqiu"], "zh-CN": ["行秋"] },
+    name: { ["en"]: ["Xingqiu"], ["zh-CN"]: ["行秋"] },
     materials: [
       "Cleansing Heart",
       "Varunada Lazurite",
@@ -886,7 +886,7 @@ export const characters: Character[] = [
     id: "Xinyan",
     type: "character",
     rarity: 4,
-    name: { en: ["Xinyan"], "zh-CN": ["辛焱"] },
+    name: { ["en"]: ["Xinyan"], ["zh-CN"]: ["辛焱"] },
     materials: [
       "Everflame Seed",
       "Agnidus Agate",
@@ -900,7 +900,7 @@ export const characters: Character[] = [
     id: "Yae Miko",
     type: "character",
     rarity: 5,
-    name: { en: ["Yae Miko"], "zh-CN": ["八重神子"] },
+    name: { ["en"]: ["Yae Miko"], ["zh-CN"]: ["八重神子"] },
     materials: [
       "Dragonheir’s False Fin",
       "Vajrada Amethyst",
@@ -914,7 +914,7 @@ export const characters: Character[] = [
     id: "Yanfei",
     type: "character",
     rarity: 4,
-    name: { en: ["Yanfei"], "zh-CN": ["烟绯"] },
+    name: { ["en"]: ["Yanfei"], ["zh-CN"]: ["烟绯"] },
     materials: [
       "Juvenile Jade",
       "Agnidus Agate",
@@ -928,7 +928,7 @@ export const characters: Character[] = [
     id: "Yaoyao",
     type: "character",
     rarity: 4,
-    name: { en: "Yaoyao", "zh-CN": "瑶瑶" },
+    name: { ["en"]: "Yaoyao", ["zh-CN"]: "瑶瑶" },
     materials: [
       "Quelled Creeper",
       "Nagadus Emerald",
@@ -942,7 +942,7 @@ export const characters: Character[] = [
     id: "Yelan",
     type: "character",
     rarity: 5,
-    name: { en: ["Yelan"], "zh-CN": ["夜兰"] },
+    name: { ["en"]: ["Yelan"], ["zh-CN"]: ["夜兰"] },
     materials: [
       "Runic Fang",
       "Varunada Lazurite",
@@ -956,7 +956,7 @@ export const characters: Character[] = [
     id: "Yoimiya",
     type: "character",
     rarity: 5,
-    name: { en: ["Yoimiya"], "zh-CN": ["宵宫"] },
+    name: { ["en"]: ["Yoimiya"], ["zh-CN"]: ["宵宫"] },
     materials: [
       "Smoldering Pearl",
       "Agnidus Agate",
@@ -970,7 +970,7 @@ export const characters: Character[] = [
     id: "Yun Jin",
     type: "character",
     rarity: 4,
-    name: { en: ["Yun Jin"], "zh-CN": ["云堇"] },
+    name: { ["en"]: ["Yun Jin"], ["zh-CN"]: ["云堇"] },
     materials: [
       "Riftborn Regalia",
       "Prithiva Topaz",
@@ -984,7 +984,7 @@ export const characters: Character[] = [
     id: "Zhongli",
     type: "character",
     rarity: 5,
-    name: { en: ["Zhongli"], "zh-CN": ["钟离"] },
+    name: { ["en"]: ["Zhongli"], ["zh-CN"]: ["钟离"] },
     materials: [
       "Basalt Pillar",
       "Prithiva Topaz",
