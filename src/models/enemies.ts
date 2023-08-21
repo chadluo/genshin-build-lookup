@@ -98,6 +98,17 @@ export const domains: Domain[] = [
       "Echo of Scorching Might",
     ],
   },
+  {
+    id: "Echoes of the Deep Tides",
+    name: { en: "Echoes of the Deep Tides", "zh-CN": "深潮的余响" },
+    type: "weapon_domain",
+    materials_by_weekday: [
+      "All",
+      "Fragment of an Ancient Chord",
+      "Dross of Pure Sacred Dewdrop",
+      "Broken Goblet of the Pristine Sea",
+    ],
+  },
 ];
 
 export const bosses: Boss[] = [
@@ -538,6 +549,7 @@ export const enemies: Enemy[] = [
     id: "Fontemer Aberrant",
     type: "enemy",
     name: { en: "Fontemer Aberrant", "zh-CN": "原海异种" },
+    materials: ["Transoceanic Pearl"],
   },
   //
   // Newline - normal enemy
@@ -668,6 +680,18 @@ export const enemies: Enemy[] = [
     type: "enemy",
     name: { en: "Hilichurl Rogue", "zh-CN": ["丘丘游侠"] },
     materials: ["A Flower Yet to Bloom"],
+  },
+  {
+    id: "Tainted Hydro Phantasm",
+    type: "enemy",
+    name: { en: "Tainted Hydro Phantasm", "zh-CN": "浊水幻灵" },
+    materials: ["Drop of Tainted Water"],
+  },
+  {
+    id: "Breacher Primus",
+    type: "enemy",
+    name: { en: "Breacher Primus", "zh-CN": "隙境原体" },
+    materials: ["Rift Core"],
   },
   //
   // Newline - elite enemy

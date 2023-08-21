@@ -105,6 +105,11 @@ export const weapons: Weapon[] = [
     rarity: 5,
     category: "Bow",
     name: { en: "The First Great Magic", "zh-CN": "最初的大魔术" },
+    materials: [
+      "Fragment of an Ancient Chord",
+      "Drop of Tainted Water",
+      "Transoceanic Pearl",
+    ],
   },
   //
   // Newline - bow 5
@@ -691,10 +696,12 @@ export const weapons: Weapon[] = [
     type: "weapon",
     rarity: 4,
     category: "Bow",
-    name: {
-      en: "Scion of the Blazing Sun",
-      "zh-CN": "烈阳之嗣",
-    },
+    name: { en: "Scion of the Blazing Sun", "zh-CN": "烈阳之嗣" },
+    materials: [
+      "Echo of Scorching Might",
+      "A Flower Yet to Bloom",
+      "Fungal Spores",
+    ],
   },
   {
     id: "Song of Stillness",
@@ -702,6 +709,11 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Bow",
     name: { en: "Song of Stillness", "zh-CN": "静谧之曲" },
+    materials: [
+      "Fragment of an Ancient Chord",
+      "Drop of Tainted Water",
+      "Firm Arrowhead",
+    ],
   },
   //
   // Newline - bow 4
@@ -911,6 +923,11 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Catalyst",
     name: { en: "Sacrificial Jade", "zh-CN": "遗祀玉珑" },
+    materials: [
+      "Luminous Sands from Guyun",
+      "Mist Grass Pollen",
+      "Divining Scroll",
+    ],
   },
   {
     id: "Flowing Purity",
@@ -918,6 +935,11 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Catalyst",
     name: { en: "Flowing Purity", "zh-CN": "纯水流华" },
+    materials: [
+      "Dross of Pure Sacred Dewdrop",
+      "Rift Core",
+      "Transoceanic Pearl",
+    ],
   },
   //
   // Newline catalyst 4
@@ -1147,6 +1169,11 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Claymore",
     name: { en: "Talking Stick", "zh-CN": "聊聊棒" },
+    materials: [
+      "Oasis Garden’s Reminiscence",
+      "Desiccated Shell",
+      "Slime Condensate",
+    ],
   },
   {
     id: "Tidal Shadow",
@@ -1154,6 +1181,11 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Claymore",
     name: { en: "Tidal Shadow", "zh-CN": "浪影阔剑" },
+    materials: [
+      "Broken Goblet of the Pristine Sea",
+      "Rift Core",
+      "Meshing Gear",
+    ],
   },
   //
   // Newline - claymore 4
@@ -1352,6 +1384,11 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Polearm",
     name: { en: "Ballard of the Fjords", "zh-CN": "峡湾长歌" },
+    materials: [
+      "Broken Goblet of the Pristine Sea",
+      "A Flower Yet to Bloom",
+      "Whopperflower Nectar",
+    ],
   },
   {
     id: "Rightful Reward",
@@ -1359,6 +1396,11 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Polearm",
     name: { en: "Rightful Reward", "zh-CN": "公义的酬报" },
+    materials: [
+      "Broken Goblet of the Pristine Sea",
+      "Rift Core",
+      "Meshing Gear",
+    ],
   },
   //
   // Newline - polearm 4
@@ -1577,6 +1619,11 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Sword",
     name: { en: "Fleuve Cendre Ferryman", "zh-CN": "灰河渡手" },
+    materials: [
+      "Fragment of an Ancient Chord",
+      "Drop of Tainted Water",
+      "Transoceanic Pearl",
+    ],
   },
   {
     id: "Wolf-Fang",
@@ -1584,6 +1631,7 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Sword",
     name: { en: "Wolf-Fang", "zh-CN": "狼牙" },
+    materials: ["Tile of Decarabian’s Tower", "Chaos Device", "Damaged Mask"],
   },
   {
     id: "Finale of the Deep",
@@ -1591,6 +1639,11 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Sword",
     name: { en: "Finale of the Deep", "zh-CN": "海渊终曲" },
+    materials: [
+      "Dross of Pure Sacred Dewdrop",
+      "Drop of Tainted Water",
+      "Old Handguard",
+    ],
   },
   //
   // Newline - sword 4

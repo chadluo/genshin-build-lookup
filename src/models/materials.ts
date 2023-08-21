@@ -46,7 +46,8 @@ export type General =
   | "Fungal Spores"
   | "Damaged Prism"
   | "Faded Red Satin"
-  | "Meshing Gear";
+  | "Meshing Gear"
+  | "Transoceanic Pearl";
 
 export type CharacterAscension =
   | "Brilliant Diamond"
@@ -179,7 +180,10 @@ export type WeaponAscension =
   | "Oasis Garden’s Reminiscence"
   | "Mist Veiled Lead Elixir"
   | "Tile of Decarabian’s Tower"
-  | "Copper Talisman of the Forest Dew";
+  | "Copper Talisman of the Forest Dew"
+  | "Fragment of an Ancient Chord"
+  | "Dross of Pure Sacred Dewdrop"
+  | "Broken Goblet of the Pristine Sea";
 
 export type Elite =
   | "Concealed Claw"
@@ -196,7 +200,9 @@ export type Elite =
   | "Chaos Gear"
   | "Hunter’s Sacrificial Knife"
   | "Chaos Storage"
-  | "A Flower Yet to Bloom";
+  | "A Flower Yet to Bloom"
+  | "Drop of Tainted Water"
+  | "Rift Core";
 
 export type Gem =
   | "Brilliant Diamond"
@@ -456,8 +462,33 @@ export const materials: Material[] = [
       "zh-CN": ["啮合齿轮", "机关正齿轮", "奇械机芯齿轮"],
     },
   },
+  {
+    id: "Transoceanic Pearl",
+    name: {
+      en: ["Transoceanic Pearl", "Transoceanic Chunk", "Xenochromatic Crystal"],
+      "zh-CN": ["异海凝珠", "异海之块", "异色结晶石"],
+    },
+  },
+  {
+    id: "Drop of Tainted Water",
+    name: {
+      en: [
+        "Drop of Tainted Water",
+        "Scoop of Tainted Water",
+        "Newborn Tainted Hydro Phantasm",
+      ],
+      "zh-CN": ["浊水的一滴", "浊水的一掬", "初生的浊水幻灵"],
+    },
+  },
+  {
+    id: "Rift Core",
+    name: {
+      en: ["Rift Core", "Foreign Synapse", "Alien Life Core"],
+      "zh-CN": ["隙间之核", "外世突触", "异界生命核"],
+    },
+  },
   //
-  // Newline - common
+  // Newline - common & elites
   //
 
   { id: "Calla Lily", name: { en: "Calla Lily", "zh-CN": "嘟嘟莲" } },
@@ -944,6 +975,57 @@ export const materials: Material[] = [
         "烈日威权的余光",
         "烈日威权的梦想",
         "烈日威权的旧日",
+      ],
+    },
+  },
+  {
+    id: "Fragment of an Ancient Chord",
+    name: {
+      en: [
+        "Fragment of an Ancient Chord",
+        "Chapter of an Ancient Chord",
+        "Movement of an Ancient Chord",
+        "Echo of an Ancient Chord",
+      ],
+      "zh-CN": [
+        "悠古弦音的残章",
+        "悠古弦音的断章",
+        "悠古弦音的乐章",
+        "悠古弦音的回响",
+      ],
+    },
+  },
+  {
+    id: "Dross of Pure Sacred Dewdrop",
+    name: {
+      en: [
+        "Dross of Pure Sacred Dewdrop",
+        "Sublimation of Pure Sacred Dewdrop",
+        "Spring of Pure Sacred Dewdrop",
+        "Essence of Pure Sacred Dewdrop",
+      ],
+      "zh-CN": [
+        "纯圣露滴的滤渣",
+        "纯圣露滴的凝华",
+        "纯圣露滴的醴泉",
+        "纯圣露滴的真粹",
+      ],
+    },
+  },
+  {
+    id: "Broken Goblet of the Pristine Sea",
+    name: {
+      en: [
+        "Broken Goblet of the Pristine Sea",
+        "Wine Goblet of the Pristine Sea",
+        "Silver Goblet of the Pristine Sea",
+        "Golden Goblet of the Pristine Sea",
+      ],
+      "zh-CN": [
+        "无垢之海的苦盏",
+        "无垢之海的酒盏",
+        "无垢之海的银杯",
+        "无垢之海的金杯",
       ],
     },
   },
