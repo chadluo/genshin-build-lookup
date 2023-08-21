@@ -12,16 +12,9 @@ export type Material =
         | Elite;
       name: I18nObject;
     }
-  | {
-      id: Forging;
-      forging: true;
-      name: I18nObject;
-    }
-  | {
-      id: Gem;
-      gem: true;
-      name: I18nObject;
-    };
+  | { id: Forging; forging: true; name: I18nObject }
+  | { id: Fishing; fishing: true; name: I18nObject }
+  | { id: Gem; gem: true; name: I18nObject };
 
 export type General =
   | "Slime Condensate"
@@ -237,6 +230,15 @@ export const forgingMaterials = [
   "Vitalized Dragontooth",
   "Amethyst Lump",
   "Condessence Crystal",
+] as const;
+
+export type Forging = (
+  | typeof northlanderBillets
+  | typeof midlanderBillets
+  | typeof forgingMaterials
+)[number];
+
+export const fishingMaterials = [
   "Raimei Angelfish",
   "Golden Koi",
   "Rusty Koi",
@@ -251,11 +253,7 @@ export const forgingMaterials = [
   "Streaming Axe Marlin",
 ] as const;
 
-export type Forging = (
-  | typeof northlanderBillets
-  | typeof midlanderBillets
-  | typeof forgingMaterials
-)[number];
+export type Fishing = (typeof fishingMaterials)[number];
 
 export const materials: Material[] = [
   {
@@ -1119,52 +1117,52 @@ export const materials: Material[] = [
     name: { en: "Condessence Crystal", "zh-CN": "萃凝晶" },
   },
   //
-  // Newline - weapon forge
+  // Newline - forging
   //
 
   {
     id: "Raimei Angelfish",
-    forging: true,
+    fishing: true,
     name: { en: "Raimei Angelfish", "zh-CN": "雷鸣仙" },
   },
   {
     id: "Golden Koi",
-    forging: true,
+    fishing: true,
     name: { en: "Golden Koi", "zh-CN": "金赤假龙" },
   },
   {
     id: "Rusty Koi",
-    forging: true,
+    fishing: true,
     name: { en: "Rusty Koi", "zh-CN": "锖假龙" },
   },
   {
     id: "Pufferfish",
-    forging: true,
+    fishing: true,
     name: { en: "Pufferfish", "zh-CN": "炮鲀" },
   },
   {
     id: "Bitter Pufferfish",
-    forging: true,
+    fishing: true,
     name: { en: "Bitter Pufferfish", "zh-CN": "苦炮鲀" },
   },
   {
     id: "Peach of the Deep Waves",
-    forging: true,
+    fishing: true,
     name: { en: "Peach of the Deep Waves", "zh-CN": "沉波蜜桃" },
   },
   {
     id: "Lazurite Axe Marlin",
-    forging: true,
+    fishing: true,
     name: { en: "Lazurite Axe Marlin", "zh-CN": "青金斧枪鱼" },
   },
   {
     id: "Halcyon Jade Axe Marlin",
-    forging: true,
+    fishing: true,
     name: { en: "Halcyon Jade Axe Marlin", "zh-CN": "翡玉斧枪鱼" },
   },
   {
     id: "Maintenance Mek: Platinum Collection",
-    forging: true,
+    fishing: true,
     name: {
       en: "Maintenance Mek: Platinum Collection",
       "zh-CN": "维护机关・白金典藏型",
@@ -1172,17 +1170,17 @@ export const materials: Material[] = [
   },
   {
     id: "Rippling Heartfeather Bass",
-    forging: true,
+    fishing: true,
     name: { en: "Rippling Heartfeather Bass", "zh-CN": "波波心羽鲈" },
   },
   {
     id: "Blazing Heartfeather Bass",
-    forging: true,
+    fishing: true,
     name: { en: "Blazing Heartfeather Bass", "zh-CN": "烘烘心羽鲈" },
   },
   {
     id: "Streaming Axe Marlin",
-    forging: true,
+    fishing: true,
     name: { en: "Streaming Axe Marlin", "zh-CN": "海涛斧枪鱼" },
   },
   //

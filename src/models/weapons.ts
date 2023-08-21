@@ -1,5 +1,5 @@
 import { OfMaterial, TYPE_WEAPON } from "../base";
-import { Elite, Forging, General, WeaponAscension } from "./materials";
+import { Elite, Fishing, Forging, General, WeaponAscension } from "./materials";
 
 export type Weapon = OfMaterial & {
   type: typeof TYPE_WEAPON;
@@ -7,18 +7,8 @@ export type Weapon = OfMaterial & {
   category: Category;
   materials?:
     | [WeaponAscension, Elite, General]
-    | [WeaponAscension, Elite, General, Forging, Forging, Forging] // forged weapons
-    | [WeaponAscension, Elite, General, Forging, Forging, Forging, Forging] // ferryman
-    | [
-        WeaponAscension,
-        Elite,
-        General,
-        Forging,
-        Forging,
-        Forging,
-        Forging,
-        Forging
-      ]; // the catch
+    | [WeaponAscension, Elite, General, ...Forging[]]
+    | [WeaponAscension, Elite, General, ...Fishing[]];
 };
 
 export type Category = "Bow" | "Catalyst" | "Claymore" | "Polearm" | "Sword";
