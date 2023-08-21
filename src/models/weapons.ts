@@ -8,6 +8,7 @@ export type Weapon = OfMaterial & {
   materials?:
     | [WeaponAscension, Elite, General]
     | [WeaponAscension, Elite, General, Forging, Forging, Forging] // forged weapons
+    | [WeaponAscension, Elite, General, Forging, Forging, Forging, Forging] // ferryman
     | [
         WeaponAscension,
         Elite,
@@ -713,6 +714,9 @@ export const weapons: Weapon[] = [
       "Fragment of an Ancient Chord",
       "Drop of Tainted Water",
       "Firm Arrowhead",
+      "Midlander Bow Billet",
+      "Condessence Crystal",
+      "White Iron Chunk",
     ],
   },
   //
@@ -939,6 +943,9 @@ export const weapons: Weapon[] = [
       "Dross of Pure Sacred Dewdrop",
       "Rift Core",
       "Transoceanic Pearl",
+      "Midlander Catalyst Billet",
+      "Condessence Crystal",
+      "White Iron Chunk",
     ],
   },
   //
@@ -1185,6 +1192,9 @@ export const weapons: Weapon[] = [
       "Broken Goblet of the Pristine Sea",
       "Rift Core",
       "Meshing Gear",
+      "Midlander Claymore Billet",
+      "Condessence Crystal",
+      "White Iron Chunk",
     ],
   },
   //
@@ -1400,6 +1410,9 @@ export const weapons: Weapon[] = [
       "Broken Goblet of the Pristine Sea",
       "Rift Core",
       "Meshing Gear",
+      "Midlander Polearm Billet",
+      "Condessence Crystal",
+      "White Iron Chunk",
     ],
   },
   //
@@ -1623,6 +1636,10 @@ export const weapons: Weapon[] = [
       "Fragment of an Ancient Chord",
       "Drop of Tainted Water",
       "Transoceanic Pearl",
+      "Maintenance Mek: Platinum Collection",
+      "Rippling Heartfeather Bass",
+      "Blazing Heartfeather Bass",
+      "Streaming Axe Marlin",
     ],
   },
   {
@@ -1643,6 +1660,9 @@ export const weapons: Weapon[] = [
       "Dross of Pure Sacred Dewdrop",
       "Drop of Tainted Water",
       "Old Handguard",
+      "Midlander Sword Billet",
+      "Condessence Crystal",
+      "White Iron Chunk",
     ],
   },
   //

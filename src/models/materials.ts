@@ -236,6 +236,7 @@ export const forgingMaterials = [
   "Starsilver",
   "Vitalized Dragontooth",
   "Amethyst Lump",
+  "Condessence Crystal",
   "Raimei Angelfish",
   "Golden Koi",
   "Rusty Koi",
@@ -244,6 +245,10 @@ export const forgingMaterials = [
   "Peach of the Deep Waves",
   "Lazurite Axe Marlin",
   "Halcyon Jade Axe Marlin",
+  "Maintenance Mek: Platinum Collection",
+  "Rippling Heartfeather Bass",
+  "Blazing Heartfeather Bass",
+  "Streaming Axe Marlin",
 ] as const;
 
 export type Forging = (
@@ -1108,6 +1113,11 @@ export const materials: Material[] = [
     forging: true,
     name: { en: "Amethyst Lump", "zh-CN": "紫晶块" },
   },
+  {
+    id: "Condessence Crystal",
+    forging: true,
+    name: { en: "Condessence Crystal", "zh-CN": "萃凝晶" },
+  },
   //
   // Newline - weapon forge
   //
@@ -1151,6 +1161,29 @@ export const materials: Material[] = [
     id: "Halcyon Jade Axe Marlin",
     forging: true,
     name: { en: "Halcyon Jade Axe Marlin", "zh-CN": "翡玉斧枪鱼" },
+  },
+  {
+    id: "Maintenance Mek: Platinum Collection",
+    forging: true,
+    name: {
+      en: "Maintenance Mek: Platinum Collection",
+      "zh-CN": "维护机关・白金典藏型",
+    },
+  },
+  {
+    id: "Rippling Heartfeather Bass",
+    forging: true,
+    name: { en: "Rippling Heartfeather Bass", "zh-CN": "波波心羽鲈" },
+  },
+  {
+    id: "Blazing Heartfeather Bass",
+    forging: true,
+    name: { en: "Blazing Heartfeather Bass", "zh-CN": "烘烘心羽鲈" },
+  },
+  {
+    id: "Streaming Axe Marlin",
+    forging: true,
+    name: { en: "Streaming Axe Marlin", "zh-CN": "海涛斧枪鱼" },
   },
   //
   // Newline - fishing
