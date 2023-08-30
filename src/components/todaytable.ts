@@ -1,4 +1,12 @@
-import { byDomain, formatName, formatTableCaption, getTimezone, getWeekday, renderQTableRows, Timezone } from "../base";
+import {
+  byDomain,
+  formatName,
+  formatTableCaption,
+  getTimezone,
+  getWeekday,
+  renderQTableRows,
+  Timezone,
+} from "../base";
 import { ui, weekdays } from "../i18n";
 import { domains } from "../models/enemies";
 
@@ -9,7 +17,9 @@ export class TodayTable extends HTMLElement {
     const weekdays = day === 0 ? [1, 2, 3] : [day];
     this.innerHTML = `<details class="section" ${day === 0 ? "" : "open"}>
       <summary>${formatTableCaption("today")}</summary>
-      <div class="timezone-selector">${(["Asia", "Europe", "America"] as Timezone[])
+      <div class="timezone-selector">${(
+        ["Asia", "Europe", "America"] as Timezone[]
+      )
         .map(
           (zone) =>
             `<label><input type="radio" name="timezone" value="${zone}" ${
@@ -22,9 +32,9 @@ export class TodayTable extends HTMLElement {
   }
 
   formatZoneOption(zone: Timezone) {
-    return `${this.getTimezoneIcon(zone)} ${formatName(ui[zone])}${formatName(ui.delimiter)}${formatName(
-      weekdays[getWeekday(zone)]
-    )}`;
+    return `${this.getTimezoneIcon(zone)} ${formatName(ui[zone])}${formatName(
+      ui.delimiter
+    )}${formatName(weekdays[getWeekday(zone)])}`;
   }
 
   refreshDomains(event: Event) {
@@ -33,7 +43,8 @@ export class TodayTable extends HTMLElement {
       const timezone = target.value as Timezone;
       const day = getWeekday(timezone);
       const weekdays = day === 0 ? [1, 2, 3] : [day];
-      this.querySelector("table.qtable")!.innerHTML = this.renderDomains(weekdays);
+      this.querySelector("table.qtable")!.innerHTML =
+        this.renderDomains(weekdays);
       localStorage.setItem("timezone", timezone);
     }
   }
@@ -41,7 +52,16 @@ export class TodayTable extends HTMLElement {
   renderDomains(weekdays: number[]): string {
     return domains
       .flatMap((d) =>
-        weekdays.map((weekday) => renderQTableRows(d.type, d.id, d.name, byDomain(d.id, weekday), weekday, false))
+        weekdays.map((weekday) =>
+          renderQTableRows(
+            d.type,
+            d.id,
+            d.name,
+            byDomain(d.id, weekday),
+            weekday,
+            false
+          )
+        )
       )
       .join("");
   }

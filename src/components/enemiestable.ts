@@ -32,34 +32,57 @@ export class EnemiesTable extends HTMLElement {
       Enemies.bosses.filter((b) => b.type === TYPE_BOSS)
     );
     const bossKeys = Array.from(bosses.keys());
-    const talentDomains = Enemies.domains.filter((d) => d.type === TYPE_TALENT_DOMAIN);
-    const weaponDomains = Enemies.domains.filter((d) => d.type === TYPE_WEAPON_DOMAIN);
+    const talentDomains = Enemies.domains.filter(
+      (d) => d.type === TYPE_TALENT_DOMAIN
+    );
+    const weaponDomains = Enemies.domains.filter(
+      (d) => d.type === TYPE_WEAPON_DOMAIN
+    );
 
     this.innerHTML = `<details class="section" ${hasBookmarks() ? "" : "open"}>
     <summary>${formatTableCaption("enemiesAndDomains")}</summary>
     <table class="qtable">
     <tr>
       <th rowspan="${weeklyBossKeys.length}">${formatName(ui.weeklyBoss)}</th>
-      ${this.formatBossesForRegion(regions[weeklyBossKeys[0]], weeklyBosses.get(weeklyBossKeys[0])!)}
+      ${this.formatBossesForRegion(
+        regions[weeklyBossKeys[0]],
+        weeklyBosses.get(weeklyBossKeys[0])!
+      )}
     </tr>
     ${weeklyBossKeys
       .slice(1)
-      .map((k) => `<tr>${this.formatBossesForRegion(regions[k], weeklyBosses.get(k)!)}</tr>`)
+      .map(
+        (k) =>
+          `<tr>${this.formatBossesForRegion(
+            regions[k],
+            weeklyBosses.get(k)!
+          )}</tr>`
+      )
       .join("")}
     <tr><th rowspan="${bossKeys.length}">${formatName(ui.boss)}</th>
-    ${this.formatBossesForRegion(regions[bossKeys[0]], bosses.get(bossKeys[0])!)}
+    ${this.formatBossesForRegion(
+      regions[bossKeys[0]],
+      bosses.get(bossKeys[0])!
+    )}
     </tr>
     ${bossKeys
       .slice(1)
-      .map((k) => `<tr>${this.formatBossesForRegion(regions[k], bosses.get(k)!)}</tr>`)
+      .map(
+        (k) =>
+          `<tr>${this.formatBossesForRegion(regions[k], bosses.get(k)!)}</tr>`
+      )
       .join("")}
-    <tr><th rowspan="${talentDomains.length}">${formatName(ui.talentDomain)}</th>
+    <tr><th rowspan="${talentDomains.length}">${formatName(
+      ui.talentDomain
+    )}</th>
       ${this.formatDomain(talentDomains[0].id, TYPE_TALENT_DOMAIN)}</tr>
     ${talentDomains
       .slice(1)
       .map((d) => `<tr>${this.formatDomain(d.id, TYPE_TALENT_DOMAIN)}</tr>`)
       .join("")}
-    <tr><th rowspan="${weaponDomains.length}">${formatName(ui.weaponDomain)}</th>
+    <tr><th rowspan="${weaponDomains.length}">${formatName(
+      ui.weaponDomain
+    )}</th>
     ${this.formatDomain(weaponDomains[0].id, TYPE_WEAPON_DOMAIN)}</tr>
     ${weaponDomains
       .slice(1)
@@ -77,13 +100,17 @@ export class EnemiesTable extends HTMLElement {
   }
 
   formatDomain(id: string, type: ItemType) {
-    const domainName = formatName(Enemies.domains.filter((d) => d.id === id)[0]!.name);
+    const domainName = formatName(
+      Enemies.domains.filter((d) => d.id === id)[0]!.name
+    );
     const currentWeekday = getWeekday(getTimezone());
     const plainWeekdays = [1, 2, 3]
       .map((i) => renderDomainLink(id, i, type, null, currentWeekday))
       .join(formatName(ui.delimiter));
     return `<td>${domainName}</td><td>${plainWeekdays}${formatName(
       ui.delimiter
-    )}<a data-id="${id}" data-weekday="${VIEW_ALL}" data-type="${type}">${formatName(ui.showAll)}</a></td>`;
+    )}<a data-id="${id}" data-weekday="${VIEW_ALL}" data-type="${type}">${formatName(
+      ui.showAll
+    )}</a></td>`;
   }
 }

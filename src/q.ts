@@ -1,5 +1,18 @@
-import { formatId, ItemType, OfMaterial, renderQTableContent, TYPE_CHARACTER, TYPE_WEAPON } from "./base";
-import { bookmark, BOOKMARK_KEY, unbookmark, updateBookmark } from "./bookmarks";
+import {
+  formatId,
+  ItemType,
+  OfMaterial,
+  renderQTableContent,
+  TYPE_CHARACTER,
+  TYPE_WEAPON,
+} from "./base";
+import {
+  bookmark,
+  BOOKMARK_KEY,
+  unbookmark,
+  updateBookmark,
+} from "./bookmarks";
+import "./CNAME";
 import { CharactersTable } from "./components/characterstable";
 import { EnemiesTable, VIEW_ALL } from "./components/enemiestable";
 import { TodayTable } from "./components/todaytable";
@@ -7,8 +20,6 @@ import { WeaponsTable } from "./components/weaponstable";
 import { SupportedLanguages, ui } from "./i18n";
 import { characters } from "./models/characters";
 import { weapons } from "./models/weapons";
-
-import "./CNAME";
 import "./style.css";
 
 const selectors: HTMLElement = document.getElementById("selectors")!;
@@ -25,14 +36,20 @@ window.addEventListener("DOMContentLoaded", () => {
     .map(([lang, name]) => `<option value="${lang}">${name}</option>`)
     .join("");
 
-  const langCandidate: SupportedLanguages = (localStorage.getItem("lang") ?? navigator.language) as SupportedLanguages;
-  const lang = Object.hasOwn(ui.supportedLanguageSelectors, langCandidate) ? langCandidate : "en";
+  const langCandidate: SupportedLanguages = (localStorage.getItem("lang") ??
+    navigator.language) as SupportedLanguages;
+  const lang = Object.hasOwn(ui.supportedLanguageSelectors, langCandidate)
+    ? langCandidate
+    : "en";
   setLanguage(lang);
 
   JSON.parse(localStorage.getItem(BOOKMARK_KEY) ?? "[]").forEach(
-    ([type, id, weekday]: [ItemType, string, number]) => (output!.innerHTML += renderQTableContent(type, id, weekday))
+    ([type, id, weekday]: [ItemType, string, number]) =>
+      (output!.innerHTML += renderQTableContent(type, id, weekday))
   );
-  document.querySelectorAll(".qtable").forEach((element) => element.classList.remove("highlighted"));
+  document
+    .querySelectorAll(".qtable")
+    .forEach((element) => element.classList.remove("highlighted"));
 });
 
 /* nav */
@@ -72,7 +89,9 @@ function setSearchItems(lang: SupportedLanguages) {
 /* search result tables */
 
 function findOrLoadQTable(event: Event) {
-  const a = (event.composedPath() as HTMLElement[]).find((e) => e.tagName === "A");
+  const a = (event.composedPath() as HTMLElement[]).find(
+    (e) => e.tagName === "A"
+  );
   if (!a) return;
   const id = a.dataset.id;
   const weekday = parseInt(a.dataset.weekday || "0");
@@ -87,8 +106,12 @@ function findOrLoadQTable(event: Event) {
 }
 
 function findOrLoadQTable2(type: ItemType, id: string, weekday: number) {
-  document.querySelectorAll(".highlighted").forEach((element) => element.classList.remove("highlighted"));
-  const existed = output!.querySelector(`tbody[name="${formatId(type, id, weekday)}"]`);
+  document
+    .querySelectorAll(".highlighted")
+    .forEach((element) => element.classList.remove("highlighted"));
+  const existed = output!.querySelector(
+    `tbody[name="${formatId(type, id, weekday)}"]`
+  );
   if (!existed) {
     output!.innerHTML += renderQTableContent(type, id, weekday);
     const rows = output!.querySelectorAll("th");
@@ -105,13 +128,22 @@ function findOrLoadQTable2(type: ItemType, id: string, weekday: number) {
 selectors?.addEventListener("click", findOrLoadQTable);
 output!.addEventListener("click", findOrLoadQTable);
 
-document.querySelector("input[list='searchItems']")?.addEventListener("input", (event) => {
-  // chromium/firefox populate from options
-  if (!(event instanceof InputEvent) || event.inputType === "insertReplacementText") {
-    const id = (event.target as HTMLInputElement).value;
-    findOrLoadQTable2(characters.some((c) => c.id === id) ? TYPE_CHARACTER : TYPE_WEAPON, id, 0);
-  }
-});
+document
+  .querySelector("input[list='searchItems']")
+  ?.addEventListener("input", (event) => {
+    // chromium/firefox populate from options
+    if (
+      !(event instanceof InputEvent) ||
+      event.inputType === "insertReplacementText"
+    ) {
+      const id = (event.target as HTMLInputElement).value;
+      findOrLoadQTable2(
+        characters.some((c) => c.id === id) ? TYPE_CHARACTER : TYPE_WEAPON,
+        id,
+        0
+      );
+    }
+  });
 
 document.getElementById("clear")?.addEventListener("click", () => {
   output.innerHTML = "";
@@ -122,14 +154,18 @@ output.addEventListener("change", updateBookmark);
 
 window.addEventListener("keydown", (event) => {
   if (
-    ["INPUT", "SELECT", "TEXTAREA"].includes((event.target as HTMLElement)?.tagName) ||
+    ["INPUT", "SELECT", "TEXTAREA"].includes(
+      (event.target as HTMLElement)?.tagName
+    ) ||
     event.ctrlKey ||
     event.altKey ||
     event.metaKey
   ) {
     return;
   }
-  const searchInput = document.querySelector(".search input") as HTMLInputElement;
+  const searchInput = document.querySelector(
+    ".search input"
+  ) as HTMLInputElement;
   switch (event.code) {
     case "Slash":
       event.preventDefault();
@@ -142,36 +178,52 @@ window.addEventListener("keydown", (event) => {
       (document.querySelector("input#show-gems") as HTMLInputElement)?.click();
       return;
     case "KeyF":
-      (document.querySelector("input#show-billets") as HTMLInputElement)?.click();
+      (
+        document.querySelector("input#show-billets") as HTMLInputElement
+      )?.click();
       return;
     case "KeyA":
-      (document.querySelector("input#show-alternatives") as HTMLInputElement)?.click();
+      (
+        document.querySelector("input#show-alternatives") as HTMLInputElement
+      )?.click();
       return;
   }
 });
 
-document.querySelector("input#show-gems")?.addEventListener("change", (event) => {
-  output.classList.toggle("show-gems", (event.target as HTMLInputElement)?.checked);
-  document.body.classList.remove("smooth");
-  window.scrollTo(0, document.body.scrollHeight);
-  document.body.classList.add("smooth");
-});
+document
+  .querySelector("input#show-gems")
+  ?.addEventListener("change", (event) => {
+    output.classList.toggle(
+      "show-gems",
+      (event.target as HTMLInputElement)?.checked
+    );
+    document.body.classList.remove("smooth");
+    window.scrollTo(0, document.body.scrollHeight);
+    document.body.classList.add("smooth");
+  });
 
-document.querySelector("input#show-billets")?.addEventListener("change", (event) => {
-  output.classList.toggle("show-billets", (event.target as HTMLInputElement)?.checked);
-  document.body.classList.remove("smooth");
-  window.scrollTo(0, document.body.scrollHeight);
-  document.body.classList.add("smooth");
-});
+document
+  .querySelector("input#show-billets")
+  ?.addEventListener("change", (event) => {
+    output.classList.toggle(
+      "show-billets",
+      (event.target as HTMLInputElement)?.checked
+    );
+    document.body.classList.remove("smooth");
+    window.scrollTo(0, document.body.scrollHeight);
+    document.body.classList.add("smooth");
+  });
 
-document.querySelector("input#show-alternatives")?.addEventListener("change", (event) => {
-  const alternativeDetails = document.querySelectorAll("details.alternative");
-  if ((event.target as HTMLInputElement)?.checked) {
-    alternativeDetails.forEach((e) => e.setAttribute("open", ""));
-  } else {
-    alternativeDetails.forEach((e) => e.removeAttribute("open"));
-  }
-  document.body.classList.remove("smooth");
-  window.scrollTo(0, document.body.scrollHeight);
-  document.body.classList.add("smooth");
-});
+document
+  .querySelector("input#show-alternatives")
+  ?.addEventListener("change", (event) => {
+    const alternativeDetails = document.querySelectorAll("details.alternative");
+    if ((event.target as HTMLInputElement)?.checked) {
+      alternativeDetails.forEach((e) => e.setAttribute("open", ""));
+    } else {
+      alternativeDetails.forEach((e) => e.removeAttribute("open"));
+    }
+    document.body.classList.remove("smooth");
+    window.scrollTo(0, document.body.scrollHeight);
+    document.body.classList.add("smooth");
+  });
