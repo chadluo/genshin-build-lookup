@@ -307,6 +307,14 @@ export const characters: Character[] = [
     type: "character",
     rarity: 4,
     name: { ["en"]: "Freminet", ["zh-CN"]: "菲米尼" },
+    materials: [
+      "Artificed Spare Clockwork Component — Coppelius",
+      "Shivada Jade",
+      "Worldspan Fern",
+      "Justice",
+      "Transoceanic Pearl",
+      "Romaritime Flower",
+    ],
   },
   {
     id: "Ganyu",
