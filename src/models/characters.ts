@@ -611,6 +611,12 @@ export const characters: Character[] = [
     ],
   },
   {
+    id: "Neuvillette",
+    type: "character",
+    rarity: 5,
+    name: { ["en"]: "Neuvillette", ["zh-CN"]: "那维莱特" },
+  },
+  {
     id: "Nilou",
     type: "character",
     rarity: 5,
@@ -847,6 +853,12 @@ export const characters: Character[] = [
       "Old Handguard",
       "Rukkhashava Mushrooms",
     ],
+  },
+  {
+    id: "Wriothesley",
+    type: "character",
+    rarity: 5,
+    name: { ["en"]: "Wriothesley", ["zh-CN"]: "莱欧斯利" },
   },
   {
     id: "Xiangling",

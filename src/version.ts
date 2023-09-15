@@ -20,7 +20,17 @@ const version: Record<string, string[]> = {
     "Wolf-Fang",
     "Finale of the Deep",
   ],
-  "4.1": [],
+  "4.1": [
+    "Neuvillette",
+    "Wriothesley",
+    "Tome of the Eternal Flow",
+    "Cashflow Supervision",
+    "Range Gauge",
+    "Ballad of the Boundless Blue",
+    "Portable Power Saw",
+    "Prospector’s Drill",
+    "The Dockhand’s Assistant",
+  ],
 };
 
 export const recentNew = version["4.0"];

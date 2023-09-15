@@ -203,6 +203,20 @@ export const weapons: Weapon[] = [
       "Fungal Spores",
     ],
   },
+  {
+    id: "Tome of the Eternal Flow",
+    type: "weapon",
+    rarity: 5,
+    category: "Catalyst",
+    name: { ["en"]: "Tome of the Eternal Flow", ["zh-CN"]: "万世流涌大典" },
+  },
+  {
+    id: "Cashflow Supervision",
+    type: "weapon",
+    rarity: 5,
+    category: "Catalyst",
+    name: { ["en"]: "Cashflow Supervision", ["zh-CN"]: "金流监督" },
+  },
   //
   // Newline - catalyst 5
   //
@@ -712,6 +726,13 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
+  {
+    id: "Range Gauge",
+    type: "weapon",
+    rarity: 4,
+    category: "Bow",
+    name: { ["en"]: "Range Gauge", ["zh-CN"]: "测距规" },
+  },
   //
   // Newline - bow 4
   //
@@ -940,6 +961,13 @@ export const weapons: Weapon[] = [
       "Condessence Crystal",
       "White Iron Chunk",
     ],
+  },
+  {
+    id: "Ballad of the Boundless Blue",
+    type: "weapon",
+    rarity: 4,
+    category: "Catalyst",
+    name: { ["en"]: "Ballad of the Boundless Blue", ["zh-CN"]: "无垠蔚蓝之歌" },
   },
   //
   // Newline catalyst 4
@@ -1190,6 +1218,13 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
+  {
+    id: "Portable Power Saw",
+    type: "weapon",
+    rarity: 4,
+    category: "Claymore",
+    name: { ["en"]: "Portable Power Saw", ["zh-CN"]: "便携动力锯" },
+  },
   //
   // Newline - claymore 4
   //
@@ -1407,6 +1442,13 @@ export const weapons: Weapon[] = [
       "Condessence Crystal",
       "White Iron Chunk",
     ],
+  },
+  {
+    id: "Prospector’s Drill",
+    type: "weapon",
+    rarity: 4,
+    category: "Polearm",
+    name: { ["en"]: "Prospector’s Drill", ["zh-CN"]: "勘探钻机" },
   },
   //
   // Newline - polearm 4
@@ -1657,6 +1699,13 @@ export const weapons: Weapon[] = [
       "Condessence Crystal",
       "White Iron Chunk",
     ],
+  },
+  {
+    id: "The Dockhand’s Assistant",
+    type: "weapon",
+    rarity: 4,
+    category: "Sword",
+    name: { ["en"]: "The Dockhand’s Assistant", ["zh-CN"]: "船坞长剑" },
   },
   //
   // Newline - sword 4
