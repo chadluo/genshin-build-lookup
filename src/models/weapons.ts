@@ -209,6 +209,7 @@ export const weapons: Weapon[] = [
     rarity: 5,
     category: "Catalyst",
     name: { ["en"]: "Tome of the Eternal Flow", ["zh-CN"]: "万世流涌大典" },
+    materials: ["Dross of Pure Sacred Dewdrop", "Rift Core", "Meshing Gear"],
   },
   {
     id: "Cashflow Supervision",
@@ -968,6 +969,11 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Catalyst",
     name: { ["en"]: "Ballad of the Boundless Blue", ["zh-CN"]: "无垠蔚蓝之歌" },
+    materials: [
+      "Boreal Wolf’s Milk Tooth",
+      "Fragile Bone Shard",
+      "Treasure Hoarder Insignia",
+    ],
   },
   //
   // Newline catalyst 4
@@ -1224,6 +1230,11 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Claymore",
     name: { ["en"]: "Portable Power Saw", ["zh-CN"]: "便携动力锯" },
+    materials: [
+      "Broken Goblet of the Pristine Sea",
+      "Rift Core",
+      "Meshing Gear",
+    ],
   },
   //
   // Newline - claymore 4
@@ -1706,6 +1717,11 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Sword",
     name: { ["en"]: "The Dockhand’s Assistant", ["zh-CN"]: "船坞长剑" },
+    materials: [
+      "Dross of Pure Sacred Dewdrop",
+      "Old Operative’s Pocket Watch",
+      "Transoceanic Pearl",
+    ],
   },
   //
   // Newline - sword 4

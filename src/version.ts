@@ -31,7 +31,8 @@ const version: Record<string, string[]> = {
     "Prospector’s Drill",
     "The Dockhand’s Assistant",
   ],
+  "4.2": [],
 };
 
-export const recentNew = version["4.0"];
-export const upcoming = version["4.1"];
+export const recentNew = version["4.1"];
+export const upcoming = version["4.2"];

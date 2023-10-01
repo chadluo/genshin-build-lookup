@@ -615,6 +615,14 @@ export const characters: Character[] = [
     type: "character",
     rarity: 5,
     name: { ["en"]: "Neuvillette", ["zh-CN"]: "那维莱特" },
+    materials: [
+      "Fontemer Unihorn",
+      "Varunada Lazurite",
+      "Everamber",
+      "Equity",
+      "Transoceanic Pearl",
+      "Lumitoile",
+    ],
   },
   {
     id: "Nilou",

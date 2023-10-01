@@ -76,7 +76,8 @@ export type CharacterAscension =
   | "Evergloom Ring"
   | "Emperor’s Resolution"
   | "Artificed Spare Clockwork Component — Coppelia"
-  | "Artificed Spare Clockwork Component — Coppelius";
+  | "Artificed Spare Clockwork Component — Coppelius"
+  | "Fontemer Unihorn";
 
 export type TalentBook =
   | "Freedom"
@@ -159,7 +160,8 @@ export type LocalSpecialities =
   | "Beryl Conch"
   | "Lumidouce Bell"
   | "Rainbow Rose"
-  | "Romaritime Flower";
+  | "Romaritime Flower"
+  | "Lumitoile";
 
 export type WeaponAscension =
   | "Mask of the Wicked Lieutenant"
@@ -195,7 +197,8 @@ export type Elite =
   | "Chaos Storage"
   | "A Flower Yet to Bloom"
   | "Drop of Tainted Water"
-  | "Rift Core";
+  | "Rift Core"
+  | "Old Operative’s Pocket Watch";
 
 export type Gem =
   | "Brilliant Diamond"
@@ -506,6 +509,17 @@ export const materials: Material[] = [
       ["zh-CN"]: ["隙间之核", "外世突触", "异界生命核"],
     },
   },
+  {
+    id: "Old Operative’s Pocket Watch",
+    name: {
+      ["en"]: [
+        "Old Operative’s Pocket Watch",
+        "Operative’s Standard Pocket Watch",
+        "Operative’s Constancy",
+      ],
+      ["zh-CN"]: ["老旧的役人怀表", "役人的制式怀表", "役人的时时刻刻"],
+    },
+  },
   //
   // Newline - common & elites
   //
@@ -604,6 +618,7 @@ export const materials: Material[] = [
     id: "Romaritime Flower",
     name: { ["en"]: "Romaritime Flower", ["zh-CN"]: "海露花" },
   },
+  { id: "Lumitoile", name: { ["en"]: "Lumitoile", ["zh-CN"]: "幽光星星" } },
   //
   // Newline - local specialities
   //
@@ -755,6 +770,10 @@ export const materials: Material[] = [
       ["en"]: "Artificed Spare Clockwork Component — Coppelius",
       ["zh-CN"]: "奇械发条备件・科培琉司",
     },
+  },
+  {
+    id: "Fontemer Unihorn",
+    name: { ["en"]: "Fontemer Unihorn", ["zh-CN"]: "原海麟角" },
   },
   //
   // Newline - character ascension

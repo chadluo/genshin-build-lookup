@@ -323,6 +323,13 @@ export const bosses: Boss[] = [
     type: "boss",
     name: { ["en"]: "“Nemesis of Coppelius”", ["zh-CN"]: "「科培琉司的劫罚」" },
   },
+  {
+    id: "Millennial Pearl Seahorse",
+    region: "Fontaine",
+    type: "boss",
+    name: { ["en"]: "Millennial Pearl Seahorse", ["zh-CN"]: "千年珍珠骏麟" },
+    materials: ["Fontemer Unihorn"],
+  },
   //
   // Newline - normal boss
   //
@@ -700,6 +707,12 @@ export const enemies: Enemy[] = [
     type: "enemy",
     name: { ["en"]: "Breacher Primus", ["zh-CN"]: "隙境原体" },
     materials: ["Rift Core"],
+  },
+  {
+    id: "Fatui Operative",
+    type: "enemy",
+    name: { ["en"]: "Fatui Operative", ["zh-CN"]: "愚人众・役人" },
+    materials: ["Old Operative’s Pocket Watch"],
   },
   //
   // Newline - elite enemy
