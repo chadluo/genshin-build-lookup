@@ -330,6 +330,16 @@ export const bosses: Boss[] = [
     name: { ["en"]: "Millennial Pearl Seahorse", ["zh-CN"]: "千年珍珠骏麟" },
     materials: ["Fontemer Unihorn"],
   },
+  {
+    id: "Experimental Field Generator",
+    region: "Fontaine",
+    type: "boss",
+    name: {
+      ["en"]: "Experimental Field Generator",
+      ["zh-CN"]: "实验性场力发生装置",
+    },
+    materials: ["“Tourbillon Device”"],
+  },
   //
   // Newline - normal boss
   //

@@ -867,6 +867,14 @@ export const characters: Character[] = [
     type: "character",
     rarity: 5,
     name: { ["en"]: "Wriothesley", ["zh-CN"]: "莱欧斯利" },
+    materials: [
+      "“Tourbillon Device”",
+      "Shivada Jade",
+      "Primordial Greenbloom",
+      "Order",
+      "Meshing Gear",
+      "Subdetection Unit",
+    ],
   },
   {
     id: "Xiangling",

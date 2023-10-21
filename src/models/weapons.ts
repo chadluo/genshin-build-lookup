@@ -217,6 +217,11 @@ export const weapons: Weapon[] = [
     rarity: 5,
     category: "Catalyst",
     name: { ["en"]: "Cashflow Supervision", ["zh-CN"]: "金流监督" },
+    materials: [
+      "Broken Goblet of the Pristine Sea",
+      "Old Operative’s Pocket Watch",
+      "Transoceanic Pearl",
+    ],
   },
   //
   // Newline - catalyst 5
@@ -733,6 +738,11 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Bow",
     name: { ["en"]: "Range Gauge", ["zh-CN"]: "测距规" },
+    materials: [
+      "Fragment of an Ancient Chord",
+      "Drop of Tainted Water",
+      "Transoceanic Pearl",
+    ],
   },
   //
   // Newline - bow 4
@@ -1460,6 +1470,11 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Polearm",
     name: { ["en"]: "Prospector’s Drill", ["zh-CN"]: "勘探钻机" },
+    materials: [
+      "Fragment of an Ancient Chord",
+      "Old Operative’s Pocket Watch",
+      "Meshing Gear",
+    ],
   },
   //
   // Newline - polearm 4

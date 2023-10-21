@@ -77,7 +77,8 @@ export type CharacterAscension =
   | "Emperor’s Resolution"
   | "Artificed Spare Clockwork Component — Coppelia"
   | "Artificed Spare Clockwork Component — Coppelius"
-  | "Fontemer Unihorn";
+  | "Fontemer Unihorn"
+  | "“Tourbillon Device”";
 
 export type TalentBook =
   | "Freedom"
@@ -161,7 +162,8 @@ export type LocalSpecialities =
   | "Lumidouce Bell"
   | "Rainbow Rose"
   | "Romaritime Flower"
-  | "Lumitoile";
+  | "Lumitoile"
+  | "Subdetection Unit";
 
 export type WeaponAscension =
   | "Mask of the Wicked Lieutenant"
@@ -619,6 +621,10 @@ export const materials: Material[] = [
     name: { ["en"]: "Romaritime Flower", ["zh-CN"]: "海露花" },
   },
   { id: "Lumitoile", name: { ["en"]: "Lumitoile", ["zh-CN"]: "幽光星星" } },
+  {
+    id: "Subdetection Unit",
+    name: { ["en"]: "Subdetection Unit", ["zh-CN"]: "子探测单元" },
+  },
   //
   // Newline - local specialities
   //
@@ -774,6 +780,10 @@ export const materials: Material[] = [
   {
     id: "Fontemer Unihorn",
     name: { ["en"]: "Fontemer Unihorn", ["zh-CN"]: "原海麟角" },
+  },
+  {
+    id: "“Tourbillon Device”",
+    name: { ["en"]: "“Tourbillon Device”", ["zh-CN"]: "「图比昂装置」" },
   },
   //
   // Newline - character ascension
