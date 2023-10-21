@@ -2,7 +2,7 @@ import { Region } from "./base";
 
 export type SupportedLanguages = "en" | "zh-CN";
 export type I18nObject = Readonly<
-  Record<SupportedLanguages, string | string[]>
+  Record<SupportedLanguages, Readonly<string | string[]>>
 >;
 
 export const ui: Record<string, I18nObject> = {

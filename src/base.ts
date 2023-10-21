@@ -269,7 +269,7 @@ export function renderLink(id: string, type: ItemType, names: I18nObject) {
   )}">${formatName(names)}</a>`;
 }
 
-export function formatValue(names: string | string[]) {
+export function formatValue(names: Readonly<string | string[]>) {
   const showAlternatives = (
     document.querySelector("input#show-alternatives") as HTMLInputElement
   ).checked;

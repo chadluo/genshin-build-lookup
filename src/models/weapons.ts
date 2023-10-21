@@ -1,14 +1,14 @@
 import { OfMaterial, TYPE_WEAPON } from "../base";
-import { Elite, Fishing, Forging, General, WeaponAscension } from "./materials";
+import { Common, Elite, Fishing, Forging, WeaponAscension } from "./materials";
 
 export type Weapon = OfMaterial & {
   type: typeof TYPE_WEAPON;
   rarity: 3 | 4 | 5;
   category: Category;
   materials?:
-    | [WeaponAscension, Elite, General]
-    | [WeaponAscension, Elite, General, ...Forging[]]
-    | [WeaponAscension, Elite, General, ...Fishing[]];
+    | [WeaponAscension, Elite, Common]
+    | [WeaponAscension, Elite, Common, ...Forging[]]
+    | [WeaponAscension, Elite, Common, ...Fishing[]];
 };
 
 export type Category = "Bow" | "Catalyst" | "Claymore" | "Polearm" | "Sword";

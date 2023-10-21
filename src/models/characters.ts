@@ -1,8 +1,8 @@
 import { OfMaterial, TYPE_CHARACTER } from "../base";
 import {
   CharacterAscension,
+  Common,
   Gem,
-  General,
   LocalSpecialities,
   TalentBook,
   TalentMaterial,
@@ -16,7 +16,7 @@ export type Character = OfMaterial & {
     Gem,
     TalentMaterial,
     TalentBook,
-    General,
+    Common,
     LocalSpecialities
   ];
 };

@@ -3,7 +3,7 @@ import { I18nObject } from "../i18n";
 export type Material =
   | {
       id:
-        | General
+        | Common
         | CharacterAscension
         | TalentBook
         | TalentMaterial
@@ -16,31 +16,40 @@ export type Material =
   | { id: Fishing; fishing: true; name: I18nObject }
   | { id: Gem; gem: true; name: I18nObject };
 
-export type General =
+export type Common =
   | "Slime Condensate"
   | "Damaged Mask"
   | "Divining Scroll"
   | "Firm Arrowhead"
-  | "Heavy Horn"
-  | "Dead Ley Line Branch"
-  | "Chaos Device"
-  | "Mist Grass Pollen"
-  | "Hunter’s Sacrificial Knife"
   | "Recruit’s Insignia"
   | "Treasure Hoarder Insignia"
   | "Whopperflower Nectar"
-  | "Fragile Bone Shard"
   | "Old Handguard"
-  | "Chaos Gear"
-  | "Dismal Prism"
   | "Spectral Husk"
-  | "Concealed Claw"
-  | "Gloomy Statuette"
   | "Fungal Spores"
-  | "Damaged Prism"
   | "Faded Red Satin"
   | "Meshing Gear"
   | "Transoceanic Pearl";
+
+export type Elite =
+  | "Concealed Claw"
+  | "Mist Grass Pollen"
+  | "Dismal Prism"
+  | "Heavy Horn"
+  | "Dead Ley Line Branch"
+  | "Chaos Device"
+  | "Gloomy Statuette"
+  | "Inactivated Fungal Nucleus"
+  | "Fragile Bone Shard"
+  | "Damaged Prism"
+  | "Desiccated Shell"
+  | "Chaos Gear"
+  | "Hunter’s Sacrificial Knife"
+  | "Chaos Storage"
+  | "A Flower Yet to Bloom"
+  | "Drop of Tainted Water"
+  | "Rift Core"
+  | "Old Operative’s Pocket Watch";
 
 export type CharacterAscension =
   | "Brilliant Diamond"
@@ -182,26 +191,6 @@ export type WeaponAscension =
   | "Dross of Pure Sacred Dewdrop"
   | "Broken Goblet of the Pristine Sea";
 
-export type Elite =
-  | "Concealed Claw"
-  | "Dismal Prism"
-  | "Heavy Horn"
-  | "Dead Ley Line Branch"
-  | "Chaos Device"
-  | "Gloomy Statuette"
-  | "Inactivated Fungal Nucleus"
-  | "Fragile Bone Shard"
-  | "Damaged Prism"
-  | "Mist Grass Pollen"
-  | "Desiccated Shell"
-  | "Chaos Gear"
-  | "Hunter’s Sacrificial Knife"
-  | "Chaos Storage"
-  | "A Flower Yet to Bloom"
-  | "Drop of Tainted Water"
-  | "Rift Core"
-  | "Old Operative’s Pocket Watch";
-
 export type Gem =
   | "Brilliant Diamond"
   | "Agnidus Agate"
@@ -260,7 +249,7 @@ export const fishingMaterials = [
 
 export type Fishing = (typeof fishingMaterials)[number];
 
-export const materials: Material[] = [
+const commons: readonly Material[] = [
   {
     id: "Slime Condensate",
     name: {
@@ -287,49 +276,6 @@ export const materials: Material[] = [
     name: {
       ["en"]: ["Firm Arrowhead", "Sharp Arrowhead", "Weathered Arrowhead"],
       ["zh-CN"]: ["牢固的箭簇", "锐利的箭簇", "历战的箭簇"],
-    },
-  },
-  {
-    id: "Heavy Horn",
-    name: {
-      ["en"]: ["Heavy Horn", "Black Bronze Horn", "Black Crystal Horn"],
-      ["zh-CN"]: ["沉重号角", "黑铜号角", "黑晶号角"],
-    },
-  },
-  {
-    id: "Dead Ley Line Branch",
-    name: {
-      ["en"]: [
-        "Dead Ley Line Branch",
-        "Dead Ley Line Leaves",
-        "Ley Line Sprout",
-      ],
-      ["zh-CN"]: ["地脉的旧枝", "地脉的枯叶", "地脉的新芽"],
-    },
-  },
-  {
-    id: "Chaos Device",
-    name: {
-      ["en"]: ["Chaos Device", "Chaos Circuit", "Chaos Core"],
-      ["zh-CN"]: ["混沌装置", "混沌回路", "混沌炉心"],
-    },
-  },
-  {
-    id: "Mist Grass Pollen",
-    name: {
-      ["en"]: ["Mist Grass Pollen", "Mist Grass", "Mist Grass Wick"],
-      ["zh-CN"]: ["雾虚花粉", "雾虚草囊", "雾虚灯芯"],
-    },
-  },
-  {
-    id: "Hunter’s Sacrificial Knife",
-    name: {
-      ["en"]: [
-        "Hunter’s Sacrificial Knife",
-        "Agent’s Sacrificial Knife",
-        "Inspector’s Sacrificial Knife",
-      ],
-      ["zh-CN"]: ["猎兵祭刀", "特工祭刀", "督察长祭刀"],
     },
   },
   {
@@ -362,35 +308,10 @@ export const materials: Material[] = [
     },
   },
   {
-    id: "Fragile Bone Shard",
-    name: {
-      ["en"]: [
-        "Fragile Bone Shard",
-        "Sturdy Bone Shard",
-        "Fossilized Bone Shard",
-      ],
-      ["zh-CN"]: ["脆弱的骨片", "结实的骨片", "石化的骨片"],
-    },
-  },
-  {
     id: "Old Handguard",
     name: {
       ["en"]: ["Old Handguard", "Kageuchi Handguard", "Famed Handguard"],
       ["zh-CN"]: ["破旧的刀镡", "影打刀镡", "名刀镡"],
-    },
-  },
-  {
-    id: "Chaos Gear",
-    name: {
-      ["en"]: ["Chaos Gear", "Chaos Axis", "Chaos Oculus"],
-      ["zh-CN"]: ["混沌机关", "混沌枢纽", "混沌真眼"],
-    },
-  },
-  {
-    id: "Dismal Prism",
-    name: {
-      ["en"]: ["Dismal Prism", "Crystal Prism", "Polarizing Prism"],
-      ["zh-CN"]: ["黯淡棱镜", "水晶棱镜", "偏光棱镜"],
     },
   },
   {
@@ -401,6 +322,48 @@ export const materials: Material[] = [
     },
   },
   {
+    id: "Fungal Spores",
+    name: {
+      ["en"]: ["Fungal Spores", "Luminescent Pollen", "Crystalline Cyst Dust"],
+      ["zh-CN"]: ["蕈兽孢子", "荧光孢粉", "孢囊晶尘"],
+    },
+  },
+  {
+    id: "Faded Red Satin",
+    name: {
+      ["en"]: ["Faded Red Satin", "Trimmed Red Silk", "Rich Red Brocade"],
+      ["zh-CN"]: ["褪色红绸", "镶边红绸", "织金红绸"],
+    },
+  },
+  {
+    id: "Meshing Gear",
+    name: {
+      ["en"]: [
+        "Meshing Gear",
+        "Mechanical Spur Gear",
+        "Artificed Dynamic Gear",
+      ],
+      ["zh-CN"]: ["啮合齿轮", "机关正齿轮", "奇械机芯齿轮"],
+    },
+  },
+  {
+    id: "Transoceanic Pearl",
+    name: {
+      ["en"]: [
+        "Transoceanic Pearl",
+        "Transoceanic Chunk",
+        "Xenochromatic Crystal",
+      ],
+      ["zh-CN"]: ["异海凝珠", "异海之块", "异色结晶石"],
+    },
+  },
+  //
+  // Newline - common
+  //
+] as const;
+
+const elites: readonly Material[] = [
+  {
     id: "Concealed Claw",
     name: {
       ["en"]: ["Concealed Claw", "Concealed Unguis", "Concealed Talon"],
@@ -408,17 +371,42 @@ export const materials: Material[] = [
     },
   },
   {
+    id: "Dismal Prism",
+    name: {
+      ["en"]: ["Dismal Prism", "Crystal Prism", "Polarizing Prism"],
+      ["zh-CN"]: ["黯淡棱镜", "水晶棱镜", "偏光棱镜"],
+    },
+  },
+  {
+    id: "Heavy Horn",
+    name: {
+      ["en"]: ["Heavy Horn", "Black Bronze Horn", "Black Crystal Horn"],
+      ["zh-CN"]: ["沉重号角", "黑铜号角", "黑晶号角"],
+    },
+  },
+  {
+    id: "Dead Ley Line Branch",
+    name: {
+      ["en"]: [
+        "Dead Ley Line Branch",
+        "Dead Ley Line Leaves",
+        "Ley Line Sprout",
+      ],
+      ["zh-CN"]: ["地脉的旧枝", "地脉的枯叶", "地脉的新芽"],
+    },
+  },
+  {
+    id: "Chaos Device",
+    name: {
+      ["en"]: ["Chaos Device", "Chaos Circuit", "Chaos Core"],
+      ["zh-CN"]: ["混沌装置", "混沌回路", "混沌炉心"],
+    },
+  },
+  {
     id: "Gloomy Statuette",
     name: {
       ["en"]: ["Gloomy Statuette", "Dark Statuette", "Deathly Statuette"],
       ["zh-CN"]: ["晦暗刻像", "夤夜刻像", "幽邃刻像"],
-    },
-  },
-  {
-    id: "Fungal Spores",
-    name: {
-      ["en"]: ["Fungal Spores", "Luminescent Pollen", "Crystalline Cyst Dust"],
-      ["zh-CN"]: ["蕈兽孢子", "荧光孢粉", "孢囊晶尘"],
     },
   },
   {
@@ -433,17 +421,14 @@ export const materials: Material[] = [
     },
   },
   {
-    id: "Faded Red Satin",
+    id: "Fragile Bone Shard",
     name: {
-      ["en"]: ["Faded Red Satin", "Trimmed Red Silk", "Rich Red Brocade"],
-      ["zh-CN"]: ["褪色红绸", "镶边红绸", "织金红绸"],
-    },
-  },
-  {
-    id: "Chaos Storage",
-    name: {
-      ["en"]: ["Chaos Storage", "Chaos Module", "Chaos Bolt"],
-      ["zh-CN"]: ["混沌容器", "混沌模块", "混沌锚栓"],
+      ["en"]: [
+        "Fragile Bone Shard",
+        "Sturdy Bone Shard",
+        "Fossilized Bone Shard",
+      ],
+      ["zh-CN"]: ["脆弱的骨片", "结实的骨片", "石化的骨片"],
     },
   },
   {
@@ -472,25 +457,28 @@ export const materials: Material[] = [
     },
   },
   {
-    id: "Meshing Gear",
+    id: "Chaos Gear",
     name: {
-      ["en"]: [
-        "Meshing Gear",
-        "Mechanical Spur Gear",
-        "Artificed Dynamic Gear",
-      ],
-      ["zh-CN"]: ["啮合齿轮", "机关正齿轮", "奇械机芯齿轮"],
+      ["en"]: ["Chaos Gear", "Chaos Axis", "Chaos Oculus"],
+      ["zh-CN"]: ["混沌机关", "混沌枢纽", "混沌真眼"],
     },
   },
   {
-    id: "Transoceanic Pearl",
+    id: "Hunter’s Sacrificial Knife",
     name: {
       ["en"]: [
-        "Transoceanic Pearl",
-        "Transoceanic Chunk",
-        "Xenochromatic Crystal",
+        "Hunter’s Sacrificial Knife",
+        "Agent’s Sacrificial Knife",
+        "Inspector’s Sacrificial Knife",
       ],
-      ["zh-CN"]: ["异海凝珠", "异海之块", "异色结晶石"],
+      ["zh-CN"]: ["猎兵祭刀", "特工祭刀", "督察长祭刀"],
+    },
+  },
+  {
+    id: "Chaos Storage",
+    name: {
+      ["en"]: ["Chaos Storage", "Chaos Module", "Chaos Bolt"],
+      ["zh-CN"]: ["混沌容器", "混沌模块", "混沌锚栓"],
     },
   },
   {
@@ -522,10 +510,19 @@ export const materials: Material[] = [
       ["zh-CN"]: ["老旧的役人怀表", "役人的制式怀表", "役人的时时刻刻"],
     },
   },
+  {
+    id: "Mist Grass Pollen",
+    name: {
+      ["en"]: ["Mist Grass Pollen", "Mist Grass", "Mist Grass Wick"],
+      ["zh-CN"]: ["雾虚花粉", "雾虚草囊", "雾虚灯芯"],
+    },
+  },
   //
-  // Newline - common & elites
+  // Newline - elites
   //
+] as const;
 
+const localSpecialities: readonly Material[] = [
   { id: "Calla Lily", name: { ["en"]: "Calla Lily", ["zh-CN"]: "嘟嘟莲" } },
   { id: "Cecilia", name: { ["en"]: "Cecilia", ["zh-CN"]: "塞西莉亚花" } },
   {
@@ -628,7 +625,9 @@ export const materials: Material[] = [
   //
   // Newline - local specialities
   //
+] as const;
 
+const gems: Material[] = [
   {
     id: "Brilliant Diamond",
     gem: true,
@@ -672,7 +671,9 @@ export const materials: Material[] = [
   //
   // Newline - gem
   //
+];
 
+const characterAscensions: readonly Material[] = [
   {
     id: "Hurricane Seed",
     name: { ["en"]: "Hurricane Seed", ["zh-CN"]: "飓风之种" },
@@ -788,7 +789,9 @@ export const materials: Material[] = [
   //
   // Newline - character ascension
   //
+] as const;
 
+const talentBooks: readonly Material[] = [
   { id: "Freedom", name: { ["en"]: "Freedom", ["zh-CN"]: "自由" } },
   { id: "Resistance", name: { ["en"]: "Resistance", ["zh-CN"]: "抗争" } },
   { id: "Ballad", name: { ["en"]: "Ballad", ["zh-CN"]: "诗文" } },
@@ -805,6 +808,9 @@ export const materials: Material[] = [
   { id: "Justice", name: { ["en"]: "Justice", ["zh-CN"]: "正义" } },
   { id: "Order", name: { ["en"]: "Order", ["zh-CN"]: "秩序" } },
   // Newline - talent book
+] as const;
+
+const talentMaterials: readonly Material[] = [
   {
     id: "Crown of Insight",
     name: { ["en"]: "Crown of Insight", ["zh-CN"]: "智识之冕" },
@@ -905,7 +911,9 @@ export const materials: Material[] = [
   //
   // Newline - talent material
   //
+] as const;
 
+const weaponAscensions: readonly Material[] = [
   {
     id: "Tile of Decarabian’s Tower",
     name: {
@@ -1164,7 +1172,9 @@ export const materials: Material[] = [
   //
   // Newline - weapons
   //
+] as const;
 
+const forging: readonly Material[] = [
   {
     id: "Northlander Claymore Billet",
     forging: true,
@@ -1254,7 +1264,9 @@ export const materials: Material[] = [
   //
   // Newline - forging
   //
+] as const;
 
+const fishing: readonly Material[] = [
   {
     id: "Raimei Angelfish",
     fishing: true,
@@ -1321,4 +1333,17 @@ export const materials: Material[] = [
   //
   // Newline - fishing
   //
-];
+] as const;
+
+export const materials: readonly Material[] = [
+  ...commons,
+  ...elites,
+  ...localSpecialities,
+  ...gems,
+  ...characterAscensions,
+  ...talentBooks,
+  ...talentMaterials,
+  ...weaponAscensions,
+  ...forging,
+  ...fishing,
+] as const;
