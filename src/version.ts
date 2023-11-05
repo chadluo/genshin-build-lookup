@@ -31,7 +31,7 @@ const version: Record<string, string[]> = {
     "Prospector’s Drill",
     "The Dockhand’s Assistant",
   ],
-  "4.2": [],
+  "4.2": ["Charlotte", "Furina", "Splendor of Tranquil Waters"],
 };
 
 export const recentNew = version["4.1"];

@@ -472,6 +472,18 @@ export const weapons: Weapon[] = [
       "Faded Red Satin",
     ],
   },
+  {
+    id: "Splendor of Tranquil Waters",
+    type: "weapon",
+    rarity: 5,
+    category: "Sword",
+    name: { ["en"]: "Splendor of Tranquil Waters", ["zh-CN"]: "静水流涌之辉" },
+    materials: [
+      "Dross of Pure Sacred Dewdrop",
+      "Drop of Tainted Water",
+      "Transoceanic Pearl",
+    ],
+  },
   //
   // Newline - sword 5
   //

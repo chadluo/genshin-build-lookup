@@ -17,7 +17,7 @@ export type Character = OfMaterial & {
     TalentMaterial,
     TalentBook,
     Common,
-    LocalSpecialities
+    LocalSpecialities,
   ];
 };
 
@@ -161,6 +161,12 @@ export const characters: Character[] = [
       "Faded Red Satin",
       "Henna Berry",
     ],
+  },
+  {
+    id: "Charlotte",
+    type: "character",
+    rarity: 4,
+    name: { ["en"]: "Charlotte", ["zh-CN"]: "夏洛蒂" },
   },
   {
     id: "Chongyun",
@@ -315,6 +321,12 @@ export const characters: Character[] = [
       "Transoceanic Pearl",
       "Romaritime Flower",
     ],
+  },
+  {
+    id: "Furina",
+    type: "character",
+    rarity: 5,
+    name: { ["en"]: "Furina", ["zh-CN"]: "芙宁娜" },
   },
   {
     id: "Ganyu",
