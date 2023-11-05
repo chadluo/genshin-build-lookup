@@ -5,7 +5,7 @@ import { characters } from "./models/characters";
 import { Domain, bosses, domains, enemies } from "./models/enemies";
 import { Material, materials } from "./models/materials";
 import { weapons } from "./models/weapons";
-import { recentNew, upcoming } from "./version";
+import { findRecents } from "./version";
 
 export type Region = "Mondstadt" | "Liyue" | "Inazuma" | "Sumeru" | "Fontaine";
 
@@ -253,12 +253,13 @@ export function formatName(name: I18nObject): string {
     .join("");
 }
 
+const { current, upcoming } = findRecents();
 export function renderLink(id: string, type: ItemType, names: I18nObject) {
   const classes = [];
   if (isBookmarked(type, id, 0)) {
     classes.push("bookmarked");
   }
-  if (recentNew.includes(id)) {
+  if (current.includes(id)) {
     classes.push("recent-new");
   }
   if (upcoming.includes(id)) {
