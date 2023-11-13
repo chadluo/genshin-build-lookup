@@ -167,6 +167,14 @@ export const characters: Character[] = [
     type: "character",
     rarity: 4,
     name: { ["en"]: "Charlotte", ["zh-CN"]: "夏洛蒂" },
+    materials: [
+      "“Tourbillon Device”",
+      "Shivada Jade",
+      "Lightless Silk String",
+      "Justice",
+      "Meshing Gear",
+      "Beryl Conch",
+    ],
   },
   {
     id: "Chongyun",
@@ -327,6 +335,14 @@ export const characters: Character[] = [
     type: "character",
     rarity: 5,
     name: { ["en"]: "Furina", ["zh-CN"]: "芙宁娜" },
+    materials: [
+      "Water That Failed To Transcend",
+      "Varunada Lazurite",
+      "Lightless Mass",
+      "Justice",
+      "Whopperflower Nectar",
+      "Lakelight Lily",
+    ],
   },
   {
     id: "Ganyu",

@@ -87,7 +87,8 @@ export type CharacterAscension =
   | "Artificed Spare Clockwork Component — Coppelia"
   | "Artificed Spare Clockwork Component — Coppelius"
   | "Fontemer Unihorn"
-  | "“Tourbillon Device”";
+  | "“Tourbillon Device”"
+  | "Water That Failed To Transcend";
 
 export type TalentBook =
   | "Freedom"
@@ -131,7 +132,10 @@ export type TalentMaterial =
   | "Daka’s Bell"
   | "Worldspan Fern"
   | "Primordial Greenbloom"
-  | "Everamber";
+  | "Everamber"
+  | "Lightless Silk String"
+  | "Lightless Eye of the Maelstrom"
+  | "Lightless Mass";
 
 export type LocalSpecialities =
   | "Calla Lily"
@@ -172,7 +176,8 @@ export type LocalSpecialities =
   | "Rainbow Rose"
   | "Romaritime Flower"
   | "Lumitoile"
-  | "Subdetection Unit";
+  | "Subdetection Unit"
+  | "Lakelight Lily";
 
 export type WeaponAscension =
   | "Mask of the Wicked Lieutenant"
@@ -622,6 +627,10 @@ const localSpecialities: readonly Material[] = [
     id: "Subdetection Unit",
     name: { ["en"]: "Subdetection Unit", ["zh-CN"]: "子探测单元" },
   },
+  {
+    id: "Lakelight Lily",
+    name: { ["en"]: "Lakelight Lily", ["zh-CN"]: "湖光铃兰" },
+  },
   //
   // Newline - local specialities
   //
@@ -786,6 +795,13 @@ const characterAscensions: readonly Material[] = [
     id: "“Tourbillon Device”",
     name: { ["en"]: "“Tourbillon Device”", ["zh-CN"]: "「图比昂装置」" },
   },
+  {
+    id: "Water That Failed To Transcend",
+    name: {
+      ["en"]: "Water That Failed To Transcend",
+      ["zh-CN"]: "未能达成超越之水",
+    },
+  },
   //
   // Newline - character ascension
   //
@@ -907,6 +923,18 @@ const talentMaterials: readonly Material[] = [
   {
     id: "Everamber",
     name: { ["en"]: "Everamber", ["zh-CN"]: "亘古树海之一瞬" },
+  },
+  {
+    id: "Lightless Silk String",
+    name: { ["en"]: "Lightless Silk String", ["zh-CN"]: "无光丝线" },
+  },
+  {
+    id: "Lightless Eye of the Maelstrom",
+    name: { ["en"]: "Lightless Eye of the Maelstrom", ["zh-CN"]: "无光涡眼" },
+  },
+  {
+    id: "Lightless Mass",
+    name: { ["en"]: "Lightless Mass", ["zh-CN"]: "无光质块" },
   },
   //
   // Newline - talent material

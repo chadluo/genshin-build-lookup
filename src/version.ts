@@ -37,7 +37,12 @@ const versions: { version: string; start: number; items: string[] }[] = [
   {
     version: "4.2",
     start: new Date(2023, 11 - 1, 8).getTime(),
-    items: ["Charlotte", "Furina", "Splendor of Tranquil Waters"],
+    items: [
+      "Charlotte",
+      "Furina",
+      "Splendor of Tranquil Waters",
+      "Sword of Narzissenkreuz",
+    ],
   },
 ];
 

@@ -328,7 +328,7 @@ export const bosses: Boss[] = [
     region: "Fontaine",
     type: "boss",
     name: { ["en"]: "Millennial Pearl Seahorse", ["zh-CN"]: "千年珍珠骏麟" },
-    materials: ["Fontemer Unihorn"],
+    materials: ["Fontemer Unihorn", "Vajrada Amethyst"],
   },
   {
     id: "Experimental Field Generator",
@@ -338,7 +338,14 @@ export const bosses: Boss[] = [
       ["en"]: "Experimental Field Generator",
       ["zh-CN"]: "实验性场力发生装置",
     },
-    materials: ["“Tourbillon Device”"],
+    materials: ["“Tourbillon Device”", "Prithiva Topaz"],
+  },
+  {
+    id: "Hydro Tulpa",
+    region: "Fontaine",
+    type: "boss",
+    name: { ["en"]: "Hydro Tulpa", ["zh-CN"]: "水形幻人" },
+    materials: ["Water That Failed To Transcend", "Varunada Lazurite"],
   },
   //
   // Newline - normal boss
@@ -488,6 +495,19 @@ export const bosses: Boss[] = [
       ["en"]: "The Realm of Beginnings / Guardian of Apep’s Oasis",
       ["zh-CN"]: "肇始之乡 / 阿佩普的绿洲守望者",
     },
+  },
+  {
+    id: "All-Devouring Narwhal",
+    region: "Fontaine",
+    materials: [
+      "Lightless Silk String",
+      "Lightless Eye of the Maelstrom",
+      "Lightless Mass",
+      "Varunada Lazurite",
+      ...midlanderBillets,
+    ],
+    type: "weekly_boss",
+    name: { ["en"]: "All-Devouring Narwhal", ["zh-CN"]: "吞星之鲸" },
   },
   //
   // Newline - weekly boss

@@ -1750,6 +1750,18 @@ export const weapons: Weapon[] = [
       "Transoceanic Pearl",
     ],
   },
+  {
+    id: "Sword of Narzissenkreuz",
+    type: "weapon",
+    rarity: 4,
+    category: "Sword",
+    name: { ["en"]: "Sword of Narzissenkreuz", ["zh-CN"]: "水仙十字之剑" },
+    materials: [
+      "Fragment of an Ancient Chord",
+      "Old Operative’s Pocket Watch",
+      "Transoceanic Pearl",
+    ],
+  },
   //
   // Newline - sword 4
   //
