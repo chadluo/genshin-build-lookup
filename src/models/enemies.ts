@@ -497,7 +497,7 @@ export const bosses: Boss[] = [
     },
   },
   {
-    id: "All-Devouring Narwhal",
+    id: "Shadow of Another World",
     region: "Fontaine",
     materials: [
       "Lightless Silk String",
@@ -507,7 +507,10 @@ export const bosses: Boss[] = [
       ...midlanderBillets,
     ],
     type: "weekly_boss",
-    name: { ["en"]: "All-Devouring Narwhal", ["zh-CN"]: "吞星之鲸" },
+    name: {
+      ["en"]: "Shadow of Another World / All-Devouring Narwhal",
+      ["zh-CN"]: "异界余影 / 吞星之鲸",
+    },
   },
   //
   // Newline - weekly boss
