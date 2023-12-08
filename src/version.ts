@@ -44,6 +44,16 @@ const versions: { version: string; start: number; items: string[] }[] = [
       "Sword of Narzissenkreuz",
     ],
   },
+  {
+    version: "4.3",
+    start: new Date(2023, 12 - 1, 20).getTime(),
+    items: [
+      "Navia",
+      "Chevreuse",
+      "Verdict",
+      "Ultimate Overlord’s Mega Magic Sword",
+    ],
+  },
 ];
 
 export function findRecents() {

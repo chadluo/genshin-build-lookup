@@ -177,6 +177,12 @@ export const characters: Character[] = [
     ],
   },
   {
+    id: "Chevreuse",
+    type: "character",
+    rarity: 4,
+    name: { ["en"]: "Chevreuse", ["zh-CN"]: "夏沃蕾" },
+  },
+  {
     id: "Chongyun",
     type: "character",
     rarity: 4,
@@ -637,6 +643,12 @@ export const characters: Character[] = [
       "Fungal Spores",
       "Kalpalata Lotus",
     ],
+  },
+  {
+    id: "Navia",
+    type: "character",
+    rarity: 5,
+    name: { ["en"]: "Navia", ["zh-CN"]: "娜维娅" },
   },
   {
     id: "Neuvillette",

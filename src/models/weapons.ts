@@ -290,6 +290,13 @@ export const weapons: Weapon[] = [
       "Faded Red Satin",
     ],
   },
+  {
+    id: "Verdict",
+    type: "weapon",
+    rarity: 5,
+    category: "Claymore",
+    name: { ["en"]: "Verdict", ["zh-CN"]: "裁断" },
+  },
   //
   // Newline - claymore 5
   //
@@ -1257,6 +1264,16 @@ export const weapons: Weapon[] = [
       "Rift Core",
       "Meshing Gear",
     ],
+  },
+  {
+    id: "Ultimate Overlord’s Mega Magic Sword",
+    type: "weapon",
+    rarity: 4,
+    category: "Claymore",
+    name: {
+      ["en"]: "Ultimate Overlord’s Mega Magic Sword",
+      ["zh-CN"]: "「究极霸王超级魔剑」",
+    },
   },
   //
   // Newline - claymore 4
