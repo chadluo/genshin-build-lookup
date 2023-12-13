@@ -1,11 +1,11 @@
 import {
+  Timezone,
   byDomain,
   formatName,
   formatTableCaption,
   getTimezone,
   getWeekday,
   renderQTableRows,
-  Timezone,
 } from "../base";
 import { ui, weekdays } from "../i18n";
 import { domains } from "../models/enemies";
@@ -24,7 +24,7 @@ export class TodayTable extends HTMLElement {
           (zone) =>
             `<label><input type="radio" name="timezone" value="${zone}" ${
               zone === getTimezone() ? "checked" : ""
-            }>${this.formatZoneOption(zone)}</label>`
+            }>${this.formatZoneOption(zone)}</label>`,
         )
         .join("")}</div>
       <table class="qtable">${this.renderDomains(weekdays)}</table></details>`;
@@ -33,7 +33,7 @@ export class TodayTable extends HTMLElement {
 
   formatZoneOption(zone: Timezone) {
     return `${this.getTimezoneIcon(zone)} ${formatName(ui[zone])}${formatName(
-      ui.delimiter
+      ui.delimiter,
     )}${formatName(weekdays[getWeekday(zone)])}`;
   }
 
@@ -59,9 +59,9 @@ export class TodayTable extends HTMLElement {
             d.name,
             byDomain(d.id, weekday),
             weekday,
-            false
-          )
-        )
+            false,
+          ),
+        ),
       )
       .join("");
   }
@@ -69,10 +69,14 @@ export class TodayTable extends HTMLElement {
   getTimezoneIcon(zone: Timezone) {
     // prettier-ignore
     switch (zone) {
-      case "Asia":    return "🌏";
-      case "Europe":  return "🌍";
-      case "America": return "🌎";
-      default:        return undefined;
+      case "Asia":
+        return "🌏";
+      case "Europe":
+        return "🌍";
+      case "America":
+        return "🌎";
+      default:
+        return undefined;
     }
   }
 }
