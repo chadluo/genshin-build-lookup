@@ -1,9 +1,9 @@
 import {
+  TYPE_WEAPON,
   formatName,
   formatTableCaption,
   groupBy,
   renderLink,
-  TYPE_WEAPON,
 } from "../base";
 import { hasBookmarks } from "../bookmarks";
 import { ui } from "../i18n";
@@ -15,31 +15,27 @@ export class WeaponsTable extends HTMLElement {
     const byRarity = groupBy((w) => w.rarity, weapons);
     const rarities = Array.from(byRarity.keys()).sort().reverse();
     this.innerHTML = `<details class="section" ${hasBookmarks() ? "" : "open"}>
-      <summary>${formatTableCaption(
-        TYPE_WEAPON
-      )}</summary><table class="ctable">
+      <summary>${formatTableCaption(TYPE_WEAPON)}</summary><table class="ctable">
       ${rarities
         .map((rarity) => {
           const ws2: Map<Category, Weapon[]> = groupBy(
             (w) => w.category,
-            byRarity.get(rarity)!
+            byRarity.get(rarity),
           );
           const categories = Array.from(ws2.keys());
-          return `<tr><th rowspan="${categories.length}">${"⭐".repeat(
-            rarity
-          )}</th>
+          return `<tr><th rowspan="${categories.length}">${"⭐".repeat(rarity)}</th>
       <td>${this.formatWeaponIcon(categories[0])}${ws2
-            .get(categories[0])!
-            .map((w) => renderLink(w.id, TYPE_WEAPON, w.name))
-            .join(formatName(ui.delimiter))}</td></tr>
+        .get(categories[0])
+        ?.map((w) => renderLink(w.id, TYPE_WEAPON, w.name))
+        .join(formatName(ui.delimiter))}</td></tr>
       ${categories
         .slice(1)
         .map(
           (category) =>
             `<tr><td>${this.formatWeaponIcon(category)}${ws2
-              .get(category)!
-              .map((c) => renderLink(c.id, TYPE_WEAPON, c.name))
-              .join(formatName(ui.delimiter))}</td></tr>`
+              .get(category)
+              ?.map((c) => renderLink(c.id, TYPE_WEAPON, c.name))
+              .join(formatName(ui.delimiter))}</td></tr>`,
         )
         .join("")}`;
         })
@@ -51,14 +47,19 @@ export class WeaponsTable extends HTMLElement {
   }
 
   getWeaponIcon(category: Category) {
-    // prettier-ignore
     switch (category) {
-      case "Bow":      return "🏹";
-      case "Catalyst": return "📖";
-      case "Claymore": return "🐟";
-      case "Polearm":  return "🌿";
-      case "Sword":    return "🗡️";
-      default:         return "";
+      case "Bow":
+        return "🏹";
+      case "Catalyst":
+        return "📖";
+      case "Claymore":
+        return "🐟";
+      case "Polearm":
+        return "🌿";
+      case "Sword":
+        return "🗡️";
+      default:
+        return "";
     }
   }
 }

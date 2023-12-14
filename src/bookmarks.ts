@@ -5,12 +5,12 @@ type Bookmark = [ItemType, string, number];
 export const BOOKMARK_KEY = "bookmarks";
 
 const bookmarks: Bookmark[] = JSON.parse(
-  localStorage.getItem(BOOKMARK_KEY) ?? "[]"
+  localStorage.getItem(BOOKMARK_KEY) ?? "[]",
 ) as Bookmark[];
 
 export function isBookmarked(type: ItemType, id: string, weekday: number) {
   return bookmarks.some(
-    ([t, i, w]: Bookmark) => t === type && i === id && w === (weekday ?? 0)
+    ([t, i, w]: Bookmark) => t === type && i === id && w === (weekday ?? 0),
   );
 }
 
@@ -30,16 +30,18 @@ export function updateBookmark(event: Event) {
 
 export function bookmark(type: ItemType, id: string, weekday: number) {
   const index = bookmarks.findIndex(
-    ([t, i, w]) => t === type && i === id && w === weekday
+    ([t, i, w]) => t === type && i === id && w === weekday,
   );
   if (index === -1) {
-    document
-      .querySelectorAll(
+    for (const e of Array.from(
+      document.querySelectorAll(
         type === TYPE_TALENT_DOMAIN || type === TYPE_WEAPON_DOMAIN
           ? `a[data-id="${id}"][data-weekday="${weekday}"]`
-          : `a[data-id="${id}"]`
-      )
-      .forEach((e) => e.classList.add("bookmarked"));
+          : `a[data-id="${id}"]`,
+      ),
+    )) {
+      e.classList.add("bookmarked");
+    }
     bookmarks.push([type, id, weekday]);
     localStorage.setItem(BOOKMARK_KEY, JSON.stringify(bookmarks));
   }
@@ -48,16 +50,18 @@ export function bookmark(type: ItemType, id: string, weekday: number) {
 
 export function unbookmark(type: ItemType, id: string, weekday: number) {
   const index = bookmarks.findIndex(
-    ([t, i, w]) => t === type && i === id && w === weekday
+    ([t, i, w]) => t === type && i === id && w === weekday,
   );
   if (index !== -1) {
-    document
-      .querySelectorAll(
+    for (const e of Array.from(
+      document.querySelectorAll(
         type === TYPE_TALENT_DOMAIN || type === TYPE_WEAPON_DOMAIN
           ? `a[data-id="${id}"][data-weekday="${weekday}"]`
-          : `a[data-id="${id}"]`
-      )
-      .forEach((e) => e.classList.remove("bookmarked"));
+          : `a[data-id="${id}"]`,
+      ),
+    )) {
+      e.classList.remove("bookmarked");
+    }
     bookmarks.splice(index, 1);
     localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
   }

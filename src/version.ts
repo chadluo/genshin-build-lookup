@@ -59,15 +59,16 @@ const versions: { version: string; start: number; items: string[] }[] = [
 export function findRecents() {
   const now = new Date().getTime();
   const currentIndex = versions.findLastIndex((version) => version.start < now);
+
   if (currentIndex === -1) {
     return { current: [], upcoming: [] };
-  } else {
-    return {
-      current: versions[currentIndex].items,
-      upcoming:
-        currentIndex > versions.length - 2
-          ? []
-          : versions[currentIndex + 1].items,
-    };
   }
+
+  return {
+    current: versions[currentIndex].items,
+    upcoming:
+      currentIndex > versions.length - 2
+        ? []
+        : versions[currentIndex + 1].items,
+  };
 }
