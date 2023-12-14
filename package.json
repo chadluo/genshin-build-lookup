@@ -20,22 +20,22 @@
   "homepage": "https://github.com/chadluo/genshin-build-lookup#readme",
   "devDependencies": {
     "@biomejs/biome": "1.4.1",
-    "@playwright/test": "^1.31.2",
+    "@playwright/test": "^1.40.1",
     "@tsconfig/recommended": "^1.0.2",
-    "@types/node": "^18.15.5",
-    "@types/webpack": "^5.28.0",
+    "@types/node": "^20.10.4",
+    "@types/webpack": "^5.28.5",
     "css-loader": "^6.7.3",
-    "html-webpack-plugin": "^5.5.0",
+    "html-webpack-plugin": "^5.5.4",
     "http-server": "^14.1.1",
     "mini-css-extract-plugin": "^2.7.5",
     "style-loader": "^3.3.2",
-    "ts-loader": "^9.4.2",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.0.2",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
     "webpack": "^5.76.2",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.13.1",
-    "workbox-webpack-plugin": "^6.5.4"
+    "workbox-webpack-plugin": "^7.0.0"
   },
   "private": true
 }
