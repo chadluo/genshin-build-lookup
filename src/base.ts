@@ -154,7 +154,7 @@ export function renderQTableRows(
     "<span class='mobile'> / </span><span class='desktop'><br></span>";
   const currentWeekday = getWeekday(getTimezone());
   return `<tbody name="${formatId(type, id, weekday)}"><tr>
-      <th ${ms.length === 0 ? "" : `rowspan="${ms.length}"`}>
+      <th ${ms.length === 0 ? "colspan='3'" : `rowspan="${ms.length}"`}>
         ${(type === TYPE_TALENT_DOMAIN || type === TYPE_WEAPON_DOMAIN
           ? formatDomainName(name, weekday)
           : formatName(name)
