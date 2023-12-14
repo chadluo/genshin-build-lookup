@@ -1,17 +1,17 @@
 import {
+  ItemType,
+  Region,
+  TYPE_BOSS,
+  TYPE_TALENT_DOMAIN,
+  TYPE_WEAPON_DOMAIN,
+  TYPE_WEEKLY_BOSS,
   formatName,
   formatTableCaption,
   getTimezone,
   getWeekday,
   groupBy,
-  ItemType,
-  Region,
   renderDomainLink,
   renderLink,
-  TYPE_BOSS,
-  TYPE_TALENT_DOMAIN,
-  TYPE_WEAPON_DOMAIN,
-  TYPE_WEEKLY_BOSS,
 } from "../base";
 import { hasBookmarks } from "../bookmarks";
 import { I18nObject, regions, ui } from "../i18n";
@@ -46,7 +46,7 @@ export class EnemiesTable extends HTMLElement {
       <th rowspan="${weeklyBossKeys.length}">${formatName(ui.weeklyBoss)}</th>
       ${this.formatBossesForRegion(
         regions[weeklyBossKeys[0]],
-        weeklyBosses.get(weeklyBossKeys[0])!,
+        weeklyBosses.get(weeklyBossKeys[0]),
       )}
     </tr>
     ${weeklyBossKeys
@@ -55,21 +55,18 @@ export class EnemiesTable extends HTMLElement {
         (k) =>
           `<tr>${this.formatBossesForRegion(
             regions[k],
-            weeklyBosses.get(k)!,
+            weeklyBosses.get(k),
           )}</tr>`,
       )
       .join("")}
     <tr><th rowspan="${bossKeys.length}">${formatName(ui.boss)}</th>
-    ${this.formatBossesForRegion(
-      regions[bossKeys[0]],
-      bosses.get(bossKeys[0])!,
-    )}
+    ${this.formatBossesForRegion(regions[bossKeys[0]], bosses.get(bossKeys[0]))}
     </tr>
     ${bossKeys
       .slice(1)
       .map(
         (k) =>
-          `<tr>${this.formatBossesForRegion(regions[k], bosses.get(k)!)}</tr>`,
+          `<tr>${this.formatBossesForRegion(regions[k], bosses.get(k))}</tr>`,
       )
       .join("")}
     <tr><th rowspan="${talentDomains.length}">${formatName(ui.talentDomain)}</th>
@@ -89,15 +86,15 @@ export class EnemiesTable extends HTMLElement {
   /**
    * Return structure: td*2
    */
-  formatBossesForRegion(region: I18nObject, bosses: Enemies.Boss[]) {
+  formatBossesForRegion(region: I18nObject, bosses?: Enemies.Boss[]) {
     return `<td>${formatName(region)}</td><td>${bosses
-      .map((boss) => renderLink(boss.id, TYPE_WEEKLY_BOSS, boss!.name))
+      ?.map((boss) => renderLink(boss.id, TYPE_WEEKLY_BOSS, boss?.name))
       .join(formatName(ui.delimiter))}</td>`;
   }
 
   formatDomain(id: string, type: ItemType) {
     const domainName = formatName(
-      Enemies.domains.filter((d) => d.id === id)[0]!.name,
+      Enemies.domains.filter((d) => d.id === id)[0]?.name,
     );
     const currentWeekday = getWeekday(getTimezone());
     const plainWeekdays = [1, 2, 3]

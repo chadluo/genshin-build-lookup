@@ -20,21 +20,21 @@ export class WeaponsTable extends HTMLElement {
         .map((rarity) => {
           const ws2: Map<Category, Weapon[]> = groupBy(
             (w) => w.category,
-            byRarity.get(rarity)!,
+            byRarity.get(rarity),
           );
           const categories = Array.from(ws2.keys());
           return `<tr><th rowspan="${categories.length}">${"⭐".repeat(rarity)}</th>
       <td>${this.formatWeaponIcon(categories[0])}${ws2
-        .get(categories[0])!
-        .map((w) => renderLink(w.id, TYPE_WEAPON, w.name))
+        .get(categories[0])
+        ?.map((w) => renderLink(w.id, TYPE_WEAPON, w.name))
         .join(formatName(ui.delimiter))}</td></tr>
       ${categories
         .slice(1)
         .map(
           (category) =>
             `<tr><td>${this.formatWeaponIcon(category)}${ws2
-              .get(category)!
-              .map((c) => renderLink(c.id, TYPE_WEAPON, c.name))
+              .get(category)
+              ?.map((c) => renderLink(c.id, TYPE_WEAPON, c.name))
               .join(formatName(ui.delimiter))}</td></tr>`,
         )
         .join("")}`;
@@ -47,7 +47,6 @@ export class WeaponsTable extends HTMLElement {
   }
 
   getWeaponIcon(category: Category) {
-    // prettier-ignore
     switch (category) {
       case "Bow":
         return "🏹";

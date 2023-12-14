@@ -1,5 +1,5 @@
 import { isBookmarked } from "./bookmarks";
-import { VIEW_ALL } from "./components/enemiestable";
+import { VIEW_ALL } from "./components/enemies_table";
 import { EMPTY, I18nObject, ui, weekdays } from "./i18n";
 import { characters } from "./models/characters";
 import { Domain, bosses, domains, enemies } from "./models/enemies";
@@ -299,14 +299,17 @@ export function formatValue(names: Readonly<string | string[]>) {
           .join("<br>")}</details>`;
 }
 
-export function groupBy<W, T>(f: (w: W) => T, ws: W[]): Map<T, W[]> {
-  return ws.reduce((m, w) => {
-    const key = f(w);
-    const arr = m.get(key) ?? [];
-    arr.push(w);
-    m.set(key, arr);
-    return m;
-  }, new Map<T, W[]>());
+export function groupBy<W, T>(f: (w: W) => T, ws?: W[]): Map<T, W[]> {
+  const map = new Map<T, W[]>();
+  return (
+    ws?.reduce((m, w) => {
+      const key = f(w);
+      const arr = m.get(key) ?? [];
+      arr.push(w);
+      m.set(key, arr);
+      return m;
+    }, map) ?? map
+  );
 }
 
 function renderQTableRow(

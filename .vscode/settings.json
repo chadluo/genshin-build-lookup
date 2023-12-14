@@ -1,10 +1,10 @@
 {
-    "commentAnchors.scrollPosition": "center",
-    "commentAnchors.tags.anchors": {
-        "Newline": {
-            "highlightColor": "#A8C023",
-            "iconColor": "default",
-            "scope": "file"
-        }
+  "commentAnchors.scrollPosition": "center",
+  "commentAnchors.tags.anchors": {
+    "Newline": {
+      "highlightColor": "#A8C023",
+      "iconColor": "default",
+      "scope": "file"
     }
+  }
 }

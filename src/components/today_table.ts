@@ -43,8 +43,10 @@ export class TodayTable extends HTMLElement {
       const timezone = target.value as Timezone;
       const day = getWeekday(timezone);
       const weekdays = day === 0 ? [1, 2, 3] : [day];
-      this.querySelector("table.qtable")!.innerHTML =
-        this.renderDomains(weekdays);
+      const table = this.querySelector("table.qtable");
+      if (table !== null) {
+        table.innerHTML = this.renderDomains(weekdays);
+      }
       localStorage.setItem("timezone", timezone);
     }
   }

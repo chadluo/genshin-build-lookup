@@ -1,9 +1,9 @@
 import {
+  TYPE_CHARACTER,
   formatName,
   formatTableCaption,
   groupBy,
   renderLink,
-  TYPE_CHARACTER,
 } from "../base";
 import { hasBookmarks } from "../bookmarks";
 import { ui } from "../i18n";
@@ -23,10 +23,10 @@ export class CharactersTable extends HTMLElement {
   }
 
   showByRarity(rarity: number, byRarity: Map<number, Character[]>) {
-    const cs: Character[] = byRarity.get(rarity)!;
     return `<tr><th>${"⭐".repeat(rarity)}</th>
-      <td>${cs
-        .map((c) => renderLink(c.id, TYPE_CHARACTER, c.name))
+      <td>${byRarity
+        .get(rarity)
+        ?.map((c) => renderLink(c.id, TYPE_CHARACTER, c.name))
         .join(formatName(ui.delimiter))}</td></tr>`;
   }
 }

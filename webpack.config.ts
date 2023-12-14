@@ -1,6 +1,6 @@
+import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import path from "path";
 
 const devMode = process.env.NODE_ENV !== "production";
 
@@ -21,7 +21,10 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: [devMode ? "style-loader" : MiniCssExtractPlugin.loader, "css-loader"],
+        use: [
+          devMode ? "style-loader" : MiniCssExtractPlugin.loader,
+          "css-loader",
+        ],
       },
       {
         test: /CNAME/,

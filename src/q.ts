@@ -13,10 +13,10 @@ import {
   unbookmark,
   updateBookmark,
 } from "./bookmarks";
-import { CharactersTable } from "./components/characterstable";
-import { EnemiesTable, VIEW_ALL } from "./components/enemiestable";
-import { TodayTable } from "./components/todaytable";
-import { WeaponsTable } from "./components/weaponstable";
+import { CharactersTable } from "./components/characters_table";
+import { EnemiesTable, VIEW_ALL } from "./components/enemies_table";
+import { TodayTable } from "./components/today_table";
+import { WeaponsTable } from "./components/weapons_table";
 import { SupportedLanguages, ui } from "./i18n";
 import { characters } from "./models/characters";
 import { weapons } from "./models/weapons";
