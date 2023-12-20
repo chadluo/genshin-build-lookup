@@ -178,7 +178,8 @@ export type LocalSpecialities =
   | "Romaritime Flower"
   | "Lumitoile"
   | "Subdetection Unit"
-  | "Lakelight Lily";
+  | "Lakelight Lily"
+  | "Spring of the First Dewdrop";
 
 export type WeaponAscension =
   | "Mask of the Wicked Lieutenant"
@@ -615,6 +616,13 @@ const localSpecialities: readonly Material[] = [
   {
     id: "Lakelight Lily",
     name: { en: "Lakelight Lily", "zh-CN": "湖光铃兰" },
+  },
+  {
+    id: "Spring of the First Dewdrop",
+    name: {
+      en: "Spring of the First Dewdrop",
+      "zh-CN": "初露之源",
+    },
   },
   //
   // Newline - local specialities

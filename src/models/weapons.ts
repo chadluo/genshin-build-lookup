@@ -296,6 +296,7 @@ export const weapons: Weapon[] = [
     rarity: 5,
     category: "Claymore",
     name: { en: "Verdict", "zh-CN": "裁断" },
+    materials: ["Fragment of an Ancient Chord", "Rift Core", "Meshing Gear"],
   },
   //
   // Newline - claymore 5
@@ -1274,6 +1275,11 @@ export const weapons: Weapon[] = [
       en: "Ultimate Overlord’s Mega Magic Sword",
       "zh-CN": "「究极霸王超级魔剑」",
     },
+    materials: [
+      "Broken Goblet of the Pristine Sea",
+      "Old Operative’s Pocket Watch",
+      "Meshing Gear",
+    ],
   },
   //
   // Newline - claymore 4

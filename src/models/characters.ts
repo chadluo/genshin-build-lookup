@@ -649,6 +649,14 @@ export const characters: Character[] = [
     type: "character",
     rarity: 5,
     name: { en: "Navia", "zh-CN": "娜维娅" },
+    materials: [
+      "Artificed Spare Clockwork Component — Coppelius",
+      "Prithiva Topaz",
+      "Lightless Silk String",
+      "Equity",
+      "Transoceanic Pearl",
+      "Spring of the First Dewdrop",
+    ],
   },
   {
     id: "Neuvillette",
