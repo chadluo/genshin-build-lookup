@@ -181,6 +181,14 @@ export const characters: Character[] = [
     type: "character",
     rarity: 4,
     name: { en: "Chevreuse", "zh-CN": "夏沃蕾" },
+    materials: [
+      "Fontemer Unihorn",
+      "Agnidus Agate",
+      "Lightless Eye of the Maelstrom",
+      "Order",
+      "Meshing Gear",
+      "Lumidouce Bell",
+    ],
   },
   {
     id: "Chongyun",
