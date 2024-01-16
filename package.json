@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/chadluo/genshin-build-lookup#readme",
   "devDependencies": {
-    "@biomejs/biome": "1.4.1",
+    "@biomejs/biome": "^1.4.1",
     "@playwright/test": "^1.40.1",
     "@tsconfig/recommended": "^1.0.2",
     "@types/node": "^20.10.4",
