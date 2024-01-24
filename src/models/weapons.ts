@@ -223,6 +223,16 @@ export const weapons: Weapon[] = [
       "Transoceanic Pearl",
     ],
   },
+  {
+    id: "Crane’s Echoing Call",
+    type: "weapon",
+    rarity: 5,
+    category: "Catalyst",
+    name: {
+      en: "Crane’s Echoing Call",
+      "zh-CN": "鹤鸣余音",
+    },
+  },
   //
   // Newline - catalyst 5
   //

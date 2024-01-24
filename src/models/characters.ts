@@ -359,6 +359,12 @@ export const characters: Character[] = [
     ],
   },
   {
+    id: "Gaming",
+    type: "character",
+    rarity: 4,
+    name: { en: "Gaming", "zh-CN": "嘉明" },
+  },
+  {
     id: "Ganyu",
     type: "character",
     rarity: 5,
@@ -945,6 +951,12 @@ export const characters: Character[] = [
       "Slime Condensate",
       "Jueyun Chili",
     ],
+  },
+  {
+    id: "Xianyun",
+    type: "character",
+    rarity: 5,
+    name: { en: "Xianyun", "zh-CN": "闲云" },
   },
   {
     id: "Xiao",
