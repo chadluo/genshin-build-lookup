@@ -363,6 +363,14 @@ export const characters: Character[] = [
     type: "character",
     rarity: 4,
     name: { en: "Gaming", "zh-CN": "嘉明" },
+    materials: [
+      "Emperor’s Resolution",
+      "Agnidus Agate",
+      "Lightless Mass",
+      "Prosperity",
+      "Slime Condensate",
+      "Starconch",
+    ],
   },
   {
     id: "Ganyu",
@@ -957,6 +965,14 @@ export const characters: Character[] = [
     type: "character",
     rarity: 5,
     name: { en: "Xianyun", "zh-CN": "闲云" },
+    materials: [
+      "Cloudseam Scale",
+      "Vayuda Turquoise",
+      "Lightless Eye of the Maelstrom",
+      "Gold",
+      "Divining Scroll",
+      "Clearwater Jade",
+    ],
   },
   {
     id: "Xiao",

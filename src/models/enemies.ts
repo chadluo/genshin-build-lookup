@@ -347,6 +347,13 @@ export const bosses: Boss[] = [
     name: { en: "Hydro Tulpa", "zh-CN": "水形幻人" },
     materials: ["Water That Failed To Transcend", "Varunada Lazurite"],
   },
+  {
+    id: "Solitary Suanni",
+    region: "Liyue",
+    type: "boss",
+    name: { en: "Solitary Suanni", "zh-CN": "隐山猊兽" },
+    materials: ["Cloudseam Scale", "Varunada Lazurite", "Vayuda Turquoise"],
+  },
   //
   // Newline - normal boss
   //
@@ -744,6 +751,12 @@ export const enemies: Enemy[] = [
     type: "enemy",
     name: { en: "Fatui Operative", "zh-CN": "愚人众・役人" },
     materials: ["Old Operative’s Pocket Watch"],
+  },
+  {
+    id: "Xuanwen Beast",
+    type: "enemy",
+    name: { en: "Xuanwen Beast", "zh-CN": "玄文兽" },
+    materials: ["Feathery Fin"],
   },
   //
   // Newline - elite enemy

@@ -228,10 +228,8 @@ export const weapons: Weapon[] = [
     type: "weapon",
     rarity: 5,
     category: "Catalyst",
-    name: {
-      en: "Crane’s Echoing Call",
-      "zh-CN": "鹤鸣余音",
-    },
+    name: { en: "Crane’s Echoing Call", "zh-CN": "鹤鸣余音" },
+    materials: ["Mist Veiled Lead Elixir", "Feathery Fin", "Divining Scroll"],
   },
   //
   // Newline - catalyst 5

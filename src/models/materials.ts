@@ -50,7 +50,8 @@ export type Elite =
   | "A Flower Yet to Bloom"
   | "Drop of Tainted Water"
   | "Rift Core"
-  | "Old Operative’s Pocket Watch";
+  | "Old Operative’s Pocket Watch"
+  | "Feathery Fin";
 
 export type CharacterAscension =
   | "Brilliant Diamond"
@@ -89,7 +90,8 @@ export type CharacterAscension =
   | "Artificed Spare Clockwork Component — Coppelius"
   | "Fontemer Unihorn"
   | "“Tourbillon Device”"
-  | "Water That Failed To Transcend";
+  | "Water That Failed To Transcend"
+  | "Cloudseam Scale";
 
 export type TalentBook =
   | "Freedom"
@@ -179,7 +181,8 @@ export type LocalSpecialities =
   | "Lumitoile"
   | "Subdetection Unit"
   | "Lakelight Lily"
-  | "Spring of the First Dewdrop";
+  | "Spring of the First Dewdrop"
+  | "Clearwater Jade";
 
 export type WeaponAscension =
   | "Mask of the Wicked Lieutenant"
@@ -508,6 +511,13 @@ const elites: readonly Material[] = [
       "zh-CN": ["雾虚花粉", "雾虚草囊", "雾虚灯芯"],
     },
   },
+  {
+    id: "Feathery Fin",
+    name: {
+      en: ["Feathery Fin", "Lunar Fin", "Chasmlight Fin"],
+      "zh-CN": ["羽状鳍翅", "月色鳍翅", "渊光鳍翅"],
+    },
+  },
   //
   // Newline - elites
   //
@@ -624,6 +634,7 @@ const localSpecialities: readonly Material[] = [
       "zh-CN": "初露之源",
     },
   },
+  { id: "Clearwater Jade", name: { en: "Clearwater Jade", "zh-CN": "清水玉" } },
   //
   // Newline - local specialities
   //
@@ -794,6 +805,10 @@ const characterAscensions: readonly Material[] = [
       en: "Water That Failed To Transcend",
       "zh-CN": "未能达成超越之水",
     },
+  },
+  {
+    id: "Cloudseam Scale",
+    name: { en: "Cloudseam Scale", "zh-CN": "凝云鳞甲" },
   },
   //
   // Newline - character ascension
