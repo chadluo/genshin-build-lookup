@@ -1,13 +1,9 @@
-import {
-  TYPE_CHARACTER,
-  formatName,
-  formatTableCaption,
-  groupBy,
-  renderLink,
-} from "../base";
+import { TYPE_CHARACTER, groupBy, renderLink } from "../base";
 import { hasBookmarks } from "../bookmarks";
-import { ui } from "../i18n";
+import { DELIMITER, I18nObject, formatName } from "../i18n";
 import { Character, characters } from "../models/characters";
+
+const title: I18nObject = { en: "Characters", "zh-CN": "角色" };
 
 export class CharactersTable extends HTMLElement {
   constructor() {
@@ -15,7 +11,7 @@ export class CharactersTable extends HTMLElement {
     const byRarity = groupBy((o) => o.rarity, characters);
     const rarities = Array.from(byRarity.keys()).sort().reverse();
     this.innerHTML = `<details class="section" ${hasBookmarks() ? "" : "open"}>
-        <summary>${formatTableCaption(TYPE_CHARACTER)}</summary>
+        <summary>🦸 ${formatName(title)}</summary>
         <table class="ctable">${rarities
           .map((rarity) => this.showByRarity(rarity, byRarity))
           .join("")}</table>
@@ -27,6 +23,6 @@ export class CharactersTable extends HTMLElement {
       <td>${byRarity
         .get(rarity)
         ?.map((c) => renderLink(c.id, TYPE_CHARACTER, c.name))
-        .join(formatName(ui.delimiter))}</td></tr>`;
+        .join(formatName(DELIMITER))}</td></tr>`;
   }
 }

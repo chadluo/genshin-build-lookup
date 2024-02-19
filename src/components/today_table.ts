@@ -1,14 +1,23 @@
 import {
+  ItemType,
+  OfMaterial,
   Timezone,
   byDomain,
-  formatName,
-  formatTableCaption,
   getTimezone,
   getWeekday,
   renderQTableRows,
 } from "../base";
-import { ui, weekdays } from "../i18n";
-import { domains } from "../models/enemies";
+import { DELIMITER, I18nObject, formatName, weekdays } from "../i18n";
+import { Domain, domains } from "../models/enemies";
+import { Material } from "../models/materials";
+
+const title: I18nObject = { en: "Today", "zh-CN": "今日" };
+
+const ui: Record<string, I18nObject> = {
+  Asia: { en: "Asia / TW, HK, MO / CN", "zh-CN": "亚服、港澳台服、国服" },
+  Europe: { en: "Europe", "zh-CN": "欧服" },
+  America: { en: "America", "zh-CN": "美服" },
+};
 
 export class TodayTable extends HTMLElement {
   constructor() {
@@ -16,7 +25,7 @@ export class TodayTable extends HTMLElement {
     const day = getWeekday(getTimezone());
     const weekdays = day === 0 ? [1, 2, 3] : [day];
     this.innerHTML = `<details class="section" ${day === 0 ? "" : "open"}>
-      <summary>${formatTableCaption("today")}</summary>
+      <summary>📅 ${formatName(title)}</summary>
       <div class="timezone-selector">${(
         ["Asia", "Europe", "America"] as Timezone[]
       )
@@ -33,7 +42,7 @@ export class TodayTable extends HTMLElement {
 
   formatZoneOption(zone: Timezone) {
     return `${this.getTimezoneIcon(zone)} ${formatName(ui[zone])}${formatName(
-      ui.delimiter,
+      DELIMITER,
     )}${formatName(weekdays[getWeekday(zone)])}`;
   }
 

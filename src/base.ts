@@ -1,6 +1,6 @@
 import { isBookmarked } from "./bookmarks";
 import { VIEW_ALL } from "./components/enemies_table";
-import { EMPTY, I18nObject, ui, weekdays } from "./i18n";
+import { DELIMITER, EMPTY, I18nObject, formatName, weekdays } from "./i18n";
 import { characters } from "./models/characters";
 import { Domain, bosses, domains, enemies } from "./models/enemies";
 import { Material, materials } from "./models/materials";
@@ -39,25 +39,6 @@ export const timezones: Record<Timezone, number> = {
   Europe: 1,
   America: -5,
 };
-
-export function formatTableCaption(type: string) {
-  return `${getTableCaptionIcon(type)} ${formatName(ui[type])}`;
-}
-
-function getTableCaptionIcon(type: string): string {
-  switch (type) {
-    case "character":
-      return "🦸";
-    case "weapon":
-      return "🗡️";
-    case "enemiesAndDomains":
-      return "🌱";
-    case "today":
-      return "📅";
-    default:
-      return "";
-  }
-}
 
 export function renderQTableContent(
   type: ItemType,
@@ -258,15 +239,6 @@ function filterForMaterial(objects: OfMaterial[], m: string): OfMaterial[] {
   return objects.filter((o) => o.materials?.includes(m));
 }
 
-export function formatName(name: I18nObject): string {
-  return Object.entries(name)
-    .map(
-      ([lang, value]) =>
-        `<span class="i18n" lang="${lang}">${formatValue(value)}</span>`,
-    )
-    .join("");
-}
-
 const { current, upcoming } = findRecents();
 export function renderLink(id: string, type: ItemType, names: I18nObject) {
   const classes = [];
@@ -282,21 +254,6 @@ export function renderLink(id: string, type: ItemType, names: I18nObject) {
   return `<a data-id='${id}' data-type='${type}' class="${classes.join(
     " ",
   )}">${formatName(names)}</a>`;
-}
-
-export function formatValue(names: Readonly<string | string[]>) {
-  const showAlternatives = (
-    document.querySelector("input#show-alternatives") as HTMLInputElement
-  ).checked;
-  return typeof names === "string"
-    ? names
-    : names.length === 1
-      ? names[0]
-      : `<details class="alternative" ${
-          showAlternatives ? "open" : ""
-        }><summary>${names[0]}</summary>${names
-          .slice(1)
-          .join("<br>")}</details>`;
 }
 
 export function groupBy<W, T>(f: (w: W) => T, ws?: W[]): Map<T, W[]> {
@@ -365,7 +322,7 @@ function formatArray(
         return renderLink(obj.id, obj.type, obj.name);
     }
   });
-  return links.join(formatName(ui.delimiter));
+  return links.join(formatName(DELIMITER));
 }
 
 export function renderDomainLink(

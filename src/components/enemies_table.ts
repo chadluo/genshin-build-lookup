@@ -5,8 +5,6 @@ import {
   TYPE_TALENT_DOMAIN,
   TYPE_WEAPON_DOMAIN,
   TYPE_WEEKLY_BOSS,
-  formatName,
-  formatTableCaption,
   getTimezone,
   getWeekday,
   groupBy,
@@ -14,10 +12,27 @@ import {
   renderLink,
 } from "../base";
 import { hasBookmarks } from "../bookmarks";
-import { I18nObject, regions, ui } from "../i18n";
+import { DELIMITER, I18nObject, formatName } from "../i18n";
 import * as Enemies from "../models/enemies";
 
 export const VIEW_ALL = 6;
+
+export const ui: Record<string, I18nObject> = {
+  enemiesAndDomains: { en: "Enemies & Domains", "zh-CN": "秘境讨伐" },
+  weeklyBoss: { en: "Weekly Bosses", "zh-CN": "周本" },
+  boss: { en: "Bosses", "zh-CN": "首领" },
+  talentDomain: { en: "Talent Domains", "zh-CN": "天赋本" },
+  weaponDomain: { en: "Weapon Domains", "zh-CN": "武器本" },
+  showAll: { en: "Show All", "zh-CN": "显示全部" },
+};
+
+const regions: Record<Region, I18nObject> = {
+  Mondstadt: { en: "Mondstadt", "zh-CN": "蒙德" },
+  Liyue: { en: "Liyue", "zh-CN": "璃月" },
+  Inazuma: { en: "Inazuma", "zh-CN": "稻妻" },
+  Sumeru: { en: "Sumeru", "zh-CN": "须弥" },
+  Fontaine: { en: "Fontaine", "zh-CN": "枫丹" },
+};
 
 export class EnemiesTable extends HTMLElement {
   constructor() {
@@ -40,7 +55,7 @@ export class EnemiesTable extends HTMLElement {
     );
 
     this.innerHTML = `<details class="section" ${hasBookmarks() ? "" : "open"}>
-    <summary>${formatTableCaption("enemiesAndDomains")}</summary>
+    <summary>🌱 ${formatName(ui.enemiesAndDomains)}</summary>
     <table class="qtable">
     <tr>
       <th rowspan="${weeklyBossKeys.length}">${formatName(ui.weeklyBoss)}</th>
@@ -89,7 +104,7 @@ export class EnemiesTable extends HTMLElement {
   formatBossesForRegion(region: I18nObject, bosses?: Enemies.Boss[]) {
     return `<td>${formatName(region)}</td><td>${bosses
       ?.map((boss) => renderLink(boss.id, TYPE_WEEKLY_BOSS, boss?.name))
-      .join(formatName(ui.delimiter))}</td>`;
+      .join(formatName(DELIMITER))}</td>`;
   }
 
   formatDomain(id: string, type: ItemType) {
@@ -99,9 +114,9 @@ export class EnemiesTable extends HTMLElement {
     const currentWeekday = getWeekday(getTimezone());
     const plainWeekdays = [1, 2, 3]
       .map((i) => renderDomainLink(id, i, type, null, currentWeekday))
-      .join(formatName(ui.delimiter));
+      .join(formatName(DELIMITER));
     return `<td>${domainName}</td><td>${plainWeekdays}${formatName(
-      ui.delimiter,
+      DELIMITER,
     )}<a data-id="${id}" data-weekday="${VIEW_ALL}" data-type="${type}">${formatName(
       ui.showAll,
     )}</a></td>`;

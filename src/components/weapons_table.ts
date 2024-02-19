@@ -1,21 +1,16 @@
-import {
-  TYPE_WEAPON,
-  formatName,
-  formatTableCaption,
-  groupBy,
-  renderLink,
-} from "../base";
+import { TYPE_WEAPON, groupBy, renderLink } from "../base";
 import { hasBookmarks } from "../bookmarks";
-import { ui } from "../i18n";
+import { DELIMITER, I18nObject, formatName } from "../i18n";
 import { Category, Weapon, weapons } from "../models/weapons";
 
+const title: I18nObject = { en: "Weapons", "zh-CN": "武器" };
 export class WeaponsTable extends HTMLElement {
   constructor() {
     super();
     const byRarity = groupBy((w) => w.rarity, weapons);
     const rarities = Array.from(byRarity.keys()).sort().reverse();
     this.innerHTML = `<details class="section" ${hasBookmarks() ? "" : "open"}>
-      <summary>${formatTableCaption(TYPE_WEAPON)}</summary><table class="ctable">
+      <summary>🗡️ ${formatName(title)}</summary><table class="ctable">
       ${rarities
         .map((rarity) => {
           const ws2: Map<Category, Weapon[]> = groupBy(
@@ -27,7 +22,7 @@ export class WeaponsTable extends HTMLElement {
       <td>${this.formatWeaponIcon(categories[0])}${ws2
         .get(categories[0])
         ?.map((w) => renderLink(w.id, TYPE_WEAPON, w.name))
-        .join(formatName(ui.delimiter))}</td></tr>
+        .join(formatName(DELIMITER))}</td></tr>
       ${categories
         .slice(1)
         .map(
@@ -35,7 +30,7 @@ export class WeaponsTable extends HTMLElement {
             `<tr><td>${this.formatWeaponIcon(category)}${ws2
               .get(category)
               ?.map((c) => renderLink(c.id, TYPE_WEAPON, c.name))
-              .join(formatName(ui.delimiter))}</td></tr>`,
+              .join(formatName(DELIMITER))}</td></tr>`,
         )
         .join("")}`;
         })

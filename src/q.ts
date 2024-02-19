@@ -17,7 +17,7 @@ import { CharactersTable } from "./components/characters_table";
 import { EnemiesTable, VIEW_ALL } from "./components/enemies_table";
 import { TodayTable } from "./components/today_table";
 import { WeaponsTable } from "./components/weapons_table";
-import { SupportedLanguages, ui } from "./i18n";
+import { I18nObject, SupportedLanguages } from "./i18n";
 import { characters } from "./models/characters";
 import { weapons } from "./models/weapons";
 import "./style.css";
@@ -26,6 +26,16 @@ const selectors = document.getElementById("selectors");
 const output = document.getElementById("output-table");
 const langSelect = document.getElementById("lang-select");
 
+const supportedLanguageSelectors: I18nObject = {
+  en: "English",
+  "zh-CN": "简体中文",
+};
+
+const siteTitle: I18nObject = {
+  en: "Yuanliao: Genshin Impact Build Lookup",
+  "zh-CN": "原料：原神培养查询",
+};
+
 customElements.define("characters-table", CharactersTable);
 customElements.define("weapons-table", WeaponsTable);
 customElements.define("enemies-table", EnemiesTable);
@@ -33,14 +43,14 @@ customElements.define("today-table", TodayTable);
 
 window.addEventListener("DOMContentLoaded", () => {
   if (langSelect != null) {
-    langSelect.innerHTML = Object.entries(ui.supportedLanguageSelectors)
+    langSelect.innerHTML = Object.entries(supportedLanguageSelectors)
       .map(([lang, name]) => `<option value="${lang}">${name}</option>`)
       .join("");
   }
 
   const langCandidate: SupportedLanguages = (localStorage.getItem("lang") ??
     navigator.language) as SupportedLanguages;
-  const lang = Object.hasOwn(ui.supportedLanguageSelectors, langCandidate)
+  const lang = Object.hasOwn(supportedLanguageSelectors, langCandidate)
     ? langCandidate
     : "en";
   setLanguage(lang);
@@ -79,7 +89,7 @@ langSelect?.addEventListener("change", (event) =>
 
 function setLanguage(lang: SupportedLanguages) {
   document.documentElement.setAttribute("lang", lang);
-  document.title = ui.siteTitle[lang] as string;
+  document.title = siteTitle[lang] as string;
   setSearchItems(lang);
   (langSelect as HTMLSelectElement).value = lang;
   localStorage.setItem("lang", lang);
