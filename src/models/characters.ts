@@ -191,6 +191,12 @@ export const characters: Character[] = [
     ],
   },
   {
+    id: "Chiori",
+    type: "character",
+    rarity: 5,
+    name: { en: "Chiori", "zh-CN": "千织" },
+  },
+  {
     id: "Chongyun",
     type: "character",
     rarity: 4,

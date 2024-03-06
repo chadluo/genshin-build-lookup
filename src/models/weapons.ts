@@ -500,6 +500,13 @@ export const weapons: Weapon[] = [
       "Transoceanic Pearl",
     ],
   },
+  {
+    id: "Uraku Mitsugiri",
+    type: "weapon",
+    rarity: 5,
+    category: "Sword",
+    name: { en: "Uraku Mitsugiri", "zh-CN": "有乐御簾切" },
+  },
   //
   // Newline - sword 5
   //
@@ -1518,6 +1525,13 @@ export const weapons: Weapon[] = [
       "Old Operative’s Pocket Watch",
       "Meshing Gear",
     ],
+  },
+  {
+    id: "Dialogues of the Desert Sages",
+    type: "weapon",
+    rarity: 4,
+    category: "Polearm",
+    name: { en: "Dialogues of the Desert Sages", "zh-CN": "沙中伟贤的对答" },
   },
   //
   // Newline - polearm 4
