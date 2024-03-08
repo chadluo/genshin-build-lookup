@@ -256,19 +256,6 @@ export function renderLink(id: string, type: ItemType, names: I18nObject) {
   )}">${formatName(names)}</a>`;
 }
 
-export function groupBy<W, T>(f: (w: W) => T, ws?: W[]): Map<T, W[]> {
-  const map = new Map<T, W[]>();
-  return (
-    ws?.reduce((m, w) => {
-      const key = f(w);
-      const arr = m.get(key) ?? [];
-      arr.push(w);
-      m.set(key, arr);
-      return m;
-    }, map) ?? map
-  );
-}
-
 function renderQTableRow(
   materials: Material[],
   objects: (OfMaterial | [Domain, number])[],

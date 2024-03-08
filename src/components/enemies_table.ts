@@ -7,7 +7,6 @@ import {
   TYPE_WEEKLY_BOSS,
   getTimezone,
   getWeekday,
-  groupBy,
   renderDomainLink,
   renderLink,
 } from "../base";
@@ -37,14 +36,14 @@ const regions: Record<Region, I18nObject> = {
 export class EnemiesTable extends HTMLElement {
   constructor() {
     super();
-    const weeklyBosses: Map<Region, Enemies.Boss[]> = groupBy(
-      (b) => b.region,
+    const weeklyBosses: Map<Region, Enemies.Boss[]> = Map.groupBy(
       Enemies.bosses.filter((b) => b.type === TYPE_WEEKLY_BOSS),
+      (b) => b.region,
     );
     const weeklyBossKeys = Array.from(weeklyBosses.keys());
-    const bosses: Map<Region, Enemies.Boss[]> = groupBy(
-      (b) => b.region,
+    const bosses: Map<Region, Enemies.Boss[]> = Map.groupBy(
       Enemies.bosses.filter((b) => b.type === TYPE_BOSS),
+      ({ region }) => region,
     );
     const bossKeys = Array.from(bosses.keys());
     const talentDomains = Enemies.domains.filter(

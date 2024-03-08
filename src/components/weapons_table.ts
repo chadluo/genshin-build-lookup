@@ -1,4 +1,4 @@
-import { TYPE_WEAPON, groupBy, renderLink } from "../base";
+import { TYPE_WEAPON, renderLink } from "../base";
 import { hasBookmarks } from "../bookmarks";
 import { DELIMITER, I18nObject, formatName } from "../i18n";
 import { Category, Weapon, weapons } from "../models/weapons";
@@ -7,15 +7,15 @@ const title: I18nObject = { en: "Weapons", "zh-CN": "武器" };
 export class WeaponsTable extends HTMLElement {
   constructor() {
     super();
-    const byRarity = groupBy((w) => w.rarity, weapons);
+    const byRarity = Map.groupBy(weapons, ({ rarity }) => rarity);
     const rarities = Array.from(byRarity.keys()).sort().reverse();
     this.innerHTML = `<details class="section" ${hasBookmarks() ? "" : "open"}>
       <summary>🗡️ ${formatName(title)}</summary><table class="ctable">
       ${rarities
         .map((rarity) => {
-          const ws2: Map<Category, Weapon[]> = groupBy(
-            (w) => w.category,
-            byRarity.get(rarity),
+          const ws2: Map<Category, Weapon[]> = Map.groupBy(
+            byRarity.get(rarity) || [],
+            ({ category }) => category,
           );
           const categories = Array.from(ws2.keys());
           return `<tr><th rowspan="${categories.length}">${"⭐".repeat(rarity)}</th>

@@ -1,4 +1,4 @@
-import { TYPE_CHARACTER, groupBy, renderLink } from "../base";
+import { TYPE_CHARACTER, renderLink } from "../base";
 import { hasBookmarks } from "../bookmarks";
 import { DELIMITER, I18nObject, formatName } from "../i18n";
 import { Character, characters } from "../models/characters";
@@ -8,7 +8,7 @@ const title: I18nObject = { en: "Characters", "zh-CN": "角色" };
 export class CharactersTable extends HTMLElement {
   constructor() {
     super();
-    const byRarity = groupBy((o) => o.rarity, characters);
+    const byRarity = Map.groupBy(characters, ({ rarity }) => rarity);
     const rarities = Array.from(byRarity.keys()).sort().reverse();
     this.innerHTML = `<details class="section" ${hasBookmarks() ? "" : "open"}>
         <summary>🦸 ${formatName(title)}</summary>
