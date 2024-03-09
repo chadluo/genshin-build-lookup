@@ -195,6 +195,14 @@ export const characters: Character[] = [
     type: "character",
     rarity: 5,
     name: { en: "Chiori", "zh-CN": "千织" },
+    materials: [
+      "Artificed Spare Clockwork Component — Coppelia",
+      "Prithiva Topaz",
+      "Lightless Silk String",
+      "Light",
+      "Spectral Husk",
+      "Dendrobium",
+    ],
   },
   {
     id: "Chongyun",

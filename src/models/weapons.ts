@@ -506,6 +506,7 @@ export const weapons: Weapon[] = [
     rarity: 5,
     category: "Sword",
     name: { en: "Uraku Mitsugiri", "zh-CN": "有乐御簾切" },
+    materials: ["Coral Branch of a Distant Sea", "Chaos Gear", "Old Handguard"],
   },
   //
   // Newline - sword 5
