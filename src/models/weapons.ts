@@ -1533,6 +1533,11 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Polearm",
     name: { en: "Dialogues of the Desert Sages", "zh-CN": "沙中伟贤的对答" },
+    materials: [
+      "Copper Talisman of the Forest Dew",
+      "Feathery Fin",
+      "Spectral Husk",
+    ],
   },
   //
   // Newline - polearm 4
