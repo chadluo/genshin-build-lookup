@@ -1,4 +1,4 @@
-import { PlaywrightTestConfig, devices } from "@playwright/test";
+import { type PlaywrightTestConfig, devices } from "@playwright/test";
 
 const TEST_PORT = 3001;
 
@@ -8,6 +8,7 @@ const config: PlaywrightTestConfig = {
   expect: {
     timeout: 5000,
   },
+  fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,

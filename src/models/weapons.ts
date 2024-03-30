@@ -1,5 +1,11 @@
-import { OfMaterial, TYPE_WEAPON } from "../base";
-import { Common, Elite, Fishing, Forging, WeaponAscension } from "./materials";
+import type { OfMaterial, TYPE_WEAPON } from "../base";
+import type {
+  Common,
+  Elite,
+  Fishing,
+  Forging,
+  WeaponAscension,
+} from "./materials";
 
 export type Weapon = OfMaterial & {
   type: typeof TYPE_WEAPON;

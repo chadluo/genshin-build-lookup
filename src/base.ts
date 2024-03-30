@@ -1,9 +1,15 @@
 import { isBookmarked } from "./bookmarks";
 import { VIEW_ALL } from "./components/enemies_table";
-import { DELIMITER, EMPTY, I18nObject, formatName, weekdays } from "./i18n";
+import {
+  DELIMITER,
+  EMPTY,
+  type I18nObject,
+  formatName,
+  weekdays,
+} from "./i18n";
 import { characters } from "./models/characters";
-import { Domain, bosses, domains, enemies } from "./models/enemies";
-import { Material, materials } from "./models/materials";
+import { type Domain, bosses, domains, enemies } from "./models/enemies";
+import { type Material, materials } from "./models/materials";
 import { weapons } from "./models/weapons";
 import { findRecents } from "./version";
 

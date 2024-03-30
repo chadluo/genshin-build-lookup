@@ -1,4 +1,4 @@
-import { fail } from "assert";
+import { fail } from "node:assert";
 import { expect, test } from "@playwright/test";
 
 test.describe("availability & languages", async () => {

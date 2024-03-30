@@ -1,7 +1,7 @@
 import { TYPE_CHARACTER, renderLink } from "../base";
 import { hasBookmarks } from "../bookmarks";
-import { DELIMITER, I18nObject, formatName } from "../i18n";
-import { Character, characters } from "../models/characters";
+import { DELIMITER, formatName, type I18nObject } from "../i18n";
+import { characters, type Character } from "../models/characters";
 
 const title: I18nObject = { en: "Characters", "zh-CN": "角色" };
 

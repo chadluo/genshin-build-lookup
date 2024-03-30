@@ -1,4 +1,4 @@
-import { I18nObject } from "../i18n";
+import type { I18nObject } from "../i18n";
 
 export type Material = { name: I18nObject } & (
   | {

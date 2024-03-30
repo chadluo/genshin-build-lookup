@@ -1,4 +1,4 @@
-import { ItemType, TYPE_TALENT_DOMAIN, TYPE_WEAPON_DOMAIN } from "./base";
+import { type ItemType, TYPE_TALENT_DOMAIN, TYPE_WEAPON_DOMAIN } from "./base";
 
 type Bookmark = [ItemType, string, number];
 
@@ -20,7 +20,7 @@ export function updateBookmark(event: Event) {
   const type = input.dataset.type as ItemType;
   const id = input.dataset.id;
   if (!type || !id) return;
-  const weekday = parseInt(input.dataset.weekday ?? "0");
+  const weekday = Number.parseInt(input.dataset.weekday ?? "0");
   if (input.checked) {
     bookmark(type, id, weekday);
   } else {

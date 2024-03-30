@@ -1,5 +1,5 @@
-import { ItemType, OfMaterial, Region } from "../base";
-import { I18nObject } from "../i18n";
+import type { ItemType, OfMaterial, Region } from "../base";
+import type { I18nObject } from "../i18n";
 import { midlanderBillets, northlanderBillets } from "./materials";
 
 export interface Domain {

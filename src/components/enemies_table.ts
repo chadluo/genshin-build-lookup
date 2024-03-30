@@ -1,17 +1,17 @@
 import {
-  ItemType,
-  Region,
+  type ItemType,
   TYPE_BOSS,
   TYPE_TALENT_DOMAIN,
   TYPE_WEAPON_DOMAIN,
   TYPE_WEEKLY_BOSS,
-  getTimezone,
-  getWeekday,
-  renderDomainLink,
   renderLink,
+  type Region,
+  getWeekday,
+  getTimezone,
+  renderDomainLink,
 } from "../base";
 import { hasBookmarks } from "../bookmarks";
-import { DELIMITER, I18nObject, formatName } from "../i18n";
+import { type I18nObject, formatName, DELIMITER } from "../i18n";
 import * as Enemies from "../models/enemies";
 
 export const VIEW_ALL = 6;

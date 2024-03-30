@@ -1,7 +1,7 @@
 import { TYPE_WEAPON, renderLink } from "../base";
 import { hasBookmarks } from "../bookmarks";
-import { DELIMITER, I18nObject, formatName } from "../i18n";
-import { Category, Weapon, weapons } from "../models/weapons";
+import { DELIMITER, type I18nObject, formatName } from "../i18n";
+import { type Category, type Weapon, weapons } from "../models/weapons";
 
 const title: I18nObject = { en: "Weapons", "zh-CN": "武器" };
 export class WeaponsTable extends HTMLElement {

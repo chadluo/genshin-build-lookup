@@ -1,7 +1,7 @@
 import "./CNAME";
 import {
-  ItemType,
-  OfMaterial,
+  type ItemType,
+  type OfMaterial,
   TYPE_CHARACTER,
   TYPE_WEAPON,
   formatId,
@@ -17,7 +17,7 @@ import { CharactersTable } from "./components/characters_table";
 import { EnemiesTable, VIEW_ALL } from "./components/enemies_table";
 import { TodayTable } from "./components/today_table";
 import { WeaponsTable } from "./components/weapons_table";
-import { I18nObject, SupportedLanguages } from "./i18n";
+import type { I18nObject, SupportedLanguages } from "./i18n";
 import { characters } from "./models/characters";
 import { weapons } from "./models/weapons";
 import "./style.css";
@@ -115,7 +115,7 @@ function findOrLoadQTable(event: Event) {
   );
   if (!a) return;
   const id = a.dataset.id;
-  const weekday = parseInt(a.dataset.weekday || "0");
+  const weekday = Number.parseInt(a.dataset.weekday || "0");
   const type = a.dataset.type;
   if (!id || !type) return;
   if (a.classList.contains("remove")) {

@@ -1,5 +1,5 @@
-import { OfMaterial, TYPE_CHARACTER } from "../base";
-import {
+import type { OfMaterial, TYPE_CHARACTER } from "../base";
+import type {
   CharacterAscension,
   Common,
   Gem,

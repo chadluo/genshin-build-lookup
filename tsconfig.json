@@ -25,5 +25,6 @@
         "src/*.ts",
         "src/models/*.ts",
         "src/components/*.ts",
+        "src/tests/*.ts"
     ]
 }

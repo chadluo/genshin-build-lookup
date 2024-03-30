@@ -1,15 +1,12 @@
 import {
-  ItemType,
-  OfMaterial,
-  Timezone,
+  type Timezone,
   byDomain,
   getTimezone,
   getWeekday,
   renderQTableRows,
 } from "../base";
-import { DELIMITER, I18nObject, formatName, weekdays } from "../i18n";
-import { Domain, domains } from "../models/enemies";
-import { Material } from "../models/materials";
+import { DELIMITER, type I18nObject, formatName, weekdays } from "../i18n";
+import { domains } from "../models/enemies";
 
 const title: I18nObject = { en: "Today", "zh-CN": "今日" };
 
