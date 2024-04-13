@@ -17,7 +17,7 @@ export type Character = OfMaterial & {
     TalentMaterial,
     TalentBook,
     Common,
-    LocalSpecialities,
+    LocalSpecialities
   ];
 };
 
@@ -91,6 +91,12 @@ export const characters: Character[] = [
       "Slime Condensate",
       "Onikabuto",
     ],
+  },
+  {
+    id: "Arlecchino",
+    type: "character",
+    rarity: 5,
+    name: { en: "Arlecchino", "zh-CN": "阿蕾奇诺" },
   },
   {
     id: "Baizhu",

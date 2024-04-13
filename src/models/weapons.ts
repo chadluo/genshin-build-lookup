@@ -395,6 +395,13 @@ export const weapons: Weapon[] = [
       "Fungal Spores",
     ],
   },
+  {
+    id: "Crimson Moon’s Semblance",
+    type: "weapon",
+    rarity: 5,
+    category: "Polearm",
+    name: { en: "Crimson Moon’s Semblance", "zh-CN": "赤月之形" },
+  },
   //
   // Newline - polearm 5
   //

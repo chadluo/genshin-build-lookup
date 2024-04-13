@@ -19,6 +19,11 @@ const versions: { version: string; start: number; items: string[] }[] = [
     start: new Date(2024, 3 - 1, 12).getTime(),
     items: ["Chiori", "Uraku Mitsugiri", "Dialogues of the Desert Sages"],
   },
+  {
+    version: "4.6",
+    start: new Date(2024, 4 - 1, 24).getTime(),
+    items: ["Arlecchino", "Crimson Moon’s Semblance"],
+  },
 ];
 
 export function findRecents() {
