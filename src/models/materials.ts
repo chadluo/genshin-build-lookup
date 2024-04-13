@@ -7,7 +7,7 @@ export type Material = { name: I18nObject } & (
         | CharacterAscension
         | TalentBook
         | TalentMaterial
-        | LocalSpecialities
+        | LocalSpeciality
         | WeaponAscension
         | Elite;
       // eslint-disable-next-line no-mixed-spaces-and-tabs
@@ -140,7 +140,7 @@ export type TalentMaterial =
   | "Lightless Eye of the Maelstrom"
   | "Lightless Mass";
 
-export type LocalSpecialities =
+export type LocalSpeciality =
   | "Calla Lily"
   | "Cecilia"
   | "Dandelion Seed"

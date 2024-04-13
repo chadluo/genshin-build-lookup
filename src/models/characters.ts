@@ -3,7 +3,7 @@ import type {
   CharacterAscension,
   Common,
   Gem,
-  LocalSpecialities,
+  LocalSpeciality,
   TalentBook,
   TalentMaterial,
 } from "./materials";
@@ -17,7 +17,7 @@ export type Character = OfMaterial & {
     TalentMaterial,
     TalentBook,
     Common,
-    LocalSpecialities
+    LocalSpeciality
   ];
 };
 
