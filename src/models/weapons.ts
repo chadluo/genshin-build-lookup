@@ -401,6 +401,11 @@ export const weapons: Weapon[] = [
     rarity: 5,
     category: "Polearm",
     name: { en: "Crimson Moon’s Semblance", "zh-CN": "赤月之形" },
+    materials: [
+      "Broken Goblet of the Pristine Sea",
+      "Ruined Hilt",
+      "Meshing Gear",
+    ],
   },
   //
   // Newline - polearm 5

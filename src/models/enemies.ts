@@ -354,6 +354,20 @@ export const bosses: Boss[] = [
     name: { en: "Solitary Suanni", "zh-CN": "隐山猊兽" },
     materials: ["Cloudseam Scale", "Varunada Lazurite", "Vayuda Turquoise"],
   },
+  {
+    id: "“Statue of Marble and Brass”",
+    region: "Fontaine",
+    type: "boss",
+    name: {
+      en: "“Statue of Marble and Brass”",
+      "zh-CN": "「白石与黄铜的造像」",
+    },
+    materials: [
+      "Fragment of a Golden Melody",
+      "Agnidus Agate",
+      "Prithiva Topaz",
+    ],
+  },
   //
   // Newline - normal boss
   //
@@ -515,6 +529,22 @@ export const bosses: Boss[] = [
     name: {
       en: "Shadow of Another World / All-Devouring Narwhal",
       "zh-CN": "异界余影 / 吞星之鲸",
+    },
+  },
+  {
+    id: "Cinder of Two Worlds’ Flames",
+    region: "Fontaine",
+    materials: [
+      "Fading Candle",
+      "Silken Feather",
+      "Denial and Judgment",
+      "Agnidus Agate",
+      ...midlanderBillets,
+    ],
+    type: "weekly_boss",
+    name: {
+      en: "Cinder of Two Worlds’ Flames / The Knave",
+      "zh-CN": "两界之火的遗烬 / 「仆人」",
     },
   },
   //
@@ -757,6 +787,12 @@ export const enemies: Enemy[] = [
     type: "enemy",
     name: { en: "Xuanwen Beast", "zh-CN": "玄文兽" },
     materials: ["Feathery Fin"],
+  },
+  {
+    id: "Praetorian Golem",
+    type: "enemy",
+    name: { en: "Praetorian Golem", "zh-CN": "魔像禁卫" },
+    materials: ["Ruined Hilt"],
   },
   //
   // Newline - elite enemy

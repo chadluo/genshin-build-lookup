@@ -97,6 +97,14 @@ export const characters: Character[] = [
     type: "character",
     rarity: 5,
     name: { en: "Arlecchino", "zh-CN": "阿蕾奇诺" },
+    materials: [
+      "Fragment of a Golden Melody",
+      "Agnidus Agate",
+      "Fading Candle",
+      "Order",
+      "Recruit’s Insignia",
+      "Rainbow Rose",
+    ],
   },
   {
     id: "Baizhu",

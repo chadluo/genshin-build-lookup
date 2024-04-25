@@ -51,7 +51,8 @@ export type Elite =
   | "Drop of Tainted Water"
   | "Rift Core"
   | "Old Operative’s Pocket Watch"
-  | "Feathery Fin";
+  | "Feathery Fin"
+  | "Ruined Hilt";
 
 export type CharacterAscension =
   | "Brilliant Diamond"
@@ -91,7 +92,8 @@ export type CharacterAscension =
   | "Fontemer Unihorn"
   | "“Tourbillon Device”"
   | "Water That Failed To Transcend"
-  | "Cloudseam Scale";
+  | "Cloudseam Scale"
+  | "Fragment of a Golden Melody";
 
 export type TalentBook =
   | "Freedom"
@@ -138,7 +140,10 @@ export type TalentMaterial =
   | "Everamber"
   | "Lightless Silk String"
   | "Lightless Eye of the Maelstrom"
-  | "Lightless Mass";
+  | "Lightless Mass"
+  | "Fading Candle"
+  | "Silken Feather"
+  | "Denial and Judgment";
 
 export type LocalSpeciality =
   | "Calla Lily"
@@ -518,6 +523,14 @@ const elites: readonly Material[] = [
       "zh-CN": ["羽状鳍翅", "月色鳍翅", "渊光鳍翅"],
     },
   },
+  {
+    id: "Ruined Hilt",
+    name: {
+      en: ["Ruined Hilt", "Splintered Hilt", "Still-Smoldering Hilt"],
+      "zh-CN": ["残毁的剑柄", "裂断的剑柄", "未熄的剑柄"],
+    },
+  },
+
   //
   // Newline - elites
   //
@@ -810,6 +823,10 @@ const characterAscensions: readonly Material[] = [
     id: "Cloudseam Scale",
     name: { en: "Cloudseam Scale", "zh-CN": "凝云鳞甲" },
   },
+  {
+    id: "Fragment of a Golden Melody",
+    name: { en: "Fragment of a Golden Melody", "zh-CN": "金色旋律的断章" },
+  },
   //
   // Newline - character ascension
   //
@@ -943,6 +960,18 @@ const talentMaterials: readonly Material[] = [
   {
     id: "Lightless Mass",
     name: { en: "Lightless Mass", "zh-CN": "无光质块" },
+  },
+  {
+    id: "Fading Candle",
+    name: { en: "Fading Candle", "zh-CN": "残火灯烛" },
+  },
+  {
+    id: "Silken Feather",
+    name: { en: "Silken Feather", "zh-CN": "丝织之羽" },
+  },
+  {
+    id: "Denial and Judgment",
+    name: { en: "Denial and Judgment", "zh-CN": "否定裁断" },
   },
   //
   // Newline - talent material
