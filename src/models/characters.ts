@@ -233,6 +233,12 @@ export const characters: Character[] = [
     ],
   },
   {
+    id: "Clorinde",
+    type: "character",
+    rarity: 5,
+    name: { en: "Clorinde", "zh-CN": "克洛琳德" },
+  },
+  {
     id: "Collei",
     type: "character",
     rarity: 4,
@@ -849,6 +855,12 @@ export const characters: Character[] = [
     ],
   },
   {
+    id: "Sethos",
+    type: "character",
+    rarity: 4,
+    name: { en: "Sethos", "zh-CN": "赛索斯" },
+  },
+  {
     id: "Shenhe",
     type: "character",
     rarity: 5,
@@ -875,6 +887,12 @@ export const characters: Character[] = [
       "Treasure Hoarder Insignia",
       "Onikabuto",
     ],
+  },
+  {
+    id: "Sigewinne",
+    type: "character",
+    rarity: 5,
+    name: { en: "Sigewinne", "zh-CN": "希格雯" },
   },
   {
     id: "Sucrose",

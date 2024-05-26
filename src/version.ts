@@ -1,28 +1,20 @@
 const versions: { version: string; start: number; items: string[] }[] = [
   {
-    version: "4.3",
-    start: new Date(2023, 12 - 1, 20).getTime(),
-    items: [
-      "Navia",
-      "Chevreuse",
-      "Verdict",
-      "Ultimate Overlord’s Mega Magic Sword",
-    ],
-  },
-  {
-    version: "4.4",
-    start: new Date(2024, 1 - 1, 31).getTime(),
-    items: ["Gaming", "Xianyun", "Crane’s Echoing Call"],
-  },
-  {
-    version: "4.5",
-    start: new Date(2024, 3 - 1, 12).getTime(),
-    items: ["Chiori", "Uraku Mitsugiri", "Dialogues of the Desert Sages"],
-  },
-  {
     version: "4.6",
     start: new Date(2024, 4 - 1, 24).getTime(),
     items: ["Arlecchino", "Crimson Moon’s Semblance"],
+  },
+  {
+    version: "4.7",
+    start: new Date(2024, 6 - 1, 5).getTime(),
+    items: [
+      "Clorinde",
+      "Sigewinne",
+      "Sethos",
+      "Absolution",
+      "Silvershower Heartstrings",
+      "Cloudforged",
+    ],
   },
 ];
 

@@ -108,6 +108,13 @@ export const weapons: Weapon[] = [
       "Transoceanic Pearl",
     ],
   },
+  {
+    id: "Silvershower Heartstrings",
+    type: "weapon",
+    rarity: 5,
+    category: "Bow",
+    name: { en: "Silvershower Heartstrings", "zh-CN": "白雨心弦" },
+  },
   //
   // Newline - bow 5
   //
@@ -526,6 +533,13 @@ export const weapons: Weapon[] = [
     name: { en: "Uraku Mitsugiri", "zh-CN": "有乐御簾切" },
     materials: ["Coral Branch of a Distant Sea", "Chaos Gear", "Old Handguard"],
   },
+  {
+    id: "Absolution",
+    type: "weapon",
+    rarity: 5,
+    category: "Sword",
+    name: { en: "Absolution", "zh-CN": "赦罪" },
+  },
   //
   // Newline - sword 5
   //
@@ -797,6 +811,13 @@ export const weapons: Weapon[] = [
       "Drop of Tainted Water",
       "Transoceanic Pearl",
     ],
+  },
+  {
+    id: "Cloudforged",
+    type: "weapon",
+    rarity: 4,
+    category: "Bow",
+    name: { en: "Cloudforged", "zh-CN": "筑云" },
   },
   //
   // Newline - bow 4
