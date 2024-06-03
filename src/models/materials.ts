@@ -187,7 +187,8 @@ export type LocalSpeciality =
   | "Subdetection Unit"
   | "Lakelight Lily"
   | "Spring of the First Dewdrop"
-  | "Clearwater Jade";
+  | "Clearwater Jade"
+  | "Trishiraite";
 
 export type WeaponAscension =
   | "Mask of the Wicked Lieutenant"
@@ -648,6 +649,7 @@ const localSpecialities: readonly Material[] = [
     },
   },
   { id: "Clearwater Jade", name: { en: "Clearwater Jade", "zh-CN": "清水玉" } },
+  { id: "Trishiraite", name: { en: "Trishiraite", "zh-CN": "万相石" } },
   //
   // Newline - local specialities
   //

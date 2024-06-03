@@ -237,6 +237,14 @@ export const characters: Character[] = [
     type: "character",
     rarity: 5,
     name: { en: "Clorinde", "zh-CN": "克洛琳德" },
+    materials: [
+      "Fontemer Unihorn",
+      "Vajrada Amethyst",
+      "Everamber",
+      "Justice",
+      "Transoceanic Pearl",
+      "Lumitoile",
+    ],
   },
   {
     id: "Collei",
@@ -859,6 +867,14 @@ export const characters: Character[] = [
     type: "character",
     rarity: 4,
     name: { en: "Sethos", "zh-CN": "赛索斯" },
+    materials: [
+      "Cloudseam Scale",
+      "Vajrada Amethyst",
+      "Daka’s Bell",
+      "Praxis",
+      "Faded Red Satin",
+      "Trishiraite",
+    ],
   },
   {
     id: "Shenhe",

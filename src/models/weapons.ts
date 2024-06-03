@@ -539,6 +539,11 @@ export const weapons: Weapon[] = [
     rarity: 5,
     category: "Sword",
     name: { en: "Absolution", "zh-CN": "赦罪" },
+    materials: [
+      "Fragment of an Ancient Chord",
+      "Old Operative’s Pocket Watch",
+      "Meshing Gear",
+    ],
   },
   //
   // Newline - sword 5
@@ -818,6 +823,7 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Bow",
     name: { en: "Cloudforged", "zh-CN": "筑云" },
+    materials: ["Grain of Aerosiderite", "Ruined Hilt", "Recruit’s Insignia"],
   },
   //
   // Newline - bow 4
