@@ -909,6 +909,14 @@ export const characters: Character[] = [
     type: "character",
     rarity: 5,
     name: { en: "Sigewinne", "zh-CN": "希格雯" },
+    materials: [
+      "Water That Failed To Transcend",
+      "Varunada Lazurite",
+      "Lightless Eye of the Maelstrom",
+      "Equity",
+      "Transoceanic Pearl",
+      "Romaritime Flower",
+    ],
   },
   {
     id: "Sucrose",
