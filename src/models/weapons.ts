@@ -114,6 +114,11 @@ export const weapons: Weapon[] = [
     rarity: 5,
     category: "Bow",
     name: { en: "Silvershower Heartstrings", "zh-CN": "白雨心弦" },
+    materials: [
+      "Dross of Pure Sacred Dewdrop",
+      "Feathery Fin",
+      "Transoceanic Pearl",
+    ],
   },
   //
   // Newline - bow 5
