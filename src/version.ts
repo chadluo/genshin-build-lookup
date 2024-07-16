@@ -16,6 +16,11 @@ const versions: { version: string; start: number; items: string[] }[] = [
       "Cloudforged",
     ],
   },
+  {
+    version: "4.8",
+    start: new Date(2024, 7 - 1, 16).getTime(),
+    items: ["Emilie", "Lumidouce Elegy"],
+  },
 ];
 
 export function findRecents() {

@@ -419,6 +419,13 @@ export const weapons: Weapon[] = [
       "Meshing Gear",
     ],
   },
+  {
+    id: "Lumidouce Elegy",
+    type: "weapon",
+    rarity: 5,
+    category: "Polearm",
+    name: { en: "Lumidouce Elegy", "zh-CN": "柔灯挽歌" },
+  },
   //
   // Newline - polearm 5
   //

@@ -331,6 +331,12 @@ export const characters: Character[] = [
     ],
   },
   {
+    id: "Emilie",
+    type: "character",
+    rarity: 5,
+    name: { en: "Emilie", "zh-CN": "艾梅莉埃" },
+  },
+  {
     id: "Eula",
     type: "character",
     rarity: 5,
