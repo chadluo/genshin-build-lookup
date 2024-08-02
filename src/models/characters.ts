@@ -335,6 +335,14 @@ export const characters: Character[] = [
     type: "character",
     rarity: 5,
     name: { en: "Emilie", "zh-CN": "艾梅莉埃" },
+    materials: [
+      "Fragment of a Golden Melody",
+      "Nagadus Emerald",
+      "Silken Feather",
+      "Order",
+      "Meshing Gear",
+      "Lakelight Lily",
+    ],
   },
   {
     id: "Eula",

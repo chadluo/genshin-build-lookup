@@ -425,6 +425,11 @@ export const weapons: Weapon[] = [
     rarity: 5,
     category: "Polearm",
     name: { en: "Lumidouce Elegy", "zh-CN": "柔灯挽歌" },
+    materials: [
+      "Broken Goblet of the Pristine Sea",
+      "Ruined Hilt",
+      "Whopperflower Nectar",
+    ],
   },
   //
   // Newline - polearm 5
