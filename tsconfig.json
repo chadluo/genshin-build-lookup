@@ -4,10 +4,12 @@
             "DOM",
             "ESNext"
         ],
-        "module": "ES2020",
-        "moduleResolution": "node",
+        "module": "NodeNext",
+        "moduleDetection": "force",
+        "moduleResolution": "NodeNext",
         "noImplicitAny": true,
         "noImplicitReturns": true,
+        // "noUncheckedIndexedAccess": true,
         "outDir": "public",
         "sourceMap": true,
         "strictNullChecks": true
