@@ -13,7 +13,13 @@ import { type Material, materials } from "./models/materials";
 import { weapons } from "./models/weapons";
 import { findRecents } from "./version";
 
-export type Region = "Mondstadt" | "Liyue" | "Inazuma" | "Sumeru" | "Fontaine";
+export type Region =
+  | "Mondstadt"
+  | "Liyue"
+  | "Inazuma"
+  | "Sumeru"
+  | "Fontaine"
+  | "Natlan";
 
 export const TYPE_CHARACTER = "character";
 export const TYPE_WEAPON = "weapon";
@@ -49,7 +55,7 @@ export const timezones: Record<Timezone, number> = {
 export function renderQTableContent(
   type: ItemType,
   id: string,
-  weekday: number,
+  weekday: number
 ): string {
   switch (type) {
     case TYPE_CHARACTER: {
@@ -62,7 +68,7 @@ export function renderQTableContent(
             character.name,
             byMaterials(character.materials),
             weekday,
-            true,
+            true
           );
     }
     case TYPE_WEAPON: {
@@ -75,7 +81,7 @@ export function renderQTableContent(
             weapon.name,
             byMaterials(weapon.materials),
             weekday,
-            true,
+            true
           );
     }
     case TYPE_WEEKLY_BOSS:
@@ -87,7 +93,7 @@ export function renderQTableContent(
         findName([...bosses, ...enemies], id),
         byEnemy(id),
         weekday,
-        true,
+        true
       );
     case TYPE_TALENT_DOMAIN:
     case TYPE_WEAPON_DOMAIN:
@@ -100,8 +106,8 @@ export function renderQTableContent(
               findName(domains, id),
               byDomain(id, weekday),
               weekday,
-              true,
-            ),
+              true
+            )
           )
           .join("");
       }
@@ -111,7 +117,7 @@ export function renderQTableContent(
         findName(domains, id),
         byDomain(id, weekday),
         weekday,
-        true,
+        true
       );
     default:
       return "";
@@ -134,7 +140,7 @@ export function renderQTableRows(
   name: I18nObject,
   object: Map<Material, (OfMaterial | [Domain, number])[]>,
   weekday: number,
-  remove: boolean,
+  remove: boolean
 ) {
   const ms = Array.from(object.keys());
   const separator =
@@ -176,7 +182,7 @@ export function renderQTableRows(
 }
 
 function byMaterials(
-  ms: string[] | undefined,
+  ms: string[] | undefined
 ): Map<Material, [Domain, number][] | OfMaterial[]> {
   const map = new Map<Material, [Domain, number][] | OfMaterial[]>();
   return ms === undefined
@@ -223,7 +229,7 @@ function byEnemy(enemy: string): Map<Material, OfMaterial[]> {
 
 export function byDomain(
   domainId: string,
-  weekday: number,
+  weekday: number
 ): Map<Material, OfMaterial[]> {
   const domain = domains.find((d) => d.id === domainId);
   const material = domain?.materials_by_weekday[weekday];
@@ -234,8 +240,8 @@ export function byDomain(
       m,
       filterForMaterial(
         domain?.type === TYPE_WEAPON_DOMAIN ? weapons : characters,
-        material,
-      ),
+        material
+      )
     );
   }
   return map;
@@ -258,16 +264,18 @@ export function renderLink(id: string, type: ItemType, names: I18nObject) {
     classes.push("upcoming");
   }
   return `<a data-id='${id}' data-type='${type}' class="${classes.join(
-    " ",
+    " "
   )}">${formatName(names)}</a>`;
 }
 
 function renderQTableRow(
   materials: Material[],
   objects: (OfMaterial | [Domain, number])[],
-  currentWeekday: number,
+  currentWeekday: number
 ) {
-  return `<td>${materials.length === 0 ? "" : formatName(materials[0].name)}</td>
+  return `<td>${
+    materials.length === 0 ? "" : formatName(materials[0].name)
+  }</td>
     <td>${
       materials.length === 0 ? "" : formatArray(objects, currentWeekday)
     }</td>`;
@@ -275,7 +283,7 @@ function renderQTableRow(
 
 function formatDomainName(name: I18nObject, weekday: number) {
   return `${formatName(name)}<span class="domainWeekday"> / ${formatName(
-    weekdays[weekday],
+    weekdays[weekday]
   )}</span>`;
 }
 
@@ -297,7 +305,7 @@ export function formatId(...parts: (string | number)[]) {
 
 function formatArray(
   es: (OfMaterial | [Domain, number])[],
-  currentWeekday: number,
+  currentWeekday: number
 ): string {
   const links = es.map((e) => {
     const [obj, weekday] = Array.isArray(e) ? [e[0], e[1]] : [e, 0];
@@ -309,7 +317,7 @@ function formatArray(
           weekday,
           obj.type,
           obj.name,
-          currentWeekday,
+          currentWeekday
         );
       default:
         return renderLink(obj.id, obj.type, obj.name);
@@ -323,7 +331,7 @@ export function renderDomainLink(
   weekday: number,
   type: ItemType,
   names: I18nObject | null,
-  currentWeekday: number,
+  currentWeekday: number
 ) {
   const classes = [];
   if (isBookmarked(type, id, weekday)) {
@@ -333,10 +341,10 @@ export function renderDomainLink(
     classes.push("current");
   }
   return `<a data-id='${id}' data-weekday='${weekday}' data-type='${type}' class='${classes.join(
-    " ",
+    " "
   )}'
   >${names === null ? "" : formatName(names)} ${formatName(
-    weekdays[weekday],
+    weekdays[weekday]
   )}</a>`;
 }
 

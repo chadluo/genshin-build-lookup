@@ -485,6 +485,12 @@ export const characters: Character[] = [
     ],
   },
   {
+    id: "Kachina",
+    type: "character",
+    rarity: 4,
+    name: { en: "Kachina", "zh-CN": "卡齐娜" },
+  },
+  {
     id: "Kaedehara Kazuha",
     type: "character",
     rarity: 5,
@@ -567,6 +573,12 @@ export const characters: Character[] = [
       "Whopperflower Nectar",
       "Cor Lapis",
     ],
+  },
+  {
+    id: "Kinich",
+    type: "character",
+    rarity: 5,
+    name: { en: "Kinich", "zh-CN": "基尼奇" },
   },
   {
     id: "Kirara",
@@ -707,6 +719,12 @@ export const characters: Character[] = [
       "Whopperflower Nectar",
       "Philanemo Mushroom",
     ],
+  },
+  {
+    id: "Mualani",
+    type: "character",
+    rarity: 5,
+    name: { en: "Mualani", "zh-CN": "玛拉妮" },
   },
   {
     id: "Nahida",

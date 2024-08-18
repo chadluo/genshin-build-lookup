@@ -1,17 +1,17 @@
 import {
   type ItemType,
+  type Region,
   TYPE_BOSS,
   TYPE_TALENT_DOMAIN,
   TYPE_WEAPON_DOMAIN,
   TYPE_WEEKLY_BOSS,
-  renderLink,
-  type Region,
-  getWeekday,
   getTimezone,
+  getWeekday,
   renderDomainLink,
+  renderLink,
 } from "../base";
 import { hasBookmarks } from "../bookmarks";
-import { type I18nObject, formatName, DELIMITER } from "../i18n";
+import { DELIMITER, type I18nObject, formatName } from "../i18n";
 import * as Enemies from "../models/enemies";
 
 export const VIEW_ALL = 6;
@@ -31,6 +31,7 @@ const regions: Record<Region, I18nObject> = {
   Inazuma: { en: "Inazuma", "zh-CN": "稻妻" },
   Sumeru: { en: "Sumeru", "zh-CN": "须弥" },
   Fontaine: { en: "Fontaine", "zh-CN": "枫丹" },
+  Natlan: { en: "Natlan", "zh-CN": "纳塔" },
 };
 
 export class EnemiesTable extends HTMLElement {
@@ -38,19 +39,19 @@ export class EnemiesTable extends HTMLElement {
     super();
     const weeklyBosses: Map<Region, Enemies.Boss[]> = Map.groupBy(
       Enemies.bosses.filter((b) => b.type === TYPE_WEEKLY_BOSS),
-      (b) => b.region,
+      (b) => b.region
     );
     const weeklyBossKeys = Array.from(weeklyBosses.keys());
     const bosses: Map<Region, Enemies.Boss[]> = Map.groupBy(
       Enemies.bosses.filter((b) => b.type === TYPE_BOSS),
-      ({ region }) => region,
+      ({ region }) => region
     );
     const bossKeys = Array.from(bosses.keys());
     const talentDomains = Enemies.domains.filter(
-      (d) => d.type === TYPE_TALENT_DOMAIN,
+      (d) => d.type === TYPE_TALENT_DOMAIN
     );
     const weaponDomains = Enemies.domains.filter(
-      (d) => d.type === TYPE_WEAPON_DOMAIN,
+      (d) => d.type === TYPE_WEAPON_DOMAIN
     );
 
     this.innerHTML = `<details class="section" ${hasBookmarks() ? "" : "open"}>
@@ -60,7 +61,7 @@ export class EnemiesTable extends HTMLElement {
       <th rowspan="${weeklyBossKeys.length}">${formatName(ui.weeklyBoss)}</th>
       ${this.formatBossesForRegion(
         regions[weeklyBossKeys[0]],
-        weeklyBosses.get(weeklyBossKeys[0]),
+        weeklyBosses.get(weeklyBossKeys[0])
       )}
     </tr>
     ${weeklyBossKeys
@@ -69,8 +70,8 @@ export class EnemiesTable extends HTMLElement {
         (k) =>
           `<tr>${this.formatBossesForRegion(
             regions[k],
-            weeklyBosses.get(k),
-          )}</tr>`,
+            weeklyBosses.get(k)
+          )}</tr>`
       )
       .join("")}
     <tr><th rowspan="${bossKeys.length}">${formatName(ui.boss)}</th>
@@ -80,16 +81,20 @@ export class EnemiesTable extends HTMLElement {
       .slice(1)
       .map(
         (k) =>
-          `<tr>${this.formatBossesForRegion(regions[k], bosses.get(k))}</tr>`,
+          `<tr>${this.formatBossesForRegion(regions[k], bosses.get(k))}</tr>`
       )
       .join("")}
-    <tr><th rowspan="${talentDomains.length}">${formatName(ui.talentDomain)}</th>
+    <tr><th rowspan="${talentDomains.length}">${formatName(
+      ui.talentDomain
+    )}</th>
       ${this.formatDomain(talentDomains[0].id, TYPE_TALENT_DOMAIN)}</tr>
     ${talentDomains
       .slice(1)
       .map((d) => `<tr>${this.formatDomain(d.id, TYPE_TALENT_DOMAIN)}</tr>`)
       .join("")}
-    <tr><th rowspan="${weaponDomains.length}">${formatName(ui.weaponDomain)}</th>
+    <tr><th rowspan="${weaponDomains.length}">${formatName(
+      ui.weaponDomain
+    )}</th>
     ${this.formatDomain(weaponDomains[0].id, TYPE_WEAPON_DOMAIN)}</tr>
     ${weaponDomains
       .slice(1)
@@ -108,16 +113,16 @@ export class EnemiesTable extends HTMLElement {
 
   formatDomain(id: string, type: ItemType) {
     const domainName = formatName(
-      Enemies.domains.filter((d) => d.id === id)[0]?.name,
+      Enemies.domains.filter((d) => d.id === id)[0]?.name
     );
     const currentWeekday = getWeekday(getTimezone());
     const plainWeekdays = [1, 2, 3]
       .map((i) => renderDomainLink(id, i, type, null, currentWeekday))
       .join(formatName(DELIMITER));
     return `<td>${domainName}</td><td>${plainWeekdays}${formatName(
-      DELIMITER,
+      DELIMITER
     )}<a data-id="${id}" data-weekday="${VIEW_ALL}" data-type="${type}">${formatName(
-      ui.showAll,
+      ui.showAll
     )}</a></td>`;
   }
 }

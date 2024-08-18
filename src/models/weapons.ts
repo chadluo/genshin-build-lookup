@@ -249,6 +249,13 @@ export const weapons: Weapon[] = [
     name: { en: "Crane’s Echoing Call", "zh-CN": "鹤鸣余音" },
     materials: ["Mist Veiled Lead Elixir", "Feathery Fin", "Divining Scroll"],
   },
+  {
+    id: "Surf’s Up",
+    type: "weapon",
+    rarity: 5,
+    category: "Catalyst",
+    name: { en: "Surf’s Up", "zh-CN": "冲浪时光" },
+  },
   //
   // Newline - catalyst 5
   //
@@ -323,6 +330,13 @@ export const weapons: Weapon[] = [
     category: "Claymore",
     name: { en: "Verdict", "zh-CN": "裁断" },
     materials: ["Fragment of an Ancient Chord", "Rift Core", "Meshing Gear"],
+  },
+  {
+    id: "Fang of the Mountain King",
+    type: "weapon",
+    rarity: 5,
+    category: "Claymore",
+    name: { en: "Fang of the Mountain King", "zh-CN": "山王长牙" },
   },
   //
   // Newline - claymore 5
@@ -842,6 +856,13 @@ export const weapons: Weapon[] = [
     name: { en: "Cloudforged", "zh-CN": "筑云" },
     materials: ["Grain of Aerosiderite", "Ruined Hilt", "Recruit’s Insignia"],
   },
+  {
+    id: "Chain Breaker",
+    type: "weapon",
+    rarity: 4,
+    category: "Bow",
+    name: { en: "Chain Breaker", "zh-CN": "碎链" },
+  },
   //
   // Newline - bow 4
   //
@@ -1082,6 +1103,13 @@ export const weapons: Weapon[] = [
       "Fragile Bone Shard",
       "Treasure Hoarder Insignia",
     ],
+  },
+  {
+    id: "Ring of Yaxche",
+    type: "weapon",
+    rarity: 4,
+    category: "Catalyst",
+    name: { en: "Ring of Yaxche", "zh-CN": "木棉之环" },
   },
   //
   // Newline catalyst 4
@@ -1359,6 +1387,13 @@ export const weapons: Weapon[] = [
       "Meshing Gear",
     ],
   },
+  {
+    id: "Earth Shaker",
+    type: "weapon",
+    rarity: 4,
+    category: "Claymore",
+    name: { en: "Earth Shaker", "zh-CN": "撼地者" },
+  },
   //
   // Newline - claymore 4
   //
@@ -1600,6 +1635,13 @@ export const weapons: Weapon[] = [
       "Feathery Fin",
       "Spectral Husk",
     ],
+  },
+  {
+    id: "Footprint of the Rainbow",
+    type: "weapon",
+    rarity: 4,
+    category: "Polearm",
+    name: { en: "Footprint of the Rainbow", "zh-CN": "虹的行迹" },
   },
   //
   // Newline - polearm 4
@@ -1874,6 +1916,13 @@ export const weapons: Weapon[] = [
       "Old Operative’s Pocket Watch",
       "Transoceanic Pearl",
     ],
+  },
+  {
+    id: "Flute of Ezpitzal",
+    type: "weapon",
+    rarity: 4,
+    category: "Sword",
+    name: { en: "Flute of Ezpitzal", "zh-CN": "息燧之笛" },
   },
   //
   // Newline - sword 4
