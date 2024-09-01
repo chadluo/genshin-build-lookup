@@ -489,6 +489,14 @@ export const characters: Character[] = [
     type: "character",
     rarity: 4,
     name: { en: "Kachina", "zh-CN": "卡齐娜" },
+    materials: [
+      "Overripe Flamegranate",
+      "Prithiva Topaz",
+      "Fading Candle",
+      "Conflict",
+      "Sentry’s Wooden Whistle",
+      "Quenepa Berry",
+    ],
   },
   {
     id: "Kaedehara Kazuha",
@@ -725,6 +733,14 @@ export const characters: Character[] = [
     type: "character",
     rarity: 5,
     name: { en: "Mualani", "zh-CN": "玛拉妮" },
+    materials: [
+      "Mark of the Binding Blessing",
+      "Varunada Lazurite",
+      "Lightless Mass",
+      "Contention",
+      "Sentry’s Wooden Whistle",
+      "Sprayfeather Gill",
+    ],
   },
   {
     id: "Nahida",

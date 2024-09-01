@@ -255,6 +255,11 @@ export const weapons: Weapon[] = [
     rarity: 5,
     category: "Catalyst",
     name: { en: "Surf’s Up", "zh-CN": "冲浪时光" },
+    materials: [
+      "Blazing Sacrificial Heart’s Terror",
+      "Shard of a Shattered Will",
+      "Juvenile Fang",
+    ],
   },
   //
   // Newline - catalyst 5
@@ -862,6 +867,11 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Bow",
     name: { en: "Chain Breaker", "zh-CN": "碎链" },
+    materials: [
+      "Night-Wind’s Mystic Consideration",
+      "Feathery Fin",
+      "Juvenile Fang",
+    ],
   },
   //
   // Newline - bow 4
@@ -1110,6 +1120,23 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Catalyst",
     name: { en: "Ring of Yaxche", "zh-CN": "木棉之环" },
+    materials: [
+      "Delirious Decadence of the Sacred Lord",
+      "Shard of a Shattered Will",
+      "Damaged Mask",
+    ],
+  },
+  {
+    id: "Ash-Graven Drinking Horn",
+    type: "weapon",
+    rarity: 4,
+    category: "Catalyst",
+    name: { en: "Ash-Graven Drinking Horn", "zh-CN": "苍纹角杯" },
+    materials: [
+      "Night-Wind’s Mystic Consideration",
+      "Axis of the Secret Source",
+      "Juvenile Fang",
+    ],
   },
   //
   // Newline catalyst 4
@@ -1393,6 +1420,11 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Claymore",
     name: { en: "Earth Shaker", "zh-CN": "撼地者" },
+    materials: [
+      "Blazing Sacrificial Heart’s Terror",
+      "Ignited Stone",
+      "Sentry’s Wooden Whistle",
+    ],
   },
   //
   // Newline - claymore 4
@@ -1642,6 +1674,11 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Polearm",
     name: { en: "Footprint of the Rainbow", "zh-CN": "虹的行迹" },
+    materials: [
+      "Delirious Decadence of the Sacred Lord",
+      "Axis of the Secret Source",
+      "Sentry’s Wooden Whistle",
+    ],
   },
   //
   // Newline - polearm 4
@@ -1923,6 +1960,11 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Sword",
     name: { en: "Flute of Ezpitzal", "zh-CN": "息燧之笛" },
+    materials: [
+      "Blazing Sacrificial Heart’s Terror",
+      "Ruined Hilt",
+      "Juvenile Fang",
+    ],
   },
   //
   // Newline - sword 4

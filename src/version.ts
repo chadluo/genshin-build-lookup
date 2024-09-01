@@ -18,6 +18,7 @@ const versions: { version: string; start: number; items: string[] }[] = [
       "Footprint of the Rainbow",
       "Ring of Yaxche",
       "Chain Breaker",
+      "Ash-Graven Drinking Horn",
     ],
   },
 ];

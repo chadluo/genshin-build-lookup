@@ -30,7 +30,9 @@ export type Common =
   | "Fungal Spores"
   | "Faded Red Satin"
   | "Meshing Gear"
-  | "Transoceanic Pearl";
+  | "Transoceanic Pearl"
+  | "Sentry’s Wooden Whistle"
+  | "Juvenile Fang";
 
 export type Elite =
   | "Concealed Claw"
@@ -52,7 +54,10 @@ export type Elite =
   | "Rift Core"
   | "Old Operative’s Pocket Watch"
   | "Feathery Fin"
-  | "Ruined Hilt";
+  | "Ruined Hilt"
+  | "Shard of a Shattered Will"
+  | "Ignited Stone"
+  | "Axis of the Secret Source";
 
 export type CharacterAscension =
   | "Brilliant Diamond"
@@ -93,7 +98,9 @@ export type CharacterAscension =
   | "“Tourbillon Device”"
   | "Water That Failed To Transcend"
   | "Cloudseam Scale"
-  | "Fragment of a Golden Melody";
+  | "Fragment of a Golden Melody"
+  | "Mark of the Binding Blessing"
+  | "Overripe Flamegranate";
 
 export type TalentBook =
   | "Freedom"
@@ -110,7 +117,10 @@ export type TalentBook =
   | "Praxis"
   | "Equity"
   | "Justice"
-  | "Order";
+  | "Order"
+  | "Contention"
+  | "Kindling"
+  | "Conflict";
 
 export type TalentMaterial =
   | "Crown of Insight"
@@ -188,7 +198,9 @@ export type LocalSpeciality =
   | "Lakelight Lily"
   | "Spring of the First Dewdrop"
   | "Clearwater Jade"
-  | "Trishiraite";
+  | "Trishiraite"
+  | "Quenepa Berry"
+  | "Sprayfeather Gill";
 
 export type WeaponAscension =
   | "Mask of the Wicked Lieutenant"
@@ -205,7 +217,10 @@ export type WeaponAscension =
   | "Copper Talisman of the Forest Dew"
   | "Fragment of an Ancient Chord"
   | "Dross of Pure Sacred Dewdrop"
-  | "Broken Goblet of the Pristine Sea";
+  | "Broken Goblet of the Pristine Sea"
+  | "Blazing Sacrificial Heart’s Terror"
+  | "Delirious Decadence of the Sacred Lord"
+  | "Night-Wind’s Mystic Consideration";
 
 export type Gem =
   | "Brilliant Diamond"
@@ -363,6 +378,24 @@ const commons: readonly Material[] = [
     name: {
       en: ["Transoceanic Pearl", "Transoceanic Chunk", "Xenochromatic Crystal"],
       "zh-CN": ["异海凝珠", "异海之块", "异色结晶石"],
+    },
+  },
+  {
+    id: "Juvenile Fang",
+    name: {
+      en: ["Juvenile Fang", "Seasoned Fang", "Tyrant’s Fang"],
+      "zh-CN": ["稚嫩的尖齿", "老练的坚齿", "横行霸者的利齿"],
+    },
+  },
+  {
+    id: "Sentry’s Wooden Whistle",
+    name: {
+      en: [
+        "Sentry’s Wooden Whistle",
+        "Warrior’s Metal Whistle",
+        "Saurian-Crowned Warrior’s Golden Whistle",
+      ],
+      "zh-CN": ["卫从的木哨", "战士的铁哨", "龙冠武士的金哨"],
     },
   },
   //
@@ -531,7 +564,35 @@ const elites: readonly Material[] = [
       "zh-CN": ["残毁的剑柄", "裂断的剑柄", "未熄的剑柄"],
     },
   },
-
+  {
+    id: "Shard of a Shattered Will",
+    name: {
+      en: [
+        "Shard of a Shattered Will",
+        "Locus of a Clear Will",
+        "Sigil of a Striding Will",
+      ],
+      "zh-CN": ["意志破碎的残片", "意志明晰的寄偶", "意志巡游的符像"],
+    },
+  },
+  {
+    id: "Ignited Stone",
+    name: {
+      en: ["Ignited Stone", "Ignited Seed of Life", "Ignited Seeing Eye"],
+      "zh-CN": ["聚燃的石块", "聚燃的命种", "聚燃的游像眼"],
+    },
+  },
+  {
+    id: "Axis of the Secret Source",
+    name: {
+      en: [
+        "Axis of the Secret Source",
+        "Sheath of the Secret Source",
+        "Heart of the Secret Source",
+      ],
+      "zh-CN": ["秘源轴", "秘源机鞘", "秘源真芯"],
+    },
+  },
   //
   // Newline - elites
   //
@@ -650,6 +711,11 @@ const localSpecialities: readonly Material[] = [
   },
   { id: "Clearwater Jade", name: { en: "Clearwater Jade", "zh-CN": "清水玉" } },
   { id: "Trishiraite", name: { en: "Trishiraite", "zh-CN": "万相石" } },
+  { id: "Quenepa Berry", name: { en: "Quenepa Berry", "zh-CN": "青蜜莓" } },
+  {
+    id: "Sprayfeather Gill",
+    name: { en: "Sprayfeather Gill", "zh-CN": "浪沫羽鳃" },
+  },
   //
   // Newline - local specialities
   //
@@ -829,6 +895,14 @@ const characterAscensions: readonly Material[] = [
     id: "Fragment of a Golden Melody",
     name: { en: "Fragment of a Golden Melody", "zh-CN": "金色旋律的断章" },
   },
+  {
+    id: "Mark of the Binding Blessing",
+    name: { en: "Mark of the Binding Blessing", "zh-CN": "受祝所缚之印" },
+  },
+  {
+    id: "Overripe Flamegranate",
+    name: { en: "Overripe Flamegranate", "zh-CN": "过熟的火榴果" },
+  },
   //
   // Newline - character ascension
   //
@@ -850,6 +924,9 @@ const talentBooks: readonly Material[] = [
   { id: "Equity", name: { en: "Equity", "zh-CN": "公平" } },
   { id: "Justice", name: { en: "Justice", "zh-CN": "正义" } },
   { id: "Order", name: { en: "Order", "zh-CN": "秩序" } },
+  { id: "Contention", name: { en: "Contention", "zh-CN": "角逐" } },
+  { id: "Kindling", name: { en: "Kindling", "zh-CN": "焚燔" } },
+  { id: "Conflict", name: { en: "Conflict", "zh-CN": "纷争" } },
   // Newline - talent book
 ] as const;
 
@@ -1233,6 +1310,57 @@ const weaponAscensions: readonly Material[] = [
         "无垢之海的酒盏",
         "无垢之海的银杯",
         "无垢之海的金杯",
+      ],
+    },
+  },
+  {
+    id: "Blazing Sacrificial Heart’s Terror",
+    name: {
+      en: [
+        "Blazing Sacrificial Heart’s Terror",
+        "Blazing Sacrificial Heart’s Hesitance",
+        "Blazing Sacrificial Heart’s Resolve",
+        "Blazing Sacrificial Heart’s Splendor",
+      ],
+      "zh-CN": [
+        "贡祭炽心的惶恐",
+        "贡祭炽心的踌躇",
+        "贡祭炽心的决绝",
+        "贡祭炽心的荣膺",
+      ],
+    },
+  },
+  {
+    id: "Delirious Decadence of the Sacred Lord",
+    name: {
+      en: [
+        "Delirious Decadence of the Sacred Lord",
+        "Delirious Desolation of the Sacred Lord",
+        "Delirious Demeanor of the Sacred Lord",
+        "Delirious Divinity of the Sacred Lord",
+      ],
+      "zh-CN": [
+        "谵妄圣主的朽败",
+        "谵妄圣主的余哀",
+        "谵妄圣主的容光",
+        "谵妄圣主的神面",
+      ],
+    },
+  },
+  {
+    id: "Night-Wind’s Mystic Consideration",
+    name: {
+      en: [
+        "Night-Wind’s Mystic Consideration",
+        "Night-Wind’s Mystic Premonition",
+        "Night-Wind’s Mystic Augury",
+        "Night-Wind’s Mystic Revelation",
+      ],
+      "zh-CN": [
+        "神合秘烟的思绪",
+        "神合秘烟的预感",
+        "神合秘烟的征兆",
+        "神合秘烟的启示",
       ],
     },
   },

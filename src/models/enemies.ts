@@ -52,6 +52,12 @@ export const domains: Domain[] = [
     materials_by_weekday: ["All", "Equity", "Justice", "Order"],
   },
   {
+    id: "Blazing Ruins",
+    name: { en: "Blazing Ruins", "zh-CN": "蕴火的幽墟" },
+    type: "talent_domain",
+    materials_by_weekday: ["All", "Contention", "Kindling", "Conflict"],
+  },
+  {
     id: "Cecilia Garden",
     name: { en: ["Cecilia Garden"], "zh-CN": ["塞西莉亚苗圃"] },
     type: "weapon_domain",
@@ -107,6 +113,17 @@ export const domains: Domain[] = [
       "Fragment of an Ancient Chord",
       "Dross of Pure Sacred Dewdrop",
       "Broken Goblet of the Pristine Sea",
+    ],
+  },
+  {
+    id: "Ancient Watchtower",
+    name: { en: "Ancient Watchtower", "zh-CN": "深谷瞭望所" },
+    type: "weapon_domain",
+    materials_by_weekday: [
+      "All",
+      "Blazing Sacrificial Heart’s Terror",
+      "Delirious Decadence of the Sacred Lord",
+      "Night-Wind’s Mystic Consideration",
     ],
   },
 ];
@@ -367,6 +384,20 @@ export const bosses: Boss[] = [
       "Agnidus Agate",
       "Prithiva Topaz",
     ],
+  },
+  {
+    id: "Holawaqa Ngoubou",
+    region: "Natlan",
+    type: "boss",
+    name: { en: "Holawaqa Ngoubou", "zh-CN": "霍拉瓦伽・恩古布" },
+    materials: ["Mark of the Binding Blessing", "Agnidus Agate"],
+  },
+  {
+    id: "Kongamato",
+    region: "Natlan",
+    type: "boss",
+    name: { en: "Kongamato", "zh-CN": "康加玛托" },
+    materials: ["Overripe Flamegranate", "Nagadus Emerald"],
   },
   //
   // Newline - normal boss
@@ -631,6 +662,18 @@ export const enemies: Enemy[] = [
     name: { en: "Fontemer Aberrant", "zh-CN": "原海异种" },
     materials: ["Transoceanic Pearl"],
   },
+  {
+    id: "Natlan Saurians",
+    type: "enemy",
+    name: { en: "Natlan Saurians", "zh-CN": "纳塔龙众" },
+    materials: ["Juvenile Fang"],
+  },
+  {
+    id: "Sauroform Tribal Warriors",
+    type: "enemy",
+    name: { en: "Sauroform Tribal Warriors", "zh-CN": "部族龙形武士" },
+    materials: ["Sentry’s Wooden Whistle"],
+  },
   //
   // Newline - normal enemy
   //
@@ -793,6 +836,27 @@ export const enemies: Enemy[] = [
     type: "enemy",
     name: { en: "Praetorian Golem", "zh-CN": "魔像禁卫" },
     materials: ["Ruined Hilt"],
+  },
+  {
+    id: "Wayob Manifestations",
+    type: "enemy",
+    name: { en: "Wayob Manifestations", "zh-CN": "大灵显化身" },
+    materials: ["Shard of a Shattered Will"],
+  },
+  {
+    id: "Avatars of Lava",
+    type: "enemy",
+    name: { en: "Avatars of Lava", "zh-CN": "熔岩游像" },
+    materials: ["Ignited Stone"],
+  },
+  {
+    id: "Secret Source Automation: Hunter-Seeker",
+    type: "enemy",
+    name: {
+      en: "Secret Source Automation: Hunter-Seeker",
+      "zh-CN": "秘源机兵・巡捕械",
+    },
+    materials: ["Axis of the Secret Source"],
   },
   //
   // Newline - elite enemy
