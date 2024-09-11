@@ -43,22 +43,53 @@
         <div id="output">
           <details class="section" open>
             <summary>🚜</summary>
-            <table id="output-table" class="qtable show-gems show-billets show-alternatives"></table>
+            <table
+              id="output-table"
+              class="qtable show-gems show-billets show-alternatives"
+            ></table>
           </details>
         </div>
       </div>
 
       <footer>
         <div class="switches">
+          <div class="themeSelector">
+            <label>
+              <input
+                type="radio"
+                name="theme"
+                id="theme-system"
+                value="light dark"
+              />
+              <span class="i18n" lang="en">System</span>
+              <span class="i18n" lang="zh-CN">系统</span>
+            </label>
+            <label>
+              <input type="radio" name="theme" id="theme-light" value="light" />
+              <span class="i18n" lang="en">Light</span>
+              <span class="i18n" lang="zh-CN">亮</span>
+            </label>
+            <label>
+              <input type="radio" name="theme" id="theme-dark" value="dark" />
+              <span class="i18n" lang="en">Dark</span>
+              <span class="i18n" lang="zh-CN">暗</span>
+            </label>
+          </div>
           <label>
             <input type="checkbox" id="show-gems" checked />
-            <span class="i18n" lang="en">Show ascension gemstones<kbd>g</kbd></span>
+            <span class="i18n" lang="en"
+              >Show ascension gemstones<kbd>g</kbd></span
+            >
             <span class="i18n" lang="zh-CN">显示突破晶石<kbd>g</kbd></span>
           </label>
           <label>
             <input type="checkbox" id="show-billets" checked />
-            <span class="i18n" lang="en">Show forging & exchanging materials<kbd>f</kbd></span>
-            <span class="i18n" lang="zh-CN">显示锻造、兑换材料<kbd>f</kbd></span>
+            <span class="i18n" lang="en"
+              >Show forging & exchanging materials<kbd>f</kbd></span
+            >
+            <span class="i18n" lang="zh-CN"
+              >显示锻造、兑换材料<kbd>f</kbd></span
+            >
           </label>
           <label>
             <input type="checkbox" id="show-alternatives" checked />

@@ -57,7 +57,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   if (output != null)
     for (const record of JSON.parse(
-      localStorage.getItem(BOOKMARK_KEY) ?? "[]",
+      localStorage.getItem(BOOKMARK_KEY) ?? "[]"
     )) {
       const [type, id, weekday]: [ItemType, string, number] = record;
       output.innerHTML += renderQTableContent(type, id, weekday);
@@ -66,6 +66,15 @@ window.addEventListener("DOMContentLoaded", () => {
   for (const element of Array.from(document.querySelectorAll(".qtable"))) {
     (element as HTMLElement).classList.remove("highlighted");
   }
+
+  const option = document.getElementById(
+    localStorage.getItem("theme") ??
+      (window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "theme-dark"
+        : "theme-light")
+  ) as HTMLInputElement;
+  option.checked = true;
+  document.documentElement.style.setProperty("--theme", option.value);
 });
 
 /* nav */
@@ -75,7 +84,7 @@ document.querySelector("nav .links")?.addEventListener("click", (event) => {
   if (!link || link.tagName !== "A") return;
   const target = document.getElementById(link.dataset.target ?? "");
   const details = target?.querySelector(
-    "details.section",
+    "details.section"
   ) as HTMLDetailsElement;
   if (details) details.open = true;
   target?.scrollIntoView();
@@ -84,7 +93,7 @@ document.querySelector("nav .links")?.addEventListener("click", (event) => {
 /* language selector */
 
 langSelect?.addEventListener("change", (event) =>
-  setLanguage((event.target as HTMLSelectElement).value as SupportedLanguages),
+  setLanguage((event.target as HTMLSelectElement).value as SupportedLanguages)
 );
 
 function setLanguage(lang: SupportedLanguages) {
@@ -111,7 +120,7 @@ function setSearchItems(lang: SupportedLanguages) {
 
 function findOrLoadQTable(event: Event) {
   const a = (event.composedPath() as HTMLElement[]).find(
-    (e) => e.tagName === "A",
+    (e) => e.tagName === "A"
   );
   if (!a) return;
   const id = a.dataset.id;
@@ -134,7 +143,7 @@ function findOrLoadQTable2(type: ItemType, id: string, weekday: number) {
     return;
   }
   const existed = output.querySelector(
-    `tbody[name="${formatId(type, id, weekday)}"]`,
+    `tbody[name="${formatId(type, id, weekday)}"]`
   );
   if (!existed) {
     output.innerHTML += renderQTableContent(type, id, weekday);
@@ -164,7 +173,7 @@ document
       findOrLoadQTable2(
         characters.some((c) => c.id === id) ? TYPE_CHARACTER : TYPE_WEAPON,
         id,
-        0,
+        0
       );
     }
   });
@@ -181,7 +190,7 @@ output?.addEventListener("change", updateBookmark);
 window.addEventListener("keydown", (event) => {
   if (
     ["INPUT", "SELECT", "TEXTAREA"].includes(
-      (event.target as HTMLElement)?.tagName,
+      (event.target as HTMLElement)?.tagName
     ) ||
     event.ctrlKey ||
     event.altKey ||
@@ -190,7 +199,7 @@ window.addEventListener("keydown", (event) => {
     return;
   }
   const searchInput = document.querySelector(
-    ".search input",
+    ".search input"
   ) as HTMLInputElement;
   switch (event.code) {
     case "Slash":
@@ -221,7 +230,7 @@ document
   ?.addEventListener("change", (event) => {
     output?.classList.toggle(
       "show-gems",
-      (event.target as HTMLInputElement)?.checked,
+      (event.target as HTMLInputElement)?.checked
     );
     document.body.classList.remove("smooth");
     window.scrollTo(0, document.body.scrollHeight);
@@ -233,7 +242,7 @@ document
   ?.addEventListener("change", (event) => {
     output?.classList.toggle(
       "show-billets",
-      (event.target as HTMLInputElement)?.checked,
+      (event.target as HTMLInputElement)?.checked
     );
     document.body.classList.remove("smooth");
     window.scrollTo(0, document.body.scrollHeight);
@@ -244,7 +253,7 @@ document
   .querySelector("input#show-alternatives")
   ?.addEventListener("change", (event) => {
     const alternativeDetails: HTMLElement[] = Array.from(
-      document.querySelectorAll("details.alternative"),
+      document.querySelectorAll("details.alternative")
     );
     if ((event.target as HTMLInputElement)?.checked) {
       for (const e of alternativeDetails) {
@@ -259,3 +268,11 @@ document
     window.scrollTo(0, document.body.scrollHeight);
     document.body.classList.add("smooth");
   });
+
+/* theme */
+
+document.querySelector(".themeSelector")?.addEventListener("input", (event) => {
+  const option = event.target as HTMLInputElement;
+  document.documentElement.style.setProperty("--theme", option.value);
+  localStorage.setItem("theme", option.id);
+});

@@ -1,6 +1,8 @@
 :root {
   --g: 0.5rem;
 
+  color-scheme: var(--theme);
+
   --tomorrow-background: #ffffff;
   --tomorrow-current-line: #efefef;
   --tomorrow-selection: #d6d6d6;
@@ -26,49 +28,59 @@
   --tomorrow-night-eighties-aqua: #66cccc;
   --tomorrow-night-eighties-blue: #6699cc;
   --tomorrow-night-eighties-purple: #cc99cc;
-}
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: var(--tomorrow-background);
-    --foreground: var(--tomorrow-foreground);
-    --border-color: var(--tomorrow-selection);
-    --border-color-strong: var(--tomorrow-comment);
-    --link: var(--tomorrow-aqua);
-    --link-hover: var(--tomorrow-blue);
-    --link-bookmark: var(--tomorrow-foreground);
-    --link-current: var(--tomorrow-green);
-    --link-recent-new: var(--tomorrow-orange);
-    --link-upcoming: var(--tomorrow-comment);
-    --button-background: var(--tomorrow-current-line);
-    --highlight: var(--tomorrow-current-line);
-    --kbd-background: var(--tomorrow-current-line);
-  }
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: var(--tomorrow-night-eighties-background);
-    --foreground: var(--tomorrow-night-eighties-foreground);
-    --border-color: var(--tomorrow-night-eighties-selection);
-    --border-color-strong: var(--tomorrow-night-eighties-comment);
-    --link: var(--tomorrow-night-eighties-aqua);
-    --link-hover: var(--tomorrow-night-eighties-blue);
-    --link-bookmark: var(--tomorrow-night-eighties-foreground);
-    --link-bookmark: var(--tomorrow-night-eighties-green);
-    --link-recent-new: var(--tomorrow-night-eighties-orange);
-    --link-upcoming: var(--tomorrow-night-eighties-comment);
-    --button-background: var(--tomorrow-night-eighties-current-line);
-    --highlight: var(--tomorrow-night-eighties-current-line);
-    --kbd-background: var(--tomorrow-night-eighties-current-line);
-  }
+  --background: light-dark(
+    var(--tomorrow-background),
+    var(--tomorrow-night-eighties-background)
+  );
+  --border-color-strong: light-dark(
+    var(--tomorrow-comment),
+    var(--tomorrow-night-eighties-comment)
+  );
+  --border-color: light-dark(
+    var(--tomorrow-selection),
+    var(--tomorrow-night-eighties-selection)
+  );
+  --button-background: light-dark(
+    var(--tomorrow-current-line),
+    var(--tomorrow-night-eighties-current-line)
+  );
+  --foreground: light-dark(
+    var(--tomorrow-foreground),
+    var(--tomorrow-night-eighties-foreground)
+  );
+  --highlight: light-dark(
+    var(--tomorrow-current-line),
+    var(--tomorrow-night-eighties-current-line)
+  );
+  --kbd-background: light-dark(
+    var(--tomorrow-current-line),
+    var(--tomorrow-night-eighties-current-line)
+  );
+  --link-bookmark: light-dark(
+    var(--tomorrow-foreground),
+    var(--tomorrow-night-eighties-green)
+  );
+  --link-current: var(--tomorrow-green);
+  --link-hover: light-dark(
+    var(--tomorrow-blue),
+    var(--tomorrow-night-eighties-blue)
+  );
+  --link-recent-new: light-dark(
+    var(--tomorrow-orange),
+    var(--tomorrow-night-eighties-orange)
+  );
+  --link-upcoming: light-dark(
+    var(--tomorrow-comment),
+    var(--tomorrow-night-eighties-comment)
+  );
+  --link: light-dark(var(--tomorrow-aqua), var(--tomorrow-night-eighties-aqua));
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font:
-    calc(var(--g) * 2) / calc(var(--g) * 3) "Noto Sans",
-    sans-serif;
+  font: calc(var(--g) * 2) / calc(var(--g) * 3) "Noto Sans", sans-serif;
   margin: 0;
 }
 
@@ -374,6 +386,11 @@ footer {
   .declarations span[lang="en"] {
     margin-top: calc(var(--g) * 0.5 - 0.7rem);
   }
+}
+
+.themeSelector {
+  display: flex;
+  gap: 1em;
 }
 
 .switches label {
