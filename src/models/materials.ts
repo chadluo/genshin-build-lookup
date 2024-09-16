@@ -248,6 +248,14 @@ export const midlanderBillets = [
   "Midlander Catalyst Billet",
 ] as const;
 
+export const borderlandBillets = [
+  "Borderland Claymore Billet",
+  "Borderland Polearm Billet",
+  "Borderland Sword Billet",
+  "Borderland Bow Billet",
+  "Borderland Catalyst Billet",
+];
+
 export const forgingMaterials = [
   "Crystal Chunk",
   "White Iron Chunk",
@@ -260,6 +268,7 @@ export const forgingMaterials = [
 export type Forging = (
   | typeof northlanderBillets
   | typeof midlanderBillets
+  | typeof borderlandBillets
   | typeof forgingMaterials
 )[number];
 
@@ -1425,6 +1434,31 @@ const forging: readonly Material[] = [
     id: "Midlander Catalyst Billet",
     forging: true,
     name: { en: "Midlander Catalyst Billet", "zh-CN": "央陆法器原胚" },
+  },
+  {
+    id: "Borderland Claymore Billet",
+    forging: true,
+    name: { en: "Borderland Claymore Billet", "zh-CN": "垠土双手剑原胚" },
+  },
+  {
+    id: "Borderland Polearm Billet",
+    forging: true,
+    name: { en: "Borderland Polearm Billet", "zh-CN": "垠土长柄武器原胚" },
+  },
+  {
+    id: "Borderland Sword Billet",
+    forging: true,
+    name: { en: "Borderland Sword Billet", "zh-CN": "垠土单手剑原胚" },
+  },
+  {
+    id: "Borderland Bow Billet",
+    forging: true,
+    name: { en: "Borderland Bow Billet", "zh-CN": "垠土弓原胚" },
+  },
+  {
+    id: "Borderland Catalyst Billet",
+    forging: true,
+    name: { en: "Borderland Catalyst Billet", "zh-CN": "垠土法器原胚" },
   },
   {
     id: "Crystal Chunk",

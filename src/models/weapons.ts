@@ -871,6 +871,9 @@ export const weapons: Weapon[] = [
       "Night-Wind’s Mystic Consideration",
       "Feathery Fin",
       "Juvenile Fang",
+      "Borderland Bow Billet",
+      "Condessence Crystal",
+      "White Iron Chunk",
     ],
   },
   //
@@ -1124,6 +1127,9 @@ export const weapons: Weapon[] = [
       "Delirious Decadence of the Sacred Lord",
       "Shard of a Shattered Will",
       "Damaged Mask",
+      "Borderland Catalyst Billet",
+      "Condessence Crystal",
+      "White Iron Chunk",
     ],
   },
   {
@@ -1424,6 +1430,9 @@ export const weapons: Weapon[] = [
       "Blazing Sacrificial Heart’s Terror",
       "Ignited Stone",
       "Sentry’s Wooden Whistle",
+      "Borderland Claymore Billet",
+      "Condessence Crystal",
+      "White Iron Chunk",
     ],
   },
   //
@@ -1678,6 +1687,9 @@ export const weapons: Weapon[] = [
       "Delirious Decadence of the Sacred Lord",
       "Axis of the Secret Source",
       "Sentry’s Wooden Whistle",
+      "Borderland Polearm Billet",
+      "Condessence Crystal",
+      "White Iron Chunk",
     ],
   },
   //
@@ -1964,6 +1976,9 @@ export const weapons: Weapon[] = [
       "Blazing Sacrificial Heart’s Terror",
       "Ruined Hilt",
       "Juvenile Fang",
+      "Borderland Sword Billet",
+      "Condessence Crystal",
+      "White Iron Chunk",
     ],
   },
   //
