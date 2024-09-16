@@ -5,12 +5,16 @@ type Bookmark = [ItemType, string, number];
 export const BOOKMARK_KEY = "bookmarks";
 
 const bookmarks: Bookmark[] = JSON.parse(
-  localStorage.getItem(BOOKMARK_KEY) ?? "[]",
+  localStorage.getItem(BOOKMARK_KEY) ?? "[]"
 ) as Bookmark[];
 
 export function isBookmarked(type: ItemType, id: string, weekday: number) {
-  return bookmarks.some(
-    ([t, i, w]: Bookmark) => t === type && i === id && w === (weekday ?? 0),
+  return bookmarks.some((bookmark) => eq(bookmark, [type, id, weekday ?? 0]));
+}
+
+function eq(item1: Bookmark, item2: Bookmark) {
+  return (
+    item1[0] === item2[0] && item1[1] === item2[1] && item1[2] === item2[2]
   );
 }
 
@@ -29,16 +33,16 @@ export function updateBookmark(event: Event) {
 }
 
 export function bookmark(type: ItemType, id: string, weekday: number) {
-  const index = bookmarks.findIndex(
-    ([t, i, w]) => t === type && i === id && w === weekday,
+  const index = bookmarks.findIndex((bookmark) =>
+    eq(bookmark, [type, id, weekday])
   );
   if (index === -1) {
     for (const e of Array.from(
       document.querySelectorAll(
         type === TYPE_TALENT_DOMAIN || type === TYPE_WEAPON_DOMAIN
           ? `a[data-id="${id}"][data-weekday="${weekday}"]`
-          : `a[data-id="${id}"]`,
-      ),
+          : `a[data-id="${id}"]`
+      )
     )) {
       e.classList.add("bookmarked");
     }
@@ -49,16 +53,16 @@ export function bookmark(type: ItemType, id: string, weekday: number) {
 }
 
 export function unbookmark(type: ItemType, id: string, weekday: number) {
-  const index = bookmarks.findIndex(
-    ([t, i, w]) => t === type && i === id && w === weekday,
+  const index = bookmarks.findIndex((bookmark) =>
+    eq(bookmark, [type, id, weekday])
   );
   if (index !== -1) {
     for (const e of Array.from(
       document.querySelectorAll(
         type === TYPE_TALENT_DOMAIN || type === TYPE_WEAPON_DOMAIN
           ? `a[data-id="${id}"][data-weekday="${weekday}"]`
-          : `a[data-id="${id}"]`,
-      ),
+          : `a[data-id="${id}"]`
+      )
     )) {
       e.classList.remove("bookmarked");
     }
