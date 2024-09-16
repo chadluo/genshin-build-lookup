@@ -200,7 +200,8 @@ export type LocalSpeciality =
   | "Clearwater Jade"
   | "Trishiraite"
   | "Quenepa Berry"
-  | "Sprayfeather Gill";
+  | "Sprayfeather Gill"
+  | "Saurian Claw Succulent";
 
 export type WeaponAscension =
   | "Mask of the Wicked Lieutenant"
@@ -724,6 +725,10 @@ const localSpecialities: readonly Material[] = [
   {
     id: "Sprayfeather Gill",
     name: { en: "Sprayfeather Gill", "zh-CN": "浪沫羽鳃" },
+  },
+  {
+    id: "Saurian Claw Succulent",
+    name: { en: "Saurian Claw Succulent", "zh-CN": "肉龙掌" },
   },
   //
   // Newline - local specialities

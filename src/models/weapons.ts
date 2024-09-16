@@ -342,6 +342,11 @@ export const weapons: Weapon[] = [
     rarity: 5,
     category: "Claymore",
     name: { en: "Fang of the Mountain King", "zh-CN": "山王长牙" },
+    materials: [
+      "Delirious Decadence of the Sacred Lord",
+      "Ignited Stone",
+      "Sentry’s Wooden Whistle",
+    ],
   },
   //
   // Newline - claymore 5

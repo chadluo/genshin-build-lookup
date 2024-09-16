@@ -587,6 +587,14 @@ export const characters: Character[] = [
     type: "character",
     rarity: 5,
     name: { en: "Kinich", "zh-CN": "基尼奇" },
+    materials: [
+      "Overripe Flamegranate",
+      "Nagadus Emerald",
+      "Denial and Judgment",
+      "Kindling",
+      "Juvenile Fang",
+      "Saurian Claw Succulent",
+    ],
   },
   {
     id: "Kirara",
