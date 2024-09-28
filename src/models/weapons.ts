@@ -586,6 +586,13 @@ export const weapons: Weapon[] = [
       "Meshing Gear",
     ],
   },
+  {
+    id: "Peak Patrol Song",
+    type: "weapon",
+    rarity: 5,
+    category: "Sword",
+    name: { en: "Peak Patrol Song", "zh-CN": "岩峰巡歌" },
+  },
   //
   // Newline - sword 5
   //
@@ -1440,6 +1447,13 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
+  {
+    id: "Fruitful Hook",
+    type: "weapon",
+    rarity: 4,
+    category: "Claymore",
+    name: { en: "Fruitful Hook", "zh-CN": "硕果钩" },
+  },
   //
   // Newline - claymore 4
   //
@@ -1696,6 +1710,13 @@ export const weapons: Weapon[] = [
       "Condessence Crystal",
       "White Iron Chunk",
     ],
+  },
+  {
+    id: "Mountain-Bracing Bolt",
+    type: "weapon",
+    rarity: 4,
+    category: "Polearm",
+    name: { en: "Mountain-Bracing Bolt", "zh-CN": "镇山之钉" },
   },
   //
   // Newline - polearm 4
@@ -1985,6 +2006,13 @@ export const weapons: Weapon[] = [
       "Condessence Crystal",
       "White Iron Chunk",
     ],
+  },
+  {
+    id: "Sturdy Bone",
+    type: "weapon",
+    rarity: 4,
+    category: "Sword",
+    name: { en: "Sturdy Bone", "zh-CN": "弥坚骨" },
   },
   //
   // Newline - sword 4

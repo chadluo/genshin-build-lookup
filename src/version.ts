@@ -21,6 +21,17 @@ const versions: { version: string; start: number; items: string[] }[] = [
       "Ash-Graven Drinking Horn",
     ],
   },
+  {
+    version: "5.1",
+    start: new Date("2024-10-09").getTime(),
+    items: [
+      "Xilonen",
+      "Peak Patrol Song",
+      "Sturdy Bone",
+      "Mountain-Bracing Bolt",
+      "Fruitful Hook",
+    ],
+  },
 ];
 
 export function findRecents() {

@@ -1115,6 +1115,12 @@ export const characters: Character[] = [
     ],
   },
   {
+    id: "Xilonen",
+    type: "character",
+    rarity: 5,
+    name: { en: "Xilonen", "zh-CN": "希诺宁" },
+  },
+  {
     id: "Xingqiu",
     type: "character",
     rarity: 4,
