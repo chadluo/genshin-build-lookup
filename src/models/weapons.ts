@@ -592,6 +592,11 @@ export const weapons: Weapon[] = [
     rarity: 5,
     category: "Sword",
     name: { en: "Peak Patrol Song", "zh-CN": "岩峰巡歌" },
+    materials: [
+      "Night-Wind’s Mystic Consideration",
+      "Axis of the Secret Source",
+      "Juvenile Fang",
+    ],
   },
   //
   // Newline - sword 5
@@ -1453,6 +1458,11 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Claymore",
     name: { en: "Fruitful Hook", "zh-CN": "硕果钩" },
+    materials: [
+      "Night-Wind’s Mystic Consideration",
+      "Axis of the Secret Source",
+      "Juvenile Fang",
+    ],
   },
   //
   // Newline - claymore 4
@@ -1717,6 +1727,11 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Polearm",
     name: { en: "Mountain-Bracing Bolt", "zh-CN": "镇山之钉" },
+    materials: [
+      "Delirious Decadence of the Sacred Lord",
+      "Ignited Stone",
+      "Whopperflower Nectar",
+    ],
   },
   //
   // Newline - polearm 4
@@ -2013,6 +2028,11 @@ export const weapons: Weapon[] = [
     rarity: 4,
     category: "Sword",
     name: { en: "Sturdy Bone", "zh-CN": "弥坚骨" },
+    materials: [
+      "Blazing Sacrificial Heart’s Terror",
+      "Shard of a Shattered Will",
+      "Sentry’s Wooden Whistle",
+    ],
   },
   //
   // Newline - sword 4
