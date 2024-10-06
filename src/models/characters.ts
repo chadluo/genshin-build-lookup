@@ -21,8 +21,98 @@ export type Character = OfMaterial & {
   ];
 };
 
-export const characters: Character[] = [
-  {
+export type CharacterId =
+  | "Albedo"
+  | "Alhaitham"
+  | "Aloy"
+  | "Amber"
+  | "Arataki Itto"
+  | "Arlecchino"
+  | "Baizhu"
+  | "Barbara"
+  | "Beidou"
+  | "Bennett"
+  | "Candace"
+  | "Charlotte"
+  | "Chevreuse"
+  | "Chiori"
+  | "Chongyun"
+  | "Clorinde"
+  | "Collei"
+  | "Cyno"
+  | "Dehya"
+  | "Diluc"
+  | "Diona"
+  | "Dori"
+  | "Emilie"
+  | "Eula"
+  | "Faruzan"
+  | "Fischl"
+  | "Freminet"
+  | "Furina"
+  | "Gaming"
+  | "Ganyu"
+  | "Gorou"
+  | "Hu Tao"
+  | "Jean"
+  | "Kachina"
+  | "Kaedehara Kazuha"
+  | "Kaeya"
+  | "Kamisato Ayaka"
+  | "Kamisato Ayato"
+  | "Kaveh"
+  | "Keqing"
+  | "Kinich"
+  | "Kirara"
+  | "Klee"
+  | "Kujou Sara"
+  | "Kuki Shinobu"
+  | "Layla"
+  | "Lisa"
+  | "Lynette"
+  | "Lyney"
+  | "Mika"
+  | "Mona"
+  | "Mualani"
+  | "Nahida"
+  | "Navia"
+  | "Neuvillette"
+  | "Nilou"
+  | "Ningguang"
+  | "Noelle"
+  | "Qiqi"
+  | "Raiden Shogun"
+  | "Razor"
+  | "Rosaria"
+  | "Sangonomiya Kokomi"
+  | "Sayu"
+  | "Sethos"
+  | "Shenhe"
+  | "Shikanoin Heizou"
+  | "Sigewinne"
+  | "Sucrose"
+  | "Tartaglia"
+  | "Thoma"
+  | "Tighnari"
+  | "Venti"
+  | "Wanderer"
+  | "Wriothesley"
+  | "Xiangling"
+  | "Xianyun"
+  | "Xiao"
+  | "Xilonen"
+  | "Xingqiu"
+  | "Xinyan"
+  | "Yae Miko"
+  | "Yanfei"
+  | "Yaoyao"
+  | "Yelan"
+  | "Yoimiya"
+  | "Yun Jin"
+  | "Zhongli";
+
+export const characters: Record<CharacterId, Character> = {
+  Albedo: {
     id: "Albedo",
     type: "character",
     rarity: 5,
@@ -36,7 +126,7 @@ export const characters: Character[] = [
       "Cecilia",
     ],
   },
-  {
+  Alhaitham: {
     id: "Alhaitham",
     type: "character",
     rarity: 5,
@@ -50,7 +140,7 @@ export const characters: Character[] = [
       "Sand Grease Pupa",
     ],
   },
-  {
+  Aloy: {
     id: "Aloy",
     type: "character",
     rarity: 5,
@@ -64,7 +154,7 @@ export const characters: Character[] = [
       "Crystal Marrow",
     ],
   },
-  {
+  Amber: {
     id: "Amber",
     type: "character",
     rarity: 4,
@@ -78,7 +168,7 @@ export const characters: Character[] = [
       "Small Lamp Grass",
     ],
   },
-  {
+  "Arataki Itto": {
     id: "Arataki Itto",
     type: "character",
     rarity: 5,
@@ -92,7 +182,7 @@ export const characters: Character[] = [
       "Onikabuto",
     ],
   },
-  {
+  Arlecchino: {
     id: "Arlecchino",
     type: "character",
     rarity: 5,
@@ -106,7 +196,7 @@ export const characters: Character[] = [
       "Rainbow Rose",
     ],
   },
-  {
+  Baizhu: {
     id: "Baizhu",
     type: "character",
     rarity: 5,
@@ -120,7 +210,7 @@ export const characters: Character[] = [
       "Violetgrass",
     ],
   },
-  {
+  Barbara: {
     id: "Barbara",
     type: "character",
     rarity: 4,
@@ -134,7 +224,7 @@ export const characters: Character[] = [
       "Philanemo Mushroom",
     ],
   },
-  {
+  Beidou: {
     id: "Beidou",
     type: "character",
     rarity: 4,
@@ -148,7 +238,7 @@ export const characters: Character[] = [
       "Noctilucous Jade",
     ],
   },
-  {
+  Bennett: {
     id: "Bennett",
     type: "character",
     rarity: 4,
@@ -162,7 +252,7 @@ export const characters: Character[] = [
       "Windwheel Aster",
     ],
   },
-  {
+  Candace: {
     id: "Candace",
     type: "character",
     rarity: 4,
@@ -176,7 +266,7 @@ export const characters: Character[] = [
       "Henna Berry",
     ],
   },
-  {
+  Charlotte: {
     id: "Charlotte",
     type: "character",
     rarity: 4,
@@ -190,7 +280,7 @@ export const characters: Character[] = [
       "Beryl Conch",
     ],
   },
-  {
+  Chevreuse: {
     id: "Chevreuse",
     type: "character",
     rarity: 4,
@@ -204,7 +294,7 @@ export const characters: Character[] = [
       "Lumidouce Bell",
     ],
   },
-  {
+  Chiori: {
     id: "Chiori",
     type: "character",
     rarity: 5,
@@ -218,7 +308,7 @@ export const characters: Character[] = [
       "Dendrobium",
     ],
   },
-  {
+  Chongyun: {
     id: "Chongyun",
     type: "character",
     rarity: 4,
@@ -232,7 +322,7 @@ export const characters: Character[] = [
       "Cor Lapis",
     ],
   },
-  {
+  Clorinde: {
     id: "Clorinde",
     type: "character",
     rarity: 5,
@@ -246,7 +336,7 @@ export const characters: Character[] = [
       "Lumitoile",
     ],
   },
-  {
+  Collei: {
     id: "Collei",
     type: "character",
     rarity: 4,
@@ -260,7 +350,7 @@ export const characters: Character[] = [
       "Rukkhashava Mushrooms",
     ],
   },
-  {
+  Cyno: {
     id: "Cyno",
     type: "character",
     rarity: 5,
@@ -274,7 +364,7 @@ export const characters: Character[] = [
       "Scarab",
     ],
   },
-  {
+  Dehya: {
     id: "Dehya",
     type: "character",
     rarity: 5,
@@ -288,7 +378,7 @@ export const characters: Character[] = [
       "Sand Grease Pupa",
     ],
   },
-  {
+  Diluc: {
     id: "Diluc",
     type: "character",
     rarity: 5,
@@ -302,7 +392,7 @@ export const characters: Character[] = [
       "Small Lamp Grass",
     ],
   },
-  {
+  Diona: {
     id: "Diona",
     type: "character",
     rarity: 4,
@@ -316,7 +406,7 @@ export const characters: Character[] = [
       "Calla Lily",
     ],
   },
-  {
+  Dori: {
     id: "Dori",
     type: "character",
     rarity: 4,
@@ -330,7 +420,7 @@ export const characters: Character[] = [
       "Kalpalata Lotus",
     ],
   },
-  {
+  Emilie: {
     id: "Emilie",
     type: "character",
     rarity: 5,
@@ -344,7 +434,7 @@ export const characters: Character[] = [
       "Lakelight Lily",
     ],
   },
-  {
+  Eula: {
     id: "Eula",
     type: "character",
     rarity: 5,
@@ -358,7 +448,7 @@ export const characters: Character[] = [
       "Dandelion Seed",
     ],
   },
-  {
+  Faruzan: {
     id: "Faruzan",
     type: "character",
     rarity: 4,
@@ -372,7 +462,7 @@ export const characters: Character[] = [
       "Henna Berry",
     ],
   },
-  {
+  Fischl: {
     id: "Fischl",
     type: "character",
     rarity: 4,
@@ -386,7 +476,7 @@ export const characters: Character[] = [
       "Small Lamp Grass",
     ],
   },
-  {
+  Freminet: {
     id: "Freminet",
     type: "character",
     rarity: 4,
@@ -400,7 +490,7 @@ export const characters: Character[] = [
       "Romaritime Flower",
     ],
   },
-  {
+  Furina: {
     id: "Furina",
     type: "character",
     rarity: 5,
@@ -414,7 +504,7 @@ export const characters: Character[] = [
       "Lakelight Lily",
     ],
   },
-  {
+  Gaming: {
     id: "Gaming",
     type: "character",
     rarity: 4,
@@ -428,7 +518,7 @@ export const characters: Character[] = [
       "Starconch",
     ],
   },
-  {
+  Ganyu: {
     id: "Ganyu",
     type: "character",
     rarity: 5,
@@ -442,7 +532,7 @@ export const characters: Character[] = [
       "Qingxin",
     ],
   },
-  {
+  Gorou: {
     id: "Gorou",
     type: "character",
     rarity: 4,
@@ -456,7 +546,7 @@ export const characters: Character[] = [
       "Sango Pearl",
     ],
   },
-  {
+  "Hu Tao": {
     id: "Hu Tao",
     type: "character",
     rarity: 5,
@@ -470,7 +560,7 @@ export const characters: Character[] = [
       "Silk Flower",
     ],
   },
-  {
+  Jean: {
     id: "Jean",
     type: "character",
     rarity: 5,
@@ -484,7 +574,7 @@ export const characters: Character[] = [
       "Dandelion Seed",
     ],
   },
-  {
+  Kachina: {
     id: "Kachina",
     type: "character",
     rarity: 4,
@@ -498,7 +588,7 @@ export const characters: Character[] = [
       "Quenepa Berry",
     ],
   },
-  {
+  "Kaedehara Kazuha": {
     id: "Kaedehara Kazuha",
     type: "character",
     rarity: 5,
@@ -512,7 +602,7 @@ export const characters: Character[] = [
       "Sea Ganoderma",
     ],
   },
-  {
+  Kaeya: {
     id: "Kaeya",
     type: "character",
     rarity: 4,
@@ -526,7 +616,7 @@ export const characters: Character[] = [
       "Calla Lily",
     ],
   },
-  {
+  "Kamisato Ayaka": {
     id: "Kamisato Ayaka",
     type: "character",
     rarity: 5,
@@ -540,7 +630,7 @@ export const characters: Character[] = [
       "Sakura Bloom",
     ],
   },
-  {
+  "Kamisato Ayato": {
     id: "Kamisato Ayato",
     type: "character",
     rarity: 5,
@@ -554,7 +644,7 @@ export const characters: Character[] = [
       "Sakura Bloom",
     ],
   },
-  {
+  Kaveh: {
     id: "Kaveh",
     type: "character",
     rarity: 4,
@@ -568,7 +658,7 @@ export const characters: Character[] = [
       "Mourning Flower",
     ],
   },
-  {
+  Keqing: {
     id: "Keqing",
     type: "character",
     rarity: 5,
@@ -582,7 +672,7 @@ export const characters: Character[] = [
       "Cor Lapis",
     ],
   },
-  {
+  Kinich: {
     id: "Kinich",
     type: "character",
     rarity: 5,
@@ -596,7 +686,7 @@ export const characters: Character[] = [
       "Saurian Claw Succulent",
     ],
   },
-  {
+  Kirara: {
     id: "Kirara",
     type: "character",
     rarity: 4,
@@ -610,7 +700,7 @@ export const characters: Character[] = [
       "Amakumo Fruit",
     ],
   },
-  {
+  Klee: {
     id: "Klee",
     type: "character",
     rarity: 5,
@@ -624,7 +714,7 @@ export const characters: Character[] = [
       "Philanemo Mushroom",
     ],
   },
-  {
+  "Kujou Sara": {
     id: "Kujou Sara",
     type: "character",
     rarity: 4,
@@ -638,7 +728,7 @@ export const characters: Character[] = [
       "Dendrobium",
     ],
   },
-  {
+  "Kuki Shinobu": {
     id: "Kuki Shinobu",
     type: "character",
     rarity: 4,
@@ -652,7 +742,7 @@ export const characters: Character[] = [
       "Naku Weed",
     ],
   },
-  {
+  Layla: {
     id: "Layla",
     type: "character",
     rarity: 4,
@@ -666,7 +756,7 @@ export const characters: Character[] = [
       "Nilotpala Lotus",
     ],
   },
-  {
+  Lisa: {
     id: "Lisa",
     type: "character",
     rarity: 4,
@@ -680,7 +770,7 @@ export const characters: Character[] = [
       "Valberry",
     ],
   },
-  {
+  Lynette: {
     id: "Lynette",
     type: "character",
     rarity: 4,
@@ -694,7 +784,7 @@ export const characters: Character[] = [
       "Lumidouce Bell",
     ],
   },
-  {
+  Lyney: {
     id: "Lyney",
     type: "character",
     rarity: 5,
@@ -708,7 +798,7 @@ export const characters: Character[] = [
       "Rainbow Rose",
     ],
   },
-  {
+  Mika: {
     id: "Mika",
     type: "character",
     rarity: 4,
@@ -722,7 +812,7 @@ export const characters: Character[] = [
       "Wolfhook",
     ],
   },
-  {
+  Mona: {
     id: "Mona",
     type: "character",
     rarity: 5,
@@ -736,7 +826,7 @@ export const characters: Character[] = [
       "Philanemo Mushroom",
     ],
   },
-  {
+  Mualani: {
     id: "Mualani",
     type: "character",
     rarity: 5,
@@ -750,7 +840,7 @@ export const characters: Character[] = [
       "Sprayfeather Gill",
     ],
   },
-  {
+  Nahida: {
     id: "Nahida",
     type: "character",
     rarity: 5,
@@ -764,7 +854,7 @@ export const characters: Character[] = [
       "Kalpalata Lotus",
     ],
   },
-  {
+  Navia: {
     id: "Navia",
     type: "character",
     rarity: 5,
@@ -778,7 +868,7 @@ export const characters: Character[] = [
       "Spring of the First Dewdrop",
     ],
   },
-  {
+  Neuvillette: {
     id: "Neuvillette",
     type: "character",
     rarity: 5,
@@ -792,7 +882,7 @@ export const characters: Character[] = [
       "Lumitoile",
     ],
   },
-  {
+  Nilou: {
     id: "Nilou",
     type: "character",
     rarity: 5,
@@ -806,7 +896,7 @@ export const characters: Character[] = [
       "Padisarah",
     ],
   },
-  {
+  Ningguang: {
     id: "Ningguang",
     type: "character",
     rarity: 4,
@@ -820,7 +910,7 @@ export const characters: Character[] = [
       "Glaze Lily",
     ],
   },
-  {
+  Noelle: {
     id: "Noelle",
     type: "character",
     rarity: 4,
@@ -834,7 +924,7 @@ export const characters: Character[] = [
       "Valberry",
     ],
   },
-  {
+  Qiqi: {
     id: "Qiqi",
     type: "character",
     rarity: 5,
@@ -848,7 +938,7 @@ export const characters: Character[] = [
       "Violetgrass",
     ],
   },
-  {
+  "Raiden Shogun": {
     id: "Raiden Shogun",
     type: "character",
     rarity: 5,
@@ -862,7 +952,7 @@ export const characters: Character[] = [
       "Amakumo Fruit",
     ],
   },
-  {
+  Razor: {
     id: "Razor",
     type: "character",
     rarity: 4,
@@ -876,7 +966,7 @@ export const characters: Character[] = [
       "Wolfhook",
     ],
   },
-  {
+  Rosaria: {
     id: "Rosaria",
     type: "character",
     rarity: 4,
@@ -890,7 +980,7 @@ export const characters: Character[] = [
       "Valberry",
     ],
   },
-  {
+  "Sangonomiya Kokomi": {
     id: "Sangonomiya Kokomi",
     type: "character",
     rarity: 5,
@@ -904,7 +994,7 @@ export const characters: Character[] = [
       "Sango Pearl",
     ],
   },
-  {
+  Sayu: {
     id: "Sayu",
     type: "character",
     rarity: 4,
@@ -918,7 +1008,7 @@ export const characters: Character[] = [
       "Crystal Marrow",
     ],
   },
-  {
+  Sethos: {
     id: "Sethos",
     type: "character",
     rarity: 4,
@@ -932,7 +1022,7 @@ export const characters: Character[] = [
       "Trishiraite",
     ],
   },
-  {
+  Shenhe: {
     id: "Shenhe",
     type: "character",
     rarity: 5,
@@ -946,7 +1036,7 @@ export const characters: Character[] = [
       "Qingxin",
     ],
   },
-  {
+  "Shikanoin Heizou": {
     id: "Shikanoin Heizou",
     type: "character",
     rarity: 4,
@@ -960,7 +1050,7 @@ export const characters: Character[] = [
       "Onikabuto",
     ],
   },
-  {
+  Sigewinne: {
     id: "Sigewinne",
     type: "character",
     rarity: 5,
@@ -974,7 +1064,7 @@ export const characters: Character[] = [
       "Romaritime Flower",
     ],
   },
-  {
+  Sucrose: {
     id: "Sucrose",
     type: "character",
     rarity: 4,
@@ -988,7 +1078,7 @@ export const characters: Character[] = [
       "Windwheel Aster",
     ],
   },
-  {
+  Tartaglia: {
     id: "Tartaglia",
     type: "character",
     rarity: 5,
@@ -1002,7 +1092,7 @@ export const characters: Character[] = [
       "Starconch",
     ],
   },
-  {
+  Thoma: {
     id: "Thoma",
     type: "character",
     rarity: 4,
@@ -1016,7 +1106,7 @@ export const characters: Character[] = [
       "Fluorescent Fungus",
     ],
   },
-  {
+  Tighnari: {
     id: "Tighnari",
     type: "character",
     rarity: 5,
@@ -1030,7 +1120,7 @@ export const characters: Character[] = [
       "Nilotpala Lotus",
     ],
   },
-  {
+  Venti: {
     id: "Venti",
     type: "character",
     rarity: 5,
@@ -1044,7 +1134,7 @@ export const characters: Character[] = [
       "Cecilia",
     ],
   },
-  {
+  Wanderer: {
     id: "Wanderer",
     type: "character",
     rarity: 5,
@@ -1058,7 +1148,7 @@ export const characters: Character[] = [
       "Rukkhashava Mushrooms",
     ],
   },
-  {
+  Wriothesley: {
     id: "Wriothesley",
     type: "character",
     rarity: 5,
@@ -1072,7 +1162,7 @@ export const characters: Character[] = [
       "Subdetection Unit",
     ],
   },
-  {
+  Xiangling: {
     id: "Xiangling",
     type: "character",
     rarity: 4,
@@ -1086,7 +1176,7 @@ export const characters: Character[] = [
       "Jueyun Chili",
     ],
   },
-  {
+  Xianyun: {
     id: "Xianyun",
     type: "character",
     rarity: 5,
@@ -1100,7 +1190,7 @@ export const characters: Character[] = [
       "Clearwater Jade",
     ],
   },
-  {
+  Xiao: {
     id: "Xiao",
     type: "character",
     rarity: 5,
@@ -1114,13 +1204,13 @@ export const characters: Character[] = [
       "Qingxin",
     ],
   },
-  {
+  Xilonen: {
     id: "Xilonen",
     type: "character",
     rarity: 5,
     name: { en: "Xilonen", "zh-CN": "希诺宁" },
   },
-  {
+  Xingqiu: {
     id: "Xingqiu",
     type: "character",
     rarity: 4,
@@ -1134,7 +1224,7 @@ export const characters: Character[] = [
       "Silk Flower",
     ],
   },
-  {
+  Xinyan: {
     id: "Xinyan",
     type: "character",
     rarity: 4,
@@ -1148,7 +1238,7 @@ export const characters: Character[] = [
       "Violetgrass",
     ],
   },
-  {
+  "Yae Miko": {
     id: "Yae Miko",
     type: "character",
     rarity: 5,
@@ -1162,7 +1252,7 @@ export const characters: Character[] = [
       "Sea Ganoderma",
     ],
   },
-  {
+  Yanfei: {
     id: "Yanfei",
     type: "character",
     rarity: 4,
@@ -1176,7 +1266,7 @@ export const characters: Character[] = [
       "Noctilucous Jade",
     ],
   },
-  {
+  Yaoyao: {
     id: "Yaoyao",
     type: "character",
     rarity: 4,
@@ -1190,7 +1280,7 @@ export const characters: Character[] = [
       "Jueyun Chili",
     ],
   },
-  {
+  Yelan: {
     id: "Yelan",
     type: "character",
     rarity: 5,
@@ -1204,7 +1294,7 @@ export const characters: Character[] = [
       "Starconch",
     ],
   },
-  {
+  Yoimiya: {
     id: "Yoimiya",
     type: "character",
     rarity: 5,
@@ -1218,7 +1308,7 @@ export const characters: Character[] = [
       "Naku Weed",
     ],
   },
-  {
+  "Yun Jin": {
     id: "Yun Jin",
     type: "character",
     rarity: 4,
@@ -1232,7 +1322,7 @@ export const characters: Character[] = [
       "Glaze Lily",
     ],
   },
-  {
+  Zhongli: {
     id: "Zhongli",
     type: "character",
     rarity: 5,
@@ -1246,4 +1336,4 @@ export const characters: Character[] = [
       "Cor Lapis",
     ],
   },
-];
+};

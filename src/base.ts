@@ -7,7 +7,7 @@ import {
   formatName,
   weekdays,
 } from "./i18n";
-import { characters } from "./models/characters";
+import { type CharacterId, characters } from "./models/characters";
 import { type Domain, bosses, domains, enemies } from "./models/enemies";
 import { type Material, materials } from "./models/materials";
 import { weapons } from "./models/weapons";
@@ -59,7 +59,7 @@ export function renderQTableContent(
 ): string {
   switch (type) {
     case TYPE_CHARACTER: {
-      const character = characters.find((c) => c.id === id);
+      const character = characters[id as CharacterId];
       return character == null
         ? ""
         : renderQTableRows(
@@ -221,7 +221,10 @@ function byEnemy(enemy: string): Map<Material, OfMaterial[]> {
         }
         map.set(m, [
           ...(map.get(m) ?? []),
-          ...filterForMaterial([...characters, ...weapons], material),
+          ...filterForMaterial(
+            [...Object.values(characters), ...weapons],
+            material
+          ),
         ]);
         return map;
       }, new Map<Material, OfMaterial[]>());
@@ -239,7 +242,9 @@ export function byDomain(
     map.set(
       m,
       filterForMaterial(
-        domain?.type === TYPE_WEAPON_DOMAIN ? weapons : characters,
+        domain?.type === TYPE_WEAPON_DOMAIN
+          ? weapons
+          : Object.values(characters),
         material
       )
     );
