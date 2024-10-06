@@ -109,7 +109,7 @@ function setSearchItems(lang: SupportedLanguages) {
   if (searchItems != null) {
     searchItems.innerHTML = ([] as OfMaterial[])
       .concat(Object.values(characters))
-      .concat(weapons)
+      .concat(Object.values(weapons))
       .sort((w1, w2) => w1.id.localeCompare(w2.id))
       .map((w) => `<option value="${w.id}">${w.name[lang] as string}</option>`)
       .join("");

@@ -10,7 +10,7 @@ import {
 import { type CharacterId, characters } from "./models/characters";
 import { type Domain, bosses, domains, enemies } from "./models/enemies";
 import { type Material, materials } from "./models/materials";
-import { weapons } from "./models/weapons";
+import { type WeaponId, weapons } from "./models/weapons";
 import { findRecents } from "./version";
 
 export type Region =
@@ -72,7 +72,7 @@ export function renderQTableContent(
           );
     }
     case TYPE_WEAPON: {
-      const weapon = weapons.find((w) => w.id === id);
+      const weapon = weapons[id as WeaponId];
       return weapon == null
         ? ""
         : renderQTableRows(
@@ -222,7 +222,7 @@ function byEnemy(enemy: string): Map<Material, OfMaterial[]> {
         map.set(m, [
           ...(map.get(m) ?? []),
           ...filterForMaterial(
-            [...Object.values(characters), ...weapons],
+            [...Object.values(characters), ...Object.values(weapons)],
             material
           ),
         ]);
@@ -243,7 +243,7 @@ export function byDomain(
       m,
       filterForMaterial(
         domain?.type === TYPE_WEAPON_DOMAIN
-          ? weapons
+          ? Object.values(weapons)
           : Object.values(characters),
         material
       )

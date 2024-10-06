@@ -19,8 +19,211 @@ export type Weapon = OfMaterial & {
 
 export type Category = "Bow" | "Catalyst" | "Claymore" | "Polearm" | "Sword";
 
-export const weapons: Weapon[] = [
-  {
+// SECTION Weapon Id
+export type WeaponId =
+  | "Polar Star"
+  | "Thundering Pulse"
+  | "Elegy for the End"
+  | "Skyward Harp"
+  | "Amos’ Bow"
+  | "Aqua Simulacra"
+  | "Hunter’s Path"
+  | "The First Great Magic"
+  | "Silvershower Heartstrings"
+  // Newline - bow 5
+  | "Lost Prayer to the Sacred Winds"
+  | "Skyward Atlas"
+  | "Everlasting Moonglow"
+  | "Memory of Dust"
+  | "Kagura’s Verity"
+  | "A Thousand Floating Dreams"
+  | "Tulaytulla’s Rememberance"
+  | "Jadefall’s Splendor"
+  | "Tome of the Eternal Flow"
+  | "Cashflow Supervision"
+  | "Crane’s Echoing Call"
+  | "Surf’s Up"
+  // Newline - catalyst 5
+  | "Wolf’s Gravestone"
+  | "Skyward Pride"
+  | "The Unforged"
+  | "Song of Broken Pines"
+  | "Redhorn Stonethresher"
+  | "Beacon of the Reed Sea"
+  | "Verdict"
+  | "Fang of the Mountain King"
+  // Newline - claymore 5
+  | "Engulfing Lightning"
+  | "Skyward Spine"
+  | "Primordial Jade Winged-Spear"
+  | "Calamity Queller"
+  | "Staff of Homa"
+  | "Vortex Vanquisher"
+  | "Staff of the Scarlet Sands"
+  | "Crimson Moon’s Semblance"
+  | "Lumidouce Elegy"
+  // Newline - polearm 5
+  | "Mistsplitter Reforged"
+  | "Aquila Favonia"
+  | "Summit Shaper"
+  | "Skyward Blade"
+  | "Freedom-Sworn"
+  | "Primordial Jade Cutter"
+  | "Haran Geppaku Futsu"
+  | "Key of the Khaj-Nisut"
+  | "Light of Foliar Incision"
+  | "Splendor of Tranquil Waters"
+  | "Uraku Mitsugiri"
+  | "Absolution"
+  | "Peak Patrol Song"
+  // Newline - sword 5
+  | "Alley Hunter"
+  | "The Viridescent Hunt"
+  | "The Stringless"
+  | "Sacrificial Bow"
+  | "Rust"
+  | "Royal Bow"
+  | "Predator"
+  | "Prototype Crescent"
+  | "Mouun’s Moon"
+  | "Mitternachts Waltz"
+  | "Hamayumi"
+  | "Favonius Warbow"
+  | "Compound Bow"
+  | "Blackcliff Warbow"
+  | "Windblume Ode"
+  | "Fading Twilight"
+  | "End of the Line"
+  | "King’s Squire"
+  | "Ibis Piercer"
+  | "Scion of the Blazing Sun"
+  | "Song of Stillness"
+  | "Range Gauge"
+  | "Cloudforged"
+  | "Chain Breaker"
+  // Newline - bow 4
+  | "Wine and Song"
+  | "The Widsith"
+  | "Solar Pearl"
+  | "Sacrificial Fragments"
+  | "Royal Grimoire"
+  | "Prototype Amber"
+  | "Mappa Mare"
+  | "Hakushin Ring"
+  | "Frostbearer"
+  | "Favonius Codex"
+  | "Eye of Perception"
+  | "Dodoco Tales"
+  | "Blackcliff Agate"
+  | "Oathsworn Eye"
+  | "Fruit of Fulfillment"
+  | "Wandering Evenstar"
+  | "Sacrificial Jade"
+  | "Flowing Purity"
+  | "Ballad of the Boundless Blue"
+  | "Ring of Yaxche"
+  | "Ash-Graven Drinking Horn"
+  // Newline catalyst 4
+  | "Akuoumaru"
+  | "Royal Greatsword"
+  | "Whiteblind"
+  | "The Bell"
+  | "Snow-Tombed Starsilver"
+  | "Favonius Greatsword"
+  | "Katsuragikiri Nagamasa"
+  | "Sacrificial Greatsword"
+  | "Serpent Spine"
+  | "Blackcliff Slasher"
+  | "Rainslasher"
+  | "Prototype Archaic"
+  | "Luxurious Sea-Lord"
+  | "Lithic Blade"
+  | "Forest Regalia"
+  | "Makhaira Aquamarine"
+  | "Mailed Flower"
+  | "Talking Stick"
+  | "Tidal Shadow"
+  | "Portable Power Saw"
+  | "Ultimate Overlord’s Mega Magic Sword"
+  | "Earth Shaker"
+  | "Fruitful Hook"
+  // Newline - claymore 4
+  | "Prototype Starglitter"
+  | "Lithic Spear"
+  | "Kitain Cross Spear"
+  | "“The Catch”"
+  | "Favonius Lance"
+  | "Dragonspine Spear"
+  | "Dragon’s Bane"
+  | "Deathmatch"
+  | "Crescent Pike"
+  | "Blackcliff Pole"
+  | "Wavebreaker’s Fin"
+  | "Royal Spear"
+  | "Moonpiercer"
+  | "Missive Windspear"
+  | "Ballard of the Fjords"
+  | "Rightful Reward"
+  | "Prospector’s Drill"
+  | "Dialogues of the Desert Sages"
+  | "Footprint of the Rainbow"
+  | "Mountain-Bracing Bolt"
+  // Newline - polearm 4
+  | "The Flute"
+  | "The Black Sword"
+  | "The Alley Flash"
+  | "Sword of Descension"
+  | "Sacrificial Sword"
+  | "Royal Longsword"
+  | "Prototype Rancour"
+  | "Amenoma Kageuchi"
+  | "Lion’s Roar"
+  | "Iron Sting"
+  | "Festering Desire"
+  | "Favonius Sword"
+  | "Cinnabar Spindle"
+  | "Blackcliff Longsword"
+  | "Kagotsurube Isshin"
+  | "Sapwood Blade"
+  | "Xiphos’ Moonlight"
+  | "Toukabou Shigure"
+  | "Fleuve Cendre Ferryman"
+  | "Wolf-Fang"
+  | "Finale of the Deep"
+  | "The Dockhand’s Assistant"
+  | "Sword of Narzissenkreuz"
+  | "Flute of Ezpitzal"
+  | "Sturdy Bone"
+  // Newline - sword 4
+  | "Raven Bow"
+  | "Recurve Bow"
+  | "Messenger"
+  | "Sharpshooter’s Oath"
+  | "Slingshot"
+  | "Magic Guide"
+  | "Otherworldly Story"
+  | "Emerald Orb"
+  | "Thrilling Tales of Dragon Slayers"
+  | "Twin Nephrite"
+  | "Skyrider Greatsword"
+  | "Debate Club"
+  | "Bloodtainted Greatsword"
+  | "White Iron Greatsword"
+  | "Ferrous Shadow"
+  | "Halberd"
+  | "Black Tassel"
+  | "White Tassel"
+  | "Harbinger of Dawn"
+  | "Fillet Blade"
+  | "Skyrider Sword"
+  | "Dark Iron Sword"
+  | "Cool Steel"
+  | "Traveler’s Handy Sword";
+//!SECTION
+
+// SECTION Weapon Object
+export const weapons: Record<WeaponId, Weapon> = {
+  "Polar Star": {
     id: "Polar Star",
     type: "weapon",
     rarity: 5,
@@ -32,7 +235,7 @@ export const weapons: Weapon[] = [
       "Spectral Husk",
     ],
   },
-  {
+  "Thundering Pulse": {
     id: "Thundering Pulse",
     type: "weapon",
     rarity: 5,
@@ -40,7 +243,7 @@ export const weapons: Weapon[] = [
     name: { en: ["Thundering Pulse"], "zh-CN": ["飞雷之弦振"] },
     materials: ["Narukami’s Wisdom", "Dismal Prism", "Firm Arrowhead"],
   },
-  {
+  "Elegy for the End": {
     id: "Elegy for the End",
     type: "weapon",
     rarity: 5,
@@ -48,7 +251,7 @@ export const weapons: Weapon[] = [
     name: { en: ["Elegy for the End"], "zh-CN": ["终末嗟叹之诗"] },
     materials: ["Boreal Wolf’s Milk Tooth", "Heavy Horn", "Recruit’s Insignia"],
   },
-  {
+  "Skyward Harp": {
     id: "Skyward Harp",
     type: "weapon",
     rarity: 5,
@@ -60,7 +263,7 @@ export const weapons: Weapon[] = [
       "Firm Arrowhead",
     ],
   },
-  {
+  "Amos’ Bow": {
     id: "Amos’ Bow",
     type: "weapon",
     rarity: 5,
@@ -72,7 +275,7 @@ export const weapons: Weapon[] = [
       "Slime Condensate",
     ],
   },
-  {
+  "Aqua Simulacra": {
     id: "Aqua Simulacra",
     type: "weapon",
     rarity: 5,
@@ -84,7 +287,7 @@ export const weapons: Weapon[] = [
       "Spectral Husk",
     ],
   },
-  {
+  "Hunter’s Path": {
     id: "Hunter’s Path",
     type: "weapon",
     rarity: 5,
@@ -96,7 +299,7 @@ export const weapons: Weapon[] = [
       "Faded Red Satin",
     ],
   },
-  {
+  "The First Great Magic": {
     id: "The First Great Magic",
     type: "weapon",
     rarity: 5,
@@ -108,7 +311,7 @@ export const weapons: Weapon[] = [
       "Transoceanic Pearl",
     ],
   },
-  {
+  "Silvershower Heartstrings": {
     id: "Silvershower Heartstrings",
     type: "weapon",
     rarity: 5,
@@ -123,7 +326,7 @@ export const weapons: Weapon[] = [
   //
   // Newline - bow 5
   //
-  {
+  "Lost Prayer to the Sacred Winds": {
     id: "Lost Prayer to the Sacred Winds",
     type: "weapon",
     rarity: 5,
@@ -138,7 +341,7 @@ export const weapons: Weapon[] = [
       "Slime Condensate",
     ],
   },
-  {
+  "Skyward Atlas": {
     id: "Skyward Atlas",
     type: "weapon",
     rarity: 5,
@@ -150,7 +353,7 @@ export const weapons: Weapon[] = [
       "Firm Arrowhead",
     ],
   },
-  {
+  "Everlasting Moonglow": {
     id: "Everlasting Moonglow",
     type: "weapon",
     rarity: 5,
@@ -162,7 +365,7 @@ export const weapons: Weapon[] = [
       "Spectral Husk",
     ],
   },
-  {
+  "Memory of Dust": {
     id: "Memory of Dust",
     type: "weapon",
     rarity: 5,
@@ -170,7 +373,7 @@ export const weapons: Weapon[] = [
     name: { en: ["Memory of Dust"], "zh-CN": ["尘世之锁"] },
     materials: ["Grain of Aerosiderite", "Fragile Bone Shard", "Damaged Mask"],
   },
-  {
+  "Kagura’s Verity": {
     id: "Kagura’s Verity",
     type: "weapon",
     rarity: 5,
@@ -182,7 +385,7 @@ export const weapons: Weapon[] = [
       "Spectral Husk",
     ],
   },
-  {
+  "A Thousand Floating Dreams": {
     id: "A Thousand Floating Dreams",
     type: "weapon",
     rarity: 5,
@@ -197,7 +400,7 @@ export const weapons: Weapon[] = [
       "Fungal Spores",
     ],
   },
-  {
+  "Tulaytulla’s Rememberance": {
     id: "Tulaytulla’s Rememberance",
     type: "weapon",
     rarity: 5,
@@ -209,7 +412,7 @@ export const weapons: Weapon[] = [
       "Fungal Spores",
     ],
   },
-  {
+  "Jadefall’s Splendor": {
     id: "Jadefall’s Splendor",
     type: "weapon",
     rarity: 5,
@@ -221,7 +424,7 @@ export const weapons: Weapon[] = [
       "Fungal Spores",
     ],
   },
-  {
+  "Tome of the Eternal Flow": {
     id: "Tome of the Eternal Flow",
     type: "weapon",
     rarity: 5,
@@ -229,7 +432,7 @@ export const weapons: Weapon[] = [
     name: { en: "Tome of the Eternal Flow", "zh-CN": "万世流涌大典" },
     materials: ["Dross of Pure Sacred Dewdrop", "Rift Core", "Meshing Gear"],
   },
-  {
+  "Cashflow Supervision": {
     id: "Cashflow Supervision",
     type: "weapon",
     rarity: 5,
@@ -241,7 +444,7 @@ export const weapons: Weapon[] = [
       "Transoceanic Pearl",
     ],
   },
-  {
+  "Crane’s Echoing Call": {
     id: "Crane’s Echoing Call",
     type: "weapon",
     rarity: 5,
@@ -249,7 +452,7 @@ export const weapons: Weapon[] = [
     name: { en: "Crane’s Echoing Call", "zh-CN": "鹤鸣余音" },
     materials: ["Mist Veiled Lead Elixir", "Feathery Fin", "Divining Scroll"],
   },
-  {
+  "Surf’s Up": {
     id: "Surf’s Up",
     type: "weapon",
     rarity: 5,
@@ -264,7 +467,7 @@ export const weapons: Weapon[] = [
   //
   // Newline - catalyst 5
   //
-  {
+  "Wolf’s Gravestone": {
     id: "Wolf’s Gravestone",
     type: "weapon",
     rarity: 5,
@@ -276,7 +479,7 @@ export const weapons: Weapon[] = [
       "Divining Scroll",
     ],
   },
-  {
+  "Skyward Pride": {
     id: "Skyward Pride",
     type: "weapon",
     rarity: 5,
@@ -288,7 +491,7 @@ export const weapons: Weapon[] = [
       "Slime Condensate",
     ],
   },
-  {
+  "The Unforged": {
     id: "The Unforged",
     type: "weapon",
     rarity: 5,
@@ -300,7 +503,7 @@ export const weapons: Weapon[] = [
       "Treasure Hoarder Insignia",
     ],
   },
-  {
+  "Song of Broken Pines": {
     id: "Song of Broken Pines",
     type: "weapon",
     rarity: 5,
@@ -308,7 +511,7 @@ export const weapons: Weapon[] = [
     name: { en: ["Song of Broken Pines"], "zh-CN": ["松籁响起之时"] },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Damaged Mask"],
   },
-  {
+  "Redhorn Stonethresher": {
     id: "Redhorn Stonethresher",
     type: "weapon",
     rarity: 5,
@@ -316,7 +519,7 @@ export const weapons: Weapon[] = [
     name: { en: ["Redhorn Stonethresher"], "zh-CN": ["赤角石溃杵"] },
     materials: ["Narukami’s Wisdom", "Concealed Claw", "Old Handguard"],
   },
-  {
+  "Beacon of the Reed Sea": {
     id: "Beacon of the Reed Sea",
     type: "weapon",
     rarity: 5,
@@ -328,7 +531,7 @@ export const weapons: Weapon[] = [
       "Faded Red Satin",
     ],
   },
-  {
+  Verdict: {
     id: "Verdict",
     type: "weapon",
     rarity: 5,
@@ -336,7 +539,7 @@ export const weapons: Weapon[] = [
     name: { en: "Verdict", "zh-CN": "裁断" },
     materials: ["Fragment of an Ancient Chord", "Rift Core", "Meshing Gear"],
   },
-  {
+  "Fang of the Mountain King": {
     id: "Fang of the Mountain King",
     type: "weapon",
     rarity: 5,
@@ -351,7 +554,7 @@ export const weapons: Weapon[] = [
   //
   // Newline - claymore 5
   //
-  {
+  "Engulfing Lightning": {
     id: "Engulfing Lightning",
     type: "weapon",
     rarity: 5,
@@ -359,7 +562,7 @@ export const weapons: Weapon[] = [
     name: { en: ["Engulfing Lightning"], "zh-CN": ["薙草之稻光"] },
     materials: ["Mask of the Wicked Lieutenant", "Chaos Gear", "Old Handguard"],
   },
-  {
+  "Skyward Spine": {
     id: "Skyward Spine",
     type: "weapon",
     rarity: 5,
@@ -371,7 +574,7 @@ export const weapons: Weapon[] = [
       "Divining Scroll",
     ],
   },
-  {
+  "Primordial Jade Winged-Spear": {
     id: "Primordial Jade Winged-Spear",
     type: "weapon",
     rarity: 5,
@@ -383,7 +586,7 @@ export const weapons: Weapon[] = [
       "Recruit’s Insignia",
     ],
   },
-  {
+  "Calamity Queller": {
     id: "Calamity Queller",
     type: "weapon",
     rarity: 5,
@@ -395,7 +598,7 @@ export const weapons: Weapon[] = [
       "Whopperflower Nectar",
     ],
   },
-  {
+  "Staff of Homa": {
     id: "Staff of Homa",
     type: "weapon",
     rarity: 5,
@@ -407,7 +610,7 @@ export const weapons: Weapon[] = [
       "Slime Condensate",
     ],
   },
-  {
+  "Vortex Vanquisher": {
     id: "Vortex Vanquisher",
     type: "weapon",
     rarity: 5,
@@ -419,7 +622,7 @@ export const weapons: Weapon[] = [
       "Treasure Hoarder Insignia",
     ],
   },
-  {
+  "Staff of the Scarlet Sands": {
     id: "Staff of the Scarlet Sands",
     type: "weapon",
     rarity: 5,
@@ -431,7 +634,7 @@ export const weapons: Weapon[] = [
       "Fungal Spores",
     ],
   },
-  {
+  "Crimson Moon’s Semblance": {
     id: "Crimson Moon’s Semblance",
     type: "weapon",
     rarity: 5,
@@ -443,7 +646,7 @@ export const weapons: Weapon[] = [
       "Meshing Gear",
     ],
   },
-  {
+  "Lumidouce Elegy": {
     id: "Lumidouce Elegy",
     type: "weapon",
     rarity: 5,
@@ -458,7 +661,7 @@ export const weapons: Weapon[] = [
   //
   // Newline - polearm 5
   //
-  {
+  "Mistsplitter Reforged": {
     id: "Mistsplitter Reforged",
     type: "weapon",
     rarity: 5,
@@ -466,7 +669,7 @@ export const weapons: Weapon[] = [
     name: { en: ["Mistsplitter Reforged"], "zh-CN": ["雾切之回光"] },
     materials: ["Coral Branch of a Distant Sea", "Chaos Gear", "Old Handguard"],
   },
-  {
+  "Aquila Favonia": {
     id: "Aquila Favonia",
     type: "weapon",
     rarity: 5,
@@ -474,7 +677,7 @@ export const weapons: Weapon[] = [
     name: { en: ["Aquila Favonia"], "zh-CN": ["风鹰剑"] },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Firm Arrowhead"],
   },
-  {
+  "Summit Shaper": {
     id: "Summit Shaper",
     type: "weapon",
     rarity: 5,
@@ -486,7 +689,7 @@ export const weapons: Weapon[] = [
       "Damaged Mask",
     ],
   },
-  {
+  "Skyward Blade": {
     id: "Skyward Blade",
     type: "weapon",
     rarity: 5,
@@ -498,7 +701,7 @@ export const weapons: Weapon[] = [
       "Slime Condensate",
     ],
   },
-  {
+  "Freedom-Sworn": {
     id: "Freedom-Sworn",
     type: "weapon",
     rarity: 5,
@@ -510,7 +713,7 @@ export const weapons: Weapon[] = [
       "Divining Scroll",
     ],
   },
-  {
+  "Primordial Jade Cutter": {
     id: "Primordial Jade Cutter",
     type: "weapon",
     rarity: 5,
@@ -522,7 +725,7 @@ export const weapons: Weapon[] = [
       "Treasure Hoarder Insignia",
     ],
   },
-  {
+  "Haran Geppaku Futsu": {
     id: "Haran Geppaku Futsu",
     type: "weapon",
     rarity: 5,
@@ -530,7 +733,7 @@ export const weapons: Weapon[] = [
     name: { en: ["Haran Geppaku Futsu"], "zh-CN": ["波乱月白经津"] },
     materials: ["Narukami’s Wisdom", "Gloomy Statuette", "Old Handguard"],
   },
-  {
+  "Key of the Khaj-Nisut": {
     id: "Key of the Khaj-Nisut",
     type: "weapon",
     rarity: 5,
@@ -542,7 +745,7 @@ export const weapons: Weapon[] = [
       "Faded Red Satin",
     ],
   },
-  {
+  "Light of Foliar Incision": {
     id: "Light of Foliar Incision",
     type: "weapon",
     rarity: 5,
@@ -554,7 +757,7 @@ export const weapons: Weapon[] = [
       "Faded Red Satin",
     ],
   },
-  {
+  "Splendor of Tranquil Waters": {
     id: "Splendor of Tranquil Waters",
     type: "weapon",
     rarity: 5,
@@ -566,7 +769,7 @@ export const weapons: Weapon[] = [
       "Transoceanic Pearl",
     ],
   },
-  {
+  "Uraku Mitsugiri": {
     id: "Uraku Mitsugiri",
     type: "weapon",
     rarity: 5,
@@ -574,7 +777,7 @@ export const weapons: Weapon[] = [
     name: { en: "Uraku Mitsugiri", "zh-CN": "有乐御簾切" },
     materials: ["Coral Branch of a Distant Sea", "Chaos Gear", "Old Handguard"],
   },
-  {
+  Absolution: {
     id: "Absolution",
     type: "weapon",
     rarity: 5,
@@ -586,7 +789,7 @@ export const weapons: Weapon[] = [
       "Meshing Gear",
     ],
   },
-  {
+  "Peak Patrol Song": {
     id: "Peak Patrol Song",
     type: "weapon",
     rarity: 5,
@@ -601,7 +804,7 @@ export const weapons: Weapon[] = [
   //
   // Newline - sword 5
   //
-  {
+  "Alley Hunter": {
     id: "Alley Hunter",
     type: "weapon",
     rarity: 4,
@@ -613,7 +816,7 @@ export const weapons: Weapon[] = [
       "Slime Condensate",
     ],
   },
-  {
+  "The Viridescent Hunt": {
     id: "The Viridescent Hunt",
     type: "weapon",
     rarity: 4,
@@ -621,7 +824,7 @@ export const weapons: Weapon[] = [
     name: { en: ["The Viridescent Hunt"], "zh-CN": ["苍翠猎弓"] },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Firm Arrowhead"],
   },
-  {
+  "The Stringless": {
     id: "The Stringless",
     type: "weapon",
     rarity: 4,
@@ -629,7 +832,7 @@ export const weapons: Weapon[] = [
     name: { en: ["The Stringless"], "zh-CN": ["绝弦"] },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Firm Arrowhead"],
   },
-  {
+  "Sacrificial Bow": {
     id: "Sacrificial Bow",
     type: "weapon",
     rarity: 4,
@@ -641,7 +844,7 @@ export const weapons: Weapon[] = [
       "Slime Condensate",
     ],
   },
-  {
+  Rust: {
     id: "Rust",
     type: "weapon",
     rarity: 4,
@@ -653,7 +856,7 @@ export const weapons: Weapon[] = [
       "Damaged Mask",
     ],
   },
-  {
+  "Royal Bow": {
     id: "Royal Bow",
     type: "weapon",
     rarity: 4,
@@ -665,7 +868,7 @@ export const weapons: Weapon[] = [
       "Divining Scroll",
     ],
   },
-  {
+  Predator: {
     id: "Predator",
     type: "weapon",
     rarity: 4,
@@ -673,7 +876,7 @@ export const weapons: Weapon[] = [
     name: { en: ["Predator"], "zh-CN": ["掠食者"] },
     materials: ["Narukami’s Wisdom", "Dismal Prism", "Firm Arrowhead"],
   },
-  {
+  "Prototype Crescent": {
     id: "Prototype Crescent",
     type: "weapon",
     rarity: 4,
@@ -688,7 +891,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "Mouun’s Moon": {
     id: "Mouun’s Moon",
     type: "weapon",
     rarity: 4,
@@ -696,7 +899,7 @@ export const weapons: Weapon[] = [
     name: { en: ["Mouun’s Moon"], "zh-CN": ["曚云之月"] },
     materials: ["Narukami’s Wisdom", "Dismal Prism", "Spectral Husk"],
   },
-  {
+  "Mitternachts Waltz": {
     id: "Mitternachts Waltz",
     type: "weapon",
     rarity: 4,
@@ -708,7 +911,7 @@ export const weapons: Weapon[] = [
       "Treasure Hoarder Insignia",
     ],
   },
-  {
+  Hamayumi: {
     id: "Hamayumi",
     type: "weapon",
     rarity: 4,
@@ -723,7 +926,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "Favonius Warbow": {
     id: "Favonius Warbow",
     type: "weapon",
     rarity: 4,
@@ -735,7 +938,7 @@ export const weapons: Weapon[] = [
       "Whopperflower Nectar",
     ],
   },
-  {
+  "Compound Bow": {
     id: "Compound Bow",
     type: "weapon",
     rarity: 4,
@@ -750,7 +953,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "Blackcliff Warbow": {
     id: "Blackcliff Warbow",
     type: "weapon",
     rarity: 4,
@@ -762,7 +965,7 @@ export const weapons: Weapon[] = [
       "Whopperflower Nectar",
     ],
   },
-  {
+  "Windblume Ode": {
     id: "Windblume Ode",
     type: "weapon",
     rarity: 4,
@@ -774,7 +977,7 @@ export const weapons: Weapon[] = [
       "Whopperflower Nectar",
     ],
   },
-  {
+  "Fading Twilight": {
     id: "Fading Twilight",
     type: "weapon",
     rarity: 4,
@@ -786,7 +989,7 @@ export const weapons: Weapon[] = [
       "Divining Scroll",
     ],
   },
-  {
+  "End of the Line": {
     id: "End of the Line",
     type: "weapon",
     rarity: 4,
@@ -801,7 +1004,7 @@ export const weapons: Weapon[] = [
       "Halcyon Jade Axe Marlin",
     ],
   },
-  {
+  "King’s Squire": {
     id: "King’s Squire",
     type: "weapon",
     rarity: 4,
@@ -816,7 +1019,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "Ibis Piercer": {
     id: "Ibis Piercer",
     type: "weapon",
     rarity: 4,
@@ -831,7 +1034,7 @@ export const weapons: Weapon[] = [
       "Faded Red Satin",
     ],
   },
-  {
+  "Scion of the Blazing Sun": {
     id: "Scion of the Blazing Sun",
     type: "weapon",
     rarity: 4,
@@ -843,7 +1046,7 @@ export const weapons: Weapon[] = [
       "Fungal Spores",
     ],
   },
-  {
+  "Song of Stillness": {
     id: "Song of Stillness",
     type: "weapon",
     rarity: 4,
@@ -858,7 +1061,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "Range Gauge": {
     id: "Range Gauge",
     type: "weapon",
     rarity: 4,
@@ -870,7 +1073,7 @@ export const weapons: Weapon[] = [
       "Transoceanic Pearl",
     ],
   },
-  {
+  Cloudforged: {
     id: "Cloudforged",
     type: "weapon",
     rarity: 4,
@@ -878,7 +1081,7 @@ export const weapons: Weapon[] = [
     name: { en: "Cloudforged", "zh-CN": "筑云" },
     materials: ["Grain of Aerosiderite", "Ruined Hilt", "Recruit’s Insignia"],
   },
-  {
+  "Chain Breaker": {
     id: "Chain Breaker",
     type: "weapon",
     rarity: 4,
@@ -896,7 +1099,7 @@ export const weapons: Weapon[] = [
   //
   // Newline - bow 4
   //
-  {
+  "Wine and Song": {
     id: "Wine and Song",
     type: "weapon",
     rarity: 4,
@@ -908,7 +1111,7 @@ export const weapons: Weapon[] = [
       "Treasure Hoarder Insignia",
     ],
   },
-  {
+  "The Widsith": {
     id: "The Widsith",
     type: "weapon",
     rarity: 4,
@@ -920,7 +1123,7 @@ export const weapons: Weapon[] = [
       "Damaged Mask",
     ],
   },
-  {
+  "Solar Pearl": {
     id: "Solar Pearl",
     type: "weapon",
     rarity: 4,
@@ -932,7 +1135,7 @@ export const weapons: Weapon[] = [
       "Whopperflower Nectar",
     ],
   },
-  {
+  "Sacrificial Fragments": {
     id: "Sacrificial Fragments",
     type: "weapon",
     rarity: 4,
@@ -944,7 +1147,7 @@ export const weapons: Weapon[] = [
       "Treasure Hoarder Insignia",
     ],
   },
-  {
+  "Royal Grimoire": {
     id: "Royal Grimoire",
     type: "weapon",
     rarity: 4,
@@ -956,7 +1159,7 @@ export const weapons: Weapon[] = [
       "Recruit’s Insignia",
     ],
   },
-  {
+  "Prototype Amber": {
     id: "Prototype Amber",
     type: "weapon",
     rarity: 4,
@@ -971,7 +1174,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "Mappa Mare": {
     id: "Mappa Mare",
     type: "weapon",
     rarity: 4,
@@ -986,7 +1189,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "Hakushin Ring": {
     id: "Hakushin Ring",
     type: "weapon",
     rarity: 4,
@@ -1001,7 +1204,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  Frostbearer: {
     id: "Frostbearer",
     type: "weapon",
     rarity: 4,
@@ -1016,7 +1219,7 @@ export const weapons: Weapon[] = [
       "Starsilver",
     ],
   },
-  {
+  "Favonius Codex": {
     id: "Favonius Codex",
     type: "weapon",
     rarity: 4,
@@ -1024,7 +1227,7 @@ export const weapons: Weapon[] = [
     name: { en: ["Favonius Codex"], "zh-CN": ["西风秘典"] },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Divining Scroll"],
   },
-  {
+  "Eye of Perception": {
     id: "Eye of Perception",
     type: "weapon",
     rarity: 4,
@@ -1032,7 +1235,7 @@ export const weapons: Weapon[] = [
     name: { en: ["Eye of Perception"], "zh-CN": ["昭心"] },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Damaged Mask"],
   },
-  {
+  "Dodoco Tales": {
     id: "Dodoco Tales",
     type: "weapon",
     rarity: 4,
@@ -1044,7 +1247,7 @@ export const weapons: Weapon[] = [
       "Damaged Mask",
     ],
   },
-  {
+  "Blackcliff Agate": {
     id: "Blackcliff Agate",
     type: "weapon",
     rarity: 4,
@@ -1056,7 +1259,7 @@ export const weapons: Weapon[] = [
       "Divining Scroll",
     ],
   },
-  {
+  "Oathsworn Eye": {
     id: "Oathsworn Eye",
     type: "weapon",
     rarity: 4,
@@ -1068,7 +1271,7 @@ export const weapons: Weapon[] = [
       "Spectral Husk",
     ],
   },
-  {
+  "Fruit of Fulfillment": {
     id: "Fruit of Fulfillment",
     type: "weapon",
     rarity: 4,
@@ -1083,7 +1286,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "Wandering Evenstar": {
     id: "Wandering Evenstar",
     type: "weapon",
     rarity: 4,
@@ -1095,7 +1298,7 @@ export const weapons: Weapon[] = [
       "Fungal Spores",
     ],
   },
-  {
+  "Sacrificial Jade": {
     id: "Sacrificial Jade",
     type: "weapon",
     rarity: 4,
@@ -1107,7 +1310,7 @@ export const weapons: Weapon[] = [
       "Divining Scroll",
     ],
   },
-  {
+  "Flowing Purity": {
     id: "Flowing Purity",
     type: "weapon",
     rarity: 4,
@@ -1122,7 +1325,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "Ballad of the Boundless Blue": {
     id: "Ballad of the Boundless Blue",
     type: "weapon",
     rarity: 4,
@@ -1134,7 +1337,7 @@ export const weapons: Weapon[] = [
       "Treasure Hoarder Insignia",
     ],
   },
-  {
+  "Ring of Yaxche": {
     id: "Ring of Yaxche",
     type: "weapon",
     rarity: 4,
@@ -1149,7 +1352,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "Ash-Graven Drinking Horn": {
     id: "Ash-Graven Drinking Horn",
     type: "weapon",
     rarity: 4,
@@ -1164,7 +1367,7 @@ export const weapons: Weapon[] = [
   //
   // Newline catalyst 4
   //
-  {
+  Akuoumaru: {
     id: "Akuoumaru",
     type: "weapon",
     rarity: 4,
@@ -1176,7 +1379,7 @@ export const weapons: Weapon[] = [
       "Old Handguard",
     ],
   },
-  {
+  "Royal Greatsword": {
     id: "Royal Greatsword",
     type: "weapon",
     rarity: 4,
@@ -1188,7 +1391,7 @@ export const weapons: Weapon[] = [
       "Slime Condensate",
     ],
   },
-  {
+  Whiteblind: {
     id: "Whiteblind",
     type: "weapon",
     rarity: 4,
@@ -1203,7 +1406,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "The Bell": {
     id: "The Bell",
     type: "weapon",
     rarity: 4,
@@ -1215,7 +1418,7 @@ export const weapons: Weapon[] = [
       "Whopperflower Nectar",
     ],
   },
-  {
+  "Snow-Tombed Starsilver": {
     id: "Snow-Tombed Starsilver",
     type: "weapon",
     rarity: 4,
@@ -1230,7 +1433,7 @@ export const weapons: Weapon[] = [
       "Starsilver",
     ],
   },
-  {
+  "Favonius Greatsword": {
     id: "Favonius Greatsword",
     type: "weapon",
     rarity: 4,
@@ -1242,7 +1445,7 @@ export const weapons: Weapon[] = [
       "Recruit’s Insignia",
     ],
   },
-  {
+  "Katsuragikiri Nagamasa": {
     id: "Katsuragikiri Nagamasa",
     type: "weapon",
     rarity: 4,
@@ -1257,7 +1460,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "Sacrificial Greatsword": {
     id: "Sacrificial Greatsword",
     type: "weapon",
     rarity: 4,
@@ -1269,7 +1472,7 @@ export const weapons: Weapon[] = [
       "Firm Arrowhead",
     ],
   },
-  {
+  "Serpent Spine": {
     id: "Serpent Spine",
     type: "weapon",
     rarity: 4,
@@ -1281,7 +1484,7 @@ export const weapons: Weapon[] = [
       "Whopperflower Nectar",
     ],
   },
-  {
+  "Blackcliff Slasher": {
     id: "Blackcliff Slasher",
     type: "weapon",
     rarity: 4,
@@ -1293,7 +1496,7 @@ export const weapons: Weapon[] = [
       "Recruit’s Insignia",
     ],
   },
-  {
+  Rainslasher: {
     id: "Rainslasher",
     type: "weapon",
     rarity: 4,
@@ -1305,7 +1508,7 @@ export const weapons: Weapon[] = [
       "Divining Scroll",
     ],
   },
-  {
+  "Prototype Archaic": {
     id: "Prototype Archaic",
     type: "weapon",
     rarity: 4,
@@ -1320,7 +1523,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "Luxurious Sea-Lord": {
     id: "Luxurious Sea-Lord",
     type: "weapon",
     rarity: 4,
@@ -1332,7 +1535,7 @@ export const weapons: Weapon[] = [
       "Slime Condensate",
     ],
   },
-  {
+  "Lithic Blade": {
     id: "Lithic Blade",
     type: "weapon",
     rarity: 4,
@@ -1344,7 +1547,7 @@ export const weapons: Weapon[] = [
       "Firm Arrowhead",
     ],
   },
-  {
+  "Forest Regalia": {
     id: "Forest Regalia",
     type: "weapon",
     rarity: 4,
@@ -1359,7 +1562,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "Makhaira Aquamarine": {
     id: "Makhaira Aquamarine",
     type: "weapon",
     rarity: 4,
@@ -1371,7 +1574,7 @@ export const weapons: Weapon[] = [
       "Treasure Hoarder Insignia",
     ],
   },
-  {
+  "Mailed Flower": {
     id: "Mailed Flower",
     type: "weapon",
     rarity: 4,
@@ -1383,7 +1586,7 @@ export const weapons: Weapon[] = [
       "Spectral Husk",
     ],
   },
-  {
+  "Talking Stick": {
     id: "Talking Stick",
     type: "weapon",
     rarity: 4,
@@ -1395,7 +1598,7 @@ export const weapons: Weapon[] = [
       "Slime Condensate",
     ],
   },
-  {
+  "Tidal Shadow": {
     id: "Tidal Shadow",
     type: "weapon",
     rarity: 4,
@@ -1410,7 +1613,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "Portable Power Saw": {
     id: "Portable Power Saw",
     type: "weapon",
     rarity: 4,
@@ -1422,7 +1625,7 @@ export const weapons: Weapon[] = [
       "Meshing Gear",
     ],
   },
-  {
+  "Ultimate Overlord’s Mega Magic Sword": {
     id: "Ultimate Overlord’s Mega Magic Sword",
     type: "weapon",
     rarity: 4,
@@ -1437,7 +1640,7 @@ export const weapons: Weapon[] = [
       "Meshing Gear",
     ],
   },
-  {
+  "Earth Shaker": {
     id: "Earth Shaker",
     type: "weapon",
     rarity: 4,
@@ -1452,7 +1655,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "Fruitful Hook": {
     id: "Fruitful Hook",
     type: "weapon",
     rarity: 4,
@@ -1467,7 +1670,7 @@ export const weapons: Weapon[] = [
   //
   // Newline - claymore 4
   //
-  {
+  "Prototype Starglitter": {
     id: "Prototype Starglitter",
     type: "weapon",
     rarity: 4,
@@ -1482,7 +1685,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "Lithic Spear": {
     id: "Lithic Spear",
     type: "weapon",
     rarity: 4,
@@ -1494,7 +1697,7 @@ export const weapons: Weapon[] = [
       "Firm Arrowhead",
     ],
   },
-  {
+  "Kitain Cross Spear": {
     id: "Kitain Cross Spear",
     type: "weapon",
     rarity: 4,
@@ -1509,7 +1712,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "“The Catch”": {
     id: "“The Catch”",
     type: "weapon",
     rarity: 4,
@@ -1526,7 +1729,7 @@ export const weapons: Weapon[] = [
       "Bitter Pufferfish",
     ],
   },
-  {
+  "Favonius Lance": {
     id: "Favonius Lance",
     type: "weapon",
     rarity: 4,
@@ -1538,7 +1741,7 @@ export const weapons: Weapon[] = [
       "Slime Condensate",
     ],
   },
-  {
+  "Dragonspine Spear": {
     id: "Dragonspine Spear",
     type: "weapon",
     rarity: 4,
@@ -1553,7 +1756,7 @@ export const weapons: Weapon[] = [
       "Vitalized Dragontooth",
     ],
   },
-  {
+  "Dragon’s Bane": {
     id: "Dragon’s Bane",
     type: "weapon",
     rarity: 4,
@@ -1565,7 +1768,7 @@ export const weapons: Weapon[] = [
       "Divining Scroll",
     ],
   },
-  {
+  Deathmatch: {
     id: "Deathmatch",
     type: "weapon",
     rarity: 4,
@@ -1577,7 +1780,7 @@ export const weapons: Weapon[] = [
       "Whopperflower Nectar",
     ],
   },
-  {
+  "Crescent Pike": {
     id: "Crescent Pike",
     type: "weapon",
     rarity: 4,
@@ -1592,7 +1795,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "Blackcliff Pole": {
     id: "Blackcliff Pole",
     type: "weapon",
     rarity: 4,
@@ -1604,7 +1807,7 @@ export const weapons: Weapon[] = [
       "Recruit’s Insignia",
     ],
   },
-  {
+  "Wavebreaker’s Fin": {
     id: "Wavebreaker’s Fin",
     type: "weapon",
     rarity: 4,
@@ -1616,7 +1819,7 @@ export const weapons: Weapon[] = [
       "Old Handguard",
     ],
   },
-  {
+  "Royal Spear": {
     id: "Royal Spear",
     type: "weapon",
     rarity: 4,
@@ -1628,7 +1831,7 @@ export const weapons: Weapon[] = [
       "Recruit’s Insignia",
     ],
   },
-  {
+  Moonpiercer: {
     id: "Moonpiercer",
     type: "weapon",
     rarity: 4,
@@ -1643,7 +1846,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "Missive Windspear": {
     id: "Missive Windspear",
     type: "weapon",
     rarity: 4,
@@ -1655,7 +1858,7 @@ export const weapons: Weapon[] = [
       "Slime Condensate",
     ],
   },
-  {
+  "Ballard of the Fjords": {
     id: "Ballard of the Fjords",
     type: "weapon",
     rarity: 4,
@@ -1667,7 +1870,7 @@ export const weapons: Weapon[] = [
       "Whopperflower Nectar",
     ],
   },
-  {
+  "Rightful Reward": {
     id: "Rightful Reward",
     type: "weapon",
     rarity: 4,
@@ -1682,7 +1885,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "Prospector’s Drill": {
     id: "Prospector’s Drill",
     type: "weapon",
     rarity: 4,
@@ -1694,7 +1897,7 @@ export const weapons: Weapon[] = [
       "Meshing Gear",
     ],
   },
-  {
+  "Dialogues of the Desert Sages": {
     id: "Dialogues of the Desert Sages",
     type: "weapon",
     rarity: 4,
@@ -1706,7 +1909,7 @@ export const weapons: Weapon[] = [
       "Spectral Husk",
     ],
   },
-  {
+  "Footprint of the Rainbow": {
     id: "Footprint of the Rainbow",
     type: "weapon",
     rarity: 4,
@@ -1721,7 +1924,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "Mountain-Bracing Bolt": {
     id: "Mountain-Bracing Bolt",
     type: "weapon",
     rarity: 4,
@@ -1736,7 +1939,7 @@ export const weapons: Weapon[] = [
   //
   // Newline - polearm 4
   //
-  {
+  "The Flute": {
     id: "The Flute",
     type: "weapon",
     rarity: 4,
@@ -1748,7 +1951,7 @@ export const weapons: Weapon[] = [
       "Slime Condensate",
     ],
   },
-  {
+  "The Black Sword": {
     id: "The Black Sword",
     type: "weapon",
     rarity: 4,
@@ -1760,7 +1963,7 @@ export const weapons: Weapon[] = [
       "Slime Condensate",
     ],
   },
-  {
+  "The Alley Flash": {
     id: "The Alley Flash",
     type: "weapon",
     rarity: 4,
@@ -1768,7 +1971,7 @@ export const weapons: Weapon[] = [
     name: { en: ["The Alley Flash"], "zh-CN": ["暗巷闪光"] },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Divining Scroll"],
   },
-  {
+  "Sword of Descension": {
     id: "Sword of Descension",
     type: "weapon",
     rarity: 4,
@@ -1780,7 +1983,7 @@ export const weapons: Weapon[] = [
       "Treasure Hoarder Insignia",
     ],
   },
-  {
+  "Sacrificial Sword": {
     id: "Sacrificial Sword",
     type: "weapon",
     rarity: 4,
@@ -1792,7 +1995,7 @@ export const weapons: Weapon[] = [
       "Divining Scroll",
     ],
   },
-  {
+  "Royal Longsword": {
     id: "Royal Longsword",
     type: "weapon",
     rarity: 4,
@@ -1800,7 +2003,7 @@ export const weapons: Weapon[] = [
     name: { en: ["Royal Longsword"], "zh-CN": ["宗室长剑"] },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Damaged Mask"],
   },
-  {
+  "Prototype Rancour": {
     id: "Prototype Rancour",
     type: "weapon",
     rarity: 4,
@@ -1815,7 +2018,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "Amenoma Kageuchi": {
     id: "Amenoma Kageuchi",
     type: "weapon",
     rarity: 4,
@@ -1830,7 +2033,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "Lion’s Roar": {
     id: "Lion’s Roar",
     type: "weapon",
     rarity: 4,
@@ -1842,7 +2045,7 @@ export const weapons: Weapon[] = [
       "Treasure Hoarder Insignia",
     ],
   },
-  {
+  "Iron Sting": {
     id: "Iron Sting",
     type: "weapon",
     rarity: 4,
@@ -1857,7 +2060,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "Festering Desire": {
     id: "Festering Desire",
     type: "weapon",
     rarity: 4,
@@ -1869,7 +2072,7 @@ export const weapons: Weapon[] = [
       "Recruit’s Insignia",
     ],
   },
-  {
+  "Favonius Sword": {
     id: "Favonius Sword",
     type: "weapon",
     rarity: 4,
@@ -1877,7 +2080,7 @@ export const weapons: Weapon[] = [
     name: { en: ["Favonius Sword"], "zh-CN": ["西风剑"] },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Firm Arrowhead"],
   },
-  {
+  "Cinnabar Spindle": {
     id: "Cinnabar Spindle",
     type: "weapon",
     rarity: 4,
@@ -1885,7 +2088,7 @@ export const weapons: Weapon[] = [
     name: { en: ["Cinnabar Spindle"], "zh-CN": ["辰砂之纺锤"] },
     materials: ["Tile of Decarabian’s Tower", "Chaos Device", "Damaged Mask"],
   },
-  {
+  "Blackcliff Longsword": {
     id: "Blackcliff Longsword",
     type: "weapon",
     rarity: 4,
@@ -1897,7 +2100,7 @@ export const weapons: Weapon[] = [
       "Firm Arrowhead",
     ],
   },
-  {
+  "Kagotsurube Isshin": {
     id: "Kagotsurube Isshin",
     type: "weapon",
     rarity: 4,
@@ -1909,7 +2112,7 @@ export const weapons: Weapon[] = [
       "Spectral Husk",
     ],
   },
-  {
+  "Sapwood Blade": {
     id: "Sapwood Blade",
     type: "weapon",
     rarity: 4,
@@ -1924,7 +2127,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "Xiphos’ Moonlight": {
     id: "Xiphos’ Moonlight",
     type: "weapon",
     rarity: 4,
@@ -1936,7 +2139,7 @@ export const weapons: Weapon[] = [
       "Faded Red Satin",
     ],
   },
-  {
+  "Toukabou Shigure": {
     id: "Toukabou Shigure",
     type: "weapon",
     rarity: 4,
@@ -1944,7 +2147,7 @@ export const weapons: Weapon[] = [
     name: { en: "Toukabou Shigure", "zh-CN": "东花坊时雨" },
     materials: ["Narukami’s Wisdom", "Damaged Prism", "Old Handguard"],
   },
-  {
+  "Fleuve Cendre Ferryman": {
     id: "Fleuve Cendre Ferryman",
     type: "weapon",
     rarity: 4,
@@ -1960,7 +2163,7 @@ export const weapons: Weapon[] = [
       "Streaming Axe Marlin",
     ],
   },
-  {
+  "Wolf-Fang": {
     id: "Wolf-Fang",
     type: "weapon",
     rarity: 4,
@@ -1968,7 +2171,7 @@ export const weapons: Weapon[] = [
     name: { en: "Wolf-Fang", "zh-CN": "狼牙" },
     materials: ["Tile of Decarabian’s Tower", "Chaos Device", "Damaged Mask"],
   },
-  {
+  "Finale of the Deep": {
     id: "Finale of the Deep",
     type: "weapon",
     rarity: 4,
@@ -1983,7 +2186,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "The Dockhand’s Assistant": {
     id: "The Dockhand’s Assistant",
     type: "weapon",
     rarity: 4,
@@ -1995,7 +2198,7 @@ export const weapons: Weapon[] = [
       "Transoceanic Pearl",
     ],
   },
-  {
+  "Sword of Narzissenkreuz": {
     id: "Sword of Narzissenkreuz",
     type: "weapon",
     rarity: 4,
@@ -2007,7 +2210,7 @@ export const weapons: Weapon[] = [
       "Transoceanic Pearl",
     ],
   },
-  {
+  "Flute of Ezpitzal": {
     id: "Flute of Ezpitzal",
     type: "weapon",
     rarity: 4,
@@ -2022,7 +2225,7 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ],
   },
-  {
+  "Sturdy Bone": {
     id: "Sturdy Bone",
     type: "weapon",
     rarity: 4,
@@ -2037,7 +2240,7 @@ export const weapons: Weapon[] = [
   //
   // Newline - sword 4
   //
-  {
+  "Raven Bow": {
     id: "Raven Bow",
     type: "weapon",
     rarity: 3,
@@ -2045,7 +2248,7 @@ export const weapons: Weapon[] = [
     name: { en: ["Raven Bow"], "zh-CN": ["鸦羽弓"] },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Firm Arrowhead"],
   },
-  {
+  "Recurve Bow": {
     id: "Recurve Bow",
     type: "weapon",
     rarity: 3,
@@ -2057,7 +2260,7 @@ export const weapons: Weapon[] = [
       "Divining Scroll",
     ],
   },
-  {
+  Messenger: {
     id: "Messenger",
     type: "weapon",
     rarity: 3,
@@ -2069,7 +2272,7 @@ export const weapons: Weapon[] = [
       "Treasure Hoarder Insignia",
     ],
   },
-  {
+  "Sharpshooter’s Oath": {
     id: "Sharpshooter’s Oath",
     type: "weapon",
     rarity: 3,
@@ -2081,7 +2284,7 @@ export const weapons: Weapon[] = [
       "Slime Condensate",
     ],
   },
-  {
+  Slingshot: {
     id: "Slingshot",
     type: "weapon",
     rarity: 3,
@@ -2093,7 +2296,7 @@ export const weapons: Weapon[] = [
       "Damaged Mask",
     ],
   },
-  {
+  "Magic Guide": {
     id: "Magic Guide",
     type: "weapon",
     rarity: 3,
@@ -2101,7 +2304,7 @@ export const weapons: Weapon[] = [
     name: { en: ["Magic Guide"], "zh-CN": ["魔导绪论"] },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Slime Condensate"],
   },
-  {
+  "Otherworldly Story": {
     id: "Otherworldly Story",
     type: "weapon",
     rarity: 3,
@@ -2113,7 +2316,7 @@ export const weapons: Weapon[] = [
       "Damaged Mask",
     ],
   },
-  {
+  "Emerald Orb": {
     id: "Emerald Orb",
     type: "weapon",
     rarity: 3,
@@ -2125,7 +2328,7 @@ export const weapons: Weapon[] = [
       "Treasure Hoarder Insignia",
     ],
   },
-  {
+  "Thrilling Tales of Dragon Slayers": {
     id: "Thrilling Tales of Dragon Slayers",
     type: "weapon",
     rarity: 3,
@@ -2140,7 +2343,7 @@ export const weapons: Weapon[] = [
       "Divining Scroll",
     ],
   },
-  {
+  "Twin Nephrite": {
     id: "Twin Nephrite",
     type: "weapon",
     rarity: 3,
@@ -2152,7 +2355,7 @@ export const weapons: Weapon[] = [
       "Recruit’s Insignia",
     ],
   },
-  {
+  "Skyrider Greatsword": {
     id: "Skyrider Greatsword",
     type: "weapon",
     rarity: 3,
@@ -2160,7 +2363,7 @@ export const weapons: Weapon[] = [
     name: { en: ["Skyrider Greatsword"], "zh-CN": ["飞天大御剑"] },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Damaged Mask"],
   },
-  {
+  "Debate Club": {
     id: "Debate Club",
     type: "weapon",
     rarity: 3,
@@ -2168,7 +2371,7 @@ export const weapons: Weapon[] = [
     name: { en: ["Debate Club"], "zh-CN": ["以理服人"] },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Damaged Mask"],
   },
-  {
+  "Bloodtainted Greatsword": {
     id: "Bloodtainted Greatsword",
     type: "weapon",
     rarity: 3,
@@ -2180,7 +2383,7 @@ export const weapons: Weapon[] = [
       "Firm Arrowhead",
     ],
   },
-  {
+  "White Iron Greatsword": {
     id: "White Iron Greatsword",
     type: "weapon",
     rarity: 3,
@@ -2192,7 +2395,7 @@ export const weapons: Weapon[] = [
       "Slime Condensate",
     ],
   },
-  {
+  "Ferrous Shadow": {
     id: "Ferrous Shadow",
     type: "weapon",
     rarity: 3,
@@ -2204,7 +2407,7 @@ export const weapons: Weapon[] = [
       "Whopperflower Nectar",
     ],
   },
-  {
+  Halberd: {
     id: "Halberd",
     type: "weapon",
     rarity: 3,
@@ -2216,7 +2419,7 @@ export const weapons: Weapon[] = [
       "Whopperflower Nectar",
     ],
   },
-  {
+  "Black Tassel": {
     id: "Black Tassel",
     type: "weapon",
     rarity: 3,
@@ -2228,7 +2431,7 @@ export const weapons: Weapon[] = [
       "Firm Arrowhead",
     ],
   },
-  {
+  "White Tassel": {
     id: "White Tassel",
     type: "weapon",
     rarity: 3,
@@ -2240,7 +2443,7 @@ export const weapons: Weapon[] = [
       "Recruit’s Insignia",
     ],
   },
-  {
+  "Harbinger of Dawn": {
     id: "Harbinger of Dawn",
     type: "weapon",
     rarity: 3,
@@ -2252,7 +2455,7 @@ export const weapons: Weapon[] = [
       "Slime Condensate",
     ],
   },
-  {
+  "Fillet Blade": {
     id: "Fillet Blade",
     type: "weapon",
     rarity: 3,
@@ -2264,7 +2467,7 @@ export const weapons: Weapon[] = [
       "Treasure Hoarder Insignia",
     ],
   },
-  {
+  "Skyrider Sword": {
     id: "Skyrider Sword",
     type: "weapon",
     rarity: 3,
@@ -2276,7 +2479,7 @@ export const weapons: Weapon[] = [
       "Recruit’s Insignia",
     ],
   },
-  {
+  "Dark Iron Sword": {
     id: "Dark Iron Sword",
     type: "weapon",
     rarity: 3,
@@ -2288,7 +2491,7 @@ export const weapons: Weapon[] = [
       "Damaged Mask",
     ],
   },
-  {
+  "Cool Steel": {
     id: "Cool Steel",
     type: "weapon",
     rarity: 3,
@@ -2296,7 +2499,7 @@ export const weapons: Weapon[] = [
     name: { en: ["Cool Steel"], "zh-CN": ["冷刃"] },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Firm Arrowhead"],
   },
-  {
+  "Traveler’s Handy Sword": {
     id: "Traveler’s Handy Sword",
     type: "weapon",
     rarity: 3,
@@ -2308,4 +2511,5 @@ export const weapons: Weapon[] = [
       "Divining Scroll",
     ],
   },
-];
+};
+//!SECTION
