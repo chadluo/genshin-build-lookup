@@ -100,7 +100,8 @@ export type CharacterAscension =
   | "Cloudseam Scale"
   | "Fragment of a Golden Melody"
   | "Mark of the Binding Blessing"
-  | "Overripe Flamegranate";
+  | "Overripe Flamegranate"
+  | "Gold-Inscribed Secret Source Core";
 
 export type TalentBook =
   | "Freedom"
@@ -201,7 +202,8 @@ export type LocalSpeciality =
   | "Trishiraite"
   | "Quenepa Berry"
   | "Sprayfeather Gill"
-  | "Saurian Claw Succulent";
+  | "Saurian Claw Succulent"
+  | "Brilliant Chrysanthemum";
 
 export type WeaponAscension =
   | "Mask of the Wicked Lieutenant"
@@ -730,6 +732,10 @@ const localSpecialities: readonly Material[] = [
     id: "Saurian Claw Succulent",
     name: { en: "Saurian Claw Succulent", "zh-CN": "肉龙掌" },
   },
+  {
+    id: "Brilliant Chrysanthemum",
+    name: { en: "Brilliant Chrysanthemum", "zh-CN": "灼灼彩菊" },
+  },
   //
   // Newline - local specialities
   //
@@ -916,6 +922,13 @@ const characterAscensions: readonly Material[] = [
   {
     id: "Overripe Flamegranate",
     name: { en: "Overripe Flamegranate", "zh-CN": "过熟的火榴果" },
+  },
+  {
+    id: "Gold-Inscribed Secret Source Core",
+    name: {
+      en: "Gold-Inscribed Secret Source Core",
+      "zh-CN": "秘刻金纹的源核",
+    },
   },
   //
   // Newline - character ascension

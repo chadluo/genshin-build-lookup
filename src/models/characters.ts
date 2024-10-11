@@ -1209,6 +1209,14 @@ export const characters: Record<CharacterId, Character> = {
     type: "character",
     rarity: 5,
     name: { en: "Xilonen", "zh-CN": "希诺宁" },
+    materials: [
+      "Gold-Inscribed Secret Source Core",
+      "Prithiva Topaz",
+      "Mirror of Mushin",
+      "Kindling",
+      "Sentry’s Wooden Whistle",
+      "Brilliant Chrysanthemum",
+    ],
   },
   Xingqiu: {
     id: "Xingqiu",

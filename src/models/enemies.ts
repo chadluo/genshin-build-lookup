@@ -390,6 +390,16 @@ export const bosses: Boss[] = [
     name: { en: "Kongamato", "zh-CN": "康加玛托" },
     materials: ["Overripe Flamegranate", "Nagadus Emerald"],
   },
+  {
+    id: "Secret Source Automaton: Configuration Device",
+    region: "Natlan",
+    type: "boss",
+    name: {
+      en: "Secret Source Automaton: Configuration Device",
+      "zh-CN": "秘源机兵・构型械",
+    },
+    materials: ["Gold-Inscribed Secret Source Core", "Vajrada Amethyst"],
+  },
   //
   // Newline - normal boss
   //
