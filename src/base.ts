@@ -63,9 +63,7 @@ export function renderQTableContent(
       return character == null
         ? ""
         : renderQTableRows(
-            type,
-            id,
-            character.name,
+            { type, id, name: character.name },
             byMaterials(character.materials),
             weekday,
             true
@@ -76,9 +74,7 @@ export function renderQTableContent(
       return weapon == null
         ? ""
         : renderQTableRows(
-            type,
-            id,
-            weapon.name,
+            { type, id, name: weapon.name },
             byMaterials(weapon.materials),
             weekday,
             true
@@ -88,9 +84,7 @@ export function renderQTableContent(
     case TYPE_BOSS:
     case TYPE_ENEMY:
       return renderQTableRows(
-        type,
-        id,
-        findName([...bosses, ...enemies], id),
+        { type, id, name: findName([...bosses, ...enemies], id) },
         byEnemy(id),
         weekday,
         true
@@ -101,9 +95,7 @@ export function renderQTableContent(
         return [1, 2, 3]
           .map((weekday) =>
             renderQTableRows(
-              type,
-              id,
-              findName(domains, id),
+              { type, id, name: findName(domains, id) },
               byDomain(id, weekday),
               weekday,
               true
@@ -112,9 +104,7 @@ export function renderQTableContent(
           .join("");
       }
       return renderQTableRows(
-        type,
-        id,
-        findName(domains, id),
+        { type, id, name: findName(domains, id) },
         byDomain(id, weekday),
         weekday,
         true
@@ -135,9 +125,7 @@ export function findName(objects: OfMaterial[], id: string): I18nObject {
  * | Boss             | Material | Characters/Weapons |
  */
 export function renderQTableRows(
-  type: ItemType,
-  id: string,
-  name: I18nObject,
+  { type, id, name }: OfMaterial,
   object: Map<Material, (OfMaterial | [Domain, number])[]>,
   weekday: number,
   remove: boolean
@@ -317,13 +305,7 @@ function formatArray(
     switch (obj.type) {
       case TYPE_TALENT_DOMAIN:
       case TYPE_WEAPON_DOMAIN:
-        return renderDomainLink(
-          obj.id,
-          weekday,
-          obj.type,
-          obj.name,
-          currentWeekday
-        );
+        return renderDomainLink(obj, weekday, currentWeekday);
       default:
         return renderLink(obj.id, obj.type, obj.name);
     }
@@ -332,10 +314,8 @@ function formatArray(
 }
 
 export function renderDomainLink(
-  id: string,
+  { id, type, name }: OfMaterial,
   weekday: number,
-  type: ItemType,
-  names: I18nObject | null,
   currentWeekday: number
 ) {
   const classes = [];
@@ -348,9 +328,7 @@ export function renderDomainLink(
   return `<a data-id='${id}' data-weekday='${weekday}' data-type='${type}' class='${classes.join(
     " "
   )}'
-  >${names === null ? "" : formatName(names)} ${formatName(
-    weekdays[weekday]
-  )}</a>`;
+  >${formatName(name)} ${formatName(weekdays[weekday])}</a>`;
 }
 
 /**

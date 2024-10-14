@@ -112,14 +112,12 @@ export class EnemiesTable extends HTMLElement {
   }
 
   formatDomain(id: string, type: ItemType) {
-    const domainName = formatName(
-      Enemies.domains.filter((d) => d.id === id)[0]?.name
-    );
+    const name = Enemies.domains.filter((d) => d.id === id)[0]?.name;
     const currentWeekday = getWeekday(getTimezone());
     const plainWeekdays = [1, 2, 3]
-      .map((i) => renderDomainLink(id, i, type, null, currentWeekday))
+      .map((i) => renderDomainLink({ id, type, name: name }, i, currentWeekday))
       .join(formatName(DELIMITER));
-    return `<td>${domainName}</td><td>${plainWeekdays}${formatName(
+    return `<td>${formatName(name)}</td><td>${plainWeekdays}${formatName(
       DELIMITER
     )}<a data-id="${id}" data-weekday="${VIEW_ALL}" data-type="${type}">${formatName(
       ui.showAll

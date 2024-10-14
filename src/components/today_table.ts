@@ -30,7 +30,7 @@ export class TodayTable extends HTMLElement {
           (zone) =>
             `<label><input type="radio" name="timezone" value="${zone}" ${
               zone === getTimezone() ? "checked" : ""
-            }>${this.formatZoneOption(zone)}</label>`,
+            }>${this.formatZoneOption(zone)}</label>`
         )
         .join("")}</div>
       <table class="qtable">${this.renderDomains(weekdays)}</table></details>`;
@@ -39,7 +39,7 @@ export class TodayTable extends HTMLElement {
 
   formatZoneOption(zone: Timezone) {
     return `${this.getTimezoneIcon(zone)} ${formatName(ui[zone])}${formatName(
-      DELIMITER,
+      DELIMITER
     )}${formatName(weekdays[getWeekday(zone)])}`;
   }
 
@@ -61,15 +61,8 @@ export class TodayTable extends HTMLElement {
     return domains
       .flatMap((d) =>
         weekdays.map((weekday) =>
-          renderQTableRows(
-            d.type,
-            d.id,
-            d.name,
-            byDomain(d.id, weekday),
-            weekday,
-            false,
-          ),
-        ),
+          renderQTableRows(d, byDomain(d.id, weekday), weekday, false)
+        )
       )
       .join("");
   }
