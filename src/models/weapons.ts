@@ -19,210 +19,7 @@ export type Weapon = OfMaterial & {
 
 export type Category = "Bow" | "Catalyst" | "Claymore" | "Polearm" | "Sword";
 
-// SECTION Weapon Id
-export type WeaponId =
-  | "Polar Star"
-  | "Thundering Pulse"
-  | "Elegy for the End"
-  | "Skyward Harp"
-  | "Amos’ Bow"
-  | "Aqua Simulacra"
-  | "Hunter’s Path"
-  | "The First Great Magic"
-  | "Silvershower Heartstrings"
-  // Newline - bow 5
-  | "Lost Prayer to the Sacred Winds"
-  | "Skyward Atlas"
-  | "Everlasting Moonglow"
-  | "Memory of Dust"
-  | "Kagura’s Verity"
-  | "A Thousand Floating Dreams"
-  | "Tulaytulla’s Rememberance"
-  | "Jadefall’s Splendor"
-  | "Tome of the Eternal Flow"
-  | "Cashflow Supervision"
-  | "Crane’s Echoing Call"
-  | "Surf’s Up"
-  // Newline - catalyst 5
-  | "Wolf’s Gravestone"
-  | "Skyward Pride"
-  | "The Unforged"
-  | "Song of Broken Pines"
-  | "Redhorn Stonethresher"
-  | "Beacon of the Reed Sea"
-  | "Verdict"
-  | "Fang of the Mountain King"
-  // Newline - claymore 5
-  | "Engulfing Lightning"
-  | "Skyward Spine"
-  | "Primordial Jade Winged-Spear"
-  | "Calamity Queller"
-  | "Staff of Homa"
-  | "Vortex Vanquisher"
-  | "Staff of the Scarlet Sands"
-  | "Crimson Moon’s Semblance"
-  | "Lumidouce Elegy"
-  // Newline - polearm 5
-  | "Mistsplitter Reforged"
-  | "Aquila Favonia"
-  | "Summit Shaper"
-  | "Skyward Blade"
-  | "Freedom-Sworn"
-  | "Primordial Jade Cutter"
-  | "Haran Geppaku Futsu"
-  | "Key of the Khaj-Nisut"
-  | "Light of Foliar Incision"
-  | "Splendor of Tranquil Waters"
-  | "Uraku Mitsugiri"
-  | "Absolution"
-  | "Peak Patrol Song"
-  // Newline - sword 5
-  | "Alley Hunter"
-  | "The Viridescent Hunt"
-  | "The Stringless"
-  | "Sacrificial Bow"
-  | "Rust"
-  | "Royal Bow"
-  | "Predator"
-  | "Prototype Crescent"
-  | "Mouun’s Moon"
-  | "Mitternachts Waltz"
-  | "Hamayumi"
-  | "Favonius Warbow"
-  | "Compound Bow"
-  | "Blackcliff Warbow"
-  | "Windblume Ode"
-  | "Fading Twilight"
-  | "End of the Line"
-  | "King’s Squire"
-  | "Ibis Piercer"
-  | "Scion of the Blazing Sun"
-  | "Song of Stillness"
-  | "Range Gauge"
-  | "Cloudforged"
-  | "Chain Breaker"
-  // Newline - bow 4
-  | "Wine and Song"
-  | "The Widsith"
-  | "Solar Pearl"
-  | "Sacrificial Fragments"
-  | "Royal Grimoire"
-  | "Prototype Amber"
-  | "Mappa Mare"
-  | "Hakushin Ring"
-  | "Frostbearer"
-  | "Favonius Codex"
-  | "Eye of Perception"
-  | "Dodoco Tales"
-  | "Blackcliff Agate"
-  | "Oathsworn Eye"
-  | "Fruit of Fulfillment"
-  | "Wandering Evenstar"
-  | "Sacrificial Jade"
-  | "Flowing Purity"
-  | "Ballad of the Boundless Blue"
-  | "Ring of Yaxche"
-  | "Ash-Graven Drinking Horn"
-  // Newline catalyst 4
-  | "Akuoumaru"
-  | "Royal Greatsword"
-  | "Whiteblind"
-  | "The Bell"
-  | "Snow-Tombed Starsilver"
-  | "Favonius Greatsword"
-  | "Katsuragikiri Nagamasa"
-  | "Sacrificial Greatsword"
-  | "Serpent Spine"
-  | "Blackcliff Slasher"
-  | "Rainslasher"
-  | "Prototype Archaic"
-  | "Luxurious Sea-Lord"
-  | "Lithic Blade"
-  | "Forest Regalia"
-  | "Makhaira Aquamarine"
-  | "Mailed Flower"
-  | "Talking Stick"
-  | "Tidal Shadow"
-  | "Portable Power Saw"
-  | "Ultimate Overlord’s Mega Magic Sword"
-  | "Earth Shaker"
-  | "Fruitful Hook"
-  // Newline - claymore 4
-  | "Prototype Starglitter"
-  | "Lithic Spear"
-  | "Kitain Cross Spear"
-  | "“The Catch”"
-  | "Favonius Lance"
-  | "Dragonspine Spear"
-  | "Dragon’s Bane"
-  | "Deathmatch"
-  | "Crescent Pike"
-  | "Blackcliff Pole"
-  | "Wavebreaker’s Fin"
-  | "Royal Spear"
-  | "Moonpiercer"
-  | "Missive Windspear"
-  | "Ballard of the Fjords"
-  | "Rightful Reward"
-  | "Prospector’s Drill"
-  | "Dialogues of the Desert Sages"
-  | "Footprint of the Rainbow"
-  | "Mountain-Bracing Bolt"
-  // Newline - polearm 4
-  | "The Flute"
-  | "The Black Sword"
-  | "The Alley Flash"
-  | "Sword of Descension"
-  | "Sacrificial Sword"
-  | "Royal Longsword"
-  | "Prototype Rancour"
-  | "Amenoma Kageuchi"
-  | "Lion’s Roar"
-  | "Iron Sting"
-  | "Festering Desire"
-  | "Favonius Sword"
-  | "Cinnabar Spindle"
-  | "Blackcliff Longsword"
-  | "Kagotsurube Isshin"
-  | "Sapwood Blade"
-  | "Xiphos’ Moonlight"
-  | "Toukabou Shigure"
-  | "Fleuve Cendre Ferryman"
-  | "Wolf-Fang"
-  | "Finale of the Deep"
-  | "The Dockhand’s Assistant"
-  | "Sword of Narzissenkreuz"
-  | "Flute of Ezpitzal"
-  | "Sturdy Bone"
-  // Newline - sword 4
-  | "Raven Bow"
-  | "Recurve Bow"
-  | "Messenger"
-  | "Sharpshooter’s Oath"
-  | "Slingshot"
-  | "Magic Guide"
-  | "Otherworldly Story"
-  | "Emerald Orb"
-  | "Thrilling Tales of Dragon Slayers"
-  | "Twin Nephrite"
-  | "Skyrider Greatsword"
-  | "Debate Club"
-  | "Bloodtainted Greatsword"
-  | "White Iron Greatsword"
-  | "Ferrous Shadow"
-  | "Halberd"
-  | "Black Tassel"
-  | "White Tassel"
-  | "Harbinger of Dawn"
-  | "Fillet Blade"
-  | "Skyrider Sword"
-  | "Dark Iron Sword"
-  | "Cool Steel"
-  | "Traveler’s Handy Sword";
-//!SECTION
-
-// SECTION Weapon Object
-export const weapons: Record<WeaponId, Weapon> = {
+export const weapons = {
   "Polar Star": {
     id: "Polar Star",
     type: "weapon",
@@ -234,7 +31,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Concealed Claw",
       "Spectral Husk",
     ],
-  },
+  } as Weapon,
   "Thundering Pulse": {
     id: "Thundering Pulse",
     type: "weapon",
@@ -242,7 +39,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Bow",
     name: { en: ["Thundering Pulse"], "zh-CN": ["飞雷之弦振"] },
     materials: ["Narukami’s Wisdom", "Dismal Prism", "Firm Arrowhead"],
-  },
+  } as Weapon,
   "Elegy for the End": {
     id: "Elegy for the End",
     type: "weapon",
@@ -250,7 +47,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Bow",
     name: { en: ["Elegy for the End"], "zh-CN": ["终末嗟叹之诗"] },
     materials: ["Boreal Wolf’s Milk Tooth", "Heavy Horn", "Recruit’s Insignia"],
-  },
+  } as Weapon,
   "Skyward Harp": {
     id: "Skyward Harp",
     type: "weapon",
@@ -262,7 +59,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Dead Ley Line Branch",
       "Firm Arrowhead",
     ],
-  },
+  } as Weapon,
   "Amos’ Bow": {
     id: "Amos’ Bow",
     type: "weapon",
@@ -274,7 +71,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Chaos Device",
       "Slime Condensate",
     ],
-  },
+  } as Weapon,
   "Aqua Simulacra": {
     id: "Aqua Simulacra",
     type: "weapon",
@@ -286,7 +83,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Gloomy Statuette",
       "Spectral Husk",
     ],
-  },
+  } as Weapon,
   "Hunter’s Path": {
     id: "Hunter’s Path",
     type: "weapon",
@@ -298,7 +95,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Inactivated Fungal Nucleus",
       "Faded Red Satin",
     ],
-  },
+  } as Weapon,
   "The First Great Magic": {
     id: "The First Great Magic",
     type: "weapon",
@@ -310,7 +107,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Drop of Tainted Water",
       "Transoceanic Pearl",
     ],
-  },
+  } as Weapon,
   "Silvershower Heartstrings": {
     id: "Silvershower Heartstrings",
     type: "weapon",
@@ -322,7 +119,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Feathery Fin",
       "Transoceanic Pearl",
     ],
-  },
+  } as Weapon,
   //
   // Newline - bow 5
   //
@@ -340,7 +137,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Chaos Device",
       "Slime Condensate",
     ],
-  },
+  } as Weapon,
   "Skyward Atlas": {
     id: "Skyward Atlas",
     type: "weapon",
@@ -352,7 +149,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Dead Ley Line Branch",
       "Firm Arrowhead",
     ],
-  },
+  } as Weapon,
   "Everlasting Moonglow": {
     id: "Everlasting Moonglow",
     type: "weapon",
@@ -364,7 +161,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Dismal Prism",
       "Spectral Husk",
     ],
-  },
+  } as Weapon,
   "Memory of Dust": {
     id: "Memory of Dust",
     type: "weapon",
@@ -372,7 +169,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Catalyst",
     name: { en: ["Memory of Dust"], "zh-CN": ["尘世之锁"] },
     materials: ["Grain of Aerosiderite", "Fragile Bone Shard", "Damaged Mask"],
-  },
+  } as Weapon,
   "Kagura’s Verity": {
     id: "Kagura’s Verity",
     type: "weapon",
@@ -384,7 +181,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Concealed Claw",
       "Spectral Husk",
     ],
-  },
+  } as Weapon,
   "A Thousand Floating Dreams": {
     id: "A Thousand Floating Dreams",
     type: "weapon",
@@ -399,7 +196,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Damaged Prism",
       "Fungal Spores",
     ],
-  },
+  } as Weapon,
   "Tulaytulla’s Rememberance": {
     id: "Tulaytulla’s Rememberance",
     type: "weapon",
@@ -411,7 +208,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Inactivated Fungal Nucleus",
       "Fungal Spores",
     ],
-  },
+  } as Weapon,
   "Jadefall’s Splendor": {
     id: "Jadefall’s Splendor",
     type: "weapon",
@@ -423,7 +220,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "A Flower Yet to Bloom",
       "Fungal Spores",
     ],
-  },
+  } as Weapon,
   "Tome of the Eternal Flow": {
     id: "Tome of the Eternal Flow",
     type: "weapon",
@@ -431,7 +228,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Catalyst",
     name: { en: "Tome of the Eternal Flow", "zh-CN": "万世流涌大典" },
     materials: ["Dross of Pure Sacred Dewdrop", "Rift Core", "Meshing Gear"],
-  },
+  } as Weapon,
   "Cashflow Supervision": {
     id: "Cashflow Supervision",
     type: "weapon",
@@ -443,7 +240,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Old Operative’s Pocket Watch",
       "Transoceanic Pearl",
     ],
-  },
+  } as Weapon,
   "Crane’s Echoing Call": {
     id: "Crane’s Echoing Call",
     type: "weapon",
@@ -451,7 +248,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Catalyst",
     name: { en: "Crane’s Echoing Call", "zh-CN": "鹤鸣余音" },
     materials: ["Mist Veiled Lead Elixir", "Feathery Fin", "Divining Scroll"],
-  },
+  } as Weapon,
   "Surf’s Up": {
     id: "Surf’s Up",
     type: "weapon",
@@ -463,7 +260,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Shard of a Shattered Will",
       "Juvenile Fang",
     ],
-  },
+  } as Weapon,
   //
   // Newline - catalyst 5
   //
@@ -478,7 +275,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Chaos Device",
       "Divining Scroll",
     ],
-  },
+  } as Weapon,
   "Skyward Pride": {
     id: "Skyward Pride",
     type: "weapon",
@@ -490,7 +287,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Dead Ley Line Branch",
       "Slime Condensate",
     ],
-  },
+  } as Weapon,
   "The Unforged": {
     id: "The Unforged",
     type: "weapon",
@@ -502,7 +299,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Mist Grass Pollen",
       "Treasure Hoarder Insignia",
     ],
-  },
+  } as Weapon,
   "Song of Broken Pines": {
     id: "Song of Broken Pines",
     type: "weapon",
@@ -510,7 +307,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Claymore",
     name: { en: ["Song of Broken Pines"], "zh-CN": ["松籁响起之时"] },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Damaged Mask"],
-  },
+  } as Weapon,
   "Redhorn Stonethresher": {
     id: "Redhorn Stonethresher",
     type: "weapon",
@@ -518,7 +315,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Claymore",
     name: { en: ["Redhorn Stonethresher"], "zh-CN": ["赤角石溃杵"] },
     materials: ["Narukami’s Wisdom", "Concealed Claw", "Old Handguard"],
-  },
+  } as Weapon,
   "Beacon of the Reed Sea": {
     id: "Beacon of the Reed Sea",
     type: "weapon",
@@ -530,7 +327,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Desiccated Shell",
       "Faded Red Satin",
     ],
-  },
+  } as Weapon,
   Verdict: {
     id: "Verdict",
     type: "weapon",
@@ -538,7 +335,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Claymore",
     name: { en: "Verdict", "zh-CN": "裁断" },
     materials: ["Fragment of an Ancient Chord", "Rift Core", "Meshing Gear"],
-  },
+  } as Weapon,
   "Fang of the Mountain King": {
     id: "Fang of the Mountain King",
     type: "weapon",
@@ -550,7 +347,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Ignited Stone",
       "Sentry’s Wooden Whistle",
     ],
-  },
+  } as Weapon,
   //
   // Newline - claymore 5
   //
@@ -561,7 +358,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Polearm",
     name: { en: ["Engulfing Lightning"], "zh-CN": ["薙草之稻光"] },
     materials: ["Mask of the Wicked Lieutenant", "Chaos Gear", "Old Handguard"],
-  },
+  } as Weapon,
   "Skyward Spine": {
     id: "Skyward Spine",
     type: "weapon",
@@ -573,7 +370,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Chaos Device",
       "Divining Scroll",
     ],
-  },
+  } as Weapon,
   "Primordial Jade Winged-Spear": {
     id: "Primordial Jade Winged-Spear",
     type: "weapon",
@@ -585,7 +382,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Hunter’s Sacrificial Knife",
       "Recruit’s Insignia",
     ],
-  },
+  } as Weapon,
   "Calamity Queller": {
     id: "Calamity Queller",
     type: "weapon",
@@ -597,7 +394,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Mist Grass Pollen",
       "Whopperflower Nectar",
     ],
-  },
+  } as Weapon,
   "Staff of Homa": {
     id: "Staff of Homa",
     type: "weapon",
@@ -609,7 +406,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Dead Ley Line Branch",
       "Slime Condensate",
     ],
-  },
+  } as Weapon,
   "Vortex Vanquisher": {
     id: "Vortex Vanquisher",
     type: "weapon",
@@ -621,7 +418,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Fragile Bone Shard",
       "Treasure Hoarder Insignia",
     ],
-  },
+  } as Weapon,
   "Staff of the Scarlet Sands": {
     id: "Staff of the Scarlet Sands",
     type: "weapon",
@@ -633,7 +430,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Chaos Storage",
       "Fungal Spores",
     ],
-  },
+  } as Weapon,
   "Crimson Moon’s Semblance": {
     id: "Crimson Moon’s Semblance",
     type: "weapon",
@@ -645,7 +442,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Ruined Hilt",
       "Meshing Gear",
     ],
-  },
+  } as Weapon,
   "Lumidouce Elegy": {
     id: "Lumidouce Elegy",
     type: "weapon",
@@ -657,7 +454,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Ruined Hilt",
       "Whopperflower Nectar",
     ],
-  },
+  } as Weapon,
   //
   // Newline - polearm 5
   //
@@ -668,7 +465,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Sword",
     name: { en: ["Mistsplitter Reforged"], "zh-CN": ["雾切之回光"] },
     materials: ["Coral Branch of a Distant Sea", "Chaos Gear", "Old Handguard"],
-  },
+  } as Weapon,
   "Aquila Favonia": {
     id: "Aquila Favonia",
     type: "weapon",
@@ -676,7 +473,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Sword",
     name: { en: ["Aquila Favonia"], "zh-CN": ["风鹰剑"] },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Firm Arrowhead"],
-  },
+  } as Weapon,
   "Summit Shaper": {
     id: "Summit Shaper",
     type: "weapon",
@@ -688,7 +485,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Hunter’s Sacrificial Knife",
       "Damaged Mask",
     ],
-  },
+  } as Weapon,
   "Skyward Blade": {
     id: "Skyward Blade",
     type: "weapon",
@@ -700,7 +497,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Dead Ley Line Branch",
       "Slime Condensate",
     ],
-  },
+  } as Weapon,
   "Freedom-Sworn": {
     id: "Freedom-Sworn",
     type: "weapon",
@@ -712,7 +509,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Chaos Device",
       "Divining Scroll",
     ],
-  },
+  } as Weapon,
   "Primordial Jade Cutter": {
     id: "Primordial Jade Cutter",
     type: "weapon",
@@ -724,7 +521,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Mist Grass Pollen",
       "Treasure Hoarder Insignia",
     ],
-  },
+  } as Weapon,
   "Haran Geppaku Futsu": {
     id: "Haran Geppaku Futsu",
     type: "weapon",
@@ -732,7 +529,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Sword",
     name: { en: ["Haran Geppaku Futsu"], "zh-CN": ["波乱月白经津"] },
     materials: ["Narukami’s Wisdom", "Gloomy Statuette", "Old Handguard"],
-  },
+  } as Weapon,
   "Key of the Khaj-Nisut": {
     id: "Key of the Khaj-Nisut",
     type: "weapon",
@@ -744,7 +541,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Damaged Prism",
       "Faded Red Satin",
     ],
-  },
+  } as Weapon,
   "Light of Foliar Incision": {
     id: "Light of Foliar Incision",
     type: "weapon",
@@ -756,7 +553,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Desiccated Shell",
       "Faded Red Satin",
     ],
-  },
+  } as Weapon,
   "Splendor of Tranquil Waters": {
     id: "Splendor of Tranquil Waters",
     type: "weapon",
@@ -768,7 +565,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Drop of Tainted Water",
       "Transoceanic Pearl",
     ],
-  },
+  } as Weapon,
   "Uraku Mitsugiri": {
     id: "Uraku Mitsugiri",
     type: "weapon",
@@ -776,7 +573,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Sword",
     name: { en: "Uraku Mitsugiri", "zh-CN": "有乐御簾切" },
     materials: ["Coral Branch of a Distant Sea", "Chaos Gear", "Old Handguard"],
-  },
+  } as Weapon,
   Absolution: {
     id: "Absolution",
     type: "weapon",
@@ -788,7 +585,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Old Operative’s Pocket Watch",
       "Meshing Gear",
     ],
-  },
+  } as Weapon,
   "Peak Patrol Song": {
     id: "Peak Patrol Song",
     type: "weapon",
@@ -800,7 +597,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Axis of the Secret Source",
       "Juvenile Fang",
     ],
-  },
+  } as Weapon,
   //
   // Newline - sword 5
   //
@@ -815,7 +612,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Chaos Device",
       "Slime Condensate",
     ],
-  },
+  } as Weapon,
   "The Viridescent Hunt": {
     id: "The Viridescent Hunt",
     type: "weapon",
@@ -823,7 +620,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Bow",
     name: { en: ["The Viridescent Hunt"], "zh-CN": ["苍翠猎弓"] },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Firm Arrowhead"],
-  },
+  } as Weapon,
   "The Stringless": {
     id: "The Stringless",
     type: "weapon",
@@ -831,7 +628,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Bow",
     name: { en: ["The Stringless"], "zh-CN": ["绝弦"] },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Firm Arrowhead"],
-  },
+  } as Weapon,
   "Sacrificial Bow": {
     id: "Sacrificial Bow",
     type: "weapon",
@@ -843,7 +640,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Dead Ley Line Branch",
       "Slime Condensate",
     ],
-  },
+  } as Weapon,
   Rust: {
     id: "Rust",
     type: "weapon",
@@ -855,7 +652,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Hunter’s Sacrificial Knife",
       "Damaged Mask",
     ],
-  },
+  } as Weapon,
   "Royal Bow": {
     id: "Royal Bow",
     type: "weapon",
@@ -867,7 +664,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Chaos Device",
       "Divining Scroll",
     ],
-  },
+  } as Weapon,
   Predator: {
     id: "Predator",
     type: "weapon",
@@ -875,7 +672,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Bow",
     name: { en: ["Predator"], "zh-CN": ["掠食者"] },
     materials: ["Narukami’s Wisdom", "Dismal Prism", "Firm Arrowhead"],
-  },
+  } as Weapon,
   "Prototype Crescent": {
     id: "Prototype Crescent",
     type: "weapon",
@@ -890,7 +687,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Crystal Chunk",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "Mouun’s Moon": {
     id: "Mouun’s Moon",
     type: "weapon",
@@ -898,7 +695,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Bow",
     name: { en: ["Mouun’s Moon"], "zh-CN": ["曚云之月"] },
     materials: ["Narukami’s Wisdom", "Dismal Prism", "Spectral Husk"],
-  },
+  } as Weapon,
   "Mitternachts Waltz": {
     id: "Mitternachts Waltz",
     type: "weapon",
@@ -910,7 +707,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Heavy Horn",
       "Treasure Hoarder Insignia",
     ],
-  },
+  } as Weapon,
   Hamayumi: {
     id: "Hamayumi",
     type: "weapon",
@@ -925,7 +722,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Amethyst Lump",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "Favonius Warbow": {
     id: "Favonius Warbow",
     type: "weapon",
@@ -937,7 +734,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Chaos Device",
       "Whopperflower Nectar",
     ],
-  },
+  } as Weapon,
   "Compound Bow": {
     id: "Compound Bow",
     type: "weapon",
@@ -952,7 +749,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Crystal Chunk",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "Blackcliff Warbow": {
     id: "Blackcliff Warbow",
     type: "weapon",
@@ -964,7 +761,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Hunter’s Sacrificial Knife",
       "Whopperflower Nectar",
     ],
-  },
+  } as Weapon,
   "Windblume Ode": {
     id: "Windblume Ode",
     type: "weapon",
@@ -976,7 +773,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Dead Ley Line Branch",
       "Whopperflower Nectar",
     ],
-  },
+  } as Weapon,
   "Fading Twilight": {
     id: "Fading Twilight",
     type: "weapon",
@@ -988,7 +785,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Hunter’s Sacrificial Knife",
       "Divining Scroll",
     ],
-  },
+  } as Weapon,
   "End of the Line": {
     id: "End of the Line",
     type: "weapon",
@@ -1003,7 +800,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Lazurite Axe Marlin",
       "Halcyon Jade Axe Marlin",
     ],
-  },
+  } as Weapon,
   "King’s Squire": {
     id: "King’s Squire",
     type: "weapon",
@@ -1018,22 +815,19 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Crystal Chunk",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "Ibis Piercer": {
     id: "Ibis Piercer",
     type: "weapon",
     rarity: 4,
     category: "Bow",
-    name: {
-      en: ["Ibis Piercer"],
-      "zh-CN": ["鹮穿之喙"],
-    },
+    name: { en: ["Ibis Piercer"], "zh-CN": ["鹮穿之喙"] },
     materials: [
       "Copper Talisman of the Forest Dew",
       "A Flower Yet to Bloom",
       "Faded Red Satin",
     ],
-  },
+  } as Weapon,
   "Scion of the Blazing Sun": {
     id: "Scion of the Blazing Sun",
     type: "weapon",
@@ -1045,7 +839,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "A Flower Yet to Bloom",
       "Fungal Spores",
     ],
-  },
+  } as Weapon,
   "Song of Stillness": {
     id: "Song of Stillness",
     type: "weapon",
@@ -1060,7 +854,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Condessence Crystal",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "Range Gauge": {
     id: "Range Gauge",
     type: "weapon",
@@ -1072,7 +866,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Drop of Tainted Water",
       "Transoceanic Pearl",
     ],
-  },
+  } as Weapon,
   Cloudforged: {
     id: "Cloudforged",
     type: "weapon",
@@ -1080,7 +874,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Bow",
     name: { en: "Cloudforged", "zh-CN": "筑云" },
     materials: ["Grain of Aerosiderite", "Ruined Hilt", "Recruit’s Insignia"],
-  },
+  } as Weapon,
   "Chain Breaker": {
     id: "Chain Breaker",
     type: "weapon",
@@ -1095,7 +889,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Condessence Crystal",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   //
   // Newline - bow 4
   //
@@ -1110,7 +904,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Dead Ley Line Branch",
       "Treasure Hoarder Insignia",
     ],
-  },
+  } as Weapon,
   "The Widsith": {
     id: "The Widsith",
     type: "weapon",
@@ -1122,7 +916,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Dead Ley Line Branch",
       "Damaged Mask",
     ],
-  },
+  } as Weapon,
   "Solar Pearl": {
     id: "Solar Pearl",
     type: "weapon",
@@ -1134,7 +928,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Hunter’s Sacrificial Knife",
       "Whopperflower Nectar",
     ],
-  },
+  } as Weapon,
   "Sacrificial Fragments": {
     id: "Sacrificial Fragments",
     type: "weapon",
@@ -1146,7 +940,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Chaos Device",
       "Treasure Hoarder Insignia",
     ],
-  },
+  } as Weapon,
   "Royal Grimoire": {
     id: "Royal Grimoire",
     type: "weapon",
@@ -1158,7 +952,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Heavy Horn",
       "Recruit’s Insignia",
     ],
-  },
+  } as Weapon,
   "Prototype Amber": {
     id: "Prototype Amber",
     type: "weapon",
@@ -1173,7 +967,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Crystal Chunk",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "Mappa Mare": {
     id: "Mappa Mare",
     type: "weapon",
@@ -1188,7 +982,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Crystal Chunk",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "Hakushin Ring": {
     id: "Hakushin Ring",
     type: "weapon",
@@ -1203,7 +997,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Amethyst Lump",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   Frostbearer: {
     id: "Frostbearer",
     type: "weapon",
@@ -1218,7 +1012,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Crystal Chunk",
       "Starsilver",
     ],
-  },
+  } as Weapon,
   "Favonius Codex": {
     id: "Favonius Codex",
     type: "weapon",
@@ -1226,7 +1020,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Catalyst",
     name: { en: ["Favonius Codex"], "zh-CN": ["西风秘典"] },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Divining Scroll"],
-  },
+  } as Weapon,
   "Eye of Perception": {
     id: "Eye of Perception",
     type: "weapon",
@@ -1234,7 +1028,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Catalyst",
     name: { en: ["Eye of Perception"], "zh-CN": ["昭心"] },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Damaged Mask"],
-  },
+  } as Weapon,
   "Dodoco Tales": {
     id: "Dodoco Tales",
     type: "weapon",
@@ -1246,7 +1040,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Dead Ley Line Branch",
       "Damaged Mask",
     ],
-  },
+  } as Weapon,
   "Blackcliff Agate": {
     id: "Blackcliff Agate",
     type: "weapon",
@@ -1258,7 +1052,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Hunter’s Sacrificial Knife",
       "Divining Scroll",
     ],
-  },
+  } as Weapon,
   "Oathsworn Eye": {
     id: "Oathsworn Eye",
     type: "weapon",
@@ -1270,7 +1064,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Concealed Claw",
       "Spectral Husk",
     ],
-  },
+  } as Weapon,
   "Fruit of Fulfillment": {
     id: "Fruit of Fulfillment",
     type: "weapon",
@@ -1285,7 +1079,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Crystal Chunk",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "Wandering Evenstar": {
     id: "Wandering Evenstar",
     type: "weapon",
@@ -1297,7 +1091,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Inactivated Fungal Nucleus",
       "Fungal Spores",
     ],
-  },
+  } as Weapon,
   "Sacrificial Jade": {
     id: "Sacrificial Jade",
     type: "weapon",
@@ -1309,7 +1103,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Mist Grass Pollen",
       "Divining Scroll",
     ],
-  },
+  } as Weapon,
   "Flowing Purity": {
     id: "Flowing Purity",
     type: "weapon",
@@ -1324,7 +1118,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Condessence Crystal",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "Ballad of the Boundless Blue": {
     id: "Ballad of the Boundless Blue",
     type: "weapon",
@@ -1336,7 +1130,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Fragile Bone Shard",
       "Treasure Hoarder Insignia",
     ],
-  },
+  } as Weapon,
   "Ring of Yaxche": {
     id: "Ring of Yaxche",
     type: "weapon",
@@ -1351,7 +1145,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Condessence Crystal",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "Ash-Graven Drinking Horn": {
     id: "Ash-Graven Drinking Horn",
     type: "weapon",
@@ -1363,7 +1157,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Axis of the Secret Source",
       "Juvenile Fang",
     ],
-  },
+  } as Weapon,
   //
   // Newline catalyst 4
   //
@@ -1378,7 +1172,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Concealed Claw",
       "Old Handguard",
     ],
-  },
+  } as Weapon,
   "Royal Greatsword": {
     id: "Royal Greatsword",
     type: "weapon",
@@ -1390,7 +1184,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Chaos Device",
       "Slime Condensate",
     ],
-  },
+  } as Weapon,
   Whiteblind: {
     id: "Whiteblind",
     type: "weapon",
@@ -1405,7 +1199,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Crystal Chunk",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "The Bell": {
     id: "The Bell",
     type: "weapon",
@@ -1417,7 +1211,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Heavy Horn",
       "Whopperflower Nectar",
     ],
-  },
+  } as Weapon,
   "Snow-Tombed Starsilver": {
     id: "Snow-Tombed Starsilver",
     type: "weapon",
@@ -1432,7 +1226,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Crystal Chunk",
       "Starsilver",
     ],
-  },
+  } as Weapon,
   "Favonius Greatsword": {
     id: "Favonius Greatsword",
     type: "weapon",
@@ -1444,7 +1238,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Chaos Device",
       "Recruit’s Insignia",
     ],
-  },
+  } as Weapon,
   "Katsuragikiri Nagamasa": {
     id: "Katsuragikiri Nagamasa",
     type: "weapon",
@@ -1459,7 +1253,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Amethyst Lump",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "Sacrificial Greatsword": {
     id: "Sacrificial Greatsword",
     type: "weapon",
@@ -1471,7 +1265,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Dead Ley Line Branch",
       "Firm Arrowhead",
     ],
-  },
+  } as Weapon,
   "Serpent Spine": {
     id: "Serpent Spine",
     type: "weapon",
@@ -1483,7 +1277,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Fragile Bone Shard",
       "Whopperflower Nectar",
     ],
-  },
+  } as Weapon,
   "Blackcliff Slasher": {
     id: "Blackcliff Slasher",
     type: "weapon",
@@ -1495,7 +1289,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Mist Grass Pollen",
       "Recruit’s Insignia",
     ],
-  },
+  } as Weapon,
   Rainslasher: {
     id: "Rainslasher",
     type: "weapon",
@@ -1507,7 +1301,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Mist Grass Pollen",
       "Divining Scroll",
     ],
-  },
+  } as Weapon,
   "Prototype Archaic": {
     id: "Prototype Archaic",
     type: "weapon",
@@ -1522,7 +1316,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Crystal Chunk",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "Luxurious Sea-Lord": {
     id: "Luxurious Sea-Lord",
     type: "weapon",
@@ -1534,7 +1328,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Fragile Bone Shard",
       "Slime Condensate",
     ],
-  },
+  } as Weapon,
   "Lithic Blade": {
     id: "Lithic Blade",
     type: "weapon",
@@ -1546,7 +1340,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Hunter’s Sacrificial Knife",
       "Firm Arrowhead",
     ],
-  },
+  } as Weapon,
   "Forest Regalia": {
     id: "Forest Regalia",
     type: "weapon",
@@ -1561,7 +1355,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Crystal Chunk",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "Makhaira Aquamarine": {
     id: "Makhaira Aquamarine",
     type: "weapon",
@@ -1573,7 +1367,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Chaos Storage",
       "Treasure Hoarder Insignia",
     ],
-  },
+  } as Weapon,
   "Mailed Flower": {
     id: "Mailed Flower",
     type: "weapon",
@@ -1585,7 +1379,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Desiccated Shell",
       "Spectral Husk",
     ],
-  },
+  } as Weapon,
   "Talking Stick": {
     id: "Talking Stick",
     type: "weapon",
@@ -1597,7 +1391,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Desiccated Shell",
       "Slime Condensate",
     ],
-  },
+  } as Weapon,
   "Tidal Shadow": {
     id: "Tidal Shadow",
     type: "weapon",
@@ -1612,7 +1406,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Condessence Crystal",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "Portable Power Saw": {
     id: "Portable Power Saw",
     type: "weapon",
@@ -1624,7 +1418,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Rift Core",
       "Meshing Gear",
     ],
-  },
+  } as Weapon,
   "Ultimate Overlord’s Mega Magic Sword": {
     id: "Ultimate Overlord’s Mega Magic Sword",
     type: "weapon",
@@ -1639,7 +1433,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Old Operative’s Pocket Watch",
       "Meshing Gear",
     ],
-  },
+  } as Weapon,
   "Earth Shaker": {
     id: "Earth Shaker",
     type: "weapon",
@@ -1654,7 +1448,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Condessence Crystal",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "Fruitful Hook": {
     id: "Fruitful Hook",
     type: "weapon",
@@ -1666,7 +1460,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Axis of the Secret Source",
       "Juvenile Fang",
     ],
-  },
+  } as Weapon,
   //
   // Newline - claymore 4
   //
@@ -1684,7 +1478,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Crystal Chunk",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "Lithic Spear": {
     id: "Lithic Spear",
     type: "weapon",
@@ -1696,7 +1490,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Fragile Bone Shard",
       "Firm Arrowhead",
     ],
-  },
+  } as Weapon,
   "Kitain Cross Spear": {
     id: "Kitain Cross Spear",
     type: "weapon",
@@ -1711,7 +1505,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Amethyst Lump",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "“The Catch”": {
     id: "“The Catch”",
     type: "weapon",
@@ -1728,7 +1522,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Pufferfish",
       "Bitter Pufferfish",
     ],
-  },
+  } as Weapon,
   "Favonius Lance": {
     id: "Favonius Lance",
     type: "weapon",
@@ -1740,7 +1534,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Chaos Device",
       "Slime Condensate",
     ],
-  },
+  } as Weapon,
   "Dragonspine Spear": {
     id: "Dragonspine Spear",
     type: "weapon",
@@ -1755,7 +1549,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Starsilver",
       "Vitalized Dragontooth",
     ],
-  },
+  } as Weapon,
   "Dragon’s Bane": {
     id: "Dragon’s Bane",
     type: "weapon",
@@ -1767,7 +1561,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Mist Grass Pollen",
       "Divining Scroll",
     ],
-  },
+  } as Weapon,
   Deathmatch: {
     id: "Deathmatch",
     type: "weapon",
@@ -1779,7 +1573,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Dead Ley Line Branch",
       "Whopperflower Nectar",
     ],
-  },
+  } as Weapon,
   "Crescent Pike": {
     id: "Crescent Pike",
     type: "weapon",
@@ -1794,7 +1588,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Crystal Chunk",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "Blackcliff Pole": {
     id: "Blackcliff Pole",
     type: "weapon",
@@ -1806,7 +1600,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Mist Grass Pollen",
       "Recruit’s Insignia",
     ],
-  },
+  } as Weapon,
   "Wavebreaker’s Fin": {
     id: "Wavebreaker’s Fin",
     type: "weapon",
@@ -1818,7 +1612,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Concealed Claw",
       "Old Handguard",
     ],
-  },
+  } as Weapon,
   "Royal Spear": {
     id: "Royal Spear",
     type: "weapon",
@@ -1830,7 +1624,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Mist Grass Pollen",
       "Recruit’s Insignia",
     ],
-  },
+  } as Weapon,
   Moonpiercer: {
     id: "Moonpiercer",
     type: "weapon",
@@ -1845,7 +1639,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Crystal Chunk",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "Missive Windspear": {
     id: "Missive Windspear",
     type: "weapon",
@@ -1857,7 +1651,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Gloomy Statuette",
       "Slime Condensate",
     ],
-  },
+  } as Weapon,
   "Ballard of the Fjords": {
     id: "Ballard of the Fjords",
     type: "weapon",
@@ -1869,7 +1663,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "A Flower Yet to Bloom",
       "Whopperflower Nectar",
     ],
-  },
+  } as Weapon,
   "Rightful Reward": {
     id: "Rightful Reward",
     type: "weapon",
@@ -1884,7 +1678,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Condessence Crystal",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "Prospector’s Drill": {
     id: "Prospector’s Drill",
     type: "weapon",
@@ -1896,7 +1690,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Old Operative’s Pocket Watch",
       "Meshing Gear",
     ],
-  },
+  } as Weapon,
   "Dialogues of the Desert Sages": {
     id: "Dialogues of the Desert Sages",
     type: "weapon",
@@ -1908,7 +1702,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Feathery Fin",
       "Spectral Husk",
     ],
-  },
+  } as Weapon,
   "Footprint of the Rainbow": {
     id: "Footprint of the Rainbow",
     type: "weapon",
@@ -1923,7 +1717,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Condessence Crystal",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "Mountain-Bracing Bolt": {
     id: "Mountain-Bracing Bolt",
     type: "weapon",
@@ -1935,7 +1729,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Ignited Stone",
       "Whopperflower Nectar",
     ],
-  },
+  } as Weapon,
   //
   // Newline - polearm 4
   //
@@ -1950,7 +1744,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Dead Ley Line Branch",
       "Slime Condensate",
     ],
-  },
+  } as Weapon,
   "The Black Sword": {
     id: "The Black Sword",
     type: "weapon",
@@ -1962,7 +1756,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Dead Ley Line Branch",
       "Slime Condensate",
     ],
-  },
+  } as Weapon,
   "The Alley Flash": {
     id: "The Alley Flash",
     type: "weapon",
@@ -1970,7 +1764,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Sword",
     name: { en: ["The Alley Flash"], "zh-CN": ["暗巷闪光"] },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Divining Scroll"],
-  },
+  } as Weapon,
   "Sword of Descension": {
     id: "Sword of Descension",
     type: "weapon",
@@ -1982,7 +1776,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Dead Ley Line Branch",
       "Treasure Hoarder Insignia",
     ],
-  },
+  } as Weapon,
   "Sacrificial Sword": {
     id: "Sacrificial Sword",
     type: "weapon",
@@ -1994,7 +1788,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Chaos Device",
       "Divining Scroll",
     ],
-  },
+  } as Weapon,
   "Royal Longsword": {
     id: "Royal Longsword",
     type: "weapon",
@@ -2002,7 +1796,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Sword",
     name: { en: ["Royal Longsword"], "zh-CN": ["宗室长剑"] },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Damaged Mask"],
-  },
+  } as Weapon,
   "Prototype Rancour": {
     id: "Prototype Rancour",
     type: "weapon",
@@ -2017,7 +1811,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Crystal Chunk",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "Amenoma Kageuchi": {
     id: "Amenoma Kageuchi",
     type: "weapon",
@@ -2032,7 +1826,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Amethyst Lump",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "Lion’s Roar": {
     id: "Lion’s Roar",
     type: "weapon",
@@ -2044,7 +1838,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Hunter’s Sacrificial Knife",
       "Treasure Hoarder Insignia",
     ],
-  },
+  } as Weapon,
   "Iron Sting": {
     id: "Iron Sting",
     type: "weapon",
@@ -2059,7 +1853,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Crystal Chunk",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "Festering Desire": {
     id: "Festering Desire",
     type: "weapon",
@@ -2071,7 +1865,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Heavy Horn",
       "Recruit’s Insignia",
     ],
-  },
+  } as Weapon,
   "Favonius Sword": {
     id: "Favonius Sword",
     type: "weapon",
@@ -2079,7 +1873,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Sword",
     name: { en: ["Favonius Sword"], "zh-CN": ["西风剑"] },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Firm Arrowhead"],
-  },
+  } as Weapon,
   "Cinnabar Spindle": {
     id: "Cinnabar Spindle",
     type: "weapon",
@@ -2087,7 +1881,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Sword",
     name: { en: ["Cinnabar Spindle"], "zh-CN": ["辰砂之纺锤"] },
     materials: ["Tile of Decarabian’s Tower", "Chaos Device", "Damaged Mask"],
-  },
+  } as Weapon,
   "Blackcliff Longsword": {
     id: "Blackcliff Longsword",
     type: "weapon",
@@ -2099,7 +1893,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Hunter’s Sacrificial Knife",
       "Firm Arrowhead",
     ],
-  },
+  } as Weapon,
   "Kagotsurube Isshin": {
     id: "Kagotsurube Isshin",
     type: "weapon",
@@ -2111,7 +1905,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Gloomy Statuette",
       "Spectral Husk",
     ],
-  },
+  } as Weapon,
   "Sapwood Blade": {
     id: "Sapwood Blade",
     type: "weapon",
@@ -2126,7 +1920,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Crystal Chunk",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "Xiphos’ Moonlight": {
     id: "Xiphos’ Moonlight",
     type: "weapon",
@@ -2138,7 +1932,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Damaged Prism",
       "Faded Red Satin",
     ],
-  },
+  } as Weapon,
   "Toukabou Shigure": {
     id: "Toukabou Shigure",
     type: "weapon",
@@ -2146,7 +1940,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Sword",
     name: { en: "Toukabou Shigure", "zh-CN": "东花坊时雨" },
     materials: ["Narukami’s Wisdom", "Damaged Prism", "Old Handguard"],
-  },
+  } as Weapon,
   "Fleuve Cendre Ferryman": {
     id: "Fleuve Cendre Ferryman",
     type: "weapon",
@@ -2162,7 +1956,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Blazing Heartfeather Bass",
       "Streaming Axe Marlin",
     ],
-  },
+  } as Weapon,
   "Wolf-Fang": {
     id: "Wolf-Fang",
     type: "weapon",
@@ -2170,7 +1964,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Sword",
     name: { en: "Wolf-Fang", "zh-CN": "狼牙" },
     materials: ["Tile of Decarabian’s Tower", "Chaos Device", "Damaged Mask"],
-  },
+  } as Weapon,
   "Finale of the Deep": {
     id: "Finale of the Deep",
     type: "weapon",
@@ -2185,7 +1979,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Condessence Crystal",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "The Dockhand’s Assistant": {
     id: "The Dockhand’s Assistant",
     type: "weapon",
@@ -2197,7 +1991,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Old Operative’s Pocket Watch",
       "Transoceanic Pearl",
     ],
-  },
+  } as Weapon,
   "Sword of Narzissenkreuz": {
     id: "Sword of Narzissenkreuz",
     type: "weapon",
@@ -2209,7 +2003,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Old Operative’s Pocket Watch",
       "Transoceanic Pearl",
     ],
-  },
+  } as Weapon,
   "Flute of Ezpitzal": {
     id: "Flute of Ezpitzal",
     type: "weapon",
@@ -2224,7 +2018,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Condessence Crystal",
       "White Iron Chunk",
     ],
-  },
+  } as Weapon,
   "Sturdy Bone": {
     id: "Sturdy Bone",
     type: "weapon",
@@ -2236,7 +2030,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Shard of a Shattered Will",
       "Sentry’s Wooden Whistle",
     ],
-  },
+  } as Weapon,
   //
   // Newline - sword 4
   //
@@ -2247,7 +2041,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Bow",
     name: { en: ["Raven Bow"], "zh-CN": ["鸦羽弓"] },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Firm Arrowhead"],
-  },
+  } as Weapon,
   "Recurve Bow": {
     id: "Recurve Bow",
     type: "weapon",
@@ -2259,7 +2053,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Chaos Device",
       "Divining Scroll",
     ],
-  },
+  } as Weapon,
   Messenger: {
     id: "Messenger",
     type: "weapon",
@@ -2271,7 +2065,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Mist Grass Pollen",
       "Treasure Hoarder Insignia",
     ],
-  },
+  } as Weapon,
   "Sharpshooter’s Oath": {
     id: "Sharpshooter’s Oath",
     type: "weapon",
@@ -2283,7 +2077,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Dead Ley Line Branch",
       "Slime Condensate",
     ],
-  },
+  } as Weapon,
   Slingshot: {
     id: "Slingshot",
     type: "weapon",
@@ -2295,7 +2089,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Hunter’s Sacrificial Knife",
       "Damaged Mask",
     ],
-  },
+  } as Weapon,
   "Magic Guide": {
     id: "Magic Guide",
     type: "weapon",
@@ -2303,7 +2097,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Catalyst",
     name: { en: ["Magic Guide"], "zh-CN": ["魔导绪论"] },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Slime Condensate"],
-  },
+  } as Weapon,
   "Otherworldly Story": {
     id: "Otherworldly Story",
     type: "weapon",
@@ -2315,7 +2109,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Chaos Device",
       "Damaged Mask",
     ],
-  },
+  } as Weapon,
   "Emerald Orb": {
     id: "Emerald Orb",
     type: "weapon",
@@ -2327,7 +2121,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Hunter’s Sacrificial Knife",
       "Treasure Hoarder Insignia",
     ],
-  },
+  } as Weapon,
   "Thrilling Tales of Dragon Slayers": {
     id: "Thrilling Tales of Dragon Slayers",
     type: "weapon",
@@ -2342,7 +2136,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Dead Ley Line Branch",
       "Divining Scroll",
     ],
-  },
+  } as Weapon,
   "Twin Nephrite": {
     id: "Twin Nephrite",
     type: "weapon",
@@ -2354,7 +2148,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Mist Grass Pollen",
       "Recruit’s Insignia",
     ],
-  },
+  } as Weapon,
   "Skyrider Greatsword": {
     id: "Skyrider Greatsword",
     type: "weapon",
@@ -2362,7 +2156,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Claymore",
     name: { en: ["Skyrider Greatsword"], "zh-CN": ["飞天大御剑"] },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Damaged Mask"],
-  },
+  } as Weapon,
   "Debate Club": {
     id: "Debate Club",
     type: "weapon",
@@ -2370,7 +2164,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Claymore",
     name: { en: ["Debate Club"], "zh-CN": ["以理服人"] },
     materials: ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Damaged Mask"],
-  },
+  } as Weapon,
   "Bloodtainted Greatsword": {
     id: "Bloodtainted Greatsword",
     type: "weapon",
@@ -2382,7 +2176,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Dead Ley Line Branch",
       "Firm Arrowhead",
     ],
-  },
+  } as Weapon,
   "White Iron Greatsword": {
     id: "White Iron Greatsword",
     type: "weapon",
@@ -2394,7 +2188,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Chaos Device",
       "Slime Condensate",
     ],
-  },
+  } as Weapon,
   "Ferrous Shadow": {
     id: "Ferrous Shadow",
     type: "weapon",
@@ -2406,7 +2200,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Heavy Horn",
       "Whopperflower Nectar",
     ],
-  },
+  } as Weapon,
   Halberd: {
     id: "Halberd",
     type: "weapon",
@@ -2418,7 +2212,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Mist Grass Pollen",
       "Whopperflower Nectar",
     ],
-  },
+  } as Weapon,
   "Black Tassel": {
     id: "Black Tassel",
     type: "weapon",
@@ -2430,7 +2224,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Fragile Bone Shard",
       "Firm Arrowhead",
     ],
-  },
+  } as Weapon,
   "White Tassel": {
     id: "White Tassel",
     type: "weapon",
@@ -2442,7 +2236,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Hunter’s Sacrificial Knife",
       "Recruit’s Insignia",
     ],
-  },
+  } as Weapon,
   "Harbinger of Dawn": {
     id: "Harbinger of Dawn",
     type: "weapon",
@@ -2454,7 +2248,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Dead Ley Line Branch",
       "Slime Condensate",
     ],
-  },
+  } as Weapon,
   "Fillet Blade": {
     id: "Fillet Blade",
     type: "weapon",
@@ -2466,7 +2260,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Mist Grass Pollen",
       "Treasure Hoarder Insignia",
     ],
-  },
+  } as Weapon,
   "Skyrider Sword": {
     id: "Skyrider Sword",
     type: "weapon",
@@ -2478,7 +2272,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Fragile Bone Shard",
       "Recruit’s Insignia",
     ],
-  },
+  } as Weapon,
   "Dark Iron Sword": {
     id: "Dark Iron Sword",
     type: "weapon",
@@ -2490,7 +2284,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Hunter’s Sacrificial Knife",
       "Damaged Mask",
     ],
-  },
+  } as Weapon,
   "Cool Steel": {
     id: "Cool Steel",
     type: "weapon",
@@ -2498,7 +2292,7 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Sword",
     name: { en: ["Cool Steel"], "zh-CN": ["冷刃"] },
     materials: ["Tile of Decarabian’s Tower", "Heavy Horn", "Firm Arrowhead"],
-  },
+  } as Weapon,
   "Traveler’s Handy Sword": {
     id: "Traveler’s Handy Sword",
     type: "weapon",
@@ -2510,6 +2304,7 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Chaos Device",
       "Divining Scroll",
     ],
-  },
-};
-//!SECTION
+  } as Weapon,
+} as const;
+
+export type WeaponId = keyof typeof weapons;

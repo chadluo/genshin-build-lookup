@@ -21,97 +21,7 @@ export type Character = OfMaterial & {
   ];
 };
 
-export type CharacterId =
-  | "Albedo"
-  | "Alhaitham"
-  | "Aloy"
-  | "Amber"
-  | "Arataki Itto"
-  | "Arlecchino"
-  | "Baizhu"
-  | "Barbara"
-  | "Beidou"
-  | "Bennett"
-  | "Candace"
-  | "Charlotte"
-  | "Chevreuse"
-  | "Chiori"
-  | "Chongyun"
-  | "Clorinde"
-  | "Collei"
-  | "Cyno"
-  | "Dehya"
-  | "Diluc"
-  | "Diona"
-  | "Dori"
-  | "Emilie"
-  | "Eula"
-  | "Faruzan"
-  | "Fischl"
-  | "Freminet"
-  | "Furina"
-  | "Gaming"
-  | "Ganyu"
-  | "Gorou"
-  | "Hu Tao"
-  | "Jean"
-  | "Kachina"
-  | "Kaedehara Kazuha"
-  | "Kaeya"
-  | "Kamisato Ayaka"
-  | "Kamisato Ayato"
-  | "Kaveh"
-  | "Keqing"
-  | "Kinich"
-  | "Kirara"
-  | "Klee"
-  | "Kujou Sara"
-  | "Kuki Shinobu"
-  | "Layla"
-  | "Lisa"
-  | "Lynette"
-  | "Lyney"
-  | "Mika"
-  | "Mona"
-  | "Mualani"
-  | "Nahida"
-  | "Navia"
-  | "Neuvillette"
-  | "Nilou"
-  | "Ningguang"
-  | "Noelle"
-  | "Qiqi"
-  | "Raiden Shogun"
-  | "Razor"
-  | "Rosaria"
-  | "Sangonomiya Kokomi"
-  | "Sayu"
-  | "Sethos"
-  | "Shenhe"
-  | "Shikanoin Heizou"
-  | "Sigewinne"
-  | "Sucrose"
-  | "Tartaglia"
-  | "Thoma"
-  | "Tighnari"
-  | "Venti"
-  | "Wanderer"
-  | "Wriothesley"
-  | "Xiangling"
-  | "Xianyun"
-  | "Xiao"
-  | "Xilonen"
-  | "Xingqiu"
-  | "Xinyan"
-  | "Yae Miko"
-  | "Yanfei"
-  | "Yaoyao"
-  | "Yelan"
-  | "Yoimiya"
-  | "Yun Jin"
-  | "Zhongli";
-
-export const characters: Record<CharacterId, Character> = {
+export const characters = {
   Albedo: {
     id: "Albedo",
     type: "character",
@@ -125,7 +35,7 @@ export const characters: Record<CharacterId, Character> = {
       "Divining Scroll",
       "Cecilia",
     ],
-  },
+  } as Character,
   Alhaitham: {
     id: "Alhaitham",
     type: "character",
@@ -139,7 +49,7 @@ export const characters: Record<CharacterId, Character> = {
       "Faded Red Satin",
       "Sand Grease Pupa",
     ],
-  },
+  } as Character,
   Aloy: {
     id: "Aloy",
     type: "character",
@@ -153,7 +63,7 @@ export const characters: Record<CharacterId, Character> = {
       "Spectral Husk",
       "Crystal Marrow",
     ],
-  },
+  } as Character,
   Amber: {
     id: "Amber",
     type: "character",
@@ -167,7 +77,7 @@ export const characters: Record<CharacterId, Character> = {
       "Firm Arrowhead",
       "Small Lamp Grass",
     ],
-  },
+  } as Character,
   "Arataki Itto": {
     id: "Arataki Itto",
     type: "character",
@@ -181,7 +91,7 @@ export const characters: Record<CharacterId, Character> = {
       "Slime Condensate",
       "Onikabuto",
     ],
-  },
+  } as Character,
   Arlecchino: {
     id: "Arlecchino",
     type: "character",
@@ -195,7 +105,7 @@ export const characters: Record<CharacterId, Character> = {
       "Recruit’s Insignia",
       "Rainbow Rose",
     ],
-  },
+  } as Character,
   Baizhu: {
     id: "Baizhu",
     type: "character",
@@ -209,7 +119,7 @@ export const characters: Record<CharacterId, Character> = {
       "Fungal Spores",
       "Violetgrass",
     ],
-  },
+  } as Character,
   Barbara: {
     id: "Barbara",
     type: "character",
@@ -223,7 +133,7 @@ export const characters: Record<CharacterId, Character> = {
       "Divining Scroll",
       "Philanemo Mushroom",
     ],
-  },
+  } as Character,
   Beidou: {
     id: "Beidou",
     type: "character",
@@ -237,7 +147,7 @@ export const characters: Record<CharacterId, Character> = {
       "Treasure Hoarder Insignia",
       "Noctilucous Jade",
     ],
-  },
+  } as Character,
   Bennett: {
     id: "Bennett",
     type: "character",
@@ -251,7 +161,7 @@ export const characters: Record<CharacterId, Character> = {
       "Treasure Hoarder Insignia",
       "Windwheel Aster",
     ],
-  },
+  } as Character,
   Candace: {
     id: "Candace",
     type: "character",
@@ -265,7 +175,7 @@ export const characters: Record<CharacterId, Character> = {
       "Faded Red Satin",
       "Henna Berry",
     ],
-  },
+  } as Character,
   Charlotte: {
     id: "Charlotte",
     type: "character",
@@ -279,7 +189,7 @@ export const characters: Record<CharacterId, Character> = {
       "Meshing Gear",
       "Beryl Conch",
     ],
-  },
+  } as Character,
   Chevreuse: {
     id: "Chevreuse",
     type: "character",
@@ -293,7 +203,7 @@ export const characters: Record<CharacterId, Character> = {
       "Meshing Gear",
       "Lumidouce Bell",
     ],
-  },
+  } as Character,
   Chiori: {
     id: "Chiori",
     type: "character",
@@ -307,7 +217,7 @@ export const characters: Record<CharacterId, Character> = {
       "Spectral Husk",
       "Dendrobium",
     ],
-  },
+  } as Character,
   Chongyun: {
     id: "Chongyun",
     type: "character",
@@ -321,7 +231,7 @@ export const characters: Record<CharacterId, Character> = {
       "Damaged Mask",
       "Cor Lapis",
     ],
-  },
+  } as Character,
   Clorinde: {
     id: "Clorinde",
     type: "character",
@@ -335,7 +245,7 @@ export const characters: Record<CharacterId, Character> = {
       "Transoceanic Pearl",
       "Lumitoile",
     ],
-  },
+  } as Character,
   Collei: {
     id: "Collei",
     type: "character",
@@ -349,7 +259,7 @@ export const characters: Record<CharacterId, Character> = {
       "Firm Arrowhead",
       "Rukkhashava Mushrooms",
     ],
-  },
+  } as Character,
   Cyno: {
     id: "Cyno",
     type: "character",
@@ -363,7 +273,7 @@ export const characters: Record<CharacterId, Character> = {
       "Divining Scroll",
       "Scarab",
     ],
-  },
+  } as Character,
   Dehya: {
     id: "Dehya",
     type: "character",
@@ -377,7 +287,7 @@ export const characters: Record<CharacterId, Character> = {
       "Faded Red Satin",
       "Sand Grease Pupa",
     ],
-  },
+  } as Character,
   Diluc: {
     id: "Diluc",
     type: "character",
@@ -391,7 +301,7 @@ export const characters: Record<CharacterId, Character> = {
       "Recruit’s Insignia",
       "Small Lamp Grass",
     ],
-  },
+  } as Character,
   Diona: {
     id: "Diona",
     type: "character",
@@ -405,7 +315,7 @@ export const characters: Record<CharacterId, Character> = {
       "Firm Arrowhead",
       "Calla Lily",
     ],
-  },
+  } as Character,
   Dori: {
     id: "Dori",
     type: "character",
@@ -419,7 +329,7 @@ export const characters: Record<CharacterId, Character> = {
       "Faded Red Satin",
       "Kalpalata Lotus",
     ],
-  },
+  } as Character,
   Emilie: {
     id: "Emilie",
     type: "character",
@@ -433,7 +343,7 @@ export const characters: Record<CharacterId, Character> = {
       "Meshing Gear",
       "Lakelight Lily",
     ],
-  },
+  } as Character,
   Eula: {
     id: "Eula",
     type: "character",
@@ -447,7 +357,7 @@ export const characters: Record<CharacterId, Character> = {
       "Damaged Mask",
       "Dandelion Seed",
     ],
-  },
+  } as Character,
   Faruzan: {
     id: "Faruzan",
     type: "character",
@@ -461,7 +371,7 @@ export const characters: Record<CharacterId, Character> = {
       "Faded Red Satin",
       "Henna Berry",
     ],
-  },
+  } as Character,
   Fischl: {
     id: "Fischl",
     type: "character",
@@ -475,7 +385,7 @@ export const characters: Record<CharacterId, Character> = {
       "Firm Arrowhead",
       "Small Lamp Grass",
     ],
-  },
+  } as Character,
   Freminet: {
     id: "Freminet",
     type: "character",
@@ -489,7 +399,7 @@ export const characters: Record<CharacterId, Character> = {
       "Transoceanic Pearl",
       "Romaritime Flower",
     ],
-  },
+  } as Character,
   Furina: {
     id: "Furina",
     type: "character",
@@ -503,7 +413,7 @@ export const characters: Record<CharacterId, Character> = {
       "Whopperflower Nectar",
       "Lakelight Lily",
     ],
-  },
+  } as Character,
   Gaming: {
     id: "Gaming",
     type: "character",
@@ -517,7 +427,7 @@ export const characters: Record<CharacterId, Character> = {
       "Slime Condensate",
       "Starconch",
     ],
-  },
+  } as Character,
   Ganyu: {
     id: "Ganyu",
     type: "character",
@@ -531,7 +441,7 @@ export const characters: Record<CharacterId, Character> = {
       "Whopperflower Nectar",
       "Qingxin",
     ],
-  },
+  } as Character,
   Gorou: {
     id: "Gorou",
     type: "character",
@@ -545,7 +455,7 @@ export const characters: Record<CharacterId, Character> = {
       "Spectral Husk",
       "Sango Pearl",
     ],
-  },
+  } as Character,
   "Hu Tao": {
     id: "Hu Tao",
     type: "character",
@@ -559,7 +469,7 @@ export const characters: Record<CharacterId, Character> = {
       "Whopperflower Nectar",
       "Silk Flower",
     ],
-  },
+  } as Character,
   Jean: {
     id: "Jean",
     type: "character",
@@ -573,7 +483,7 @@ export const characters: Record<CharacterId, Character> = {
       "Damaged Mask",
       "Dandelion Seed",
     ],
-  },
+  } as Character,
   Kachina: {
     id: "Kachina",
     type: "character",
@@ -587,7 +497,7 @@ export const characters: Record<CharacterId, Character> = {
       "Sentry’s Wooden Whistle",
       "Quenepa Berry",
     ],
-  },
+  } as Character,
   "Kaedehara Kazuha": {
     id: "Kaedehara Kazuha",
     type: "character",
@@ -601,7 +511,7 @@ export const characters: Record<CharacterId, Character> = {
       "Treasure Hoarder Insignia",
       "Sea Ganoderma",
     ],
-  },
+  } as Character,
   Kaeya: {
     id: "Kaeya",
     type: "character",
@@ -615,7 +525,7 @@ export const characters: Record<CharacterId, Character> = {
       "Treasure Hoarder Insignia",
       "Calla Lily",
     ],
-  },
+  } as Character,
   "Kamisato Ayaka": {
     id: "Kamisato Ayaka",
     type: "character",
@@ -629,7 +539,7 @@ export const characters: Record<CharacterId, Character> = {
       "Old Handguard",
       "Sakura Bloom",
     ],
-  },
+  } as Character,
   "Kamisato Ayato": {
     id: "Kamisato Ayato",
     type: "character",
@@ -643,7 +553,7 @@ export const characters: Record<CharacterId, Character> = {
       "Old Handguard",
       "Sakura Bloom",
     ],
-  },
+  } as Character,
   Kaveh: {
     id: "Kaveh",
     type: "character",
@@ -657,7 +567,7 @@ export const characters: Record<CharacterId, Character> = {
       "Fungal Spores",
       "Mourning Flower",
     ],
-  },
+  } as Character,
   Keqing: {
     id: "Keqing",
     type: "character",
@@ -671,7 +581,7 @@ export const characters: Record<CharacterId, Character> = {
       "Whopperflower Nectar",
       "Cor Lapis",
     ],
-  },
+  } as Character,
   Kinich: {
     id: "Kinich",
     type: "character",
@@ -685,7 +595,7 @@ export const characters: Record<CharacterId, Character> = {
       "Juvenile Fang",
       "Saurian Claw Succulent",
     ],
-  },
+  } as Character,
   Kirara: {
     id: "Kirara",
     type: "character",
@@ -699,7 +609,7 @@ export const characters: Record<CharacterId, Character> = {
       "Spectral Husk",
       "Amakumo Fruit",
     ],
-  },
+  } as Character,
   Klee: {
     id: "Klee",
     type: "character",
@@ -713,7 +623,7 @@ export const characters: Record<CharacterId, Character> = {
       "Divining Scroll",
       "Philanemo Mushroom",
     ],
-  },
+  } as Character,
   "Kujou Sara": {
     id: "Kujou Sara",
     type: "character",
@@ -727,7 +637,7 @@ export const characters: Record<CharacterId, Character> = {
       "Damaged Mask",
       "Dendrobium",
     ],
-  },
+  } as Character,
   "Kuki Shinobu": {
     id: "Kuki Shinobu",
     type: "character",
@@ -741,7 +651,7 @@ export const characters: Record<CharacterId, Character> = {
       "Spectral Husk",
       "Naku Weed",
     ],
-  },
+  } as Character,
   Layla: {
     id: "Layla",
     type: "character",
@@ -755,7 +665,7 @@ export const characters: Record<CharacterId, Character> = {
       "Divining Scroll",
       "Nilotpala Lotus",
     ],
-  },
+  } as Character,
   Lisa: {
     id: "Lisa",
     type: "character",
@@ -769,7 +679,7 @@ export const characters: Record<CharacterId, Character> = {
       "Slime Condensate",
       "Valberry",
     ],
-  },
+  } as Character,
   Lynette: {
     id: "Lynette",
     type: "character",
@@ -783,7 +693,7 @@ export const characters: Record<CharacterId, Character> = {
       "Meshing Gear",
       "Lumidouce Bell",
     ],
-  },
+  } as Character,
   Lyney: {
     id: "Lyney",
     type: "character",
@@ -797,7 +707,7 @@ export const characters: Record<CharacterId, Character> = {
       "Recruit’s Insignia",
       "Rainbow Rose",
     ],
-  },
+  } as Character,
   Mika: {
     id: "Mika",
     type: "character",
@@ -811,7 +721,7 @@ export const characters: Record<CharacterId, Character> = {
       "Recruit’s Insignia",
       "Wolfhook",
     ],
-  },
+  } as Character,
   Mona: {
     id: "Mona",
     type: "character",
@@ -825,7 +735,7 @@ export const characters: Record<CharacterId, Character> = {
       "Whopperflower Nectar",
       "Philanemo Mushroom",
     ],
-  },
+  } as Character,
   Mualani: {
     id: "Mualani",
     type: "character",
@@ -839,7 +749,7 @@ export const characters: Record<CharacterId, Character> = {
       "Sentry’s Wooden Whistle",
       "Sprayfeather Gill",
     ],
-  },
+  } as Character,
   Nahida: {
     id: "Nahida",
     type: "character",
@@ -853,7 +763,7 @@ export const characters: Record<CharacterId, Character> = {
       "Fungal Spores",
       "Kalpalata Lotus",
     ],
-  },
+  } as Character,
   Navia: {
     id: "Navia",
     type: "character",
@@ -867,7 +777,7 @@ export const characters: Record<CharacterId, Character> = {
       "Transoceanic Pearl",
       "Spring of the First Dewdrop",
     ],
-  },
+  } as Character,
   Neuvillette: {
     id: "Neuvillette",
     type: "character",
@@ -881,7 +791,7 @@ export const characters: Record<CharacterId, Character> = {
       "Transoceanic Pearl",
       "Lumitoile",
     ],
-  },
+  } as Character,
   Nilou: {
     id: "Nilou",
     type: "character",
@@ -895,7 +805,7 @@ export const characters: Record<CharacterId, Character> = {
       "Fungal Spores",
       "Padisarah",
     ],
-  },
+  } as Character,
   Ningguang: {
     id: "Ningguang",
     type: "character",
@@ -909,7 +819,7 @@ export const characters: Record<CharacterId, Character> = {
       "Recruit’s Insignia",
       "Glaze Lily",
     ],
-  },
+  } as Character,
   Noelle: {
     id: "Noelle",
     type: "character",
@@ -923,7 +833,7 @@ export const characters: Record<CharacterId, Character> = {
       "Damaged Mask",
       "Valberry",
     ],
-  },
+  } as Character,
   Qiqi: {
     id: "Qiqi",
     type: "character",
@@ -937,7 +847,7 @@ export const characters: Record<CharacterId, Character> = {
       "Divining Scroll",
       "Violetgrass",
     ],
-  },
+  } as Character,
   "Raiden Shogun": {
     id: "Raiden Shogun",
     type: "character",
@@ -951,7 +861,7 @@ export const characters: Record<CharacterId, Character> = {
       "Old Handguard",
       "Amakumo Fruit",
     ],
-  },
+  } as Character,
   Razor: {
     id: "Razor",
     type: "character",
@@ -965,7 +875,7 @@ export const characters: Record<CharacterId, Character> = {
       "Damaged Mask",
       "Wolfhook",
     ],
-  },
+  } as Character,
   Rosaria: {
     id: "Rosaria",
     type: "character",
@@ -979,7 +889,7 @@ export const characters: Record<CharacterId, Character> = {
       "Recruit’s Insignia",
       "Valberry",
     ],
-  },
+  } as Character,
   "Sangonomiya Kokomi": {
     id: "Sangonomiya Kokomi",
     type: "character",
@@ -993,7 +903,7 @@ export const characters: Record<CharacterId, Character> = {
       "Spectral Husk",
       "Sango Pearl",
     ],
-  },
+  } as Character,
   Sayu: {
     id: "Sayu",
     type: "character",
@@ -1007,7 +917,7 @@ export const characters: Record<CharacterId, Character> = {
       "Whopperflower Nectar",
       "Crystal Marrow",
     ],
-  },
+  } as Character,
   Sethos: {
     id: "Sethos",
     type: "character",
@@ -1021,7 +931,7 @@ export const characters: Record<CharacterId, Character> = {
       "Faded Red Satin",
       "Trishiraite",
     ],
-  },
+  } as Character,
   Shenhe: {
     id: "Shenhe",
     type: "character",
@@ -1035,7 +945,7 @@ export const characters: Record<CharacterId, Character> = {
       "Whopperflower Nectar",
       "Qingxin",
     ],
-  },
+  } as Character,
   "Shikanoin Heizou": {
     id: "Shikanoin Heizou",
     type: "character",
@@ -1049,7 +959,7 @@ export const characters: Record<CharacterId, Character> = {
       "Treasure Hoarder Insignia",
       "Onikabuto",
     ],
-  },
+  } as Character,
   Sigewinne: {
     id: "Sigewinne",
     type: "character",
@@ -1063,7 +973,7 @@ export const characters: Record<CharacterId, Character> = {
       "Transoceanic Pearl",
       "Romaritime Flower",
     ],
-  },
+  } as Character,
   Sucrose: {
     id: "Sucrose",
     type: "character",
@@ -1077,7 +987,7 @@ export const characters: Record<CharacterId, Character> = {
       "Whopperflower Nectar",
       "Windwheel Aster",
     ],
-  },
+  } as Character,
   Tartaglia: {
     id: "Tartaglia",
     type: "character",
@@ -1091,7 +1001,7 @@ export const characters: Record<CharacterId, Character> = {
       "Recruit’s Insignia",
       "Starconch",
     ],
-  },
+  } as Character,
   Thoma: {
     id: "Thoma",
     type: "character",
@@ -1105,7 +1015,7 @@ export const characters: Record<CharacterId, Character> = {
       "Treasure Hoarder Insignia",
       "Fluorescent Fungus",
     ],
-  },
+  } as Character,
   Tighnari: {
     id: "Tighnari",
     type: "character",
@@ -1119,7 +1029,7 @@ export const characters: Record<CharacterId, Character> = {
       "Fungal Spores",
       "Nilotpala Lotus",
     ],
-  },
+  } as Character,
   Venti: {
     id: "Venti",
     type: "character",
@@ -1133,7 +1043,7 @@ export const characters: Record<CharacterId, Character> = {
       "Slime Condensate",
       "Cecilia",
     ],
-  },
+  } as Character,
   Wanderer: {
     id: "Wanderer",
     type: "character",
@@ -1147,7 +1057,7 @@ export const characters: Record<CharacterId, Character> = {
       "Old Handguard",
       "Rukkhashava Mushrooms",
     ],
-  },
+  } as Character,
   Wriothesley: {
     id: "Wriothesley",
     type: "character",
@@ -1161,7 +1071,7 @@ export const characters: Record<CharacterId, Character> = {
       "Meshing Gear",
       "Subdetection Unit",
     ],
-  },
+  } as Character,
   Xiangling: {
     id: "Xiangling",
     type: "character",
@@ -1175,7 +1085,7 @@ export const characters: Record<CharacterId, Character> = {
       "Slime Condensate",
       "Jueyun Chili",
     ],
-  },
+  } as Character,
   Xianyun: {
     id: "Xianyun",
     type: "character",
@@ -1189,7 +1099,7 @@ export const characters: Record<CharacterId, Character> = {
       "Divining Scroll",
       "Clearwater Jade",
     ],
-  },
+  } as Character,
   Xiao: {
     id: "Xiao",
     type: "character",
@@ -1203,7 +1113,7 @@ export const characters: Record<CharacterId, Character> = {
       "Slime Condensate",
       "Qingxin",
     ],
-  },
+  } as Character,
   Xilonen: {
     id: "Xilonen",
     type: "character",
@@ -1217,7 +1127,7 @@ export const characters: Record<CharacterId, Character> = {
       "Sentry’s Wooden Whistle",
       "Brilliant Chrysanthemum",
     ],
-  },
+  } as Character,
   Xingqiu: {
     id: "Xingqiu",
     type: "character",
@@ -1231,7 +1141,7 @@ export const characters: Record<CharacterId, Character> = {
       "Damaged Mask",
       "Silk Flower",
     ],
-  },
+  } as Character,
   Xinyan: {
     id: "Xinyan",
     type: "character",
@@ -1245,7 +1155,7 @@ export const characters: Record<CharacterId, Character> = {
       "Treasure Hoarder Insignia",
       "Violetgrass",
     ],
-  },
+  } as Character,
   "Yae Miko": {
     id: "Yae Miko",
     type: "character",
@@ -1259,7 +1169,7 @@ export const characters: Record<CharacterId, Character> = {
       "Old Handguard",
       "Sea Ganoderma",
     ],
-  },
+  } as Character,
   Yanfei: {
     id: "Yanfei",
     type: "character",
@@ -1273,7 +1183,7 @@ export const characters: Record<CharacterId, Character> = {
       "Treasure Hoarder Insignia",
       "Noctilucous Jade",
     ],
-  },
+  } as Character,
   Yaoyao: {
     id: "Yaoyao",
     type: "character",
@@ -1287,7 +1197,7 @@ export const characters: Record<CharacterId, Character> = {
       "Slime Condensate",
       "Jueyun Chili",
     ],
-  },
+  } as Character,
   Yelan: {
     id: "Yelan",
     type: "character",
@@ -1301,7 +1211,7 @@ export const characters: Record<CharacterId, Character> = {
       "Recruit’s Insignia",
       "Starconch",
     ],
-  },
+  } as Character,
   Yoimiya: {
     id: "Yoimiya",
     type: "character",
@@ -1315,7 +1225,7 @@ export const characters: Record<CharacterId, Character> = {
       "Divining Scroll",
       "Naku Weed",
     ],
-  },
+  } as Character,
   "Yun Jin": {
     id: "Yun Jin",
     type: "character",
@@ -1329,7 +1239,7 @@ export const characters: Record<CharacterId, Character> = {
       "Damaged Mask",
       "Glaze Lily",
     ],
-  },
+  } as Character,
   Zhongli: {
     id: "Zhongli",
     type: "character",
@@ -1343,5 +1253,7 @@ export const characters: Record<CharacterId, Character> = {
       "Slime Condensate",
       "Cor Lapis",
     ],
-  },
-};
+  } as Character,
+} as const;
+
+export type CharacterId = keyof typeof characters;
