@@ -5,6 +5,11 @@
       "highlightColor": "#A8C023",
       "iconColor": "default",
       "scope": "file"
+    },
+    "NewId": {
+      "highlightColor": "#A8C023",
+      "iconColor": "default",
+      "scope": "file"
     }
   },
   "typescript.enablePromptUseWorkspaceTsdk": true,
