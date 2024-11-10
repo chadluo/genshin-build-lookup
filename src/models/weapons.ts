@@ -120,6 +120,13 @@ export const weapons = {
       "Transoceanic Pearl",
     ],
   } as Weapon,
+  "Astral Vulture’s Crimson Plumage": {
+    id: "Astral Vulture’s Crimson Plumage",
+    type: "weapon",
+    rarity: 5,
+    category: "Bow",
+    name: { en: "Astral Vulture’s Crimson Plumage", "zh-CN": "星鹫赤羽" },
+  } as Weapon,
   //
   // Newline - bow 5
   //
@@ -890,6 +897,13 @@ export const weapons = {
       "White Iron Chunk",
     ],
   } as Weapon,
+  "Flower-Wreathed Feathers": {
+    id: "Flower-Wreathed Feathers",
+    type: "weapon",
+    rarity: 4,
+    category: "Bow",
+    name: { en: "Flower-Wreathed Feathers", "zh-CN": "缀花之翎" },
+  } as Weapon,
   //
   // Newline - bow 4
   //
@@ -1157,6 +1171,13 @@ export const weapons = {
       "Axis of the Secret Source",
       "Juvenile Fang",
     ],
+  } as Weapon,
+  "Waveriding Whirl": {
+    id: "Waveriding Whirl",
+    type: "weapon",
+    rarity: 4,
+    category: "Catalyst",
+    name: { en: "Waveriding Whirl", "zh-CN": "乘浪的回旋" },
   } as Weapon,
   //
   // Newline catalyst 4
@@ -2030,6 +2051,13 @@ export const weapons = {
       "Shard of a Shattered Will",
       "Sentry’s Wooden Whistle",
     ],
+  } as Weapon,
+  "Calamity of Eshu": {
+    id: "Calamity of Eshu",
+    type: "weapon",
+    rarity: 4,
+    category: "Sword",
+    name: { en: "Calamity of Eshu", "zh-CN": "厄水之祸" },
   } as Weapon,
   //
   // Newline - sword 4

@@ -32,6 +32,18 @@ const versions: { version: string; start: number; items: string[] }[] = [
       "Fruitful Hook",
     ],
   },
+  {
+    version: "5.2",
+    start: new Date("2024-11-20").getTime(),
+    items: [
+      "Chasca",
+      "Ororon",
+      "Astral Vulture’s Crimson Plumage",
+      "Flower-Wreathed Feathers",
+      "Waveriding Whirl",
+      "Calamity of Eshu",
+    ],
+  },
 ];
 
 export function findRecents() {

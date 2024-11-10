@@ -190,6 +190,12 @@ export const characters = {
       "Beryl Conch",
     ],
   } as Character,
+  Chasca: {
+    id: "Chasca",
+    type: "character",
+    rarity: 5,
+    name: { en: "Chasca", "zh-CN": "恰斯卡" },
+  } as Character,
   Chevreuse: {
     id: "Chevreuse",
     type: "character",
@@ -819,6 +825,12 @@ export const characters = {
       "Recruit’s Insignia",
       "Glaze Lily",
     ],
+  } as Character,
+  Ororon: {
+    id: "Ororon",
+    type: "character",
+    rarity: 4,
+    name: { en: "Ororon", "zh-CN": "欧洛伦" },
   } as Character,
   Noelle: {
     id: "Noelle",
