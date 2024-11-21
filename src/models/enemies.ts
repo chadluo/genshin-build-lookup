@@ -400,6 +400,13 @@ export const bosses: Boss[] = [
     },
     materials: ["Gold-Inscribed Secret Source Core", "Vajrada Amethyst"],
   },
+  {
+    id: "Tenebrous Papilla",
+    region: "Natlan",
+    type: "boss",
+    name: { en: "Tenebrous Papilla", "zh-CN": "深邃摹结株" },
+    materials: ["Ensnaring Gaze", "Agnidus Agate", "Vajrada Amethyst"],
+  },
   //
   // Newline - normal boss
   //

@@ -350,6 +350,11 @@ export const weapons: Record<WeaponId, Weapon> = {
     rarity: 5,
     category: "Bow",
     name: { en: "Astral Vulture’s Crimson Plumage", "zh-CN": "星鹫赤羽" },
+    materials: [
+      "Night-Wind’s Mystic Consideration",
+      "Refractive Bud",
+      "Sentry’s Wooden Whistle",
+    ],
   },
   //
   // Newline - bow 5
@@ -1127,6 +1132,11 @@ export const weapons: Record<WeaponId, Weapon> = {
     rarity: 4,
     category: "Bow",
     name: { en: "Flower-Wreathed Feathers", "zh-CN": "缀花之翎" },
+    materials: [
+      "Night-Wind’s Mystic Consideration",
+      "Ignited Stone",
+      "Sentry’s Wooden Whistle",
+    ],
   },
   //
   // Newline - bow 4
@@ -1402,6 +1412,11 @@ export const weapons: Record<WeaponId, Weapon> = {
     rarity: 4,
     category: "Catalyst",
     name: { en: "Waveriding Whirl", "zh-CN": "乘浪的回旋" },
+    materials: [
+      "Blazing Sacrificial Heart’s Terror",
+      "Shard of a Shattered Will",
+      "Juvenile Fang",
+    ],
   },
   //
   // Newline catalyst 4
@@ -2282,6 +2297,11 @@ export const weapons: Record<WeaponId, Weapon> = {
     rarity: 4,
     category: "Sword",
     name: { en: "Calamity of Eshu", "zh-CN": "厄水之祸" },
+    materials: [
+      "Delirious Decadence of the Sacred Lord",
+      "Refractive Bud",
+      "Sentry’s Wooden Whistle",
+    ],
   },
   //
   // Newline - sword 4

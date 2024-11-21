@@ -388,6 +388,13 @@ const elites = {
       "zh-CN": ["秘源轴", "秘源机鞘", "秘源真芯"],
     },
   },
+  "Refractive Bud": {
+    id: "Refractive Bud",
+    name: {
+      en: ["Refractive Bud", "Bewildering Broadleaf", "Illusory Leafcoil"],
+      "zh-CN": ["折光的胚芽", "惑光的阔叶", "迷光的蜷叶之心"],
+    },
+  },
   //
   // Newline - elites
   //
@@ -556,6 +563,14 @@ const localSpecialities = {
   "Brilliant Chrysanthemum": {
     id: "Brilliant Chrysanthemum",
     name: { en: "Brilliant Chrysanthemum", "zh-CN": "灼灼彩菊" },
+  },
+  "Withering Purpurbloom": {
+    id: "Withering Purpurbloom",
+    name: { en: "Withering Purpurbloom", "zh-CN": "枯叶紫英" },
+  },
+  "Glowing Hornshroom": {
+    id: "Glowing Hornshroom",
+    name: { en: "Glowing Hornshroom", "zh-CN": "微光角菌" },
   },
   //
   // Newline - local specialities
@@ -766,6 +781,10 @@ const characterAscensions = {
       en: "Gold-Inscribed Secret Source Core",
       "zh-CN": "秘刻金纹的源核",
     },
+  },
+  "Ensnaring Gaze": {
+    id: "Ensnaring Gaze",
+    name: { en: "Ensnaring Gaze", "zh-CN": "深邃纠缠的凝视" },
   },
   //
   // Newline - character ascension

@@ -287,6 +287,14 @@ export const characters: Record<CharacterId, Character> = {
     type: "character",
     rarity: 5,
     name: { en: "Chasca", "zh-CN": "恰斯卡" },
+    materials: [
+      "Ensnaring Gaze",
+      "Vayuda Turquoise",
+      "Silken Feather",
+      "Conflict",
+      "Juvenile Fang",
+      "Withering Purpurbloom",
+    ],
   },
   Chevreuse: {
     id: "Chevreuse",
@@ -923,6 +931,14 @@ export const characters: Record<CharacterId, Character> = {
     type: "character",
     rarity: 4,
     name: { en: "Ororon", "zh-CN": "欧洛伦" },
+    materials: [
+      "Mark of the Binding Blessing",
+      "Vajrada Amethyst",
+      "Lightless Silk String",
+      "Kindling",
+      "Juvenile Fang",
+      "Glowing Hornshroom",
+    ],
   },
   Noelle: {
     id: "Noelle",
