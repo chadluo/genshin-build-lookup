@@ -866,6 +866,12 @@ export const enemies: Enemy[] = [
     },
     materials: ["Axis of the Secret Source"],
   },
+  {
+    id: "Tenebrous Mimiflora",
+    type: "enemy",
+    name: { en: "Tenebrous Mimiflora", "zh-CN": "深邃拟覆叶" },
+    materials: ["Refractive Bud"],
+  },
   //
   // Newline - elite enemy
   //
