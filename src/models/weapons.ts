@@ -45,6 +45,7 @@ export type WeaponId =
   | "Cashflow Supervision"
   | "Crane’s Echoing Call"
   | "Surf’s Up"
+  | "Starcaller’s Watch"
   //
   // NewId - catalyst 5
   //
@@ -56,6 +57,7 @@ export type WeaponId =
   | "Beacon of the Reed Sea"
   | "Verdict"
   | "Fang of the Mountain King"
+  | "A Thousand Blazing Suns"
   //
   // NewId - claymore 5
   //
@@ -497,6 +499,13 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Juvenile Fang",
     ],
   },
+  "Starcaller’s Watch": {
+    id: "Starcaller’s Watch",
+    type: "weapon",
+    rarity: 5,
+    category: "Catalyst",
+    name: { en: "Starcaller’s Watch", "zh-CN": "祭星者之望" },
+  },
   //
   // Newline - catalyst 5
   //
@@ -583,6 +592,13 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Ignited Stone",
       "Sentry’s Wooden Whistle",
     ],
+  },
+  "A Thousand Blazing Suns": {
+    id: "A Thousand Blazing Suns",
+    type: "weapon",
+    rarity: 5,
+    category: "Claymore",
+    name: { en: "A Thousand Blazing Suns", "zh-CN": "焚曜千阳" },
   },
   //
   // Newline - claymore 5

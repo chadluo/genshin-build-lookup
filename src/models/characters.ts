@@ -38,6 +38,7 @@ export type CharacterId =
   | "Chevreuse"
   | "Chiori"
   | "Chongyun"
+  | "Citlali"
   | "Clorinde"
   | "Collei"
   | "Cyno"
@@ -68,10 +69,12 @@ export type CharacterId =
   | "Klee"
   | "Kujou Sara"
   | "Kuki Shinobu"
+  | "Lan Yan"
   | "Layla"
   | "Lisa"
   | "Lynette"
   | "Lyney"
+  | "Mavuika"
   | "Mika"
   | "Mona"
   | "Mualani"
@@ -80,8 +83,8 @@ export type CharacterId =
   | "Neuvillette"
   | "Nilou"
   | "Ningguang"
-  | "Ororon"
   | "Noelle"
+  | "Ororon"
   | "Qiqi"
   | "Raiden Shogun"
   | "Razor"
@@ -337,6 +340,12 @@ export const characters: Record<CharacterId, Character> = {
       "Damaged Mask",
       "Cor Lapis",
     ],
+  },
+  Citlali: {
+    id: "Citlali",
+    type: "character",
+    rarity: 5,
+    name: { en: "Citlali", "zh-CN": "茜特菈莉" },
   },
   Clorinde: {
     id: "Clorinde",
@@ -758,6 +767,12 @@ export const characters: Record<CharacterId, Character> = {
       "Naku Weed",
     ],
   },
+  "Lan Yan": {
+    id: "Lan Yan",
+    type: "character",
+    rarity: 4,
+    name: { en: "Lan Yan", "zh-CN": "蓝砚" },
+  },
   Layla: {
     id: "Layla",
     type: "character",
@@ -813,6 +828,12 @@ export const characters: Record<CharacterId, Character> = {
       "Recruit’s Insignia",
       "Rainbow Rose",
     ],
+  },
+  Mavuika: {
+    id: "Mavuika",
+    type: "character",
+    rarity: 5,
+    name: { en: "Mavuika", "zh-CN": "玛薇卡" },
   },
   Mika: {
     id: "Mika",
@@ -926,20 +947,6 @@ export const characters: Record<CharacterId, Character> = {
       "Glaze Lily",
     ],
   },
-  Ororon: {
-    id: "Ororon",
-    type: "character",
-    rarity: 4,
-    name: { en: "Ororon", "zh-CN": "欧洛伦" },
-    materials: [
-      "Mark of the Binding Blessing",
-      "Vajrada Amethyst",
-      "Lightless Silk String",
-      "Kindling",
-      "Juvenile Fang",
-      "Glowing Hornshroom",
-    ],
-  },
   Noelle: {
     id: "Noelle",
     type: "character",
@@ -952,6 +959,20 @@ export const characters: Record<CharacterId, Character> = {
       "Resistance",
       "Damaged Mask",
       "Valberry",
+    ],
+  },
+  Ororon: {
+    id: "Ororon",
+    type: "character",
+    rarity: 4,
+    name: { en: "Ororon", "zh-CN": "欧洛伦" },
+    materials: [
+      "Mark of the Binding Blessing",
+      "Vajrada Amethyst",
+      "Lightless Silk String",
+      "Kindling",
+      "Juvenile Fang",
+      "Glowing Hornshroom",
     ],
   },
   Qiqi: {

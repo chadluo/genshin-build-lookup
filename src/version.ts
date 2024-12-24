@@ -22,6 +22,17 @@ const versions: { version: string; start: number; items: string[] }[] = [
       "Calamity of Eshu",
     ],
   },
+  {
+    version: "5.3",
+    start: new Date("2025-01-01").getTime(),
+    items: [
+      "Mavuika",
+      "Citlali",
+      "Lan Yan",
+      "Starcaller’s Watch",
+      "A Thousand Blazing Suns",
+    ],
+  },
 ];
 
 export function findRecents() {

@@ -407,6 +407,12 @@ export const bosses: Boss[] = [
     name: { en: "Tenebrous Papilla", "zh-CN": "深邃摹结株" },
     materials: ["Ensnaring Gaze", "Agnidus Agate", "Vajrada Amethyst"],
   },
+  {
+    id: "Wayward Hermetic Spiritspeaker",
+    region: "Natlan",
+    type: "boss",
+    name: { en: "Wayward Hermetic Spiritspeaker", "zh-CN": "灵觉隐修的迷者" },
+  },
   //
   // Newline - normal boss
   //
@@ -585,6 +591,12 @@ export const bosses: Boss[] = [
       en: "Cinder of Two Worlds’ Flames / The Knave",
       "zh-CN": "两界之火的遗烬 / 「仆人」",
     },
+  },
+  {
+    id: "Lord of Eroded Primal Fire",
+    region: "Natlan",
+    type: "weekly_boss",
+    name: { en: "Lord of Eroded Primal Fire", "zh-CN": "蚀灭的源焰之主" },
   },
   //
   // Newline - weekly boss
