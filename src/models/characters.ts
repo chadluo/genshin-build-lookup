@@ -346,6 +346,14 @@ export const characters: Record<CharacterId, Character> = {
     type: "character",
     rarity: 5,
     name: { en: "Citlali", "zh-CN": "茜特菈莉" },
+    materials: [
+      "Talisman of the Enigmatic Land",
+      "Shivada Jade",
+      "Denial and Judgment",
+      "Kindling",
+      "Juvenile Fang",
+      "Quenepa Berry",
+    ],
   },
   Clorinde: {
     id: "Clorinde",
@@ -834,6 +842,14 @@ export const characters: Record<CharacterId, Character> = {
     type: "character",
     rarity: 5,
     name: { en: "Mavuika", "zh-CN": "玛薇卡" },
+    materials: [
+      "Gold-Inscribed Secret Source Core",
+      "Agnidus Agate",
+      "Eroded Horn",
+      "Contention",
+      "Sentry’s Wooden Whistle",
+      "Withering Purpurbloom",
+    ],
   },
   Mika: {
     id: "Mika",

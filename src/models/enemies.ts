@@ -1,5 +1,9 @@
 import type { OfMaterial, Region } from "../base";
-import { midlanderBillets, northlanderBillets } from "./materials";
+import {
+  borderlandBillets,
+  midlanderBillets,
+  northlanderBillets,
+} from "./materials";
 
 export type Domain = OfMaterial & {
   materials_by_weekday: string[];
@@ -412,6 +416,7 @@ export const bosses: Boss[] = [
     region: "Natlan",
     type: "boss",
     name: { en: "Wayward Hermetic Spiritspeaker", "zh-CN": "灵觉隐修的迷者" },
+    materials: ["Talisman of the Enigmatic Land", "Shivada Jade"],
   },
   //
   // Newline - normal boss
@@ -597,6 +602,13 @@ export const bosses: Boss[] = [
     region: "Natlan",
     type: "weekly_boss",
     name: { en: "Lord of Eroded Primal Fire", "zh-CN": "蚀灭的源焰之主" },
+    materials: [
+      "Eroded Horn",
+      "Eroded Sunfire",
+      "Eroded Scale-Feather",
+      "Agnidus Agate",
+      ...borderlandBillets,
+    ],
   },
   //
   // Newline - weekly boss

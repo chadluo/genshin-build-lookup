@@ -786,6 +786,10 @@ const characterAscensions = {
     id: "Ensnaring Gaze",
     name: { en: "Ensnaring Gaze", "zh-CN": "深邃纠缠的凝视" },
   },
+  "Talisman of the Enigmatic Land": {
+    id: "Talisman of the Enigmatic Land",
+    name: { en: "Talisman of the Enigmatic Land", "zh-CN": "谜土的护符" },
+  },
   //
   // Newline - character ascension
   //
@@ -941,6 +945,18 @@ const talentMaterials = {
   "Denial and Judgment": {
     id: "Denial and Judgment",
     name: { en: "Denial and Judgment", "zh-CN": "否定裁断" },
+  },
+  "Eroded Horn": {
+    id: "Eroded Horn",
+    name: { en: "Eroded Horn", "zh-CN": "蚀灭的灵犀" },
+  },
+  "Eroded Sunfire": {
+    id: "Eroded Sunfire",
+    name: { en: "Eroded Sunfire", "zh-CN": "蚀灭的阳焰" },
+  },
+  "Eroded Scale-Feather": {
+    id: "Eroded Scale-Feather",
+    name: { en: "Eroded Scale-Feather", "zh-CN": "蚀灭的鳞羽" },
   },
   //
   // Newline - talent material

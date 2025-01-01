@@ -505,6 +505,11 @@ export const weapons: Record<WeaponId, Weapon> = {
     rarity: 5,
     category: "Catalyst",
     name: { en: "Starcaller’s Watch", "zh-CN": "祭星者之望" },
+    materials: [
+      "Delirious Decadence of the Sacred Lord",
+      "Shard of a Shattered Will",
+      "Sentry’s Wooden Whistle",
+    ],
   },
   //
   // Newline - catalyst 5
@@ -599,6 +604,11 @@ export const weapons: Record<WeaponId, Weapon> = {
     rarity: 5,
     category: "Claymore",
     name: { en: "A Thousand Blazing Suns", "zh-CN": "焚曜千阳" },
+    materials: [
+      "Blazing Sacrificial Heart’s Terror",
+      "Axis of the Secret Source",
+      "Juvenile Fang",
+    ],
   },
   //
   // Newline - claymore 5
