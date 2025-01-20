@@ -780,6 +780,14 @@ export const characters: Record<CharacterId, Character> = {
     type: "character",
     rarity: 4,
     name: { en: "Lan Yan", "zh-CN": "蓝砚" },
+    materials: [
+      "Gold-Inscribed Secret Source Core",
+      "Vayuda Turquoise",
+      "Eroded Sunfire",
+      "Diligence",
+      "Whopperflower Nectar",
+      "Clearwater Jade",
+    ],
   },
   Layla: {
     id: "Layla",
