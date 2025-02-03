@@ -33,6 +33,15 @@ const versions: { version: string; start: number; items: string[] }[] = [
       "A Thousand Blazing Suns",
     ],
   },
+  {
+    version: "5.4",
+    start: new Date("2025-02-12").getTime(),
+    items: [
+      "Yumemizuki Mizuki",
+      "Sunny Morning Sleep-In",
+      "Tamayuratei no Ohanashi",
+    ],
+  },
 ];
 
 export function findRecents() {

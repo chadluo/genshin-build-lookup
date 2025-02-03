@@ -113,6 +113,7 @@ export type CharacterId =
   | "Yaoyao"
   | "Yelan"
   | "Yoimiya"
+  | "Yumemizuki Mizuki"
   | "Yun Jin"
   | "Zhongli";
 
@@ -1390,6 +1391,12 @@ export const characters: Record<CharacterId, Character> = {
       "Divining Scroll",
       "Naku Weed",
     ],
+  },
+  "Yumemizuki Mizuki": {
+    id: "Yumemizuki Mizuki",
+    type: "character",
+    rarity: 5,
+    name: { en: "Yumemizuki Mizuki", "zh-CN": "梦见月瑞希" },
   },
   "Yun Jin": {
     id: "Yun Jin",

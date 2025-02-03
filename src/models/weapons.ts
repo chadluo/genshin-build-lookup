@@ -46,6 +46,7 @@ export type WeaponId =
   | "Crane’s Echoing Call"
   | "Surf’s Up"
   | "Starcaller’s Watch"
+  | "Sunny Morning Sleep-In"
   //
   // NewId - catalyst 5
   //
@@ -188,6 +189,7 @@ export type WeaponId =
   | "Dialogues of the Desert Sages"
   | "Footprint of the Rainbow"
   | "Mountain-Bracing Bolt"
+  | "Tamayuratei no Ohanashi"
   //
   // NewId - polearm 4
   //
@@ -510,6 +512,13 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Shard of a Shattered Will",
       "Sentry’s Wooden Whistle",
     ],
+  },
+  "Sunny Morning Sleep-In": {
+    id: "Sunny Morning Sleep-In",
+    type: "weapon",
+    rarity: 5,
+    category: "Catalyst",
+    name: { en: "Sunny Morning Sleep-In", "zh-CN": "寝正月初晴" },
   },
   //
   // Newline - catalyst 5
@@ -2015,6 +2024,13 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Ignited Stone",
       "Whopperflower Nectar",
     ],
+  },
+  "Tamayuratei no Ohanashi": {
+    id: "Tamayuratei no Ohanashi",
+    type: "weapon",
+    rarity: 4,
+    category: "Polearm",
+    name: { en: "Tamayuratei no Ohanashi", "zh-CN": "且住亭御咄" },
   },
   //
   // Newline - polearm 4
