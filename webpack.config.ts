@@ -1,10 +1,10 @@
-import path from "node:path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import path from "node:path";
 
 const devMode = process.env.NODE_ENV !== "production";
 
-module.exports = {
+const config = {
   entry: "./src/q.ts",
   mode: "production",
   output: {
@@ -54,3 +54,5 @@ module.exports = {
         // new GenerateSW({ clientsClaim: true, skipWaiting: true, cleanupOutdatedCaches: true }),
       ],
 };
+
+export default config;
