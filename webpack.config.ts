@@ -43,7 +43,7 @@ const config = {
       reconnect: false,
     },
     open: false,
-    port: 3000,
+    port: 3001,
     static: "./public",
   },
   plugins: devMode
