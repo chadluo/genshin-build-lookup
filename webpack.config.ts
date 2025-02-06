@@ -1,8 +1,11 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import path from "node:path";
+import path, { dirname } from "node:path";
+import { fileURLToPath } from 'node:url';
 
 const devMode = process.env.NODE_ENV !== "production";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const config = {
   entry: "./src/q.ts",
