@@ -1397,6 +1397,14 @@ export const characters: Record<CharacterId, Character> = {
     type: "character",
     rarity: 5,
     name: { en: "Yumemizuki Mizuki", "zh-CN": "梦见月瑞希" },
+    materials: [
+      "Talisman of the Enigmatic Land",
+      "Vayuda Turquoise",
+      "Fading Candle",
+      "Transience",
+      "Old Handguard",
+      "Sea Ganoderma"
+    ]
   },
   "Yun Jin": {
     id: "Yun Jin",

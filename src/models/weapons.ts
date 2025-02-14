@@ -12,9 +12,9 @@ export type Weapon = OfMaterial & {
   rarity: 3 | 4 | 5;
   category: Category;
   materials?:
-    | [WeaponAscension, Elite, Common]
-    | [WeaponAscension, Elite, Common, ...Forging[]]
-    | [WeaponAscension, Elite, Common, ...Fishing[]];
+  | [WeaponAscension, Elite, Common]
+  | [WeaponAscension, Elite, Common, ...Forging[]]
+  | [WeaponAscension, Elite, Common, ...Fishing[]];
 };
 
 export type Category = "Bow" | "Catalyst" | "Claymore" | "Polearm" | "Sword";
@@ -519,6 +519,9 @@ export const weapons: Record<WeaponId, Weapon> = {
     rarity: 5,
     category: "Catalyst",
     name: { en: "Sunny Morning Sleep-In", "zh-CN": "寝正月初晴" },
+    materials: [
+      "Narukami’s Wisdom", "Ignited Stone", "Spectral Husk"
+    ]
   },
   //
   // Newline - catalyst 5
@@ -2031,6 +2034,9 @@ export const weapons: Record<WeaponId, Weapon> = {
     rarity: 4,
     category: "Polearm",
     name: { en: "Tamayuratei no Ohanashi", "zh-CN": "且住亭御咄" },
+    materials: [
+      "Mask of the Wicked Lieutenant", "Refractive Bud", "Old Handguard"
+    ]
   },
   //
   // Newline - polearm 4
