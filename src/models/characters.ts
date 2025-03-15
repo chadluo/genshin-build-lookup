@@ -56,6 +56,7 @@ export type CharacterId =
   | "Ganyu"
   | "Gorou"
   | "Hu Tao"
+  | "Iansan"
   | "Jean"
   | "Kachina"
   | "Kaedehara Kazuha"
@@ -99,6 +100,7 @@ export type CharacterId =
   | "Tartaglia"
   | "Thoma"
   | "Tighnari"
+  | "Varessa"
   | "Venti"
   | "Wanderer"
   | "Wriothesley"
@@ -593,6 +595,12 @@ export const characters: Record<CharacterId, Character> = {
       "Whopperflower Nectar",
       "Silk Flower",
     ],
+  },
+  Iansan: {
+    id: "Iansan",
+    type: "character",
+    rarity: 4,
+    name: { en: "Iansan", "zh-CN": "伊安珊" },
   },
   Jean: {
     id: "Jean",
@@ -1196,6 +1204,12 @@ export const characters: Record<CharacterId, Character> = {
       "Nilotpala Lotus",
     ],
   },
+  Varessa: {
+    id: "Varessa",
+    type: "character",
+    rarity: 5,
+    name: { en: "Varessa", "zh-CN": "瓦雷莎" },
+  },
   Venti: {
     id: "Venti",
     type: "character",
@@ -1403,8 +1417,8 @@ export const characters: Record<CharacterId, Character> = {
       "Fading Candle",
       "Transience",
       "Old Handguard",
-      "Sea Ganoderma"
-    ]
+      "Sea Ganoderma",
+    ],
   },
   "Yun Jin": {
     id: "Yun Jin",

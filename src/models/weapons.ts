@@ -12,9 +12,9 @@ export type Weapon = OfMaterial & {
   rarity: 3 | 4 | 5;
   category: Category;
   materials?:
-  | [WeaponAscension, Elite, Common]
-  | [WeaponAscension, Elite, Common, ...Forging[]]
-  | [WeaponAscension, Elite, Common, ...Fishing[]];
+    | [WeaponAscension, Elite, Common]
+    | [WeaponAscension, Elite, Common, ...Forging[]]
+    | [WeaponAscension, Elite, Common, ...Fishing[]];
 };
 
 export type Category = "Bow" | "Catalyst" | "Claymore" | "Polearm" | "Sword";
@@ -47,6 +47,7 @@ export type WeaponId =
   | "Surf’s Up"
   | "Starcaller’s Watch"
   | "Sunny Morning Sleep-In"
+  | "Vivid Notions"
   //
   // NewId - catalyst 5
   //
@@ -519,9 +520,14 @@ export const weapons: Record<WeaponId, Weapon> = {
     rarity: 5,
     category: "Catalyst",
     name: { en: "Sunny Morning Sleep-In", "zh-CN": "寝正月初晴" },
-    materials: [
-      "Narukami’s Wisdom", "Ignited Stone", "Spectral Husk"
-    ]
+    materials: ["Narukami’s Wisdom", "Ignited Stone", "Spectral Husk"],
+  },
+  "Vivid Notions": {
+    id: "Vivid Notions",
+    type: "weapon",
+    rarity: 5,
+    category: "Catalyst",
+    name: { en: "Vivid Notions", "zh-CN": "溢彩心念" },
   },
   //
   // Newline - catalyst 5
@@ -2035,8 +2041,10 @@ export const weapons: Record<WeaponId, Weapon> = {
     category: "Polearm",
     name: { en: "Tamayuratei no Ohanashi", "zh-CN": "且住亭御咄" },
     materials: [
-      "Mask of the Wicked Lieutenant", "Refractive Bud", "Old Handguard"
-    ]
+      "Mask of the Wicked Lieutenant",
+      "Refractive Bud",
+      "Old Handguard",
+    ],
   },
   //
   // Newline - polearm 4
