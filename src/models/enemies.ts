@@ -418,6 +418,13 @@ export const bosses: Boss[] = [
     name: { en: "Wayward Hermetic Spiritspeaker", "zh-CN": "灵觉隐修的迷者" },
     materials: ["Talisman of the Enigmatic Land", "Shivada Jade"],
   },
+  {
+    id: "Lava Dragon Statue",
+    region: "Natlan",
+    type: "boss",
+    name: { en: "Lava Dragon Statue", "zh-CN": "熔岩辉龙像" },
+    materials: ["Sparkless Statue Core", "Agnidus Agate"],
+  },
   //
   // Newline - normal boss
   //
@@ -895,6 +902,12 @@ export const enemies: Enemy[] = [
     type: "enemy",
     name: { en: "Tenebrous Mimiflora", "zh-CN": "深邃拟覆叶" },
     materials: ["Refractive Bud"],
+  },
+  {
+    id: "Furnace Shell Mountain Weasel",
+    type: "enemy",
+    name: { en: "Furnace Shell Mountain Weasel", "zh-CN": "炉壳山鼬" },
+    materials: ["Cold-Cracked Shellshard"],
   },
   //
   // Newline - elite enemy

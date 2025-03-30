@@ -100,7 +100,7 @@ export type CharacterId =
   | "Tartaglia"
   | "Thoma"
   | "Tighnari"
-  | "Varessa"
+  | "Varesa"
   | "Venti"
   | "Wanderer"
   | "Wriothesley"
@@ -601,6 +601,14 @@ export const characters: Record<CharacterId, Character> = {
     type: "character",
     rarity: 4,
     name: { en: "Iansan", "zh-CN": "伊安珊" },
+    materials: [
+      "Ensnaring Gaze",
+      "Vajrada Amethyst",
+      "Denial and Judgment",
+      "Contention",
+      "Sentry’s Wooden Whistle",
+      "Dracolite",
+    ],
   },
   Jean: {
     id: "Jean",
@@ -1204,11 +1212,19 @@ export const characters: Record<CharacterId, Character> = {
       "Nilotpala Lotus",
     ],
   },
-  Varessa: {
-    id: "Varessa",
+  Varesa: {
+    id: "Varesa",
     type: "character",
     rarity: 5,
-    name: { en: "Varessa", "zh-CN": "瓦雷莎" },
+    name: { en: "Varesa", "zh-CN": "瓦雷莎" },
+    materials: [
+      "Sparkless Statue Core",
+      "Vajrada Amethyst",
+      "Eroded Scale-Feather",
+      "Conflict",
+      "Juvenile Fang",
+      "Skysplit Gembloom",
+    ],
   },
   Venti: {
     id: "Venti",

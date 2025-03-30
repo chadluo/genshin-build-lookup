@@ -528,6 +528,11 @@ export const weapons: Record<WeaponId, Weapon> = {
     rarity: 5,
     category: "Catalyst",
     name: { en: "Vivid Notions", "zh-CN": "溢彩心念" },
+    materials: [
+      "Delirious Decadence of the Sacred Lord",
+      "Cold-Cracked Shellshard",
+      "Juvenile Fang",
+    ],
   },
   //
   // Newline - catalyst 5

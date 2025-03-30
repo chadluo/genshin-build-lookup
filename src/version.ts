@@ -45,7 +45,7 @@ const versions: { version: string; start: number; items: string[] }[] = [
   {
     version: "5.5",
     start: new Date("2025-03-26").getTime(),
-    items: ["Iansan", "Varessa", "Vivid Notions"],
+    items: ["Iansan", "Varesa", "Vivid Notions"],
   },
 ];
 

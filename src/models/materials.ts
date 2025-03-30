@@ -395,6 +395,13 @@ const elites = {
       "zh-CN": ["折光的胚芽", "惑光的阔叶", "迷光的蜷叶之心"],
     },
   },
+  "Cold-Cracked Shellshard": {
+    id: "Cold-Cracked Shellshard",
+    name: {
+      en: ["Cold-Cracked Shellshard", "Warm Back-Shell", "Blazing Prismshell"],
+      "zh-CN": ["冷裂壳块", "蕴热的背壳", "明燃的棱状壳"],
+    },
+  },
   //
   // Newline - elites
   //
@@ -571,6 +578,14 @@ const localSpecialities = {
   "Glowing Hornshroom": {
     id: "Glowing Hornshroom",
     name: { en: "Glowing Hornshroom", "zh-CN": "微光角菌" },
+  },
+  "Skysplit Gembloom": {
+    id: "Skysplit Gembloom",
+    name: { en: "Skysplit Gembloom", "zh-CN": "云岩裂叶" },
+  },
+  Dracolite: {
+    id: "Dracolite",
+    name: { en: "Dracolite", "zh-CN": "琉鳞石" },
   },
   //
   // Newline - local specialities
@@ -789,6 +804,10 @@ const characterAscensions = {
   "Talisman of the Enigmatic Land": {
     id: "Talisman of the Enigmatic Land",
     name: { en: "Talisman of the Enigmatic Land", "zh-CN": "谜土的护符" },
+  },
+  "Sparkless Statue Core": {
+    id: "Sparkless Statue Core",
+    name: { en: "Sparkless Statue Core", "zh-CN": "龙像的无智核" },
   },
   //
   // Newline - character ascension
