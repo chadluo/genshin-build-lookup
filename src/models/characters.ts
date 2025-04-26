@@ -47,6 +47,7 @@ export type CharacterId =
   | "Diona"
   | "Dori"
   | "Emilie"
+  | "Escoffier"
   | "Eula"
   | "Faruzan"
   | "Fischl"
@@ -57,6 +58,7 @@ export type CharacterId =
   | "Gorou"
   | "Hu Tao"
   | "Iansan"
+  | "Ifa"
   | "Jean"
   | "Kachina"
   | "Kaedehara Kazuha"
@@ -470,6 +472,12 @@ export const characters: Record<CharacterId, Character> = {
       "Lakelight Lily",
     ],
   },
+  Escoffier: {
+    id: "Escoffier",
+    type: "character",
+    rarity: 5,
+    name: { en: "Escoffier", "zh-CN": "爱可菲" },
+  },
   Eula: {
     id: "Eula",
     type: "character",
@@ -609,6 +617,12 @@ export const characters: Record<CharacterId, Character> = {
       "Sentry’s Wooden Whistle",
       "Dracolite",
     ],
+  },
+  Ifa: {
+    id: "Ifa",
+    type: "character",
+    rarity: 4,
+    name: { en: "Ifa", "zh-CN": "伊法" },
   },
   Jean: {
     id: "Jean",

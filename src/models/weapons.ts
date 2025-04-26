@@ -72,6 +72,7 @@ export type WeaponId =
   | "Staff of the Scarlet Sands"
   | "Crimson Moon’s Semblance"
   | "Lumidouce Elegy"
+  | "Symphonist of Scents"
   //
   // NewId - polearm 5
   //
@@ -116,6 +117,7 @@ export type WeaponId =
   | "Cloudforged"
   | "Chain Breaker"
   | "Flower-Wreathed Feathers"
+  | "Sequence of Solitude"
   //
   // NewId - bow 4
   //
@@ -740,6 +742,13 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Whopperflower Nectar",
     ],
   },
+  "Symphonist of Scents": {
+    id: "Symphonist of Scents",
+    type: "weapon",
+    rarity: 5,
+    category: "Polearm",
+    name: { en: "Symphonist of Scents", "zh-CN": "香韵奏者" },
+  },
   //
   // Newline - polearm 5
   //
@@ -1186,6 +1195,13 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Ignited Stone",
       "Sentry’s Wooden Whistle",
     ],
+  },
+  "Sequence of Solitude": {
+    id: "Sequence of Solitude",
+    type: "weapon",
+    rarity: 4,
+    category: "Bow",
+    name: { en: "Sequence of Solitude", "zh-CN": "冷寂迸音" },
   },
   //
   // Newline - bow 4
