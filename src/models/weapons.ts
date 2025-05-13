@@ -748,6 +748,11 @@ export const weapons: Record<WeaponId, Weapon> = {
     rarity: 5,
     category: "Polearm",
     name: { en: "Symphonist of Scents", "zh-CN": "香韵奏者" },
+    materials: [
+      "Dross of Pure Sacred Dewdrop",
+      "Drop of Tainted Water",
+      "Transoceanic Pearl",
+    ],
   },
   //
   // Newline - polearm 5
@@ -1202,6 +1207,11 @@ export const weapons: Record<WeaponId, Weapon> = {
     rarity: 4,
     category: "Bow",
     name: { en: "Sequence of Solitude", "zh-CN": "冷寂迸音" },
+    materials: [
+      "Fragment of an Ancient Chord",
+      "Cold-Cracked Shellshard",
+      "Meshing Gear",
+    ],
   },
   //
   // Newline - bow 4

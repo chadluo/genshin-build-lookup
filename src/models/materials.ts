@@ -809,6 +809,13 @@ const characterAscensions = {
     id: "Sparkless Statue Core",
     name: { en: "Sparkless Statue Core", "zh-CN": "龙像的无智核" },
   },
+  "Secret Source Airflow Accumulator": {
+    id: "Secret Source Airflow Accumulator",
+    name: {
+      en: "Secret Source Airflow Accumulator",
+      "zh-CN": "秘源积气喉",
+    },
+  },
   //
   // Newline - character ascension
   //
@@ -976,6 +983,18 @@ const talentMaterials = {
   "Eroded Scale-Feather": {
     id: "Eroded Scale-Feather",
     name: { en: "Eroded Scale-Feather", "zh-CN": "蚀灭的鳞羽" },
+  },
+  "Ascended Sample: Knight": {
+    id: "Ascended Sample: Knight",
+    name: { en: "Ascended Sample: Knight", "zh-CN": "升扬样本・骑士" },
+  },
+  "Ascended Sample: Rook": {
+    id: "Ascended Sample: Rook",
+    name: { en: "Ascended Sample: Rook", "zh-CN": "升扬样本・战车" },
+  },
+  "Ascended Sample: Queen": {
+    id: "Ascended Sample: Queen",
+    name: { en: "Ascended Sample: Queen", "zh-CN": "升扬样本・王族" },
   },
   //
   // Newline - talent material

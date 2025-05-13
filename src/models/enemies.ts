@@ -425,6 +425,16 @@ export const bosses: Boss[] = [
     name: { en: "Lava Dragon Statue", "zh-CN": "熔岩辉龙像" },
     materials: ["Sparkless Statue Core", "Agnidus Agate"],
   },
+  {
+    id: "Secret Source Automaton: Overseer Device",
+    region: "Natlan",
+    type: "boss",
+    name: {
+      en: "Secret Source Automaton: Overseer Device",
+      "zh-CN": "秘源机兵・统御械",
+    },
+    materials: ["Secret Source Airflow Accumulator", "Varunada Lazurite"],
+  },
   //
   // Newline - normal boss
   //
@@ -615,6 +625,24 @@ export const bosses: Boss[] = [
       "Eroded Scale-Feather",
       "Agnidus Agate",
       ...borderlandBillets,
+    ],
+  },
+  {
+    id: "The Game Before the Gate",
+    region: "Mondstadt",
+    type: "weekly_boss",
+    name: {
+      en: "The Game Before the Gate",
+      "zh-CN": "门扉前的弈局",
+    },
+    materials: [
+      "Ascended Sample: Knight",
+      "Ascended Sample: Rook",
+      "Ascended Sample: Queen",
+      "Agnidus Agate",
+      "Varunada Lazurite",
+      "Vajarda Amethyst",
+      ...northlanderBillets,
     ],
   },
   //

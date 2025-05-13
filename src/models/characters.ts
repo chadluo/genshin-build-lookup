@@ -477,6 +477,14 @@ export const characters: Record<CharacterId, Character> = {
     type: "character",
     rarity: 5,
     name: { en: "Escoffier", "zh-CN": "爱可菲" },
+    materials: [
+      "Secret Source Airflow Accumulator",
+      "Shivada Jade",
+      "Eroded Horn",
+      "Justice",
+      "Meshing Gear",
+      "Beryl Conch",
+    ],
   },
   Eula: {
     id: "Eula",
@@ -623,6 +631,14 @@ export const characters: Record<CharacterId, Character> = {
     type: "character",
     rarity: 4,
     name: { en: "Ifa", "zh-CN": "伊法" },
+    materials: [
+      "Sparkless Statue Core",
+      "Vayuda Turquoise",
+      "Ascended Sample: Rook",
+      "Conflict",
+      "Juvenile Fang",
+      "Saurian Claw Succulent",
+    ],
   },
   Jean: {
     id: "Jean",
