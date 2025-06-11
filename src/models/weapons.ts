@@ -89,6 +89,7 @@ export type WeaponId =
   | "Uraku Mitsugiri"
   | "Absolution"
   | "Peak Patrol Song"
+  | "Azurelight"
   //
   // NewId - sword 5
   //
@@ -896,6 +897,13 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Axis of the Secret Source",
       "Juvenile Fang",
     ],
+  },
+  Azurelight: {
+    id: "Azurelight",
+    type: "weapon",
+    rarity: 5,
+    category: "Sword",
+    name: { en: "Azurelight", "zh-CN": "苍耀" },
   },
   //
   // Newline - sword 5

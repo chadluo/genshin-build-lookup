@@ -9,6 +9,11 @@ const versions: { version: string; start: number; items: string[] }[] = [
     start: new Date("2025-05-07").getTime(),
     items: ["Escoffier", "Ifa", "Sequence of Solitude", "Symphonist of Scents"],
   },
+  {
+    version: "5.7",
+    start: new Date("2025-06-18").getTime(),
+    items: ["Skirk", "Dahlia", "Azurelight"],
+  },
 ];
 
 export function findRecents() {

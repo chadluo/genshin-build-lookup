@@ -42,6 +42,7 @@ export type CharacterId =
   | "Clorinde"
   | "Collei"
   | "Cyno"
+  | "Dahlia"
   | "Dehya"
   | "Diluc"
   | "Diona"
@@ -98,6 +99,7 @@ export type CharacterId =
   | "Shenhe"
   | "Shikanoin Heizou"
   | "Sigewinne"
+  | "Skirk"
   | "Sucrose"
   | "Tartaglia"
   | "Thoma"
@@ -401,6 +403,12 @@ export const characters: Record<CharacterId, Character> = {
       "Divining Scroll",
       "Scarab",
     ],
+  },
+  Dahlia: {
+    id: "Dahlia",
+    type: "character",
+    rarity: 4,
+    name: { en: "Dahlia", "zh-CN": "塔利雅" },
   },
   Dehya: {
     id: "Dehya",
@@ -1185,6 +1193,12 @@ export const characters: Record<CharacterId, Character> = {
       "Transoceanic Pearl",
       "Romaritime Flower",
     ],
+  },
+  Skirk: {
+    id: "Skirk",
+    type: "character",
+    rarity: 5,
+    name: { en: "Skirk", "zh-CN": "丝柯克" },
   },
   Sucrose: {
     id: "Sucrose",
