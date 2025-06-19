@@ -409,6 +409,14 @@ export const characters: Record<CharacterId, Character> = {
     type: "character",
     rarity: 4,
     name: { en: "Dahlia", "zh-CN": "塔利雅" },
+    materials: [
+      "Secret Source Airflow Accumulator",
+      "Varunada Lazurite",
+      "Eroded Scale-Feather",
+      "Ballad",
+      "Firm Arrowhead",
+      "Calla Lily",
+    ],
   },
   Dehya: {
     id: "Dehya",
@@ -1199,6 +1207,14 @@ export const characters: Record<CharacterId, Character> = {
     type: "character",
     rarity: 5,
     name: { en: "Skirk", "zh-CN": "丝柯克" },
+    materials: [
+      "Ensnaring Gaze",
+      "Shivada Jade",
+      "Ascended Sample: Knight",
+      "Contention",
+      "Meshing Gear",
+      "Skysplit Gembloom",
+    ],
   },
   Sucrose: {
     id: "Sucrose",

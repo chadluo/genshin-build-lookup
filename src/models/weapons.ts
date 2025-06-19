@@ -904,6 +904,11 @@ export const weapons: Record<WeaponId, Weapon> = {
     rarity: 5,
     category: "Sword",
     name: { en: "Azurelight", "zh-CN": "苍耀" },
+    materials: [
+      "Night-Wind’s Mystic Consideration",
+      "Refractive Bud",
+      "Sentry’s Wooden Whistle",
+    ],
   },
   //
   // Newline - sword 5
