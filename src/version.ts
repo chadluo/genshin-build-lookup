@@ -14,6 +14,11 @@ const versions: { version: string; start: number; items: string[] }[] = [
     start: new Date("2025-06-18").getTime(),
     items: ["Skirk", "Dahlia", "Azurelight"],
   },
+  {
+    version: "5.8",
+    start: new Date("2025-07-30").getTime(),
+    items: ["Ineffa", "Fractured Halo", "Flame-Forged Insight"],
+  },
 ];
 
 export function findRecents() {

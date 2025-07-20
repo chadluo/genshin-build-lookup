@@ -73,6 +73,7 @@ export type WeaponId =
   | "Crimson Moon’s Semblance"
   | "Lumidouce Elegy"
   | "Symphonist of Scents"
+  | "Fractured Halo"
   //
   // NewId - polearm 5
   //
@@ -170,6 +171,7 @@ export type WeaponId =
   | "Ultimate Overlord’s Mega Magic Sword"
   | "Earth Shaker"
   | "Fruitful Hook"
+  | "Flame-Forged Insight"
   //
   // NewId - claymore 4
   //
@@ -754,6 +756,13 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Drop of Tainted Water",
       "Transoceanic Pearl",
     ],
+  },
+  "Fractured Halo": {
+    id: "Fractured Halo",
+    type: "weapon",
+    rarity: 5,
+    category: "Polearm",
+    name: { en: "Fractured Halo", "zh-CN": "支离轮光" },
   },
   //
   // Newline - polearm 5
@@ -1808,6 +1817,13 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Axis of the Secret Source",
       "Juvenile Fang",
     ],
+  },
+  "Flame-Forged Insight": {
+    id: "Flame-Forged Insight",
+    type: "weapon",
+    rarity: 4,
+    category: "Claymore",
+    name: { en: "Flame-Forged Insight", "zh-CN": "拾慧铸熔" },
   },
   //
   // Newline - claymore 4

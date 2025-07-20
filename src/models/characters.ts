@@ -60,6 +60,7 @@ export type CharacterId =
   | "Hu Tao"
   | "Iansan"
   | "Ifa"
+  | "Ineffa"
   | "Jean"
   | "Kachina"
   | "Kaedehara Kazuha"
@@ -655,6 +656,12 @@ export const characters: Record<CharacterId, Character> = {
       "Juvenile Fang",
       "Saurian Claw Succulent",
     ],
+  },
+  Ineffa: {
+    id: "Ineffa",
+    type: "character",
+    rarity: 5,
+    name: { en: "Ineffa", "zh-CN": "伊涅芙" },
   },
   Jean: {
     id: "Jean",
