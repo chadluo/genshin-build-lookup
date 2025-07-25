@@ -1,9 +1,9 @@
-import { fail } from "node:assert";
 import { expect, test } from "@playwright/test";
+import { fail } from "node:assert";
 
 test.describe("availability & languages", async () => {
   test("english", async ({ browser, baseURL }) => {
-    const context = await browser.newContext({ locale: "en-US" });
+    const context = await browser.newContext({ baseURL, locale: "en-US" });
     const page = await context.newPage();
 
     if (baseURL == null) {
@@ -16,7 +16,7 @@ test.describe("availability & languages", async () => {
     await expect(page.locator(":has-text('Xiangling')").first()).toBeVisible();
     await expect(page.locator(":has-text('The Catch')").first()).toBeVisible();
     await expect(
-      page.locator(":has-text('Confront Stormterror / Dvalin')").first(),
+      page.locator(":has-text('Confront Stormterror / Dvalin')").first()
     ).toBeVisible();
     await expect(page.locator("#today .qtable").first()).not.toBeEmpty();
 
@@ -25,12 +25,12 @@ test.describe("availability & languages", async () => {
     await expect(page.locator(":has-text('香菱')").first()).toBeVisible();
     await expect(page.locator(":has-text('渔获')").first()).toBeVisible();
     await expect(
-      page.locator(":has-text('深入风龙废墟 / 风魔龙・特瓦林')").first(),
+      page.locator(":has-text('深入风龙废墟 / 风魔龙・特瓦林')").first()
     ).toBeVisible();
   });
 
   test("simplified chinese", async ({ browser, baseURL }) => {
-    const context = await browser.newContext({ locale: "zh-CN" });
+    const context = await browser.newContext({ baseURL, locale: "zh-CN" });
     const page = await context.newPage();
 
     if (baseURL == null) {
@@ -49,13 +49,7 @@ test.describe("availability & languages", async () => {
 
 test.describe("queries", async () => {
   test("character table", async ({ browser, baseURL }) => {
-    const content = await browser.newContext({
-      locale: "en-US",
-      storageState: {
-        cookies: [],
-        origins: [{ origin: "", localStorage: [] }],
-      },
-    });
+    const content = await browser.newContext({ baseURL, locale: "en-US" });
     const page = await content.newPage();
 
     if (baseURL == null) {
@@ -82,13 +76,7 @@ test.describe("queries", async () => {
   });
 
   test("weapon table", async ({ browser, baseURL }) => {
-    const content = await browser.newContext({
-      locale: "en-US",
-      storageState: {
-        cookies: [],
-        origins: [{ origin: "", localStorage: [] }],
-      },
-    });
+    const content = await browser.newContext({ baseURL, locale: "en-US" });
     const page = await content.newPage();
 
     if (baseURL == null) {
@@ -112,13 +100,7 @@ test.describe("queries", async () => {
 
 test.describe("bookmark", async () => {
   test("click to bookmark & unbookmark", async ({ browser, baseURL }) => {
-    const content = await browser.newContext({
-      locale: "en-US",
-      storageState: {
-        cookies: [],
-        origins: [{ origin: "", localStorage: [] }],
-      },
-    });
+    const content = await browser.newContext({ baseURL, locale: "en-US" });
     const page = await content.newPage();
 
     if (baseURL == null) {
