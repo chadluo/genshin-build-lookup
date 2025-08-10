@@ -763,6 +763,11 @@ export const weapons: Record<WeaponId, Weapon> = {
     rarity: 5,
     category: "Polearm",
     name: { en: "Fractured Halo", "zh-CN": "支离轮光" },
+    materials: [
+      "Blazing Sacrificial Heart’s Terror",
+      "Cold-Cracked Shellshard",
+      "Juvenile Fang",
+    ],
   },
   //
   // Newline - polearm 5
@@ -1824,6 +1829,11 @@ export const weapons: Record<WeaponId, Weapon> = {
     rarity: 4,
     category: "Claymore",
     name: { en: "Flame-Forged Insight", "zh-CN": "拾慧铸熔" },
+    materials: [
+      "Delirious Decadence of the Sacred Lord",
+      "Cold-Cracked Shellshard",
+      "Transoceanic Pearl",
+    ],
   },
   //
   // Newline - claymore 4
