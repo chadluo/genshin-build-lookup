@@ -662,6 +662,14 @@ export const characters: Record<CharacterId, Character> = {
     type: "character",
     rarity: 5,
     name: { en: "Ineffa", "zh-CN": "伊涅芙" },
+    materials: [
+      "Secret Source Airflow Accumulator",
+      "Vajrada Amethyst",
+      "Eroded Sunfire",
+      "Conflict",
+      "Sentry’s Wooden Whistle",
+      "Glowing Hornshroom",
+    ],
   },
   Jean: {
     id: "Jean",
