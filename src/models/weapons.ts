@@ -48,6 +48,7 @@ export type WeaponId =
   | "Starcaller’s Watch"
   | "Sunny Morning Sleep-In"
   | "Vivid Notions"
+  | "Nightweaver’s Looking Glass"
   //
   // NewId - catalyst 5
   //
@@ -74,6 +75,7 @@ export type WeaponId =
   | "Lumidouce Elegy"
   | "Symphonist of Scents"
   | "Fractured Halo"
+  | "Bloodsoaked Ruins"
   //
   // NewId - polearm 5
   //
@@ -120,6 +122,7 @@ export type WeaponId =
   | "Chain Breaker"
   | "Flower-Wreathed Feathers"
   | "Sequence of Solitude"
+  | "Snare Hook"
   //
   // NewId - bow 4
   //
@@ -145,6 +148,8 @@ export type WeaponId =
   | "Ring of Yaxche"
   | "Ash-Graven Drinking Horn"
   | "Waveriding Whirl"
+  | "Etherlight Spindlelute"
+  | "Blackmarrow Lantern"
   //
   // NewId catalyst 4
   //
@@ -172,6 +177,7 @@ export type WeaponId =
   | "Earth Shaker"
   | "Fruitful Hook"
   | "Flame-Forged Insight"
+  | "Master Key"
   //
   // NewId - claymore 4
   //
@@ -196,6 +202,7 @@ export type WeaponId =
   | "Footprint of the Rainbow"
   | "Mountain-Bracing Bolt"
   | "Tamayuratei no Ohanashi"
+  | "Prospector’s Shovel"
   //
   // NewId - polearm 4
   //
@@ -225,6 +232,7 @@ export type WeaponId =
   | "Flute of Ezpitzal"
   | "Sturdy Bone"
   | "Calamity of Eshu"
+  | "Serenit’s Call"
   //
   // NewId - sword 4
   //
@@ -539,6 +547,13 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Juvenile Fang",
     ],
   },
+  "Nightweaver’s Looking Glass": {
+    id: "Nightweaver’s Looking Glass",
+    type: "weapon",
+    rarity: 5,
+    category: "Catalyst",
+    name: { en: "Nightweaver’s Looking Glass", "zh-CN": "纺夜天镜" },
+  },
   //
   // Newline - catalyst 5
   //
@@ -768,6 +783,13 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Cold-Cracked Shellshard",
       "Juvenile Fang",
     ],
+  },
+  "Bloodsoaked Ruins": {
+    id: "Bloodsoaked Ruins",
+    type: "weapon",
+    rarity: 5,
+    category: "Polearm",
+    name: { en: "Bloodsoaked Ruins", "zh-CN": "血染荒城" },
   },
   //
   // Newline - polearm 5
@@ -1240,6 +1262,13 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Meshing Gear",
     ],
   },
+  "Snare Hook": {
+    id: "Snare Hook",
+    type: "weapon",
+    rarity: 4,
+    category: "Bow",
+    name: { en: "Snare Hook", "zh-CN": "罗网勾针" },
+  },
   //
   // Newline - bow 4
   //
@@ -1519,6 +1548,20 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Shard of a Shattered Will",
       "Juvenile Fang",
     ],
+  },
+  "Etherlight Spindlelute": {
+    id: "Etherlight Spindlelute",
+    type: "weapon",
+    rarity: 4,
+    category: "Catalyst",
+    name: { en: "Etherlight Spindlelute", "zh-CN": "天光的纺琴" },
+  },
+  "Blackmarrow Lantern": {
+    id: "Blackmarrow Lantern",
+    type: "weapon",
+    rarity: 4,
+    category: "Catalyst",
+    name: { en: "Blackmarrow Lantern", "zh-CN": "乌髓孑灯" },
   },
   //
   // Newline catalyst 4
@@ -1835,6 +1878,13 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Transoceanic Pearl",
     ],
   },
+  "Master Key": {
+    id: "Master Key",
+    type: "weapon",
+    rarity: 4,
+    category: "Claymore",
+    name: { en: "Master Key", "zh-CN": "万能钥匙" },
+  },
   //
   // Newline - claymore 4
   //
@@ -2115,6 +2165,13 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Refractive Bud",
       "Old Handguard",
     ],
+  },
+  "Prospector’s Shovel": {
+    id: "Prospector’s Shovel",
+    type: "weapon",
+    rarity: 4,
+    category: "Polearm",
+    name: { en: "Prospector’s Shovel", "zh-CN": "掘金之锹" },
   },
   //
   // Newline - polearm 4
@@ -2428,6 +2485,13 @@ export const weapons: Record<WeaponId, Weapon> = {
       "Refractive Bud",
       "Sentry’s Wooden Whistle",
     ],
+  },
+  "Serenit’s Call": {
+    id: "Serenit’s Call",
+    type: "weapon",
+    rarity: 4,
+    category: "Sword",
+    name: { en: "Serenit’s Call", "zh-CN": "谧音吹哨" },
   },
   //
   // Newline - sword 4

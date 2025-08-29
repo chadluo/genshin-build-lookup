@@ -22,6 +22,7 @@ export type Character = OfMaterial & {
 };
 
 export type CharacterId =
+  | "Aino"
   | "Albedo"
   | "Alhaitham"
   | "Aloy"
@@ -52,6 +53,7 @@ export type CharacterId =
   | "Eula"
   | "Faruzan"
   | "Fischl"
+  | "Flins"
   | "Freminet"
   | "Furina"
   | "Gaming"
@@ -75,6 +77,7 @@ export type CharacterId =
   | "Kujou Sara"
   | "Kuki Shinobu"
   | "Lan Yan"
+  | "Lauma"
   | "Layla"
   | "Lisa"
   | "Lynette"
@@ -125,6 +128,12 @@ export type CharacterId =
   | "Zhongli";
 
 export const characters: Record<CharacterId, Character> = {
+  Aino: {
+    id: "Aino",
+    type: "character",
+    rarity: 4,
+    name: { en: "Aino", "zh-CN": "爱诺" },
+  },
   Albedo: {
     id: "Albedo",
     type: "character",
@@ -545,6 +554,12 @@ export const characters: Record<CharacterId, Character> = {
       "Small Lamp Grass",
     ],
   },
+  Flins: {
+    id: "Flins",
+    type: "character",
+    rarity: 5,
+    name: { en: "Flins", "zh-CN": "菲林斯" },
+  },
   Freminet: {
     id: "Freminet",
     type: "character",
@@ -866,6 +881,12 @@ export const characters: Record<CharacterId, Character> = {
       "Whopperflower Nectar",
       "Clearwater Jade",
     ],
+  },
+  Lauma: {
+    id: "Lauma",
+    type: "character",
+    rarity: 5,
+    name: { en: "Lauma", "zh-CN": "菈乌玛" },
   },
   Layla: {
     id: "Layla",
