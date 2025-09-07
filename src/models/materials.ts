@@ -2,14 +2,14 @@ import type { I18nObject } from "../i18n";
 
 export type Material = { name: I18nObject } & (
   | {
-      id: /* | Common
+      id:
+        | Common
         | CharacterAscension
         | TalentBook
         | TalentMaterial
         | LocalSpeciality
         | WeaponAscension
-        | Elite; */
-      string;
+        | Elite;
     }
   | { id: Forging; forging: true }
   | { id: Fishing; fishing: true }
@@ -80,7 +80,7 @@ const commons = {
       en: ["Slime Condensate", "Slime Secretions", "Slime Concentrate"],
       "zh-CN": ["史莱姆凝液", "史莱姆清", "史莱姆原浆"],
     },
-  } as Material,
+  },
   "Damaged Mask": {
     id: "Damaged Mask",
     name: {
