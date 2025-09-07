@@ -17,7 +17,8 @@ import { CharactersTable } from "./components/characters_table";
 import { EnemiesTable, VIEW_ALL } from "./components/enemies_table";
 import { TodayTable } from "./components/today_table";
 import { WeaponsTable } from "./components/weapons_table";
-import type { I18nObject, SupportedLanguages } from "./i18n";
+import type { SupportedLanguages } from "./i18n";
+import { siteTitle, supportedLanguageSelectors } from "./i18n";
 import { characters } from "./models/characters";
 import { weapons } from "./models/weapons";
 import "./style.css";
@@ -25,16 +26,6 @@ import "./style.css";
 const selectors = document.getElementById("selectors");
 const output = document.getElementById("output-table");
 const langSelect = document.getElementById("lang-select");
-
-const supportedLanguageSelectors: I18nObject = {
-  en: "English",
-  "zh-CN": "简体中文",
-};
-
-const siteTitle: I18nObject = {
-  en: "Yuanliao: Genshin Impact Build Lookup",
-  "zh-CN": "原料：原神培养查询",
-};
 
 customElements.define("characters-table", CharactersTable);
 customElements.define("weapons-table", WeaponsTable);
@@ -123,15 +114,14 @@ function findOrLoadQTable(event: Event) {
     (e) => e.tagName === "A"
   );
   if (!a) return;
-  const id = a.dataset.id;
-  const weekday = Number.parseInt(a.dataset.weekday || "0");
-  const type = a.dataset.type;
+  const { id, weekday, type } = a.dataset;
   if (!id || !type) return;
+  const weekdayN = Number.parseInt(weekday || "0");
   if (a.classList.contains("remove")) {
     a.closest("tbody")?.remove();
-    unbookmark(type as ItemType, id, weekday);
+    unbookmark(type as ItemType, id, weekdayN);
   } else {
-    findOrLoadQTable2(type as ItemType, id, weekday);
+    findOrLoadQTable2(type as ItemType, id, weekdayN);
   }
 }
 

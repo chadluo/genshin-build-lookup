@@ -16,63 +16,6 @@ export type Material = { name: I18nObject } & (
   | { id: Gem; gem: true }
 );
 
-export const northlanderBillets = [
-  "Northlander Claymore Billet",
-  "Northlander Polearm Billet",
-  "Northlander Sword Billet",
-  "Northlander Bow Billet",
-  "Northlander Catalyst Billet",
-] as const;
-
-export const midlanderBillets = [
-  "Midlander Claymore Billet",
-  "Midlander Polearm Billet",
-  "Midlander Sword Billet",
-  "Midlander Bow Billet",
-  "Midlander Catalyst Billet",
-] as const;
-
-export const borderlandBillets = [
-  "Borderland Claymore Billet",
-  "Borderland Polearm Billet",
-  "Borderland Sword Billet",
-  "Borderland Bow Billet",
-  "Borderland Catalyst Billet",
-];
-
-export const forgingMaterials = [
-  "Crystal Chunk",
-  "White Iron Chunk",
-  "Starsilver",
-  "Vitalized Dragontooth",
-  "Amethyst Lump",
-  "Condessence Crystal",
-] as const;
-
-export type Forging = (
-  | typeof northlanderBillets
-  | typeof midlanderBillets
-  | typeof borderlandBillets
-  | typeof forgingMaterials
-)[number];
-
-export const fishingMaterials = [
-  "Raimei Angelfish",
-  "Golden Koi",
-  "Rusty Koi",
-  "Pufferfish",
-  "Bitter Pufferfish",
-  "Peach of the Deep Waves",
-  "Lazurite Axe Marlin",
-  "Halcyon Jade Axe Marlin",
-  "Maintenance Mek: Platinum Collection",
-  "Rippling Heartfeather Bass",
-  "Blazing Heartfeather Bass",
-  "Streaming Axe Marlin",
-] as const;
-
-export type Fishing = (typeof fishingMaterials)[number];
-
 const commons = {
   "Slime Condensate": {
     id: "Slime Condensate",
@@ -1317,200 +1260,216 @@ const weaponAscensions = {
 
 export type WeaponAscension = keyof typeof weaponAscensions;
 
-const forging = {
-  "Northlander Claymore Billet": {
-    id: "Northlander Claymore Billet",
-    forging: true,
-    name: {
-      en: "Northlander Claymore Billet",
-      "zh-CN": "北陆双手剑原胚",
-    },
-  },
-  "Northlander Polearm Billet": {
-    id: "Northlander Polearm Billet",
-    forging: true,
-    name: {
-      en: "Northlander Polearm Billet",
-      "zh-CN": "北陆长柄武器原胚",
-    },
-  },
-  "Northlander Sword Billet": {
-    id: "Northlander Sword Billet",
-    forging: true,
-    name: { en: "Northlander Sword Billet", "zh-CN": "北陆单手剑原胚" },
-  },
-  "Northlander Bow Billet": {
-    id: "Northlander Bow Billet",
-    forging: true,
-    name: { en: "Northlander Bow Billet", "zh-CN": "北陆弓原胚" },
-  },
-  "Northlander Catalyst Billet": {
-    id: "Northlander Catalyst Billet",
-    forging: true,
-    name: { en: "Northlander Catalyst Billet", "zh-CN": "北陆法器原胚" },
-  },
-  "Midlander Claymore Billet": {
-    id: "Midlander Claymore Billet",
-    forging: true,
-    name: { en: "Midlander Claymore Billet", "zh-CN": "央陆双手剑原胚" },
-  },
-  "Midlander Polearm Billet": {
-    id: "Midlander Polearm Billet",
-    forging: true,
-    name: { en: "Midlander Polearm Billet", "zh-CN": "央陆长柄武器原胚" },
-  },
-  "Midlander Sword Billet": {
-    id: "Midlander Sword Billet",
-    forging: true,
-    name: { en: "Midlander Sword Billet", "zh-CN": "央陆单手剑原胚" },
-  },
-  "Midlander Bow Billet": {
-    id: "Midlander Bow Billet",
-    forging: true,
-    name: { en: "Midlander Bow Billet", "zh-CN": "央陆弓原胚" },
-  },
-  "Midlander Catalyst Billet": {
-    id: "Midlander Catalyst Billet",
-    forging: true,
-    name: { en: "Midlander Catalyst Billet", "zh-CN": "央陆法器原胚" },
-  },
-  "Borderland Claymore Billet": {
-    id: "Borderland Claymore Billet",
-    forging: true,
-    name: { en: "Borderland Claymore Billet", "zh-CN": "垠土双手剑原胚" },
-  },
-  "Borderland Polearm Billet": {
-    id: "Borderland Polearm Billet",
-    forging: true,
-    name: { en: "Borderland Polearm Billet", "zh-CN": "垠土长柄武器原胚" },
-  },
-  "Borderland Sword Billet": {
-    id: "Borderland Sword Billet",
-    forging: true,
-    name: { en: "Borderland Sword Billet", "zh-CN": "垠土单手剑原胚" },
-  },
-  "Borderland Bow Billet": {
-    id: "Borderland Bow Billet",
-    forging: true,
-    name: { en: "Borderland Bow Billet", "zh-CN": "垠土弓原胚" },
-  },
-  "Borderland Catalyst Billet": {
-    id: "Borderland Catalyst Billet",
-    forging: true,
-    name: { en: "Borderland Catalyst Billet", "zh-CN": "垠土法器原胚" },
-  },
-  "Crystal Chunk": {
-    id: "Crystal Chunk",
-    forging: true,
-    name: { en: "Crystal Chunk", "zh-CN": "水晶块" },
-  },
-  "White Iron Chunk": {
-    id: "White Iron Chunk",
-    forging: true,
-    name: { en: "White Iron Chunk", "zh-CN": "白铁块" },
-  },
-  Starsilver: {
-    id: "Starsilver",
-    forging: true,
-    name: { en: "Starsilver", "zh-CN": "星银矿石" },
-  },
-  "Vitalized Dragontooth": {
-    id: "Vitalized Dragontooth",
-    forging: true,
-    name: { en: "Vitalized Dragontooth", "zh-CN": "汲取了生命力的龙牙" },
-  },
-  "Amethyst Lump": {
-    id: "Amethyst Lump",
-    forging: true,
-    name: { en: "Amethyst Lump", "zh-CN": "紫晶块" },
-  },
-  "Condessence Crystal": {
-    id: "Condessence Crystal",
-    forging: true,
-    name: { en: "Condessence Crystal", "zh-CN": "萃凝晶" },
-  },
+//#region Forging
+
+export const northlanderBillets = [
+  "Northlander Claymore Billet",
+  "Northlander Polearm Billet",
+  "Northlander Sword Billet",
+  "Northlander Bow Billet",
+  "Northlander Catalyst Billet",
+] as const;
+
+export const midlanderBillets = [
+  "Midlander Claymore Billet",
+  "Midlander Polearm Billet",
+  "Midlander Sword Billet",
+  "Midlander Bow Billet",
+  "Midlander Catalyst Billet",
+] as const;
+
+export const borderlandBillets = [
+  "Borderland Claymore Billet",
+  "Borderland Polearm Billet",
+  "Borderland Sword Billet",
+  "Borderland Bow Billet",
+  "Borderland Catalyst Billet",
+];
+
+const ores = [
+  "Crystal Chunk",
+  "White Iron Chunk",
+  "Starsilver",
+  "Vitalized Dragontooth",
+  "Amethyst Lump",
+  "Condessence Crystal",
+] as const;
+
+export type Forging = (
+  | typeof northlanderBillets
+  | typeof midlanderBillets
+  | typeof borderlandBillets
+  | typeof ores
+)[number];
+
+function forging(id: Forging, name: I18nObject): Material {
+  return { id, forging: true, name };
+}
+
+const forgingMaterials: Record<Forging, Material> = {
+  "Northlander Claymore Billet": forging("Northlander Claymore Billet", {
+    en: "Northlander Claymore Billet",
+    "zh-CN": "北陆双手剑原胚",
+  }),
+  "Northlander Polearm Billet": forging("Northlander Polearm Billet", {
+    en: "Northlander Polearm Billet",
+    "zh-CN": "北陆长柄武器原胚",
+  }),
+  "Northlander Sword Billet": forging("Northlander Sword Billet", {
+    en: "Northlander Sword Billet",
+    "zh-CN": "北陆单手剑原胚",
+  }),
+  "Northlander Bow Billet": forging("Northlander Bow Billet", {
+    en: "Northlander Bow Billet",
+    "zh-CN": "北陆弓原胚",
+  }),
+  "Northlander Catalyst Billet": forging("Northlander Catalyst Billet", {
+    en: "Northlander Catalyst Billet",
+    "zh-CN": "北陆法器原胚",
+  }),
+  "Midlander Claymore Billet": forging("Midlander Claymore Billet", {
+    en: "Midlander Claymore Billet",
+    "zh-CN": "央陆双手剑原胚",
+  }),
+  "Midlander Polearm Billet": forging("Midlander Polearm Billet", {
+    en: "Midlander Polearm Billet",
+    "zh-CN": "央陆长柄武器原胚",
+  }),
+  "Midlander Sword Billet": forging("Midlander Sword Billet", {
+    en: "Midlander Sword Billet",
+    "zh-CN": "央陆单手剑原胚",
+  }),
+  "Midlander Bow Billet": forging("Midlander Bow Billet", {
+    en: "Midlander Bow Billet",
+    "zh-CN": "央陆弓原胚",
+  }),
+  "Midlander Catalyst Billet": forging("Midlander Catalyst Billet", {
+    en: "Midlander Catalyst Billet",
+    "zh-CN": "央陆法器原胚",
+  }),
+  "Borderland Claymore Billet": forging("Borderland Claymore Billet", {
+    en: "Borderland Claymore Billet",
+    "zh-CN": "垠土双手剑原胚",
+  }),
+  "Borderland Polearm Billet": forging("Borderland Polearm Billet", {
+    en: "Borderland Polearm Billet",
+    "zh-CN": "垠土长柄武器原胚",
+  }),
+  "Borderland Sword Billet": forging("Borderland Sword Billet", {
+    en: "Borderland Sword Billet",
+    "zh-CN": "垠土单手剑原胚",
+  }),
+  "Borderland Bow Billet": forging("Borderland Bow Billet", {
+    en: "Borderland Bow Billet",
+    "zh-CN": "垠土弓原胚",
+  }),
+  "Borderland Catalyst Billet": forging("Borderland Catalyst Billet", {
+    en: "Borderland Catalyst Billet",
+    "zh-CN": "垠土法器原胚",
+  }),
+  "Crystal Chunk": forging("Crystal Chunk", {
+    en: "Crystal Chunk",
+    "zh-CN": "水晶块",
+  }),
+  "White Iron Chunk": forging("White Iron Chunk", {
+    en: "White Iron Chunk",
+    "zh-CN": "白铁块",
+  }),
+  Starsilver: forging("Starsilver", { en: "Starsilver", "zh-CN": "星银矿石" }),
+  "Vitalized Dragontooth": forging("Vitalized Dragontooth", {
+    en: "Vitalized Dragontooth",
+    "zh-CN": "汲取了生命力的龙牙",
+  }),
+  "Amethyst Lump": forging("Amethyst Lump", {
+    en: "Amethyst Lump",
+    "zh-CN": "紫晶块",
+  }),
+  "Condessence Crystal": forging("Condessence Crystal", {
+    en: "Condessence Crystal",
+    "zh-CN": "萃凝晶",
+  }),
   //
   // Newline - forging
   //
 } as const;
 
-const fishing = {
-  "Raimei Angelfish": {
-    id: "Raimei Angelfish",
-    fishing: true,
-    name: { en: "Raimei Angelfish", "zh-CN": "雷鸣仙" },
-  },
-  "Golden Koi": {
-    id: "Golden Koi",
-    fishing: true,
-    name: { en: "Golden Koi", "zh-CN": "金赤假龙" },
-  },
-  "Rusty Koi": {
-    id: "Rusty Koi",
-    fishing: true,
-    name: { en: "Rusty Koi", "zh-CN": "锖假龙" },
-  },
-  Pufferfish: {
-    id: "Pufferfish",
-    fishing: true,
-    name: { en: "Pufferfish", "zh-CN": "炮鲀" },
-  },
-  "Bitter Pufferfish": {
-    id: "Bitter Pufferfish",
-    fishing: true,
-    name: { en: "Bitter Pufferfish", "zh-CN": "苦炮鲀" },
-  },
-  "Peach of the Deep Waves": {
-    id: "Peach of the Deep Waves",
-    fishing: true,
-    name: { en: "Peach of the Deep Waves", "zh-CN": "沉波蜜桃" },
-  },
-  "Lazurite Axe Marlin": {
-    id: "Lazurite Axe Marlin",
-    fishing: true,
-    name: { en: "Lazurite Axe Marlin", "zh-CN": "青金斧枪鱼" },
-  },
-  "Halcyon Jade Axe Marlin": {
-    id: "Halcyon Jade Axe Marlin",
-    fishing: true,
-    name: { en: "Halcyon Jade Axe Marlin", "zh-CN": "翡玉斧枪鱼" },
-  },
-  "Maintenance Mek: Platinum Collection": {
-    id: "Maintenance Mek: Platinum Collection",
-    fishing: true,
-    name: {
+//#endregion Forging
+
+//#region Fishing
+
+export const fish = [
+  "Raimei Angelfish",
+  "Golden Koi",
+  "Rusty Koi",
+  "Pufferfish",
+  "Bitter Pufferfish",
+  "Peach of the Deep Waves",
+  "Lazurite Axe Marlin",
+  "Halcyon Jade Axe Marlin",
+  "Maintenance Mek: Platinum Collection",
+  "Rippling Heartfeather Bass",
+  "Blazing Heartfeather Bass",
+  "Streaming Axe Marlin",
+] as const;
+
+export type Fishing = (typeof fish)[number];
+
+function fishing(id: Fishing, name: I18nObject): Material {
+  return { id, fishing: true, name };
+}
+
+const fishingMaterials: Record<Fishing, Material> = {
+  "Raimei Angelfish": fishing("Raimei Angelfish", {
+    en: "Raimei Angelfish",
+    "zh-CN": "雷鸣仙",
+  }),
+  "Golden Koi": fishing("Golden Koi", {
+    en: "Golden Koi",
+    "zh-CN": "金赤假龙",
+  }),
+  "Rusty Koi": fishing("Rusty Koi", { en: "Rusty Koi", "zh-CN": "锖假龙" }),
+  Pufferfish: fishing("Pufferfish", { en: "Pufferfish", "zh-CN": "炮鲀" }),
+  "Bitter Pufferfish": fishing("Bitter Pufferfish", {
+    en: "Bitter Pufferfish",
+    "zh-CN": "苦炮鲀",
+  }),
+  "Peach of the Deep Waves": fishing("Peach of the Deep Waves", {
+    en: "Peach of the Deep Waves",
+    "zh-CN": "沉波蜜桃",
+  }),
+  "Lazurite Axe Marlin": fishing("Lazurite Axe Marlin", {
+    en: "Lazurite Axe Marlin",
+    "zh-CN": "青金斧枪鱼",
+  }),
+  "Halcyon Jade Axe Marlin": fishing("Halcyon Jade Axe Marlin", {
+    en: "Halcyon Jade Axe Marlin",
+    "zh-CN": "翡玉斧枪鱼",
+  }),
+  "Maintenance Mek: Platinum Collection": fishing(
+    "Maintenance Mek: Platinum Collection",
+    {
       en: "Maintenance Mek: Platinum Collection",
       "zh-CN": "维护机关・白金典藏型",
-    },
-  },
-  "Rippling Heartfeather Bass": {
-    id: "Rippling Heartfeather Bass",
-    fishing: true,
-    name: {
-      en: "Rippling Heartfeather Bass",
-      "zh-CN": "波波心羽鲈",
-    },
-  },
-  "Blazing Heartfeather Bass": {
-    id: "Blazing Heartfeather Bass",
-    fishing: true,
-    name: {
-      en: "Blazing Heartfeather Bass",
-      "zh-CN": "烘烘心羽鲈",
-    },
-  },
-  "Streaming Axe Marlin": {
-    id: "Streaming Axe Marlin",
-    fishing: true,
-    name: {
-      en: "Streaming Axe Marlin",
-      "zh-CN": "海涛斧枪鱼",
-    },
-  },
+    }
+  ),
+  "Rippling Heartfeather Bass": fishing("Rippling Heartfeather Bass", {
+    en: "Rippling Heartfeather Bass",
+    "zh-CN": "波波心羽鲈",
+  }),
+  "Blazing Heartfeather Bass": fishing("Blazing Heartfeather Bass", {
+    en: "Blazing Heartfeather Bass",
+    "zh-CN": "烘烘心羽鲈",
+  }),
+  "Streaming Axe Marlin": fishing("Streaming Axe Marlin", {
+    en: "Streaming Axe Marlin",
+    "zh-CN": "海涛斧枪鱼",
+  }),
   //
   // Newline - fishing
   //
 } as const;
+
+//#endregion Fishing
 
 export const materials: readonly Material[] = [
   ...Object.values(commons),
@@ -1521,6 +1480,19 @@ export const materials: readonly Material[] = [
   ...Object.values(talentBooks),
   ...Object.values(talentMaterials),
   ...Object.values(weaponAscensions),
-  ...Object.values(forging),
-  ...Object.values(fishing),
+  ...Object.values(forgingMaterials),
+  ...Object.values(fishingMaterials),
 ] as const;
+
+export const materials2: Record<Material["id"], Material> = {
+  ...commons,
+  ...elites,
+  ...localSpecialities,
+  ...gems,
+  ...characterAscensions,
+  ...talentBooks,
+  ...talentMaterials,
+  ...weaponAscensions,
+  ...forgingMaterials,
+  ...fishingMaterials,
+};

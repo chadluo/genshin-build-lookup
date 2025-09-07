@@ -9,12 +9,6 @@ export type Domain = OfMaterial & {
   materials_by_weekday: string[];
 };
 
-export type Boss = OfMaterial & {
-  region: Region;
-};
-
-export type Enemy = OfMaterial;
-
 export const domains: Domain[] = [
   {
     id: "Forsaken Rift",
@@ -122,6 +116,10 @@ export const domains: Domain[] = [
     ],
   },
 ];
+
+export type Boss = OfMaterial & {
+  region: Region;
+};
 
 export const bosses: Boss[] = [
   {
@@ -649,6 +647,8 @@ export const bosses: Boss[] = [
   // Newline - weekly boss
   //
 ];
+
+export type Enemy = OfMaterial;
 
 export const enemies: Enemy[] = [
   {
