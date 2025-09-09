@@ -99,8 +99,8 @@ function setSearchItems(lang: SupportedLanguages) {
   const searchItems = document.getElementById("searchItems");
   if (searchItems != null) {
     searchItems.innerHTML = ([] as OfMaterial[])
-      .concat(Object.values(characters))
-      .concat(Object.values(weapons))
+      .concat(characters)
+      .concat(weapons)
       .sort((w1, w2) => w1.id.localeCompare(w2.id))
       .map((w) => `<option value="${w.id}">${w.name[lang] as string}</option>`)
       .join("");
@@ -161,7 +161,7 @@ document
     ) {
       const id = (event.target as HTMLInputElement).value;
       findOrLoadQTable2(
-        Object.hasOwn(characters, id) ? TYPE_CHARACTER : TYPE_WEAPON,
+        characters.some((c) => c.id === id) ? TYPE_CHARACTER : TYPE_WEAPON,
         id,
         0
       );

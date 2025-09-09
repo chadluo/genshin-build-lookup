@@ -8,10 +8,7 @@ const title: I18nObject = { en: "Characters", "zh-CN": "角色" };
 export class CharactersTable extends HTMLElement {
   constructor() {
     super();
-    const byRarity = Map.groupBy(
-      Object.values(characters),
-      ({ rarity }) => rarity
-    );
+    const byRarity = Map.groupBy(characters, ({ rarity }) => rarity);
     const rarities = Array.from(byRarity.keys()).sort().reverse();
     this.innerHTML = `<details class="section" ${hasBookmarks() ? "" : "open"}>
         <summary>🦸 ${formatName(title)}</summary>

@@ -7,10 +7,7 @@ const title: I18nObject = { en: "Weapons", "zh-CN": "武器" };
 export class WeaponsTable extends HTMLElement {
   constructor() {
     super();
-    const byRarity = Map.groupBy(
-      Object.values(weapons),
-      ({ rarity }) => rarity
-    );
+    const byRarity = Map.groupBy(weapons, ({ rarity }) => rarity);
     const rarities = Array.from(byRarity.keys()).sort().reverse();
     this.innerHTML = `<details class="section" ${hasBookmarks() ? "" : "open"}>
       <summary>🗡️ ${formatName(title)}</summary><table class="ctable">

@@ -7,10 +7,10 @@ import {
   formatName,
   weekdays,
 } from "./i18n";
-import { type CharacterId, characters } from "./models/characters";
+import { characters } from "./models/characters";
 import { type Domain, bosses, domains, enemies } from "./models/enemies";
 import { type Material, materials } from "./models/materials";
-import { type WeaponId, weapons } from "./models/weapons";
+import { weapons } from "./models/weapons";
 import { findRecents } from "./version";
 
 export type Region =
@@ -59,7 +59,7 @@ export function renderQTableContent(
 ): string {
   switch (type) {
     case TYPE_CHARACTER: {
-      const character = characters[id as CharacterId];
+      const character = characters.find((c) => c.id === id);
       return character == null
         ? ""
         : renderQTableRows(
@@ -70,7 +70,7 @@ export function renderQTableContent(
           );
     }
     case TYPE_WEAPON: {
-      const weapon = weapons[id as WeaponId];
+      const weapon = weapons.find((w) => w.id === id);
       return weapon == null
         ? ""
         : renderQTableRows(
@@ -209,10 +209,7 @@ function byEnemy(enemy: string): Map<Material, OfMaterial[]> {
         }
         map.set(m, [
           ...(map.get(m) ?? []),
-          ...filterForMaterial(
-            [...Object.values(characters), ...Object.values(weapons)],
-            material
-          ),
+          ...filterForMaterial([...characters, ...weapons], material),
         ]);
         return map;
       }, new Map<Material, OfMaterial[]>());
@@ -231,7 +228,7 @@ export function byDomain(
       m,
       filterForMaterial(
         domain?.type === TYPE_WEAPON_DOMAIN
-          ? Object.values(weapons)
+          ? weapons
           : Object.values(characters),
         material
       )

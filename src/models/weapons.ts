@@ -30,57 +30,57 @@ function weapon(
   return { id, name, rarity, category, materials, type: "weapon" };
 }
 
-const _weapons = {
-  "Polar Star": weapon(
+export const weapons: Weapon[] = [
+  weapon(
     "Polar Star",
     5,
     "Bow",
     { en: ["Polar Star"], "zh-CN": ["冬极白星"] },
     ["Mask of the Wicked Lieutenant", "Concealed Claw", "Spectral Husk"]
   ),
-  "Thundering Pulse": weapon(
+  weapon(
     "Thundering Pulse",
     5,
     "Bow",
     { en: ["Thundering Pulse"], "zh-CN": ["飞雷之弦振"] },
     ["Narukami’s Wisdom", "Dismal Prism", "Firm Arrowhead"]
   ),
-  "Elegy for the End": weapon(
+  weapon(
     "Elegy for the End",
     5,
     "Bow",
     { en: ["Elegy for the End"], "zh-CN": ["终末嗟叹之诗"] },
     ["Boreal Wolf’s Milk Tooth", "Heavy Horn", "Recruit’s Insignia"]
   ),
-  "Skyward Harp": weapon(
+  weapon(
     "Skyward Harp",
     5,
     "Bow",
     { en: ["Skyward Harp"], "zh-CN": ["天空之翼"] },
     ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Firm Arrowhead"]
   ),
-  "Amos’ Bow": weapon(
+  weapon(
     "Amos’ Bow",
     5,
     "Bow",
     { en: ["Amos’ Bow"], "zh-CN": ["阿莫斯之弓"] },
     ["Fetters of the Dandelion Gladiator", "Chaos Device", "Slime Condensate"]
   ),
-  "Aqua Simulacra": weapon(
+  weapon(
     "Aqua Simulacra",
     5,
     "Bow",
     { en: ["Aqua Simulacra"], "zh-CN": ["若水"] },
     ["Luminous Sands from Guyun", "Gloomy Statuette", "Spectral Husk"]
   ),
-  "Hunter’s Path": weapon(
+  weapon(
     "Hunter’s Path",
     5,
     "Bow",
     { en: ["Hunter’s Path"], "zh-CN": ["猎人之径"] },
     ["Echo of Scorching Might", "Inactivated Fungal Nucleus", "Faded Red Satin"]
   ),
-  "The First Great Magic": weapon(
+  weapon(
     "The First Great Magic",
     5,
     "Bow",
@@ -91,14 +91,14 @@ const _weapons = {
       "Transoceanic Pearl",
     ]
   ),
-  "Silvershower Heartstrings": weapon(
+  weapon(
     "Silvershower Heartstrings",
     5,
     "Bow",
     { en: "Silvershower Heartstrings", "zh-CN": "白雨心弦" },
     ["Dross of Pure Sacred Dewdrop", "Feathery Fin", "Transoceanic Pearl"]
   ),
-  "Astral Vulture’s Crimson Plumage": weapon(
+  weapon(
     "Astral Vulture’s Crimson Plumage",
     5,
     "Bow",
@@ -112,70 +112,70 @@ const _weapons = {
   //
   // Newline - bow 5
   //
-  "Lost Prayer to the Sacred Winds": weapon(
+  weapon(
     "Lost Prayer to the Sacred Winds",
     5,
     "Catalyst",
     { en: ["Lost Prayer to the Sacred Winds"], "zh-CN": ["四风原典"] },
     ["Fetters of the Dandelion Gladiator", "Chaos Device", "Slime Condensate"]
   ),
-  "Skyward Atlas": weapon(
+  weapon(
     "Skyward Atlas",
     5,
     "Catalyst",
     { en: ["Skyward Atlas"], "zh-CN": ["天空之卷"] },
     ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Firm Arrowhead"]
   ),
-  "Everlasting Moonglow": weapon(
+  weapon(
     "Everlasting Moonglow",
     5,
     "Catalyst",
     { en: ["Everlasting Moonglow"], "zh-CN": ["不灭月华"] },
     ["Coral Branch of a Distant Sea", "Dismal Prism", "Spectral Husk"]
   ),
-  "Memory of Dust": weapon(
+  weapon(
     "Memory of Dust",
     5,
     "Catalyst",
     { en: ["Memory of Dust"], "zh-CN": ["尘世之锁"] },
     ["Grain of Aerosiderite", "Fragile Bone Shard", "Damaged Mask"]
   ),
-  "Kagura’s Verity": weapon(
+  weapon(
     "Kagura’s Verity",
     5,
     "Catalyst",
     { en: ["Kagura’s Verity"], "zh-CN": ["神乐之真意"] },
     ["Mask of the Wicked Lieutenant", "Concealed Claw", "Spectral Husk"]
   ),
-  "A Thousand Floating Dreams": weapon(
+  weapon(
     "A Thousand Floating Dreams",
     5,
     "Catalyst",
     { en: ["A Thousand Floating Dreams"], "zh-CN": ["千夜浮梦"] },
     ["Oasis Garden’s Reminiscence", "Damaged Prism", "Fungal Spores"]
   ),
-  "Tulaytulla’s Rememberance": weapon(
+  weapon(
     "Tulaytulla’s Rememberance",
     5,
     "Catalyst",
     { en: "Tulaytulla’s Rememberance", "zh-CN": "图莱杜拉的回忆" },
     ["Echo of Scorching Might", "Inactivated Fungal Nucleus", "Fungal Spores"]
   ),
-  "Jadefall’s Splendor": weapon(
+  weapon(
     "Jadefall’s Splendor",
     5,
     "Catalyst",
     { en: "Jadefall’s Splendor", "zh-CN": "碧落之珑" },
     ["Luminous Sands from Guyun", "A Flower Yet to Bloom", "Fungal Spores"]
   ),
-  "Tome of the Eternal Flow": weapon(
+  weapon(
     "Tome of the Eternal Flow",
     5,
     "Catalyst",
     { en: "Tome of the Eternal Flow", "zh-CN": "万世流涌大典" },
     ["Dross of Pure Sacred Dewdrop", "Rift Core", "Meshing Gear"]
   ),
-  "Cashflow Supervision": weapon(
+  weapon(
     "Cashflow Supervision",
     5,
     "Catalyst",
@@ -186,25 +186,19 @@ const _weapons = {
       "Transoceanic Pearl",
     ]
   ),
-  "Crane’s Echoing Call": weapon(
+  weapon(
     "Crane’s Echoing Call",
     5,
     "Catalyst",
     { en: "Crane’s Echoing Call", "zh-CN": "鹤鸣余音" },
     ["Mist Veiled Lead Elixir", "Feathery Fin", "Divining Scroll"]
   ),
-  "Surf’s Up": weapon(
-    "Surf’s Up",
-    5,
-    "Catalyst",
-    { en: "Surf’s Up", "zh-CN": "冲浪时光" },
-    [
-      "Blazing Sacrificial Heart’s Terror",
-      "Shard of a Shattered Will",
-      "Juvenile Fang",
-    ]
-  ),
-  "Starcaller’s Watch": weapon(
+  weapon("Surf’s Up", 5, "Catalyst", { en: "Surf’s Up", "zh-CN": "冲浪时光" }, [
+    "Blazing Sacrificial Heart’s Terror",
+    "Shard of a Shattered Will",
+    "Juvenile Fang",
+  ]),
+  weapon(
     "Starcaller’s Watch",
     5,
     "Catalyst",
@@ -215,14 +209,14 @@ const _weapons = {
       "Sentry’s Wooden Whistle",
     ]
   ),
-  "Sunny Morning Sleep-In": weapon(
+  weapon(
     "Sunny Morning Sleep-In",
     5,
     "Catalyst",
     { en: "Sunny Morning Sleep-In", "zh-CN": "寝正月初晴" },
     ["Narukami’s Wisdom", "Ignited Stone", "Spectral Husk"]
   ),
-  "Vivid Notions": weapon(
+  weapon(
     "Vivid Notions",
     5,
     "Catalyst",
@@ -233,30 +227,28 @@ const _weapons = {
       "Juvenile Fang",
     ]
   ),
-  "Nightweaver’s Looking Glass": weapon(
-    "Nightweaver’s Looking Glass",
-    5,
-    "Catalyst",
-    { en: "Nightweaver’s Looking Glass", "zh-CN": "纺夜天镜" }
-  ),
+  weapon("Nightweaver’s Looking Glass", 5, "Catalyst", {
+    en: "Nightweaver’s Looking Glass",
+    "zh-CN": "纺夜天镜",
+  }),
   //
   // Newline - catalyst 5
   //
-  "Wolf’s Gravestone": weapon(
+  weapon(
     "Wolf’s Gravestone",
     5,
     "Claymore",
     { en: ["Wolf’s Gravestone"], "zh-CN": ["狼的末路"] },
     ["Fetters of the Dandelion Gladiator", "Chaos Device", "Divining Scroll"]
   ),
-  "Skyward Pride": weapon(
+  weapon(
     "Skyward Pride",
     5,
     "Claymore",
     { en: ["Skyward Pride"], "zh-CN": ["天空之傲"] },
     ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Slime Condensate"]
   ),
-  "The Unforged": weapon(
+  weapon(
     "The Unforged",
     5,
     "Claymore",
@@ -267,35 +259,33 @@ const _weapons = {
       "Treasure Hoarder Insignia",
     ]
   ),
-  "Song of Broken Pines": weapon(
+  weapon(
     "Song of Broken Pines",
     5,
     "Claymore",
     { en: ["Song of Broken Pines"], "zh-CN": ["松籁响起之时"] },
     ["Tile of Decarabian’s Tower", "Heavy Horn", "Damaged Mask"]
   ),
-  "Redhorn Stonethresher": weapon(
+  weapon(
     "Redhorn Stonethresher",
     5,
     "Claymore",
     { en: ["Redhorn Stonethresher"], "zh-CN": ["赤角石溃杵"] },
     ["Narukami’s Wisdom", "Concealed Claw", "Old Handguard"]
   ),
-  "Beacon of the Reed Sea": weapon(
+  weapon(
     "Beacon of the Reed Sea",
     5,
     "Claymore",
     { en: "Beacon of the Reed Sea", "zh-CN": "苇海信标" },
     ["Echo of Scorching Might", "Desiccated Shell", "Faded Red Satin"]
   ),
-  Verdict: weapon(
-    "Verdict",
-    5,
-    "Claymore",
-    { en: "Verdict", "zh-CN": "裁断" },
-    ["Fragment of an Ancient Chord", "Rift Core", "Meshing Gear"]
-  ),
-  "Fang of the Mountain King": weapon(
+  weapon("Verdict", 5, "Claymore", { en: "Verdict", "zh-CN": "裁断" }, [
+    "Fragment of an Ancient Chord",
+    "Rift Core",
+    "Meshing Gear",
+  ]),
+  weapon(
     "Fang of the Mountain King",
     5,
     "Claymore",
@@ -306,7 +296,7 @@ const _weapons = {
       "Sentry’s Wooden Whistle",
     ]
   ),
-  "A Thousand Blazing Suns": weapon(
+  weapon(
     "A Thousand Blazing Suns",
     5,
     "Claymore",
@@ -320,21 +310,21 @@ const _weapons = {
   //
   // Newline - claymore 5
   //
-  "Engulfing Lightning": weapon(
+  weapon(
     "Engulfing Lightning",
     5,
     "Polearm",
     { en: ["Engulfing Lightning"], "zh-CN": ["薙草之稻光"] },
     ["Mask of the Wicked Lieutenant", "Chaos Gear", "Old Handguard"]
   ),
-  "Skyward Spine": weapon(
+  weapon(
     "Skyward Spine",
     5,
     "Polearm",
     { en: ["Skyward Spine"], "zh-CN": ["天空之脊"] },
     ["Fetters of the Dandelion Gladiator", "Chaos Device", "Divining Scroll"]
   ),
-  "Primordial Jade Winged-Spear": weapon(
+  weapon(
     "Primordial Jade Winged-Spear",
     5,
     "Polearm",
@@ -345,49 +335,49 @@ const _weapons = {
       "Recruit’s Insignia",
     ]
   ),
-  "Calamity Queller": weapon(
+  weapon(
     "Calamity Queller",
     5,
     "Polearm",
     { en: ["Calamity Queller"], "zh-CN": ["息灾"] },
     ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Whopperflower Nectar"]
   ),
-  "Staff of Homa": weapon(
+  weapon(
     "Staff of Homa",
     5,
     "Polearm",
     { en: ["Staff of Homa"], "zh-CN": ["护摩之杖"] },
     ["Grain of Aerosiderite", "Dead Ley Line Branch", "Slime Condensate"]
   ),
-  "Vortex Vanquisher": weapon(
+  weapon(
     "Vortex Vanquisher",
     5,
     "Polearm",
     { en: ["Vortex Vanquisher"], "zh-CN": ["贯虹之槊"] },
     ["Grain of Aerosiderite", "Fragile Bone Shard", "Treasure Hoarder Insignia"]
   ),
-  "Staff of the Scarlet Sands": weapon(
+  weapon(
     "Staff of the Scarlet Sands",
     5,
     "Polearm",
     { en: ["Staff of the Scarlet Sands"], "zh-CN": ["赤沙之杖"] },
     ["Oasis Garden’s Reminiscence", "Chaos Storage", "Fungal Spores"]
   ),
-  "Crimson Moon’s Semblance": weapon(
+  weapon(
     "Crimson Moon’s Semblance",
     5,
     "Polearm",
     { en: "Crimson Moon’s Semblance", "zh-CN": "赤月之形" },
     ["Broken Goblet of the Pristine Sea", "Ruined Hilt", "Meshing Gear"]
   ),
-  "Lumidouce Elegy": weapon(
+  weapon(
     "Lumidouce Elegy",
     5,
     "Polearm",
     { en: "Lumidouce Elegy", "zh-CN": "柔灯挽歌" },
     ["Broken Goblet of the Pristine Sea", "Ruined Hilt", "Whopperflower Nectar"]
   ),
-  "Symphonist of Scents": weapon(
+  weapon(
     "Symphonist of Scents",
     5,
     "Polearm",
@@ -398,7 +388,7 @@ const _weapons = {
       "Transoceanic Pearl",
     ]
   ),
-  "Fractured Halo": weapon(
+  weapon(
     "Fractured Halo",
     5,
     "Polearm",
@@ -409,49 +399,49 @@ const _weapons = {
       "Juvenile Fang",
     ]
   ),
-  "Bloodsoaked Ruins": weapon("Bloodsoaked Ruins", 5, "Polearm", {
+  weapon("Bloodsoaked Ruins", 5, "Polearm", {
     en: "Bloodsoaked Ruins",
     "zh-CN": "血染荒城",
   }),
   //
   // Newline - polearm 5
   //
-  "Mistsplitter Reforged": weapon(
+  weapon(
     "Mistsplitter Reforged",
     5,
     "Sword",
     { en: ["Mistsplitter Reforged"], "zh-CN": ["雾切之回光"] },
     ["Coral Branch of a Distant Sea", "Chaos Gear", "Old Handguard"]
   ),
-  "Aquila Favonia": weapon(
+  weapon(
     "Aquila Favonia",
     5,
     "Sword",
     { en: ["Aquila Favonia"], "zh-CN": ["风鹰剑"] },
     ["Tile of Decarabian’s Tower", "Heavy Horn", "Firm Arrowhead"]
   ),
-  "Summit Shaper": weapon(
+  weapon(
     "Summit Shaper",
     5,
     "Sword",
     { en: ["Summit Shaper"], "zh-CN": ["斫峰之刃"] },
     ["Luminous Sands from Guyun", "Hunter’s Sacrificial Knife", "Damaged Mask"]
   ),
-  "Skyward Blade": weapon(
+  weapon(
     "Skyward Blade",
     5,
     "Sword",
     { en: ["Skyward Blade"], "zh-CN": ["天空之刃"] },
     ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Slime Condensate"]
   ),
-  "Freedom-Sworn": weapon(
+  weapon(
     "Freedom-Sworn",
     5,
     "Sword",
     { en: ["Freedom-Sworn"], "zh-CN": ["苍古自由之誓"] },
     ["Fetters of the Dandelion Gladiator", "Chaos Device", "Divining Scroll"]
   ),
-  "Primordial Jade Cutter": weapon(
+  weapon(
     "Primordial Jade Cutter",
     5,
     "Sword",
@@ -462,28 +452,28 @@ const _weapons = {
       "Treasure Hoarder Insignia",
     ]
   ),
-  "Haran Geppaku Futsu": weapon(
+  weapon(
     "Haran Geppaku Futsu",
     5,
     "Sword",
     { en: ["Haran Geppaku Futsu"], "zh-CN": ["波乱月白经津"] },
     ["Narukami’s Wisdom", "Gloomy Statuette", "Old Handguard"]
   ),
-  "Key of the Khaj-Nisut": weapon(
+  weapon(
     "Key of the Khaj-Nisut",
     5,
     "Sword",
     { en: ["Key of the Khaj-Nisut"], "zh-CN": ["圣显之钥"] },
     ["Copper Talisman of the Forest Dew", "Damaged Prism", "Faded Red Satin"]
   ),
-  "Light of Foliar Incision": weapon(
+  weapon(
     "Light of Foliar Incision",
     5,
     "Sword",
     { en: "Light of Foliar Incision", "zh-CN": "裁叶萃光" },
     ["Copper Talisman of the Forest Dew", "Desiccated Shell", "Faded Red Satin"]
   ),
-  "Splendor of Tranquil Waters": weapon(
+  weapon(
     "Splendor of Tranquil Waters",
     5,
     "Sword",
@@ -494,25 +484,19 @@ const _weapons = {
       "Transoceanic Pearl",
     ]
   ),
-  "Uraku Mitsugiri": weapon(
+  weapon(
     "Uraku Mitsugiri",
     5,
     "Sword",
     { en: "Uraku Mitsugiri", "zh-CN": "有乐御簾切" },
     ["Coral Branch of a Distant Sea", "Chaos Gear", "Old Handguard"]
   ),
-  Absolution: weapon(
-    "Absolution",
-    5,
-    "Sword",
-    { en: "Absolution", "zh-CN": "赦罪" },
-    [
-      "Fragment of an Ancient Chord",
-      "Old Operative’s Pocket Watch",
-      "Meshing Gear",
-    ]
-  ),
-  "Peak Patrol Song": weapon(
+  weapon("Absolution", 5, "Sword", { en: "Absolution", "zh-CN": "赦罪" }, [
+    "Fragment of an Ancient Chord",
+    "Old Operative’s Pocket Watch",
+    "Meshing Gear",
+  ]),
+  weapon(
     "Peak Patrol Song",
     5,
     "Sword",
@@ -523,68 +507,58 @@ const _weapons = {
       "Juvenile Fang",
     ]
   ),
-  Azurelight: weapon(
-    "Azurelight",
-    5,
-    "Sword",
-    { en: "Azurelight", "zh-CN": "苍耀" },
-    [
-      "Night-Wind’s Mystic Consideration",
-      "Refractive Bud",
-      "Sentry’s Wooden Whistle",
-    ]
-  ),
+  weapon("Azurelight", 5, "Sword", { en: "Azurelight", "zh-CN": "苍耀" }, [
+    "Night-Wind’s Mystic Consideration",
+    "Refractive Bud",
+    "Sentry’s Wooden Whistle",
+  ]),
   //
   // Newline - sword 5
   //
-  "Alley Hunter": weapon(
+  weapon(
     "Alley Hunter",
     4,
     "Bow",
     { en: ["Alley Hunter"], "zh-CN": ["暗巷猎手"] },
     ["Fetters of the Dandelion Gladiator", "Chaos Device", "Slime Condensate"]
   ),
-  "The Viridescent Hunt": weapon(
+  weapon(
     "The Viridescent Hunt",
     4,
     "Bow",
     { en: ["The Viridescent Hunt"], "zh-CN": ["苍翠猎弓"] },
     ["Tile of Decarabian’s Tower", "Heavy Horn", "Firm Arrowhead"]
   ),
-  "The Stringless": weapon(
+  weapon(
     "The Stringless",
     4,
     "Bow",
     { en: ["The Stringless"], "zh-CN": ["绝弦"] },
     ["Tile of Decarabian’s Tower", "Heavy Horn", "Firm Arrowhead"]
   ),
-  "Sacrificial Bow": weapon(
+  weapon(
     "Sacrificial Bow",
     4,
     "Bow",
     { en: ["Sacrificial Bow"], "zh-CN": ["祭礼弓"] },
     ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Slime Condensate"]
   ),
-  Rust: weapon("Rust", 4, "Bow", { en: ["Rust"], "zh-CN": ["弓藏"] }, [
+  weapon("Rust", 4, "Bow", { en: ["Rust"], "zh-CN": ["弓藏"] }, [
     "Luminous Sands from Guyun",
     "Hunter’s Sacrificial Knife",
     "Damaged Mask",
   ]),
-  "Royal Bow": weapon(
-    "Royal Bow",
-    4,
-    "Bow",
-    { en: ["Royal Bow"], "zh-CN": ["宗室长弓"] },
-    ["Fetters of the Dandelion Gladiator", "Chaos Device", "Divining Scroll"]
-  ),
-  Predator: weapon(
-    "Predator",
-    4,
-    "Bow",
-    { en: ["Predator"], "zh-CN": ["掠食者"] },
-    ["Narukami’s Wisdom", "Dismal Prism", "Firm Arrowhead"]
-  ),
-  "Prototype Crescent": weapon(
+  weapon("Royal Bow", 4, "Bow", { en: ["Royal Bow"], "zh-CN": ["宗室长弓"] }, [
+    "Fetters of the Dandelion Gladiator",
+    "Chaos Device",
+    "Divining Scroll",
+  ]),
+  weapon("Predator", 4, "Bow", { en: ["Predator"], "zh-CN": ["掠食者"] }, [
+    "Narukami’s Wisdom",
+    "Dismal Prism",
+    "Firm Arrowhead",
+  ]),
+  weapon(
     "Prototype Crescent",
     4,
     "Bow",
@@ -598,35 +572,29 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "Mouun’s Moon": weapon(
+  weapon(
     "Mouun’s Moon",
     4,
     "Bow",
     { en: ["Mouun’s Moon"], "zh-CN": ["曚云之月"] },
     ["Narukami’s Wisdom", "Dismal Prism", "Spectral Husk"]
   ),
-  "Mitternachts Waltz": weapon(
+  weapon(
     "Mitternachts Waltz",
     4,
     "Bow",
     { en: ["Mitternachts Waltz"], "zh-CN": ["幽夜华尔兹"] },
     ["Tile of Decarabian’s Tower", "Heavy Horn", "Treasure Hoarder Insignia"]
   ),
-  Hamayumi: weapon(
-    "Hamayumi",
-    4,
-    "Bow",
-    { en: ["Hamayumi"], "zh-CN": ["破魔之弓"] },
-    [
-      "Narukami’s Wisdom",
-      "Dismal Prism",
-      "Firm Arrowhead",
-      "Northlander Bow Billet",
-      "Amethyst Lump",
-      "White Iron Chunk",
-    ]
-  ),
-  "Favonius Warbow": weapon(
+  weapon("Hamayumi", 4, "Bow", { en: ["Hamayumi"], "zh-CN": ["破魔之弓"] }, [
+    "Narukami’s Wisdom",
+    "Dismal Prism",
+    "Firm Arrowhead",
+    "Northlander Bow Billet",
+    "Amethyst Lump",
+    "White Iron Chunk",
+  ]),
+  weapon(
     "Favonius Warbow",
     4,
     "Bow",
@@ -637,7 +605,7 @@ const _weapons = {
       "Whopperflower Nectar",
     ]
   ),
-  "Compound Bow": weapon(
+  weapon(
     "Compound Bow",
     4,
     "Bow",
@@ -651,7 +619,7 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "Blackcliff Warbow": weapon(
+  weapon(
     "Blackcliff Warbow",
     4,
     "Bow",
@@ -662,7 +630,7 @@ const _weapons = {
       "Whopperflower Nectar",
     ]
   ),
-  "Windblume Ode": weapon(
+  weapon(
     "Windblume Ode",
     4,
     "Bow",
@@ -673,14 +641,14 @@ const _weapons = {
       "Whopperflower Nectar",
     ]
   ),
-  "Fading Twilight": weapon(
+  weapon(
     "Fading Twilight",
     4,
     "Bow",
     { en: ["Fading Twilight"], "zh-CN": ["落霞"] },
     ["Grain of Aerosiderite", "Hunter’s Sacrificial Knife", "Divining Scroll"]
   ),
-  "End of the Line": weapon(
+  weapon(
     "End of the Line",
     4,
     "Bow",
@@ -694,7 +662,7 @@ const _weapons = {
       "Halcyon Jade Axe Marlin",
     ]
   ),
-  "King’s Squire": weapon(
+  weapon(
     "King’s Squire",
     4,
     "Bow",
@@ -708,7 +676,7 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "Ibis Piercer": weapon(
+  weapon(
     "Ibis Piercer",
     4,
     "Bow",
@@ -719,14 +687,14 @@ const _weapons = {
       "Faded Red Satin",
     ]
   ),
-  "Scion of the Blazing Sun": weapon(
+  weapon(
     "Scion of the Blazing Sun",
     4,
     "Bow",
     { en: "Scion of the Blazing Sun", "zh-CN": "烈阳之嗣" },
     ["Echo of Scorching Might", "A Flower Yet to Bloom", "Fungal Spores"]
   ),
-  "Song of Stillness": weapon(
+  weapon(
     "Song of Stillness",
     4,
     "Bow",
@@ -740,39 +708,25 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "Range Gauge": weapon(
-    "Range Gauge",
-    4,
-    "Bow",
-    { en: "Range Gauge", "zh-CN": "测距规" },
-    [
-      "Fragment of an Ancient Chord",
-      "Drop of Tainted Water",
-      "Transoceanic Pearl",
-    ]
-  ),
-  Cloudforged: weapon(
-    "Cloudforged",
-    4,
-    "Bow",
-    { en: "Cloudforged", "zh-CN": "筑云" },
-    ["Grain of Aerosiderite", "Ruined Hilt", "Recruit’s Insignia"]
-  ),
-  "Chain Breaker": weapon(
-    "Chain Breaker",
-    4,
-    "Bow",
-    { en: "Chain Breaker", "zh-CN": "碎链" },
-    [
-      "Night-Wind’s Mystic Consideration",
-      "Feathery Fin",
-      "Juvenile Fang",
-      "Borderland Bow Billet",
-      "Condessence Crystal",
-      "White Iron Chunk",
-    ]
-  ),
-  "Flower-Wreathed Feathers": weapon(
+  weapon("Range Gauge", 4, "Bow", { en: "Range Gauge", "zh-CN": "测距规" }, [
+    "Fragment of an Ancient Chord",
+    "Drop of Tainted Water",
+    "Transoceanic Pearl",
+  ]),
+  weapon("Cloudforged", 4, "Bow", { en: "Cloudforged", "zh-CN": "筑云" }, [
+    "Grain of Aerosiderite",
+    "Ruined Hilt",
+    "Recruit’s Insignia",
+  ]),
+  weapon("Chain Breaker", 4, "Bow", { en: "Chain Breaker", "zh-CN": "碎链" }, [
+    "Night-Wind’s Mystic Consideration",
+    "Feathery Fin",
+    "Juvenile Fang",
+    "Borderland Bow Billet",
+    "Condessence Crystal",
+    "White Iron Chunk",
+  ]),
+  weapon(
     "Flower-Wreathed Feathers",
     4,
     "Bow",
@@ -783,21 +737,21 @@ const _weapons = {
       "Sentry’s Wooden Whistle",
     ]
   ),
-  "Sequence of Solitude": weapon(
+  weapon(
     "Sequence of Solitude",
     4,
     "Bow",
     { en: "Sequence of Solitude", "zh-CN": "冷寂迸音" },
     ["Fragment of an Ancient Chord", "Cold-Cracked Shellshard", "Meshing Gear"]
   ),
-  "Snare Hook": weapon("Snare Hook", 4, "Bow", {
+  weapon("Snare Hook", 4, "Bow", {
     en: "Snare Hook",
     "zh-CN": "罗网勾针",
   }),
   //
   // Newline - bow 4
   //
-  "Wine and Song": weapon(
+  weapon(
     "Wine and Song",
     4,
     "Catalyst",
@@ -808,14 +762,14 @@ const _weapons = {
       "Treasure Hoarder Insignia",
     ]
   ),
-  "The Widsith": weapon(
+  weapon(
     "The Widsith",
     4,
     "Catalyst",
     { en: ["The Widsith"], "zh-CN": ["流浪乐章"] },
     ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Damaged Mask"]
   ),
-  "Solar Pearl": weapon(
+  weapon(
     "Solar Pearl",
     4,
     "Catalyst",
@@ -826,7 +780,7 @@ const _weapons = {
       "Whopperflower Nectar",
     ]
   ),
-  "Sacrificial Fragments": weapon(
+  weapon(
     "Sacrificial Fragments",
     4,
     "Catalyst",
@@ -837,14 +791,14 @@ const _weapons = {
       "Treasure Hoarder Insignia",
     ]
   ),
-  "Royal Grimoire": weapon(
+  weapon(
     "Royal Grimoire",
     4,
     "Catalyst",
     { en: ["Royal Grimoire"], "zh-CN": ["宗室秘法录"] },
     ["Tile of Decarabian’s Tower", "Heavy Horn", "Recruit’s Insignia"]
   ),
-  "Prototype Amber": weapon(
+  weapon(
     "Prototype Amber",
     4,
     "Catalyst",
@@ -858,7 +812,7 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "Mappa Mare": weapon(
+  weapon(
     "Mappa Mare",
     4,
     "Catalyst",
@@ -872,7 +826,7 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "Hakushin Ring": weapon(
+  weapon(
     "Hakushin Ring",
     4,
     "Catalyst",
@@ -886,7 +840,7 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  Frostbearer: weapon(
+  weapon(
     "Frostbearer",
     4,
     "Catalyst",
@@ -900,28 +854,28 @@ const _weapons = {
       "Starsilver",
     ]
   ),
-  "Favonius Codex": weapon(
+  weapon(
     "Favonius Codex",
     4,
     "Catalyst",
     { en: ["Favonius Codex"], "zh-CN": ["西风秘典"] },
     ["Tile of Decarabian’s Tower", "Heavy Horn", "Divining Scroll"]
   ),
-  "Eye of Perception": weapon(
+  weapon(
     "Eye of Perception",
     4,
     "Catalyst",
     { en: ["Eye of Perception"], "zh-CN": ["昭心"] },
     ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Damaged Mask"]
   ),
-  "Dodoco Tales": weapon(
+  weapon(
     "Dodoco Tales",
     4,
     "Catalyst",
     { en: ["Dodoco Tales"], "zh-CN": ["嘟嘟可故事集"] },
     ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Damaged Mask"]
   ),
-  "Blackcliff Agate": weapon(
+  weapon(
     "Blackcliff Agate",
     4,
     "Catalyst",
@@ -932,14 +886,14 @@ const _weapons = {
       "Divining Scroll",
     ]
   ),
-  "Oathsworn Eye": weapon(
+  weapon(
     "Oathsworn Eye",
     4,
     "Catalyst",
     { en: ["Oathsworn Eye"], "zh-CN": ["证誓之明瞳"] },
     ["Coral Branch of a Distant Sea", "Concealed Claw", "Spectral Husk"]
   ),
-  "Fruit of Fulfillment": weapon(
+  weapon(
     "Fruit of Fulfillment",
     4,
     "Catalyst",
@@ -953,7 +907,7 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "Wandering Evenstar": weapon(
+  weapon(
     "Wandering Evenstar",
     4,
     "Catalyst",
@@ -964,14 +918,14 @@ const _weapons = {
       "Fungal Spores",
     ]
   ),
-  "Sacrificial Jade": weapon(
+  weapon(
     "Sacrificial Jade",
     4,
     "Catalyst",
     { en: "Sacrificial Jade", "zh-CN": "遗祀玉珑" },
     ["Luminous Sands from Guyun", "Mist Grass Pollen", "Divining Scroll"]
   ),
-  "Flowing Purity": weapon(
+  weapon(
     "Flowing Purity",
     4,
     "Catalyst",
@@ -985,7 +939,7 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "Ballad of the Boundless Blue": weapon(
+  weapon(
     "Ballad of the Boundless Blue",
     4,
     "Catalyst",
@@ -996,7 +950,7 @@ const _weapons = {
       "Treasure Hoarder Insignia",
     ]
   ),
-  "Ring of Yaxche": weapon(
+  weapon(
     "Ring of Yaxche",
     4,
     "Catalyst",
@@ -1010,7 +964,7 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "Ash-Graven Drinking Horn": weapon(
+  weapon(
     "Ash-Graven Drinking Horn",
     4,
     "Catalyst",
@@ -1021,7 +975,7 @@ const _weapons = {
       "Juvenile Fang",
     ]
   ),
-  "Waveriding Whirl": weapon(
+  weapon(
     "Waveriding Whirl",
     4,
     "Catalyst",
@@ -1032,32 +986,32 @@ const _weapons = {
       "Juvenile Fang",
     ]
   ),
-  "Etherlight Spindlelute": weapon("Etherlight Spindlelute", 4, "Catalyst", {
+  weapon("Etherlight Spindlelute", 4, "Catalyst", {
     en: "Etherlight Spindlelute",
     "zh-CN": "天光的纺琴",
   }),
-  "Blackmarrow Lantern": weapon("Blackmarrow Lantern", 4, "Catalyst", {
+  weapon("Blackmarrow Lantern", 4, "Catalyst", {
     en: "Blackmarrow Lantern",
     "zh-CN": "乌髓孑灯",
   }),
   //
   // Newline catalyst 4
   //
-  Akuoumaru: weapon(
+  weapon(
     "Akuoumaru",
     4,
     "Claymore",
     { en: ["Akuoumaru"], "zh-CN": ["恶王丸"] },
     ["Coral Branch of a Distant Sea", "Concealed Claw", "Old Handguard"]
   ),
-  "Royal Greatsword": weapon(
+  weapon(
     "Royal Greatsword",
     4,
     "Claymore",
     { en: ["Royal Greatsword"], "zh-CN": ["宗室大剑"] },
     ["Fetters of the Dandelion Gladiator", "Chaos Device", "Slime Condensate"]
   ),
-  Whiteblind: weapon(
+  weapon(
     "Whiteblind",
     4,
     "Claymore",
@@ -1071,14 +1025,12 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "The Bell": weapon(
-    "The Bell",
-    4,
-    "Claymore",
-    { en: ["The Bell"], "zh-CN": ["钟剑"] },
-    ["Tile of Decarabian’s Tower", "Heavy Horn", "Whopperflower Nectar"]
-  ),
-  "Snow-Tombed Starsilver": weapon(
+  weapon("The Bell", 4, "Claymore", { en: ["The Bell"], "zh-CN": ["钟剑"] }, [
+    "Tile of Decarabian’s Tower",
+    "Heavy Horn",
+    "Whopperflower Nectar",
+  ]),
+  weapon(
     "Snow-Tombed Starsilver",
     4,
     "Claymore",
@@ -1092,14 +1044,14 @@ const _weapons = {
       "Starsilver",
     ]
   ),
-  "Favonius Greatsword": weapon(
+  weapon(
     "Favonius Greatsword",
     4,
     "Claymore",
     { en: ["Favonius Greatsword"], "zh-CN": ["西风大剑"] },
     ["Fetters of the Dandelion Gladiator", "Chaos Device", "Recruit’s Insignia"]
   ),
-  "Katsuragikiri Nagamasa": weapon(
+  weapon(
     "Katsuragikiri Nagamasa",
     4,
     "Claymore",
@@ -1113,35 +1065,35 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "Sacrificial Greatsword": weapon(
+  weapon(
     "Sacrificial Greatsword",
     4,
     "Claymore",
     { en: ["Sacrificial Greatsword"], "zh-CN": ["祭礼大剑"] },
     ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Firm Arrowhead"]
   ),
-  "Serpent Spine": weapon(
+  weapon(
     "Serpent Spine",
     4,
     "Claymore",
     { en: ["Serpent Spine"], "zh-CN": ["螭骨剑"] },
     ["Grain of Aerosiderite", "Fragile Bone Shard", "Whopperflower Nectar"]
   ),
-  "Blackcliff Slasher": weapon(
+  weapon(
     "Blackcliff Slasher",
     4,
     "Claymore",
     { en: ["Blackcliff Slasher"], "zh-CN": ["黑岩斩刀"] },
     ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Recruit’s Insignia"]
   ),
-  Rainslasher: weapon(
+  weapon(
     "Rainslasher",
     4,
     "Claymore",
     { en: ["Rainslasher"], "zh-CN": ["雨裁"] },
     ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Divining Scroll"]
   ),
-  "Prototype Archaic": weapon(
+  weapon(
     "Prototype Archaic",
     4,
     "Claymore",
@@ -1155,14 +1107,14 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "Luxurious Sea-Lord": weapon(
+  weapon(
     "Luxurious Sea-Lord",
     4,
     "Claymore",
     { en: ["Luxurious Sea-Lord"], "zh-CN": ["衔珠海皇"] },
     ["Grain of Aerosiderite", "Fragile Bone Shard", "Slime Condensate"]
   ),
-  "Lithic Blade": weapon(
+  weapon(
     "Lithic Blade",
     4,
     "Claymore",
@@ -1173,7 +1125,7 @@ const _weapons = {
       "Firm Arrowhead",
     ]
   ),
-  "Forest Regalia": weapon(
+  weapon(
     "Forest Regalia",
     4,
     "Claymore",
@@ -1187,28 +1139,28 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "Makhaira Aquamarine": weapon(
+  weapon(
     "Makhaira Aquamarine",
     4,
     "Claymore",
     { en: ["Makhaira Aquamarine"], "zh-CN": ["玛海菈的水色"] },
     ["Echo of Scorching Might", "Chaos Storage", "Treasure Hoarder Insignia"]
   ),
-  "Mailed Flower": weapon(
+  weapon(
     "Mailed Flower",
     4,
     "Claymore",
     { en: "Mailed Flower", "zh-CN": "饰铁之花" },
     ["Fetters of the Dandelion Gladiator", "Desiccated Shell", "Spectral Husk"]
   ),
-  "Talking Stick": weapon(
+  weapon(
     "Talking Stick",
     4,
     "Claymore",
     { en: "Talking Stick", "zh-CN": "聊聊棒" },
     ["Oasis Garden’s Reminiscence", "Desiccated Shell", "Slime Condensate"]
   ),
-  "Tidal Shadow": weapon(
+  weapon(
     "Tidal Shadow",
     4,
     "Claymore",
@@ -1222,14 +1174,14 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "Portable Power Saw": weapon(
+  weapon(
     "Portable Power Saw",
     4,
     "Claymore",
     { en: "Portable Power Saw", "zh-CN": "便携动力锯" },
     ["Broken Goblet of the Pristine Sea", "Rift Core", "Meshing Gear"]
   ),
-  "Ultimate Overlord’s Mega Magic Sword": weapon(
+  weapon(
     "Ultimate Overlord’s Mega Magic Sword",
     4,
     "Claymore",
@@ -1243,7 +1195,7 @@ const _weapons = {
       "Meshing Gear",
     ]
   ),
-  "Earth Shaker": weapon(
+  weapon(
     "Earth Shaker",
     4,
     "Claymore",
@@ -1257,7 +1209,7 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "Fruitful Hook": weapon(
+  weapon(
     "Fruitful Hook",
     4,
     "Claymore",
@@ -1268,7 +1220,7 @@ const _weapons = {
       "Juvenile Fang",
     ]
   ),
-  "Flame-Forged Insight": weapon(
+  weapon(
     "Flame-Forged Insight",
     4,
     "Claymore",
@@ -1279,14 +1231,14 @@ const _weapons = {
       "Transoceanic Pearl",
     ]
   ),
-  "Master Key": weapon("Master Key", 4, "Claymore", {
+  weapon("Master Key", 4, "Claymore", {
     en: "Master Key",
     "zh-CN": "万能钥匙",
   }),
   //
   // Newline - claymore 4
   //
-  "Prototype Starglitter": weapon(
+  weapon(
     "Prototype Starglitter",
     4,
     "Polearm",
@@ -1300,14 +1252,14 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "Lithic Spear": weapon(
+  weapon(
     "Lithic Spear",
     4,
     "Polearm",
     { en: ["Lithic Spear"], "zh-CN": ["千岩长枪"] },
     ["Grain of Aerosiderite", "Fragile Bone Shard", "Firm Arrowhead"]
   ),
-  "Kitain Cross Spear": weapon(
+  weapon(
     "Kitain Cross Spear",
     4,
     "Polearm",
@@ -1321,7 +1273,7 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "“The Catch”": weapon(
+  weapon(
     "“The Catch”",
     4,
     "Polearm",
@@ -1337,14 +1289,14 @@ const _weapons = {
       "Bitter Pufferfish",
     ]
   ),
-  "Favonius Lance": weapon(
+  weapon(
     "Favonius Lance",
     4,
     "Polearm",
     { en: ["Favonius Lance"], "zh-CN": ["西风长枪"] },
     ["Fetters of the Dandelion Gladiator", "Chaos Device", "Slime Condensate"]
   ),
-  "Dragonspine Spear": weapon(
+  weapon(
     "Dragonspine Spear",
     4,
     "Polearm",
@@ -1358,21 +1310,21 @@ const _weapons = {
       "Vitalized Dragontooth",
     ]
   ),
-  "Dragon’s Bane": weapon(
+  weapon(
     "Dragon’s Bane",
     4,
     "Polearm",
     { en: ["Dragon’s Bane"], "zh-CN": ["匣里灭辰"] },
     ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Divining Scroll"]
   ),
-  Deathmatch: weapon(
+  weapon(
     "Deathmatch",
     4,
     "Polearm",
     { en: ["Deathmatch"], "zh-CN": ["决斗之枪"] },
     ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Whopperflower Nectar"]
   ),
-  "Crescent Pike": weapon(
+  weapon(
     "Crescent Pike",
     4,
     "Polearm",
@@ -1386,28 +1338,28 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "Blackcliff Pole": weapon(
+  weapon(
     "Blackcliff Pole",
     4,
     "Polearm",
     { en: ["Blackcliff Pole"], "zh-CN": ["黑岩刺枪"] },
     ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Recruit’s Insignia"]
   ),
-  "Wavebreaker’s Fin": weapon(
+  weapon(
     "Wavebreaker’s Fin",
     4,
     "Polearm",
     { en: ["Wavebreaker’s Fin"], "zh-CN": ["断浪长鳍"] },
     ["Mask of the Wicked Lieutenant", "Concealed Claw", "Old Handguard"]
   ),
-  "Royal Spear": weapon(
+  weapon(
     "Royal Spear",
     4,
     "Polearm",
     { en: ["Royal Spear"], "zh-CN": ["宗室猎枪"] },
     ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Recruit’s Insignia"]
   ),
-  Moonpiercer: weapon(
+  weapon(
     "Moonpiercer",
     4,
     "Polearm",
@@ -1421,14 +1373,14 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "Missive Windspear": weapon(
+  weapon(
     "Missive Windspear",
     4,
     "Polearm",
     { en: ["Missive Windspear"], "zh-CN": ["风信之锋"] },
     ["Boreal Wolf’s Milk Tooth", "Gloomy Statuette", "Slime Condensate"]
   ),
-  "Ballard of the Fjords": weapon(
+  weapon(
     "Ballard of the Fjords",
     4,
     "Polearm",
@@ -1439,7 +1391,7 @@ const _weapons = {
       "Whopperflower Nectar",
     ]
   ),
-  "Rightful Reward": weapon(
+  weapon(
     "Rightful Reward",
     4,
     "Polearm",
@@ -1453,7 +1405,7 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "Prospector’s Drill": weapon(
+  weapon(
     "Prospector’s Drill",
     4,
     "Polearm",
@@ -1464,14 +1416,14 @@ const _weapons = {
       "Meshing Gear",
     ]
   ),
-  "Dialogues of the Desert Sages": weapon(
+  weapon(
     "Dialogues of the Desert Sages",
     4,
     "Polearm",
     { en: "Dialogues of the Desert Sages", "zh-CN": "沙中伟贤的对答" },
     ["Copper Talisman of the Forest Dew", "Feathery Fin", "Spectral Husk"]
   ),
-  "Footprint of the Rainbow": weapon(
+  weapon(
     "Footprint of the Rainbow",
     4,
     "Polearm",
@@ -1485,7 +1437,7 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "Mountain-Bracing Bolt": weapon(
+  weapon(
     "Mountain-Bracing Bolt",
     4,
     "Polearm",
@@ -1496,42 +1448,40 @@ const _weapons = {
       "Whopperflower Nectar",
     ]
   ),
-  "Tamayuratei no Ohanashi": weapon(
+  weapon(
     "Tamayuratei no Ohanashi",
     4,
     "Polearm",
     { en: "Tamayuratei no Ohanashi", "zh-CN": "且住亭御咄" },
     ["Mask of the Wicked Lieutenant", "Refractive Bud", "Old Handguard"]
   ),
-  "Prospector’s Shovel": weapon("Prospector’s Shovel", 4, "Polearm", {
+  weapon("Prospector’s Shovel", 4, "Polearm", {
     en: "Prospector’s Shovel",
     "zh-CN": "掘金之锹",
   }),
   //
   // Newline - polearm 4
   //
-  "The Flute": weapon(
-    "The Flute",
-    4,
-    "Sword",
-    { en: ["The Flute"], "zh-CN": ["笛剑"] },
-    ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Slime Condensate"]
-  ),
-  "The Black Sword": weapon(
+  weapon("The Flute", 4, "Sword", { en: ["The Flute"], "zh-CN": ["笛剑"] }, [
+    "Boreal Wolf’s Milk Tooth",
+    "Dead Ley Line Branch",
+    "Slime Condensate",
+  ]),
+  weapon(
     "The Black Sword",
     4,
     "Sword",
     { en: ["The Black Sword"], "zh-CN": ["黑剑"] },
     ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Slime Condensate"]
   ),
-  "The Alley Flash": weapon(
+  weapon(
     "The Alley Flash",
     4,
     "Sword",
     { en: ["The Alley Flash"], "zh-CN": ["暗巷闪光"] },
     ["Tile of Decarabian’s Tower", "Heavy Horn", "Divining Scroll"]
   ),
-  "Sword of Descension": weapon(
+  weapon(
     "Sword of Descension",
     4,
     "Sword",
@@ -1542,21 +1492,21 @@ const _weapons = {
       "Treasure Hoarder Insignia",
     ]
   ),
-  "Sacrificial Sword": weapon(
+  weapon(
     "Sacrificial Sword",
     4,
     "Sword",
     { en: ["Sacrificial Sword"], "zh-CN": ["祭礼剑"] },
     ["Fetters of the Dandelion Gladiator", "Chaos Device", "Divining Scroll"]
   ),
-  "Royal Longsword": weapon(
+  weapon(
     "Royal Longsword",
     4,
     "Sword",
     { en: ["Royal Longsword"], "zh-CN": ["宗室长剑"] },
     ["Tile of Decarabian’s Tower", "Heavy Horn", "Damaged Mask"]
   ),
-  "Prototype Rancour": weapon(
+  weapon(
     "Prototype Rancour",
     4,
     "Sword",
@@ -1570,7 +1520,7 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "Amenoma Kageuchi": weapon(
+  weapon(
     "Amenoma Kageuchi",
     4,
     "Sword",
@@ -1584,7 +1534,7 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "Lion’s Roar": weapon(
+  weapon(
     "Lion’s Roar",
     4,
     "Sword",
@@ -1595,7 +1545,7 @@ const _weapons = {
       "Treasure Hoarder Insignia",
     ]
   ),
-  "Iron Sting": weapon(
+  weapon(
     "Iron Sting",
     4,
     "Sword",
@@ -1609,28 +1559,28 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "Festering Desire": weapon(
+  weapon(
     "Festering Desire",
     4,
     "Sword",
     { en: ["Festering Desire"], "zh-CN": ["腐殖之剑"] },
     ["Fetters of the Dandelion Gladiator", "Heavy Horn", "Recruit’s Insignia"]
   ),
-  "Favonius Sword": weapon(
+  weapon(
     "Favonius Sword",
     4,
     "Sword",
     { en: ["Favonius Sword"], "zh-CN": ["西风剑"] },
     ["Tile of Decarabian’s Tower", "Heavy Horn", "Firm Arrowhead"]
   ),
-  "Cinnabar Spindle": weapon(
+  weapon(
     "Cinnabar Spindle",
     4,
     "Sword",
     { en: ["Cinnabar Spindle"], "zh-CN": ["辰砂之纺锤"] },
     ["Tile of Decarabian’s Tower", "Chaos Device", "Damaged Mask"]
   ),
-  "Blackcliff Longsword": weapon(
+  weapon(
     "Blackcliff Longsword",
     4,
     "Sword",
@@ -1641,14 +1591,14 @@ const _weapons = {
       "Firm Arrowhead",
     ]
   ),
-  "Kagotsurube Isshin": weapon(
+  weapon(
     "Kagotsurube Isshin",
     4,
     "Sword",
     { en: ["Kagotsurube Isshin"], "zh-CN": ["笼钓瓶一心"] },
     ["Mask of the Wicked Lieutenant", "Gloomy Statuette", "Spectral Husk"]
   ),
-  "Sapwood Blade": weapon(
+  weapon(
     "Sapwood Blade",
     4,
     "Sword",
@@ -1662,21 +1612,21 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "Xiphos’ Moonlight": weapon(
+  weapon(
     "Xiphos’ Moonlight",
     4,
     "Sword",
     { en: ["Xiphos’ Moonlight"], "zh-CN": ["西福斯的月光"] },
     ["Copper Talisman of the Forest Dew", "Damaged Prism", "Faded Red Satin"]
   ),
-  "Toukabou Shigure": weapon(
+  weapon(
     "Toukabou Shigure",
     4,
     "Sword",
     { en: "Toukabou Shigure", "zh-CN": "东花坊时雨" },
     ["Narukami’s Wisdom", "Damaged Prism", "Old Handguard"]
   ),
-  "Fleuve Cendre Ferryman": weapon(
+  weapon(
     "Fleuve Cendre Ferryman",
     4,
     "Sword",
@@ -1691,14 +1641,12 @@ const _weapons = {
       "Streaming Axe Marlin",
     ]
   ),
-  "Wolf-Fang": weapon(
-    "Wolf-Fang",
-    4,
-    "Sword",
-    { en: "Wolf-Fang", "zh-CN": "狼牙" },
-    ["Tile of Decarabian’s Tower", "Chaos Device", "Damaged Mask"]
-  ),
-  "Finale of the Deep": weapon(
+  weapon("Wolf-Fang", 4, "Sword", { en: "Wolf-Fang", "zh-CN": "狼牙" }, [
+    "Tile of Decarabian’s Tower",
+    "Chaos Device",
+    "Damaged Mask",
+  ]),
+  weapon(
     "Finale of the Deep",
     4,
     "Sword",
@@ -1712,7 +1660,7 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "The Dockhand’s Assistant": weapon(
+  weapon(
     "The Dockhand’s Assistant",
     4,
     "Sword",
@@ -1723,7 +1671,7 @@ const _weapons = {
       "Transoceanic Pearl",
     ]
   ),
-  "Sword of Narzissenkreuz": weapon(
+  weapon(
     "Sword of Narzissenkreuz",
     4,
     "Sword",
@@ -1734,7 +1682,7 @@ const _weapons = {
       "Transoceanic Pearl",
     ]
   ),
-  "Flute of Ezpitzal": weapon(
+  weapon(
     "Flute of Ezpitzal",
     4,
     "Sword",
@@ -1748,18 +1696,12 @@ const _weapons = {
       "White Iron Chunk",
     ]
   ),
-  "Sturdy Bone": weapon(
-    "Sturdy Bone",
-    4,
-    "Sword",
-    { en: "Sturdy Bone", "zh-CN": "弥坚骨" },
-    [
-      "Blazing Sacrificial Heart’s Terror",
-      "Shard of a Shattered Will",
-      "Sentry’s Wooden Whistle",
-    ]
-  ),
-  "Calamity of Eshu": weapon(
+  weapon("Sturdy Bone", 4, "Sword", { en: "Sturdy Bone", "zh-CN": "弥坚骨" }, [
+    "Blazing Sacrificial Heart’s Terror",
+    "Shard of a Shattered Will",
+    "Sentry’s Wooden Whistle",
+  ]),
+  weapon(
     "Calamity of Eshu",
     4,
     "Sword",
@@ -1770,67 +1712,57 @@ const _weapons = {
       "Sentry’s Wooden Whistle",
     ]
   ),
-  "Serenit’s Call": weapon("Serenit’s Call", 4, "Sword", {
+  weapon("Serenit’s Call", 4, "Sword", {
     en: "Serenit’s Call",
     "zh-CN": "谧音吹哨",
   }),
   //
   // Newline - sword 4
   //
-  "Raven Bow": weapon(
-    "Raven Bow",
-    3,
-    "Bow",
-    { en: ["Raven Bow"], "zh-CN": ["鸦羽弓"] },
-    ["Tile of Decarabian’s Tower", "Heavy Horn", "Firm Arrowhead"]
-  ),
-  "Recurve Bow": weapon(
+  weapon("Raven Bow", 3, "Bow", { en: ["Raven Bow"], "zh-CN": ["鸦羽弓"] }, [
+    "Tile of Decarabian’s Tower",
+    "Heavy Horn",
+    "Firm Arrowhead",
+  ]),
+  weapon(
     "Recurve Bow",
     3,
     "Bow",
     { en: ["Recurve Bow"], "zh-CN": ["反曲弓"] },
     ["Fetters of the Dandelion Gladiator", "Chaos Device", "Divining Scroll"]
   ),
-  Messenger: weapon(
-    "Messenger",
-    3,
-    "Bow",
-    { en: ["Messenger"], "zh-CN": ["信使"] },
-    [
-      "Mist Veiled Lead Elixir",
-      "Mist Grass Pollen",
-      "Treasure Hoarder Insignia",
-    ]
-  ),
-  "Sharpshooter’s Oath": weapon(
+  weapon("Messenger", 3, "Bow", { en: ["Messenger"], "zh-CN": ["信使"] }, [
+    "Mist Veiled Lead Elixir",
+    "Mist Grass Pollen",
+    "Treasure Hoarder Insignia",
+  ]),
+  weapon(
     "Sharpshooter’s Oath",
     3,
     "Bow",
     { en: ["Sharpshooter’s Oath"], "zh-CN": ["神射手之誓"] },
     ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Slime Condensate"]
   ),
-  Slingshot: weapon(
-    "Slingshot",
-    3,
-    "Bow",
-    { en: ["Slingshot"], "zh-CN": ["弹弓"] },
-    ["Luminous Sands from Guyun", "Hunter’s Sacrificial Knife", "Damaged Mask"]
-  ),
-  "Magic Guide": weapon(
+  weapon("Slingshot", 3, "Bow", { en: ["Slingshot"], "zh-CN": ["弹弓"] }, [
+    "Luminous Sands from Guyun",
+    "Hunter’s Sacrificial Knife",
+    "Damaged Mask",
+  ]),
+  weapon(
     "Magic Guide",
     3,
     "Catalyst",
     { en: ["Magic Guide"], "zh-CN": ["魔导绪论"] },
     ["Tile of Decarabian’s Tower", "Heavy Horn", "Slime Condensate"]
   ),
-  "Otherworldly Story": weapon(
+  weapon(
     "Otherworldly Story",
     3,
     "Catalyst",
     { en: ["Otherworldly Story"], "zh-CN": ["异世界行记"] },
     ["Fetters of the Dandelion Gladiator", "Chaos Device", "Damaged Mask"]
   ),
-  "Emerald Orb": weapon(
+  weapon(
     "Emerald Orb",
     3,
     "Catalyst",
@@ -1841,70 +1773,68 @@ const _weapons = {
       "Treasure Hoarder Insignia",
     ]
   ),
-  "Thrilling Tales of Dragon Slayers": weapon(
+  weapon(
     "Thrilling Tales of Dragon Slayers",
     3,
     "Catalyst",
     { en: ["Thrilling Tales of Dragon Slayers"], "zh-CN": ["讨龙英杰谭"] },
     ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Divining Scroll"]
   ),
-  "Twin Nephrite": weapon(
+  weapon(
     "Twin Nephrite",
     3,
     "Catalyst",
     { en: ["Twin Nephrite"], "zh-CN": ["甲级宝珏"] },
     ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Recruit’s Insignia"]
   ),
-  "Skyrider Greatsword": weapon(
+  weapon(
     "Skyrider Greatsword",
     3,
     "Claymore",
     { en: ["Skyrider Greatsword"], "zh-CN": ["飞天大御剑"] },
     ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Damaged Mask"]
   ),
-  "Debate Club": weapon(
+  weapon(
     "Debate Club",
     3,
     "Claymore",
     { en: ["Debate Club"], "zh-CN": ["以理服人"] },
     ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Damaged Mask"]
   ),
-  "Bloodtainted Greatsword": weapon(
+  weapon(
     "Bloodtainted Greatsword",
     3,
     "Claymore",
     { en: ["Bloodtainted Greatsword"], "zh-CN": ["沐浴龙血的剑"] },
     ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Firm Arrowhead"]
   ),
-  "White Iron Greatsword": weapon(
+  weapon(
     "White Iron Greatsword",
     3,
     "Claymore",
     { en: ["White Iron Greatsword"], "zh-CN": ["白铁大剑"] },
     ["Fetters of the Dandelion Gladiator", "Chaos Device", "Slime Condensate"]
   ),
-  "Ferrous Shadow": weapon(
+  weapon(
     "Ferrous Shadow",
     3,
     "Claymore",
     { en: ["Ferrous Shadow"], "zh-CN": ["铁影阔剑"] },
     ["Tile of Decarabian’s Tower", "Heavy Horn", "Whopperflower Nectar"]
   ),
-  Halberd: weapon(
-    "Halberd",
-    3,
-    "Polearm",
-    { en: ["Halberd"], "zh-CN": ["钺矛"] },
-    ["Mist Veiled Lead Elixir", "Mist Grass Pollen", "Whopperflower Nectar"]
-  ),
-  "Black Tassel": weapon(
+  weapon("Halberd", 3, "Polearm", { en: ["Halberd"], "zh-CN": ["钺矛"] }, [
+    "Mist Veiled Lead Elixir",
+    "Mist Grass Pollen",
+    "Whopperflower Nectar",
+  ]),
+  weapon(
     "Black Tassel",
     3,
     "Polearm",
     { en: ["Black Tassel"], "zh-CN": ["黑缨枪"] },
     ["Grain of Aerosiderite", "Fragile Bone Shard", "Firm Arrowhead"]
   ),
-  "White Tassel": weapon(
+  weapon(
     "White Tassel",
     3,
     "Polearm",
@@ -1915,14 +1845,14 @@ const _weapons = {
       "Recruit’s Insignia",
     ]
   ),
-  "Harbinger of Dawn": weapon(
+  weapon(
     "Harbinger of Dawn",
     3,
     "Sword",
     { en: ["Harbinger of Dawn"], "zh-CN": ["黎明神剑"] },
     ["Boreal Wolf’s Milk Tooth", "Dead Ley Line Branch", "Slime Condensate"]
   ),
-  "Fillet Blade": weapon(
+  weapon(
     "Fillet Blade",
     3,
     "Sword",
@@ -1933,36 +1863,30 @@ const _weapons = {
       "Treasure Hoarder Insignia",
     ]
   ),
-  "Skyrider Sword": weapon(
+  weapon(
     "Skyrider Sword",
     3,
     "Sword",
     { en: ["Skyrider Sword"], "zh-CN": ["飞天御剑"] },
     ["Grain of Aerosiderite", "Fragile Bone Shard", "Recruit’s Insignia"]
   ),
-  "Dark Iron Sword": weapon(
+  weapon(
     "Dark Iron Sword",
     3,
     "Sword",
     { en: ["Dark Iron Sword"], "zh-CN": ["暗铁剑"] },
     ["Luminous Sands from Guyun", "Hunter’s Sacrificial Knife", "Damaged Mask"]
   ),
-  "Cool Steel": weapon(
-    "Cool Steel",
-    3,
-    "Sword",
-    { en: ["Cool Steel"], "zh-CN": ["冷刃"] },
-    ["Tile of Decarabian’s Tower", "Heavy Horn", "Firm Arrowhead"]
-  ),
-  "Traveler’s Handy Sword": weapon(
+  weapon("Cool Steel", 3, "Sword", { en: ["Cool Steel"], "zh-CN": ["冷刃"] }, [
+    "Tile of Decarabian’s Tower",
+    "Heavy Horn",
+    "Firm Arrowhead",
+  ]),
+  weapon(
     "Traveler’s Handy Sword",
     3,
     "Sword",
     { en: ["Traveler’s Handy Sword"], "zh-CN": ["旅行剑"] },
     ["Fetters of the Dandelion Gladiator", "Chaos Device", "Divining Scroll"]
   ),
-} as const;
-
-export type WeaponId = keyof typeof _weapons;
-
-export const weapons: Record<WeaponId, Weapon> = _weapons;
+];
