@@ -9,7 +9,12 @@ import {
 } from "./i18n";
 import { characters } from "./models/characters";
 import { type Domain, bosses, domains, enemies } from "./models/enemies";
-import { type Material, materials } from "./models/materials";
+import {
+  type Material,
+  MaterialId,
+  materials,
+  materials2,
+} from "./models/materials";
 import { weapons } from "./models/weapons";
 import { findRecents } from "./version";
 
@@ -42,7 +47,7 @@ export type OfMaterial = {
   id: string;
   type: ItemType;
   name: I18nObject;
-  materials?: string[];
+  materials?: MaterialId[];
 };
 
 export type Timezone = "Asia" | "Europe" | "America";
@@ -170,13 +175,13 @@ export function renderQTableRows(
 }
 
 function byMaterials(
-  ms: string[] | undefined
+  ms: MaterialId[] | undefined
 ): Map<Material, [Domain, number][] | OfMaterial[]> {
   const map = new Map<Material, [Domain, number][] | OfMaterial[]>();
   return ms === undefined
     ? map
-    : ms.reduce((map, m: string) => {
-        const material = materials.filter((material) => material.id === m)[0];
+    : ms.reduce((map, m: MaterialId) => {
+        const material = materials2[m];
         if (!material) {
           console.error("Material not found", m);
           return map;
@@ -186,7 +191,9 @@ function byMaterials(
       }, map);
 }
 
-function findEnemiesForMaterial(m: string): [Domain, number][] | OfMaterial[] {
+function findEnemiesForMaterial(
+  m: MaterialId
+): [Domain, number][] | OfMaterial[] {
   const dsm: [Domain, number][] = domains.map((d) => [
     d,
     d.materials_by_weekday.indexOf(m),
@@ -202,8 +209,8 @@ function byEnemy(enemy: string): Map<Material, OfMaterial[]> {
   const ms = [...bosses, ...enemies].find((b) => b.id === enemy)?.materials;
   return ms === undefined
     ? new Map()
-    : ms.reduce((map, material: string) => {
-        const m = materials.find((m) => m.id === material);
+    : ms.reduce((map, material: MaterialId) => {
+        const m = materials2[material as MaterialId];
         if (m == null) {
           return map;
         }
@@ -227,9 +234,7 @@ export function byDomain(
     map.set(
       m,
       filterForMaterial(
-        domain?.type === TYPE_WEAPON_DOMAIN
-          ? weapons
-          : Object.values(characters),
+        domain?.type === TYPE_WEAPON_DOMAIN ? weapons : characters,
         material
       )
     );
@@ -237,8 +242,11 @@ export function byDomain(
   return map;
 }
 
-function filterForMaterial(objects: OfMaterial[], m: string): OfMaterial[] {
-  return objects.filter((o) => o.materials?.includes(m));
+function filterForMaterial(
+  objects: OfMaterial[],
+  m: MaterialId | "All"
+): OfMaterial[] {
+  return m === "All" ? [] : objects.filter((o) => o.materials?.includes(m));
 }
 
 const { current, upcoming } = findRecents();

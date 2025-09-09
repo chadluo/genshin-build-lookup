@@ -880,5 +880,3 @@ export const characters: Character[] = [
     "Cor Lapis",
   ]),
 ];
-
-// export const characters = Object.values(_characters);

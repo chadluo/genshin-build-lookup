@@ -16,6 +16,18 @@ export type Material = { name: I18nObject } & (
   | { id: Gem; gem: true }
 );
 
+export type MaterialId =
+  | Gem
+  | Common
+  | CharacterAscension
+  | TalentBook
+  | TalentMaterial
+  | LocalSpeciality
+  | WeaponAscension
+  | Elite
+  | Forging
+  | Fishing;
+
 const commons = {
   "Slime Condensate": {
     id: "Slime Condensate",
@@ -578,9 +590,6 @@ const gems = {
     gem: true,
     name: { en: "Nagadus Emerald", "zh-CN": "生长碧翡" },
   },
-  //
-  // Newline - gem
-  //
 } as const;
 
 export type Gem = keyof typeof gems;

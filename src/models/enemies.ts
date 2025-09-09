@@ -1,12 +1,13 @@
 import type { OfMaterial, Region } from "../base";
 import {
   borderlandBillets,
+  MaterialId,
   midlanderBillets,
   northlanderBillets,
 } from "./materials";
 
 export type Domain = OfMaterial & {
-  materials_by_weekday: string[];
+  materials_by_weekday: ("All" | MaterialId)[];
 };
 
 export const domains: Domain[] = [
@@ -639,7 +640,7 @@ export const bosses: Boss[] = [
       "Ascended Sample: Queen",
       "Agnidus Agate",
       "Varunada Lazurite",
-      "Vajarda Amethyst",
+      "Vajrada Amethyst",
       ...northlanderBillets,
     ],
   },
