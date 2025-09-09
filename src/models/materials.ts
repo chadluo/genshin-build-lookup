@@ -1284,7 +1284,7 @@ export const borderlandBillets = [
   "Borderland Sword Billet",
   "Borderland Bow Billet",
   "Borderland Catalyst Billet",
-];
+] as const;
 
 const ores = [
   "Crystal Chunk",
