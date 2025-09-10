@@ -24,7 +24,7 @@ export type Character = OfMaterial & {
 
 function character(
   id: string,
-  rarity: 4 | 5,
+  rarity: Character["rarity"],
   name: I18nObject,
   materials?: Character["materials"]
 ): Character {
@@ -38,7 +38,14 @@ function character(
 }
 
 export const characters: Character[] = [
-  character("Aino", 4, { en: "Aino", "zh-CN": "爱诺" }),
+  character("Aino", 4, { en: "Aino", "zh-CN": "爱诺" }, [
+    "Precision Kuuvahki Stamping Die",
+    "Varunada Lazurite",
+    "Silken Feather",
+    "Elysium",
+    "Broken Drive Shaft",
+    "Portable Bearing",
+  ]),
   character("Albedo", 5, { en: "Albedo", "zh-CN": "阿贝多" }, [
     "Basalt Pillar",
     "Prithiva Topaz",
@@ -479,7 +486,14 @@ export const characters: Character[] = [
     "Whopperflower Nectar",
     "Clearwater Jade",
   ]),
-  character("Lauma", 5, { en: "Lauma", "zh-CN": "菈乌玛" }),
+  character("Lauma", 5, { en: "Lauma", "zh-CN": "菈乌玛" }, [
+    "Lightbearing Scale-Feather",
+    "Nagadus Emerald",
+    "Eroded Scale-Feather",
+    "Moonlight",
+    "Tattered Warrant",
+    "Moonfall Silver",
+  ]),
   character("Layla", 4, { en: "Layla", "zh-CN": "莱依拉" }, [
     "Perpetual Caliber",
     "Shivada Jade",

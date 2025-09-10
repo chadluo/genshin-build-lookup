@@ -146,6 +146,24 @@ const commons = {
       "zh-CN": ["卫从的木哨", "战士的铁哨", "龙冠武士的金哨"],
     },
   },
+  "Tattered Warrant": {
+    id: "Tattered Warrant",
+    name: {
+      en: ["Tattered Warrant", "Immaculate Warrant", "Frost-Etched Warrant"],
+      "zh-CN": ["磨损的执凭", "精致的执凭", "霜镌的执凭"],
+    },
+  },
+  "Broken Drive Shaft": {
+    id: "Broken Drive Shaft",
+    name: {
+      en: [
+        "Broken Drive Shaft",
+        "Reinforced Drive Shaft",
+        "Precision Drive Shaft",
+      ],
+      "zh-CN": ["毁损机轴", "加固机轴", "精制机轴"],
+    },
+  },
   //
   // Newline - common
   //
@@ -542,6 +560,14 @@ const localSpecialities = {
     id: "Dracolite",
     name: { en: "Dracolite", "zh-CN": "琉鳞石" },
   },
+  "Moonfall Silver": {
+    id: "Moonfall Silver",
+    name: { en: "Moonfall Silver", "zh-CN": "月落银" },
+  },
+  "Portable Bearing": {
+    id: "Portable Bearing",
+    name: { en: "Portable Bearing", "zh-CN": "便携轴承" },
+  },
   //
   // Newline - local specialities
   //
@@ -768,6 +794,17 @@ const characterAscensions = {
       "zh-CN": "秘源积气喉",
     },
   },
+  "Lightbearing Scale-Feather": {
+    id: "Lightbearing Scale-Feather",
+    name: { en: "Lightbearing Scale-Feather", "zh-CN": "承光的鳞羽" },
+  },
+  "Precision Kuuvahki Stamping Die": {
+    id: "Precision Kuuvahki Stamping Die",
+    name: {
+      en: "Precision Kuuvahki Stamping Die",
+      "zh-CN": "精密型月矩力冲鸭模具",
+    },
+  },
   //
   // Newline - character ascension
   //
@@ -794,6 +831,9 @@ const talentBooks = {
   Contention: { id: "Contention", name: { en: "Contention", "zh-CN": "角逐" } },
   Kindling: { id: "Kindling", name: { en: "Kindling", "zh-CN": "焚燔" } },
   Conflict: { id: "Conflict", name: { en: "Conflict", "zh-CN": "纷争" } },
+  Moonlight: { id: "Moonlight", name: { en: "Moonlight", "zh-CN": "月光" } },
+  Elysium: { id: "Elysium", name: { en: "Elysium", "zh-CN": "乐园" } },
+  Vagrancy: { id: "Vagrancy", name: { en: "Vagrancy", "zh-CN": "浪迹" } },
   // Newline - talent book
 } as const;
 
