@@ -32,6 +32,7 @@ const regions: Record<Region, I18nObject> = {
   Sumeru: { en: "Sumeru", "zh-CN": "须弥" },
   Fontaine: { en: "Fontaine", "zh-CN": "枫丹" },
   Natlan: { en: "Natlan", "zh-CN": "纳塔" },
+  "Nod-Krai": { en: "Nod-Krai", "zh-CN": "挪德卡莱" },
 };
 
 export class EnemiesTable extends HTMLElement {

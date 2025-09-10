@@ -1302,6 +1302,57 @@ const weaponAscensions = {
       ],
     },
   },
+  "Artful Device Fragment": {
+    id: "Artful Device Fragment",
+    name: {
+      en: [
+        "Artful Device Fragment",
+        "Artful Device Replica",
+        "Artful Device Inheritance",
+        "Artful Device Wish",
+      ],
+      "zh-CN": [
+        "奇巧秘器的残件",
+        "奇巧秘器的模本",
+        "奇巧秘器的继业",
+        "奇巧秘器的真愿",
+      ],
+    },
+  },
+  "Ember of Long Night Flint": {
+    id: "Ember of Long Night Flint",
+    name: {
+      en: [
+        "Ember of Long Night Flint",
+        "Afterglow of Long Night Flint",
+        "Flare of Long Night Flint",
+        "Blaze of Long Night Flint",
+      ],
+      "zh-CN": [
+        "长夜燧火的余烬",
+        "长夜燧火的残照",
+        "长夜燧火的明焰",
+        "长夜燧火的烈辉",
+      ],
+    },
+  },
+  "Sundered Glory of the Far-North Scions": {
+    id: "Sundered Glory of the Far-North Scions",
+    name: {
+      en: [
+        "Sundered Glory of the Far-North Scions",
+        "Unyielding Delusion of the Far-North Scions",
+        "Oblation of the Far-North Scions",
+        "Aureate Radiance of the Far-North Scions",
+      ],
+      "zh-CN": [
+        "终北遗嗣的哀荣",
+        "终北遗嗣的迷顽",
+        "终北遗嗣的祷献",
+        "终北遗嗣的煌熠",
+      ],
+    },
+  },
   //
   // Newline - weapons
   //

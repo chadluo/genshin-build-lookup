@@ -48,6 +48,12 @@ export const domains: Domain[] = [
     materials_by_weekday: ["All", "Contention", "Kindling", "Conflict"],
   },
   {
+    id: "Lightless Capital",
+    name: { en: "Lightless Capital", "zh-CN": "无光的深都" },
+    type: "talent_domain",
+    materials_by_weekday: ["All", "Moonlight", "Elysium", "Vagrancy"],
+  },
+  {
     id: "Cecilia Garden",
     name: { en: ["Cecilia Garden"], "zh-CN": ["塞西莉亚苗圃"] },
     type: "weapon_domain",
@@ -114,6 +120,17 @@ export const domains: Domain[] = [
       "Blazing Sacrificial Heart’s Terror",
       "Delirious Decadence of the Sacred Lord",
       "Night-Wind’s Mystic Consideration",
+    ],
+  },
+  {
+    id: "Lost Mooncourt",
+    name: { en: "Lost Mooncourt", "zh-CN": "失落的月庭" },
+    type: "weapon_domain",
+    materials_by_weekday: [
+      "All",
+      "Artful Device Fragment",
+      "Ember of Long Night Flint",
+      "Sundered Glory of the Far-North Scions",
     ],
   },
 ];
@@ -434,6 +451,27 @@ export const bosses: Boss[] = [
     },
     materials: ["Secret Source Airflow Accumulator", "Varunada Lazurite"],
   },
+  {
+    id: "Knuckle Duckle",
+    region: "Nod-Krai",
+    type: "boss",
+    name: {
+      en: "Knuckle Duckle",
+      "zh-CN": "重拳出击鸭",
+    },
+    materials: ["Precision Kuuvahki Stamping Die", "Vajrada Amethyst"],
+  },
+  {
+    id: "Radiant Moonfly",
+    region: "Nod-Krai",
+    type: "boss",
+    name: { en: "Radiant Moonfly", "zh-CN": "蕴光月幻蝶" },
+    materials: [
+      "Lightbearing Scale-Feather",
+      "Nagadus Emerald",
+      "Agnidus Agate",
+    ],
+  },
   //
   // Newline - normal boss
   //
@@ -741,6 +779,18 @@ export const enemies: Enemy[] = [
     type: "enemy",
     name: { en: "Sauroform Tribal Warriors", "zh-CN": "部族龙形武士" },
     materials: ["Sentry’s Wooden Whistle"],
+  },
+  {
+    id: "Fatui Oprichniki",
+    type: "enemy",
+    name: { en: "Fatui Oprichniki", "zh-CN": "愚人众特辖队" },
+    materials: ["Tattered Warrant"],
+  },
+  {
+    id: "Landcruisers",
+    type: "enemy",
+    name: { en: "Landcruisers", "zh-CN": "巡陆艇" },
+    materials: ["Broken Drive Shaft"],
   },
   //
   // Newline - normal enemy

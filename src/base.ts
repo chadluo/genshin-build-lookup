@@ -24,7 +24,8 @@ export type Region =
   | "Inazuma"
   | "Sumeru"
   | "Fontaine"
-  | "Natlan";
+  | "Natlan"
+  | "Nod-Krai";
 
 export const TYPE_CHARACTER = "character";
 export const TYPE_WEAPON = "weapon";
