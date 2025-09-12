@@ -988,6 +988,24 @@ export const enemies: Enemy[] = [
     name: { en: "Furnace Shell Mountain Weasel", "zh-CN": "炉壳山鼬" },
     materials: ["Cold-Cracked Shellshard"],
   },
+  {
+    id: "Frostnight Scion",
+    type: "enemy",
+    name: { en: "Frostnight Scion", "zh-CN": "霜夜灵嗣" },
+    materials: ["Frostnight’s Glimmer"],
+  },
+  {
+    id: "Wasteland Wild Hunt",
+    type: "enemy",
+    name: { en: "Wasteland Wild Hunt", "zh-CN": "荒野狂猎" },
+    materials: ["Mistshroud Manifestation"],
+  },
+  {
+    id: "Radiant Beast",
+    type: "enemy",
+    name: { en: "Radiant Beast", "zh-CN": "蕴光异兽" },
+    materials: ["Lightless Bone"],
+  },
   //
   // Newline - elite enemy
   //

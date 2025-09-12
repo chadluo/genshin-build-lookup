@@ -227,10 +227,13 @@ export const weapons: Weapon[] = [
       "Juvenile Fang",
     ]
   ),
-  weapon("Nightweaver’s Looking Glass", 5, "Catalyst", {
-    en: "Nightweaver’s Looking Glass",
-    "zh-CN": "纺夜天镜",
-  }),
+  weapon(
+    "Nightweaver’s Looking Glass",
+    5,
+    "Catalyst",
+    { en: "Nightweaver’s Looking Glass", "zh-CN": "纺夜天镜" },
+    ["Artful Device Fragment", "Frostnight’s Glimmer", "Broken Drive Shaft"]
+  ),
   //
   // Newline - catalyst 5
   //
@@ -744,10 +747,11 @@ export const weapons: Weapon[] = [
     { en: "Sequence of Solitude", "zh-CN": "冷寂迸音" },
     ["Fragment of an Ancient Chord", "Cold-Cracked Shellshard", "Meshing Gear"]
   ),
-  weapon("Snare Hook", 4, "Bow", {
-    en: "Snare Hook",
-    "zh-CN": "罗网勾针",
-  }),
+  weapon("Snare Hook", 4, "Bow", { en: "Snare Hook", "zh-CN": "罗网勾针" }, [
+    "Ember of Long Night Flint",
+    "Mistshroud Manifestation",
+    "Firm Arrowhead",
+  ]),
   //
   // Newline - bow 4
   //
@@ -986,14 +990,31 @@ export const weapons: Weapon[] = [
       "Juvenile Fang",
     ]
   ),
-  weapon("Etherlight Spindlelute", 4, "Catalyst", {
-    en: "Etherlight Spindlelute",
-    "zh-CN": "天光的纺琴",
-  }),
-  weapon("Blackmarrow Lantern", 4, "Catalyst", {
-    en: "Blackmarrow Lantern",
-    "zh-CN": "乌髓孑灯",
-  }),
+  weapon(
+    "Etherlight Spindlelute",
+    4,
+    "Catalyst",
+    { en: "Etherlight Spindlelute", "zh-CN": "天光的纺琴" },
+    [
+      "Sundered Glory of the Far-North Scions",
+      "Lightless Bone",
+      "Tattered Warrant",
+    ]
+  ),
+  weapon(
+    "Blackmarrow Lantern",
+    4,
+    "Catalyst",
+    { en: "Blackmarrow Lantern", "zh-CN": "乌髓孑灯" },
+    [
+      "Artful Device Fragment",
+      "Frostnight’s Glimmer",
+      "Tattered Warrant",
+      "Borderland Catalyst Billet",
+      "Rainbowdrop Crystal",
+      "White Iron Chunk",
+    ]
+  ),
   //
   // Newline catalyst 4
   //
@@ -1231,10 +1252,20 @@ export const weapons: Weapon[] = [
       "Transoceanic Pearl",
     ]
   ),
-  weapon("Master Key", 4, "Claymore", {
-    en: "Master Key",
-    "zh-CN": "万能钥匙",
-  }),
+  weapon(
+    "Master Key",
+    4,
+    "Claymore",
+    { en: "Master Key", "zh-CN": "万能钥匙" },
+    [
+      "Sundered Glory of the Far-North Scions",
+      "Lightless Bone",
+      "Broken Drive Shaft",
+      "Borderland Claymore Billet",
+      "Rainbowdrop Crystal",
+      "White Iron Chunk",
+    ]
+  ),
   //
   // Newline - claymore 4
   //
@@ -1455,10 +1486,20 @@ export const weapons: Weapon[] = [
     { en: "Tamayuratei no Ohanashi", "zh-CN": "且住亭御咄" },
     ["Mask of the Wicked Lieutenant", "Refractive Bud", "Old Handguard"]
   ),
-  weapon("Prospector’s Shovel", 4, "Polearm", {
-    en: "Prospector’s Shovel",
-    "zh-CN": "掘金之锹",
-  }),
+  weapon(
+    "Prospector’s Shovel",
+    4,
+    "Polearm",
+    { en: "Prospector’s Shovel", "zh-CN": "掘金之锹" },
+    [
+      "Ember of Long Night Flint",
+      "Mistshroud Manifestation",
+      "Broken Drive Shaft",
+      "Borderland Polearm Billet",
+      "Rainbowdrop Crystal",
+      "White Iron Chunk",
+    ]
+  ),
   //
   // Newline - polearm 4
   //
@@ -1712,10 +1753,20 @@ export const weapons: Weapon[] = [
       "Sentry’s Wooden Whistle",
     ]
   ),
-  weapon("Serenit’s Call", 4, "Sword", {
-    en: "Serenit’s Call",
-    "zh-CN": "谧音吹哨",
-  }),
+  weapon(
+    "Serenity’s Call",
+    4,
+    "Sword",
+    { en: "Serenity’s Call", "zh-CN": "谧音吹哨" },
+    [
+      "Artful Device Fragment",
+      "Frostnight’s Glimmer",
+      "Tattered Warrant",
+      "Borderland Sword Billet",
+      "Rainbowdrop Crystal",
+      "White Iron Chunk",
+    ]
+  ),
   //
   // Newline - sword 4
   //

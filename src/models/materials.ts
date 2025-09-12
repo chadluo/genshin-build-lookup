@@ -375,6 +375,27 @@ const elites = {
       "zh-CN": ["冷裂壳块", "蕴热的背壳", "明燃的棱状壳"],
     },
   },
+  "Frostnight’s Glimmer": {
+    id: "Frostnight’s Glimmer",
+    name: {
+      en: ["Frostnight’s Glimmer", "Frostnight’s Glow", "Frostnight’s Glory"],
+      "zh-CN": ["霜夜的残照", "霜夜的柔辉", "霜夜的煌荣"],
+    },
+  },
+  "Mistshroud Manifestation": {
+    id: "Mistshroud Manifestation",
+    name: {
+      en: ["Mistshroud Manifestation", "Mistshroud Plate", "Mistshroud Helmet"],
+      "zh-CN": ["幽雾化形", "幽雾片甲", "幽雾兜盔"],
+    },
+  },
+  "Lightless Bone": {
+    id: "Lightless Bone",
+    name: {
+      en: ["Lightless Bone", "Glowing Remains", "Radiant Exoskeleton"],
+      "zh-CN": ["失光块骨", "稀光遗骼", "繁光躯外骸"],
+    },
+  },
   //
   // Newline - elites
   //
@@ -1393,6 +1414,7 @@ const ores = [
   "Vitalized Dragontooth",
   "Amethyst Lump",
   "Condessence Crystal",
+  "Rainbowdrop Crystal",
 ] as const;
 
 export type Forging = (
@@ -1487,6 +1509,10 @@ const forgingMaterials: Record<Forging, Material> = {
   "Condessence Crystal": forging("Condessence Crystal", {
     en: "Condessence Crystal",
     "zh-CN": "萃凝晶",
+  }),
+  "Rainbowdrop Crystal": forging("Rainbowdrop Crystal", {
+    en: "Rainbowdrop Crystal",
+    "zh-CN": "虹滴晶",
   }),
   //
   // Newline - forging
