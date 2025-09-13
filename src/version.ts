@@ -19,6 +19,7 @@ const versions: { version: string; start: number; items: string[] }[] = [
       "Master Key",
       "Prospector’s Shovel",
       "Serenity’s Call",
+      "Moonweaver’s Dawn",
     ],
   },
 ];

@@ -1767,6 +1767,17 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ]
   ),
+  weapon(
+    "Moonweaver’s Dawn",
+    4,
+    "Sword",
+    { en: "Moonweaver’s Dawn", "zh-CN": "织月者的曙色" },
+    [
+      "Sundered Glory of the Far-North Scions",
+      "Lightless Bone",
+      "Broken Drive Shaft",
+    ]
+  ),
   //
   // Newline - sword 4
   //
