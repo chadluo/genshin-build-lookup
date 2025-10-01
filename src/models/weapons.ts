@@ -402,10 +402,20 @@ export const weapons: Weapon[] = [
       "Juvenile Fang",
     ]
   ),
-  weapon("Bloodsoaked Ruins", 5, "Polearm", {
-    en: "Bloodsoaked Ruins",
-    "zh-CN": "血染荒城",
-  }),
+  weapon(
+    "Bloodsoaked Ruins",
+    5,
+    "Polearm",
+    {
+      en: "Bloodsoaked Ruins",
+      "zh-CN": "血染荒城",
+    },
+    [
+      "Ember of Long Night Flint",
+      "Mistshroud Manifestation",
+      "Tattered Warrant",
+    ]
+  ),
   //
   // Newline - polearm 5
   //

@@ -286,7 +286,14 @@ export const characters: Character[] = [
     "Firm Arrowhead",
     "Small Lamp Grass",
   ]),
-  character("Flins", 5, { en: "Flins", "zh-CN": "菲林斯" }),
+  character("Flins", 5, { en: "Flins", "zh-CN": "菲林斯" }, [
+    "Precision Kuuvahki Stamping Die",
+    "Vajrada Amethyst",
+    "Ascended Sample: Queen",
+    "Vagrancy",
+    "Broken Drive Shaft",
+    "Frostlamp Flower",
+  ]),
   character("Freminet", 4, { en: "Freminet", "zh-CN": "菲米尼" }, [
     "Artificed Spare Clockwork Component — Coppelius",
     "Shivada Jade",

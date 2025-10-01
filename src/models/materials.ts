@@ -589,6 +589,10 @@ const localSpecialities = {
     id: "Portable Bearing",
     name: { en: "Portable Bearing", "zh-CN": "便携轴承" },
   },
+  "Frostlamp Flower": {
+    id: "Frostlamp Flower",
+    name: { en: "Frostlamp Flower", "zh-CN": "霜盏花" },
+  },
   //
   // Newline - local specialities
   //
