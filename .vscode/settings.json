@@ -13,5 +13,8 @@
     }
   },
   "typescript.enablePromptUseWorkspaceTsdk": true,
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "debug.javascript.defaultRuntimeExecutable": {
+    "pwa-node": "c:\\users\\chadl\\appdata\\local\\mise\\shims\\node"
+  }
 }
