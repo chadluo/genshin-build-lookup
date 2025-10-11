@@ -581,6 +581,7 @@ export const characters: Character[] = [
     "Transoceanic Pearl",
     "Spring of the First Dewdrop",
   ]),
+  character("Nefer", 5, { en: "Nefer", "zh-CN": "奈芙尔" }),
   character("Neuvillette", 5, { en: "Neuvillette", "zh-CN": "那维莱特" }, [
     "Fontemer Unihorn",
     "Varunada Lazurite",

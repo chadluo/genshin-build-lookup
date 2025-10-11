@@ -234,6 +234,10 @@ export const weapons: Weapon[] = [
     { en: "Nightweaver’s Looking Glass", "zh-CN": "纺夜天镜" },
     ["Artful Device Fragment", "Frostnight’s Glimmer", "Broken Drive Shaft"]
   ),
+  weapon("Reliquary of Truth", 5, "Catalyst", {
+    en: "Reliquary of Truth",
+    "zh-CN": "真语秘匣",
+  }),
   //
   // Newline - catalyst 5
   //
@@ -1025,6 +1029,10 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ]
   ),
+  weapon("Dawning Frost", 4, "Catalyst", {
+    en: "Dawning Frost",
+    "zh-CN": "霜辰",
+  }),
   //
   // Newline catalyst 4
   //
@@ -1510,6 +1518,10 @@ export const weapons: Weapon[] = [
       "White Iron Chunk",
     ]
   ),
+  weapon("Sacrificer’s Staff", 4, "Polearm", {
+    en: "Sacrificer’s Staff",
+    "zh-CN": "圣祭者的辉杖",
+  }),
   //
   // Newline - polearm 4
   //
