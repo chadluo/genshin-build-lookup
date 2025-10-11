@@ -22,10 +22,20 @@ const versions: { version: string; start: number; items: string[] }[] = [
       "Moonweaver’s Dawn",
     ],
   },
+  {
+    version: "Luna II",
+    start: new Date("2025-10-22").getTime(),
+    items: [
+      "Nefer",
+      "Reliquary of Truth",
+      "Sacrificer’s Staff",
+      "Dawning Frost",
+    ],
+  },
 ];
 
 export function findRecents() {
-  const now = new Date().getTime();
+  const now = Date.now();
   const currentIndex = versions.findLastIndex((version) => version.start < now);
 
   if (currentIndex === -1) {

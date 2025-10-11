@@ -1,5 +1,5 @@
 import type { OfMaterial, TYPE_WEAPON } from "../base";
-import { I18nObject } from "../i18n";
+import type { I18nObject } from "../i18n";
 import type {
   Common,
   Elite,
