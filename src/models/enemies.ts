@@ -1,7 +1,7 @@
 import type { OfMaterial, Region } from "../base";
 import {
   borderlandBillets,
-  MaterialId,
+  type MaterialId,
   midlanderBillets,
   northlanderBillets,
 } from "./materials";
@@ -471,6 +471,13 @@ export const bosses: Boss[] = [
       "Nagadus Emerald",
       "Agnidus Agate",
     ],
+  },
+  {
+    id: "Frostnight Herra",
+    region: "Nod-Krai",
+    type: "boss",
+    name: { en: "Frostnight Herra", "zh-CN": "霜夜巡天灵主" },
+    materials: ["Radiant Antler", "Varunada Lazurite", "Shivada Jade"],
   },
   //
   // Newline - normal boss

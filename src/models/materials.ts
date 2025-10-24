@@ -830,6 +830,10 @@ const characterAscensions = {
       "zh-CN": "精密型月矩力冲鸭模具",
     },
   },
+  "Radiant Antler": {
+    id: "Radiant Antler",
+    name: { en: "Radiant Antler", "zh-CN": "漫光的辉角" },
+  },
   //
   // Newline - character ascension
   //

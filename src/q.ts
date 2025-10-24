@@ -1,18 +1,18 @@
-import "./CNAME";
 import {
+  formatId,
   type ItemType,
   type OfMaterial,
+  renderQTableContent,
   TYPE_CHARACTER,
   TYPE_WEAPON,
-  formatId,
-  renderQTableContent,
 } from "./base";
 import {
-  BOOKMARK_KEY,
   bookmark,
+  BOOKMARK_KEY,
   unbookmark,
   updateBookmark,
 } from "./bookmarks";
+import "./CNAME";
 import { CharactersTable } from "./components/characters_table";
 import { EnemiesTable, VIEW_ALL } from "./components/enemies_table";
 import { TodayTable } from "./components/today_table";
@@ -116,7 +116,7 @@ function findOrLoadQTable(event: Event) {
   if (!a) return;
   const { id, weekday, type } = a.dataset;
   if (!id || !type) return;
-  const weekdayN = Number.parseInt(weekday || "0");
+  const weekdayN = Number.parseInt(weekday || "0", 10);
   if (a.classList.contains("remove")) {
     a.closest("tbody")?.remove();
     unbookmark(type as ItemType, id, weekdayN);

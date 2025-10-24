@@ -1,5 +1,5 @@
-import { OfMaterial, TYPE_CHARACTER } from "../base";
-import { I18nObject } from "../i18n";
+import { type OfMaterial, TYPE_CHARACTER } from "../base";
+import type { I18nObject } from "../i18n";
 import type {
   CharacterAscension,
   Common,
@@ -581,7 +581,14 @@ export const characters: Character[] = [
     "Transoceanic Pearl",
     "Spring of the First Dewdrop",
   ]),
-  character("Nefer", 5, { en: "Nefer", "zh-CN": "奈芙尔" }),
+  character("Nefer", 5, { en: "Nefer", "zh-CN": "奈芙尔" }, [
+    "Radiant Antler",
+    "Nagadus Emerald",
+    "Ascended Sample: Rook",
+    "Elysium",
+    "Tattered Warrant",
+    "Moonfall Silver",
+  ]),
   character("Neuvillette", 5, { en: "Neuvillette", "zh-CN": "那维莱特" }, [
     "Fontemer Unihorn",
     "Varunada Lazurite",

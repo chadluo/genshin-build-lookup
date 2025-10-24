@@ -1,20 +1,22 @@
 {
   "commentAnchors.scrollPosition": "center",
   "commentAnchors.tags.anchors": {
-    "Newline": {
+    "NewId": {
       "highlightColor": "#A8C023",
       "iconColor": "default",
       "scope": "file"
     },
-    "NewId": {
+    "Newline": {
       "highlightColor": "#A8C023",
       "iconColor": "default",
       "scope": "file"
     }
   },
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "typescript.tsdk": "node_modules/typescript/lib",
   "debug.javascript.defaultRuntimeExecutable": {
     "pwa-node": "c:\\users\\chadl\\appdata\\local\\mise\\shims\\node"
-  }
+  },
+  "npm.packageManager": "pnpm",
+  "npm.scriptRunner": "pnpm",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

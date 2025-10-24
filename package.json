@@ -39,5 +39,6 @@
   "private": true,
   "dependencies": {
     "@types/node": "^24.7.1"
-  }
+  },
+  "packageManager": "pnpm@10.12.1"
 }
