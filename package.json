@@ -19,8 +19,8 @@
   },
   "homepage": "https://github.com/chadluo/genshin-build-lookup#readme",
   "devDependencies": {
-    "@biomejs/biome": "^2.2.5",
-    "@playwright/test": "^1.56.0",
+    "@biomejs/biome": "^2.3.0",
+    "@playwright/test": "^1.56.1",
     "@tsconfig/recommended": "^1.0.10",
     "@types/webpack": "^5.28.5",
     "css-loader": "^7.1.2",
@@ -37,8 +37,5 @@
     "workbox-webpack-plugin": "^7.3.0"
   },
   "private": true,
-  "dependencies": {
-    "@types/node": "^24.7.1"
-  },
-  "packageManager": "pnpm@10.12.1"
+  "packageManager": "pnpm@10.19.0"
 }
