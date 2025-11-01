@@ -1,78 +1,55 @@
 import { isBookmarked } from "./bookmarks";
 import { VIEW_ALL } from "./components/enemies_table";
+import { DELIMITER, EMPTY, formatName, type I18nObject } from "./i18n";
+import { type Character, characters } from "./models/characters";
 import {
-  DELIMITER,
-  EMPTY,
-  type I18nObject,
-  formatName,
-  weekdays,
-} from "./i18n";
-import { characters } from "./models/characters";
-import { type Domain, bosses, domains, enemies } from "./models/enemies";
+  type Boss,
+  bosses,
+  type Enemy,
+  enemies,
+  type TalentDomain,
+  talentDomains,
+  type WeaponDomain,
+  weaponDomains,
+} from "./models/enemies";
 import {
   type Material,
-  MaterialId,
+  type MaterialId,
   materials,
   materials2,
+  type TalentBook,
+  type WeaponAscension,
 } from "./models/materials";
-import { weapons } from "./models/weapons";
+import { type Weapon, weapons } from "./models/weapons";
+import {
+  type BaseItem,
+  type ItemType,
+  TYPE_BOSS,
+  TYPE_CHARACTER,
+  TYPE_ENEMY,
+  TYPE_TALENT_DOMAIN,
+  TYPE_WEAPON,
+  TYPE_WEAPON_DOMAIN,
+  TYPE_WEEKLY_BOSS,
+} from "./types";
 import { findRecents } from "./version";
-
-export type Region =
-  | "Mondstadt"
-  | "Liyue"
-  | "Inazuma"
-  | "Sumeru"
-  | "Fontaine"
-  | "Natlan"
-  | "Nod-Krai";
-
-export const TYPE_CHARACTER = "character";
-export const TYPE_WEAPON = "weapon";
-export const TYPE_WEEKLY_BOSS = "weekly_boss";
-export const TYPE_BOSS = "boss";
-export const TYPE_ENEMY = "enemy";
-export const TYPE_TALENT_DOMAIN = "talent_domain";
-export const TYPE_WEAPON_DOMAIN = "weapon_domain";
-
-export type ItemType =
-  | typeof TYPE_CHARACTER
-  | typeof TYPE_WEAPON
-  | typeof TYPE_WEEKLY_BOSS
-  | typeof TYPE_BOSS
-  | typeof TYPE_ENEMY
-  | typeof TYPE_TALENT_DOMAIN
-  | typeof TYPE_WEAPON_DOMAIN;
-
-export type OfMaterial = {
-  id: string;
-  type: ItemType;
-  name: I18nObject;
-  materials?: MaterialId[];
-};
-
-export type Timezone = "Asia" | "Europe" | "America";
-export const timezones: Record<Timezone, number> = {
-  Asia: 8,
-  Europe: 1,
-  America: -5,
-};
+import { getTimezone, getWeekday, weekdayNames } from "./weekdays";
 
 export function renderQTableContent(
-  type: ItemType,
+  itemType: ItemType,
   id: string,
-  weekday: number
+  weekday: number,
 ): string {
-  switch (type) {
+  switch (itemType) {
     case TYPE_CHARACTER: {
       const character = characters.find((c) => c.id === id);
       return character == null
         ? ""
         : renderQTableRows(
-            { type, id, name: character.name },
+            { itemType, id, name: character.name },
             byMaterials(character.materials),
             weekday,
-            true
+            true,
           );
     }
     case TYPE_WEAPON: {
@@ -80,20 +57,20 @@ export function renderQTableContent(
       return weapon == null
         ? ""
         : renderQTableRows(
-            { type, id, name: weapon.name },
+            { itemType, id, name: weapon.name },
             byMaterials(weapon.materials),
             weekday,
-            true
+            true,
           );
     }
     case TYPE_WEEKLY_BOSS:
     case TYPE_BOSS:
     case TYPE_ENEMY:
       return renderQTableRows(
-        { type, id, name: findName([...bosses, ...enemies], id) },
+        { itemType, id, name: findName([...bosses, ...enemies], id) },
         byEnemy(id),
         weekday,
-        true
+        true,
       );
     case TYPE_TALENT_DOMAIN:
     case TYPE_WEAPON_DOMAIN:
@@ -101,54 +78,68 @@ export function renderQTableContent(
         return [1, 2, 3]
           .map((weekday) =>
             renderQTableRows(
-              { type, id, name: findName(domains, id) },
+              {
+                itemType,
+                id,
+                name: findName([...talentDomains, ...weaponDomains], id),
+              },
               byDomain(id, weekday),
               weekday,
-              true
-            )
+              true,
+            ),
           )
           .join("");
+      } else {
+        return renderQTableRows(
+          {
+            itemType,
+            id,
+            name: findName([...talentDomains, ...weaponDomains], id),
+          },
+          byDomain(id, weekday),
+          weekday,
+          true,
+        );
       }
-      return renderQTableRows(
-        { type, id, name: findName(domains, id) },
-        byDomain(id, weekday),
-        weekday,
-        true
-      );
     default:
       return "";
   }
 }
 
-export function findName(objects: OfMaterial[], id: string): I18nObject {
+export function findName(objects: BaseItem[], id: string): I18nObject {
   return objects.find((o) => o.id === id)?.name ?? EMPTY;
 }
 
-/**
- * Sample structure:
- *
- * | Character/Weapon | Material | Bosses             |
- * | Boss             | Material | Characters/Weapons |
- */
 export function renderQTableRows(
-  { type, id, name }: OfMaterial,
-  object: Map<Material, (OfMaterial | [Domain, number])[]>,
+  { itemType, id, name }: BaseItem,
+  object: Map<
+    Material,
+    (
+      | Character
+      | Weapon
+      | [TalentDomain, number]
+      | [WeaponDomain, number]
+      | Boss
+      | Enemy
+    )[]
+  >,
   weekday: number,
-  remove: boolean
+  allowRemove: boolean,
 ) {
   const ms = Array.from(object.keys());
   const separator =
     "<span class='mobile'> / </span><span class='desktop'><br></span>";
   const currentWeekday = getWeekday(getTimezone());
-  return `<tbody name="${formatId(type, id, weekday)}"><tr>
+  return `<tbody name="${formatId(itemType, id, weekday)}"><tr>
       <th ${ms.length === 0 ? "colspan='3'" : `rowspan="${ms.length}"`}>
-        ${(type === TYPE_TALENT_DOMAIN || type === TYPE_WEAPON_DOMAIN
-          ? formatDomainName(name, weekday)
-          : formatName(name)
+        ${(
+          itemType === TYPE_TALENT_DOMAIN || itemType === TYPE_WEAPON_DOMAIN
+            ? formatDomainName(name, weekday)
+            : formatName(name)
         ).replaceAll(" / ", separator)}
         ${
-          remove
-            ? `<a class="remove" data-type="${type}" data-id="${id}" data-weekday="${weekday}">🧹</a>`
+          allowRemove
+            ? `<a class="remove" data-type="${itemType}" data-id="${id}" data-weekday="${weekday}">🧹</a>`
             : ""
         }
       </th>${(() => {
@@ -175,11 +166,17 @@ export function renderQTableRows(
     }</tbody>`;
 }
 
-function byMaterials(
-  ms: MaterialId[] | undefined
-): Map<Material, [Domain, number][] | OfMaterial[]> {
-  const map = new Map<Material, [Domain, number][] | OfMaterial[]>();
-  return ms === undefined
+type EnemyByMaterialMap = Map<
+  Material,
+  ([TalentDomain, number] | [WeaponDomain, number] | Boss | Enemy)[]
+>;
+
+function byMaterials(ms: MaterialId[] | undefined): EnemyByMaterialMap {
+  const map = new Map<
+    Material,
+    ([TalentDomain, number] | [WeaponDomain, number] | Boss | Enemy)[]
+  >();
+  return ms == null
     ? map
     : ms.reduce((map, m: MaterialId) => {
         const material = materials2[m];
@@ -192,23 +189,42 @@ function byMaterials(
       }, map);
 }
 
+function _enemiesByMaterials(
+  _ms: MaterialId[],
+): Map<
+  Material,
+  [TalentDomain, number][] | [WeaponDomain, number][] | Boss[] | Enemy[]
+> {
+  const map = new Map();
+
+  return map;
+}
+
 function findEnemiesForMaterial(
-  m: MaterialId
-): [Domain, number][] | OfMaterial[] {
-  const dsm: [Domain, number][] = domains.map((d) => [
+  m: MaterialId,
+): ([TalentDomain, number] | [WeaponDomain, number] | Boss | Enemy)[] {
+  const tds1: [TalentDomain, number][] = talentDomains.map((d) => [
     d,
-    d.materials_by_weekday.indexOf(m),
+    d.materialsByWeekday.indexOf(m as TalentBook),
   ]);
-  const ds = dsm.filter(([, weekday]) => weekday !== -1);
-  if (ds.length) return ds;
+  const tds = tds1.filter(([, weekday]) => weekday !== -1);
+  if (tds.length) return tds;
+
+  const wds1: [WeaponDomain, number][] = weaponDomains.map((d) => [
+    d,
+    d.materialsByWeekday.indexOf(m as WeaponAscension),
+  ]);
+  const wds = wds1.filter(([, weekday]) => weekday !== -1);
+  if (wds.length) return wds;
+
   const bs = bosses.filter((b) => b.materials?.includes(m));
   if (bs.length) return bs;
   return enemies.filter((e) => e.materials?.includes(m));
 }
 
-function byEnemy(enemy: string): Map<Material, OfMaterial[]> {
+function byEnemy(enemy: string): Map<Material, (Character | Weapon)[]> {
   const ms = [...bosses, ...enemies].find((b) => b.id === enemy)?.materials;
-  return ms === undefined
+  return ms == null
     ? new Map()
     : ms.reduce((map, material: MaterialId) => {
         const m = materials2[material as MaterialId];
@@ -220,40 +236,43 @@ function byEnemy(enemy: string): Map<Material, OfMaterial[]> {
           ...filterForMaterial([...characters, ...weapons], material),
         ]);
         return map;
-      }, new Map<Material, OfMaterial[]>());
+      }, new Map<Material, (Character | Weapon)[]>());
 }
 
 export function byDomain(
   domainId: string,
-  weekday: number
-): Map<Material, OfMaterial[]> {
-  const domain = domains.find((d) => d.id === domainId);
-  const material = domain?.materials_by_weekday[weekday];
+  weekday: number,
+): Map<Material, (Character | Weapon)[]> {
+  const domain = [...talentDomains, ...weaponDomains].find(
+    (d) => d.id === domainId,
+  );
+  const material: TalentBook | WeaponAscension | "All" | undefined =
+    domain?.materialsByWeekday[weekday];
   const m = materials.find((m) => m.id === material);
   const map = new Map();
   if (material != null && m != null) {
     map.set(
       m,
       filterForMaterial(
-        domain?.type === TYPE_WEAPON_DOMAIN ? weapons : characters,
-        material
-      )
+        domain?.itemType === TYPE_WEAPON_DOMAIN ? weapons : characters,
+        material,
+      ),
     );
   }
   return map;
 }
 
 function filterForMaterial(
-  objects: OfMaterial[],
-  m: MaterialId | "All"
-): OfMaterial[] {
+  objects: (Character | Weapon)[],
+  m: MaterialId | "All",
+): (Character | Weapon)[] {
   return m === "All" ? [] : objects.filter((o) => o.materials?.includes(m));
 }
 
 const { current, upcoming } = findRecents();
-export function renderLink(id: string, type: ItemType, names: I18nObject) {
+export function renderLink(id: string, itemType: ItemType, names: I18nObject) {
   const classes = [];
-  if (isBookmarked(type, id, 0)) {
+  if (isBookmarked(itemType, id, 0)) {
     classes.push("bookmarked");
   }
   if (current.includes(id)) {
@@ -262,15 +281,22 @@ export function renderLink(id: string, type: ItemType, names: I18nObject) {
   if (upcoming.includes(id)) {
     classes.push("upcoming");
   }
-  return `<a data-id='${id}' data-type='${type}' class="${classes.join(
-    " "
+  return `<a data-id='${id}' data-type='${itemType}' class="${classes.join(
+    " ",
   )}">${formatName(names)}</a>`;
 }
 
 function renderQTableRow(
   materials: Material[],
-  objects: (OfMaterial | [Domain, number])[],
-  currentWeekday: number
+  objects: (
+    | Character
+    | Weapon
+    | [TalentDomain, number]
+    | [WeaponDomain, number]
+    | Boss
+    | Enemy
+  )[],
+  currentWeekday: number,
 ) {
   return `<td>${
     materials.length === 0 ? "" : formatName(materials[0].name)
@@ -282,7 +308,7 @@ function renderQTableRow(
 
 function formatDomainName(name: I18nObject, weekday: number) {
   return `${formatName(name)}<span class="domainWeekday"> / ${formatName(
-    weekdays[weekday]
+    weekdayNames[weekday],
   )}</span>`;
 }
 
@@ -303,66 +329,46 @@ export function formatId(...parts: (string | number)[]) {
 }
 
 function formatArray(
-  es: (OfMaterial | [Domain, number])[],
-  currentWeekday: number
+  es: (
+    | Character
+    | Weapon
+    | [TalentDomain, number]
+    | [WeaponDomain, number]
+    | Boss
+    | Enemy
+  )[],
+  currentWeekday: number,
 ): string {
   const links = es.map((e) => {
     const [obj, weekday] = Array.isArray(e) ? [e[0], e[1]] : [e, 0];
-    switch (obj.type) {
+    switch (obj.itemType) {
       case TYPE_TALENT_DOMAIN:
       case TYPE_WEAPON_DOMAIN:
         return renderDomainLink(obj, weekday, currentWeekday);
       default:
-        return renderLink(obj.id, obj.type, obj.name);
+        if (obj.itemType == null) {
+          console.trace("Missing itemType", obj);
+        }
+        return renderLink(obj.id, obj.itemType, obj.name);
     }
   });
   return links.join(formatName(DELIMITER));
 }
 
 export function renderDomainLink(
-  { id, type, name }: OfMaterial,
+  { id, itemType, name }: BaseItem,
   weekday: number,
-  currentWeekday: number
+  currentWeekday: number,
 ) {
   const classes = [];
-  if (isBookmarked(type, id, weekday)) {
+  if (isBookmarked(itemType, id, weekday)) {
     classes.push("bookmarked");
   }
   if (weekday === currentWeekday) {
     classes.push("current");
   }
-  return `<a data-id='${id}' data-weekday='${weekday}' data-type='${type}' class='${classes.join(
-    " "
+  return `<a data-id='${id}' data-weekday='${weekday}' data-type='${itemType}' class='${classes.join(
+    " ",
   )}'
-  >${formatName(name)} ${formatName(weekdays[weekday])}</a>`;
-}
-
-/**
- * Get current weekday of domain materials at given timezone, assuming no local DST.
- *
- * - Asia/HK, MO, TW/CN: UTC+8
- * - Europe: UTC+1
- * - America: UTC-5
- *
- * @see https://genshin.hoyoverse.com/en/news/detail/6638
- * @returns weekday at specific server timezone, range [0..3]
- */
-export function getWeekday(zone: Timezone) {
-  const now = new Date();
-  const utcHour = now.getUTCHours();
-  const utcDay = now.getUTCDay();
-  const zoneH = utcHour + timezones[zone];
-  // refresh at 4am
-  const zoneDay =
-    ((zoneH > 28 ? utcDay + 1 : zoneH < 4 ? utcDay - 1 : utcDay) + 7) % 7;
-  return zoneDay > 3 ? zoneDay - 3 : zoneDay;
-}
-
-export function getTimezone() {
-  return (localStorage.getItem("timezone") as Timezone) || guessTimezone();
-}
-
-export function guessTimezone(): Timezone {
-  const offset = -new Date().getTimezoneOffset() / 60;
-  return offset < -2 ? "America" : offset < 4.5 ? "Europe" : "Asia";
+  >${formatName(name)} ${formatName(weekdayNames[weekday])}</a>`;
 }

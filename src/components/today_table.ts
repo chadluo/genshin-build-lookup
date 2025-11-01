@@ -1,36 +1,32 @@
+import { byDomain, renderQTableRows } from "../base";
+import { DELIMITER, formatName, type I18nObject } from "../i18n";
+import { talentDomains, weaponDomains } from "../models/enemies";
 import {
-  type Timezone,
-  byDomain,
   getTimezone,
   getWeekday,
-  renderQTableRows,
-} from "../base";
-import { DELIMITER, type I18nObject, formatName, weekdays } from "../i18n";
-import { domains } from "../models/enemies";
+  type Timezone,
+  timezones,
+  weekdayNames,
+} from "../weekdays";
 
 const title: I18nObject = { en: "Today", "zh-CN": "今日" };
 
-const ui: Record<string, I18nObject> = {
+const ui: Record<Timezone, I18nObject> = {
   Asia: { en: "Asia / TW, HK, MO / CN", "zh-CN": "亚服、港澳台服、国服" },
   Europe: { en: "Europe", "zh-CN": "欧服" },
   America: { en: "America", "zh-CN": "美服" },
 };
 
 export class TodayTable extends HTMLElement {
-  constructor() {
-    super();
+  connectedCallback() {
     const day = getWeekday(getTimezone());
     const weekdays = day === 0 ? [1, 2, 3] : [day];
     this.innerHTML = `<details class="section" ${day === 0 ? "" : "open"}>
       <summary>📅 ${formatName(title)}</summary>
-      <div class="timezone-selector">${(
-        ["Asia", "Europe", "America"] as Timezone[]
-      )
+      <div class="timezone-selector">${timezones
         .map(
           (zone) =>
-            `<label><input type="radio" name="timezone" value="${zone}" ${
-              zone === getTimezone() ? "checked" : ""
-            }>${this.formatZoneOption(zone)}</label>`
+            `<label><input type="radio" name="timezone" value="${zone}" ${zone === getTimezone() ? "checked" : ""}>${this.formatZoneOption(zone)}</label>`,
         )
         .join("")}</div>
       <table class="qtable">${this.renderDomains(weekdays)}</table></details>`;
@@ -38,9 +34,7 @@ export class TodayTable extends HTMLElement {
   }
 
   formatZoneOption(zone: Timezone) {
-    return `${this.getTimezoneIcon(zone)} ${formatName(ui[zone])}${formatName(
-      DELIMITER
-    )}${formatName(weekdays[getWeekday(zone)])}`;
+    return `${this.getTimezoneIcon(zone)} ${formatName(ui[zone])}${formatName(DELIMITER)}${formatName(weekdayNames[getWeekday(zone)])}`;
   }
 
   refreshDomains(event: Event) {
@@ -58,11 +52,11 @@ export class TodayTable extends HTMLElement {
   }
 
   renderDomains(weekdays: number[]): string {
-    return domains
+    return [...talentDomains, ...weaponDomains]
       .flatMap((d) =>
         weekdays.map((weekday) =>
-          renderQTableRows(d, byDomain(d.id, weekday), weekday, false)
-        )
+          renderQTableRows(d, byDomain(d.id, weekday), weekday, false),
+        ),
       )
       .join("");
   }

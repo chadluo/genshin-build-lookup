@@ -1,22 +1,25 @@
+import { renderDomainLink, renderLink } from "../base";
+import { hasBookmarks } from "../bookmarks";
+import { DELIMITER, formatName, type I18nObject } from "../i18n";
+import {
+  type Boss,
+  bosses,
+  type Region,
+  talentDomains,
+  weaponDomains,
+} from "../models/enemies";
 import {
   type ItemType,
-  type Region,
   TYPE_BOSS,
   TYPE_TALENT_DOMAIN,
   TYPE_WEAPON_DOMAIN,
   TYPE_WEEKLY_BOSS,
-  getTimezone,
-  getWeekday,
-  renderDomainLink,
-  renderLink,
-} from "../base";
-import { hasBookmarks } from "../bookmarks";
-import { DELIMITER, type I18nObject, formatName } from "../i18n";
-import * as Enemies from "../models/enemies";
+} from "../types";
+import { getTimezone, getWeekday } from "../weekdays";
 
 export const VIEW_ALL = 6;
 
-export const ui: Record<string, I18nObject> = {
+const ui: Record<string, I18nObject> = {
   enemiesAndDomains: { en: "Enemies & Domains", "zh-CN": "秘境讨伐" },
   weeklyBoss: { en: "Weekly Bosses", "zh-CN": "周本" },
   boss: { en: "Bosses", "zh-CN": "首领" },
@@ -36,24 +39,17 @@ const regions: Record<Region, I18nObject> = {
 };
 
 export class EnemiesTable extends HTMLElement {
-  constructor() {
-    super();
-    const weeklyBosses: Map<Region, Enemies.Boss[]> = Map.groupBy(
-      Enemies.bosses.filter((b) => b.type === TYPE_WEEKLY_BOSS),
-      (b) => b.region
+  connectedCallback() {
+    const weeklyBosses: Map<Region, Boss[]> = Map.groupBy(
+      bosses.filter((b) => b.itemType === TYPE_WEEKLY_BOSS),
+      (b) => b.region,
     );
     const weeklyBossKeys = Array.from(weeklyBosses.keys());
-    const bosses: Map<Region, Enemies.Boss[]> = Map.groupBy(
-      Enemies.bosses.filter((b) => b.type === TYPE_BOSS),
-      ({ region }) => region
+    const groupedBosses: Map<Region, Boss[]> = Map.groupBy(
+      bosses.filter((b) => b.itemType === TYPE_BOSS),
+      ({ region }) => region,
     );
-    const bossKeys = Array.from(bosses.keys());
-    const talentDomains = Enemies.domains.filter(
-      (d) => d.type === TYPE_TALENT_DOMAIN
-    );
-    const weaponDomains = Enemies.domains.filter(
-      (d) => d.type === TYPE_WEAPON_DOMAIN
-    );
+    const bossKeys = Array.from(groupedBosses.keys());
 
     this.innerHTML = `<details class="section" ${hasBookmarks() ? "" : "open"}>
     <summary>🌱 ${formatName(ui.enemiesAndDomains)}</summary>
@@ -62,7 +58,7 @@ export class EnemiesTable extends HTMLElement {
       <th rowspan="${weeklyBossKeys.length}">${formatName(ui.weeklyBoss)}</th>
       ${this.formatBossesForRegion(
         regions[weeklyBossKeys[0]],
-        weeklyBosses.get(weeklyBossKeys[0])
+        weeklyBosses.get(weeklyBossKeys[0]),
       )}
     </tr>
     ${weeklyBossKeys
@@ -71,22 +67,22 @@ export class EnemiesTable extends HTMLElement {
         (k) =>
           `<tr>${this.formatBossesForRegion(
             regions[k],
-            weeklyBosses.get(k)
-          )}</tr>`
+            weeklyBosses.get(k),
+          )}</tr>`,
       )
       .join("")}
     <tr><th rowspan="${bossKeys.length}">${formatName(ui.boss)}</th>
-    ${this.formatBossesForRegion(regions[bossKeys[0]], bosses.get(bossKeys[0]))}
+    ${this.formatBossesForRegion(regions[bossKeys[0]], groupedBosses.get(bossKeys[0]))}
     </tr>
     ${bossKeys
       .slice(1)
       .map(
         (k) =>
-          `<tr>${this.formatBossesForRegion(regions[k], bosses.get(k))}</tr>`
+          `<tr>${this.formatBossesForRegion(regions[k], groupedBosses.get(k))}</tr>`,
       )
       .join("")}
     <tr><th rowspan="${talentDomains.length}">${formatName(
-      ui.talentDomain
+      ui.talentDomain,
     )}</th>
       ${this.formatDomain(talentDomains[0].id, TYPE_TALENT_DOMAIN)}</tr>
     ${talentDomains
@@ -94,7 +90,7 @@ export class EnemiesTable extends HTMLElement {
       .map((d) => `<tr>${this.formatDomain(d.id, TYPE_TALENT_DOMAIN)}</tr>`)
       .join("")}
     <tr><th rowspan="${weaponDomains.length}">${formatName(
-      ui.weaponDomain
+      ui.weaponDomain,
     )}</th>
     ${this.formatDomain(weaponDomains[0].id, TYPE_WEAPON_DOMAIN)}</tr>
     ${weaponDomains
@@ -106,22 +102,26 @@ export class EnemiesTable extends HTMLElement {
   /**
    * Return structure: td*2
    */
-  formatBossesForRegion(region: I18nObject, bosses?: Enemies.Boss[]) {
+  formatBossesForRegion(region: I18nObject, bosses?: Boss[]) {
     return `<td>${formatName(region)}</td><td>${bosses
       ?.map((boss) => renderLink(boss.id, TYPE_WEEKLY_BOSS, boss?.name))
       .join(formatName(DELIMITER))}</td>`;
   }
 
-  formatDomain(id: string, type: ItemType) {
-    const name = Enemies.domains.filter((d) => d.id === id)[0]?.name;
+  formatDomain(id: string, itemType: ItemType) {
+    const name = [...talentDomains, ...weaponDomains].filter(
+      (d) => d.id === id,
+    )[0]?.name;
     const currentWeekday = getWeekday(getTimezone());
     const plainWeekdays = [1, 2, 3]
-      .map((i) => renderDomainLink({ id, type, name: name }, i, currentWeekday))
+      .map((i) =>
+        renderDomainLink({ id, itemType, name: name }, i, currentWeekday),
+      )
       .join(formatName(DELIMITER));
     return `<td>${formatName(name)}</td><td>${plainWeekdays}${formatName(
-      DELIMITER
-    )}<a data-id="${id}" data-weekday="${VIEW_ALL}" data-type="${type}">${formatName(
-      ui.showAll
+      DELIMITER,
+    )}<a data-id="${id}" data-weekday="${VIEW_ALL}" data-type="${itemType}">${formatName(
+      ui.showAll,
     )}</a></td>`;
   }
 }

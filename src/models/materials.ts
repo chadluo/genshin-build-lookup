@@ -1584,7 +1584,7 @@ const fishingMaterials: Record<Fishing, Material> = {
     {
       en: "Maintenance Mek: Platinum Collection",
       "zh-CN": "维护机关・白金典藏型",
-    }
+    },
   ),
   "Rippling Heartfeather Bass": fishing("Rippling Heartfeather Bass", {
     en: "Rippling Heartfeather Bass",

@@ -1,14 +1,7 @@
+import { formatId, renderQTableContent } from "./base";
 import {
-  formatId,
-  type ItemType,
-  type OfMaterial,
-  renderQTableContent,
-  TYPE_CHARACTER,
-  TYPE_WEAPON,
-} from "./base";
-import {
-  bookmark,
   BOOKMARK_KEY,
+  bookmark,
   unbookmark,
   updateBookmark,
 } from "./bookmarks";
@@ -22,6 +15,7 @@ import { siteTitle, supportedLanguageSelectors } from "./i18n";
 import { characters } from "./models/characters";
 import { weapons } from "./models/weapons";
 import "./style.css";
+import { type ItemType, TYPE_CHARACTER, TYPE_WEAPON } from "./types";
 
 const selectors = document.getElementById("selectors");
 const output = document.getElementById("output-table");
@@ -48,10 +42,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
   if (output != null)
     for (const record of JSON.parse(
-      localStorage.getItem(BOOKMARK_KEY) ?? "[]"
+      localStorage.getItem(BOOKMARK_KEY) ?? "[]",
     )) {
-      const [type, id, weekday]: [ItemType, string, number] = record;
-      output.innerHTML += renderQTableContent(type, id, weekday);
+      const [itemType, id, weekday]: [ItemType, string, number] = record;
+      output.innerHTML += renderQTableContent(itemType, id, weekday);
     }
 
   for (const element of Array.from(document.querySelectorAll(".qtable"))) {
@@ -62,10 +56,12 @@ window.addEventListener("DOMContentLoaded", () => {
     localStorage.getItem("theme") ??
       (window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "theme-dark"
-        : "theme-light")
+        : "theme-light"),
   ) as HTMLInputElement;
   option.checked = true;
   document.documentElement.style.setProperty("--theme", option.value);
+
+  console.log({ characters });
 });
 
 /* nav */
@@ -75,7 +71,7 @@ document.querySelector("nav .links")?.addEventListener("click", (event) => {
   if (!link || link.tagName !== "A") return;
   const target = document.getElementById(link.dataset.target ?? "");
   const details = target?.querySelector(
-    "details.section"
+    "details.section",
   ) as HTMLDetailsElement;
   if (details) details.open = true;
   target?.scrollIntoView();
@@ -84,7 +80,7 @@ document.querySelector("nav .links")?.addEventListener("click", (event) => {
 /* language selector */
 
 langSelect?.addEventListener("change", (event) =>
-  setLanguage((event.target as HTMLSelectElement).value as SupportedLanguages)
+  setLanguage((event.target as HTMLSelectElement).value as SupportedLanguages),
 );
 
 function setLanguage(lang: SupportedLanguages) {
@@ -98,9 +94,7 @@ function setLanguage(lang: SupportedLanguages) {
 function setSearchItems(lang: SupportedLanguages) {
   const searchItems = document.getElementById("searchItems");
   if (searchItems != null) {
-    searchItems.innerHTML = ([] as OfMaterial[])
-      .concat(characters)
-      .concat(weapons)
+    searchItems.innerHTML = [...characters, ...weapons]
       .sort((w1, w2) => w1.id.localeCompare(w2.id))
       .map((w) => `<option value="${w.id}">${w.name[lang] as string}</option>`)
       .join("");
@@ -111,7 +105,7 @@ function setSearchItems(lang: SupportedLanguages) {
 
 function findOrLoadQTable(event: Event) {
   const a = (event.composedPath() as HTMLElement[]).find(
-    (e) => e.tagName === "A"
+    (e) => e.tagName === "A",
   );
   if (!a) return;
   const { id, weekday, type } = a.dataset;
@@ -125,7 +119,7 @@ function findOrLoadQTable(event: Event) {
   }
 }
 
-function findOrLoadQTable2(type: ItemType, id: string, weekday: number) {
+function findOrLoadQTable2(itemType: ItemType, id: string, weekday: number) {
   for (const element of Array.from(document.querySelectorAll(".highlighted"))) {
     (element as HTMLElement).classList.remove("highlighted");
   }
@@ -133,14 +127,14 @@ function findOrLoadQTable2(type: ItemType, id: string, weekday: number) {
     return;
   }
   const existed = output.querySelector(
-    `tbody[name="${formatId(type, id, weekday)}"]`
+    `tbody[name="${formatId(itemType, id, weekday)}"]`,
   );
   if (!existed) {
-    output.innerHTML += renderQTableContent(type, id, weekday);
+    output.innerHTML += renderQTableContent(itemType, id, weekday);
     const rows = output.querySelectorAll("th");
     rows[rows.length - 1].scrollIntoView();
     if (weekday !== VIEW_ALL) {
-      bookmark(type as ItemType, id, weekday);
+      bookmark(itemType as ItemType, id, weekday);
     }
   } else {
     existed.classList.add("highlighted");
@@ -163,7 +157,7 @@ document
       findOrLoadQTable2(
         characters.some((c) => c.id === id) ? TYPE_CHARACTER : TYPE_WEAPON,
         id,
-        0
+        0,
       );
     }
   });
@@ -180,7 +174,7 @@ output?.addEventListener("change", updateBookmark);
 window.addEventListener("keydown", (event) => {
   if (
     ["INPUT", "SELECT", "TEXTAREA"].includes(
-      (event.target as HTMLElement)?.tagName
+      (event.target as HTMLElement)?.tagName,
     ) ||
     event.ctrlKey ||
     event.altKey ||
@@ -189,7 +183,7 @@ window.addEventListener("keydown", (event) => {
     return;
   }
   const searchInput = document.querySelector(
-    ".search input"
+    ".search input",
   ) as HTMLInputElement;
   switch (event.code) {
     case "Slash":
@@ -220,7 +214,7 @@ document
   ?.addEventListener("change", (event) => {
     output?.classList.toggle(
       "show-gems",
-      (event.target as HTMLInputElement)?.checked
+      (event.target as HTMLInputElement)?.checked,
     );
     document.body.classList.remove("smooth");
     window.scrollTo(0, document.body.scrollHeight);
@@ -232,7 +226,7 @@ document
   ?.addEventListener("change", (event) => {
     output?.classList.toggle(
       "show-billets",
-      (event.target as HTMLInputElement)?.checked
+      (event.target as HTMLInputElement)?.checked,
     );
     document.body.classList.remove("smooth");
     window.scrollTo(0, document.body.scrollHeight);
@@ -243,7 +237,7 @@ document
   .querySelector("input#show-alternatives")
   ?.addEventListener("change", (event) => {
     const alternativeDetails: HTMLElement[] = Array.from(
-      document.querySelectorAll("details.alternative")
+      document.querySelectorAll("details.alternative"),
     );
     if ((event.target as HTMLInputElement)?.checked) {
       for (const e of alternativeDetails) {

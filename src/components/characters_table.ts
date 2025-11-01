@@ -1,13 +1,12 @@
-import { TYPE_CHARACTER, renderLink } from "../base";
+import { renderLink } from "../base";
 import { hasBookmarks } from "../bookmarks";
-import { DELIMITER, type I18nObject, formatName } from "../i18n";
+import { DELIMITER, formatName, type I18nObject } from "../i18n";
 import { type Character, characters } from "../models/characters";
 
 const title: I18nObject = { en: "Characters", "zh-CN": "角色" };
 
 export class CharactersTable extends HTMLElement {
-  constructor() {
-    super();
+  connectedCallback() {
     const byRarity = Map.groupBy(characters, ({ rarity }) => rarity);
     const rarities = Array.from(byRarity.keys()).sort().reverse();
     this.innerHTML = `<details class="section" ${hasBookmarks() ? "" : "open"}>
@@ -22,7 +21,7 @@ export class CharactersTable extends HTMLElement {
     return `<tr><th>${"⭐".repeat(rarity)}</th>
       <td>${byRarity
         .get(rarity)
-        ?.map((c) => renderLink(c.id, TYPE_CHARACTER, c.name))
+        ?.map((c) => renderLink(c.id, c.itemType, c.name))
         .join(formatName(DELIMITER))}</td></tr>`;
   }
 }

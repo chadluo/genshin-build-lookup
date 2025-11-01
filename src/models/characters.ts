@@ -1,5 +1,5 @@
-import { type OfMaterial, TYPE_CHARACTER } from "../base";
 import type { I18nObject } from "../i18n";
+import { type BaseItem, TYPE_CHARACTER } from "../types";
 import type {
   CharacterAscension,
   Common,
@@ -9,33 +9,32 @@ import type {
   TalentMaterial,
 } from "./materials";
 
-export type Character = OfMaterial & {
-  type: typeof TYPE_CHARACTER;
+export type CharacterMaterial = [
+  CharacterAscension,
+  Gem,
+  TalentMaterial,
+  TalentBook,
+  Common,
+  LocalSpeciality,
+];
+export type Character = BaseItem & {
+  itemType: typeof TYPE_CHARACTER;
   rarity: 4 | 5;
-  materials?: [
-    CharacterAscension,
-    Gem,
-    TalentMaterial,
-    TalentBook,
-    Common,
-    LocalSpeciality
-  ];
+  materials?: CharacterMaterial;
 };
 
-function character(
+const character: (
   id: string,
   rarity: Character["rarity"],
   name: I18nObject,
-  materials?: Character["materials"]
-): Character {
-  return {
-    type: TYPE_CHARACTER,
-    id,
-    name,
-    rarity,
-    materials,
-  };
-}
+  materials?: Character["materials"],
+) => Character = (id, rarity, name, materials) => ({
+  itemType: TYPE_CHARACTER,
+  id,
+  name,
+  rarity,
+  materials,
+});
 
 export const characters: Character[] = [
   character("Aino", 4, { en: "Aino", "zh-CN": "爱诺" }, [
@@ -393,7 +392,7 @@ export const characters: Character[] = [
       "Diligence",
       "Treasure Hoarder Insignia",
       "Sea Ganoderma",
-    ]
+    ],
   ),
   character("Kaeya", 4, { en: "Kaeya", "zh-CN": "凯亚" }, [
     "Hoarfrost Core",
@@ -414,7 +413,7 @@ export const characters: Character[] = [
       "Elegance",
       "Old Handguard",
       "Sakura Bloom",
-    ]
+    ],
   ),
   character(
     "Kamisato Ayato",
@@ -427,7 +426,7 @@ export const characters: Character[] = [
       "Elegance",
       "Old Handguard",
       "Sakura Bloom",
-    ]
+    ],
   ),
   character("Kaveh", 4, { en: "Kaveh", "zh-CN": "卡维" }, [
     "Quelled Creeper",
@@ -672,7 +671,7 @@ export const characters: Character[] = [
       "Transience",
       "Spectral Husk",
       "Sango Pearl",
-    ]
+    ],
   ),
   character("Sayu", 4, { en: "Sayu", "zh-CN": "早柚" }, [
     "Marionette Core",
@@ -709,7 +708,7 @@ export const characters: Character[] = [
       "Transience",
       "Treasure Hoarder Insignia",
       "Onikabuto",
-    ]
+    ],
   ),
   character("Sigewinne", 5, { en: "Sigewinne", "zh-CN": "希格雯" }, [
     "Water That Failed To Transcend",
@@ -890,7 +889,7 @@ export const characters: Character[] = [
       "Transience",
       "Old Handguard",
       "Sea Ganoderma",
-    ]
+    ],
   ),
   character("Yun Jin", 4, { en: "Yun Jin", "zh-CN": "云堇" }, [
     "Riftborn Regalia",

@@ -1,15 +1,17 @@
-import { type ItemType, TYPE_TALENT_DOMAIN, TYPE_WEAPON_DOMAIN } from "./base";
+import { type ItemType, TYPE_TALENT_DOMAIN, TYPE_WEAPON_DOMAIN } from "./types";
 
 type Bookmark = [ItemType, string, number];
 
 export const BOOKMARK_KEY = "bookmarks";
 
 const bookmarks: Bookmark[] = JSON.parse(
-  localStorage.getItem(BOOKMARK_KEY) ?? "[]"
+  localStorage.getItem(BOOKMARK_KEY) ?? "[]",
 ) as Bookmark[];
 
-export function isBookmarked(type: ItemType, id: string, weekday: number) {
-  return bookmarks.some((bookmark) => eq(bookmark, [type, id, weekday ?? 0]));
+export function isBookmarked(itemType: ItemType, id: string, weekday: number) {
+  return bookmarks.some((bookmark) =>
+    eq(bookmark, [itemType, id, weekday ?? 0]),
+  );
 }
 
 function eq(item1: Bookmark, item2: Bookmark) {
@@ -21,48 +23,48 @@ function eq(item1: Bookmark, item2: Bookmark) {
 export function updateBookmark(event: Event) {
   const input = event.target as HTMLInputElement;
   if (!input || input.tagName !== "INPUT") return;
-  const type = input.dataset.type as ItemType;
+  const itemType = input.dataset.type as ItemType;
   const id = input.dataset.id;
-  if (!type || !id) return;
-  const weekday = Number.parseInt(input.dataset.weekday ?? "0");
+  if (!itemType || !id) return;
+  const weekday = Number.parseInt(input.dataset.weekday ?? "0", 10);
   if (input.checked) {
-    bookmark(type, id, weekday);
+    bookmark(itemType, id, weekday);
   } else {
-    unbookmark(type, id, weekday);
+    unbookmark(itemType, id, weekday);
   }
 }
 
-export function bookmark(type: ItemType, id: string, weekday: number) {
+export function bookmark(itemType: ItemType, id: string, weekday: number) {
   const index = bookmarks.findIndex((bookmark) =>
-    eq(bookmark, [type, id, weekday])
+    eq(bookmark, [itemType, id, weekday]),
   );
   if (index === -1) {
     for (const e of Array.from(
       document.querySelectorAll(
-        type === TYPE_TALENT_DOMAIN || type === TYPE_WEAPON_DOMAIN
+        itemType === TYPE_TALENT_DOMAIN || itemType === TYPE_WEAPON_DOMAIN
           ? `a[data-id="${id}"][data-weekday="${weekday}"]`
-          : `a[data-id="${id}"]`
-      )
+          : `a[data-id="${id}"]`,
+      ),
     )) {
       e.classList.add("bookmarked");
     }
-    bookmarks.push([type, id, weekday]);
+    bookmarks.push([itemType, id, weekday]);
     localStorage.setItem(BOOKMARK_KEY, JSON.stringify(bookmarks));
   }
   return bookmarks;
 }
 
-export function unbookmark(type: ItemType, id: string, weekday: number) {
+export function unbookmark(itemType: ItemType, id: string, weekday: number) {
   const index = bookmarks.findIndex((bookmark) =>
-    eq(bookmark, [type, id, weekday])
+    eq(bookmark, [itemType, id, weekday]),
   );
   if (index !== -1) {
     for (const e of Array.from(
       document.querySelectorAll(
-        type === TYPE_TALENT_DOMAIN || type === TYPE_WEAPON_DOMAIN
+        itemType === TYPE_TALENT_DOMAIN || itemType === TYPE_WEAPON_DOMAIN
           ? `a[data-id="${id}"][data-weekday="${weekday}"]`
-          : `a[data-id="${id}"]`
-      )
+          : `a[data-id="${id}"]`,
+      ),
     )) {
       e.classList.remove("bookmarked");
     }
