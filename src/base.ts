@@ -5,8 +5,8 @@ import { type Character, characters } from "./models/characters";
 import {
   type Boss,
   bosses,
-  type Enemy,
   enemies,
+  type Enemy,
   type TalentDomain,
   talentDomains,
   type WeaponDomain,
@@ -224,10 +224,11 @@ function findEnemiesForMaterial(
 
 function byEnemy(enemy: string): Map<Material, (Character | Weapon)[]> {
   const ms = [...bosses, ...enemies].find((b) => b.id === enemy)?.materials;
+  const result = new Map<Material, (Character | Weapon)[]>();
   return ms == null
-    ? new Map()
-    : ms.reduce((map, material: MaterialId) => {
-        const m = materials2[material as MaterialId];
+    ? result
+    : ms.reduce((map, material) => {
+        const m = materials2[material];
         if (m == null) {
           return map;
         }
@@ -236,7 +237,7 @@ function byEnemy(enemy: string): Map<Material, (Character | Weapon)[]> {
           ...filterForMaterial([...characters, ...weapons], material),
         ]);
         return map;
-      }, new Map<Material, (Character | Weapon)[]>());
+      }, result);
 }
 
 export function byDomain(
@@ -266,7 +267,9 @@ function filterForMaterial(
   objects: (Character | Weapon)[],
   m: MaterialId | "All",
 ): (Character | Weapon)[] {
-  return m === "All" ? [] : objects.filter((o) => o.materials?.includes(m));
+  return m === "All"
+    ? []
+    : objects.filter((o) => (o.materials as string[])?.includes(m));
 }
 
 const { current, upcoming } = findRecents();

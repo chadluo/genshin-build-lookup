@@ -27,7 +27,7 @@ function weapon(
   rarity: Weapon["rarity"],
   category: Category,
   name: I18nObject,
-  materials?: Weapon["materials"],
+  materials?: WeaponMaterial,
 ): Weapon {
   return { id, name, rarity, category, materials, itemType: "weapon" };
 }

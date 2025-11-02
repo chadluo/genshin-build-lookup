@@ -60,8 +60,6 @@ window.addEventListener("DOMContentLoaded", () => {
   ) as HTMLInputElement;
   option.checked = true;
   document.documentElement.style.setProperty("--theme", option.value);
-
-  console.log({ characters });
 });
 
 /* nav */
