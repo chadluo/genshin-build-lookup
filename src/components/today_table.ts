@@ -62,7 +62,6 @@ export class TodayTable extends HTMLElement {
   }
 
   getTimezoneIcon(zone: Timezone) {
-    // prettier-ignore
     switch (zone) {
       case "Asia":
         return "🌏";

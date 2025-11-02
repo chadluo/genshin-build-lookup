@@ -1,3 +1,4 @@
+/* #region base */
 :root {
   --g: 0.5rem;
 
@@ -80,7 +81,9 @@
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font: calc(var(--g) * 2) / calc(var(--g) * 3) "Noto Sans", sans-serif;
+  font:
+    calc(var(--g) * 2) / calc(var(--g) * 3) "Noto Sans",
+    sans-serif;
   margin: 0;
 }
 
@@ -131,14 +134,16 @@ a:hover {
   }
 }
 
-/* i18n */
+/*#endregion base */
+
+/* #region i18n */
 
 .i18n {
   display: none;
 }
 html:lang(en) .i18n:lang(en),
 html:lang(zh-CN) .i18n:lang(zh-CN) {
-  display: inline-block;
+  display: initial;
 }
 
 :lang(zh-CN) {
@@ -151,7 +156,9 @@ em:lang(zh-CN) {
   font-weight: bold;
 }
 
-/* navbar */
+/*#endregion i18n */
+
+/* #region nav */
 
 nav {
   --height: calc(var(--g) * 8);
@@ -168,13 +175,8 @@ nav {
 nav .container {
   display: flex;
 }
-nav .lang-select-dropdown {
-  flex-grow: 1;
-}
 nav .links {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  flex-grow: 1;
 }
 nav .search input {
   transition: all 0.2s ease-out;
@@ -185,10 +187,6 @@ nav .search input::-webkit-calendar-picker-indicator {
 nav a {
   text-decoration: none;
   padding: 0.5em;
-}
-#lang-select,
-input[list="searchItems"] {
-  padding: 0.25em 0.2em;
 }
 
 @media screen and (max-width: 800px) {
@@ -208,14 +206,9 @@ input[list="searchItems"] {
   }
 }
 
-input[type="radio"],
-input[type="checkbox"] {
-  margin: calc(0.2rem + var(--g) * 0.5) 0.25rem 0 0;
-  width: 0.8rem;
-  height: 0.8rem;
-}
+/* #endregion nav */
 
-/* tables */
+/* #region tables */
 
 nav + div {
   margin-top: calc(var(--g) * 10);
@@ -267,11 +260,16 @@ summary:hover {
 .highlighted {
   animation: 1s highlight;
 }
-/* prettier-ignore */
 @keyframes highlight {
-  from { background: #ffd; }
-  50%  { background: #ffd; }
-  to   { background: none; }
+  from {
+    background: #ffd;
+  }
+  50% {
+    background: #ffd;
+  }
+  to {
+    background: none;
+  }
 }
 
 table {
@@ -317,7 +315,7 @@ th span {
   th,
   td {
     display: inline-block;
-    width: 100% !important;
+    width: 100%;
     padding: 0.5em 0;
   }
   tr th:first-child {
@@ -362,22 +360,31 @@ details.alternative[open] summary {
   font-weight: normal;
 }
 
-/* ******************** Footers ******************** */
+/* #endregion tables */
+
+/* #region footer */
 
 footer {
   margin: calc(var(--g) * 6) 0;
+  display: flex;
+  gap: var(--g);
+  flex-direction: column;
 }
 
 @media screen and (min-width: 801px) {
   footer {
-    display: flex;
+    flex-direction: row;
+    gap: calc(var(--g) * 2);
   }
   .switches {
-    flex: 0 0 40%;
+    flex: 3 3 30%;
     margin-bottom: calc(var(--g) * 2);
   }
+  .settings {
+    flex: 3 3 30%;
+  }
   .declarations {
-    flex: 0 0 60%;
+    flex: 4 4 40%;
     text-align: right;
   }
   .declarations ruby > rt {
@@ -388,19 +395,25 @@ footer {
   }
 }
 
+footer label {
+  display: block;
+}
+
+footer kbd {
+  font-family: monospace;
+  background-color: var(--kbd-background);
+  margin-left: 0.5em;
+  padding: 0 0.25em;
+}
+
 .themeSelector {
   display: flex;
   gap: 1em;
 }
 
-.switches label {
-  display: block;
-  height: calc(var(--g) * 3);
+#lang-select,
+input[list="searchItems"] {
+  padding: 0.25em 0.2em;
 }
 
-footer kbd {
-  font-family: "Courier Prime", monospace !important;
-  background-color: var(--kbd-background);
-  margin-left: 0.5em;
-  padding: 0 0.25em;
-}
+/* #endregion footer */
