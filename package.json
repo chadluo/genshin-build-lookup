@@ -5,7 +5,7 @@
   "scripts": {
     "build": "webpack",
     "serve": "webpack serve --open --mode=development",
-    "test": "playwright test"
+    "test": "playwright install && playwright test"
   },
   "repository": {
     "type": "git",

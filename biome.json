@@ -12,7 +12,7 @@
   },
   "json": {
     "formatter": {
-      "trailingCommas": "all"
+      "trailingCommas": "none"
     },
     "parser": {
       "allowTrailingCommas": true

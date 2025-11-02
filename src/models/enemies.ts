@@ -13,10 +13,6 @@ import {
   type WeaponAscension,
 } from "./materials";
 
-/* export type Domain = OfMaterial & {
-  materialsByWeekday: ("All" | TalentBook | WeaponAscension)[];
-}; */
-
 export type Region =
   | "Mondstadt"
   | "Liyue"
