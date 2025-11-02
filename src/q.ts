@@ -196,7 +196,7 @@ window.addEventListener("keydown", (event) => {
       return;
     case "KeyF":
       (
-        document.querySelector("input#show-billets") as HTMLInputElement
+        document.querySelector("input#show-forging-fishing") as HTMLInputElement
       )?.click();
       return;
     case "KeyA":
@@ -220,10 +220,10 @@ document
   });
 
 document
-  .querySelector("input#show-billets")
+  .querySelector("input#show-forging-fishing")
   ?.addEventListener("change", (event) => {
     output?.classList.toggle(
-      "show-billets",
+      "show-forging-fishing",
       (event.target as HTMLInputElement)?.checked,
     );
     document.body.classList.remove("smooth");

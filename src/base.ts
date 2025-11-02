@@ -315,7 +315,13 @@ function formatDomainName(name: I18nObject, weekday: number) {
 }
 
 function formatMaterialType(m: Material) {
-  return "forging" in m ? "class='billet'" : "gem" in m ? "class='gem'" : "";
+  return "forging" in m
+    ? "class='forging'"
+    : "fishing" in m
+      ? "class='fishing'"
+      : "gem" in m
+        ? "class='gem'"
+        : "";
 }
 
 /**

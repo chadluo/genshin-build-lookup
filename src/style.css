@@ -339,12 +339,14 @@ th span {
 }
 
 .gem,
-.billet {
+.forging,
+.fishing {
   display: none;
 }
 
 .show-gems .gem,
-.show-billets .billet {
+.show-forging-fishing .forging,
+.show-forging-fishing .fishing {
   display: table-row;
 }
 
