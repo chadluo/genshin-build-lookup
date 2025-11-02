@@ -3,13 +3,13 @@ import type { I18nObject } from "../i18n";
 export type Material = { name: I18nObject } & (
   | {
       id:
-        | Common
         | CharacterAscension
+        | Common
+        | Elite
+        | LocalSpeciality
         | TalentBook
         | TalentMaterial
-        | LocalSpeciality
-        | WeaponAscension
-        | Elite;
+        | WeaponAscension;
     }
   | { id: Forging; forging: true }
   | { id: Fishing; fishing: true }
@@ -17,16 +17,16 @@ export type Material = { name: I18nObject } & (
 );
 
 export type MaterialId =
-  | Gem
-  | Common
   | CharacterAscension
+  | Common
+  | Elite
+  | Fishing
+  | Forging
+  | Gem
+  | LocalSpeciality
   | TalentBook
   | TalentMaterial
-  | LocalSpeciality
-  | WeaponAscension
-  | Elite
-  | Forging
-  | Fishing;
+  | WeaponAscension;
 
 const commons = {
   "Slime Condensate": {
@@ -1605,20 +1605,7 @@ const fishingMaterials: Record<Fishing, Material> = {
 
 //#endregion Fishing
 
-export const materials: readonly Material[] = [
-  ...Object.values(commons),
-  ...Object.values(elites),
-  ...Object.values(localSpecialities),
-  ...Object.values(gems),
-  ...Object.values(characterAscensions),
-  ...Object.values(talentBooks),
-  ...Object.values(talentMaterials),
-  ...Object.values(weaponAscensions),
-  ...Object.values(forgingMaterials),
-  ...Object.values(fishingMaterials),
-] as const;
-
-export const materials2: Record<Material["id"], Material> = {
+export const materials: Record<MaterialId, Material> = {
   ...commons,
   ...elites,
   ...localSpecialities,

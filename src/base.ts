@@ -16,7 +16,6 @@ import {
   type Material,
   type MaterialId,
   materials,
-  materials2,
   type TalentBook,
   type WeaponAscension,
 } from "./models/materials";
@@ -179,7 +178,7 @@ function byMaterials(ms: MaterialId[] | undefined): EnemyByMaterialMap {
   return ms == null
     ? map
     : ms.reduce((map, m: MaterialId) => {
-        const material = materials2[m];
+        const material = materials[m];
         if (!material) {
           console.error("Material not found", m);
           return map;
@@ -228,7 +227,7 @@ function byEnemy(enemy: string): Map<Material, (Character | Weapon)[]> {
   return ms == null
     ? result
     : ms.reduce((map, material) => {
-        const m = materials2[material];
+        const m = materials[material];
         if (m == null) {
           return map;
         }
@@ -249,7 +248,7 @@ export function byDomain(
   );
   const material: TalentBook | WeaponAscension | "All" | undefined =
     domain?.materialsByWeekday[weekday];
-  const m = materials.find((m) => m.id === material);
+  const m = material != null && material !== "All" ? materials[material] : null;
   const map = new Map();
   if (material != null && m != null) {
     map.set(
