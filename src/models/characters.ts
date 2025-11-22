@@ -245,6 +245,7 @@ export const characters: Character[] = [
     "Faded Red Satin",
     "Kalpalata Lotus",
   ]),
+  character("Durin", 5, { en: "Durin", "zh-CN": "杜林" }),
   character("Emilie", 5, { en: "Emilie", "zh-CN": "艾梅莉埃" }, [
     "Fragment of a Golden Melody",
     "Nagadus Emerald",
@@ -365,6 +366,7 @@ export const characters: Character[] = [
     "Sentry’s Wooden Whistle",
     "Glowing Hornshroom",
   ]),
+  character("Jahoda", 4, { en: "Jahoda", "zh-CN": "雅珂达" }),
   character("Jean", 5, { en: "Jean", "zh-CN": "琴" }, [
     "Hurricane Seed",
     "Vayuda Turquoise",

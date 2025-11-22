@@ -1,10 +1,5 @@
 const versions: { version: string; start: number; items: string[] }[] = [
   {
-    version: "5.8",
-    start: new Date("2025-07-30").getTime(),
-    items: ["Ineffa", "Fractured Halo", "Flame-Forged Insight"],
-  },
-  {
     version: "Luna I",
     start: new Date("2025-09-10").getTime(),
     items: [
@@ -31,7 +26,13 @@ const versions: { version: string; start: number; items: string[] }[] = [
       "Sacrificer’s Staff",
       "Dawning Frost",
     ],
-  },
+  }, {
+    version: "Luna III", start: new Date("2025-12-03").getTime(),
+    items: [
+      "Durin", "Jahoda", "The Daybreak Chronicles", "Athame Artis",
+      "Rainbow Serpent’s Rain Bow"
+    ]
+  }
 ];
 
 export function findRecents() {

@@ -115,6 +115,7 @@ export const weapons: Weapon[] = [
       "Sentry’s Wooden Whistle",
     ],
   ),
+  weapon("The Daybreak Chronicles", 5, "Bow", { en: "The Daybreak Chronicles", "zh-CN": "黎明破晓之史" }),
   //
   // Newline - bow 5
   //
@@ -553,6 +554,7 @@ export const weapons: Weapon[] = [
     "Refractive Bud",
     "Sentry’s Wooden Whistle",
   ]),
+  weapon("Athame Artis", 5, "Sword", { en: "Athame Artis", "zh-CN": "黑蚀" }),
   //
   // Newline - sword 5
   //
@@ -790,6 +792,9 @@ export const weapons: Weapon[] = [
     "Mistshroud Manifestation",
     "Firm Arrowhead",
   ]),
+  weapon("Rainbow Serpent’s Rain Bow", 4, "Bow",
+    { en: "Rainbow Serpent’s Rain Bow", "zh-CN": "虹蛇的雨弦" }
+  ),
   //
   // Newline - bow 4
   //
