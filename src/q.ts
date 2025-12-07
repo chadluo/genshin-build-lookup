@@ -54,9 +54,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const option = document.getElementById(
     localStorage.getItem("theme") ??
-      (window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "theme-dark"
-        : "theme-light"),
+    (window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "theme-dark"
+      : "theme-light"),
   ) as HTMLInputElement;
   option.checked = true;
   document.documentElement.style.setProperty("--theme", option.value);
@@ -253,8 +253,10 @@ document
 
 /* theme */
 
-document.querySelector(".themeSelector")?.addEventListener("input", (event) => {
-  const option = event.target as HTMLInputElement;
-  document.documentElement.style.setProperty("--theme", option.value);
-  localStorage.setItem("theme", option.id);
-});
+document
+  .querySelector(".theme-selector")
+  ?.addEventListener("input", (event) => {
+    const option = event.target as HTMLInputElement;
+    document.documentElement.style.setProperty("--theme", option.value);
+    localStorage.setItem("theme", option.id);
+  });
