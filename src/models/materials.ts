@@ -2,15 +2,15 @@ import type { I18nObject } from "../i18n";
 
 export type Material = { name: I18nObject } & (
   | {
-      id:
-        | CharacterAscension
-        | Common
-        | Elite
-        | LocalSpeciality
-        | TalentBook
-        | TalentMaterial
-        | WeaponAscension;
-    }
+    id:
+    | CharacterAscension
+    | Common
+    | Elite
+    | LocalSpeciality
+    | TalentBook
+    | TalentMaterial
+    | WeaponAscension;
+  }
   | { id: Forging; forging: true }
   | { id: Fishing; fishing: true }
   | { id: Gem; gem: true }
@@ -833,6 +833,13 @@ const characterAscensions = {
   "Radiant Antler": {
     id: "Radiant Antler",
     name: { en: "Radiant Antler", "zh-CN": "漫光的辉角" },
+  },
+  "Cyclic Military Kuuvahki Core": {
+    id: "Cyclic Military Kuuvahki Core",
+    name: {
+      en: "Cyclic Military Kuuvahki Core",
+      "zh-CN": "循环式军用月矩核心",
+    },
   },
   //
   // Newline - character ascension

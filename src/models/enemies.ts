@@ -512,6 +512,20 @@ export const bosses: Boss[] = [
     name: { en: "Frostnight Herra", "zh-CN": "霜夜巡天灵主" },
     materials: ["Radiant Antler", "Varunada Lazurite", "Shivada Jade"],
   },
+  {
+    id: "Super-Heavy Landrover: Mechanized Fortress",
+    region: "Nod-Krai",
+    itemType: "boss",
+    name: {
+      en: "Super-Heavy Landrover: Mechanized Fortress",
+      "zh-CN": "超重型陆巡舰・机动战垒",
+    },
+    materials: [
+      "Cyclic Military Kuuvahki Core",
+      "Agnidus Agate",
+      "Shivada Jade",
+    ],
+  },
   //#endregion normal boss
 
   //#region weekly boss
