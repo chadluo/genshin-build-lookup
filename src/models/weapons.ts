@@ -261,6 +261,10 @@ export const weapons: Weapon[] = [
     },
     ["Oasis Garden’s Reminiscence", "Lightless Bone", "Fungal Spores"],
   ),
+  weapon("Nocturne’s Curtain Call", 5, "Catalyst", {
+    en: "Nocturne’s Curtain Call",
+    "zh-CN": "帷间夜曲",
+  }),
   //
   // Newline - catalyst 5
   //
@@ -569,6 +573,10 @@ export const weapons: Weapon[] = [
     "Frostnight’s Glimmer",
     "Broken Drive Shaft",
   ]),
+  weapon("Lightbearing Moonshard", 5, "Sword", {
+    en: "Lightbearing Moonshard",
+    "zh-CN": "朏魄含光",
+  }),
   //
   // Newline - sword 5
   //

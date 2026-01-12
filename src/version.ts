@@ -1,38 +1,26 @@
 const versions: { version: string; start: number; items: string[] }[] = [
   {
-    version: "Luna I",
-    start: new Date("2025-09-10").getTime(),
+    version: "Luna III",
+    start: new Date("2025-12-03").getTime(),
     items: [
-      "Aino",
-      "Flins",
-      "Lauma",
-      "Nightweaver’s Looking Glass",
-      "Bloodsoaked Ruins",
-      "Snare Hook",
-      "Etherlight Spindlelute",
-      "Blackmarrow Lantern",
-      "Master Key",
-      "Prospector’s Shovel",
-      "Serenity’s Call",
-      "Moonweaver’s Dawn",
+      "Durin",
+      "Jahoda",
+      "The Daybreak Chronicles",
+      "Athame Artis",
+      "Rainbow Serpent’s Rain Bow",
     ],
   },
   {
-    version: "Luna II",
-    start: new Date("2025-10-22").getTime(),
+    version: "Luna IV",
+    start: new Date("2026-01-14").getTime(),
     items: [
-      "Nefer",
-      "Reliquary of Truth",
-      "Sacrificer’s Staff",
-      "Dawning Frost",
+      "Columbina",
+      "Zibai",
+      "Illuga",
+      "Nocturne’s Curtain Call",
+      "Lightbearing Moonshard",
     ],
-  }, {
-    version: "Luna III", start: new Date("2025-12-03").getTime(),
-    items: [
-      "Durin", "Jahoda", "The Daybreak Chronicles", "Athame Artis",
-      "Rainbow Serpent’s Rain Bow"
-    ]
-  }
+  },
 ];
 
 export function findRecents() {

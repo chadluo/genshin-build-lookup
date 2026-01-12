@@ -197,6 +197,7 @@ export const characters: Character[] = [
     "Firm Arrowhead",
     "Rukkhashava Mushrooms",
   ]),
+  character("Columbina", 5, { en: "Columbina", "zh-CN": "哥伦比娅" }),
   character("Cyno", 5, { en: "Cyno", "zh-CN": "塞诺" }, [
     "Thunderclap Fruitcore",
     "Vajrada Amethyst",
@@ -365,6 +366,7 @@ export const characters: Character[] = [
     "Juvenile Fang",
     "Saurian Claw Succulent",
   ]),
+  character("Illuga", 4, { en: "Illuga", "zh-CN": "叶洛亚" }),
   character("Ineffa", 5, { en: "Ineffa", "zh-CN": "伊涅芙" }, [
     "Secret Source Airflow Accumulator",
     "Vajrada Amethyst",
@@ -923,4 +925,5 @@ export const characters: Character[] = [
     "Slime Condensate",
     "Cor Lapis",
   ]),
+  character("Zibai", 5, { en: "Zibai", "zh-CN": "兹白" }),
 ];
