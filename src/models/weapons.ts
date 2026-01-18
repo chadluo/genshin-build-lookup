@@ -261,10 +261,20 @@ export const weapons: Weapon[] = [
     },
     ["Oasis Garden’s Reminiscence", "Lightless Bone", "Fungal Spores"],
   ),
-  weapon("Nocturne’s Curtain Call", 5, "Catalyst", {
-    en: "Nocturne’s Curtain Call",
-    "zh-CN": "帷间夜曲",
-  }),
+  weapon(
+    "Nocturne’s Curtain Call",
+    5,
+    "Catalyst",
+    {
+      en: "Nocturne’s Curtain Call",
+      "zh-CN": "帷间夜曲",
+    },
+    [
+      "Sundered Glory of the Far-North Scions",
+      "Fractured Eye of the Deep Shadow",
+      "Tattered Warrant",
+    ],
+  ),
   //
   // Newline - catalyst 5
   //

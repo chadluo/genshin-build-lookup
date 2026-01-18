@@ -396,6 +396,17 @@ const elites = {
       "zh-CN": ["失光块骨", "稀光遗骼", "繁光躯外骸"],
     },
   },
+  "Fractured Eye of the Deep Shadow": {
+    id: "Fractured Eye of the Deep Shadow",
+    name: {
+      en: [
+        "Fractured Eye of the Deep Shadow",
+        "Aberrant Core of the Deep Shadow",
+        "Hooked Beak of the Deep Shadow",
+      ],
+      "zh-CN": ["深黯的裂眼", "深黯的怪核", "深黯的钩喙"],
+    },
+  },
   //
   // Newline - elites
   //
@@ -592,6 +603,10 @@ const localSpecialities = {
   "Frostlamp Flower": {
     id: "Frostlamp Flower",
     name: { en: "Frostlamp Flower", "zh-CN": "霜盏花" },
+  },
+  "Winter Icelea": {
+    id: "Winter Icelea",
+    name: { en: "Winter Icelea", "zh-CN": "冬凌草" },
   },
   //
   // Newline - local specialities
@@ -1023,6 +1038,18 @@ const talentMaterials = {
   "Ascended Sample: Queen": {
     id: "Ascended Sample: Queen",
     name: { en: "Ascended Sample: Queen", "zh-CN": "升扬样本・王族" },
+  },
+  "Mask of the Virtuous Doctor": {
+    id: "Mask of the Virtuous Doctor",
+    name: { en: "Mask of the Virtuous Doctor", "zh-CN": "医的假面" },
+  },
+  "Madman’s Restraint": {
+    id: "Madman’s Restraint",
+    name: { en: "Madman’s Restraint", "zh-CN": "狂人的约束" },
+  },
+  "Elixir of the Heretic": {
+    id: "Elixir of the Heretic",
+    name: { en: "Elixir of the Heretic", "zh-CN": "异端的瓶剂" },
   },
   //
   // Newline - talent material

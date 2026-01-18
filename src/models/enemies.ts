@@ -735,6 +735,24 @@ export const bosses: Boss[] = [
       ...northlanderBillets,
     ],
   },
+  {
+    id: "Heretic of the False Moon",
+    region: "Nod-Krai",
+    itemType: "weekly_boss",
+    name: {
+      en: "Heretic of the False Moon",
+      "zh-CN": "赝月的异端者",
+    },
+    materials: [
+      "Mask of the Virtuous Doctor",
+      "Madman’s Restraint",
+      "Elixir of the Heretic",
+      "Shivada Jade",
+      "Varunada Lazurite",
+      "Vajrada Amethyst",
+      ...borderlandBillets,
+    ],
+  },
   //#endregion weekly boss
 ];
 
@@ -1058,6 +1076,12 @@ export const enemies: Enemy[] = [
     itemType: "enemy",
     name: { en: "Radiant Beast", "zh-CN": "蕴光异兽" },
     materials: ["Lightless Bone"],
+  },
+  {
+    id: "Fisher of Hidden Depths",
+    itemType: "enemy",
+    name: { en: "Fisher of Hidden Depths", "zh-CN": "深黯钓客" },
+    materials: ["Fractured Eye of the Deep Shadow"],
   },
   //#endregion elite enemy
 ];

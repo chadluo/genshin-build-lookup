@@ -197,7 +197,14 @@ export const characters: Character[] = [
     "Firm Arrowhead",
     "Rukkhashava Mushrooms",
   ]),
-  character("Columbina", 5, { en: "Columbina", "zh-CN": "哥伦比娅" }),
+  character("Columbina", 5, { en: "Columbina", "zh-CN": "哥伦比娅" }, [
+    "Radiant Antler",
+    "Varunada Lazurite",
+    "Mask of the Virtuous Doctor",
+    "Moonlight",
+    "Slime Condensate",
+    "Winter Icelea",
+  ]),
   character("Cyno", 5, { en: "Cyno", "zh-CN": "塞诺" }, [
     "Thunderclap Fruitcore",
     "Vajrada Amethyst",
