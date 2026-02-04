@@ -608,6 +608,9 @@ const localSpecialities = {
     id: "Winter Icelea",
     name: { en: "Winter Icelea", "zh-CN": "冬凌草" },
   },
+  "Pine Amber": {
+    id: "Pine Amber", name: { en: "Pine Amber", "zh-CN": "松珀香" }
+  }
   //
   // Newline - local specialities
   //
@@ -856,6 +859,10 @@ const characterAscensions = {
       "zh-CN": "循环式军用月矩核心",
     },
   },
+  "Remnant of the Dreadwing": {
+    id: "Remnant of the Dreadwing",
+    name: { en: "Remnant of the Dreadwing", "zh-CN": "魇翼枯骸" }
+  }
   //
   // Newline - character ascension
   //

@@ -583,10 +583,10 @@ export const weapons: Weapon[] = [
     "Frostnight’s Glimmer",
     "Broken Drive Shaft",
   ]),
-  weapon("Lightbearing Moonshard", 5, "Sword", {
-    en: "Lightbearing Moonshard",
-    "zh-CN": "朏魄含光",
-  }),
+  weapon("Lightbearing Moonshard", 5, "Sword",
+    { en: "Lightbearing Moonshard", "zh-CN": "朏魄含光" },
+    ["Grain of Aerosiderite", "Mistshroud Manifestation", "Broken Drive Shaft"]
+  ),
   //
   // Newline - sword 5
   //

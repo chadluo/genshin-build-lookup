@@ -526,6 +526,16 @@ export const bosses: Boss[] = [
       "Shivada Jade",
     ],
   },
+  {
+    id: "Lord of the Hidden Depths: Whisperer of Nightmares",
+    region: "Nod-Krai",
+    itemType: "boss",
+    name: { en: "Lord of the Hidden Depths: Whisperer of Nightmares", "zh-CN": "深黯魇语之主" },
+    materials: [
+      "Remnant of the Dreadwing", "Vajrada Amethyst"
+    ]
+  }
+  ,
   //#endregion normal boss
 
   //#region weekly boss

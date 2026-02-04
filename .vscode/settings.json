@@ -15,6 +15,7 @@
   "debug.javascript.defaultRuntimeExecutable": {
     "pwa-node": "c:\\users\\chadl\\appdata\\local\\mise\\shims\\node"
   },
+  "editor.defaultFormatter": "biomejs.biome",
   "npm.packageManager": "pnpm",
   "npm.scriptRunner": "pnpm",
   "typescript.enablePromptUseWorkspaceTsdk": true,

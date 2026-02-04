@@ -373,7 +373,9 @@ export const characters: Character[] = [
     "Juvenile Fang",
     "Saurian Claw Succulent",
   ]),
-  character("Illuga", 4, { en: "Illuga", "zh-CN": "叶洛亚" }),
+  character("Illuga", 4, { en: "Illuga", "zh-CN": "叶洛亚" }, [
+    "Cyclic Military Kuuvahki Core", "Prithiva Topaz", "Eroded Horn", "Elysium", "Broken Drive Shaft", "Pine Amber"
+  ]),
   character("Ineffa", 5, { en: "Ineffa", "zh-CN": "伊涅芙" }, [
     "Secret Source Airflow Accumulator",
     "Vajrada Amethyst",
@@ -932,5 +934,12 @@ export const characters: Character[] = [
     "Slime Condensate",
     "Cor Lapis",
   ]),
-  character("Zibai", 5, { en: "Zibai", "zh-CN": "兹白" }),
+  character("Zibai", 5, { en: "Zibai", "zh-CN": "兹白" }, [
+    "Remnant of the Dreadwing",
+    "Prithiva Topaz",
+    "Ascended Sample: Queen",
+    "Gold",
+    "Tattered Warrant",
+    "Glaze Lily"
+  ]),
 ];
