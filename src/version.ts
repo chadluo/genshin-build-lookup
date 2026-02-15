@@ -20,7 +20,10 @@ const versions: { version: string; start: number; items: string[] }[] = [
       "Nocturne’s Curtain Call",
       "Lightbearing Moonshard",
     ],
-  },
+  }, {
+    version: "Luna V", start: new Date("2026-02-25").getTime(),
+    items: ["Varka", "Gest of the Mighty Wolf"]
+  }
 ];
 
 export function findRecents() {

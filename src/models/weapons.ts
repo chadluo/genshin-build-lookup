@@ -351,6 +351,8 @@ export const weapons: Weapon[] = [
       "Juvenile Fang",
     ],
   ),
+  weapon("Gest of the Mighty Wolf", 5, "Claymore",
+    { en: "Gest of the Mighty Wolf", "zh-CN": "狼的武功歌" }),
   //
   // Newline - claymore 5
   //
