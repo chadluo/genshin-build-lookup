@@ -534,8 +534,14 @@ export const bosses: Boss[] = [
     materials: [
       "Remnant of the Dreadwing", "Vajrada Amethyst"
     ]
-  }
-  ,
+  },
+  {
+    id: "Radiant Moongecko",
+    region: "Nod-Krai",
+    itemType: "boss",
+    name: { en: "Radiant Moongecko", "zh-CN": "蕴光月守宫" },
+    materials: ["Prismatic Severed Tail", "Prithiva Topaz"]
+  },
   //#endregion normal boss
 
   //#region weekly boss

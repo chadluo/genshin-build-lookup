@@ -862,6 +862,13 @@ const characterAscensions = {
   "Remnant of the Dreadwing": {
     id: "Remnant of the Dreadwing",
     name: { en: "Remnant of the Dreadwing", "zh-CN": "魇翼枯骸" }
+  },
+  "Prismatic Severed Tail": {
+    id: "Prismatic Severed Tail",
+    name: {
+      en: "Prismatic Severed Tail",
+      "zh-CN": "棱光的断尾"
+    }
   }
   //
   // Newline - character ascension

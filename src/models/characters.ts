@@ -785,7 +785,14 @@ export const characters: Character[] = [
     "Fungal Spores",
     "Nilotpala Lotus",
   ]),
-  character("Varka", 5, { en: "Varka", "zh-CN": "法尔伽" }),
+  character("Varka", 5, { en: "Varka", "zh-CN": "法尔伽" }, [
+    "Prismatic Severed Tail",
+    "Vayuda Turquoise",
+    "Ascended Sample: Rook",
+    "Freedom",
+    "Broken Drive Shaft",
+    "Wolfhook"
+  ]),
   character("Varesa", 5, { en: "Varesa", "zh-CN": "瓦雷莎" }, [
     "Sparkless Statue Core",
     "Vajrada Amethyst",
