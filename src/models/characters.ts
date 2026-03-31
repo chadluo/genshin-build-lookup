@@ -535,6 +535,7 @@ export const characters: Character[] = [
     "Divining Scroll",
     "Nilotpala Lotus",
   ]),
+  character("Linnea", 5, { en: "Linnea", "zh-CN": "莉奈娅" }),
   character("Lisa", 4, { en: "Lisa", "zh-CN": "丽莎" }, [
     "Lightning Prism",
     "Vajrada Amethyst",

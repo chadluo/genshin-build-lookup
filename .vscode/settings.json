@@ -16,8 +16,11 @@
     "pwa-node": "c:\\users\\chadl\\appdata\\local\\mise\\shims\\node"
   },
   "editor.defaultFormatter": "biomejs.biome",
+  "js/ts.tsdk.path": "node_modules/typescript/lib",
+  "js/ts.tsdk.promptToUseWorkspaceVersion": true,
   "npm.packageManager": "pnpm",
   "npm.scriptRunner": "pnpm",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "[typescript]": {
+    "editor.defaultFormatter": "TypeScriptTeam.native-preview"
+  }
 }

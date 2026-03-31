@@ -126,6 +126,7 @@ export const weapons: Weapon[] = [
       "Treasure Hoarder Insignia",
     ],
   ),
+  weapon("Golden Frostbound Oath", 5, "Bow", { en: "Golden Frostbound Oath", "zh-CN": "霜结的誓金枝" }),
   //
   // Newline - bow 5
   //

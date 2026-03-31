@@ -21,8 +21,13 @@ const versions: { version: string; start: number; items: string[] }[] = [
       "Lightbearing Moonshard",
     ],
   }, {
-    version: "Luna V", start: new Date("2026-02-25").getTime(),
+    version: "Luna V",
+    start: new Date("2026-02-25").getTime(),
     items: ["Varka", "Gest of the Mighty Wolf"]
+  }, {
+    version: "Luna VI",
+    start: new Date('2026-04-08').getTime(),
+    items: ["Linnea", "Golden Frostbound Oath"]
   }
 ];
 
