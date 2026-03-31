@@ -10,6 +10,11 @@
   "formatter": {
     "indentStyle": "space"
   },
+  "javascript": {
+    "formatter": {
+      "trailingCommas": "none"
+    }
+  },
   "json": {
     "formatter": {
       "trailingCommas": "none"
