@@ -1,26 +1,5 @@
 const versions: { version: string; start: number; items: string[] }[] = [
   {
-    version: "Luna III",
-    start: new Date("2025-12-03").getTime(),
-    items: [
-      "Durin",
-      "Jahoda",
-      "The Daybreak Chronicles",
-      "Athame Artis",
-      "Rainbow Serpent’s Rain Bow",
-    ],
-  },
-  {
-    version: "Luna IV",
-    start: new Date("2026-01-14").getTime(),
-    items: [
-      "Columbina",
-      "Zibai",
-      "Illuga",
-      "Nocturne’s Curtain Call",
-      "Lightbearing Moonshard",
-    ],
-  }, {
     version: "Luna V",
     start: new Date("2026-02-25").getTime(),
     items: ["Varka", "Gest of the Mighty Wolf"]
@@ -28,6 +7,10 @@ const versions: { version: string; start: number; items: string[] }[] = [
     version: "Luna VI",
     start: new Date('2026-04-08').getTime(),
     items: ["Linnea", "Golden Frostbound Oath"]
+  }, {
+    version: "Luna VII",
+    start: new Date('2026-05-20').getTime(),
+    items: ["Nicole", "Lohen", "Prune", "Angelos’ Heptade", "Disaster and Remorse"]
   }
 ];
 

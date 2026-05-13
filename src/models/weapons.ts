@@ -65,8 +65,8 @@ export const weapons: Weapon[] = [
   weapon("Vivid Notions", 5, "Catalyst", { en: "Vivid Notions", "zh-CN": "溢彩心念" }, ["Delirious Decadence of the Sacred Lord", "Cold-Cracked Shellshard", "Juvenile Fang"]),
   weapon("Nightweaver’s Looking Glass", 5, "Catalyst", { en: "Nightweaver’s Looking Glass", "zh-CN": "纺夜天镜" }, ["Artful Device Fragment", "Frostnight’s Glimmer", "Broken Drive Shaft"]),
   weapon("Reliquary of Truth", 5, "Catalyst", { en: "Reliquary of Truth", "zh-CN": "真语秘匣", }, ["Oasis Garden’s Reminiscence", "Lightless Bone", "Fungal Spores"]),
-  weapon("Nocturne’s Curtain Call", 5, "Catalyst", { en: "Nocturne’s Curtain Call", "zh-CN": "帷间夜曲", }, ["Sundered Glory of the Far-North Scions", "Fractured Eye of the Deep Shadow", "Tattered Warrant"],
-  ),
+  weapon("Nocturne’s Curtain Call", 5, "Catalyst", { en: "Nocturne’s Curtain Call", "zh-CN": "帷间夜曲", }, ["Sundered Glory of the Far-North Scions", "Fractured Eye of the Deep Shadow", "Tattered Warrant"]),
+  weapon("Angelos’ Heptade", 5, "Catalyst", { en: "Angelos’ Heptade", "zh-CN": "尘光七谕", }),
   //
   // Newline - catalyst 5
   //
@@ -95,6 +95,7 @@ export const weapons: Weapon[] = [
   weapon("Symphonist of Scents", 5, "Polearm", { en: "Symphonist of Scents", "zh-CN": "香韵奏者" }, ["Dross of Pure Sacred Dewdrop", "Drop of Tainted Water", "Transoceanic Pearl"]),
   weapon("Fractured Halo", 5, "Polearm", { en: "Fractured Halo", "zh-CN": "支离轮光" }, ["Blazing Sacrificial Heart’s Terror", "Cold-Cracked Shellshard", "Juvenile Fang"]),
   weapon("Bloodsoaked Ruins", 5, "Polearm", { en: "Bloodsoaked Ruins", "zh-CN": "血染荒城", }, ["Ember of Long Night Flint", "Mistshroud Manifestation", "Tattered Warrant"]),
+  weapon("Disaster and Remorse", 5, "Polearm", { en: "Disaster and Remorse", "zh-CN": "灾悔" },),
   //
   // Newline - polearm 5
   //
