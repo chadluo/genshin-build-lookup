@@ -98,7 +98,7 @@ export const characters: Character[] = [
   character("Lan Yan", 4, { en: "Lan Yan", "zh-CN": "蓝砚" }, ["Gold-Inscribed Secret Source Core", "Vayuda Turquoise", "Eroded Sunfire", "Diligence", "Whopperflower Nectar", "Clearwater Jade",]),
   character("Lauma", 5, { en: "Lauma", "zh-CN": "菈乌玛" }, ["Lightbearing Scale-Feather", "Nagadus Emerald", "Eroded Scale-Feather", "Moonlight", "Tattered Warrant", "Moonfall Silver",]),
   character("Layla", 4, { en: "Layla", "zh-CN": "莱依拉" }, ["Perpetual Caliber", "Shivada Jade", "Mirror of Mushin", "Ingenuity", "Divining Scroll", "Nilotpala Lotus",]),
-  character("Linnea", 5, { en: "Linnea", "zh-CN": "莉奈娅" }),
+  character("Linnea", 5, { en: "Linnea", "zh-CN": "莉奈娅" }, ["Plume of the Fallen Watcher", "Prithiva Topaz", "Elixir of the Heretic", "Vagrancy", "Tattered Warrant", "Etherwing Moth"]),
   character("Lisa", 4, { en: "Lisa", "zh-CN": "丽莎" }, ["Lightning Prism", "Vajrada Amethyst", "Dvalin’s Claw", "Ballad", "Slime Condensate", "Valberry",]),
   character("Lynette", 4, { en: "Lynette", "zh-CN": "琳妮特" }, ["Artificed Spare Clockwork Component — Coppelia", "Vayuda Turquoise", "Everamber", "Order", "Meshing Gear", "Lumidouce Bell",]),
   character("Lyney", 5, { en: "Lyney", "zh-CN": "林尼" }, ["Emperor’s Resolution", "Agnidus Agate", "Primordial Greenbloom", "Equity", "Recruit’s Insignia", "Rainbow Rose",]),

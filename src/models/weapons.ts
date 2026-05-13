@@ -44,7 +44,7 @@ export const weapons: Weapon[] = [
   weapon("Silvershower Heartstrings", 5, "Bow", { en: "Silvershower Heartstrings", "zh-CN": "白雨心弦" }, ["Dross of Pure Sacred Dewdrop", "Feathery Fin", "Transoceanic Pearl"]),
   weapon("Astral Vulture’s Crimson Plumage", 5, "Bow", { en: "Astral Vulture’s Crimson Plumage", "zh-CN": "星鹫赤羽" }, ["Night-Wind’s Mystic Consideration", "Refractive Bud", "Sentry’s Wooden Whistle"]),
   weapon("The Daybreak Chronicles", 5, "Bow", { en: "The Daybreak Chronicles", "zh-CN": "黎明破晓之史" }, ["Fetters of the Dandelion Gladiator", "Heavy Horn", "Treasure Hoarder Insignia"]),
-  weapon("Golden Frostbound Oath", 5, "Bow", { en: "Golden Frostbound Oath", "zh-CN": "霜结的誓金枝" }),
+  weapon("Golden Frostbound Oath", 5, "Bow", { en: "Golden Frostbound Oath", "zh-CN": "霜结的誓金枝" }, ["Ember of Long Night Flint", "Faded Flaming Hilt", "Tattered Warrant"]),
   //
   // Newline - bow 5
   //
