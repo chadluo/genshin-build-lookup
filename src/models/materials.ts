@@ -1,4 +1,4 @@
-import type { I18nObject } from "../i18n";
+import type { I18nObject } from "../i18n.ts";
 
 export type Material = { name: I18nObject } & (
   | {
@@ -279,6 +279,9 @@ const talentMaterials = {
   "Mask of the Virtuous Doctor": { id: "Mask of the Virtuous Doctor", name: { en: "Mask of the Virtuous Doctor", "zh-CN": "医的假面" }, },
   "Madman’s Restraint": { id: "Madman’s Restraint", name: { en: "Madman’s Restraint", "zh-CN": "狂人的约束" }, },
   "Elixir of the Heretic": { id: "Elixir of the Heretic", name: { en: "Elixir of the Heretic", "zh-CN": "异端的瓶剂" }, },
+  "Counterfeit Resin": { id: "Counterfeit Resin", name: { en: "Counterfeit Resin", "zh-CN": "赝作的树脂" } },
+  "Twisted Withered Branch": { id: "Twisted Withered Branch", name: { en: "Twisted Withered Branch", "zh-CN": "扭曲的枯枝" } },
+  "Profaned Sprout": { id: "Profaned Sprout", name: { en: "Profaned Sprout", "zh-CN": "亵渎的新芽" } }
 } as const;
 
 export type TalentMaterial = keyof typeof talentMaterials;

@@ -1,9 +1,9 @@
-import type { I18nObject } from "../i18n";
+import type { I18nObject } from "../i18n.ts";
 import {
   type BaseItem,
   TYPE_TALENT_DOMAIN,
   TYPE_WEAPON_DOMAIN,
-} from "../types";
+} from "../types.ts";
 import {
   borderlandBillets,
   type MaterialId,
@@ -11,7 +11,7 @@ import {
   northlanderBillets,
   type TalentBook,
   type WeaponAscension,
-} from "./materials";
+} from "./materials.ts";
 
 export type Region =
   | "Mondstadt"
@@ -144,6 +144,7 @@ export const bosses: Boss[] = [
   { id: "Lord of Eroded Primal Fire", region: "Natlan", itemType: "weekly_boss", name: { en: "Lord of Eroded Primal Fire", "zh-CN": "蚀灭的源焰之主" }, materials: ["Eroded Horn", "Eroded Sunfire", "Eroded Scale-Feather", "Agnidus Agate", ...borderlandBillets,], },
   { id: "The Game Before the Gate", region: "Mondstadt", itemType: "weekly_boss", name: { en: "The Game Before the Gate", "zh-CN": "门扉前的弈局", }, materials: ["Ascended Sample: Knight", "Ascended Sample: Rook", "Ascended Sample: Queen", "Agnidus Agate", "Varunada Lazurite", "Vajrada Amethyst", ...northlanderBillets,], },
   { id: "Heretic of the False Moon", region: "Nod-Krai", itemType: "weekly_boss", name: { en: "Heretic of the False Moon", "zh-CN": "赝月的异端者", }, materials: ["Mask of the Virtuous Doctor", "Madman’s Restraint", "Elixir of the Heretic", "Shivada Jade", "Varunada Lazurite", "Vajrada Amethyst", ...borderlandBillets,], },
+  { id: "Exalted Master of the Heretical Path", region: "Sumeru", itemType: "weekly_boss", name: { en: "Exalted Master of the Heretical Path", "zh-CN": "左道的胜义尊" }, materials: ["Counterfeit Resin", "Twisted Withered Branch", "Profaned Sprout", "Shivada Jade", "Agnidus Agate", "Vajrada Amethyst", ...midlanderBillets] },
   //#endregion weekly boss
 ];
 

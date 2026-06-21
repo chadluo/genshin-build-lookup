@@ -1,13 +1,13 @@
-import type { I18nObject } from "../i18n";
-import { type BaseItem, TYPE_CHARACTER } from "../types";
+import type { I18nObject } from "../i18n.ts";
+import { type BaseItem, TYPE_CHARACTER } from "../types.ts";
 import type {
   CharacterAscension,
   Common,
   Gem,
   LocalSpeciality,
   TalentBook,
-  TalentMaterial,
-} from "./materials";
+  TalentMaterial
+} from "./materials.ts";
 
 export type CharacterMaterial = [
   CharacterAscension,
@@ -15,7 +15,7 @@ export type CharacterMaterial = [
   TalentMaterial,
   TalentBook,
   Common,
-  LocalSpeciality,
+  LocalSpeciality
 ];
 export type Character = BaseItem & {
   itemType: typeof TYPE_CHARACTER;
@@ -27,13 +27,13 @@ const character: (
   id: string,
   rarity: Character["rarity"],
   name: I18nObject,
-  materials?: Character["materials"],
+  materials?: Character["materials"]
 ) => Character = (id, rarity, name, materials) => ({
   itemType: TYPE_CHARACTER,
   id,
   name,
   rarity,
-  materials,
+  materials
 });
 
 export const characters: Character[] = [
@@ -100,7 +100,7 @@ export const characters: Character[] = [
   character("Layla", 4, { en: "Layla", "zh-CN": "莱依拉" }, ["Perpetual Caliber", "Shivada Jade", "Mirror of Mushin", "Ingenuity", "Divining Scroll", "Nilotpala Lotus",]),
   character("Linnea", 5, { en: "Linnea", "zh-CN": "莉奈娅" }, ["Plume of the Fallen Watcher", "Prithiva Topaz", "Elixir of the Heretic", "Vagrancy", "Tattered Warrant", "Etherwing Moth"]),
   character("Lisa", 4, { en: "Lisa", "zh-CN": "丽莎" }, ["Lightning Prism", "Vajrada Amethyst", "Dvalin’s Claw", "Ballad", "Slime Condensate", "Valberry",]),
-  character("Lohen", 5, { en: "Lohen", "zh-CN": "洛恩" }),
+  character("Lohen", 5, { en: "Lohen", "zh-CN": "洛恩" }, ["Prismatic Severed Tail", "Shivada Jade", "Ascended Sample: Knight", "Resistance", "Firm Arrowhead", "Etherwing Moth"]),
   character("Lynette", 4, { en: "Lynette", "zh-CN": "琳妮特" }, ["Artificed Spare Clockwork Component — Coppelia", "Vayuda Turquoise", "Everamber", "Order", "Meshing Gear", "Lumidouce Bell",]),
   character("Lyney", 5, { en: "Lyney", "zh-CN": "林尼" }, ["Emperor’s Resolution", "Agnidus Agate", "Primordial Greenbloom", "Equity", "Recruit’s Insignia", "Rainbow Rose",]),
   character("Mavuika", 5, { en: "Mavuika", "zh-CN": "玛薇卡" }, ["Gold-Inscribed Secret Source Core", "Agnidus Agate", "Eroded Horn", "Contention", "Sentry’s Wooden Whistle", "Withering Purpurbloom",]),
@@ -111,12 +111,12 @@ export const characters: Character[] = [
   character("Navia", 5, { en: "Navia", "zh-CN": "娜维娅" }, ["Artificed Spare Clockwork Component — Coppelius", "Prithiva Topaz", "Lightless Silk String", "Equity", "Transoceanic Pearl", "Spring of the First Dewdrop",]),
   character("Nefer", 5, { en: "Nefer", "zh-CN": "奈芙尔" }, ["Radiant Antler", "Nagadus Emerald", "Ascended Sample: Rook", "Elysium", "Tattered Warrant", "Moonfall Silver",]),
   character("Neuvillette", 5, { en: "Neuvillette", "zh-CN": "那维莱特" }, ["Fontemer Unihorn", "Varunada Lazurite", "Everamber", "Equity", "Transoceanic Pearl", "Lumitoile",]),
-  character("Nicole", 5, { en: "Nicole", "zh-CN": "妮可" }),
+  character("Nicole", 5, { en: "Nicole", "zh-CN": "妮可" }, ["Remnant of the Dreadwing", "Agnidus Agate", "Counterfeit Rasin", "Elysium", "Tattered Warrant", "Pine Amber"]),
   character("Nilou", 5, { en: "Nilou", "zh-CN": "妮露" }, ["Perpetual Caliber", "Varunada Lazurite", "Tears of the Calamitous God", "Praxis", "Fungal Spores", "Padisarah",]),
   character("Ningguang", 4, { en: "Ningguang", "zh-CN": "凝光" }, ["Basalt Pillar", "Prithiva Topaz", "Spirit Locket of Boreas", "Prosperity", "Recruit’s Insignia", "Glaze Lily",]),
   character("Noelle", 4, { en: "Noelle", "zh-CN": "诺艾尔" }, ["Basalt Pillar", "Prithiva Topaz", "Dvalin’s Claw", "Resistance", "Damaged Mask", "Valberry",]),
   character("Ororon", 4, { en: "Ororon", "zh-CN": "欧洛伦" }, ["Mark of the Binding Blessing", "Vajrada Amethyst", "Lightless Silk String", "Kindling", "Juvenile Fang", "Glowing Hornshroom",]),
-  character("Prune", 4, { en: "Prune", "zh-CN": "布伦妮" }),
+  character("Prune", 4, { en: "Prune", "zh-CN": "布伦妮" }, ["Radiant Antler", "Vayuda Turquoise", "Mask of the Virtuous Doctor", "Resistance", "Treasure Hoarder Insignia", "Winter Icelea"]),
   character("Qiqi", 5, { en: "Qiqi", "zh-CN": "七七" }, ["Hoarfrost Core", "Shivada Jade", "Tail of Boreas", "Prosperity", "Divining Scroll", "Violetgrass",]),
   character("Raiden Shogun", 5, { en: "Raiden Shogun", "zh-CN": "雷电将军" }, ["Storm Beads", "Vajrada Amethyst", "Molten Moment", "Light", "Old Handguard", "Amakumo Fruit",]),
   character("Razor", 4, { en: "Razor", "zh-CN": "雷泽" }, ["Lightning Prism", "Vajrada Amethyst", "Dvalin’s Claw", "Resistance", "Damaged Mask", "Wolfhook",]),
