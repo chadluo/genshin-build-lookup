@@ -121,6 +121,7 @@ export const characters: Character[] = [
   character("Raiden Shogun", 5, { en: "Raiden Shogun", "zh-CN": "雷电将军" }, ["Storm Beads", "Vajrada Amethyst", "Molten Moment", "Light", "Old Handguard", "Amakumo Fruit",]),
   character("Razor", 4, { en: "Razor", "zh-CN": "雷泽" }, ["Lightning Prism", "Vajrada Amethyst", "Dvalin’s Claw", "Resistance", "Damaged Mask", "Wolfhook",]),
   character("Rosaria", 4, { en: "Rosaria", "zh-CN": "罗莎莉亚" }, ["Hoarfrost Core", "Shivada Jade", "Shadow of the Warrior", "Ballad", "Recruit’s Insignia", "Valberry",]),
+  character("Sandrone", 5, { en: "Sandrone", "zh-CN": "桑多涅" }),
   character("Sangonomiya Kokomi", 5, { en: "Sangonomiya Kokomi", "zh-CN": "珊瑚宫心海" }, ["Dew of Repudiation", "Varunada Lazurite", "Hellfire Butterfly", "Transience", "Spectral Husk", "Sango Pearl",],),
   character("Sayu", 4, { en: "Sayu", "zh-CN": "早柚" }, ["Marionette Core", "Vayuda Turquoise", "Gilded Scale", "Light", "Whopperflower Nectar", "Crystal Marrow",]),
   character("Sethos", 4, { en: "Sethos", "zh-CN": "赛索斯" }, ["Cloudseam Scale", "Vajrada Amethyst", "Daka’s Bell", "Praxis", "Faded Red Satin", "Trishiraite",]),

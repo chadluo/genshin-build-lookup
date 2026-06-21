@@ -80,6 +80,7 @@ export const weapons: Weapon[] = [
   weapon("Fang of the Mountain King", 5, "Claymore", { en: "Fang of the Mountain King", "zh-CN": "山王长牙" }, ["Delirious Decadence of the Sacred Lord", "Ignited Stone", "Sentry’s Wooden Whistle"]),
   weapon("A Thousand Blazing Suns", 5, "Claymore", { en: "A Thousand Blazing Suns", "zh-CN": "焚曜千阳" }, ["Blazing Sacrificial Heart’s Terror", "Axis of the Secret Source", "Juvenile Fang"]),
   weapon("Gest of the Mighty Wolf", 5, "Claymore", { en: "Gest of the Mighty Wolf", "zh-CN": "狼的武功歌" }, ["Boreal Wolf’s Milk Tooth", "Fractured Eye of the Deep Shadow", "Recruit’s Insignia"]),
+  weapon("A Teaspoon of Transcendence", 5, "Claymore", { en: "A Teaspoon of Transcendence", "zh-CN": "超越之匙" }),
   //
   // Newline - claymore 5
   //

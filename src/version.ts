@@ -1,16 +1,13 @@
 const versions: { version: string; start: number; items: string[] }[] = [
   {
-    version: "Luna V",
-    start: new Date("2026-02-25").getTime(),
-    items: ["Varka", "Gest of the Mighty Wolf"]
-  }, {
-    version: "Luna VI",
-    start: new Date('2026-04-08').getTime(),
-    items: ["Linnea", "Golden Frostbound Oath"]
-  }, {
     version: "Luna VII",
     start: new Date('2026-05-20').getTime(),
-    items: ["Nicole", "Lohen", "Prune", "Angelos’ Heptade", "Disaster and Remorse"]
+    items: ["Nicole", "Lohen", "Prune", "Angelos’ Heptades", "Disaster and Remorse"]
+  }
+  , {
+    version: "Luna VIII",
+    start: new Date('2026-07-01').getTime(),
+    items: ["Sandrone", "A Teaspoon of Transcendence"]
   }
 ];
 
