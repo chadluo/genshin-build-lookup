@@ -1,7 +1,7 @@
-import { renderLink } from "../base";
-import { hasBookmarks } from "../bookmarks";
-import { DELIMITER, formatName, type I18nObject } from "../i18n";
-import { type Category, type Weapon, weapons } from "../models/weapons";
+import { renderLink } from "../base.ts";
+import { hasBookmarks } from "../bookmarks.ts";
+import { DELIMITER, formatName, type I18nObject } from "../i18n.ts";
+import { type Category, type Weapon, weapons } from "../models/weapons.ts";
 
 const title: I18nObject = { en: "Weapons", "zh-CN": "武器" };
 export class WeaponsTable extends HTMLElement {
@@ -21,19 +21,19 @@ export class WeaponsTable extends HTMLElement {
             rarity,
           )}</th>
       <td>${this.formatWeaponIcon(categories[0])}${ws2
-        .get(categories[0])
-        ?.map((w) => renderLink(w.id, w.itemType, w.name))
-        .join(formatName(DELIMITER))}</td></tr>
-      ${categories
-        .slice(1)
-        .map(
-          (category) =>
-            `<tr><td>${this.formatWeaponIcon(category)}${ws2
-              .get(category)
+              .get(categories[0])
               ?.map((w) => renderLink(w.id, w.itemType, w.name))
-              .join(formatName(DELIMITER))}</td></tr>`,
-        )
-        .join("")}`;
+              .join(formatName(DELIMITER))}</td></tr>
+      ${categories
+              .slice(1)
+              .map(
+                (category) =>
+                  `<tr><td>${this.formatWeaponIcon(category)}${ws2
+                    .get(category)
+                    ?.map((w) => renderLink(w.id, w.itemType, w.name))
+                    .join(formatName(DELIMITER))}</td></tr>`,
+              )
+              .join("")}`;
         })
         .join("")}</table></details>`;
   }

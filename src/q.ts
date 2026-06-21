@@ -1,22 +1,22 @@
-import { formatId, renderQTableContent } from "./base";
+import { formatId, renderQTableContent } from "./base.ts";
 import {
   BOOKMARK_KEY,
   bookmark,
   unbookmark,
   updateBookmark,
-} from "./bookmarks";
+} from "./bookmarks.ts";
 // @ts-expect-error no TS mechanism for extensionless asset imports
 import "./CNAME";
-import { CharactersTable } from "./components/characters_table";
-import { EnemiesTable, VIEW_ALL } from "./components/enemies_table";
-import { TodayTable } from "./components/today_table";
-import { WeaponsTable } from "./components/weapons_table";
-import type { SupportedLanguages } from "./i18n";
-import { siteTitle, supportedLanguageSelectors } from "./i18n";
-import { characters } from "./models/characters";
-import { weapons } from "./models/weapons";
+import { CharactersTable } from "./components/characters_table.ts";
+import { EnemiesTable, VIEW_ALL } from "./components/enemies_table.ts";
+import { TodayTable } from "./components/today_table.ts";
+import { WeaponsTable } from "./components/weapons_table.ts";
+import type { SupportedLanguages } from "./i18n.ts";
+import { siteTitle, supportedLanguageSelectors } from "./i18n.ts";
+import { characters } from "./models/characters.ts";
+import { weapons } from "./models/weapons.ts";
 import "./style.css";
-import { type ItemType, TYPE_CHARACTER, TYPE_WEAPON } from "./types";
+import { type ItemType, TYPE_CHARACTER, TYPE_WEAPON } from "./types.ts";
 
 const selectors = document.getElementById("selectors");
 const output = document.getElementById("output-table");

@@ -1,20 +1,14 @@
-import { byDomain, renderQTableRows } from "../base";
-import { DELIMITER, formatName, type I18nObject } from "../i18n";
-import { talentDomains, weaponDomains } from "../models/enemies";
-import {
-  getTimezone,
-  getWeekday,
-  type Timezone,
-  timezones,
-  weekdayNames,
-} from "../weekdays";
+import { byDomain, renderQTableRows } from "../base.ts";
+import { DELIMITER, formatName, type I18nObject } from "../i18n.ts";
+import { talentDomains, weaponDomains } from "../models/enemies.ts";
+import { getTimezone, getWeekday, type Timezone, timezones, weekdayNames } from "../weekdays.ts";
 
 const title: I18nObject = { en: "Today", "zh-CN": "今日" };
 
 const ui: Record<Timezone, I18nObject> = {
   Asia: { en: "Asia / TW, HK, MO / CN", "zh-CN": "亚服、港澳台服、国服" },
   Europe: { en: "Europe", "zh-CN": "欧服" },
-  America: { en: "America", "zh-CN": "美服" },
+  America: { en: "America", "zh-CN": "美服" }
 };
 
 export class TodayTable extends HTMLElement {
@@ -26,7 +20,7 @@ export class TodayTable extends HTMLElement {
       <div class="timezone-selector">${timezones
         .map(
           (zone) =>
-            `<label><input type="radio" name="timezone" value="${zone}" ${zone === getTimezone() ? "checked" : ""}>${this.formatZoneOption(zone)}</label>`,
+            `<label><input type="radio" name="timezone" value="${zone}" ${zone === getTimezone() ? "checked" : ""}>${this.formatZoneOption(zone)}</label>`
         )
         .join("")}</div>
       <table class="qtable">${this.renderDomains(weekdays)}</table></details>`;
@@ -55,8 +49,8 @@ export class TodayTable extends HTMLElement {
     return [...talentDomains, ...weaponDomains]
       .flatMap((d) =>
         weekdays.map((weekday) =>
-          renderQTableRows(d, byDomain(d.id, weekday), weekday, false),
-        ),
+          renderQTableRows(d, byDomain(d.id, weekday), weekday, false)
+        )
       )
       .join("");
   }

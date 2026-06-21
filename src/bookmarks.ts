@@ -1,4 +1,4 @@
-import { type ItemType, TYPE_TALENT_DOMAIN, TYPE_WEAPON_DOMAIN } from "./types";
+import { type ItemType, TYPE_TALENT_DOMAIN, TYPE_WEAPON_DOMAIN } from "./types.ts";
 
 type Bookmark = [ItemType, string, number];
 
@@ -22,7 +22,7 @@ function eq(item1: Bookmark, item2: Bookmark) {
 
 export function updateBookmark(event: Event) {
   const input = event.target as HTMLInputElement;
-  if (!input || input.tagName !== "INPUT") return;
+  if (input?.tagName !== "INPUT") return;
   const itemType = input.dataset.type as ItemType;
   const id = input.dataset.id;
   if (!itemType || !id) return;

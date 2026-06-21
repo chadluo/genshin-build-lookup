@@ -1,4 +1,4 @@
-import type { I18nObject } from "./i18n";
+import type { I18nObject } from "./i18n.ts";
 
 export const timezones = ["Asia", "Europe", "America"] as const;
 export type Timezone = (typeof timezones)[number];

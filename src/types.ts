@@ -1,4 +1,4 @@
-import type { I18nObject } from "./i18n";
+import type { I18nObject } from "./i18n.ts";
 
 export const TYPE_CHARACTER = "character";
 export const TYPE_WEAPON = "weapon";

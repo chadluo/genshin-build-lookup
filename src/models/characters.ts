@@ -111,7 +111,7 @@ export const characters: Character[] = [
   character("Navia", 5, { en: "Navia", "zh-CN": "娜维娅" }, ["Artificed Spare Clockwork Component — Coppelius", "Prithiva Topaz", "Lightless Silk String", "Equity", "Transoceanic Pearl", "Spring of the First Dewdrop",]),
   character("Nefer", 5, { en: "Nefer", "zh-CN": "奈芙尔" }, ["Radiant Antler", "Nagadus Emerald", "Ascended Sample: Rook", "Elysium", "Tattered Warrant", "Moonfall Silver",]),
   character("Neuvillette", 5, { en: "Neuvillette", "zh-CN": "那维莱特" }, ["Fontemer Unihorn", "Varunada Lazurite", "Everamber", "Equity", "Transoceanic Pearl", "Lumitoile",]),
-  character("Nicole", 5, { en: "Nicole", "zh-CN": "妮可" }, ["Remnant of the Dreadwing", "Agnidus Agate", "Counterfeit Rasin", "Elysium", "Tattered Warrant", "Pine Amber"]),
+  character("Nicole", 5, { en: "Nicole", "zh-CN": "妮可" }, ["Remnant of the Dreadwing", "Agnidus Agate", "Counterfeit Resin", "Elysium", "Tattered Warrant", "Pine Amber"]),
   character("Nilou", 5, { en: "Nilou", "zh-CN": "妮露" }, ["Perpetual Caliber", "Varunada Lazurite", "Tears of the Calamitous God", "Praxis", "Fungal Spores", "Padisarah",]),
   character("Ningguang", 4, { en: "Ningguang", "zh-CN": "凝光" }, ["Basalt Pillar", "Prithiva Topaz", "Spirit Locket of Boreas", "Prosperity", "Recruit’s Insignia", "Glaze Lily",]),
   character("Noelle", 4, { en: "Noelle", "zh-CN": "诺艾尔" }, ["Basalt Pillar", "Prithiva Topaz", "Dvalin’s Claw", "Resistance", "Damaged Mask", "Valberry",]),

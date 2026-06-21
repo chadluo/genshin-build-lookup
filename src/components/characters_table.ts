@@ -1,7 +1,7 @@
-import { renderLink } from "../base";
-import { hasBookmarks } from "../bookmarks";
-import { DELIMITER, formatName, type I18nObject } from "../i18n";
-import { type Character, characters } from "../models/characters";
+import { renderLink } from "../base.ts";
+import { hasBookmarks } from "../bookmarks.ts";
+import { DELIMITER, formatName, type I18nObject } from "../i18n.ts";
+import { type Character, characters } from "../models/characters.ts";
 
 const title: I18nObject = { en: "Characters", "zh-CN": "角色" };
 
@@ -12,8 +12,8 @@ export class CharactersTable extends HTMLElement {
     this.innerHTML = `<details class="section" ${hasBookmarks() ? "" : "open"}>
         <summary>🦸 ${formatName(title)}</summary>
         <table class="ctable">${rarities
-          .map((rarity) => this.showByRarity(rarity, byRarity))
-          .join("")}</table>
+        .map((rarity) => this.showByRarity(rarity, byRarity))
+        .join("")}</table>
         </details>`;
   }
 
