@@ -19,7 +19,7 @@ const config = {
     rules: [
       {
         test: /\.ts?$/,
-        use: "ts-loader",
+        use: { loader: "esbuild-loader", options: { target: "es2020" } },
         exclude: [/node_modules/, /tests/],
       },
       {

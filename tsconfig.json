@@ -12,7 +12,9 @@
         // "noUncheckedIndexedAccess": true,
         "outDir": "public",
         "sourceMap": true,
-        "strictNullChecks": true
+        "strictNullChecks": true,
+        "rootDir": "src",
+        "allowArbitraryExtensions": true
     },
     "ts-node": {
         "compilerOptions": {

@@ -5,6 +5,7 @@ import {
   unbookmark,
   updateBookmark,
 } from "./bookmarks";
+// @ts-expect-error no TS mechanism for extensionless asset imports
 import "./CNAME";
 import { CharactersTable } from "./components/characters_table";
 import { EnemiesTable, VIEW_ALL } from "./components/enemies_table";
@@ -66,7 +67,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 document.querySelector("nav .links")?.addEventListener("click", (event) => {
   const link = event.target as HTMLElement;
-  if (!link || link.tagName !== "A") return;
+  if (link?.tagName !== "A") return;
   const target = document.getElementById(link.dataset.target ?? "");
   const details = target?.querySelector(
     "details.section",

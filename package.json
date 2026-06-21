@@ -24,19 +24,20 @@
     "@tsconfig/recommended": "^1.0.13",
     "@types/webpack": "^5.28.5",
     "css-loader": "^7.1.4",
+    "esbuild": "^0.28.1",
+    "esbuild-loader": "^4.5.0",
     "html-webpack-plugin": "^5.6.7",
     "http-server": "^14.1.1",
     "mini-css-extract-plugin": "^2.10.2",
     "style-loader": "^4.0.0",
-    "ts-loader": "^9.6.1",
-    "ts-node": "^10.9.2",
-    "typescript": "^6.0.3",
+    "typescript": "7.0.1-rc",
     "webpack": "^5.107.2",
     "webpack-cli": "^7.0.3",
     "webpack-dev-server": "^5.2.5",
     "workbox-webpack-plugin": "^7.4.1"
   },
+  "type": "module",
   "private": true,
   "//": "update GitHub Action workflow file as well",
-  "packageManager": "pnpm@10.19.0"
+  "packageManager": "pnpm@11.8.0"
 }
