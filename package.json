@@ -33,7 +33,7 @@
     "typescript": "7.0.1-rc",
     "webpack": "^5.107.2",
     "webpack-cli": "^7.0.3",
-    "webpack-dev-server": "^5.2.5",
+    "webpack-dev-server": "^5.2.6",
     "workbox-webpack-plugin": "^7.4.1"
   },
   "type": "module",
