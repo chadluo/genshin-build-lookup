@@ -1,6 +1,6 @@
 import { type PlaywrightTestConfig, devices } from "@playwright/test";
 
-const TEST_PORT = 3001;
+const TEST_PORT = 3002;
 
 const config: PlaywrightTestConfig = {
   testDir: "./src/tests",
