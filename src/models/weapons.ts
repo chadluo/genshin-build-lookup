@@ -117,6 +117,8 @@ export const weapons: Weapon[] = [
   weapon("Athame Artis", 5, "Sword", { en: "Athame Artis", "zh-CN": "黑蚀" }, ["Tile of Decarabian’s Tower", "Frostnight’s Glimmer", "Broken Drive Shaft"]),
   weapon("Lightbearing Moonshard", 5, "Sword", { en: "Lightbearing Moonshard", "zh-CN": "朏魄含光" }, ["Grain of Aerosiderite", "Mistshroud Manifestation", "Broken Drive Shaft"]
   ),
+  weapon("Whitelake Frostfeather", 5, "Sword", { en: "Whitelake Frostfeather", "zh-CN": "白湖冬羽" }, ["Measured Pour of the Cellared Spiritual Nectar", "Hollow Root of Life", "Chimeric Core"]),
+  weapon("Exaiphanes Blade", 5, "Sword", { en: "Exaiphanes Blade", "zh-CN": "星锋剑" }),
   //
   // Newline - sword 5
   //
@@ -148,6 +150,8 @@ export const weapons: Weapon[] = [
   weapon("Sequence of Solitude", 4, "Bow", { en: "Sequence of Solitude", "zh-CN": "冷寂迸音" }, ["Fragment of an Ancient Chord", "Cold-Cracked Shellshard", "Meshing Gear"]),
   weapon("Snare Hook", 4, "Bow", { en: "Snare Hook", "zh-CN": "罗网勾针" }, ["Ember of Long Night Flint", "Mistshroud Manifestation", "Firm Arrowhead"]),
   weapon("Rainbow Serpent’s Rain Bow", 4, "Bow", { en: "Rainbow Serpent’s Rain Bow", "zh-CN": "虹蛇的雨弦" }, ["Night-Wind’s Mystic Consideration", "Refractive Bud", "Tattered Warrant"]),
+  weapon("Covenant of Frost and Snow", 4, "Bow", { en: "Covenant of Frost and Snow", "zh-CN": "霜雪誓约" }, ["Rise of the Pale Star Army", "Hollow Root of Life", "Chimeric Core", "Borderland Bow Billet", "Rainbowdrop Crystal", "White Iron Chunk"]),
+  weapon("Jade Vista", 4, "Bow", { en: "Jade Vista", "zh-CN": "悬黎千钧" }, ["Grain of Aerosiderite", "Fragile Bone Shard", "Recruit’s Insignia"]),
   //
   // Newline - bow 4
   //
@@ -176,6 +180,8 @@ export const weapons: Weapon[] = [
   weapon("Etherlight Spindlelute", 4, "Catalyst", { en: "Etherlight Spindlelute", "zh-CN": "天光的纺琴" }, ["Sundered Glory of the Far-North Scions", "Lightless Bone", "Tattered Warrant"]),
   weapon("Blackmarrow Lantern", 4, "Catalyst", { en: "Blackmarrow Lantern", "zh-CN": "乌髓孑灯" }, ["Artful Device Fragment", "Frostnight’s Glimmer", "Tattered Warrant", "Borderland Catalyst Billet", "Rainbowdrop Crystal", "White Iron Chunk"]),
   weapon("Dawning Frost", 4, "Catalyst", { en: "Dawning Frost", "zh-CN": "霜辰", }, ["Artful Device Fragment", "Frostnight’s Glimmer", "Tattered Warrant"]),
+  weapon("Echoes of the Heart", 4, "Catalyst", { en: "Echoes of the Heart", "zh-CN": "寸心余响" }, ["Rise of the Pale Star Army", "Accreted Fragment", "Ethereal Glimmershard", "Borderland Catalyst Billet", "Rainbowdrop Crystal", "White Iron Chunk"]),
+  weapon("Clash of Kings", 4, "Catalyst", { en: "Clash of Kings", "zh-CN": "群王局戏" }, ["Copper Talisman of the Forest Dew", "Damaged Prism", "Faded Red Satin"]),
   //
   // Newline catalyst 4
   //
@@ -204,6 +210,8 @@ export const weapons: Weapon[] = [
   weapon("Fruitful Hook", 4, "Claymore", { en: "Fruitful Hook", "zh-CN": "硕果钩" }, ["Night-Wind’s Mystic Consideration", "Axis of the Secret Source", "Juvenile Fang"]),
   weapon("Flame-Forged Insight", 4, "Claymore", { en: "Flame-Forged Insight", "zh-CN": "拾慧铸熔" }, ["Delirious Decadence of the Sacred Lord", "Cold-Cracked Shellshard", "Transoceanic Pearl"]),
   weapon("Master Key", 4, "Claymore", { en: "Master Key", "zh-CN": "万能钥匙" }, ["Sundered Glory of the Far-North Scions", "Lightless Bone", "Broken Drive Shaft", "Borderland Claymore Billet", "Rainbowdrop Crystal", "White Iron Chunk"]),
+  weapon("Blade of Atonement", 4, "Claymore", { en: "Blade of Atonement", "zh-CN": "救赎之斩" }, ["Rise of the Pale Star Army", "Accreted Fragment", "Ethereal Glimmershard", "Borderland Claymore Billet", "Rainbowdrop Crystal", "White Iron Chunk"]),
+  weapon("Forged by the Golden Melody", 4, "Claymore", { en: "Forged by the Golden Melody", "zh-CN": "金律铸影" }, ["Dross of Pure Sacred Dewdrop", "Ruined Hilt", "Transoceanic Pearl"]),
   //
   // Newline - claymore 4
   //
@@ -230,6 +238,8 @@ export const weapons: Weapon[] = [
   weapon("Tamayuratei no Ohanashi", 4, "Polearm", { en: "Tamayuratei no Ohanashi", "zh-CN": "且住亭御咄" }, ["Mask of the Wicked Lieutenant", "Refractive Bud", "Old Handguard"]),
   weapon("Prospector’s Shovel", 4, "Polearm", { en: "Prospector’s Shovel", "zh-CN": "掘金之锹" }, ["Ember of Long Night Flint", "Mistshroud Manifestation", "Broken Drive Shaft", "Borderland Polearm Billet", "Rainbowdrop Crystal", "White Iron Chunk"]),
   weapon("Sacrificer’s Staff", 4, "Polearm", { en: "Sacrificer’s Staff", "zh-CN": "圣祭者的辉杖", }, ["Ember of Long Night Flint", "Mistshroud Manifestation", "Broken Drive Shaft"]),
+  weapon("Song of the Vigil", 4, "Polearm", { en: "Song of the Vigil", "zh-CN": "戍望谣歌" }, ["The Frost Emperor’s Revival", "Hollow Root of Life", "Ethereal Glimmershard", "Borderland Polearm Billet", "Rainbowdrop Crystal", "White Iron Chunk"]),
+  weapon("Frostbreath", 4, "Polearm", { en: "Frostbreath", "zh-CN": "寒息" }, ["Measured Pour of the Cellared Spiritual Nectar", "Accreted Fragment", "Chimeric Core"]),
   //
   // Newline - polearm 4
   //
@@ -261,6 +271,8 @@ export const weapons: Weapon[] = [
   weapon("Calamity of Eshu", 4, "Sword", { en: "Calamity of Eshu", "zh-CN": "厄水之祸" }, ["Delirious Decadence of the Sacred Lord", "Refractive Bud", "Sentry’s Wooden Whistle"]),
   weapon("Serenity’s Call", 4, "Sword", { en: "Serenity’s Call", "zh-CN": "谧音吹哨" }, ["Artful Device Fragment", "Frostnight’s Glimmer", "Tattered Warrant", "Borderland Sword Billet", "Rainbowdrop Crystal", "White Iron Chunk"]),
   weapon("Moonweaver’s Dawn", 4, "Sword", { en: "Moonweaver’s Dawn", "zh-CN": "织月者的曙色" }, ["Sundered Glory of the Far-North Scions", "Lightless Bone", "Broken Drive Shaft"]),
+  weapon("Emberwell", 4, "Sword", { en: "Emberwell", "zh-CN": "引火之源" }, ["Rise of the Pale Star Army", "Accreted Fragment", "Ethereal Glimmershard", "Borderland Sword Billet", "Rainbowdrop Crystal", "White Iron Chunk"]),
+  weapon("Heretic’s Molten Blade", 4, "Sword", { en: "Heretic’s Molten Blade", "zh-CN": "熔猎异端之刃" }, ["Blazing Sacrificial Heart’s Terror", "Cold-Cracked Shellshard", "Sentry’s Wooden Whistle"]),
   //
   // Newline - sword 4
   //

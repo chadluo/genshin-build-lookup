@@ -20,7 +20,8 @@ export type Region =
   | "Sumeru"
   | "Fontaine"
   | "Natlan"
-  | "Nod-Krai";
+  | "Nod-Krai"
+  | "Snezhnaya";
 
 export type TalentDomain = BaseItem & {
   materialsByWeekday: ("All" | TalentBook)[];
@@ -64,6 +65,7 @@ export const talentDomains: TalentDomain[] = [
   talentDomain("Pale Forgotten Glory", { en: "Pale Forgotten Glory", "zh-CN": "苍白的遗荣" }, ["All", "Equity", "Justice", "Order"],),
   talentDomain("Blazing Ruins", { en: "Blazing Ruins", "zh-CN": "蕴火的幽墟" }, ["All", "Contention", "Kindling", "Conflict"],),
   talentDomain("Lightless Capital", { en: "Lightless Capital", "zh-CN": "无光的深都" }, ["All", "Moonlight", "Elysium", "Vagrancy"],),
+  talentDomain("Relics of the Fallen Grace", { en: "Relics of the Fallen Grace", "zh-CN": "荒坠的圣迹" }, ["All", "Charity", "Fortitude", "Glory"],),
 ];
 
 export const weaponDomains: WeaponDomain[] = [
@@ -74,6 +76,7 @@ export const weaponDomains: WeaponDomain[] = [
   weaponDomain("Echoes of the Deep Tides", { en: "Echoes of the Deep Tides", "zh-CN": "深潮的余响" }, ["All", "Fragment of an Ancient Chord", "Dross of Pure Sacred Dewdrop", "Broken Goblet of the Pristine Sea",],),
   weaponDomain("Ancient Watchtower", { en: "Ancient Watchtower", "zh-CN": "深谷瞭望所" }, ["All", "Blazing Sacrificial Heart’s Terror", "Delirious Decadence of the Sacred Lord", "Night-Wind’s Mystic Consideration",],),
   weaponDomain("Lost Mooncourt", { en: "Lost Mooncourt", "zh-CN": "失落的月庭" }, ["All", "Artful Device Fragment", "Ember of Long Night Flint", "Sundered Glory of the Far-North Scions",],),
+  weaponDomain("Scars of Cursed Obsession", { en: "Scars of Cursed Obsession", "zh-CN": "妄念的创痕" }, ["All", "Rise of the Pale Star Army", "Measured Pour of the Cellared Spiritual Nectar", "The Frost Emperor’s Revival",],),
 ];
 
 export type Boss = BaseItem & {
@@ -128,6 +131,8 @@ export const bosses: Boss[] = [
   { id: "Lord of the Hidden Depths: Whisperer of Nightmares", region: "Nod-Krai", itemType: "boss", name: { en: "Lord of the Hidden Depths: Whisperer of Nightmares", "zh-CN": "深黯魇语之主" }, materials: ["Remnant of the Dreadwing", "Vajrada Amethyst"] },
   { id: "Radiant Moongecko", region: "Nod-Krai", itemType: "boss", name: { en: "Radiant Moongecko", "zh-CN": "蕴光月守宫" }, materials: ["Prismatic Severed Tail", "Prithiva Topaz"] },
   { id: "The Open-Eyed", region: "Mondstadt", itemType: "boss", name: { en: "The Open-Eyed", "zh-CN": "开眼者" }, materials: ["Plume of the Fallen Watcher", "Prithiva Topaz"] },
+  { id: "Immortal Construct", region: "Snezhnaya", itemType: "boss", name: { en: "Immortal Construct", "zh-CN": "不灭衍生造物" }, materials: ["Unscorched Blossom Branch", "Shivada Jade"] },
+  { id: "Chimeric Winged Lion", region: "Snezhnaya", itemType: "boss", name: { en: "Chimeric Winged Lion", "zh-CN": "嵌合翼骏狮" }, materials: ["Severed Tail of the Sky-Roamer", "Vayuda Turquoise", "Vajrada Amethyst"] },
   //#endregion normal boss
 
   //#region weekly boss
@@ -171,6 +176,7 @@ export const enemies: Enemy[] = [
   { id: "Sauroform Tribal Warriors", itemType: "enemy", name: { en: "Sauroform Tribal Warriors", "zh-CN": "部族龙形武士" }, materials: ["Sentry’s Wooden Whistle"], },
   { id: "Fatui Oprichniki", itemType: "enemy", name: { en: "Fatui Oprichniki", "zh-CN": "愚人众特辖队" }, materials: ["Tattered Warrant"], },
   { id: "Landcruisers", itemType: "enemy", name: { en: "Landcruisers", "zh-CN": "巡陆艇" }, materials: ["Broken Drive Shaft"], },
+  { id: "Snowland Fae", itemType: "enemy", name: { en: "Fae of Crystalline Flesh", "zh-CN": "肌生晶石的妖精" }, materials: ["Ethereal Glimmershard"], },
   //#endregion normal enemy
 
   //#region elite enemy
@@ -210,5 +216,8 @@ export const enemies: Enemy[] = [
   { id: "Radiant Beast", itemType: "enemy", name: { en: "Radiant Beast", "zh-CN": "蕴光异兽" }, materials: ["Lightless Bone"], },
   { id: "Fisher of Hidden Depths", itemType: "enemy", name: { en: "Fisher of Hidden Depths", "zh-CN": "深黯钓客" }, materials: ["Fractured Eye of the Deep Shadow"], },
   { id: "Domain Keeper", itemType: "enemy", name: { en: "Domain Keeper", "zh-CN": "辖域守护者" }, materials: ["Faded Flaming Hilt"] },
+  { id: "Volkodlak", itemType: "enemy", name: { en: "Volkodlak Brute", "zh-CN": "兽怪暴徒" }, materials: ["Accreted Fragment"] },
+  { id: "Wildwood Leshy", itemType: "enemy", name: { en: "Wildwood Leshy", "zh-CN": "荒野树妖" }, materials: ["Hollow Root of Life"] },
+  { id: "Aberrant Chimeric Monsters", itemType: "enemy", name: { en: "Aberrant Chimeric Monsters", "zh-CN": "异种合成魔兽" }, materials: ["Chimeric Core"] },
   //#endregion elite enemy
 ];

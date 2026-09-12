@@ -46,6 +46,8 @@ const commons = {
   "Sentry’s Wooden Whistle": { id: "Sentry’s Wooden Whistle", name: { en: ["Sentry’s Wooden Whistle", "Warrior’s Metal Whistle", "Saurian-Crowned Warrior’s Golden Whistle",], "zh-CN": ["卫从的木哨", "战士的铁哨", "龙冠武士的金哨"], }, },
   "Tattered Warrant": { id: "Tattered Warrant", name: { en: ["Tattered Warrant", "Immaculate Warrant", "Frost-Etched Warrant"], "zh-CN": ["磨损的执凭", "精致的执凭", "霜镌的执凭"], }, },
   "Broken Drive Shaft": { id: "Broken Drive Shaft", name: { en: ["Broken Drive Shaft", "Reinforced Drive Shaft", "Precision Drive Shaft",], "zh-CN": ["毁损机轴", "加固机轴", "精制机轴"], }, },
+  "Chimeric Core": { id: "Chimeric Core", name: { en: ["Chimeric Core", "Symbiotic Chimeric Nucleus", "Prime Chimeric Nexus"], "zh-CN": ["嵌合种", "并生嵌合胞", "源生嵌合体"] } },
+  "Ethereal Glimmershard": { id: "Ethereal Glimmershard", name: { en: ["Ethereal Glimmershard", "Ethereal Crystal", "Ethereal Crystalscale Stone"], "zh-CN": ["幻造萤屑", "幻造裂晶", "幻造晶鳞石"] } }
 } as const;
 
 export type Common = keyof typeof commons;
@@ -81,6 +83,8 @@ const elites = {
   "Lightless Bone": { id: "Lightless Bone", name: { en: ["Lightless Bone", "Glowing Remains", "Radiant Exoskeleton"], "zh-CN": ["失光块骨", "稀光遗骼", "繁光躯外骸"], }, },
   "Fractured Eye of the Deep Shadow": { id: "Fractured Eye of the Deep Shadow", name: { en: ["Fractured Eye of the Deep Shadow", "Aberrant Core of the Deep Shadow", "Hooked Beak of the Deep Shadow",], "zh-CN": ["深黯的裂眼", "深黯的怪核", "深黯的钩喙"], }, },
   "Faded Flaming Hilt": { id: "Faded Flaming Hilt", name: { en: ["Faded Flaming Hilt", "Fractured Flaming Hilt", "Jeweled Flaming Hilt"], "zh-CN": ["失色的焰剑", "残失的焰剑", "宝饰的焰剑"], }, },
+  "Hollow Root of Life": { id: "Hollow Root of Life", name: { en: ["Hollow Root of Life", "Sprout Node of Life", "Coiled Core of Life"], "zh-CN": ["灵生空根", "灵生分蘖节", "灵生盘枝心"], }, },
+  "Accreted Fragment": { id: "Accreted Fragment", name: { en: ["Accreted Fragment", "Accreted Mass", "Accreted Growth"], "zh-CN": ["沉积残片", "沉积结块", "沉积增生物"], }, },
   // Newline - elites
 } as const;
 
@@ -144,6 +148,8 @@ const localSpecialities = {
   "Winter Icelea": { id: "Winter Icelea", name: { en: "Winter Icelea", "zh-CN": "冬凌草" }, },
   "Pine Amber": { id: "Pine Amber", name: { en: "Pine Amber", "zh-CN": "松珀香" } },
   "Etherwing Moth": { id: "Etherwing Moth", name: { en: "Etherwing Moth", "zh-CN": "空羽蛾" }, },
+  Flockingweed: { id: "Flockingweed", name: { en: "Flockingweed", "zh-CN": "植绒草" } },
+  "Frostfairy Flower": { id: "Frostfairy Flower", name: { en: "Frostfairy Flower", "zh-CN": "霜仙花" } }
 } as const;
 
 export type LocalSpeciality = keyof typeof localSpecialities;
@@ -207,6 +213,8 @@ const characterAscensions = {
   "Remnant of the Dreadwing": { id: "Remnant of the Dreadwing", name: { en: "Remnant of the Dreadwing", "zh-CN": "魇翼枯骸" } },
   "Prismatic Severed Tail": { id: "Prismatic Severed Tail", name: { en: "Prismatic Severed Tail", "zh-CN": "棱光的断尾" } },
   "Plume of the Fallen Watcher": { id: "Plume of the Fallen Watcher", name: { en: "Plume of the Fallen Watcher", "zh-CN": "堕天的落羽" }, },
+  "Severed Tail of the Sky-Roamer": { id: "Severed Tail of the Sky-Roamer", name: { en: "Severed Tail of the Sky-Roamer", "zh-CN": "游空之物的断尾" } },
+  "Unscorched Blossom Branch": { id: "Unscorched Blossom Branch", name: { en: "Unscorched Blossom Branch", "zh-CN": "焰中不灭花枝" } }
 } as const;
 
 export type CharacterAscension = keyof typeof characterAscensions;
@@ -233,6 +241,9 @@ const talentBooks = {
   Moonlight: { id: "Moonlight", name: { en: "Moonlight", "zh-CN": "月光" } },
   Elysium: { id: "Elysium", name: { en: "Elysium", "zh-CN": "乐园" } },
   Vagrancy: { id: "Vagrancy", name: { en: "Vagrancy", "zh-CN": "浪迹" } },
+  Charity: { id: "Charity", name: { en: "Charity", "zh-CN": "慈爱" } },
+  Fortitude: { id: "Fortitude", name: { en: "Fortitude", "zh-CN": "坚忍" } },
+  Glory: { id: "Glory", name: { en: "Glory", "zh-CN": "荣光" } }
   // Newline - talent book
 } as const;
 
@@ -308,6 +319,9 @@ const weaponAscensions = {
   "Artful Device Fragment": { id: "Artful Device Fragment", name: { en: ["Artful Device Fragment", "Artful Device Replica", "Artful Device Inheritance", "Artful Device Wish",], "zh-CN": ["奇巧秘器的残件", "奇巧秘器的模本", "奇巧秘器的继业", "奇巧秘器的真愿",], }, },
   "Ember of Long Night Flint": { id: "Ember of Long Night Flint", name: { en: ["Ember of Long Night Flint", "Afterglow of Long Night Flint", "Flare of Long Night Flint", "Blaze of Long Night Flint",], "zh-CN": ["长夜燧火的余烬", "长夜燧火的残照", "长夜燧火的明焰", "长夜燧火的烈辉",], }, },
   "Sundered Glory of the Far-North Scions": { id: "Sundered Glory of the Far-North Scions", name: { en: ["Sundered Glory of the Far-North Scions", "Unyielding Delusion of the Far-North Scions", "Oblation of the Far-North Scions", "Aureate Radiance of the Far-North Scions",], "zh-CN": ["终北遗嗣的哀荣", "终北遗嗣的迷顽", "终北遗嗣的祷献", "终北遗嗣的煌熠",], }, },
+  "Rise of the Pale Star Army": { id: "Rise of the Pale Star Army", name: { en: ["Rise of the Pale Star Army", "Muster of the Pale Star Army", "Clarion of the Pale Star Army", "Triumph of the Pale Star Army",], "zh-CN": ["苍星军势的始动", "苍星军势的集结", "苍星军势的鸣令", "苍星军势的征服",], }, },
+  "Measured Pour of the Cellared Spiritual Nectar": { id: "Measured Pour of the Cellared Spiritual Nectar", name: { en: ["Measured Pour of the Cellared Spiritual Nectar", "Intoxication of the Cellared Spiritual Nectar", "Exhilaration of the Cellared Spiritual Nectar", "Revelry of the Cellared Spiritual Nectar",], "zh-CN": ["藏窖灵浆的斟酌", "藏窖灵浆的酩酊", "藏窖灵浆的酣畅", "藏窖灵浆的恣意",], }, },
+  "The Frost Emperor’s Revival": { id: "The Frost Emperor’s Revival", name: { en: ["The Frost Emperor’s Revival", "The Frost Emperor’s Ceremony", "The Frost Emperor’s Lament", "The Frost Emperor’s Farewell",], "zh-CN": ["凛雪帝皇的复生", "凛雪帝皇的庆仪", "凛雪帝皇的悲恤", "凛雪帝皇的辞决",], }, },
 } as const;
 
 export type WeaponAscension = keyof typeof weaponAscensions;
