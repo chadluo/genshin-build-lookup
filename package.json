@@ -5,7 +5,8 @@
   "scripts": {
     "build": "webpack",
     "serve": "webpack serve --open --mode=development",
-    "test": "playwright install && playwright test"
+    "test": "playwright install && playwright test",
+    "check:blank-names": "node scripts/check-blank-names.mjs"
   },
   "repository": {
     "type": "git",

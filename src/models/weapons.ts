@@ -1,12 +1,6 @@
 import type { I18nObject } from "../i18n.ts";
 import type { BaseItem, TYPE_WEAPON } from "../types.ts";
-import type {
-  Common,
-  Elite,
-  Fishing,
-  Forging,
-  WeaponAscension,
-} from "./materials.ts";
+import type { Common, Elite, Fishing, Forging, WeaponAscension } from "./materials.ts";
 
 export type Category = "Bow" | "Catalyst" | "Claymore" | "Polearm" | "Sword";
 
@@ -67,6 +61,7 @@ export const weapons: Weapon[] = [
   weapon("Reliquary of Truth", 5, "Catalyst", { en: "Reliquary of Truth", "zh-CN": "真语秘匣", }, ["Oasis Garden’s Reminiscence", "Lightless Bone", "Fungal Spores"]),
   weapon("Nocturne’s Curtain Call", 5, "Catalyst", { en: "Nocturne’s Curtain Call", "zh-CN": "帷间夜曲", }, ["Sundered Glory of the Far-North Scions", "Fractured Eye of the Deep Shadow", "Tattered Warrant"]),
   weapon("Angelos’ Heptades", 5, "Catalyst", { en: "Angelos’ Heptades", "zh-CN": "尘光七谕", }, ["Artful Device Fragment", "Faded Flaming Hilt", "Broken Drive Shaft"]),
+  weapon("Hymn of the Maelstrom", 5, "Catalyst", { en: "Hymn of the Maelstrom", "zh-CN": "漩流颂歌" }),
   //
   // Newline - catalyst 5
   //
@@ -115,10 +110,10 @@ export const weapons: Weapon[] = [
   weapon("Peak Patrol Song", 5, "Sword", { en: "Peak Patrol Song", "zh-CN": "岩峰巡歌" }, ["Night-Wind’s Mystic Consideration", "Axis of the Secret Source", "Juvenile Fang"]),
   weapon("Azurelight", 5, "Sword", { en: "Azurelight", "zh-CN": "苍耀" }, ["Night-Wind’s Mystic Consideration", "Refractive Bud", "Sentry’s Wooden Whistle"]),
   weapon("Athame Artis", 5, "Sword", { en: "Athame Artis", "zh-CN": "黑蚀" }, ["Tile of Decarabian’s Tower", "Frostnight’s Glimmer", "Broken Drive Shaft"]),
-  weapon("Lightbearing Moonshard", 5, "Sword", { en: "Lightbearing Moonshard", "zh-CN": "朏魄含光" }, ["Grain of Aerosiderite", "Mistshroud Manifestation", "Broken Drive Shaft"]
-  ),
+  weapon("Lightbearing Moonshard", 5, "Sword", { en: "Lightbearing Moonshard", "zh-CN": "朏魄含光" }, ["Grain of Aerosiderite", "Mistshroud Manifestation", "Broken Drive Shaft"]),
   weapon("Whitelake Frostfeather", 5, "Sword", { en: "Whitelake Frostfeather", "zh-CN": "白湖冬羽" }, ["Measured Pour of the Cellared Spiritual Nectar", "Hollow Root of Life", "Chimeric Core"]),
   weapon("Exaiphanes Blade", 5, "Sword", { en: "Exaiphanes Blade", "zh-CN": "星锋剑" }),
+  weapon("Beyond the Chrysalis", 5, "Sword", { en: "Beyond the Chrysalis", "zh-CN": "蝶变" }),
   //
   // Newline - sword 5
   //
@@ -152,6 +147,7 @@ export const weapons: Weapon[] = [
   weapon("Rainbow Serpent’s Rain Bow", 4, "Bow", { en: "Rainbow Serpent’s Rain Bow", "zh-CN": "虹蛇的雨弦" }, ["Night-Wind’s Mystic Consideration", "Refractive Bud", "Tattered Warrant"]),
   weapon("Covenant of Frost and Snow", 4, "Bow", { en: "Covenant of Frost and Snow", "zh-CN": "霜雪誓约" }, ["Rise of the Pale Star Army", "Hollow Root of Life", "Chimeric Core", "Borderland Bow Billet", "Rainbowdrop Crystal", "White Iron Chunk"]),
   weapon("Jade Vista", 4, "Bow", { en: "Jade Vista", "zh-CN": "悬黎千钧" }, ["Grain of Aerosiderite", "Fragile Bone Shard", "Recruit’s Insignia"]),
+  weapon("Breezeborne Refrain", 4, "Bow", { en: "Breezeborne Refrain", "zh-CN": "柔风游弦" }),
   //
   // Newline - bow 4
   //
@@ -182,6 +178,7 @@ export const weapons: Weapon[] = [
   weapon("Dawning Frost", 4, "Catalyst", { en: "Dawning Frost", "zh-CN": "霜辰", }, ["Artful Device Fragment", "Frostnight’s Glimmer", "Tattered Warrant"]),
   weapon("Echoes of the Heart", 4, "Catalyst", { en: "Echoes of the Heart", "zh-CN": "寸心余响" }, ["Rise of the Pale Star Army", "Accreted Fragment", "Ethereal Glimmershard", "Borderland Catalyst Billet", "Rainbowdrop Crystal", "White Iron Chunk"]),
   weapon("Clash of Kings", 4, "Catalyst", { en: "Clash of Kings", "zh-CN": "群王局戏" }, ["Copper Talisman of the Forest Dew", "Damaged Prism", "Faded Red Satin"]),
+  weapon("Winter’s Heavy Heart", 4, "Catalyst", { en: "Winter’s Heavy Heart", "zh-CN": "凝雪沉心" }),
   //
   // Newline catalyst 4
   //
@@ -273,6 +270,8 @@ export const weapons: Weapon[] = [
   weapon("Moonweaver’s Dawn", 4, "Sword", { en: "Moonweaver’s Dawn", "zh-CN": "织月者的曙色" }, ["Sundered Glory of the Far-North Scions", "Lightless Bone", "Broken Drive Shaft"]),
   weapon("Emberwell", 4, "Sword", { en: "Emberwell", "zh-CN": "引火之源" }, ["Rise of the Pale Star Army", "Accreted Fragment", "Ethereal Glimmershard", "Borderland Sword Billet", "Rainbowdrop Crystal", "White Iron Chunk"]),
   weapon("Heretic’s Molten Blade", 4, "Sword", { en: "Heretic’s Molten Blade", "zh-CN": "熔猎异端之刃" }, ["Blazing Sacrificial Heart’s Terror", "Cold-Cracked Shellshard", "Sentry’s Wooden Whistle"]),
+  weapon("New Bough", 4, "Sword", { en: "New Bough", "zh-CN": "新枝" }),
+  weapon("Silver Light", 4, "Sword", { en: "Silver Light", "zh-CN": "银釭" }),
   //
   // Newline - sword 4
   //

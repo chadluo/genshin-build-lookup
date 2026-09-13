@@ -138,6 +138,8 @@ export const characters: Character[] = [
   character("Varesa", 5, { en: "Varesa", "zh-CN": "瓦雷莎" }, ["Sparkless Statue Core", "Vajrada Amethyst", "Eroded Scale-Feather", "Conflict", "Juvenile Fang", "Skysplit Gembloom",]),
   character("Varka", 5, { en: "Varka", "zh-CN": "法尔伽" }, ["Prismatic Severed Tail", "Vayuda Turquoise", "Ascended Sample: Rook", "Freedom", "Broken Drive Shaft", "Wolfhook"]),
   character("Venti", 5, { en: "Venti", "zh-CN": "温迪" }, ["Hurricane Seed", "Vayuda Turquoise", "Tail of Boreas", "Ballad", "Slime Condensate", "Cecilia",]),
+  character("Vesna", 5, { en: "Vesna", "zh-CN": "薇斯纳" }),
+  character("Vodyanitsa", 5, { en: "Vodyanitsa", "zh-CN": "沃雅妮莎" }),
   character("Wanderer", 5, { en: "Wanderer", "zh-CN": "流浪者" }, ["Perpetual Caliber", "Vayuda Turquoise", "Daka’s Bell", "Praxis", "Old Handguard", "Rukkhashava Mushrooms",]),
   character("Wriothesley", 5, { en: "Wriothesley", "zh-CN": "莱欧斯利" }, ["“Tourbillon Device”", "Shivada Jade", "Primordial Greenbloom", "Order", "Meshing Gear", "Subdetection Unit",]),
   character("Xiangling", 4, { en: "Xiangling", "zh-CN": "香菱" }, ["Everflame Seed", "Agnidus Agate", "Dvalin’s Claw", "Diligence", "Slime Condensate", "Jueyun Chili",]),
