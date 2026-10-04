@@ -133,6 +133,7 @@ export const bosses: Boss[] = [
   { id: "The Open-Eyed", region: "Mondstadt", itemType: "boss", name: { en: "The Open-Eyed", "zh-CN": "开眼者" }, materials: ["Plume of the Fallen Watcher", "Prithiva Topaz"] },
   { id: "Immortal Construct", region: "Snezhnaya", itemType: "boss", name: { en: "Immortal Construct", "zh-CN": "不灭衍生造物" }, materials: ["Unscorched Blossom Branch", "Shivada Jade"] },
   { id: "Chimeric Winged Lion", region: "Snezhnaya", itemType: "boss", name: { en: "Chimeric Winged Lion", "zh-CN": "嵌合翼骏狮" }, materials: ["Severed Tail of the Sky-Roamer", "Vayuda Turquoise", "Vajrada Amethyst"] },
+  { id: "Guardian Blade of Drifting Snow", region: "Snezhnaya", itemType: "boss", name: { en: "Guardian Blade of Drifting Snow", "zh-CN": "游雪的护刃" }, materials: ["Vagabond’s Cracked Armor", "Shivada Jade"] },
   //#endregion normal boss
 
   //#region weekly boss

@@ -149,7 +149,8 @@ const localSpecialities = {
   "Pine Amber": { id: "Pine Amber", name: { en: "Pine Amber", "zh-CN": "松珀香" } },
   "Etherwing Moth": { id: "Etherwing Moth", name: { en: "Etherwing Moth", "zh-CN": "空羽蛾" }, },
   Flockingweed: { id: "Flockingweed", name: { en: "Flockingweed", "zh-CN": "植绒草" } },
-  "Frostfairy Flower": { id: "Frostfairy Flower", name: { en: "Frostfairy Flower", "zh-CN": "霜仙花" } }
+  "Frostfairy Flower": { id: "Frostfairy Flower", name: { en: "Frostfairy Flower", "zh-CN": "霜仙花" } },
+  "Golden Fern": { id: "Golden Fern", name: { en: "Golden Fern", "zh-CN": "金蕨" } }
 } as const;
 
 export type LocalSpeciality = keyof typeof localSpecialities;
@@ -214,7 +215,8 @@ const characterAscensions = {
   "Prismatic Severed Tail": { id: "Prismatic Severed Tail", name: { en: "Prismatic Severed Tail", "zh-CN": "棱光的断尾" } },
   "Plume of the Fallen Watcher": { id: "Plume of the Fallen Watcher", name: { en: "Plume of the Fallen Watcher", "zh-CN": "堕天的落羽" }, },
   "Severed Tail of the Sky-Roamer": { id: "Severed Tail of the Sky-Roamer", name: { en: "Severed Tail of the Sky-Roamer", "zh-CN": "游空之物的断尾" } },
-  "Unscorched Blossom Branch": { id: "Unscorched Blossom Branch", name: { en: "Unscorched Blossom Branch", "zh-CN": "焰中不灭花枝" } }
+  "Unscorched Blossom Branch": { id: "Unscorched Blossom Branch", name: { en: "Unscorched Blossom Branch", "zh-CN": "焰中不灭花枝" } },
+  "Vagabond’s Cracked Armor": { id: "Vagabond’s Cracked Armor", name: { en: "Vagabond’s Cracked Armor", "zh-CN": "游离者的裂甲" } }
 } as const;
 
 export type CharacterAscension = keyof typeof characterAscensions;
