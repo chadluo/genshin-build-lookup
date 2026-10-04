@@ -9,6 +9,7 @@ import {
 import "./CNAME";
 import { CharactersTable } from "./components/characters_table.ts";
 import { EnemiesTable, VIEW_ALL } from "./components/enemies_table.ts";
+import { LastUpdated } from "./components/last_updated.ts";
 import { TodayTable } from "./components/today_table.ts";
 import { WeaponsTable } from "./components/weapons_table.ts";
 import type { SupportedLanguages } from "./i18n.ts";
@@ -26,6 +27,7 @@ customElements.define("characters-table", CharactersTable);
 customElements.define("weapons-table", WeaponsTable);
 customElements.define("enemies-table", EnemiesTable);
 customElements.define("today-table", TodayTable);
+customElements.define("last-updated", LastUpdated);
 
 window.addEventListener("DOMContentLoaded", () => {
   if (langSelect != null) {
